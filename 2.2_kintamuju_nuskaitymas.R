@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Ávairûs kintamøjø iğ teksto nuskaitymo bûdai.
+#   Dalykas: STATISTINÃ‹S DUOMENÃ˜ ANALIZÃ‹S SISTEMA IR PROGRAMAVIMO KALBA R
+#            ÃvairÃ»s kintamÃ¸jÃ¸ iÃ° teksto nuskaitymo bÃ»dai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÃ°ius
 #
 #   Sukurta: 2013-07-08 | 2013-07-12
 #
@@ -12,15 +12,15 @@
 # TURINYS -------------------------------
 
 #
-#   1. Duomenø ávedimas iğ klaviatûros:
+#   1. DuomenÃ¸ Ã¡vedimas iÃ° klaviatÃ»ros:
 #      * komanda c
-#      * procedûra scan
+#      * procedÃ»ra scan
 #
-#   2. Duomenø importavimas kopijuojant:
+#   2. DuomenÃ¸ importavimas kopijuojant:
 #      * komanda clipboard
-#      * procedûra readClipboard
+#      * procedÃ»ra readClipboard
 #
-#   3. Duomenø nuskaitymas iğ teksto:
+#   3. DuomenÃ¸ nuskaitymas iÃ° teksto:
 #      * parametras text
 #      * funkcija textConnection
 #
@@ -29,83 +29,83 @@
 # PASTABOS ------------------------------
 
 #
-# Kol kas pastabø nëra.
+# Kol kas pastabÃ¸ nÃ«ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÃ°ka lokalÃ«. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÃ°trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# DUOMENØ ÁVEDIMAS IĞ KLAVIATÛROS         #
+# DUOMENÃ˜ ÃVEDIMAS IÃ KLAVIATÃ›ROS         #
 # --------------------------------------- #
 
-# Tiesiai iğ klaviatûros ávedami nedideli duomenø rinkiniai. Paprastai tai yra
-# keletà elementø turintis vektorius, kuris sudaromas naudojant komanda c.
+# Tiesiai iÃ° klaviatÃ»ros Ã¡vedami nedideli duomenÃ¸ rinkiniai. Paprastai tai yra
+# keletÃ  elementÃ¸ turintis vektorius, kuris sudaromas naudojant komanda c.
 
 x <- c(2, 3, 5, 7, 11, 13, 17, 19)
 
 
-# Toks bûdas paprastas ir labai daşnai naudojamas, taèiau dël ávairiø prieşasèiø 
-# netinka dideliems duomenø masyvams. Kartais pasitaiko situacija, kai vektoriaus 
-# reikğmës ávedamos tiesiai iğ klaviatûros. Tada galima panaudoti procedûrà scan. 
+# Toks bÃ»das paprastas ir labai daÃ¾nai naudojamas, taÃ¨iau dÃ«l Ã¡vairiÃ¸ prieÃ¾asÃ¨iÃ¸ 
+# netinka dideliems duomenÃ¸ masyvams. Kartais pasitaiko situacija, kai vektoriaus 
+# reikÃ°mÃ«s Ã¡vedamos tiesiai iÃ° klaviatÃ»ros. Tada galima panaudoti procedÃ»rÃ  scan. 
 
 x <- scan() 
 
-# Vektoriø sudarantys elementai rağomi konsolëje ir ávedami paspaudşiant klaviğà 
-# Enter. Á vienà eilutæ galima surağyti kelis tarpu atskirtus elementus. Reikğmiø 
-# ávedimas nutraukiamas klaviğà Enter paspaudus du kartus iğ eilës. 
+# VektoriÃ¸ sudarantys elementai raÃ°omi konsolÃ«je ir Ã¡vedami paspaudÃ¾iant klaviÃ°Ã  
+# Enter. Ã vienÃ  eilutÃ¦ galima suraÃ°yti kelis tarpu atskirtus elementus. ReikÃ°miÃ¸ 
+# Ã¡vedimas nutraukiamas klaviÃ°Ã  Enter paspaudus du kartus iÃ° eilÃ«s. 
 
 x
 
 
-# Paèiu paprasèiausiu atveju taip galima ávesti tik iğ skaièiø sudarytà vektoriø. 
-# Norint ávesti kitokio tipo reikğmes, riboti jø skaièiø ar pan., reikia pakeisti 
-# tam tikrus procedûros scan parametrus. Kai kurie iğ jø:
+# PaÃ¨iu paprasÃ¨iausiu atveju taip galima Ã¡vesti tik iÃ° skaiÃ¨iÃ¸ sudarytÃ  vektoriÃ¸. 
+# Norint Ã¡vesti kitokio tipo reikÃ°mes, riboti jÃ¸ skaiÃ¨iÃ¸ ar pan., reikia pakeisti 
+# tam tikrus procedÃ»ros scan parametrus. Kai kurie iÃ° jÃ¸:
 #
-#    what -- vektoriaus reikğmiø tipas: numeric(), character() ir kiti,
-#     sep -- vektoriaus elementus atskiriantis simbolis, pagal nutylëjimà tarpas,
-#       n -- maksimalus vektoriaus elementø skaièius.
+#    what -- vektoriaus reikÃ°miÃ¸ tipas: numeric(), character() ir kiti,
+#     sep -- vektoriaus elementus atskiriantis simbolis, pagal nutylÃ«jimÃ  tarpas,
+#       n -- maksimalus vektoriaus elementÃ¸ skaiÃ¨ius.
 
-# Pavyzdşiui, simboliniø reikğmiø ávedimui iğ klaviatûros, parametro what reikğmæ
-# pakeièiame á character(). Jei vektoriaus reikğmes sudaro atskiri simboliai arba 
-# şodşiai, ávedinëjant juos galima rağyti be kabuèiø.
+# PavyzdÃ¾iui, simboliniÃ¸ reikÃ°miÃ¸ Ã¡vedimui iÃ° klaviatÃ»ros, parametro what reikÃ°mÃ¦
+# pakeiÃ¨iame Ã¡ character(). Jei vektoriaus reikÃ°mes sudaro atskiri simboliai arba 
+# Ã¾odÃ¾iai, Ã¡vedinÃ«jant juos galima raÃ°yti be kabuÃ¨iÃ¸.
 
 x <- scan(what = character())
 x
 
 
-# UŞDUOTIS ------------------------------ 
+# UÃDUOTIS ------------------------------ 
 
-# 1. Naudodami procedûrà scan, uşrağykite komandà, kuri iğ klaviatûros nuskaitytø 
-#    simboliø eilutæ R-E-S-P-U-B-L-I-K-A. Turite gauti vektoriø iğ 10 raidşiø.
-# 2. Anksèiau uşrağytà komandà pakeiskite taip, kad bûtø nuskaitomos tik pirmos
-#    trys simboliø eilutës raidës.
+# 1. Naudodami procedÃ»rÃ  scan, uÃ¾raÃ°ykite komandÃ , kuri iÃ° klaviatÃ»ros nuskaitytÃ¸ 
+#    simboliÃ¸ eilutÃ¦ R-E-S-P-U-B-L-I-K-A. Turite gauti vektoriÃ¸ iÃ° 10 raidÃ¾iÃ¸.
+# 2. AnksÃ¨iau uÃ¾raÃ°ytÃ  komandÃ  pakeiskite taip, kad bÃ»tÃ¸ nuskaitomos tik pirmos
+#    trys simboliÃ¸ eilutÃ«s raidÃ«s.
 
 
 # --------------------------------------- #
-# DUOMENØ IMPORTAVIMAS KOPIJUOJANT        #
+# DUOMENÃ˜ IMPORTAVIMAS KOPIJUOJANT        #
 # --------------------------------------- #
 
-# Nedidelá vektoriø ar duomenø lentelæ galima importuoti copy-paste metodu. Tam
-# galima panaudoti procedûrà scan. Vektoriaus sudarymo veiksmø seka yra tokia:
+# NedidelÃ¡ vektoriÃ¸ ar duomenÃ¸ lentelÃ¦ galima importuoti copy-paste metodu. Tam
+# galima panaudoti procedÃ»rÃ  scan. Vektoriaus sudarymo veiksmÃ¸ seka yra tokia:
 # 
-#  -- iğ teksto nukopijuojame skaièius ar kitas reikğmes,
-#  -- nuskaitymo iğ klaviatûros reşimu paleidşiame procedûra scan,
-#  -- tiesiai á konsolæ ákeliame nukopijuotas vektoriaus reikğmes.
+#  -- iÃ° teksto nukopijuojame skaiÃ¨ius ar kitas reikÃ°mes,
+#  -- nuskaitymo iÃ° klaviatÃ»ros reÃ¾imu paleidÃ¾iame procedÃ»ra scan,
+#  -- tiesiai Ã¡ konsolÃ¦ Ã¡keliame nukopijuotas vektoriaus reikÃ°mes.
 
-# Vektoriaus elementai gali bûti surağyti nebûtinai vienoje eilutëje ar viename 
-# stulpelyje. Pavyzdşiui, sukursime skaièiø vektoriø. Paşymëkite şemiau esanèius 
-# skaièius ir su klaviğø kombinacija Ctrl + C nukopijuokite juos. 
+# Vektoriaus elementai gali bÃ»ti suraÃ°yti nebÃ»tinai vienoje eilutÃ«je ar viename 
+# stulpelyje. PavyzdÃ¾iui, sukursime skaiÃ¨iÃ¸ vektoriÃ¸. PaÃ¾ymÃ«kite Ã¾emiau esanÃ¨ius 
+# skaiÃ¨ius ir su klaviÃ°Ã¸ kombinacija Ctrl + C nukopijuokite juos. 
 
 # ---
 1 2 3
@@ -113,26 +113,29 @@ x
 7 8 9
 # ---
 
-# Kadangi visi vektoriaus elementai yra skaièiai, papildomø parametrø procedûrai
+# Kadangi visi vektoriaus elementai yra skaiÃ¨iai, papildomÃ¸ parametrÃ¸ procedÃ»rai
 # nurodyti nereikia.
 x <- scan()
 
-# Su klaviğø kombinacijà Ctrl + V nukopijuotus skaièius ákelkite tiesiai á konsolæ.
-# Rezultatas yra vektorius iğ 9 elementø.
+# Su klaviÃ°Ã¸ kombinacijÃ  Ctrl + V nukopijuotus skaiÃ¨ius Ã¡kelkite tiesiai Ã¡ konsolÃ¦.
+# Rezultatas yra vektorius iÃ° 9 elementÃ¸.
 x
 
 
-# Nukopijuotas tekstas gali bûti interpretuojamas kaip specialaus tipo failas,
-# kurio vardas yra "clipboard". Já galima nurodyti bet kuriai duomenø nuskaitymo 
-# procedûrai, kuri gali nuskaityti duomenis iğ failo pvz., scan arba read.table.
+# Nukopijuotas tekstas gali bÃ»ti interpretuojamas kaip specialaus tipo failas,
+# kurio vardas yra "clipboard". JÃ¡ galima nurodyti bet kuriai duomenÃ¸ nuskaitymo 
+# procedÃ»rai, kuri gali nuskaityti duomenis iÃ° failo pvz., scan arba read.table.
 
-# Pavyzdşiui, tà patá skaièiø vektoriø galima gauti naudojant tokià komandà.
+# Ant Mac operacines sistemos:
+# x <- scan(pipe("pbpaste"))
+
+# PavyzdÃ¾iui, tÃ  patÃ¡ skaiÃ¨iÃ¸ vektoriÃ¸ galima gauti naudojant tokiÃ  komandÃ .
 x <- scan(file = "clipboard")
 x
 
 
-# Tokiu bûdu galima nuskaityti ir nedideles duomenø lenteles. Nukopijuokite ğià
-# lentelæ su dviem kintamaisiais X ir Y.
+# Tokiu bÃ»du galima nuskaityti ir nedideles duomenÃ¸ lenteles. Nukopijuokite Ã°iÃ 
+# lentelÃ¦ su dviem kintamaisiais X ir Y.
 
 # ---
 X    Y
@@ -143,17 +146,17 @@ X    Y
 19,9 Moteris
 # ---
 
-# Kadangi pirmoje duomenø eilutëje surağyti kintamøjø vardai, o trupmeninë dalis
-# skiriama kableliu, tà reikia papildomai nurodyti procedûrai.
+# Kadangi pirmoje duomenÃ¸ eilutÃ«je suraÃ°yti kintamÃ¸jÃ¸ vardai, o trupmeninÃ« dalis
+# skiriama kableliu, tÃ  reikia papildomai nurodyti procedÃ»rai.
 d <- read.table(file = "clipboard", header = TRUE, dec = ",")
 d
 
 
 # NAUDINGA ------------------------------
 
-# Nukopijuoto teksto nuskaitymui eilutëmis skirta procedûra readClipboard. Jos 
-# rezultatas visada yra character tipo vektorius, kuris turi tiek elementø, kiek 
-# eiluèiø buvo nuskaityta.
+# Nukopijuoto teksto nuskaitymui eilutÃ«mis skirta procedÃ»ra readClipboard. Jos 
+# rezultatas visada yra character tipo vektorius, kuris turi tiek elementÃ¸, kiek 
+# eiluÃ¨iÃ¸ buvo nuskaityta.
 
 # ---
 1 2 3
@@ -161,50 +164,50 @@ d
 7 8 9
 # ---
 
-# Pavyzdşiui, trys skaièiø eilutës nuskaitytos su ğia procedûra bus apjungtos á
-# vektoriø iğ trijø elementø: "1 2 3", "4 6 5" ir "7 8 9". Dël tos prieşasties
-# ği procedûra tinka tik tekstiniams duomenims nuskaityti.
+# PavyzdÃ¾iui, trys skaiÃ¨iÃ¸ eilutÃ«s nuskaitytos su Ã°ia procedÃ»ra bus apjungtos Ã¡
+# vektoriÃ¸ iÃ° trijÃ¸ elementÃ¸: "1 2 3", "4 6 5" ir "7 8 9". DÃ«l tos prieÃ¾asties
+# Ã°i procedÃ»ra tinka tik tekstiniams duomenims nuskaityti.
 
 x <- readClipboard()
 x
 
 
-# UŞDUOTIS ------------------------------ 
+# UÃDUOTIS ------------------------------ 
 
-# 1. Naudodami procedûrà scan ir komandà "clipboard", kopijavimo metodu sukurkite 
-#    vektoriø iğ 3 şodşiø JUODA PILKA BALTA. Kaip reikëtø surağyti tuos şodşius,
-#    kad toká pat vektoriø bûtø galima gauti su procedûra readClipboard?
-# 2. Koks bûtø rezultatas, jei lentelës importavimo komandoje nebûtø nurodyta, 
-#    kad kablelis skiria trupmeninæ dalá?
+# 1. Naudodami procedÃ»rÃ  scan ir komandÃ  "clipboard", kopijavimo metodu sukurkite 
+#    vektoriÃ¸ iÃ° 3 Ã¾odÃ¾iÃ¸ JUODA PILKA BALTA. Kaip reikÃ«tÃ¸ suraÃ°yti tuos Ã¾odÃ¾ius,
+#    kad tokÃ¡ pat vektoriÃ¸ bÃ»tÃ¸ galima gauti su procedÃ»ra readClipboard?
+# 2. Koks bÃ»tÃ¸ rezultatas, jei lentelÃ«s importavimo komandoje nebÃ»tÃ¸ nurodyta, 
+#    kad kablelis skiria trupmeninÃ¦ dalÃ¡?
 
 
 # --------------------------------------- #
-# DUOMENØ NUSKAITYMAS IĞ TEKSTO           #
+# DUOMENÃ˜ NUSKAITYMAS IÃ TEKSTO           #
 # --------------------------------------- #
 
-# Duomenø iğ tekstinio failo nuskaitymui skirtos procedûros gali bûti panaudotos
-# character tipo vektoriø nuskaitymui. Tai reiğkia, kad nedidelius vektorius ar 
-# duomenø lenteles galima uşrağyti kaip paprastà tekstà tiesiai programos tekste, 
-# o vëliau juos nuskaityti. Procedûrai scan arba read.table vektoriø, kurá reikia
-# nuskaityti, nurodome per parametrà text.
+# DuomenÃ¸ iÃ° tekstinio failo nuskaitymui skirtos procedÃ»ros gali bÃ»ti panaudotos
+# character tipo vektoriÃ¸ nuskaitymui. Tai reiÃ°kia, kad nedidelius vektorius ar 
+# duomenÃ¸ lenteles galima uÃ¾raÃ°yti kaip paprastÃ  tekstÃ  tiesiai programos tekste, 
+# o vÃ«liau juos nuskaityti. ProcedÃ»rai scan arba read.table vektoriÃ¸, kurÃ¡ reikia
+# nuskaityti, nurodome per parametrÃ  text.
 
-# Pavyzdşiui, nuskaitysime skaièiø vektoriø, kuris uşrağytas kaip simboliø seka.
+# PavyzdÃ¾iui, nuskaitysime skaiÃ¨iÃ¸ vektoriÃ¸, kuris uÃ¾raÃ°ytas kaip simboliÃ¸ seka.
 v <- "1 2 3"
 
-# Vektoriaus nuskaitymui naudojame áprastà procedûrà scan su parametru text.
+# Vektoriaus nuskaitymui naudojame Ã¡prastÃ  procedÃ»rÃ  scan su parametru text.
 x <- scan(text = v)
 x
 
-# Jei nuskaitomas vektorius sudarytas ne iğ skaièiø, procedûrai reikia nurodyti 
-# elementø tipà, ğiuo atveju elementai yra character tipo.
+# Jei nuskaitomas vektorius sudarytas ne iÃ° skaiÃ¨iÃ¸, procedÃ»rai reikia nurodyti 
+# elementÃ¸ tipÃ , Ã°iuo atveju elementai yra character tipo.
 v <- "a b c"
 
 x <- scan(text = v, what = character())
 x
 
-# Duomenø lentelæ uşrağyti kaip vektoriø galima panaudojant specialius simbolius: 
-# \n reiğkia perkëlimà á kità eilutæ, \t reiğkia tabuliacijos şenklà. Pavyzdşiui, 
-# uşrağysime kaip vektoriø tokià lentelæ:
+# DuomenÃ¸ lentelÃ¦ uÃ¾raÃ°yti kaip vektoriÃ¸ galima panaudojant specialius simbolius: 
+# \n reiÃ°kia perkÃ«limÃ  Ã¡ kitÃ  eilutÃ¦, \t reiÃ°kia tabuliacijos Ã¾enklÃ . PavyzdÃ¾iui, 
+# uÃ¾raÃ°ysime kaip vektoriÃ¸ tokiÃ  lentelÃ¦:
 #
 #   X  Y
 #   11 12
@@ -212,17 +215,17 @@ x
 
 l <- "X Y\n 11 12\n 21 22"
 
-# Pirmoje ğios duomenø lentelës eilutëje surağyti stulpeliø pavadinimai, todël 
-# parametro header reikğmæ pakeièiame á TRUE.
+# Pirmoje Ã°ios duomenÃ¸ lentelÃ«s eilutÃ«je suraÃ°yti stulpeliÃ¸ pavadinimai, todÃ«l 
+# parametro header reikÃ°mÃ¦ pakeiÃ¨iame Ã¡ TRUE.
 d <- read.table(text = l, header = TRUE)
 d
 
-# Teksto eilute uşrağytà lentelæ galima árağyti tiesiai á nuskaitymo komandà.
+# Teksto eilute uÃ¾raÃ°ytÃ  lentelÃ¦ galima Ã¡raÃ°yti tiesiai Ã¡ nuskaitymo komandÃ .
 d <- read.table(text = "X Y\n 11 12\n 21 22", header = TRUE)
 d
 
 
-# Didesnæ lentelæ patogiau uşrağyti taip, kaip ji atrodo, o ne viena eilute.
+# DidesnÃ¦ lentelÃ¦ patogiau uÃ¾raÃ°yti taip, kaip ji atrodo, o ne viena eilute.
 l <- "X  Y  Z
       11 12 13
       21 22 23
@@ -231,7 +234,7 @@ l <- "X  Y  Z
 d <- read.table(text = l, header = TRUE)
 d
 
-# Tokiu pavidalu uşrağytà lentelæ taip pat galima árağyti á nuskaitymo komandà.
+# Tokiu pavidalu uÃ¾raÃ°ytÃ  lentelÃ¦ taip pat galima Ã¡raÃ°yti Ã¡ nuskaitymo komandÃ .
 d <- read.table(header = TRUE, text = "
 X  Y  Z
 11 12 13
@@ -242,39 +245,39 @@ X  Y  Z
 d
 
 
-# UŞDUOTIS ------------------------------ 
+# UÃDUOTIS ------------------------------ 
 
-# 1. Naudodami procedûrà scan, nuskaitykite kaip simboliø vektoriø uşrağytà datà 
-#    "2013-07-11". Rezultatas turi bûti 3 elementus turintis skaièiø vektorius: 
-#    metai, mënuo ir diena.
-# 2. Datos nuskaitymo komandà pakeiskite taip, kad bûtø nuskaitomas tik metus 
-#    reiğkiantis skaièius.
-# 3. Uşrağykite lentelës "X Y\n 11 12\n 21 22" nuskaitymo komandà, kuri pakeistø
-#    kintamøjø vardus á A ir B.
+# 1. Naudodami procedÃ»rÃ  scan, nuskaitykite kaip simboliÃ¸ vektoriÃ¸ uÃ¾raÃ°ytÃ  datÃ  
+#    "2013-07-11". Rezultatas turi bÃ»ti 3 elementus turintis skaiÃ¨iÃ¸ vektorius: 
+#    metai, mÃ«nuo ir diena.
+# 2. Datos nuskaitymo komandÃ  pakeiskite taip, kad bÃ»tÃ¸ nuskaitomas tik metus 
+#    reiÃ°kiantis skaiÃ¨ius.
+# 3. UÃ¾raÃ°ykite lentelÃ«s "X Y\n 11 12\n 21 22" nuskaitymo komandÃ , kuri pakeistÃ¸
+#    kintamÃ¸jÃ¸ vardus Ã¡ A ir B.
 
 
-# R procedûros gali nuskaityti duomenis iğ labai ávairiø ğaltiniø (connections). 
-# Duomenims uşrağyti naudojami tekstiniai failai -- tik vienas iğ tokiø ğaltiniø.
-# Kitas ğaltinis yra jau anksèiau naudotas clipboard. 
+# R procedÃ»ros gali nuskaityti duomenis iÃ° labai Ã¡vairiÃ¸ Ã°altiniÃ¸ (connections). 
+# Duomenims uÃ¾raÃ°yti naudojami tekstiniai failai -- tik vienas iÃ° tokiÃ¸ Ã°altiniÃ¸.
+# Kitas Ã°altinis yra jau anksÃ¨iau naudotas clipboard. 
 
-# Naudojant funkcijà textConnection teksto blokà galima paversti á dar vieno tipo 
-# ğaltiná, su kuriuo tokios procedûros kaip scan ar read.table elgiasi kaip su
+# Naudojant funkcijÃ  textConnection teksto blokÃ  galima paversti Ã¡ dar vieno tipo 
+# Ã°altinÃ¡, su kuriuo tokios procedÃ»ros kaip scan ar read.table elgiasi kaip su
 # tekstiniu failu.
 
-# Pavyzdşiui, nuskaitysime kaip simboliø eilutæ uşrağytà skaièiø sekà.
+# PavyzdÃ¾iui, nuskaitysime kaip simboliÃ¸ eilutÃ¦ uÃ¾raÃ°ytÃ  skaiÃ¨iÃ¸ sekÃ .
 v <- "1 2 3"
 
-# Iğ pradşiø character tipo vektoriø paverèiame á ğaltiná, o tada já nuskaitome 
-# kaip paprastà tekstiná failà.
+# IÃ° pradÃ¾iÃ¸ character tipo vektoriÃ¸ paverÃ¨iame Ã¡ Ã°altinÃ¡, o tada jÃ¡ nuskaitome 
+# kaip paprastÃ  tekstinÃ¡ failÃ .
 t <- textConnection(v)
 x <- scan(file = t)
 x
 
-# Patogumo dëlei visas komandas galima apjungti á vienà.
+# Patogumo dÃ«lei visas komandas galima apjungti Ã¡ vienÃ .
 x <- scan(textConnection("1 2 3"))
 x
 
-# Tokiu bûdu kaip failà galima nuskaityti ir tekste uşrağytà duomenø lentelæ.
+# Tokiu bÃ»du kaip failÃ  galima nuskaityti ir tekste uÃ¾raÃ°ytÃ  duomenÃ¸ lentelÃ¦.
 
 t <- textConnection("
 X    Y
@@ -291,66 +294,66 @@ d
 
 # NAUDINGA ------------------------------
 
-# Viename duomenø lentelës stulpelyje gali bûti keli şodşiai ar skaièiai. Pvz.,
+# Viename duomenÃ¸ lentelÃ«s stulpelyje gali bÃ»ti keli Ã¾odÃ¾iai ar skaiÃ¨iai. Pvz.,
 #
 #    Valdovas             Metai
 #    Vytautas Didysis     1350-1430
-#    Şygimantas Augustas  1520-1572
+#    Ãygimantas Augustas  1520-1572
 #
-# Nuskaitant iğ failo tokià duomenø lentelæ, şodşiai Vytautas ir Didysis bûtø
-# skirtinguose stulpeliuose. Kadangi pirmoje eilutëje yra du stulpeliø vardai, 
-# o stulpeliø yra trys, pirmame stulpelyje esantys şodşiai Vytautas ir Şygimantas 
-# automatiğkai pavirstø á eiluèiø pavadinimus ir lentelë bûtø nuskaitoma blogai.
+# Nuskaitant iÃ° failo tokiÃ  duomenÃ¸ lentelÃ¦, Ã¾odÃ¾iai Vytautas ir Didysis bÃ»tÃ¸
+# skirtinguose stulpeliuose. Kadangi pirmoje eilutÃ«je yra du stulpeliÃ¸ vardai, 
+# o stulpeliÃ¸ yra trys, pirmame stulpelyje esantys Ã¾odÃ¾iai Vytautas ir Ãygimantas 
+# automatiÃ°kai pavirstÃ¸ Ã¡ eiluÃ¨iÃ¸ pavadinimus ir lentelÃ« bÃ»tÃ¸ nuskaitoma blogai.
 
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_5a.dat"
 d <- read.table(file = adresas, header = TRUE)
 d
 
-# Kad to neatsitiktø, viename stulpelyje turinèius bûti şodşiø junginius galima 
-# átraukti á kabutes.
+# Kad to neatsitiktÃ¸, viename stulpelyje turinÃ¨ius bÃ»ti Ã¾odÃ¾iÃ¸ junginius galima 
+# Ã¡traukti Ã¡ kabutes.
 
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_5b.dat"
 d <- read.table(file = adresas, header = TRUE)
 d
 
-# Universalus sprendimas -- stulpelius vienà nuo kito atskirti kabliatağkiu.
+# Universalus sprendimas -- stulpelius vienÃ  nuo kito atskirti kabliataÃ°kiu.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_5c.csv"
 d <- read.table(file = adresas, header = TRUE, sep = ";")
 d
 
-# Tà patá principà galima taikyti ir nuskaitant duomenis iğ teksto. Nuskaitysime
-# tà paèià duomenø lentelæ dviem skirtingais bûdais. Pirmas bûdas -- sukuriant 
-# tekstiná vektoriø.
+# TÃ  patÃ¡ principÃ  galima taikyti ir nuskaitant duomenis iÃ° teksto. Nuskaitysime
+# tÃ  paÃ¨iÃ  duomenÃ¸ lentelÃ¦ dviem skirtingais bÃ»dais. Pirmas bÃ»das -- sukuriant 
+# tekstinÃ¡ vektoriÃ¸.
 
 l <- "
 Valdovas;           Metai
 Vytautas Didysis;   1350-1430
-Şygimantas Augustas;1520-1572
+Ãygimantas Augustas;1520-1572
 "
 
 d <- read.table(text = l, header = TRUE, sep = ";")
 d
 
 
-# Antras bûdas -- naudojant funkcijà textConnection
+# Antras bÃ»das -- naudojant funkcijÃ  textConnection
 
 t <- textConnection("
 Valdovas;           Metai
 Vytautas Didysis;   1350-1430
-Şygimantas Augustas;1520-1572
+Ãygimantas Augustas;1520-1572
 ")
 
 d <- read.table(file = t, header = TRUE, sep = ";")
 d
 
-# Visà ğià teksto nuskaitymo komandà galima uşrağyti viena eilute.
+# VisÃ  Ã°iÃ  teksto nuskaitymo komandÃ  galima uÃ¾raÃ°yti viena eilute.
 d <- read.table(file = textConnection(l), header = TRUE, sep = ";")
 d
 
 
-# UŞDUOTIS ------------------------------ 
+# UÃDUOTIS ------------------------------ 
 
-# 1. Naudodami funkcijà textConnection nuskaitykite loginiø reikğmiø vektoriø 
-#    "F-T-T-T-F-T-F-F-F-T". Uşrağykite ğià komandà viena eilute.
-# 2. Naudodami funkcijà textConnection nuskaitykite ğià paprastà duomenø lentelæ 
-#    "X Y\n 11 12\n 21 22". Uşrağykite ğià komandà viena eilute.
+# 1. Naudodami funkcijÃ  textConnection nuskaitykite loginiÃ¸ reikÃ°miÃ¸ vektoriÃ¸ 
+#    "F-T-T-T-F-T-F-F-F-T". UÃ¾raÃ°ykite Ã°iÃ  komandÃ  viena eilute.
+# 2. Naudodami funkcijÃ  textConnection nuskaitykite Ã°iÃ  paprastÃ  duomenÃ¸ lentelÃ¦ 
+#    "X Y\n 11 12\n 21 22". UÃ¾raÃ°ykite Ã°iÃ  komandÃ  viena eilute.
