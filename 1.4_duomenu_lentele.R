@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Duomenø lentelës sudarymas ir jos kintamieji.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            DuomenÅ³ lentelÄ—s sudarymas ir jos kintamieji.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2012-09-03 | 2013-05-06
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 # 
-#   1. Duomenø lentelës sudarymas:
+#   1. DuomenÅ³ lentelÄ—s sudarymas:
 #      * komanda data.frame
 #      * komanda class
 #      * komanda nrow ir ncol
@@ -24,9 +24,9 @@
 #      * operatorius [[
 #      * operatorius &
 #
-#   2. Duomenø lenteliø apjungimas:
-#      * kintamøjø prijungimas
-#      * kintamøjø panaikinimas
+#   2. DuomenÅ³ lenteliÅ³ apjungimas:
+#      * kintamÅ³jÅ³ prijungimas
+#      * kintamÅ³jÅ³ panaikinimas
 #      * komanda cbind
 #      * komanda rbind 
 #
@@ -35,196 +35,196 @@
 # PASTABOS ------------------------------
 
 #
-# Kol kas pastabø nëra.
+# Kol kas pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# DUOMENØ LENTELËS SUDARYMAS              #
+# DUOMENÅ² LENTELÄ–S SUDARYMAS              #
 # --------------------------------------- #
 
-# Pats bendriausias R duomenø tipas yra data.frame -- duomenø lentelë, kurios 
-# stulpeliuose yra kintamieji, o eilutëse stebiniai. Esminis duomenø lentelës 
-# skirtumas nuo matricos yra tas, kad duomenø lentelës stulpeliai gali bûti ir 
-# skirtingø tipø. 
+# Pats bendriausias R duomenÅ³ tipas yra data.frame -- duomenÅ³ lentelÄ—, kurios 
+# stulpeliuose yra kintamieji, o eilutÄ—se stebiniai. Esminis duomenÅ³ lentelÄ—s 
+# skirtumas nuo matricos yra tas, kad duomenÅ³ lentelÄ—s stulpeliai gali bÅ«ti ir 
+# skirtingÅ³ tipÅ³. 
 
 
-# Sudarysime duomenø lentelæ, kurios stulpeliuose bus trys skirtingo tipo 
+# Sudarysime duomenÅ³ lentelÄ™, kurios stulpeliuose bus trys skirtingo tipo 
 # vektoriai: numeric, logical ir character.
 
 x <- c(22, 37, 68, 47, 92, 87, 39, 19, 97, 32)
 y <- c(FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE)
 z <- c("P", "P",  "P",  "T",  "T",  "T",  "A",  "A",  "A",  "A")
 
-# Kaip ir sudarant vektorius arba sàrağus, elementams galima suteikti vardus.
-# Duomenø lentelës elementai yra stulpeliuose esantys kintamieji - vektoriai.
-# Jei kintamøjø vardai nenurodomi, tai stulpeliai turës vektoriø pavadinimus.
+# Kaip ir sudarant vektorius arba sÄ…raÅ¡us, elementams galima suteikti vardus.
+# DuomenÅ³ lentelÄ—s elementai yra stulpeliuose esantys kintamieji - vektoriai.
+# Jei kintamÅ³jÅ³ vardai nenurodomi, tai stulpeliai turÄ—s vektoriÅ³ pavadinimus.
 
 d <- data.frame(X = x, Y = y, Z = z)
 d
 
-# Galima pastebëti, kad character tipo vektoriaus z reikğmës duomenø lentelëje
-# vaizduojamos be kabuèiø. Taip yra todël, kad character tipo kategoriniai 
-# kintamieji automatiğkai pavirsta á specialaus tipo factor kintamuosius.
+# Galima pastebÄ—ti, kad character tipo vektoriaus z reikÅ¡mÄ—s duomenÅ³ lentelÄ—je
+# vaizduojamos be kabuÄiÅ³. Taip yra todÄ—l, kad character tipo kategoriniai 
+# kintamieji automatiÅ¡kai pavirsta Ä¯ specialaus tipo factor kintamuosius.
 
-# Taip sudaryta lentelë yra data.frame klasës duomenø struktûra.
+# Taip sudaryta lentelÄ— yra data.frame klasÄ—s duomenÅ³ struktÅ«ra.
 class(d)
 
-# Lentelës eiluèiø ir stulpeliø skaièiui rasti naudojamos funkcijos nrow ir ncol.
+# LentelÄ—s eiluÄiÅ³ ir stulpeliÅ³ skaiÄiui rasti naudojamos funkcijos nrow ir ncol.
 nrow(d)
 ncol(d)
 
-# Duomenø lentelës kintamøjø vardus parodo funkcija names. 
+# DuomenÅ³ lentelÄ—s kintamÅ³jÅ³ vardus parodo funkcija names. 
 names(d)
 
-# Funkcija names naudojama ir kintamøjø vardø pakeitimui.
+# Funkcija names naudojama ir kintamÅ³jÅ³ vardÅ³ pakeitimui.
 names(d) <- c("X", "Testas", "Tipas")
 names(d)
 d
 
-# Duomenø lentelës eiluèiø vardus parodo funkcija row.names. Pagal nutylëjimà 
-# eilutës sunumeruojamos.
+# DuomenÅ³ lentelÄ—s eiluÄiÅ³ vardus parodo funkcija row.names. Pagal nutylÄ—jimÄ… 
+# eilutÄ—s sunumeruojamos.
 row.names(d)
 
-# Lentelës eiluèiø vardus galima pakeisti, taèiau visi jie turi bûti skirtingi.
+# LentelÄ—s eiluÄiÅ³ vardus galima pakeisti, taÄiau visi jie turi bÅ«ti skirtingi.
 row.names(d) <- letters[1:10]
 d
 
-# Pati paprasèiausia duomenø lentelë turi keletà pagrindiniø atributø: tai yra 
-# kintamøjø vardai, eiluèiø pavadinimai ir nurodyta paèios lentelës klasë.
+# Pati paprasÄiausia duomenÅ³ lentelÄ— turi keletÄ… pagrindiniÅ³ atributÅ³: tai yra 
+# kintamÅ³jÅ³ vardai, eiluÄiÅ³ pavadinimai ir nurodyta paÄios lentelÄ—s klasÄ—.
 attributes(d)
 
-# Duomenø lentelës atributus galima pakeisti. Pvz., gràşinsime eiluèiø numerius.
+# DuomenÅ³ lentelÄ—s atributus galima pakeisti. Pvz., grÄ…Å¾insime eiluÄiÅ³ numerius.
 attr(d, "row.names") <- 1:10
 d
 
-# Kaip ir bet kokio kito objekto, lentelës struktûrà galima pamatyti naudojant 
-# funkcijà str. Èia matome, kad kintamasis d yra data.frame tipo 10*3 dydşio
-# lentelë, kurios kintamieji yra numeric, logical ir factor tipo vektoriai.
+# Kaip ir bet kokio kito objekto, lentelÄ—s struktÅ«rÄ… galima pamatyti naudojant 
+# funkcijÄ… str. ÄŒia matome, kad kintamasis d yra data.frame tipo 10*3 dydÅ¾io
+# lentelÄ—, kurios kintamieji yra numeric, logical ir factor tipo vektoriai.
 # Be to, faktorius turi tris kategorijas.
 str(d)
 
 
 # NAUDINGA ------------------------------
 
-# Kai kurios duomenø lentelëms ir matricoms naudojamos funkcijos yra specifinës:
-# vienos iğ jø tinka lentelëms, bet netaikomos matricoms ir atvirkğèiai. Gali 
-# bûti, kad tam tikrais atvejais funkcijos rezultatas gali turëti kitokià prasmæ.
+# Kai kurios duomenÅ³ lentelÄ—ms ir matricoms naudojamos funkcijos yra specifinÄ—s:
+# vienos iÅ¡ jÅ³ tinka lentelÄ—ms, bet netaikomos matricoms ir atvirkÅ¡Äiai. Gali 
+# bÅ«ti, kad tam tikrais atvejais funkcijos rezultatas gali turÄ—ti kitokiÄ… prasmÄ™.
 
-# Funkcija length apskaièiuoja vektoriø, matricø ir sàrağø elementø skaièiø. Jei
-# funkcijos length argumentas bus duomenø lentelë, rezultatas bus jos stulpeliø
-# skaièius. Tai galima paaiğkinti tuo, kad duomenø lentelës elementai yra jos
+# Funkcija length apskaiÄiuoja vektoriÅ³, matricÅ³ ir sÄ…raÅ¡Å³ elementÅ³ skaiÄiÅ³. Jei
+# funkcijos length argumentas bus duomenÅ³ lentelÄ—, rezultatas bus jos stulpeliÅ³
+# skaiÄius. Tai galima paaiÅ¡kinti tuo, kad duomenÅ³ lentelÄ—s elementai yra jos
 # kintamieji, t.y. stulpeliai.
 
 length(d)
 
-# Funkcija dim naudojama matricos eiluèiø ir stulpeliø skaièiui nustatyti. Jei 
-# ğios funkcijos argumentas yra duomenø lentelë, tai rezultatas taip pat yra 
-# vektorius, kurio pirmas elementas reiğkia eiluèiø, o antras -- stulpeliø skaièiø. 
-# Taèiau duomenø lenteliø atveju eiluèiø skaièius gaunamas kaip eiluèiø vardø 
-# vektoriaus elementø skaièius, o stulpeliø skaièius -- kaip duomenø lentelës 
-# kintamøjø skaièius.
+# Funkcija dim naudojama matricos eiluÄiÅ³ ir stulpeliÅ³ skaiÄiui nustatyti. Jei 
+# Å¡ios funkcijos argumentas yra duomenÅ³ lentelÄ—, tai rezultatas taip pat yra 
+# vektorius, kurio pirmas elementas reiÅ¡kia eiluÄiÅ³, o antras -- stulpeliÅ³ skaiÄiÅ³. 
+# TaÄiau duomenÅ³ lenteliÅ³ atveju eiluÄiÅ³ skaiÄius gaunamas kaip eiluÄiÅ³ vardÅ³ 
+# vektoriaus elementÅ³ skaiÄius, o stulpeliÅ³ skaiÄius -- kaip duomenÅ³ lentelÄ—s 
+# kintamÅ³jÅ³ skaiÄius.
 
-# Taip rağoma:
+# Taip raÅ¡oma:
 dim(d)
 
-# O taip skaièiuojama :)
+# O taip skaiÄiuojama :)
 c(length(attributes(d)$row.names), length(d))
 
 
-# Funkcijos rownames ir colnames naudojamos matricø eiluèiø ir stulpeliø vardams.
-# Funkcija names nenaudojama matricos stulpeliø vardams.
+# Funkcijos rownames ir colnames naudojamos matricÅ³ eiluÄiÅ³ ir stulpeliÅ³ vardams.
+# Funkcija names nenaudojama matricos stulpeliÅ³ vardams.
 
-#                   matrica     lentelë
+#                   matrica     lentelÄ—
 # 
-#   eiluèiø vardai  rownames    row.names
-# stulpeliø vardai  colnames    names
+#   eiluÄiÅ³ vardai  rownames    row.names
+# stulpeliÅ³ vardai  colnames    names
 #       abu vardai  dimnames    dimnames
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sukurkite duomenø lentelæ h, kurioje pirmas stulpelis bûtø vardas ir pavardë, 
-#    antras -- lytis (galima koduoti vyras-moteris, 0-1, V-M ir pan.), o treèias
-#    stulpelis koks nors kiekybinis kintamasis, pvz., amşius, atlyginimas, ûgis.
-# 2. Naudodami funkcijà names pakeiskite duomenø lentelës kintamøjø vardus.
-# 3. Naudodami funkcijà row.names pakeiskite sukurtos duomenø lentelës eiluèiø 
-#    numerius á raides.
+# 1. Sukurkite duomenÅ³ lentelÄ™ h, kurioje pirmas stulpelis bÅ«tÅ³ vardas ir pavardÄ—, 
+#    antras -- lytis (galima koduoti vyras-moteris, 0-1, V-M ir pan.), o treÄias
+#    stulpelis koks nors kiekybinis kintamasis, pvz., amÅ¾ius, atlyginimas, Å«gis.
+# 2. Naudodami funkcijÄ… names pakeiskite duomenÅ³ lentelÄ—s kintamÅ³jÅ³ vardus.
+# 3. Naudodami funkcijÄ… row.names pakeiskite sukurtos duomenÅ³ lentelÄ—s eiluÄiÅ³ 
+#    numerius Ä¯ raides.
 
 
-# Kintamøjø iğskyrimo operatoriai [ ir [[ duomenø lentelëse naudojami dvejopai: 
-# kaip matricose ir kaip sàrağuose.
+# KintamÅ³jÅ³ iÅ¡skyrimo operatoriai [ ir [[ duomenÅ³ lentelÄ—se naudojami dvejopai: 
+# kaip matricose ir kaip sÄ…raÅ¡uose.
 
-# Operatoriø [ naudojant kaip matricoje, bet kuris lentelës elementas pasiekiamas 
-# nurodant eilutës ir stulpelio numerá.
+# OperatoriÅ³ [ naudojant kaip matricoje, bet kuris lentelÄ—s elementas pasiekiamas 
+# nurodant eilutÄ—s ir stulpelio numerÄ¯.
 d[1, 1]
 
-# Nenurodşius eilutës indekso, bus iğskiriamos visos duomenø lentelës eilutës.
-# Pvz., iğskirsime visas pirmo stulpelio eilutes.
+# NenurodÅ¾ius eilutÄ—s indekso, bus iÅ¡skiriamos visos duomenÅ³ lentelÄ—s eilutÄ—s.
+# Pvz., iÅ¡skirsime visas pirmo stulpelio eilutes.
 d[, 1]
 
-# Nenurodşius stulpelio indekso, bus iğskiriami visi duomenø lentelës stulpeliai.
-# Pvz., iğskirsime visus pirmos eilutës stulpelius.
+# NenurodÅ¾ius stulpelio indekso, bus iÅ¡skiriami visi duomenÅ³ lentelÄ—s stulpeliai.
+# Pvz., iÅ¡skirsime visus pirmos eilutÄ—s stulpelius.
 d[1, ]
 
-# Indeksà nurodşius su minuso şenklu, atitinkama eilutë arba stulpelis iğmetami.
-# Pvz., èia lentelëje bus paliekami visi stulpeliai iğskyrus pirmàjá.
+# IndeksÄ… nurodÅ¾ius su minuso Å¾enklu, atitinkama eilutÄ— arba stulpelis iÅ¡metami.
+# Pvz., Äia lentelÄ—je bus paliekami visi stulpeliai iÅ¡skyrus pirmÄ…jÄ¯.
 d[, -1]
 
-# Kaip ir matricoms, galima nurodyti lentelës eiluèiø ir stulpeliø indeksø aibæ.
-# Pvz., iğ lentelës d iğskirsime pirmas dvi eilutes ir paskutinius du stulpelius.
+# Kaip ir matricoms, galima nurodyti lentelÄ—s eiluÄiÅ³ ir stulpeliÅ³ indeksÅ³ aibÄ™.
+# Pvz., iÅ¡ lentelÄ—s d iÅ¡skirsime pirmas dvi eilutes ir paskutinius du stulpelius.
 
 i <- c(1, 2)
 j <- c(2, 3)
 d[i, j]
 
-# Kartais tokià konstrukcijà galima parağyti ir trumpiau.
+# Kartais tokiÄ… konstrukcijÄ… galima paraÅ¡yti ir trumpiau.
 d[1:2, 2:3]
 
 
-# Daşnai duomenø lentelës kintamuosius patogiau iğskirti nurodant jø vardus.
+# DaÅ¾nai duomenÅ³ lentelÄ—s kintamuosius patogiau iÅ¡skirti nurodant jÅ³ vardus.
 d[, "X"] 
 
-# Duomenø lentelës eilutes taip pat galima identifikuoti pagal jø vardus. Reikia 
-# turëti omeny, kad pagal nutylëjimà eilutës yra numeruojamos, taèiau jø numeriai
-# yra character tipo, todël juos reikia nurodyti kabutëse!
+# DuomenÅ³ lentelÄ—s eilutes taip pat galima identifikuoti pagal jÅ³ vardus. Reikia 
+# turÄ—ti omeny, kad pagal nutylÄ—jimÄ… eilutÄ—s yra numeruojamos, taÄiau jÅ³ numeriai
+# yra character tipo, todÄ—l juos reikia nurodyti kabutÄ—se!
 d["1", ]
 
 
-# Operatoriø [ galima naudoti á duomenø lentelæ şiûrint kaip á vektoriø ar sàrağà.
-# Tokiu atveju lentelës elementai yra jos kintamieji, t.y. stulpeliai. Nurodşius 
-# vieno lentelës elemento numerá, gausime taip pat lentelæ tik su vienu stulpeliu.
+# OperatoriÅ³ [ galima naudoti Ä¯ duomenÅ³ lentelÄ™ Å¾iÅ«rint kaip Ä¯ vektoriÅ³ ar sÄ…raÅ¡Ä….
+# Tokiu atveju lentelÄ—s elementai yra jos kintamieji, t.y. stulpeliai. NurodÅ¾ius 
+# vieno lentelÄ—s elemento numerÄ¯, gausime taip pat lentelÄ™ tik su vienu stulpeliu.
 d[1]
 
-# Nurodşius neigiamà indeksà, atitinkamà numerá turintis kintamasis-stulpelis 
+# NurodÅ¾ius neigiamÄ… indeksÄ…, atitinkamÄ… numerÄ¯ turintis kintamasis-stulpelis 
 # nebus pasirenkamas.
 d[-1]
 
-# Nurodşius kintamøjø indeksø aibæ, galima iğskirti ir keletà kintamøjø.
+# NurodÅ¾ius kintamÅ³jÅ³ indeksÅ³ aibÄ™, galima iÅ¡skirti ir keletÄ… kintamÅ³jÅ³.
 d[1:2]
 
-# Operatoriø [[ naudojant iğskirtas lentelës elementas -- kintamasis turës savo 
-# pradiná tipà ir struktûrà, t.y. gausime paprastà vektoriø.
+# OperatoriÅ³ [[ naudojant iÅ¡skirtas lentelÄ—s elementas -- kintamasis turÄ—s savo 
+# pradinÄ¯ tipÄ… ir struktÅ«rÄ…, t.y. gausime paprastÄ… vektoriÅ³.
 d[[1]]
 
-# Vietoje duomenø lentelës kintamojo numerio galima naudoti jo vardà.
+# Vietoje duomenÅ³ lentelÄ—s kintamojo numerio galima naudoti jo vardÄ….
 
-d["X"]       # pirmu bûdu gauname duomenø lentelæ su vienu stulpeliu 
-d[["X"]]     # antru bûdu gaunamas vektorius su lentelës kintamojo reikğmëmis
+d["X"]       # pirmu bÅ«du gauname duomenÅ³ lentelÄ™ su vienu stulpeliu 
+d[["X"]]     # antru bÅ«du gaunamas vektorius su lentelÄ—s kintamojo reikÅ¡mÄ—mis
 
-# Galima patikrinti dviem skirtingais bûdais gautø duomenø lentelës elementø tipà.
+# Galima patikrinti dviem skirtingais bÅ«dais gautÅ³ duomenÅ³ lentelÄ—s elementÅ³ tipÄ….
 a <- d["X"]
 b <- d[["X"]]
 
@@ -232,101 +232,101 @@ class(a)
 class(b)   
 
 
-# Vienà duomenø lentelës kintamàjá galima iğskirti naudojant operatoriø $. Èia
-# kintamojo vardas daşniausiai rağomas be kabuèiø. Matricoms toks bûdas netinka!
+# VienÄ… duomenÅ³ lentelÄ—s kintamÄ…jÄ¯ galima iÅ¡skirti naudojant operatoriÅ³ $. ÄŒia
+# kintamojo vardas daÅ¾niausiai raÅ¡omas be kabuÄiÅ³. Matricoms toks bÅ«das netinka!
 
 d$X
 d$Testas
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Keliais skirtingais bûdais iğskirkite iğ lentelës d antràjá stulpelá. Reikia 
-#    panaudoti stulpelio numerá, jo vardà, operatorius [, [[ ir $.
-# 2. Iğ lentelës d sukurkite naujà lentelæ, kurioje neliktø dviejø paskutiniø 
-#    eiluèiø. Kaip tai padaryti naudojant ne eiluèiø numerius, o jø vardus?
-# 3. Naudojant kintamøjø numerius sukeiskite vietomis pirmus du lentelës d 
-#    stulpelius. Tà patá veiksmà atlikite naudojant kintamøjø vardus.
-# 4. Sukurkite toká indeksà, kurá naudojant iğ lentelës d bûtø iğskiriamos eilutës 
+# 1. Keliais skirtingais bÅ«dais iÅ¡skirkite iÅ¡ lentelÄ—s d antrÄ…jÄ¯ stulpelÄ¯. Reikia 
+#    panaudoti stulpelio numerÄ¯, jo vardÄ…, operatorius [, [[ ir $.
+# 2. IÅ¡ lentelÄ—s d sukurkite naujÄ… lentelÄ™, kurioje neliktÅ³ dviejÅ³ paskutiniÅ³ 
+#    eiluÄiÅ³. Kaip tai padaryti naudojant ne eiluÄiÅ³ numerius, o jÅ³ vardus?
+# 3. Naudojant kintamÅ³jÅ³ numerius sukeiskite vietomis pirmus du lentelÄ—s d 
+#    stulpelius. TÄ… patÄ¯ veiksmÄ… atlikite naudojant kintamÅ³jÅ³ vardus.
+# 4. Sukurkite tokÄ¯ indeksÄ…, kurÄ¯ naudojant iÅ¡ lentelÄ—s d bÅ«tÅ³ iÅ¡skiriamos eilutÄ—s 
 #    su nelyginiais numeriais.
-# 5. Sukurkite toká indeksà, kurá naudojant iğ lentelës d bûtø galima iğskirti 
-#    eilutes, kuriose kintamasis Testas ágyjà reikğmæ TRUE.
+# 5. Sukurkite tokÄ¯ indeksÄ…, kurÄ¯ naudojant iÅ¡ lentelÄ—s d bÅ«tÅ³ galima iÅ¡skirti 
+#    eilutes, kuriose kintamasis Testas Ä¯gyjÄ… reikÅ¡mÄ™ TRUE.
 
 
 # --------------------------------------- #
-# DUOMENØ LENTELIØ APJUNGIMAS             #
+# DUOMENÅ² LENTELIÅ² APJUNGIMAS             #
 # --------------------------------------- #
 
-# Gana daşnai pasitaiko situacija, kai prie jau sukurtos duomenø lentelës reikia 
-# prijungti naujà kintamàjá. Tam yra keletas bûdø. Naudojant operatoriø [ galima 
-# nurodyti stulpelio, kuriame bus naujas kintamasis, numerá arba nurodyti jo vardà.
+# Gana daÅ¾nai pasitaiko situacija, kai prie jau sukurtos duomenÅ³ lentelÄ—s reikia 
+# prijungti naujÄ… kintamÄ…jÄ¯. Tam yra keletas bÅ«dÅ³. Naudojant operatoriÅ³ [ galima 
+# nurodyti stulpelio, kuriame bus naujas kintamasis, numerÄ¯ arba nurodyti jo vardÄ….
 
-# Duomenø lentelëje d sukursime naujà stulpelá, jam priskirsime reikğmiø vektoriø 
-# ir taip gausime naujà lentelës kintamàjá. Jo vardas parenkamas pagal nutylëjimà.
+# DuomenÅ³ lentelÄ—je d sukursime naujÄ… stulpelÄ¯, jam priskirsime reikÅ¡miÅ³ vektoriÅ³ 
+# ir taip gausime naujÄ… lentelÄ—s kintamÄ…jÄ¯. Jo vardas parenkamas pagal nutylÄ—jimÄ….
 
 d[4] <- rep(1:2, each = 5)
 d
 
-# Daşnu atveju paprasèiau iğ karto nurodyti naujo kintamojo vardà. Stulpelis su 
-# naujo kintamojo reikğmëmis prie lentelës bus prijungtas iğ değinës. Pvz., 
-# lentelëje sukursime naujà kintamàjá "N" ir jam priskirsime tam tikrà reikğmiø 
-# vektoriø.
+# DaÅ¾nu atveju paprasÄiau iÅ¡ karto nurodyti naujo kintamojo vardÄ…. Stulpelis su 
+# naujo kintamojo reikÅ¡mÄ—mis prie lentelÄ—s bus prijungtas iÅ¡ deÅ¡inÄ—s. Pvz., 
+# lentelÄ—je sukursime naujÄ… kintamÄ…jÄ¯ "N" ir jam priskirsime tam tikrÄ… reikÅ¡miÅ³ 
+# vektoriÅ³.
  
 d["N"] <- 1:10
 d
 
-# Á lentelæ şiûrint kaip á matricà, naujà kintamàjá, kaip ir anksèiau, sukuriame 
-# nurodydami atitinkamo stulpelio numerá arba stulpelio vardà, o eiluèiø indeksà 
-# praleidşiame.
+# Ä® lentelÄ™ Å¾iÅ«rint kaip Ä¯ matricÄ…, naujÄ… kintamÄ…jÄ¯, kaip ir anksÄiau, sukuriame 
+# nurodydami atitinkamo stulpelio numerÄ¯ arba stulpelio vardÄ…, o eiluÄiÅ³ indeksÄ… 
+# praleidÅ¾iame.
 
 d[, "M"] <- 1
 d
 
-# Nurodant kintamøjø vardø vektoriø, galima sukurti iğ karto keletà naujø lentelës 
-# kintamøjø. Pvz., èia jiems visiems priskiriamas praleistø reikğmiø vektorius.
+# Nurodant kintamÅ³jÅ³ vardÅ³ vektoriÅ³, galima sukurti iÅ¡ karto keletÄ… naujÅ³ lentelÄ—s 
+# kintamÅ³jÅ³. Pvz., Äia jiems visiems priskiriamas praleistÅ³ reikÅ¡miÅ³ vektorius.
 
 d[c("A", "B", "C")] <- NA
 d
 
-# Naudojant operatoriø $ naujas kintamasis sukuriamas nurodant jo vardà ir 
-# priskiriant jam reikğmiø vektoriø.
+# Naudojant operatoriÅ³ $ naujas kintamasis sukuriamas nurodant jo vardÄ… ir 
+# priskiriant jam reikÅ¡miÅ³ vektoriÅ³.
 
 d$Kodas <- letters[1:10]
 d
 
-# Panaikinti duomenø lentelës kintamàjá taip pat yra keletas bûdø. Galima sukurti 
-# naujà lentelæ, kurioje nebûtø nereikalingo kintamojo, taèiau dauguma atvejø 
-# paprasèiau kintamajam priskirti tuğèià objektà NULL. Kintamàjá nurodyti galima 
-# keliais skirtingais bûdais.
+# Panaikinti duomenÅ³ lentelÄ—s kintamÄ…jÄ¯ taip pat yra keletas bÅ«dÅ³. Galima sukurti 
+# naujÄ… lentelÄ™, kurioje nebÅ«tÅ³ nereikalingo kintamojo, taÄiau dauguma atvejÅ³ 
+# paprasÄiau kintamajam priskirti tuÅ¡ÄiÄ… objektÄ… NULL. KintamÄ…jÄ¯ nurodyti galima 
+# keliais skirtingais bÅ«dais.
 
-d[4]     <- NULL     # naudojame operatoriø [, nurodome kintamojo numerá
-d["N"]   <- NULL     # naudojame operatoriø [, nurodome kintamojo vardà
-d[, "M"] <- NULL     # naudojame operatoriø [, nurodome stulpelio vardà
-d$Kodas  <- NULL     # naudojame operatoriø $, nurodome kintamojo vardà
+d[4]     <- NULL     # naudojame operatoriÅ³ [, nurodome kintamojo numerÄ¯
+d["N"]   <- NULL     # naudojame operatoriÅ³ [, nurodome kintamojo vardÄ…
+d[, "M"] <- NULL     # naudojame operatoriÅ³ [, nurodome stulpelio vardÄ…
+d$Kodas  <- NULL     # naudojame operatoriÅ³ $, nurodome kintamojo vardÄ…
 
 d
 
-# Tuo atveju, kai reikia panaikinti keletà kintamøjø iğ karto, jiems reikia 
-# priskirti sàrağa iğ NULL objektø.
+# Tuo atveju, kai reikia panaikinti keletÄ… kintamÅ³jÅ³ iÅ¡ karto, jiems reikia 
+# priskirti sÄ…raÅ¡a iÅ¡ NULL objektÅ³.
 
 d[c("A", "B", "C")] <- list(NULL)
 d
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami operatoriø [ anksèiau sudarytoje lentelëje h sukurkite naujà 
-#    kintamàjá N, kurio visos reikğmës bûtø lygios nuliui.
-# 2. Naudodami operatoriø $ lentelëje h sukurkite kintamàjá X, kurio visos 
-#    reikğmës praleistos. Nekuriant iğ naujo kintamojo X, paskutinæ jo reikğmæ 
-#    pakeiskite iğ NA á 100.
-# 3. Lentelëje h panaikinkite tokius du kintamuosius, kurie vardø sàrağe yra 
+# 1. Naudodami operatoriÅ³ [ anksÄiau sudarytoje lentelÄ—je h sukurkite naujÄ… 
+#    kintamÄ…jÄ¯ N, kurio visos reikÅ¡mÄ—s bÅ«tÅ³ lygios nuliui.
+# 2. Naudodami operatoriÅ³ $ lentelÄ—je h sukurkite kintamÄ…jÄ¯ X, kurio visos 
+#    reikÅ¡mÄ—s praleistos. Nekuriant iÅ¡ naujo kintamojo X, paskutinÄ™ jo reikÅ¡mÄ™ 
+#    pakeiskite iÅ¡ NA Ä¯ 100.
+# 3. LentelÄ—je h panaikinkite tokius du kintamuosius, kurie vardÅ³ sÄ…raÅ¡e yra 
 #    paskutiniai.
 
 
-# Panağiai kaip ir matricas, naudojant funkcijà cbind, vienà lentelæ galima 
-# prijungti prie kitos lentelës ğono. Tokiu atveju abiejø lenteliø eiluèiø 
-# skaièius turi bûti vienodas!
+# PanaÅ¡iai kaip ir matricas, naudojant funkcijÄ… cbind, vienÄ… lentelÄ™ galima 
+# prijungti prie kitos lentelÄ—s Å¡ono. Tokiu atveju abiejÅ³ lenteliÅ³ eiluÄiÅ³ 
+# skaiÄius turi bÅ«ti vienodas!
 
 a <- data.frame(A = 10:15, B = TRUE)
 b <- data.frame(A = 6:1, B = FALSE)
@@ -336,9 +336,9 @@ b
 m <- cbind(a, b)
 m
 
-# Kintamøjø vardai gali bûti nebûtinai skirtingi, taèiau tokiu atveju kintamàjá 
-# pasirenkant pagal vardà, bus iğrenkamas pirmasis iğ pasikartojantá vardà 
-# turinèiø kintamøjø -- nepageidaujama situacija!
+# KintamÅ³jÅ³ vardai gali bÅ«ti nebÅ«tinai skirtingi, taÄiau tokiu atveju kintamÄ…jÄ¯ 
+# pasirenkant pagal vardÄ…, bus iÅ¡renkamas pirmasis iÅ¡ pasikartojantÄ¯ vardÄ… 
+# turinÄiÅ³ kintamÅ³jÅ³ -- nepageidaujama situacija!
 
 names(m)
 
@@ -346,25 +346,25 @@ m$A
 m$A <- NULL
 m
 
-# Naudojant funkcijà cbind, prie lentelës kaip naujà kintamàjá galima prijungti 
-# ir vektoriø. Pvz., taip sukursime naujà lentelës d kintamàjá I, kurio visos 
-# reikğmës bus lygios 1. Kadangi prijungiamas vektorius yra trumpesnis, jo 
-# reikğmës pakartojamos.
+# Naudojant funkcijÄ… cbind, prie lentelÄ—s kaip naujÄ… kintamÄ…jÄ¯ galima prijungti 
+# ir vektoriÅ³. Pvz., taip sukursime naujÄ… lentelÄ—s d kintamÄ…jÄ¯ I, kurio visos 
+# reikÅ¡mÄ—s bus lygios 1. Kadangi prijungiamas vektorius yra trumpesnis, jo 
+# reikÅ¡mÄ—s pakartojamos.
 
 d <- cbind(d, I = 1)
 d
 
-# Naudojant funkcijà rbind, duomenø lentelës apjungiamos sudedant jas vienà ant 
-# kitos. Ğiuo atveju bûtina, kad kintamøjø vardai abiejose lentelëse sutaptø, 
-# taèiau eiluèiø skaièius gali bûti bet koks.
+# Naudojant funkcijÄ… rbind, duomenÅ³ lentelÄ—s apjungiamos sudedant jas vienÄ… ant 
+# kitos. Å iuo atveju bÅ«tina, kad kintamÅ³jÅ³ vardai abiejose lentelÄ—se sutaptÅ³, 
+# taÄiau eiluÄiÅ³ skaiÄius gali bÅ«ti bet koks.
 
 m <- rbind(a, b)
 m
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami funkcijà cbind anksèiau sudarytoje lentelëje h sukurkite naujà 
-#    kintamàjá N, kurio visos reikğmës bûtø lygios nuliui.
-# 2. Sukurkite tokius paèius kintamuosius turinèià lentelæ k, kuri turëtø tik 
-#    vienà eilutæ, ir prijunkite jà prie lentelës h apaèios.
+# 1. Naudodami funkcijÄ… cbind anksÄiau sudarytoje lentelÄ—je h sukurkite naujÄ… 
+#    kintamÄ…jÄ¯ N, kurio visos reikÅ¡mÄ—s bÅ«tÅ³ lygios nuliui.
+# 2. Sukurkite tokius paÄius kintamuosius turinÄiÄ… lentelÄ™ k, kuri turÄ—tÅ³ tik 
+#    vienÄ… eilutÄ™, ir prijunkite jÄ… prie lentelÄ—s h apaÄios.

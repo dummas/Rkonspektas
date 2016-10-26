@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Funkcijos reikğmës skaièiavimas duomenø grupëse.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Funkcijos reikÅ¡mÄ—s skaiÄiavimas duomenÅ³ grupÄ—se.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-09-07 | 2013-09-10
 #
@@ -12,11 +12,11 @@
 # TURINYS -------------------------------
 
 #
-#   1. Funkcijos skaièiavimas pagal vektoriaus elementø grupes:
+#   1. Funkcijos skaiÄiavimas pagal vektoriaus elementÅ³ grupes:
 #      * funkcija tapply
 #      * funkcija split
 #
-#   2. Funkcijos skaièiavimas duomenø lentelës grupëse:
+#   2. Funkcijos skaiÄiavimas duomenÅ³ lentelÄ—s grupÄ—se:
 #      * funkcija by
 #      * funkcija aggregate 
 #
@@ -25,19 +25,19 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø dar nëra.
+# PastabÅ³ dar nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -45,94 +45,94 @@ rm(list = ls())
 # FUNKCIJA TAPPLY                         #
 # --------------------------------------- #
 
-# Atliekant duomenø analizæ, tam tikras skaitines charakteristikas kartais tenka
-# skaièiuoti ne visam duomenø rinkiniui, bet atskiroms duomenø grupëms. Tai gali
-# bûti atlyginimø vidurkis vyrams ir moterims arba pokalbiø telefonu laiko sumos
-# kiekvienam mënesiui atskirai, kai şinomos kiekvienos dienos pokalbiø trukmës.
+# Atliekant duomenÅ³ analizÄ™, tam tikras skaitines charakteristikas kartais tenka
+# skaiÄiuoti ne visam duomenÅ³ rinkiniui, bet atskiroms duomenÅ³ grupÄ—ms. Tai gali
+# bÅ«ti atlyginimÅ³ vidurkis vyrams ir moterims arba pokalbiÅ³ telefonu laiko sumos
+# kiekvienam mÄ—nesiui atskirai, kai Å¾inomos kiekvienos dienos pokalbiÅ³ trukmÄ—s.
 
-# Tuo atveju, kai tà paèià funkcijà reikia pritaikyti keliems vieno vektoriaus 
+# Tuo atveju, kai tÄ… paÄiÄ… funkcijÄ… reikia pritaikyti keliems vieno vektoriaus 
 # pogrupiams, naudojama funkcija tapply. Jos parametrai:
 # 
-#        X -- duomenø vektorius,
+#        X -- duomenÅ³ vektorius,
 #    INDEX -- duomenis grupuojantis vektorius,
-#      FUN -- funkcijos pavadinimas arba jos iğraiğka,
-# simplify -- jei TRUE, rezultatas gràşinamas kaip vektorius.
+#      FUN -- funkcijos pavadinimas arba jos iÅ¡raiÅ¡ka,
+# simplify -- jei TRUE, rezultatas grÄ…Å¾inamas kaip vektorius.
 
-# Parametrui INDEX priskiriamas vektorius turi turëti tiek pat elementø, kiek ir
-# duomenø vektorius X. Paprastai tai yra kelias diskreèias reikğmes turintis 
-# kategorinis kintamasis, kuris kiekvienà duomenø vektoriaus elementà priskiria 
+# Parametrui INDEX priskiriamas vektorius turi turÄ—ti tiek pat elementÅ³, kiek ir
+# duomenÅ³ vektorius X. Paprastai tai yra kelias diskreÄias reikÅ¡mes turintis 
+# kategorinis kintamasis, kuris kiekvienÄ… duomenÅ³ vektoriaus elementÄ… priskiria 
 # tam tikrai grupei.
 
 x <- c(962, 826, 798, 600, 834, 532, 407, 484, 856, 667, 417, 541, 103, 904, 523)
 g <- c("B", "B", "A", "A", "B", "B", "B", "A", "B", "B", "B", "A", "A", "A", "B")
 
-# Pvz., apskaièiuosime vektoriaus x vidurká grupëse pagal vektoriaus g elementø 
-# reikğmes. Rezultatas yra sàlyginis x vidurkis atskirai grupëje A ir grupëje B.
+# Pvz., apskaiÄiuosime vektoriaus x vidurkÄ¯ grupÄ—se pagal vektoriaus g elementÅ³ 
+# reikÅ¡mes. Rezultatas yra sÄ…lyginis x vidurkis atskirai grupÄ—je A ir grupÄ—je B.
 
 tapply(x, g, mean)
 
-# Kintamojo grupavimas gali bûti atliekamas iğ karto pagal kelis poşymius. Tokiu
-# atveju parametrui INDEX nurodomas grupavimo kintamøjø list tipo sàrağas.
+# Kintamojo grupavimas gali bÅ«ti atliekamas iÅ¡ karto pagal kelis poÅ¾ymius. Tokiu
+# atveju parametrui INDEX nurodomas grupavimo kintamÅ³jÅ³ list tipo sÄ…raÅ¡as.
 
-# Tarkime, kad pirmieji 8 kintamojo x stebiniø yra iğ grupës I, likæ 7 iğ gr. II.
-# Sukursime tokias reikğmes turintá kintamajá. 
+# Tarkime, kad pirmieji 8 kintamojo x stebiniÅ³ yra iÅ¡ grupÄ—s I, likÄ™ 7 iÅ¡ gr. II.
+# Sukursime tokias reikÅ¡mes turintÄ¯ kintamajÄ¯. 
 
 p <- rep(c("I", "II"), c(8, 7))
 
-# Apskaièiuosime vidurkius pagal kintamuosius p ir g. Rezultatas yra sàlyginiai
-# vidurkiai grupëse I-A, I-B, II-A ir II-B.
+# ApskaiÄiuosime vidurkius pagal kintamuosius p ir g. Rezultatas yra sÄ…lyginiai
+# vidurkiai grupÄ—se I-A, I-B, II-A ir II-B.
 
 tapply(x, list(p, g), mean)
 
-# Ástaèius funkcijà length, galima suşinoti, kiek vektoriaus x elementø patenka
-# á kiekvienà iğ grupiø I-A, I-B, II-A ir II-B.
+# Ä®staÄius funkcijÄ… length, galima suÅ¾inoti, kiek vektoriaus x elementÅ³ patenka
+# Ä¯ kiekvienÄ… iÅ¡ grupiÅ³ I-A, I-B, II-A ir II-B.
 
 tapply(x, list(p, g), length)
 
-# Á tapply ástatomos funkcijos gali turëti savo parametrus. Pavyzdşiui, vidurkio
-# skaièiavimui naudojama funkcija mean ir daugelis kitø funkcijø turi parametrà 
-# na.rm, kuriam priskyrus reikğmæ TRUE, praleistos duomenø reikğmës ignoruojamos.
+# Ä® tapply Ä¯statomos funkcijos gali turÄ—ti savo parametrus. PavyzdÅ¾iui, vidurkio
+# skaiÄiavimui naudojama funkcija mean ir daugelis kitÅ³ funkcijÅ³ turi parametrÄ… 
+# na.rm, kuriam priskyrus reikÅ¡mÄ™ TRUE, praleistos duomenÅ³ reikÅ¡mÄ—s ignoruojamos.
 
-# Apskaièiuosime vektoriaus y, kuris turi praleistø reikğmiø, elementø vidurká 
-# grupëse pagal kintamajá g.
+# ApskaiÄiuosime vektoriaus y, kuris turi praleistÅ³ reikÅ¡miÅ³, elementÅ³ vidurkÄ¯ 
+# grupÄ—se pagal kintamajÄ¯ g.
 
 y <- c(962, NA, 798, 600, 834, 532, 407, 484, NA, 667, 417, 541, NA, 904, 523)
 
 tapply(y, g, mean, na.rm = TRUE)
 
 
-# Á funkcijà tapply galima árağyti standartinës funkcijos vardà arba, jei tokios
-# funkcijos nëra, uşrağyti reikalingos funkcijos iğraiğkà. Pvz., apskaièiuosime
-# skirtumà tarp didşiausios ir maşiausios vektoriaus x reikğmës grupëse. Pirmàjá
-# funkcijos variantà uşrağysime naudojant tradicines funkcijas min ir max.
+# Ä® funkcijÄ… tapply galima Ä¯raÅ¡yti standartinÄ—s funkcijos vardÄ… arba, jei tokios
+# funkcijos nÄ—ra, uÅ¾raÅ¡yti reikalingos funkcijos iÅ¡raiÅ¡kÄ…. Pvz., apskaiÄiuosime
+# skirtumÄ… tarp didÅ¾iausios ir maÅ¾iausios vektoriaus x reikÅ¡mÄ—s grupÄ—se. PirmÄ…jÄ¯
+# funkcijos variantÄ… uÅ¾raÅ¡ysime naudojant tradicines funkcijas min ir max.
 
 tapply(x, g, function(v) max(v) - min(v))
 
-# Toká pat rezultatà galima gauti sudarant maşiausios ir didşiausios vektoriaus
-# reikğmës radimo ir gretimø vektoriaus elementø skirtumo funkcijø superpozicijà.
-# Toks funkcijos uşrağymo bûdas atitinka funkcinio programavimo su R stiliø.
+# TokÄ¯ pat rezultatÄ… galima gauti sudarant maÅ¾iausios ir didÅ¾iausios vektoriaus
+# reikÅ¡mÄ—s radimo ir gretimÅ³ vektoriaus elementÅ³ skirtumo funkcijÅ³ superpozicijÄ….
+# Toks funkcijos uÅ¾raÅ¡ymo bÅ«das atitinka funkcinio programavimo su R stiliÅ³.
 
 tapply(x, g, function(v) diff(range(v)))
 
 
-# Naudojant funkcijà tapply, galima ne tik skaièiuoti sàlygines charakteristikas,
-# bet ir atlikti gana sudëtingus veiksmus skirtingose duomenø grupëse. Pvz., tai 
-# gali bûti tos paèios statistinës hipotezës tikrinimas grupëse, panağiø grafikø 
-# naudojant duomenis iğ skirtingø grupiø braişymas ir pan. Priklausomai nuo to, 
-# kokie veiksmai grupëse atliekami, rezultatas kartais gali bûti gana sudëtingas
-# objektas: sàrağas, daşniø lentelë, grafikai ir t.t.
+# Naudojant funkcijÄ… tapply, galima ne tik skaiÄiuoti sÄ…lygines charakteristikas,
+# bet ir atlikti gana sudÄ—tingus veiksmus skirtingose duomenÅ³ grupÄ—se. Pvz., tai 
+# gali bÅ«ti tos paÄios statistinÄ—s hipotezÄ—s tikrinimas grupÄ—se, panaÅ¡iÅ³ grafikÅ³ 
+# naudojant duomenis iÅ¡ skirtingÅ³ grupiÅ³ braiÅ¾ymas ir pan. Priklausomai nuo to, 
+# kokie veiksmai grupÄ—se atliekami, rezultatas kartais gali bÅ«ti gana sudÄ—tingas
+# objektas: sÄ…raÅ¡as, daÅ¾niÅ³ lentelÄ—, grafikai ir t.t.
 
-# Pavyzdşiui, sudarysime kintamojo p reikğmiø daşniø lentelæ A ir B grupëse.
+# PavyzdÅ¾iui, sudarysime kintamojo p reikÅ¡miÅ³ daÅ¾niÅ³ lentelÄ™ A ir B grupÄ—se.
 
 tapply(p, g, table)
 
 
-# Nors funkcijos tapply argumentai X ir INDEX yra vektoriai, taèiau ği funkcija
-# daşnai pritaikoma duomenø lentelës vieno kintamojo charakteristikø skaèiavimui
-# grupëse pagal kito kintamojo reikğmes.
+# Nors funkcijos tapply argumentai X ir INDEX yra vektoriai, taÄiau Å¡i funkcija
+# daÅ¾nai pritaikoma duomenÅ³ lentelÄ—s vieno kintamojo charakteristikÅ³ skaÄiavimui
+# grupÄ—se pagal kito kintamojo reikÅ¡mes.
 
 d <- read.table(header = TRUE, text = "
-   lytis  ûgis svoris grupë
+   lytis  Å«gis svoris grupÄ—
   vyras   175     76     B
   vyras   180     NA     B
 moteris   170     67     A
@@ -145,87 +145,87 @@ moteris   177     70     A
   vyras   185     84     B
 ")
 
-# Pavyzdşiui, apskaièiuosime duomenø lentelëje d uşrağyto ûgio vidurká atskirai 
-# vyrams ir moterims. Funkcijai perduodame á atskirus vektorius iğskirtus lyties 
-# ir ûgio kintamuosius. Tai galima atlikti keliais skirtingais bûdais.
+# PavyzdÅ¾iui, apskaiÄiuosime duomenÅ³ lentelÄ—je d uÅ¾raÅ¡yto Å«gio vidurkÄ¯ atskirai 
+# vyrams ir moterims. Funkcijai perduodame Ä¯ atskirus vektorius iÅ¡skirtus lyties 
+# ir Å«gio kintamuosius. Tai galima atlikti keliais skirtingais bÅ«dais.
 
 tapply(d[, 2], d[, 1], mean)
 
-tapply(d[, "ûgis"], d[, "lytis"], mean)
+tapply(d[, "Å«gis"], d[, "lytis"], mean)
 
-tapply(d$ûgis, d$lytis, mean)
+tapply(d$Å«gis, d$lytis, mean)
 
 
-# Jei funkcijai perduodamas lentelës kintamojo vardas labai ilgas, kartais visa
-# funkcija ákeliama á with konstrukcijà, kur nurodome, iğ kokios aplinkos imami
-# kintamøjø vardai. Ğiuo atveju kaip aplinkà nurodome duomenø lentelës vardà, o 
-# funkcijai perduodame tos lentelës kintamøjø vardus. Kai lentelës vardas labai
-# ilgas, toks uşrağymo bûdas gaunasi gerokai aiğkesnis ir trumpesnis.
+# Jei funkcijai perduodamas lentelÄ—s kintamojo vardas labai ilgas, kartais visa
+# funkcija Ä¯keliama Ä¯ with konstrukcijÄ…, kur nurodome, iÅ¡ kokios aplinkos imami
+# kintamÅ³jÅ³ vardai. Å iuo atveju kaip aplinkÄ… nurodome duomenÅ³ lentelÄ—s vardÄ…, o 
+# funkcijai perduodame tos lentelÄ—s kintamÅ³jÅ³ vardus. Kai lentelÄ—s vardas labai
+# ilgas, toks uÅ¾raÅ¡ymo bÅ«das gaunasi gerokai aiÅ¡kesnis ir trumpesnis.
 
-with(data = d, tapply(ûgis, lytis, mean))
+with(data = d, tapply(Å«gis, lytis, mean))
 
 
 # NAUDINGA ------------------------------
 
-# Funkcija tapply duomenø vektoriø suskaido á kelias grupes ir kiekvienai iğ jø 
-# pritaiko tà paèià funkcijà. Tuo paèiu jà galima panaudoti duomenø sudalijimui 
-# á atskiras dalis pagal kaşkoká grupuojantá kintamàjá.
+# Funkcija tapply duomenÅ³ vektoriÅ³ suskaido Ä¯ kelias grupes ir kiekvienai iÅ¡ jÅ³ 
+# pritaiko tÄ… paÄiÄ… funkcijÄ…. Tuo paÄiu jÄ… galima panaudoti duomenÅ³ sudalijimui 
+# Ä¯ atskiras dalis pagal kaÅ¾kokÄ¯ grupuojantÄ¯ kintamÄ…jÄ¯.
 
-# Nenurodşius parametro FUN, tapply rezultatas yra duomenø vektoriaus X elementø
-# pogrupiø, á kuriuos jie patenka, numeriø vektorius.
+# NenurodÅ¾ius parametro FUN, tapply rezultatas yra duomenÅ³ vektoriaus X elementÅ³
+# pogrupiÅ³, Ä¯ kuriuos jie patenka, numeriÅ³ vektorius.
 
 tapply(x, g)
 
-# Parametrui FUN nurodşius iğskyrimo operatoriø [, duomenø vektorius suskaidomas
-# ir sudaromas tokiø atskirtø grupiø sàrağas.
+# Parametrui FUN nurodÅ¾ius iÅ¡skyrimo operatoriÅ³ [, duomenÅ³ vektorius suskaidomas
+# ir sudaromas tokiÅ³ atskirtÅ³ grupiÅ³ sÄ…raÅ¡as.
 
 tapply(x, g, "[")
 
-# Paprastai tokiam duomenø iğskyrimui á atskiras dalis pagal kaşkoká grupuojantá
-# kintamàjá naudojama speciali funkcija split.
+# Paprastai tokiam duomenÅ³ iÅ¡skyrimui Ä¯ atskiras dalis pagal kaÅ¾kokÄ¯ grupuojantÄ¯
+# kintamÄ…jÄ¯ naudojama speciali funkcija split.
 
 split(x, g)
 
-# Kadangi funkcijos split rezultatas yra sàrağas, veiksmams su sàrağo elementais
-# atlikti naudojamos funkcijos sapply ir lapply. Pvz., apskaièiuosime vektoriaus
-# x vidurkius grupëse pagal kintamàjá g.
+# Kadangi funkcijos split rezultatas yra sÄ…raÅ¡as, veiksmams su sÄ…raÅ¡o elementais
+# atlikti naudojamos funkcijos sapply ir lapply. Pvz., apskaiÄiuosime vektoriaus
+# x vidurkius grupÄ—se pagal kintamÄ…jÄ¯ g.
 
 sapply(split(x, g), mean)
 
 
-# Toks vektoriaus suskaidymas á grupes gali bûti atliekamas ne tik skaièiuojant 
-# sàlygines charakteristikas, bet ir pertvarkant duomenis. Pavyzdşiu, naudojant
-# iğskyrimo operatoriø, iğ kiekvienos vektoriaus x grupës iğskirsime pirmàjá jo
-# elementà.
+# Toks vektoriaus suskaidymas Ä¯ grupes gali bÅ«ti atliekamas ne tik skaiÄiuojant 
+# sÄ…lygines charakteristikas, bet ir pertvarkant duomenis. PavyzdÅ¾iu, naudojant
+# iÅ¡skyrimo operatoriÅ³, iÅ¡ kiekvienos vektoriaus x grupÄ—s iÅ¡skirsime pirmÄ…jÄ¯ jo
+# elementÄ….
 
 tapply(x, g, "[", 1)
 
 
-# Kartais grupavimo kintamasis gali bûti gaunamas iğ pradinio duomenø vektoriaus 
-# uşrağant jam kokià nors loginæ sàlygà. Pvz., á dvi atskiras grupes atskirsime 
+# Kartais grupavimo kintamasis gali bÅ«ti gaunamas iÅ¡ pradinio duomenÅ³ vektoriaus 
+# uÅ¾raÅ¡ant jam kokiÄ… nors loginÄ™ sÄ…lygÄ…. Pvz., Ä¯ dvi atskiras grupes atskirsime 
 # lyginius ir nelyginius vektoriaus x elementus.
 
 tapply(x, x %% 2 == 0, "[")
 
-# Tokià pat sàlygà galima perkelti ir á funkcijà split.
+# TokiÄ… pat sÄ…lygÄ… galima perkelti ir Ä¯ funkcijÄ… split.
 
 split(x, x %% 2 == 0)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant f-jà tapply, apskaièiuokite vektoriaus x elementø sumà suskaidant
-#    x á pogrupius pagal vektoriaus p elementø reikğmes.
-# 2. Naudojant f-jà tapply, raskite maşiausià ir didşiausià vektoriaus x reikğmæ
-#    grupëse pagal kintamajá p.
-# 3. Apskaièiuokite duomenø lentelës kintamojo "svoris" vidurká atskirai vyrø ir
-#    moterø grupëse. Atsişvelkite á tai, kad kintamasis turi praleistø reikğmiø.
-# 4. Naudojant f-jà tapply, iğ vektoriaus x elementø suskirstytus grupëmis pagal 
-#    kintamàjá g, sudarykite matricas, kurios turëtø po vienà stulpelá.
-# 5. Naudojant tapply, iğ kiekvienos, pagal vektoriø g suskirstytø, vektoriaus x
-#    elementø grupës iğskirkite po pirmuosius du elementus.
-# 6. Naudojant tapply, uşrağykite funkcijà, kuri apskaièiuotø, kiek vektoriaus y
-#    elementø turi praleistas reikğmes ir kiek neturi. Kaip toká patá rezultatà
+# 1. Naudojant f-jÄ… tapply, apskaiÄiuokite vektoriaus x elementÅ³ sumÄ… suskaidant
+#    x Ä¯ pogrupius pagal vektoriaus p elementÅ³ reikÅ¡mes.
+# 2. Naudojant f-jÄ… tapply, raskite maÅ¾iausiÄ… ir didÅ¾iausiÄ… vektoriaus x reikÅ¡mÄ™
+#    grupÄ—se pagal kintamajÄ¯ p.
+# 3. ApskaiÄiuokite duomenÅ³ lentelÄ—s kintamojo "svoris" vidurkÄ¯ atskirai vyrÅ³ ir
+#    moterÅ³ grupÄ—se. AtsiÅ¾velkite Ä¯ tai, kad kintamasis turi praleistÅ³ reikÅ¡miÅ³.
+# 4. Naudojant f-jÄ… tapply, iÅ¡ vektoriaus x elementÅ³ suskirstytus grupÄ—mis pagal 
+#    kintamÄ…jÄ¯ g, sudarykite matricas, kurios turÄ—tÅ³ po vienÄ… stulpelÄ¯.
+# 5. Naudojant tapply, iÅ¡ kiekvienos, pagal vektoriÅ³ g suskirstytÅ³, vektoriaus x
+#    elementÅ³ grupÄ—s iÅ¡skirkite po pirmuosius du elementus.
+# 6. Naudojant tapply, uÅ¾raÅ¡ykite funkcijÄ…, kuri apskaiÄiuotÅ³, kiek vektoriaus y
+#    elementÅ³ turi praleistas reikÅ¡mes ir kiek neturi. Kaip tokÄ¯ patÄ¯ rezultatÄ…
 #    gauti nenaudojant funkcijos tapply?
 
 
@@ -233,192 +233,192 @@ split(x, x %% 2 == 0)
 # FUNKCIJA BY                             #
 # --------------------------------------- #
 
-# Funkcija tapply naudojama kitø funkcijø skaièiavimui kaip duomenis naudojant á
-# grupes iğskaidytus vektoriaus elementus. Analogiğka funkcija duomenø lentelëms
+# Funkcija tapply naudojama kitÅ³ funkcijÅ³ skaiÄiavimui kaip duomenis naudojant Ä¯
+# grupes iÅ¡skaidytus vektoriaus elementus. AnalogiÅ¡ka funkcija duomenÅ³ lentelÄ—ms
 # arba matricoms yra by. Jos parametrai:
 # 
-#          data -- duomenø lentelë arba matrica,
-#       INDICES -- duomenis grupuojantis faktorius arba jø sàrağas,
-#           FUN -- funkcijos pavadinimas arba iğraiğka,
-#      simplify -- jei TRUE, rezultatas gràşinamas kaip vektorius.
+#          data -- duomenÅ³ lentelÄ— arba matrica,
+#       INDICES -- duomenis grupuojantis faktorius arba jÅ³ sÄ…raÅ¡as,
+#           FUN -- funkcijos pavadinimas arba iÅ¡raiÅ¡ka,
+#      simplify -- jei TRUE, rezultatas grÄ…Å¾inamas kaip vektorius.
 
-# Duomenø lentelës eilutës pagal vieno ar keletos kategoriniø kintamøjø reikğmes
-# suskirstomos á grupes. Taip gaunamos kelios maşesnës duomenø lentelës, ir tada 
-# kiekviena iğ jø perduodama argumento FUN funkcijai. Jei grupavimas atliekamas
-# pagal kelis kintamuosius, jie parametrui INDICES perduodami apjungti á sàrağà.
+# DuomenÅ³ lentelÄ—s eilutÄ—s pagal vieno ar keletos kategoriniÅ³ kintamÅ³jÅ³ reikÅ¡mes
+# suskirstomos Ä¯ grupes. Taip gaunamos kelios maÅ¾esnÄ—s duomenÅ³ lentelÄ—s, ir tada 
+# kiekviena iÅ¡ jÅ³ perduodama argumento FUN funkcijai. Jei grupavimas atliekamas
+# pagal kelis kintamuosius, jie parametrui INDICES perduodami apjungti Ä¯ sÄ…raÅ¡Ä….
 
-# Paèiu paprasèiausiu atveju funkcija by naudojama lygiai taip pat kaip ir f-ja
-# tapply, skiriasi tik rezultatø iğvedimo forma. Pvz., apskaièiuosime vektoriaus 
-# x vidurká grupëse pagal vektoriaus g elementø reikğmes. 
+# PaÄiu paprasÄiausiu atveju funkcija by naudojama lygiai taip pat kaip ir f-ja
+# tapply, skiriasi tik rezultatÅ³ iÅ¡vedimo forma. Pvz., apskaiÄiuosime vektoriaus 
+# x vidurkÄ¯ grupÄ—se pagal vektoriaus g elementÅ³ reikÅ¡mes. 
 
 by(x, g, mean)
 
-# Skaièiavimus grupëse galima atlikti su vienu duomenø lentelës kintamuoju. Pvz., 
-# apskaièiuosime lentelës d kintamojo ûgis vidurká atskirai vyrams ir moterims.
-# Èia kintamasis ûgis vidurkio skaièiavimo funkcijai perduodamas kaip vektorius. 
+# SkaiÄiavimus grupÄ—se galima atlikti su vienu duomenÅ³ lentelÄ—s kintamuoju. Pvz., 
+# apskaiÄiuosime lentelÄ—s d kintamojo Å«gis vidurkÄ¯ atskirai vyrams ir moterims.
+# ÄŒia kintamasis Å«gis vidurkio skaiÄiavimo funkcijai perduodamas kaip vektorius. 
 
-by(d[, 2], d[, 1],  mean)    # nurodome stulpeliø numerius
-by(d$ûgis, d$lytis, mean)    # nurodome kintamøjø vardus
+by(d[, 2], d[, 1],  mean)    # nurodome stulpeliÅ³ numerius
+by(d$Å«gis, d$lytis, mean)    # nurodome kintamÅ³jÅ³ vardus
 
-# Visà iğraiğkà ádëjus á funkcijà with, lentelës kintamøjø vardus galima naudoti 
-# tiesiogiai. Tokiu bûdu uşrağyta iğraiğka lengviau skaitoma ir suprantama.
+# VisÄ… iÅ¡raiÅ¡kÄ… Ä¯dÄ—jus Ä¯ funkcijÄ… with, lentelÄ—s kintamÅ³jÅ³ vardus galima naudoti 
+# tiesiogiai. Tokiu bÅ«du uÅ¾raÅ¡yta iÅ¡raiÅ¡ka lengviau skaitoma ir suprantama.
 
-with(d, by(ûgis, lytis, mean))
+with(d, by(Å«gis, lytis, mean))
 
 
-# Naudojant by, funkcijai galima perduoti daugiau nei vienà kintamàjá turinèià 
-# duomenø lentelæ. Pvz., apskaièiuosime kintamøjø ûgis ir svoris koreliacijos 
-# koeficientà atskirai vyrø ir moterø grupëse.
+# Naudojant by, funkcijai galima perduoti daugiau nei vienÄ… kintamÄ…jÄ¯ turinÄiÄ… 
+# duomenÅ³ lentelÄ™. Pvz., apskaiÄiuosime kintamÅ³jÅ³ Å«gis ir svoris koreliacijos 
+# koeficientÄ… atskirai vyrÅ³ ir moterÅ³ grupÄ—se.
 
-# Kaip ir anksèiau, visà by iğraiğkà ádësime á with konstrukcijà. Funkcijai cor
-# perduodamus kintamuosius ûgis ir svoris apjungiame á duomenø lentelæ naudodami 
-# komandà cbind. Kadangi ği lentelë turi praleistø reikğmiø, papildomai nurodome 
-# funkcijos cor parametrà use = "complete.obs", todël stebiniai su praleistomis 
-# reikğmëmis nebus naudojami.
+# Kaip ir anksÄiau, visÄ… by iÅ¡raiÅ¡kÄ… Ä¯dÄ—sime Ä¯ with konstrukcijÄ…. Funkcijai cor
+# perduodamus kintamuosius Å«gis ir svoris apjungiame Ä¯ duomenÅ³ lentelÄ™ naudodami 
+# komandÄ… cbind. Kadangi Å¡i lentelÄ— turi praleistÅ³ reikÅ¡miÅ³, papildomai nurodome 
+# funkcijos cor parametrÄ… use = "complete.obs", todÄ—l stebiniai su praleistomis 
+# reikÅ¡mÄ—mis nebus naudojami.
 
-with(d, by(cbind(ûgis, svoris), lytis, cor, use = "complete.obs"))
+with(d, by(cbind(Å«gis, svoris), lytis, cor, use = "complete.obs"))
 
-# Jei eilutës su praleistomis reikğmëmis bûtø panaikinamos iğ anksto, funkcijai
-# nereikëtø nurodyti parametro apie praleistas reikğmes. Tam galima naudoti f-jà
-# na.omit, kurios rezultatas yra duomenø lentelë be NA reikğmiø turinèiø eiluèiø.
+# Jei eilutÄ—s su praleistomis reikÅ¡mÄ—mis bÅ«tÅ³ panaikinamos iÅ¡ anksto, funkcijai
+# nereikÄ—tÅ³ nurodyti parametro apie praleistas reikÅ¡mes. Tam galima naudoti f-jÄ…
+# na.omit, kurios rezultatas yra duomenÅ³ lentelÄ— be NA reikÅ¡miÅ³ turinÄiÅ³ eiluÄiÅ³.
 
-with(na.omit(d), by(cbind(ûgis, svoris), lytis, cor))
+with(na.omit(d), by(cbind(Å«gis, svoris), lytis, cor))
 
-# Taèiau tokiu bûdu visai be reikalo iğmetama ir 6-ta eilutë, kurioje NA reikğmæ 
-# turi koreliacijos skaièiavime nenaudojamas kintamasis grupë. Dël to, eilutes
-# su NA reikğmëmis reikia iğmesti neatsişvelgiant á ketvirtame stulpelyje esantá
-# kintamàjá grupë.
+# TaÄiau tokiu bÅ«du visai be reikalo iÅ¡metama ir 6-ta eilutÄ—, kurioje NA reikÅ¡mÄ™ 
+# turi koreliacijos skaiÄiavime nenaudojamas kintamasis grupÄ—. DÄ—l to, eilutes
+# su NA reikÅ¡mÄ—mis reikia iÅ¡mesti neatsiÅ¾velgiant Ä¯ ketvirtame stulpelyje esantÄ¯
+# kintamÄ…jÄ¯ grupÄ—.
 
-with(na.omit(d[, -4]), by(cbind(ûgis, svoris), lytis, cor))
+with(na.omit(d[, -4]), by(cbind(Å«gis, svoris), lytis, cor))
 
-# Vietoj kintamøjø vardø nurodant stulpeliø numerius, ta pati iğraiğka uşrağoma 
-# ğiek tiek trumpiau.
+# Vietoj kintamÅ³jÅ³ vardÅ³ nurodant stulpeliÅ³ numerius, ta pati iÅ¡raiÅ¡ka uÅ¾raÅ¡oma 
+# Å¡iek tiek trumpiau.
 
 by(d[, 2:3], d[, 1], cor, use = "complete.obs")
 
 
-# Daşnai paprasèiau funkcijai kaip duomenis perduoti visus lentelës kintamuosius.
-# Uşrağysime funkcijà, kuri apskaièiuoja ne koreliacijø matricà, bet tik dviejø
-# konkreèiø lentelës kintamøjø koreliacijos koeficientus grupëse pagal lytá. Èia
-# reikiami kintamieji iğ f-jai perduotos lentelës iğrenkami jau funkcijos viduje.
+# DaÅ¾nai paprasÄiau funkcijai kaip duomenis perduoti visus lentelÄ—s kintamuosius.
+# UÅ¾raÅ¡ysime funkcijÄ…, kuri apskaiÄiuoja ne koreliacijÅ³ matricÄ…, bet tik dviejÅ³
+# konkreÄiÅ³ lentelÄ—s kintamÅ³jÅ³ koreliacijos koeficientus grupÄ—se pagal lytÄ¯. ÄŒia
+# reikiami kintamieji iÅ¡ f-jai perduotos lentelÄ—s iÅ¡renkami jau funkcijos viduje.
 
-by(d, d$lytis, function(x) cor(x$ûgis, x$svoris, use = "complete.obs"))
+by(d, d$lytis, function(x) cor(x$Å«gis, x$svoris, use = "complete.obs"))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nagrinëkime duomenø lentelæ d. Naudodami funkcijà by ir t.test, padalinkite
-#    duomenis pagal kintamàjá grupë á dvi dalis bei patikrinkite hipotezes, kad 
-#    ûgio vidurkis grupëje lygus 180 cm.
-# 2. Duomenø lentelëje airquality yra ávairiø oro parametrø Niujorke matavimai.
-#    Apskaièiuokite, kiek praleistø ozono matavimø yra kiekvienà mënesá. Tà patá
-#    rezultatà gaukite naudodami funkcijas by arba tapply.
-# 3. Nagrinëkime duomenø lentelæ airquality. Sudarykite ozono priklausomybës nuo
-#    temperatûros paprastosios tiesinës regresijos modelá ir, naudojant funkcijà 
-#    by, ávertinkite ğiø modelio parametrus kiekvienam mënesiui atskirai.
+# 1. NagrinÄ—kime duomenÅ³ lentelÄ™ d. Naudodami funkcijÄ… by ir t.test, padalinkite
+#    duomenis pagal kintamÄ…jÄ¯ grupÄ— Ä¯ dvi dalis bei patikrinkite hipotezes, kad 
+#    Å«gio vidurkis grupÄ—je lygus 180 cm.
+# 2. DuomenÅ³ lentelÄ—je airquality yra Ä¯vairiÅ³ oro parametrÅ³ Niujorke matavimai.
+#    ApskaiÄiuokite, kiek praleistÅ³ ozono matavimÅ³ yra kiekvienÄ… mÄ—nesÄ¯. TÄ… patÄ¯
+#    rezultatÄ… gaukite naudodami funkcijas by arba tapply.
+# 3. NagrinÄ—kime duomenÅ³ lentelÄ™ airquality. Sudarykite ozono priklausomybÄ—s nuo
+#    temperatÅ«ros paprastosios tiesinÄ—s regresijos modelÄ¯ ir, naudojant funkcijÄ… 
+#    by, Ä¯vertinkite Å¡iÅ³ modelio parametrus kiekvienam mÄ—nesiui atskirai.
 
 
 # --------------------------------------- #
 # FUNKCIJA AGGREGATE                      #
 # --------------------------------------- #
 
-# Kaip ir funkcija by, funkcija aggregate duomenø lentelæ pagal vieno ar keletos
-# kategoriniø kintamøjø reikğmes suskirsto á grupes. Pagrindinis skirtumas toks,
-# kad skaièiavimams perduodama ne duomenø lentelë, taèiau jà sudaranèiø kitamøjø
-# rinkinys. Dël to funkcija aggregate daşniausiai naudojama atskirø kintamøjø tø 
-# paèiø skaitiniø charakteristikø skaièiavimui ir ğiuo poşiûriu labiau panaği á 
-# funkcijà tapply. Jos parametrai:
+# Kaip ir funkcija by, funkcija aggregate duomenÅ³ lentelÄ™ pagal vieno ar keletos
+# kategoriniÅ³ kintamÅ³jÅ³ reikÅ¡mes suskirsto Ä¯ grupes. Pagrindinis skirtumas toks,
+# kad skaiÄiavimams perduodama ne duomenÅ³ lentelÄ—, taÄiau jÄ… sudaranÄiÅ³ kitamÅ³jÅ³
+# rinkinys. DÄ—l to funkcija aggregate daÅ¾niausiai naudojama atskirÅ³ kintamÅ³jÅ³ tÅ³ 
+# paÄiÅ³ skaitiniÅ³ charakteristikÅ³ skaiÄiavimui ir Å¡iuo poÅ¾iÅ«riu labiau panaÅ¡i Ä¯ 
+# funkcijÄ… tapply. Jos parametrai:
 # 
-#             x -- duomenø lentelë, matrica arba vektorius,
-#            by -- sàrağas su duomenis grupuojanèiø faktoriø vardais,
-#           FUN -- funkcijos pavadinimas arba iğraiğka.
+#             x -- duomenÅ³ lentelÄ—, matrica arba vektorius,
+#            by -- sÄ…raÅ¡as su duomenis grupuojanÄiÅ³ faktoriÅ³ vardais,
+#           FUN -- funkcijos pavadinimas arba iÅ¡raiÅ¡ka.
 
-# Reikia atkreipti dëmesá, kad ğios funkcijos parametrui by visada nurodomas tik
-# grupuojanèiø kintamøjø list tipo sàrağas (net jei toks kintamasis yra vienas).
+# Reikia atkreipti dÄ—mesÄ¯, kad Å¡ios funkcijos parametrui by visada nurodomas tik
+# grupuojanÄiÅ³ kintamÅ³jÅ³ list tipo sÄ…raÅ¡as (net jei toks kintamasis yra vienas).
 
-# Pavyzdşiui, apskaièiuosime vektoriaus x vidurkius grupëse pagal kintamàjá g.
+# PavyzdÅ¾iui, apskaiÄiuosime vektoriaus x vidurkius grupÄ—se pagal kintamÄ…jÄ¯ g.
 
 aggregate(x, list(g), mean)
 
 
-# Grupavimo kintamasis gali bûti nebûtinai vienas. Pvz., apskaièiuosime ûgio ir 
-# svorio iğ lentelës d vidurkius pagal lytá ir stebiniø grupæ. Kadangi lentelë 
-# turi praleistø reikğmiø, papildomai nurodome funkcijos mean parametrà na.rm.
-# Rezultatas yra atskirai kiekvieno kintamojo vidurkiø grupëse lentelë.
+# Grupavimo kintamasis gali bÅ«ti nebÅ«tinai vienas. Pvz., apskaiÄiuosime Å«gio ir 
+# svorio iÅ¡ lentelÄ—s d vidurkius pagal lytÄ¯ ir stebiniÅ³ grupÄ™. Kadangi lentelÄ— 
+# turi praleistÅ³ reikÅ¡miÅ³, papildomai nurodome funkcijos mean parametrÄ… na.rm.
+# Rezultatas yra atskirai kiekvieno kintamojo vidurkiÅ³ grupÄ—se lentelÄ—.
 
 aggregate(d[, 2:3], list(d[, 1], d[, 4]), mean, na.rm = TRUE)
 
-# Tà paèià iğraiğkà ákelsime á funkcijà with ir perrağysime tiesiogiai naudodami 
-# lentelës kintamøjø vardus.
+# TÄ… paÄiÄ… iÅ¡raiÅ¡kÄ… Ä¯kelsime Ä¯ funkcijÄ… with ir perraÅ¡ysime tiesiogiai naudodami 
+# lentelÄ—s kintamÅ³jÅ³ vardus.
 
-with(d, aggregate(cbind(ûgis, svoris), list(lytis, grupë), mean, na.rm = TRUE))
+with(d, aggregate(cbind(Å«gis, svoris), list(lytis, grupÄ—), mean, na.rm = TRUE))
 
 
-# Funkcija aggregate leidşia duomenø suskaidymà uşrağyti formule. Ğiuo atveju
+# Funkcija aggregate leidÅ¾ia duomenÅ³ suskaidymÄ… uÅ¾raÅ¡yti formule. Å iuo atveju
 # skiriasi jos parametrai:
 #
-#   formula -- duomenø suskaidymo formulë,
-#      data -- duomenø lentelës vardas,
-#       FUN -- funkcijos vardas arba jos iğraiğka,
-#    subset -- iğraiğka, kuri iğ duomenø lentelës iğrenka tam tikras eilutes,
-# na.action -- pagal nutylëjimà na.omit - nurodo, kad NA reikğmes pağalinti.
+#   formula -- duomenÅ³ suskaidymo formulÄ—,
+#      data -- duomenÅ³ lentelÄ—s vardas,
+#       FUN -- funkcijos vardas arba jos iÅ¡raiÅ¡ka,
+#    subset -- iÅ¡raiÅ¡ka, kuri iÅ¡ duomenÅ³ lentelÄ—s iÅ¡renka tam tikras eilutes,
+# na.action -- pagal nutylÄ—jimÄ… na.omit - nurodo, kad NA reikÅ¡mes paÅ¡alinti.
 
 
-# Galimi tokie formulës uşrağymo variantai:
+# Galimi tokie formulÄ—s uÅ¾raÅ¡ymo variantai:
 #
-#           y ~ A -- y suskaidomas á grupes pagal kintamojo A reikğmes,
-#       y ~ A + B -- y suskaidomas pagal kintamøjø A ir B reikğmes,
-# cbind(y, x) ~ A -- y ir x suskaidomi pagal kintamojo A reikğmes,
-#           . ~ A -- visi lentelës kintamieji suskaidomi pagal A reikğmes,
-#           y ~ . -- y suskaidomas pagal visus likusius lentelës kintamuosius.
+#           y ~ A -- y suskaidomas Ä¯ grupes pagal kintamojo A reikÅ¡mes,
+#       y ~ A + B -- y suskaidomas pagal kintamÅ³jÅ³ A ir B reikÅ¡mes,
+# cbind(y, x) ~ A -- y ir x suskaidomi pagal kintamojo A reikÅ¡mes,
+#           . ~ A -- visi lentelÄ—s kintamieji suskaidomi pagal A reikÅ¡mes,
+#           y ~ . -- y suskaidomas pagal visus likusius lentelÄ—s kintamuosius.
 
 
-# Dar kartà apskaièiuosime vektoriaus x vidurkius grupëse pagal vektoriø g. Ğá
-# kartà suskirstymà uşrağysime formule. Kadangi vektoriai ne iğ duomenø lentelës,
+# Dar kartÄ… apskaiÄiuosime vektoriaus x vidurkius grupÄ—se pagal vektoriÅ³ g. Å Ä¯
+# kartÄ… suskirstymÄ… uÅ¾raÅ¡ysime formule. Kadangi vektoriai ne iÅ¡ duomenÅ³ lentelÄ—s,
 # parametro data nurodyti nereikia.
 
 aggregate(x ~ g, FUN = mean)
 
-# Apskaièiuosime kintamojo ûgis iğ duomenø lentelës d vidurká atskirai vyrams ir 
-# moterims. Nurodşius duomenø lentelës vardà, formulëje galima tiesiogiai rağyti 
-# kintamøjø vardus.
+# ApskaiÄiuosime kintamojo Å«gis iÅ¡ duomenÅ³ lentelÄ—s d vidurkÄ¯ atskirai vyrams ir 
+# moterims. NurodÅ¾ius duomenÅ³ lentelÄ—s vardÄ…, formulÄ—je galima tiesiogiai raÅ¡yti 
+# kintamÅ³jÅ³ vardus.
 
-aggregate(ûgis ~ lytis, data = d, FUN = mean)
+aggregate(Å«gis ~ lytis, data = d, FUN = mean)
 
-# Apskaièiuosime ûgio ir svorio iğ lentelës d vidurká grupëse pagal kategorinius 
-# kintamuosius lytá ir grupæ. Kairëje formulës pusëje esanèius kintamuosius 
-# reikia apjungti á vienà lentelæ. Tam naudojama komanda cbind.
+# ApskaiÄiuosime Å«gio ir svorio iÅ¡ lentelÄ—s d vidurkÄ¯ grupÄ—se pagal kategorinius 
+# kintamuosius lytÄ¯ ir grupÄ™. KairÄ—je formulÄ—s pusÄ—je esanÄius kintamuosius 
+# reikia apjungti Ä¯ vienÄ… lentelÄ™. Tam naudojama komanda cbind.
 
-aggregate(cbind(ûgis, svoris) ~ lytis + grupë, data = d, FUN = mean)
+aggregate(cbind(Å«gis, svoris) ~ lytis + grupÄ—, data = d, FUN = mean)
 
-# Kadangi abu kintamieji lytis ir grupë yra kategoriniai, o kitø kintamøjø nëra,
-# juos galima pakeisti tağku. Èia reikia suprasti, kad ûgis ir svoris grupuojami
-# pagal visus likusius lentelës d kintamuosius.
+# Kadangi abu kintamieji lytis ir grupÄ— yra kategoriniai, o kitÅ³ kintamÅ³jÅ³ nÄ—ra,
+# juos galima pakeisti taÅ¡ku. ÄŒia reikia suprasti, kad Å«gis ir svoris grupuojami
+# pagal visus likusius lentelÄ—s d kintamuosius.
 
-aggregate(cbind(ûgis, svoris) ~ ., data = d, FUN = mean)
+aggregate(cbind(Å«gis, svoris) ~ ., data = d, FUN = mean)
 
-# Tà patá galima padaryti ir su kitø dviejø kintamøjø pora. Toks uşrağymo bûdas 
-# patogus, jei suskaidymà reikia atlikti daugeliui kintamøjø iğ karto, nes ğiuo 
-# atveju nereikia rağyti jø visø vardø.
+# TÄ… patÄ¯ galima padaryti ir su kitÅ³ dviejÅ³ kintamÅ³jÅ³ pora. Toks uÅ¾raÅ¡ymo bÅ«das 
+# patogus, jei suskaidymÄ… reikia atlikti daugeliui kintamÅ³jÅ³ iÅ¡ karto, nes Å¡iuo 
+# atveju nereikia raÅ¡yti jÅ³ visÅ³ vardÅ³.
 
-aggregate(. ~ lytis + grupë, data = d, FUN = mean)
-
-
-# Jei reikia, funkcija aggregate leidşia grupuoti tik tam tikras logines sàlygas 
-# tenkinanèias eilutes. Tokiu atveju parametrui subset nurodome loginæ iğraiğkà.
-# Pavyzdşiui, apskaièiuosime ûgio vidurkius maşiau nei 80 kg sveriantiems vyrams 
-# ir moterims. Ğiuo atveju parametrui subset nurodome sàlygà svoris < 80.
-
-aggregate(ûgis ~ lytis, data = d, subset = svoris < 80, FUN = mean)
+aggregate(. ~ lytis + grupÄ—, data = d, FUN = mean)
 
 
-# UŞDUOTIS ------------------------------ 
+# Jei reikia, funkcija aggregate leidÅ¾ia grupuoti tik tam tikras logines sÄ…lygas 
+# tenkinanÄias eilutes. Tokiu atveju parametrui subset nurodome loginÄ™ iÅ¡raiÅ¡kÄ….
+# PavyzdÅ¾iui, apskaiÄiuosime Å«gio vidurkius maÅ¾iau nei 80 kg sveriantiems vyrams 
+# ir moterims. Å iuo atveju parametrui subset nurodome sÄ…lygÄ… svoris < 80.
 
-# 1. Lentelëje chickwts yra eksperimento, kurio metu viğèiukams buvo duodami tam
-#    tikri maisto priedai ir matuojamas jø svoris, rezultatai: kintamasis weight
-#    ir feed. Apskaièiuokite viğèiukø svorio vidurkius grupëse pagal tai, kokius 
-#    maisto priedus jie gavo. Uşrağykite funkcijos aggregate versijà grupavimui 
-#    naudojant formulæ. Kaip toká patá rezultatà gauti naudojant tapply arba by?
-# 2. Duomenø lentelëje airquality yra ávairiø oro parametrø Niujorke matavimai.
-#    Apskaièiuokite vidutinæ kiekvieno mënesio oro temperatûrà naudojant f-jas
+aggregate(Å«gis ~ lytis, data = d, subset = svoris < 80, FUN = mean)
+
+
+# UÅ½DUOTIS ------------------------------ 
+
+# 1. LentelÄ—je chickwts yra eksperimento, kurio metu viÅ¡Äiukams buvo duodami tam
+#    tikri maisto priedai ir matuojamas jÅ³ svoris, rezultatai: kintamasis weight
+#    ir feed. ApskaiÄiuokite viÅ¡ÄiukÅ³ svorio vidurkius grupÄ—se pagal tai, kokius 
+#    maisto priedus jie gavo. UÅ¾raÅ¡ykite funkcijos aggregate versijÄ… grupavimui 
+#    naudojant formulÄ™. Kaip tokÄ¯ patÄ¯ rezultatÄ… gauti naudojant tapply arba by?
+# 2. DuomenÅ³ lentelÄ—je airquality yra Ä¯vairiÅ³ oro parametrÅ³ Niujorke matavimai.
+#    ApskaiÄiuokite vidutinÄ™ kiekvieno mÄ—nesio oro temperatÅ«rÄ… naudojant f-jas
 #    aggregate ir tapply.

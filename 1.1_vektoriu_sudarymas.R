@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Vektoriø sudarymas ir pagrindinës jø savybës.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            VektoriÅ³ sudarymas ir pagrindinÄ—s jÅ³ savybÄ—s.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2012-09-03 | 2013-05-06
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 # 
-#   1. Vektoriø sudarymas ir jø sàvybës:
+#   1. VektoriÅ³ sudarymas ir jÅ³ sÄ…vybÄ—s:
 #      * komanda vector
 #      * standartiniai vektoriai
 #      * komanda c
@@ -23,7 +23,7 @@
 #      * komanda attr 
 #      * operatorius [
 #
-#   2. Aritmetinës progresijos ir pasikartojanèios sekos:
+#   2. AritmetinÄ—s progresijos ir pasikartojanÄios sekos:
 #      * operatorius :
 #      * komanda seq
 #      * komanda seq_len
@@ -35,49 +35,49 @@
 # PASTABOS ------------------------------
 
 #
-# Kol kas pastabø nëra.
+# Kol kas pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# VEKTORIØ SUDARYMAS                      #
+# VEKTORIÅ² SUDARYMAS                      #
 # --------------------------------------- #
 
-# Vektorius yra bazinis ir pats svarbiausias R duomenø formatas. Vektorius gali 
-# bûti sudarytas tik iğ to paties tipo reikğmiø. Pagrindiniai tipai yra tokie:
+# Vektorius yra bazinis ir pats svarbiausias R duomenÅ³ formatas. Vektorius gali 
+# bÅ«ti sudarytas tik iÅ¡ to paties tipo reikÅ¡miÅ³. Pagrindiniai tipai yra tokie:
 #
-# character -- kabutëse rağomi raidës, şodşiai, sakiniai ir kiti simboliai;
-#   numeric -- realieji skaièiai;
-#    double -- taip pat realieji skaièiai, nuo numeric nesiskiria;
-#   integer -- sveikieji skaièiai uşrağomi prirağant L raidæ, pvz., 1L;
-#   complex -- a + bi  pavidalu uşrağomi kompleksiniai skaièiai;
-#   logical -- loginës reikğmës, TRUE, FALSE ir praleistom reikğmëm şymëti NA.
+# character -- kabutÄ—se raÅ¡omi raidÄ—s, Å¾odÅ¾iai, sakiniai ir kiti simboliai;
+#   numeric -- realieji skaiÄiai;
+#    double -- taip pat realieji skaiÄiai, nuo numeric nesiskiria;
+#   integer -- sveikieji skaiÄiai uÅ¾raÅ¡omi priraÅ¡ant L raidÄ™, pvz., 1L;
+#   complex -- a + bi  pavidalu uÅ¾raÅ¡omi kompleksiniai skaiÄiai;
+#   logical -- loginÄ—s reikÅ¡mÄ—s, TRUE, FALSE ir praleistom reikÅ¡mÄ—m Å¾ymÄ—ti NA.
 
 # Kiekvienas R objektas turi tam tikrus atributus. Pagrindiniai vektoriaus
-# atributai tai yra jo elementø skaièius -- ilgis, ir vektoriø sudaranèiø
-# reikğmiø tipas. Kitus galimus vektoriaus atributus aptarsime vëliau.
+# atributai tai yra jo elementÅ³ skaiÄius -- ilgis, ir vektoriÅ³ sudaranÄiÅ³
+# reikÅ¡miÅ³ tipas. Kitus galimus vektoriaus atributus aptarsime vÄ—liau.
 
-# Jei vektoriaus ilgis ir jo reikğmiø tipas yra şinomi, toká vektoriø galima
-# sukurti naudojant funkcijà vector. Jos parametrai:
+# Jei vektoriaus ilgis ir jo reikÅ¡miÅ³ tipas yra Å¾inomi, tokÄ¯ vektoriÅ³ galima
+# sukurti naudojant funkcijÄ… vector. Jos parametrai:
 #
-#   mode -- vektorius elementø tipas,
-# length -- vektoriaus elementø skaièius.
+#   mode -- vektorius elementÅ³ tipas,
+# length -- vektoriaus elementÅ³ skaiÄius.
 
 
-# Priklausomai nuo pasirinkto tipo, vektorius uşpildomas tam tikromis vienodomis
-# reikğmëmis. Şinoma, vëliau ğias reikğmes galima pakeisti.
+# Priklausomai nuo pasirinkto tipo, vektorius uÅ¾pildomas tam tikromis vienodomis
+# reikÅ¡mÄ—mis. Å½inoma, vÄ—liau Å¡ias reikÅ¡mes galima pakeisti.
 
 vector(mode = "character", length = 10)
 vector(mode = "numeric",   length = 10)
@@ -85,8 +85,8 @@ vector(mode = "logical",   length = 10)
 vector(mode = "complex",   length = 10)
 
 # Konkretaus tipo vektoriui sukurti naudojamos specialios komandos. Vienintelis 
-# jø parametras yra vektoriaus ilgis. Pradinës tokiu bûdu sukurto vektoriaus 
-# reikğmës taip pat yra vienodos ir priklauso nuo pasirinkto vektoriaus tipo.
+# jÅ³ parametras yra vektoriaus ilgis. PradinÄ—s tokiu bÅ«du sukurto vektoriaus 
+# reikÅ¡mÄ—s taip pat yra vienodos ir priklauso nuo pasirinkto vektoriaus tipo.
 
 character(10)
 numeric(10)
@@ -95,30 +95,30 @@ logical(10)
 
 # NAUDINGA ------------------------------
 
-# R turi keletà standartiniø konstantø ir daşnai naudojamø vektoriø.
+# R turi keletÄ… standartiniÅ³ konstantÅ³ ir daÅ¾nai naudojamÅ³ vektoriÅ³.
 
-letters       # lotyniğka maşøjø raidşiø abëcëlë
-LETTERS       # lotyniğka didşiøjø raidşiø abëcëlë
-month.abb     # sutrumpinti mënesiø pavadinimai
-month.name    # pilni mënesiø pavadinimai
+letters       # lotyniÅ¡ka maÅ¾Å³jÅ³ raidÅ¾iÅ³ abÄ—cÄ—lÄ—
+LETTERS       # lotyniÅ¡ka didÅ¾iÅ³jÅ³ raidÅ¾iÅ³ abÄ—cÄ—lÄ—
+month.abb     # sutrumpinti mÄ—nesiÅ³ pavadinimai
+month.name    # pilni mÄ—nesiÅ³ pavadinimai
 
-pi            # skaièius Pi
+pi            # skaiÄius Pi
 
-NA            # naudojama şymëti praleistoms reikğmëms
-NaN           # naudojama şymëti neapibrëştumams
-Inf           # begalybei şymëti naudojama numeric tipo reikğmë 
-NULL          # specialus tuğèias objektas
+NA            # naudojama Å¾ymÄ—ti praleistoms reikÅ¡mÄ—ms
+NaN           # naudojama Å¾ymÄ—ti neapibrÄ—Å¾tumams
+Inf           # begalybei Å¾ymÄ—ti naudojama numeric tipo reikÅ¡mÄ— 
+NULL          # specialus tuÅ¡Äias objektas
 
 
-# R kalboje skaliariniø dydşiø nëra. Atskirai paimta viena bet kokio tipo reikğmë 
-# suprantama kaip vektorius, kurio ilgis lygus vienetui. Labai daşnai vektoriai 
-# sudaromi apjungiant kelias reikğmes ar kelis to paties tipo vektorius. Tokiam 
+# R kalboje skaliariniÅ³ dydÅ¾iÅ³ nÄ—ra. Atskirai paimta viena bet kokio tipo reikÅ¡mÄ— 
+# suprantama kaip vektorius, kurio ilgis lygus vienetui. Labai daÅ¾nai vektoriai 
+# sudaromi apjungiant kelias reikÅ¡mes ar kelis to paties tipo vektorius. Tokiam 
 # apjungimui naudojama funkcija c.
 
 a <- c(1, 4, 5, 2, 3)
 a
 
-b <- "Visas sakinys yra viena 'character' tipo reikğmë."
+b <- "Visas sakinys yra viena 'character' tipo reikÅ¡mÄ—."
 b
 
 x <- c(1, 2, 3)
@@ -127,15 +127,15 @@ z <- c(7, 8, 9)
 u <- c(x, y, z)
 u
 
-# Vektoriaus ilgiui (jo elementø skaièiui) surasti naudojama komanda length.
+# Vektoriaus ilgiui (jo elementÅ³ skaiÄiui) surasti naudojama komanda length.
 length(a)
 length(b)
 
-# Vektoriaus elementø tipui nustatyti naudojama komanda mode. 
+# Vektoriaus elementÅ³ tipui nustatyti naudojama komanda mode. 
 mode(a)
 mode(b)
 
-# Taip galima patikrinti ir vienos atskirai paimtos reikğmës tipà.
+# Taip galima patikrinti ir vienos atskirai paimtos reikÅ¡mÄ—s tipÄ….
 mode(NA)
 mode(NaN)
 mode(TRUE)
@@ -145,125 +145,125 @@ mode("pi")
 mode(pi)
 mode(0+0i)
 
-# NULL yra specifinis -- tuğèias objektas, todël jis turi specialø tipà.
+# NULL yra specifinis -- tuÅ¡Äias objektas, todÄ—l jis turi specialÅ³ tipÄ….
 length(NULL)
 mode(NULL)
 
 
-# Vektoriaus elementai gali turëti vardus. Juos galima nurodyti vektoriaus
-# sudarymo metu arba vardø vektoriø galima priskirti jau turimam vektoriui.
+# Vektoriaus elementai gali turÄ—ti vardus. Juos galima nurodyti vektoriaus
+# sudarymo metu arba vardÅ³ vektoriÅ³ galima priskirti jau turimam vektoriui.
 
 d <- c(sausis = 31, vasaris = 28, kovas = 31, balandis = 30)
 d
 
-# Vektoriaus elementø vardai taip pat sudaro vektoriø, o jø ilgiai sutampa.
+# Vektoriaus elementÅ³ vardai taip pat sudaro vektoriÅ³, o jÅ³ ilgiai sutampa.
 names(d)
 mode(names(d))
 
 length(d)
 length(names(d))
 
-# Ta pati komanda names naudojama pakeisti arba sudaryti naujà vardø vektoriø.
-# Tarkime, kad turime vektoriø, kurio elementai neturi vardø, t.y. jo vardø 
-# vektorius yra tuğèias, todël komanda names gràşina reikğmæ NULL.
+# Ta pati komanda names naudojama pakeisti arba sudaryti naujÄ… vardÅ³ vektoriÅ³.
+# Tarkime, kad turime vektoriÅ³, kurio elementai neturi vardÅ³, t.y. jo vardÅ³ 
+# vektorius yra tuÅ¡Äias, todÄ—l komanda names grÄ…Å¾ina reikÅ¡mÄ™ NULL.
 
 a
 names(a)
 
-# Vardø vektoriui suteikiame reikğmæ -- vektoriø su elementø pavadinimais.
-names(a) <- c("pirmas", "antras", "treèias", "ketvirtas", "penktas")
+# VardÅ³ vektoriui suteikiame reikÅ¡mÄ™ -- vektoriÅ³ su elementÅ³ pavadinimais.
+names(a) <- c("pirmas", "antras", "treÄias", "ketvirtas", "penktas")
 
-# Vektoriaus elementø reikğmës nepasikeitë, taèiau dabar jis be ilgio ir
-# reikğmiø tipo turi dar vienà atributà -- vardus.
+# Vektoriaus elementÅ³ reikÅ¡mÄ—s nepasikeitÄ—, taÄiau dabar jis be ilgio ir
+# reikÅ¡miÅ³ tipo turi dar vienÄ… atributÄ… -- vardus.
 a
 names(a)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Patikrinkite teiginá, kad vektoriaus d ir jo vardø vektoriaus ilgiai sutampa.
-# 2. Apskaièiuokite, kokio ilgio yra vektorius LETTERS.
-# 3. Apskaièiuokite vektoriaus u ilgá ir nustatykite jo tipà.
+# 1. Patikrinkite teiginÄ¯, kad vektoriaus d ir jo vardÅ³ vektoriaus ilgiai sutampa.
+# 2. ApskaiÄiuokite, kokio ilgio yra vektorius LETTERS.
+# 3. ApskaiÄiuokite vektoriaus u ilgÄ¯ ir nustatykite jo tipÄ….
 
 
 # Vektoriaus ar kito R objekto atributams parodyti naudojama komanda attributes. 
 
-# Anksèiau sudarytas vektorius a turi vienintelá pakeièiamà atributà -- vardus.
+# AnksÄiau sudarytas vektorius a turi vienintelÄ¯ pakeiÄiamÄ… atributÄ… -- vardus.
 attributes(a)
 
-# Vektorius b tokio atributo neturi, todël funkcija gràşina tuğèià objektà NULL.
+# Vektorius b tokio atributo neturi, todÄ—l funkcija grÄ…Å¾ina tuÅ¡ÄiÄ… objektÄ… NULL.
 attributes(b)
 
 
-# Vektoriaus ar kito objekto atributams sukurti ir pakeisti yra keletas bûdø. 
-# Vieno kurio nors atributo reikğmës priskyrimui naudojama komanda attr.
+# Vektoriaus ar kito objekto atributams sukurti ir pakeisti yra keletas bÅ«dÅ³. 
+# Vieno kurio nors atributo reikÅ¡mÄ—s priskyrimui naudojama komanda attr.
 
-# Vektoriaus vardai yra jo atributas, todël já taip pat galima pakeisti su attr.
+# Vektoriaus vardai yra jo atributas, todÄ—l jÄ¯ taip pat galima pakeisti su attr.
 attr(a, "names") <- c("I", "II", "III", "IV", "V")
 
-# Vektoriaus atributas gali bûti ir bet kokia papildoma informacija apie vektoriø.
+# Vektoriaus atributas gali bÅ«ti ir bet kokia papildoma informacija apie vektoriÅ³.
 attr(a, "versija") <- "0.9"
 attr(a, "data")    <- "2013-05-06"
 
 attributes(a)
 a
 
-# Kartais reikia panaikinti tik vektoriaus elementø vardus. Pats paprasèiausias 
-# bûdas tai padaryti -- vardø vektoriui priskirti NULL reikğmæ.
+# Kartais reikia panaikinti tik vektoriaus elementÅ³ vardus. Pats paprasÄiausias 
+# bÅ«das tai padaryti -- vardÅ³ vektoriui priskirti NULL reikÅ¡mÄ™.
 
 names(a) <- NULL
 names(a)
 a
 
-# Analogiğku bûdu galima panaikinti ir visus vektoriaus atributus ir karto.
+# AnalogiÅ¡ku bÅ«du galima panaikinti ir visus vektoriaus atributus ir karto.
 attributes(a) <- NULL
 attributes(a)
 a
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sugalvokite bûdà, kaip vektoriaus vardus panaikinti naudojant komandà attr?
+# 1. Sugalvokite bÅ«dÄ…, kaip vektoriaus vardus panaikinti naudojant komandÄ… attr?
 
 
-# Bet kurá vektoriaus elementà galima pasiekti lauştiniuose skliaustuose nurodşius 
-# jo eilës numerá. Pvz., iğrenkame treèià vektoriaus d elementà.
+# Bet kurÄ¯ vektoriaus elementÄ… galima pasiekti lauÅ¾tiniuose skliaustuose nurodÅ¾ius 
+# jo eilÄ—s numerÄ¯. Pvz., iÅ¡renkame treÄiÄ… vektoriaus d elementÄ….
 d[3]
 
-# Galima iğskirti kelis vektoriaus elementus iğ karto. Tokiu atveju reikia sudaryti 
-# iğrenkamø elementø indeksø aibæ -- sukurti jø numeriø vektoriø.
+# Galima iÅ¡skirti kelis vektoriaus elementus iÅ¡ karto. Tokiu atveju reikia sudaryti 
+# iÅ¡renkamÅ³ elementÅ³ indeksÅ³ aibÄ™ -- sukurti jÅ³ numeriÅ³ vektoriÅ³.
 i <- c(3, 4)
 d[i]
 
-# Iğrenkamø elementø tvarka nebûtinai turi sutapti su jø tvarka tame vektoriuje.
+# IÅ¡renkamÅ³ elementÅ³ tvarka nebÅ«tinai turi sutapti su jÅ³ tvarka tame vektoriuje.
 i <- c(4, 1)
 d[i]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami indeksø vektoriø, vektoriaus d elementus iğrikiuokite  prieğinga tvarka.
-# 2. Sudarykite toká indeksø vektoriø, kurá naudojant pirmasis vektoriaus d elementas 
-#    bûtø iğrenkamas tris kartus.
+# 1. Naudodami indeksÅ³ vektoriÅ³, vektoriaus d elementus iÅ¡rikiuokite  prieÅ¡inga tvarka.
+# 2. Sudarykite tokÄ¯ indeksÅ³ vektoriÅ³, kurÄ¯ naudojant pirmasis vektoriaus d elementas 
+#    bÅ«tÅ³ iÅ¡renkamas tris kartus.
 
 
-# Vektoriaus elementus galima iğrinkti sudarius to paties ilgio loginiø reikğmiø 
-# vektoriø, kur TRUE reiğkia, jog reikğmæ reikia iğrinkti, o FALSE -- neiğrinkti.
-# Pvz., iğ vektoriaus d iğrinksime pirmà ir treèià narius.
+# Vektoriaus elementus galima iÅ¡rinkti sudarius to paties ilgio loginiÅ³ reikÅ¡miÅ³ 
+# vektoriÅ³, kur TRUE reiÅ¡kia, jog reikÅ¡mÄ™ reikia iÅ¡rinkti, o FALSE -- neiÅ¡rinkti.
+# Pvz., iÅ¡ vektoriaus d iÅ¡rinksime pirmÄ… ir treÄiÄ… narius.
 
 i <- c(TRUE, FALSE, TRUE, FALSE)
 i
 d[i]
 
-# Toks indeksø vektorius labai daşnai gaunamas tikrinant kokià nors sàlygà.
-# Pvz., iğ vektoriaus d iğskirsim tuos elementus, kuriø reikğmë didesnë uş 30.
+# Toks indeksÅ³ vektorius labai daÅ¾nai gaunamas tikrinant kokiÄ… nors sÄ…lygÄ….
+# Pvz., iÅ¡ vektoriaus d iÅ¡skirsim tuos elementus, kuriÅ³ reikÅ¡mÄ— didesnÄ— uÅ¾ 30.
 
 i <- d > 30
 i
 d[i]
 
-# Jei vektoriaus elementai turi vardus, tai konkretø vektoriaus elementà galima
-# iğrinkti nurodşius jo vardà.
+# Jei vektoriaus elementai turi vardus, tai konkretÅ³ vektoriaus elementÄ… galima
+# iÅ¡rinkti nurodÅ¾ius jo vardÄ….
 
 i <- "vasaris"
 d[i]
@@ -272,97 +272,97 @@ i <- c("kovas", "balandis")
 d[i]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ vektoriaus d iğskirkite tuos elementus, kuriø reikğmë tiksliai lygi 30.
-# 2. Sudarykite toká vardø vektoriø, kad vektoriaus d elementus iğvestø jø vardø 
-#    abëcëlës tvarka.
+# 1. IÅ¡ vektoriaus d iÅ¡skirkite tuos elementus, kuriÅ³ reikÅ¡mÄ— tiksliai lygi 30.
+# 2. Sudarykite tokÄ¯ vardÅ³ vektoriÅ³, kad vektoriaus d elementus iÅ¡vestÅ³ jÅ³ vardÅ³ 
+#    abÄ—cÄ—lÄ—s tvarka.
 
 
 # NAUDINGA ------------------------------
 
-# Programuojant su R, kai kurios tipinës konstrukcijos uşrağomos labai kompaktiğkai. 
-# Pvz., jei vektoriaus elementø iğrinkimas yra vienkartinis ir niekur nepasikartoja, 
-# tai toká indeksà, jø vektoriø ar loginæ sàlygà galima ákelti tiesiai á lauştinius 
+# Programuojant su R, kai kurios tipinÄ—s konstrukcijos uÅ¾raÅ¡omos labai kompaktiÅ¡kai. 
+# Pvz., jei vektoriaus elementÅ³ iÅ¡rinkimas yra vienkartinis ir niekur nepasikartoja, 
+# tai tokÄ¯ indeksÄ…, jÅ³ vektoriÅ³ ar loginÄ™ sÄ…lygÄ… galima Ä¯kelti tiesiai Ä¯ lauÅ¾tinius 
 # skliaustus -- bus trumpiau.
 
 d[c(4, 1)]
 d[d > 30]
 d["vasaris"]
 
-# Jei veiksmø su vektoriais rezultatas yra vektorius, iğ kurio reikia dar kartà 
-# iğrinkti tam tikrà elementà, toká veiksmà galima padaryti dar kartà naudojant 
-# iğrinkimo operatoriø [ ir nesukuriant tarpinio vektoriaus. Pvz., iğ vektoriaus 
-# d iğrinksime antràjá mënesá, kurio dienø skaièius didesnis uş 30.
+# Jei veiksmÅ³ su vektoriais rezultatas yra vektorius, iÅ¡ kurio reikia dar kartÄ… 
+# iÅ¡rinkti tam tikrÄ… elementÄ…, tokÄ¯ veiksmÄ… galima padaryti dar kartÄ… naudojant 
+# iÅ¡rinkimo operatoriÅ³ [ ir nesukuriant tarpinio vektoriaus. Pvz., iÅ¡ vektoriaus 
+# d iÅ¡rinksime antrÄ…jÄ¯ mÄ—nesÄ¯, kurio dienÅ³ skaiÄius didesnis uÅ¾ 30.
 
 d[d > 30][2]
 
-# Komandos names rezultatas yra vektoriaus elementø vardø vektorius (şinoma, jei  
-# jis egzistuoja). Tokio vektoriaus elementà galima iğrinkti kaip iğ bet kurio 
-# kito vektoriaus. Pvz., iğrinksime pirmojo vektoriaus d elemento vardà.
+# Komandos names rezultatas yra vektoriaus elementÅ³ vardÅ³ vektorius (Å¾inoma, jei  
+# jis egzistuoja). Tokio vektoriaus elementÄ… galima iÅ¡rinkti kaip iÅ¡ bet kurio 
+# kito vektoriaus. Pvz., iÅ¡rinksime pirmojo vektoriaus d elemento vardÄ….
 
 names(d)[1]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite komandà, kuri bet kokio ilgio vektoriui iğrinktø paskutiná to 
-#    vektoriaus vardø vektoriaus elementà.
+# 1. UÅ¾raÅ¡ykite komandÄ…, kuri bet kokio ilgio vektoriui iÅ¡rinktÅ³ paskutinÄ¯ to 
+#    vektoriaus vardÅ³ vektoriaus elementÄ….
 
 
 # --------------------------------------- #
-# ARITMETINËS IR PASIKARTOJANÈIOS SEKOS   #
+# ARITMETINÄ–S IR PASIKARTOJANÄŒIOS SEKOS   #
 # --------------------------------------- #
 
-# Tarkime, kad mums reikalingas visø natûriniø skaièiø nuo 1 iki 10 vektorius.
+# Tarkime, kad mums reikalingas visÅ³ natÅ«riniÅ³ skaiÄiÅ³ nuo 1 iki 10 vektorius.
 s <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 s
 
-# Sveikøjø skaièiø aritmetinæ progresijà su şingsniu 1 arba -1 galima uşrağyti
-# labai kompaktiğkai. Tam reikia per dvitağká nurodyti pirmà ir paskutiná sekos 
+# SveikÅ³jÅ³ skaiÄiÅ³ aritmetinÄ™ progresijÄ… su Å¾ingsniu 1 arba -1 galima uÅ¾raÅ¡yti
+# labai kompaktiÅ¡kai. Tam reikia per dvitaÅ¡kÄ¯ nurodyti pirmÄ… ir paskutinÄ¯ sekos 
 # narius.
 
-1:10  # sekoje değimt sveikøjø skaièiø nuo 1 iki 10
+1:10  # sekoje deÅ¡imt sveikÅ³jÅ³ skaiÄiÅ³ nuo 1 iki 10
 
--5:5  # skaièiai sekoje gali bûti neigiami
+-5:5  # skaiÄiai sekoje gali bÅ«ti neigiami
 
-10:1  # skaièiø seka gali bûti ir maşëjanti
+10:1  # skaiÄiÅ³ seka gali bÅ«ti ir maÅ¾Ä—janti
 
 
-# Sudëtingesnëms aritmetinëms progresijoms sudaryti skirta procedûra seq. 
+# SudÄ—tingesnÄ—ms aritmetinÄ—ms progresijoms sudaryti skirta procedÅ«ra seq. 
 # Jos parametrai:
 #
-#       from -- pirmojo generuojamos sekos nario reikğmë,
-#         to -- paskutinio generuojamos sekos nario reikğmë,
-#         by -- generuojamos sekos şingsnis,
-# length.out -- visos sekos elementø skaièius,
-# along.with -- vektorius, kurio elementø skaièius bus sekos ilgis.
+#       from -- pirmojo generuojamos sekos nario reikÅ¡mÄ—,
+#         to -- paskutinio generuojamos sekos nario reikÅ¡mÄ—,
+#         by -- generuojamos sekos Å¾ingsnis,
+# length.out -- visos sekos elementÅ³ skaiÄius,
+# along.with -- vektorius, kurio elementÅ³ skaiÄius bus sekos ilgis.
 
 
-# Pvz., tà paèià skaièiø sekà nuo 1 iki 10 galima uşrağyti taip:
+# Pvz., tÄ… paÄiÄ… skaiÄiÅ³ sekÄ… nuo 1 iki 10 galima uÅ¾raÅ¡yti taip:
 s <- seq(from = 1, to = 10, by = 1)
 s
 
-# Jei parametrai nurodomi nustatyta tvarka, jø vardø galima visai nerağyti. 
+# Jei parametrai nurodomi nustatyta tvarka, jÅ³ vardÅ³ galima visai neraÅ¡yti. 
 s <- seq(1, 10, 1)
 s
 
-# Pagal nutylëjimà sekos şingsnis lygus 1, todël ir parametro by galima nerağyti.
+# Pagal nutylÄ—jimÄ… sekos Å¾ingsnis lygus 1, todÄ—l ir parametro by galima neraÅ¡yti.
 s <- seq(1, 10)
 s
 
-# Naudojant tà paèià funkcijà galima keisti sekos şingsná ar nariø skaièiø.
-seq(1, 10, by = 0.5)                 # nurodome reikiamà sekos şingsná 
-seq(1, 10, length.out = 19)          # nurodome bendrà sekos nariø skaièiø
+# Naudojant tÄ… paÄiÄ… funkcijÄ… galima keisti sekos Å¾ingsnÄ¯ ar nariÅ³ skaiÄiÅ³.
+seq(1, 10, by = 0.5)                 # nurodome reikiamÄ… sekos Å¾ingsnÄ¯ 
+seq(1, 10, length.out = 19)          # nurodome bendrÄ… sekos nariÅ³ skaiÄiÅ³
 
-# Jei reikia sukurti sekà, kurios ilgis lygus kito vektoriaus elementø skaièiui,
+# Jei reikia sukurti sekÄ…, kurios ilgis lygus kito vektoriaus elementÅ³ skaiÄiui,
 # tada naudojamas parametras along.with, kuriam priskiriamas tas vektorius.
 
 d
 seq(along.with = d)
 
-# Kitø parametrø reikğmes taip pat galima keisti, pvz., nurodyti sekos pradşià 
-# ar pabaigà, taip pat galima nurodyti sekos şingsná.
+# KitÅ³ parametrÅ³ reikÅ¡mes taip pat galima keisti, pvz., nurodyti sekos pradÅ¾iÄ… 
+# ar pabaigÄ…, taip pat galima nurodyti sekos Å¾ingsnÄ¯.
 
 seq(from = 1, to = 10, along.with = d)
 seq(from = 10, by = 2, along.with = d)
@@ -372,19 +372,19 @@ seq(to   = 10, by = 2, along.with = d)
 # NAUDINGA ------------------------------
 
 # Jei sekos generavimui naudojamas vien tik parametras length.out, vietoje komandos
-# seq(length.out = x) galima naudoti komandà seq_len(x).
+# seq(length.out = x) galima naudoti komandÄ… seq_len(x).
 
 seq(length.out = 10)
 seq_len(10)
 
 # Jei sekos generavimui naudojamas vien tik parametras along.with, vietoje komandos
-# seq(along.with = x) galima naudoti komandà seq_along(x).
+# seq(along.with = x) galima naudoti komandÄ… seq_along(x).
 
 seq(along.with = d)
 seq_along(d)
 
-# Parametro from interpretacija priklauso nuo to, kokia reikğmë jam suteikiama: jei 
-# vienas skaièius x, tai funkcijos seq(x) rezultatas bus kaip funkcijos seq_len(x), 
+# Parametro from interpretacija priklauso nuo to, kokia reikÅ¡mÄ— jam suteikiama: jei 
+# vienas skaiÄius x, tai funkcijos seq(x) rezultatas bus kaip funkcijos seq_len(x), 
 # jei vektorius x -- kaip funkcijos seq_along(x).
 
 x <- 10
@@ -394,57 +394,57 @@ x <- c(F, F, T)
 seq(x)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Su komandà seq sudarykite sekà iğ maşesniø nei 100 nelyginiø natûriniø skaièiø.
-# 2. Su komandà seq sudarykite sekà, kuri atkarpà [0, 1] padalina á 10 lygiø daliø.
-# 3. Antro uşdavinio rezultatà gaukite funkcijoje seq nenaudojant parametro by.
-# 4. Antro uşdavinio rezultatà gaukite iğ vis nenaudodami funkcijos seq.
+# 1. Su komandÄ… seq sudarykite sekÄ… iÅ¡ maÅ¾esniÅ³ nei 100 nelyginiÅ³ natÅ«riniÅ³ skaiÄiÅ³.
+# 2. Su komandÄ… seq sudarykite sekÄ…, kuri atkarpÄ… [0, 1] padalina Ä¯ 10 lygiÅ³ daliÅ³.
+# 3. Antro uÅ¾davinio rezultatÄ… gaukite funkcijoje seq nenaudojant parametro by.
+# 4. Antro uÅ¾davinio rezultatÄ… gaukite iÅ¡ vis nenaudodami funkcijos seq.
 
 
-# Pasikartojanèiø elementø turinèios sekos generavimui naudojama funkcija rep. 
+# PasikartojanÄiÅ³ elementÅ³ turinÄios sekos generavimui naudojama funkcija rep. 
 # Jos parametrai:
 #
-#          x -- vektorius, kurá reikia pakartoti,
-#      times -- viso vektoriaus pakartojimø skaièius,
-# length.out -- bendras sekos elementø skaièius,
-#       each -- vektoriaus elementø pakartojimø skaièius.
+#          x -- vektorius, kurÄ¯ reikia pakartoti,
+#      times -- viso vektoriaus pakartojimÅ³ skaiÄius,
+# length.out -- bendras sekos elementÅ³ skaiÄius,
+#       each -- vektoriaus elementÅ³ pakartojimÅ³ skaiÄius.
 
 
-# Sudarome vektoriø (1, 2, 3), kurio elementus pakartosime ávairiais bûdais.
+# Sudarome vektoriÅ³ (1, 2, 3), kurio elementus pakartosime Ä¯vairiais bÅ«dais.
 v <- 1:3
 v
 
-# Viso vektoriaus pakartojimø skaièiø nurodo parametras times. Tokiu atveju prie 
-# vektoriaus galo prijungiamas toks pat vektorius ir tai pakartojama keletà kartø.
+# Viso vektoriaus pakartojimÅ³ skaiÄiÅ³ nurodo parametras times. Tokiu atveju prie 
+# vektoriaus galo prijungiamas toks pat vektorius ir tai pakartojama keletÄ… kartÅ³.
 rep(v, times = 3)
 
-# Vektoriaus elementø pakartojimø skaièius gali bûti individualus. Tokiu atveju 
-# parametro times reikğmë bus tokio pat ilgio vektorius su pakartojimø reikğmëmis.
+# Vektoriaus elementÅ³ pakartojimÅ³ skaiÄius gali bÅ«ti individualus. Tokiu atveju 
+# parametro times reikÅ¡mÄ— bus tokio pat ilgio vektorius su pakartojimÅ³ reikÅ¡mÄ—mis.
 rep(v, times = c(1, 5, 1))
 
-# Tuo atveju, jei visi vektoriaus elementai turi bûti pakartoti vienodà skaièiø
-# kartø, paprasèiau tà skaièiø nurodyti parametrui each -- komanda bus aiğkesnë.
+# Tuo atveju, jei visi vektoriaus elementai turi bÅ«ti pakartoti vienodÄ… skaiÄiÅ³
+# kartÅ³, paprasÄiau tÄ… skaiÄiÅ³ nurodyti parametrui each -- komanda bus aiÅ¡kesnÄ—.
 rep(v, times = c(2, 2, 2))
 rep(v, each = 2)
 
-# Sugeneruotos sekos ilgis nebûtinai turi bûti vektoriaus x ilgio kartotinis, jos 
-# ilgá galima apriboti per parametrà length.out. Pvz, vektoriø v kartojame, kol 
+# Sugeneruotos sekos ilgis nebÅ«tinai turi bÅ«ti vektoriaus x ilgio kartotinis, jos 
+# ilgÄ¯ galima apriboti per parametrÄ… length.out. Pvz, vektoriÅ³ v kartojame, kol 
 # visos sekos ilgis bus lygus 10.
 rep(v, length.out = 10)
 
-# Gali bûti nurodomi iğ karto keli argumentai, taèiau svarbu şinoti, kad parametras 
-# each turi didesná prioritetà prieğ parametrà times.
+# Gali bÅ«ti nurodomi iÅ¡ karto keli argumentai, taÄiau svarbu Å¾inoti, kad parametras 
+# each turi didesnÄ¯ prioritetÄ… prieÅ¡ parametrÄ… times.
 rep(v, each = 2, times = 2)
 
-# Pakartojamas vektorius gali bûti bet kokio tipo. Jis gali turëti ir vienà reikğmæ.
+# Pakartojamas vektorius gali bÅ«ti bet kokio tipo. Jis gali turÄ—ti ir vienÄ… reikÅ¡mÄ™.
 rep(1, times = 5)
 
-# Jei parametrai uşrağomi ta paèia tvarka, jø pavadinimø galima nerağyti.
+# Jei parametrai uÅ¾raÅ¡omi ta paÄia tvarka, jÅ³ pavadinimÅ³ galima neraÅ¡yti.
 rep(1, 5)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Komandos rep(1, 5) rezultatà gaukite panaudodami funkcijà seq.
-# 2. Uşrağykite rep komandà, kuri iğ vektoriaus v sudarytø sekà 1, 2, 2, 3, 3, 3.
+# 1. Komandos rep(1, 5) rezultatÄ… gaukite panaudodami funkcijÄ… seq.
+# 2. UÅ¾raÅ¡ykite rep komandÄ…, kuri iÅ¡ vektoriaus v sudarytÅ³ sekÄ… 1, 2, 2, 3, 3, 3.

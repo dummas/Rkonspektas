@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Ciklai ir jø nutraukimo komandos.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Ciklai ir jÅ³ nutraukimo komandos.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-08-22 | 2013-08-25
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. Ciklø for ir while konstrukcijos:
+#   1. CiklÅ³ for ir while konstrukcijos:
 #      * komanda for
 #      * komanda while
 #
@@ -26,19 +26,19 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -47,30 +47,30 @@ rm(list = ls())
 # --------------------------------------- #
 
 # Programavimo kalbose ciklai naudojami tokiuose algoritmuose, kur atliekami tam 
-# tikri pasikartojantys veiksmai. Jø skaièius gali bûti iğ anksto şinomas arba 
-# keistis priklausomai nuo ciklo metu tikrinamø sàlygø.
+# tikri pasikartojantys veiksmai. JÅ³ skaiÄius gali bÅ«ti iÅ¡ anksto Å¾inomas arba 
+# keistis priklausomai nuo ciklo metu tikrinamÅ³ sÄ…lygÅ³.
 
-# Ciklas for naudojamas tais atvejais, kai iteracijø skaièius iğ anksto şinomas.
-# Duomenø analizëje tai gali bûti vektoriaus elementø kiekis, matricos stulpeliø
-# arba eiluèiø skaièius, sàrağo árağø skaièius, nuskaitomø duomenø failø kiekis, 
-# modeliuojamø procesø skaièius ir t.t. 
+# Ciklas for naudojamas tais atvejais, kai iteracijÅ³ skaiÄius iÅ¡ anksto Å¾inomas.
+# DuomenÅ³ analizÄ—je tai gali bÅ«ti vektoriaus elementÅ³ kiekis, matricos stulpeliÅ³
+# arba eiluÄiÅ³ skaiÄius, sÄ…raÅ¡o Ä¯raÅ¡Å³ skaiÄius, nuskaitomÅ³ duomenÅ³ failÅ³ kiekis, 
+# modeliuojamÅ³ procesÅ³ skaiÄius ir t.t. 
 
 # Bendra ciklo for konstrukcija atrodo taip:
 # 
 #    for (var in set) {
-#       iğraiğkos
+#       iÅ¡raiÅ¡kos
 #    }
 # 
-# Kintamasis var ágyja reikğmes iğ indeksø aibës set. Ği aibë gali bûti sudaryta
-# iğ bet kokia tvarka surağytø vektoriaus elementø numeriø, matricos eiluèiø ar 
-# stulpeliø numeriø, taip pat vardø, kodø ar kitø kintamøjø, kuriø reikğmes turi
-# ágyti ciklo kintamasis var.
+# Kintamasis var Ä¯gyja reikÅ¡mes iÅ¡ indeksÅ³ aibÄ—s set. Å i aibÄ— gali bÅ«ti sudaryta
+# iÅ¡ bet kokia tvarka suraÅ¡ytÅ³ vektoriaus elementÅ³ numeriÅ³, matricos eiluÄiÅ³ ar 
+# stulpeliÅ³ numeriÅ³, taip pat vardÅ³, kodÅ³ ar kitÅ³ kintamÅ³jÅ³, kuriÅ³ reikÅ¡mes turi
+# Ä¯gyti ciklo kintamasis var.
 
-# Iğ eilës einanèiø indeksø aibæ paprasèiausia nurodyti naudojant : operatoriø. 
-# Kai vektoriaus ar sàrağo elementø skaièius iğ anksto neşinomas, jam nustatyti 
-# galima naudoti funkcijà length.
+# IÅ¡ eilÄ—s einanÄiÅ³ indeksÅ³ aibÄ™ paprasÄiausia nurodyti naudojant : operatoriÅ³. 
+# Kai vektoriaus ar sÄ…raÅ¡o elementÅ³ skaiÄius iÅ¡ anksto neÅ¾inomas, jam nustatyti 
+# galima naudoti funkcijÄ… length.
 
-# Pavyzdşiui, naudodami ciklà for, apskaièiuosime visø vektoriaus elementø sumà.
+# PavyzdÅ¾iui, naudodami ciklÄ… for, apskaiÄiuosime visÅ³ vektoriaus elementÅ³ sumÄ….
 
 v <- c(19, 5, 2, 19, 29, 42, 32, 35, 25, 18, 6, 22, 7, 28, 11, 8, 9, 37, 45, 23)
 
@@ -82,9 +82,9 @@ for (i in 1:length(v)) {
 
 suma
 
-# Kadangi ciklo kintamasis turi perbëgti per visø vektoriaus elementø indeksus, 
-# o ciklo viduje naudojamos vektoriaus elementø reikğmës, vietoje indeksø aibës 
-# galima nurodyti patá vektoriø. Tada sumavimo algoritmas uşrağomas paprasèiau.
+# Kadangi ciklo kintamasis turi perbÄ—gti per visÅ³ vektoriaus elementÅ³ indeksus, 
+# o ciklo viduje naudojamos vektoriaus elementÅ³ reikÅ¡mÄ—s, vietoje indeksÅ³ aibÄ—s 
+# galima nurodyti patÄ¯ vektoriÅ³. Tada sumavimo algoritmas uÅ¾raÅ¡omas paprasÄiau.
 
 suma <- 0
 
@@ -94,15 +94,15 @@ for (i in v) {
 
 suma
 
-# Paprastai vektoriaus elementø sumavimui naudojama standartinë funkcija sum.
+# Paprastai vektoriaus elementÅ³ sumavimui naudojama standartinÄ— funkcija sum.
 sum(v)
 
 
-# Iğ eilës einanèiø vektoriaus arba sàrağo elementø indeksø aibæ galima sudaryti 
-# ir naudojant funkcijà seq_along.
+# IÅ¡ eilÄ—s einanÄiÅ³ vektoriaus arba sÄ…raÅ¡o elementÅ³ indeksÅ³ aibÄ™ galima sudaryti 
+# ir naudojant funkcijÄ… seq_along.
 
-# Pavyzdşiui, apskaièiuosime tam tikrà ribà virğijanèiø vektoriaus elementø sumà
-# ir tokiø elementø skaièiø.
+# PavyzdÅ¾iui, apskaiÄiuosime tam tikrÄ… ribÄ… virÅ¡ijanÄiÅ³ vektoriaus elementÅ³ sumÄ…
+# ir tokiÅ³ elementÅ³ skaiÄiÅ³.
 
 riba <- 30
 suma <- 0
@@ -118,47 +118,47 @@ for (i in seq_along(v)) {
 suma
 kiek
 
-# Taip ği uşduotis turëtø bûti atlikta pagal R programavimo ideologijà.
+# Taip Å¡i uÅ¾duotis turÄ—tÅ³ bÅ«ti atlikta pagal R programavimo ideologijÄ….
 sum(v[v > riba])
 sum(v > riba)
 
 
-# Indeksø aibë nebûtinai turi apimti visus vektoriaus elementus, be to, indeksai
-# gali bûti surağyti bet kokia tvarka, jie gali kartotis ir t.t.
+# IndeksÅ³ aibÄ— nebÅ«tinai turi apimti visus vektoriaus elementus, be to, indeksai
+# gali bÅ«ti suraÅ¡yti bet kokia tvarka, jie gali kartotis ir t.t.
 
-# Pavyzdşiui, sudarysime nelyginiø vektoriaus elementø indeksø aibæ ir iğvesime
-# juos á konsolæ.
+# PavyzdÅ¾iui, sudarysime nelyginiÅ³ vektoriaus elementÅ³ indeksÅ³ aibÄ™ ir iÅ¡vesime
+# juos Ä¯ konsolÄ™.
 
 nelyginiai <- seq(1, length(v), by = 2)
 
 for (i in nelyginiai) {
-  cat("Elemento", i, "reikğmë:\n")
+  cat("Elemento", i, "reikÅ¡mÄ—:\n")
   print(v[i])
 }
 
-# Taip ği uşduotis turëtø bûti atlikta pagal R programavimo ideologijà.
+# Taip Å¡i uÅ¾duotis turÄ—tÅ³ bÅ«ti atlikta pagal R programavimo ideologijÄ….
 v[nelyginiai]
 
 
-# Indeksø aibë gali bûti sudaryta ir ne iğ skaièiø. Jà gali sudaryti bet kokie
-# kiti objektai. Pavyzdşiui, sudarysime aibæ iğ raidşiø ir patikrinsime, koks jø
-# numeris lotyniğkoje abëcëlëje.
+# IndeksÅ³ aibÄ— gali bÅ«ti sudaryta ir ne iÅ¡ skaiÄiÅ³. JÄ… gali sudaryti bet kokie
+# kiti objektai. PavyzdÅ¾iui, sudarysime aibÄ™ iÅ¡ raidÅ¾iÅ³ ir patikrinsime, koks jÅ³
+# numeris lotyniÅ¡koje abÄ—cÄ—lÄ—je.
 
-şodis <- c("L", "I", "E", "T", "U", "V", "A")
+Å¾odis <- c("L", "I", "E", "T", "U", "V", "A")
 
-for (raidë in şodis) {
-  numeris <- which(raidë == LETTERS)
-  cat(raidë, numeris, "\n")
+for (raidÄ— in Å¾odis) {
+  numeris <- which(raidÄ— == LETTERS)
+  cat(raidÄ—, numeris, "\n")
 }
 
 
-# Ciklus galima ádëti vienà á kità. Paprastai taip daroma atliekant veiksmus su 
-# matricomis. Pavyzdşiui, sukursime 4x5 dydşio nulinæ matricà ir jos elementams 
-# priskirsime tø elementø eilutës ir stulpelio numeriø sumà.
+# Ciklus galima Ä¯dÄ—ti vienÄ… Ä¯ kitÄ…. Paprastai taip daroma atliekant veiksmus su 
+# matricomis. PavyzdÅ¾iui, sukursime 4x5 dydÅ¾io nulinÄ™ matricÄ… ir jos elementams 
+# priskirsime tÅ³ elementÅ³ eilutÄ—s ir stulpelio numeriÅ³ sumÄ….
 
 m <- matrix(0, nrow = 4, ncol = 5)
 
-# Matricos eiluèiø ir stulpeliø skaièius nustatomas naudojant funkcijas nrow ir 
+# Matricos eiluÄiÅ³ ir stulpeliÅ³ skaiÄius nustatomas naudojant funkcijas nrow ir 
 # ncol.
 
 for (i in 1:nrow(m)) {
@@ -172,70 +172,70 @@ m
 
 # NAUDINGA ------------------------------
 
-# Atliekant ilgai trunkanèius skaièiavimus, á konsolæ naudinga iğvesti papildomà 
-# informacijà apie skaièiavimø progresà: tarpiniø kintamøjø reikğmes, iteracijos 
-# numerá ar laikà.
+# Atliekant ilgai trunkanÄius skaiÄiavimus, Ä¯ konsolÄ™ naudinga iÅ¡vesti papildomÄ… 
+# informacijÄ… apie skaiÄiavimÅ³ progresÄ…: tarpiniÅ³ kintamÅ³jÅ³ reikÅ¡mes, iteracijos 
+# numerÄ¯ ar laikÄ….
 
-# Pavyzdşiui, á ciklà for ádësime informacijà apie iteracijos numerá ir suminá
-# algoritmo veikimo laikà. Ğis laikas gaunamas kaip skirtumas tarp dviejø laiko 
-# momentø: vienas uşfiksuojamas prieğ ciklà, kitas - kiekvienos iteracijos metu. 
+# PavyzdÅ¾iui, Ä¯ ciklÄ… for Ä¯dÄ—sime informacijÄ… apie iteracijos numerÄ¯ ir suminÄ¯
+# algoritmo veikimo laikÄ…. Å is laikas gaunamas kaip skirtumas tarp dviejÅ³ laiko 
+# momentÅ³: vienas uÅ¾fiksuojamas prieÅ¡ ciklÄ…, kitas - kiekvienos iteracijos metu. 
 # Tam naudojama funkcija proc.time.
 
-# Informacija á konsolæ iğvedama kiekvienos iteracijos metu, taèiau pati konsolë
-# atnaujinama tik iğëjus iğ ciklo. Konsolës atnaujinimui naudojama funkcija
+# Informacija Ä¯ konsolÄ™ iÅ¡vedama kiekvienos iteracijos metu, taÄiau pati konsolÄ—
+# atnaujinama tik iÅ¡Ä—jus iÅ¡ ciklo. KonsolÄ—s atnaujinimui naudojama funkcija
 # flush.console.
 
-# Vietoje ilgai trunkanèiø skaièiavimø èia cikle ádëta funkcija Sys.sleep, kuri 
-# nustatytam laiko intervalui sustabdo bet kokius skaièiavimus. Ğiuo atveju tai
-# vienos sekundës pauzë.
+# Vietoje ilgai trunkanÄiÅ³ skaiÄiavimÅ³ Äia cikle Ä¯dÄ—ta funkcija Sys.sleep, kuri 
+# nustatytam laiko intervalui sustabdo bet kokius skaiÄiavimus. Å iuo atveju tai
+# vienos sekundÄ—s pauzÄ—.
 
 start.time <- proc.time()
 n <- 10
 
 for (i in 1:n) {
 
-  # Iğvedame informacijà apie iteracijos numerá ir bendrà laikà.
+  # IÅ¡vedame informacijÄ… apie iteracijos numerÄ¯ ir bendrÄ… laikÄ….
   info.index <- formatC(i, digits = 0, width = 2, format = "f", flag = "0")
   info.time  <- proc.time()[3] - start.time[3]
-  cat("Iteracija", info.index, "iğ", n, " .†. ", info.time, "\n")
+  cat("Iteracija", info.index, "iÅ¡", n, " .â€ . ", info.time, "\n")
   flush.console()
 
   Sys.sleep(1)
 }
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Tarkim, kad vektoriaus elementø reikğmës gautos vienodais laiko intervalais
-#    matuojant tam tikrà kintantá dydá. Toks vektorius vadinamas laiko eilute. 
-#    Statistikoje daşnai taikomas laiko eilutës glodinimas slenkanèiu vidurkiu.
-#    Sudarykite vektoriø, kurio pirmojo elemento reikğmë bûtø lygi vektoriaus v
-#    1, 2 ir 3 elementø vidurkiui, antro elemento reikğmë -- 2, 3, ir 4 elementø 
+# 1. Tarkim, kad vektoriaus elementÅ³ reikÅ¡mÄ—s gautos vienodais laiko intervalais
+#    matuojant tam tikrÄ… kintantÄ¯ dydÄ¯. Toks vektorius vadinamas laiko eilute. 
+#    Statistikoje daÅ¾nai taikomas laiko eilutÄ—s glodinimas slenkanÄiu vidurkiu.
+#    Sudarykite vektoriÅ³, kurio pirmojo elemento reikÅ¡mÄ— bÅ«tÅ³ lygi vektoriaus v
+#    1, 2 ir 3 elementÅ³ vidurkiui, antro elemento reikÅ¡mÄ— -- 2, 3, ir 4 elementÅ³ 
 #    vidurkiui ir taip toliau iki galo. 
-# 2. Uşrağykite algoritmà, kuris surastø didşiausia reikğmæ turintá vektoriaus v
-#    elementà ir nustatytø jo eilës numerá.
-# 3. Naudodami ciklà for, sudarykite vektoriø, kurio elementai lygûs matricos m
-#    eiluèiø sumoms.
-# 4. Naudodami ciklà for, uşrağykite algoritmà natûrinio skaièiaus n faktorialui
-#    apskaièiuoti.
+# 2. UÅ¾raÅ¡ykite algoritmÄ…, kuris surastÅ³ didÅ¾iausia reikÅ¡mÄ™ turintÄ¯ vektoriaus v
+#    elementÄ… ir nustatytÅ³ jo eilÄ—s numerÄ¯.
+# 3. Naudodami ciklÄ… for, sudarykite vektoriÅ³, kurio elementai lygÅ«s matricos m
+#    eiluÄiÅ³ sumoms.
+# 4. Naudodami ciklÄ… for, uÅ¾raÅ¡ykite algoritmÄ… natÅ«rinio skaiÄiaus n faktorialui
+#    apskaiÄiuoti.
 
 
 # --------------------------------------- #
 # CIKLAS WHILE                            #
 # --------------------------------------- #
 
-# Ciklas while naudojamas tada, kai tam tikrus pasikartojanèius veiksmus reikia
-# kartoti tol, kol tenkinama tam tikra sàlyga. Bendra ciklo while konstrukcija 
+# Ciklas while naudojamas tada, kai tam tikrus pasikartojanÄius veiksmus reikia
+# kartoti tol, kol tenkinama tam tikra sÄ…lyga. Bendra ciklo while konstrukcija 
 # atrodo taip:
 # 
-#    while (loginë sàlyga) {
-#       iğraiğkos
+#    while (loginÄ— sÄ…lyga) {
+#       iÅ¡raiÅ¡kos
 #    }
 
-# Sàlyga turi bûti tokia, kad ciklas netaptø amşinas. Tai reiğkia, kad tam tikru 
-# momentu loginës sàlygos reikğmë bûtinai turi tapti FALSE.
+# SÄ…lyga turi bÅ«ti tokia, kad ciklas netaptÅ³ amÅ¾inas. Tai reiÅ¡kia, kad tam tikru 
+# momentu loginÄ—s sÄ…lygos reikÅ¡mÄ— bÅ«tinai turi tapti FALSE.
 
-# Pavyzdşiui, uşrağysime algoritmà skaièiaus n faktorialui apskaièiuoti.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime algoritmÄ… skaiÄiaus n faktorialui apskaiÄiuoti.
 
 n <- 5
 faktorialas <- 1
@@ -247,20 +247,20 @@ while (n > 0) {
  
 faktorialas
 
-# Paprastai faktorialø skaièiavimui naudojama standartinë funkcija factorial.
+# Paprastai faktorialÅ³ skaiÄiavimui naudojama standartinÄ— funkcija factorial.
 factorial(5)
 
 
-# Ciklà while kartais galima naudoti ir tokiose situacijoje, kur tinka ir ciklas
-# for. Pavyzdşiui, patikrinsime, ar simboliø seka vienodai skaitoma iğ abiejø 
-# pusiø. Tokia skaièiø arba simboliø seka vadinama palindromu.
+# CiklÄ… while kartais galima naudoti ir tokiose situacijoje, kur tinka ir ciklas
+# for. PavyzdÅ¾iui, patikrinsime, ar simboliÅ³ seka vienodai skaitoma iÅ¡ abiejÅ³ 
+# pusiÅ³. Tokia skaiÄiÅ³ arba simboliÅ³ seka vadinama palindromu.
 
-s <- c("S", "Ë", "D", "Ë", "K", "U", "Ş", "U", "K", "Ë", "D", "Ë", "S")
+s <- c("S", "Ä–", "D", "Ä–", "K", "U", "Å½", "U", "K", "Ä–", "D", "Ä–", "S")
 
-# Loginiam kintamajam palindromas iğ karto priskiriama reikğmë TRUE. Tada pirmà
-# elementà lyginame su paskutiniu, antrà su prieğpaskutiniu iğ taip toliau iki 
+# Loginiam kintamajam palindromas iÅ¡ karto priskiriama reikÅ¡mÄ— TRUE. Tada pirmÄ…
+# elementÄ… lyginame su paskutiniu, antrÄ… su prieÅ¡paskutiniu iÅ¡ taip toliau iki 
 # vektoriaus vidurio. Jei nors viena pora nesutampa, tai kintamajam palindromas
-# priskiriama reikğmë FALSE.
+# priskiriama reikÅ¡mÄ— FALSE.
 
 i <- 0
 k <- length(s)
@@ -269,37 +269,37 @@ palindromas <- TRUE
 
 while (i < k/2) {
   i <- i + 1
-  cat("Raidşiø pora:", s[i], s[k-i+1], "\n")
+  cat("RaidÅ¾iÅ³ pora:", s[i], s[k-i+1], "\n")
   if (s[i] != s[k-i+1]) palindromas <- FALSE
 }
 
 palindromas
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami ciklà while, apskaièiuokite, kiek iğ eilës einanèiø vektoriaus v 
-#    elementø reikia susumuoti, norint gauti didşiausià sumà nevirğijanèià 100.
-#    Loginæ sàlygà reikia uşrağyti taip, kad susumavus visus elementus, bet sumai 
-#    nevirğijus 100, ciklas bûtø nutraukiamas.
-# 2. Naudodami ciklà while, uşrağykite vektoriaus elementø iğrikiavimo prieğinga
-#    tvarka algoritmà.
+# 1. Naudodami ciklÄ… while, apskaiÄiuokite, kiek iÅ¡ eilÄ—s einanÄiÅ³ vektoriaus v 
+#    elementÅ³ reikia susumuoti, norint gauti didÅ¾iausiÄ… sumÄ… nevirÅ¡ijanÄiÄ… 100.
+#    LoginÄ™ sÄ…lygÄ… reikia uÅ¾raÅ¡yti taip, kad susumavus visus elementus, bet sumai 
+#    nevirÅ¡ijus 100, ciklas bÅ«tÅ³ nutraukiamas.
+# 2. Naudodami ciklÄ… while, uÅ¾raÅ¡ykite vektoriaus elementÅ³ iÅ¡rikiavimo prieÅ¡inga
+#    tvarka algoritmÄ….
 
 
 # --------------------------------------- #
 # CIKLAS REPEAT IR JO NUTRAUKIMAS         #
 # --------------------------------------- #
 
-# Ciklas repeat labai panağus á ciklà while, taèiau ciklo nutraukimo sàlyga 
+# Ciklas repeat labai panaÅ¡us Ä¯ ciklÄ… while, taÄiau ciklo nutraukimo sÄ…lyga 
 # tikrinama ciklo viduje: 
 # 
 #    repeat {
-#       iğraiğkos
-#       if (loginë sàlyga) break
+#       iÅ¡raiÅ¡kos
+#       if (loginÄ— sÄ…lyga) break
 #    }
 
-# Pavyzdşiui, uşrağysime algoritmà, kuris skaièiavimus nutraukia po tam tikro 
-# laiko tarpo. Ğiuo atveju tai bus 1 sekundë. Á konsolæ bus iğvedamas iteracijos 
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime algoritmÄ…, kuris skaiÄiavimus nutraukia po tam tikro 
+# laiko tarpo. Å iuo atveju tai bus 1 sekundÄ—. Ä® konsolÄ™ bus iÅ¡vedamas iteracijos 
 # numeris.
 
 start.time <- proc.time()
@@ -315,29 +315,29 @@ repeat {
 }
 
 
-# Kartais ciklà reikia nutraukti dël skaièiavimø metu susidariusiø sàlygø. Tai
-# gali bûti praleista ar neapibrëşta reikğmë duomenyse, maşas stebiniø skaièius
-# ar kitokia nekorektiğka situacija. Bet kokio tipo ciklui nutraukti naudojamos 
+# Kartais ciklÄ… reikia nutraukti dÄ—l skaiÄiavimÅ³ metu susidariusiÅ³ sÄ…lygÅ³. Tai
+# gali bÅ«ti praleista ar neapibrÄ—Å¾ta reikÅ¡mÄ— duomenyse, maÅ¾as stebiniÅ³ skaiÄius
+# ar kitokia nekorektiÅ¡ka situacija. Bet kokio tipo ciklui nutraukti naudojamos 
 # dvi komandos: 
 #
-#     next -- nutraukia iteracijà ir pereina prie sekanèios,
-#    break -- nutraukia ciklà ir iğeina iğ jo.
+#     next -- nutraukia iteracijÄ… ir pereina prie sekanÄios,
+#    break -- nutraukia ciklÄ… ir iÅ¡eina iÅ¡ jo.
 
-# Pavyzdşiui, naudojant ciklà for, susumuosime tik nelygines reikğmes turinèius 
-# vektoriaus v elementus. Jei elemento reikğmë lyginë, tai sumavimo veiksmas
-# praleidşiamas ir pereinama prie sekanèio elemento.
+# PavyzdÅ¾iui, naudojant ciklÄ… for, susumuosime tik nelygines reikÅ¡mes turinÄius 
+# vektoriaus v elementus. Jei elemento reikÅ¡mÄ— lyginÄ—, tai sumavimo veiksmas
+# praleidÅ¾iamas ir pereinama prie sekanÄio elemento.
 
 suma <- 0
 
 for (i in v) {
   if (i %% 2 == 0) next
   suma <- suma + i
-  cat("Elemento reikğmë:", i, "\n")
+  cat("Elemento reikÅ¡mÄ—:", i, "\n")
 }
 
 suma
 
-# Sumavimo iğraiğkà galima ádëti á if-else konstrukcijà ir uşrağyti kiek kitaip.
+# Sumavimo iÅ¡raiÅ¡kÄ… galima Ä¯dÄ—ti Ä¯ if-else konstrukcijÄ… ir uÅ¾raÅ¡yti kiek kitaip.
 suma <- 0
 
 for (i in v) {
@@ -346,19 +346,19 @@ for (i in v) {
 
 suma
 
-# Taip ği uşduotis turëtø bûti atlikta pagal R programavimo ideologijà.
+# Taip Å¡i uÅ¾duotis turÄ—tÅ³ bÅ«ti atlikta pagal R programavimo ideologijÄ….
 sum(v[v %% 2 == 1])
 
 
-# Nors ciklui for nurodomas fiksuotas iteracijø skaièius, bet esant tam tikroms
-# sàlygoms ciklà galima nutraukti anksèiau. Pavyzdşiui, nutrauksime ciklà, jei
-# trijø iğ eilës vektoriaus v elementø reikğmës virğija 30.
+# Nors ciklui for nurodomas fiksuotas iteracijÅ³ skaiÄius, bet esant tam tikroms
+# sÄ…lygoms ciklÄ… galima nutraukti anksÄiau. PavyzdÅ¾iui, nutrauksime ciklÄ…, jei
+# trijÅ³ iÅ¡ eilÄ—s vektoriaus v elementÅ³ reikÅ¡mÄ—s virÅ¡ija 30.
 
-# Ciklo viduje á atskirà vektoriø iğskiriame tris iğ eilës einanèius elementus,
-# paşymëkime jø indeksus atitinkamai j - 2, j - 1 ir j. Kadangi pilnas trejetas 
-# susidaro tik nuo treèiojo elemento, tai pirmasis indeksas j - 2 iki tol ágyjà 
-# reikğmæ -1 arba 0, ir vektoriaus elementø su tokiais indeksais nëra. Dël to 
-# ávedamas tarpinis kintamasis i = j - 2, kurio reikğmë lygi 1, jei j - 2 < 1.
+# Ciklo viduje Ä¯ atskirÄ… vektoriÅ³ iÅ¡skiriame tris iÅ¡ eilÄ—s einanÄius elementus,
+# paÅ¾ymÄ—kime jÅ³ indeksus atitinkamai j - 2, j - 1 ir j. Kadangi pilnas trejetas 
+# susidaro tik nuo treÄiojo elemento, tai pirmasis indeksas j - 2 iki tol Ä¯gyjÄ… 
+# reikÅ¡mÄ™ -1 arba 0, ir vektoriaus elementÅ³ su tokiais indeksais nÄ—ra. DÄ—l to 
+# Ä¯vedamas tarpinis kintamasis i = j - 2, kurio reikÅ¡mÄ— lygi 1, jei j - 2 < 1.
 
 riba <- 30
 
@@ -369,18 +369,18 @@ for (j in seq_along(v)) {
   cat(t, "\n")
 
   if (all(t > riba)) {
-    cat("Trys iğ eilës reikğmës didesnës uş ", riba, "! ", sep = "")
-    cat("Skaièiavimai nutraukiami.\n", sep = "")
+    cat("Trys iÅ¡ eilÄ—s reikÅ¡mÄ—s didesnÄ—s uÅ¾ ", riba, "! ", sep = "")
+    cat("SkaiÄiavimai nutraukiami.\n", sep = "")
     break  
   }
 }
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite vektoriaus elementø sumavimo ciklà for, kuris nutraukiamas, jei 
-#    vektoriaus elemento reikğmë yra NA. Iğeinant iğ ciklo, á konsolæ iğvedamas
-#    praneğimas, kad ciklas nutraukiamas dël praleistos reikğmës duomenyse.
-# 2. Naudodami ciklà for, apskaièiuokite didesniø nei 30 vektoriaus v elementø
-#    sumà ir ğiø elementø skaièiø. Netenkinanèiø ğios sàlygos elementø sumavimà
-#    praleiskite naudojant komandà next.
+# 1. UÅ¾raÅ¡ykite vektoriaus elementÅ³ sumavimo ciklÄ… for, kuris nutraukiamas, jei 
+#    vektoriaus elemento reikÅ¡mÄ— yra NA. IÅ¡einant iÅ¡ ciklo, Ä¯ konsolÄ™ iÅ¡vedamas
+#    praneÅ¡imas, kad ciklas nutraukiamas dÄ—l praleistos reikÅ¡mÄ—s duomenyse.
+# 2. Naudodami ciklÄ… for, apskaiÄiuokite didesniÅ³ nei 30 vektoriaus v elementÅ³
+#    sumÄ… ir Å¡iÅ³ elementÅ³ skaiÄiÅ³. NetenkinanÄiÅ³ Å¡ios sÄ…lygos elementÅ³ sumavimÄ…
+#    praleiskite naudojant komandÄ… next.

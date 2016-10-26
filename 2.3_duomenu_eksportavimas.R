@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Duomenø eksportavimo á tekstiná ar binariná failà bûdai.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            DuomenÅ³ eksportavimo Ä¯ tekstinÄ¯ ar binarinÄ¯ failÄ… bÅ«dai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-07-22 | 2013-07-25
 #
@@ -12,302 +12,302 @@
 # TURINYS -------------------------------
 
 #
-#   1. Duomenø eksportavimas á tekstiná failà:
-#      * procedûra write
-#      * procedûra writeLines
-#      * procedûra write.table
-#      * procedûra write.csv
+#   1. DuomenÅ³ eksportavimas Ä¯ tekstinÄ¯ failÄ…:
+#      * procedÅ«ra write
+#      * procedÅ«ra writeLines
+#      * procedÅ«ra write.table
+#      * procedÅ«ra write.csv
 #
-#   2. Duomenø árağymas á binariná failà:
-#      * procedûra save
-#      * procedûra load
+#   2. DuomenÅ³ Ä¯raÅ¡ymas Ä¯ binarinÄ¯ failÄ…:
+#      * procedÅ«ra save
+#      * procedÅ«ra load
 #
 
 
 # PASTABOS ------------------------------
 
 #
-# Kol kas pastabø nëra.
+# Kol kas pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# DUOMENØ EKSPORTAVIMAS Á TEKSTINÁ FAILÀ  #
+# DUOMENÅ² EKSPORTAVIMAS Ä® TEKSTINÄ® FAILÄ„  #
 # --------------------------------------- #
 
-# Vektoriaus ar matricos reikğmës á tekstiná failà árağomos naudojant procedûrà 
+# Vektoriaus ar matricos reikÅ¡mÄ—s Ä¯ tekstinÄ¯ failÄ… Ä¯raÅ¡omos naudojant procedÅ«rÄ… 
 # write. Pagrindiniai parametrai tokie:
 #
 #        x -- R kintamasis: vektorius arba matrica,
-#     file -- kabutëse uşrağomas duomenø failo vardas arba kelias iki failo,
-#      sep -- simbolis, kuriuo faile atskiriamos vektoriaus reikğmës,
-# ncolumns -- vektoriaus elementø skaièius vienoje failo eilutëje,
-#   append -- jei TRUE, vektoriaus reikğmës árağomos á jau esantá failà.
+#     file -- kabutÄ—se uÅ¾raÅ¡omas duomenÅ³ failo vardas arba kelias iki failo,
+#      sep -- simbolis, kuriuo faile atskiriamos vektoriaus reikÅ¡mÄ—s,
+# ncolumns -- vektoriaus elementÅ³ skaiÄius vienoje failo eilutÄ—je,
+#   append -- jei TRUE, vektoriaus reikÅ¡mÄ—s Ä¯raÅ¡omos Ä¯ jau esantÄ¯ failÄ….
 
-# Jei parametrui file nurodomas tik duomenø failo vardas, tai darbiniame kataloge 
-# sukuriamas failas, á kurá árağomos kintamojo reikğmës. Darbiná katalogà galima 
-# suşinoti su komanda getwd(), o pakeisti su komanda setwd (kaip ğiame skripte). 
-# Nepriklausomai nuo darbinio katalogo, galima nurodyti ir pilnà kelià iki failo,
-# taèiau toks uşrağymo bûdas ilgesnis ir daşnai nepatogus. Paprasèiau programos 
-# pradşioje nurodyti reikiamà darbiná katalogà ir duomenis á já rağyti nurodant 
-# tik failo vardà.
+# Jei parametrui file nurodomas tik duomenÅ³ failo vardas, tai darbiniame kataloge 
+# sukuriamas failas, Ä¯ kurÄ¯ Ä¯raÅ¡omos kintamojo reikÅ¡mÄ—s. DarbinÄ¯ katalogÄ… galima 
+# suÅ¾inoti su komanda getwd(), o pakeisti su komanda setwd (kaip Å¡iame skripte). 
+# Nepriklausomai nuo darbinio katalogo, galima nurodyti ir pilnÄ… keliÄ… iki failo,
+# taÄiau toks uÅ¾raÅ¡ymo bÅ«das ilgesnis ir daÅ¾nai nepatogus. PaprasÄiau programos 
+# pradÅ¾ioje nurodyti reikiamÄ… darbinÄ¯ katalogÄ… ir duomenis Ä¯ jÄ¯ raÅ¡yti nurodant 
+# tik failo vardÄ….
 
-# Kintamojo reikğmës surağomos á tekstiná failà, bet failo iğplëtimas nebûtinai 
-# turi bûti txt. Pagal nutylëjimà skaitinio vektoriaus reikğmës faile surağomos
-# eilutëmis po 5 reikğmes vienoje eilutëje, o simbolinio -- po vienà elementà á 
-# vienà eilutæ.
+# Kintamojo reikÅ¡mÄ—s suraÅ¡omos Ä¯ tekstinÄ¯ failÄ…, bet failo iÅ¡plÄ—timas nebÅ«tinai 
+# turi bÅ«ti txt. Pagal nutylÄ—jimÄ… skaitinio vektoriaus reikÅ¡mÄ—s faile suraÅ¡omos
+# eilutÄ—mis po 5 reikÅ¡mes vienoje eilutÄ—je, o simbolinio -- po vienÄ… elementÄ… Ä¯ 
+# vienÄ… eilutÄ™.
 
-# Sukursime paprastà vektoriø iğ skaitmenø ir já árağysime á tekstiná failà.
+# Sukursime paprastÄ… vektoriÅ³ iÅ¡ skaitmenÅ³ ir jÄ¯ Ä¯raÅ¡ysime Ä¯ tekstinÄ¯ failÄ….
 v <- c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 v
 
 write(x = v, file = "numb.vec")
 
 # Galima pamatyti, kad kataloge "C:/Downloads" sukuriamas failas numb.vec, kurio
-# viduje penkiuose stulpeliuose árağytos vektoriaus reikğmës.
+# viduje penkiuose stulpeliuose Ä¯raÅ¡ytos vektoriaus reikÅ¡mÄ—s.
 
-# Pagal nutylëjimà vektoriaus reikğmës faile atskiriamos tarpu. Tà patá vektoriø
-# árağysime á failà, kuriame reikğmës bus atskirtos tabuliacijos şenklu \t.
+# Pagal nutylÄ—jimÄ… vektoriaus reikÅ¡mÄ—s faile atskiriamos tarpu. TÄ… patÄ¯ vektoriÅ³
+# Ä¯raÅ¡ysime Ä¯ failÄ…, kuriame reikÅ¡mÄ—s bus atskirtos tabuliacijos Å¾enklu \t.
 write(x = v, file = "numb.vec", sep = "\t")
 
-# Jei elementai atskiriami naujos eilutës şenklu \n, tai faile jie bus surağyti 
-# á vienà stulpelá.
+# Jei elementai atskiriami naujos eilutÄ—s Å¾enklu \n, tai faile jie bus suraÅ¡yti 
+# Ä¯ vienÄ… stulpelÄ¯.
 write(x = v, file = "numb.vec", sep = "\n")
 
-# Jei dël kokiø nors prieşasèiø vektoriaus reikğmes faile reikia árağyti á vienà
-# ar kelis stulpelius, tai pakeièiama numatytoji parametro ncolumns reikğmë.
+# Jei dÄ—l kokiÅ³ nors prieÅ¾asÄiÅ³ vektoriaus reikÅ¡mes faile reikia Ä¯raÅ¡yti Ä¯ vienÄ…
+# ar kelis stulpelius, tai pakeiÄiama numatytoji parametro ncolumns reikÅ¡mÄ—.
 write(x = v, file = "numb.vec", ncolumns = 2)
 
-# Kartais pasitaiko situacija, kai keletos vektoriø reikğmes reikia surağyti á tà 
-# patá failà. Tokiais atvejais parametro append reikğmæ reikia pakeisti á TRUE.
-# Pavyzdşiui, á jau sukurtà failà dar kartà árağysime tà patá vektoriø.
+# Kartais pasitaiko situacija, kai keletos vektoriÅ³ reikÅ¡mes reikia suraÅ¡yti Ä¯ tÄ… 
+# patÄ¯ failÄ…. Tokiais atvejais parametro append reikÅ¡mÄ™ reikia pakeisti Ä¯ TRUE.
+# PavyzdÅ¾iui, Ä¯ jau sukurtÄ… failÄ… dar kartÄ… Ä¯raÅ¡ysime tÄ… patÄ¯ vektoriÅ³.
 
 write(x = v, file = "numb.vec")
 write(x = v, file = "numb.vec", append = TRUE)
 
 
-# Kadangi R kalboje matrica suprantama kaip vektorius, kurio elementai iğdëstyti
-# stulpeliais ar eilutëmis, tai matricà taip pat galima árağyti á failà. Kadangi
-# matricos elementai nuskaitomi stulpeliais, o á failà árağomi eilutëmis, tam kad
-# faile matrica turëtø tokius pat iğmatavimus, jà reikia transponuoti.
+# Kadangi R kalboje matrica suprantama kaip vektorius, kurio elementai iÅ¡dÄ—styti
+# stulpeliais ar eilutÄ—mis, tai matricÄ… taip pat galima Ä¯raÅ¡yti Ä¯ failÄ…. Kadangi
+# matricos elementai nuskaitomi stulpeliais, o Ä¯ failÄ… Ä¯raÅ¡omi eilutÄ—mis, tam kad
+# faile matrica turÄ—tÅ³ tokius pat iÅ¡matavimus, jÄ… reikia transponuoti.
 
-# Pavyzdşiui, sukursime 3x4 dydşio skaièiø matricà ir árağysime jà á failà.
+# PavyzdÅ¾iui, sukursime 3x4 dydÅ¾io skaiÄiÅ³ matricÄ… ir Ä¯raÅ¡ysime jÄ… Ä¯ failÄ….
 x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
 m <- matrix(x, ncol = 4)
 m
 
-# Transponavimui naudojama funkcija t. Stulpeliø skaièius nurodomas toks pat.
+# Transponavimui naudojama funkcija t. StulpeliÅ³ skaiÄius nurodomas toks pat.
 write(x = t(m), file = "numb.mat", ncolumns = 4)
 
 
-# Tekstinio vektoriaus elementai pagal nutylëjimà á failà árağomi stulpeliu. 
+# Tekstinio vektoriaus elementai pagal nutylÄ—jimÄ… Ä¯ failÄ… Ä¯raÅ¡omi stulpeliu. 
 t <- c("P", "R", "O", "G", "R", "A", "M", "A", "V", "I", "M", "A", "S")
 t
 
 write(x = t, file = "text.vec")
 
 
-# Jei vektoriaus elementai yra simboliø sekos, şodşiø junginiai ar sakiniai, tai
-# patogumo dëlei faile tie sakiniai rağomi po vienà á vienà eilutæ -- stulpeliu. 
-# Tokiu atveju galima naudoti specialià procedûrà writeLines. Jos parametrai:
+# Jei vektoriaus elementai yra simboliÅ³ sekos, Å¾odÅ¾iÅ³ junginiai ar sakiniai, tai
+# patogumo dÄ—lei faile tie sakiniai raÅ¡omi po vienÄ… Ä¯ vienÄ… eilutÄ™ -- stulpeliu. 
+# Tokiu atveju galima naudoti specialiÄ… procedÅ«rÄ… writeLines. Jos parametrai:
 #
 #    text -- tekstinis vektorius,
-#     con -- tekstinio failo ar kito iğvedimo árenginio pavadinimas,
-#     sep -- simbolis, kuriuo faile atskiriamos vektoriaus reikğmës.
+#     con -- tekstinio failo ar kito iÅ¡vedimo Ä¯renginio pavadinimas,
+#     sep -- simbolis, kuriuo faile atskiriamos vektoriaus reikÅ¡mÄ—s.
 
-t <- c("Pirmas sakinys.", "Antras sakinys.", "Treèias sakinys.", "Jau pabaiga.")
+t <- c("Pirmas sakinys.", "Antras sakinys.", "TreÄias sakinys.", "Jau pabaiga.")
 
 writeLines(text = t, con = "text.txt")
 
-# Vektoriaus elementus faile galima atskirti ne tik naujos eilutës, bet ir kokiu
-# nors kitu simboliu. Pavyzdşiui, elementus faile atskirsime tarpo şenklu.
+# Vektoriaus elementus faile galima atskirti ne tik naujos eilutÄ—s, bet ir kokiu
+# nors kitu simboliu. PavyzdÅ¾iui, elementus faile atskirsime tarpo Å¾enklu.
 
 writeLines(text = t, con = "text.txt", sep = " ")
 
 
 # NAUDINGA ------------------------------
 
-# Procedûrai write nenurodşius failo vardo, pagal nutylëjimà darbiniame kataloge 
-# automatiğkai sukuriamas tekstinis failas "data" be iğplëtimo.
+# ProcedÅ«rai write nenurodÅ¾ius failo vardo, pagal nutylÄ—jimÄ… darbiniame kataloge 
+# automatiÅ¡kai sukuriamas tekstinis failas "data" be iÅ¡plÄ—timo.
 write(x = v)
 
-# Jei parametrui file vietoj failo vardo nurodomos tuğèios kabutës, tai vektorius
-# "árağomas" á konsolæ. 
+# Jei parametrui file vietoj failo vardo nurodomos tuÅ¡Äios kabutÄ—s, tai vektorius
+# "Ä¯raÅ¡omas" Ä¯ konsolÄ™. 
 write(x = v, file = "")
 
-# Tokiu bûdu galima pakeisti á konsolæ iğvedamo vektoriaus formatà. Pavyzdşiui, 
-# vektoriø á konsolæ iğvesime dviem stulpeliais.
+# Tokiu bÅ«du galima pakeisti Ä¯ konsolÄ™ iÅ¡vedamo vektoriaus formatÄ…. PavyzdÅ¾iui, 
+# vektoriÅ³ Ä¯ konsolÄ™ iÅ¡vesime dviem stulpeliais.
 write(x = v, file = "", ncolumns = 2)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami procedûrà write, uşrağykite komandà, kuri matricos m elementus á
-#    failà surağytø viename stulpelyje.
-# 2. Naudodami procedûrà write, uşrağykite komandà, kuri tekstinio vektoriaus t 
-#    elementus á failà árağytø dviem stulpeliais.
-# 3. Naudodami procedûrà write, uşrağykite komandà, kuri vektoriaus t elementus
-#    á failà surağytø vienoje eilutëje. Papildykite komandà taip, kad elementai 
-#    bûtø árağomi be tarpø.
-# 4. Naudodami procedûrà writeLines, uşrağykite tokià komandà, kuri vektoriaus t
-#    elementus árağytø vienoje eilutëje be tarpø.
+# 1. Naudodami procedÅ«rÄ… write, uÅ¾raÅ¡ykite komandÄ…, kuri matricos m elementus Ä¯
+#    failÄ… suraÅ¡ytÅ³ viename stulpelyje.
+# 2. Naudodami procedÅ«rÄ… write, uÅ¾raÅ¡ykite komandÄ…, kuri tekstinio vektoriaus t 
+#    elementus Ä¯ failÄ… Ä¯raÅ¡ytÅ³ dviem stulpeliais.
+# 3. Naudodami procedÅ«rÄ… write, uÅ¾raÅ¡ykite komandÄ…, kuri vektoriaus t elementus
+#    Ä¯ failÄ… suraÅ¡ytÅ³ vienoje eilutÄ—je. Papildykite komandÄ… taip, kad elementai 
+#    bÅ«tÅ³ Ä¯raÅ¡omi be tarpÅ³.
+# 4. Naudodami procedÅ«rÄ… writeLines, uÅ¾raÅ¡ykite tokiÄ… komandÄ…, kuri vektoriaus t
+#    elementus Ä¯raÅ¡ytÅ³ vienoje eilutÄ—je be tarpÅ³.
 
 
-# Duomenø lentelës á tekstiná failà árağomos naudojant procedûrà write.table. 
-# Daşniausiai naudojami parametrai:
+# DuomenÅ³ lentelÄ—s Ä¯ tekstinÄ¯ failÄ… Ä¯raÅ¡omos naudojant procedÅ«rÄ… write.table. 
+# DaÅ¾niausiai naudojami parametrai:
 #
-#         x -- duomenø lentelë, data.frame tipo kintamasis,
-#      file -- kabutëse uşrağomas duomenø failo vardas arba kelias iki failo,
-#       sep -- simbolis, kuriuo faile atskiriamos vektoriaus reikğmës,
-#       dec -- değimtainio kablelio simbolis, pagal nutylëjimà tai tağkas ".",
-# row.names -- jei TRUE, tai lentelë árağoma su eiluèiø pavadinimais,
-# col.names -- jei TRUE, tai lentelë árağoma su stulpeliø pavadinimais,
-#    append -- jei TRUE, vektoriaus reikğmës árağomos á jau esantá failà,
-#     quote -- jei TRUE, tekstiniai kintamieji ir faktoriai árağomi á kabutes.
+#         x -- duomenÅ³ lentelÄ—, data.frame tipo kintamasis,
+#      file -- kabutÄ—se uÅ¾raÅ¡omas duomenÅ³ failo vardas arba kelias iki failo,
+#       sep -- simbolis, kuriuo faile atskiriamos vektoriaus reikÅ¡mÄ—s,
+#       dec -- deÅ¡imtainio kablelio simbolis, pagal nutylÄ—jimÄ… tai taÅ¡kas ".",
+# row.names -- jei TRUE, tai lentelÄ— Ä¯raÅ¡oma su eiluÄiÅ³ pavadinimais,
+# col.names -- jei TRUE, tai lentelÄ— Ä¯raÅ¡oma su stulpeliÅ³ pavadinimais,
+#    append -- jei TRUE, vektoriaus reikÅ¡mÄ—s Ä¯raÅ¡omos Ä¯ jau esantÄ¯ failÄ…,
+#     quote -- jei TRUE, tekstiniai kintamieji ir faktoriai Ä¯raÅ¡omi Ä¯ kabutes.
 
-# Vietoje loginiø reikğmiø TRUE arba FALSE, parametrams row.names ir col.names
-# galima priskirti atitinkamai eiluèiø arba stulpeliø vardø vektoriø. 
+# Vietoje loginiÅ³ reikÅ¡miÅ³ TRUE arba FALSE, parametrams row.names ir col.names
+# galima priskirti atitinkamai eiluÄiÅ³ arba stulpeliÅ³ vardÅ³ vektoriÅ³. 
 
-# Kategoriniø kintamøjø reikğmës gali bûti ne tik atskiri simboliai arba şodşiai,
-# bet ir keletos simboliø ar şodşiø junginiai su tarpu, pvz., vardas ir pavardë.
-# Kadangi pagal nutylëjimà duomenø lentelë á failà árağoma stulpelius atskiriant
-# tarpu, iğ keliø şodşiø sudaryta kintamojo reikğmë uşrağoma per keletà stulpeliø. 
-# Gali susidaryti situacija, kai stulpeliø faile yra daugiau nei kintamøjø. Toká 
-# duomenø failà sunku korektiğkai nuskaityti, todël pagal nutylëjimà kategoriniø
-# kintamøjø reikğmës á failà árağomos kabutëse. Stulpelius faile atskiriant ne
-# tarpu, bet tabuliacijos şenklu \t, kabliatağkiu arba kokiu nors kitu specifiniu 
-# simboliu, kabuèiø galima atsisakyti.
+# KategoriniÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s gali bÅ«ti ne tik atskiri simboliai arba Å¾odÅ¾iai,
+# bet ir keletos simboliÅ³ ar Å¾odÅ¾iÅ³ junginiai su tarpu, pvz., vardas ir pavardÄ—.
+# Kadangi pagal nutylÄ—jimÄ… duomenÅ³ lentelÄ— Ä¯ failÄ… Ä¯raÅ¡oma stulpelius atskiriant
+# tarpu, iÅ¡ keliÅ³ Å¾odÅ¾iÅ³ sudaryta kintamojo reikÅ¡mÄ— uÅ¾raÅ¡oma per keletÄ… stulpeliÅ³. 
+# Gali susidaryti situacija, kai stulpeliÅ³ faile yra daugiau nei kintamÅ³jÅ³. TokÄ¯ 
+# duomenÅ³ failÄ… sunku korektiÅ¡kai nuskaityti, todÄ—l pagal nutylÄ—jimÄ… kategoriniÅ³
+# kintamÅ³jÅ³ reikÅ¡mÄ—s Ä¯ failÄ… Ä¯raÅ¡omos kabutÄ—se. Stulpelius faile atskiriant ne
+# tarpu, bet tabuliacijos Å¾enklu \t, kabliataÅ¡kiu arba kokiu nors kitu specifiniu 
+# simboliu, kabuÄiÅ³ galima atsisakyti.
 
 
-# Sudarysime duomenø lentelæ d, kurios stulpeliuose yra trys skirtingo tipo 
+# Sudarysime duomenÅ³ lentelÄ™ d, kurios stulpeliuose yra trys skirtingo tipo 
 # vektoriai: numeric, logical ir character.
 
 x <- c(22.1, 37.5, 68.3, 47.7, 92.9, 87.2, 39.4, 19.6, 97.2, 32.4)
 y <- c(FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE)
 z <- c("P", "P",  "P",  "T",  "T",  "T",  "A",  "A",  "A",  "A")
 
-# Duomenø lentelës stulpeliai turës pavadinimus X, Y ir Z.
+# DuomenÅ³ lentelÄ—s stulpeliai turÄ—s pavadinimus X, Y ir Z.
 d <- data.frame(X = x, Y = y, Z = z)
 d
 
-# Árağysime gautà duomenø lentelæ á failà. Uştenka nurodyti lentelës pavadinimà
-# ir failo vardà. Jis bus árağytas á darbiná katalogà.
+# Ä®raÅ¡ysime gautÄ… duomenÅ³ lentelÄ™ Ä¯ failÄ…. UÅ¾tenka nurodyti lentelÄ—s pavadinimÄ…
+# ir failo vardÄ…. Jis bus Ä¯raÅ¡ytas Ä¯ darbinÄ¯ katalogÄ….
 write.table(x = d, file = "duom.dat")
 
 
-# Be papildomø nustatymø á failà atskiru stulpeliu árağomi eiluèiø pavadinimai.
-# Tais atvejais, kai eiluèiø pavadinimai sutampa su numeriais, kurie nuskaitymo 
-# metu priskiriami automatiğkai, á failà jø galima ir nerağyti.
+# Be papildomÅ³ nustatymÅ³ Ä¯ failÄ… atskiru stulpeliu Ä¯raÅ¡omi eiluÄiÅ³ pavadinimai.
+# Tais atvejais, kai eiluÄiÅ³ pavadinimai sutampa su numeriais, kurie nuskaitymo 
+# metu priskiriami automatiÅ¡kai, Ä¯ failÄ… jÅ³ galima ir neraÅ¡yti.
 write.table(x = d, file = "duom.dat", row.names = FALSE)
 
-# Pagal nutylëjimà kategoriniø kintamøjø reikğmës árağomos kabutëse. Tuo atveju,
-# kai kintamojo reikğmës yra vienas simbolis arba vienas şodis, kabuèiø nereikia.
+# Pagal nutylÄ—jimÄ… kategoriniÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s Ä¯raÅ¡omos kabutÄ—se. Tuo atveju,
+# kai kintamojo reikÅ¡mÄ—s yra vienas simbolis arba vienas Å¾odis, kabuÄiÅ³ nereikia.
 write.table(x = d, file = "duom.dat", row.names = FALSE, quote = FALSE)
 
-# Pagal nutylëjimà stulpeliai faile atskiriami tarpu, taèiau daşnu atveju geriau
-# atskirti tabuliacijos şenklu arba kabliatağkiu. Tai nurodoma per parametrà sep.
+# Pagal nutylÄ—jimÄ… stulpeliai faile atskiriami tarpu, taÄiau daÅ¾nu atveju geriau
+# atskirti tabuliacijos Å¾enklu arba kabliataÅ¡kiu. Tai nurodoma per parametrÄ… sep.
 write.table(x = d, file = "duom.dat", row.names = FALSE, sep = ";")
 
-# Pagal lietuviø kalbos taisykles trupmeninë skaièiaus dalis skiriama kableliu,
-# tai nurodoma per parametrà dec. Èia duomenø lentelë á failà árağoma stulpelius 
-# atskiriant tabuliacijos şenklu.
+# Pagal lietuviÅ³ kalbos taisykles trupmeninÄ— skaiÄiaus dalis skiriama kableliu,
+# tai nurodoma per parametrÄ… dec. ÄŒia duomenÅ³ lentelÄ— Ä¯ failÄ… Ä¯raÅ¡oma stulpelius 
+# atskiriant tabuliacijos Å¾enklu.
 write.table(d, file = "duom.dat", row.names = F, quote = F, sep = "\t", dec = ",")
 
 
-# Kad duomenis bûtø galima nesunkiai perkelti iğ vienos programos á kità, jie á 
-# failus rağomi tam tikru standartiniu formatu. Vienas tekstinio duomenø failo 
+# Kad duomenis bÅ«tÅ³ galima nesunkiai perkelti iÅ¡ vienos programos Ä¯ kitÄ…, jie Ä¯ 
+# failus raÅ¡omi tam tikru standartiniu formatu. Vienas tekstinio duomenÅ³ failo 
 # formatas yra taip vadinamas "comma separated value" arba sutrumpintai CSV. Jis
-# skirtas lentelës pavidalo duomenims uşrağyti, kur stulpeliuose yra kintamieji,
-# o eilutëse yra stebiniai.
+# skirtas lentelÄ—s pavidalo duomenims uÅ¾raÅ¡yti, kur stulpeliuose yra kintamieji,
+# o eilutÄ—se yra stebiniai.
 
-# Toks failas pirmoje eilutëje turi stulpeliø pavadinimus. Jei stulpeliai vienas
-# nuo kito atskiriami kableliu, tai trupmeninë skaièiaus dalis skiriama tağku.
-# Duomenø tokiu formatu árağymui naudojama write.csv procedûra. Jei stulpeliai 
-# vienas nuo kito skiriami kabliatağkiu, tai trupmeninë skaièiaus dalis skiriama 
-# mums áprastu kableliu. Duomenys tokiu formatu árağomi su procedûra write.csv2.
-# Ğiø procedûrø parametrai tokie patys kaip ir procedûros write.table, skirtumas
-# toks, kad nereikia nurodyti parametrø sep ir dec reikğmiø.
+# Toks failas pirmoje eilutÄ—je turi stulpeliÅ³ pavadinimus. Jei stulpeliai vienas
+# nuo kito atskiriami kableliu, tai trupmeninÄ— skaiÄiaus dalis skiriama taÅ¡ku.
+# DuomenÅ³ tokiu formatu Ä¯raÅ¡ymui naudojama write.csv procedÅ«ra. Jei stulpeliai 
+# vienas nuo kito skiriami kabliataÅ¡kiu, tai trupmeninÄ— skaiÄiaus dalis skiriama 
+# mums Ä¯prastu kableliu. Duomenys tokiu formatu Ä¯raÅ¡omi su procedÅ«ra write.csv2.
+# Å iÅ³ procedÅ«rÅ³ parametrai tokie patys kaip ir procedÅ«ros write.table, skirtumas
+# toks, kad nereikia nurodyti parametrÅ³ sep ir dec reikÅ¡miÅ³.
 
-# Pavyzdşiui, CSV formatu árağysime tà paèià duomenø lentelæ d.
+# PavyzdÅ¾iui, CSV formatu Ä¯raÅ¡ysime tÄ… paÄiÄ… duomenÅ³ lentelÄ™ d.
 write.csv2(x = d, file = "duom.csv")
 
-# Kaip ir anksèiau, èia nereikalingi eiluèiø numeriai ir kintamieji kabutëse.
+# Kaip ir anksÄiau, Äia nereikalingi eiluÄiÅ³ numeriai ir kintamieji kabutÄ—se.
 write.csv2(d, "duom.csv", row.names = F, quote = F)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Duomenø lentelëje iris yra duomenys apie keliø rûğiø augalø şiedø matavimus.
-#    Naudodami procedûrà write.table, árağykite ğiuos matavimus á tekstiná failà 
-#    "irisas.txt": stulpeliai faile atskiriami tabuliacijos şenklu, kategoriniai 
-#    kintamieji árağomi be kabuèiø, eiluèiø numeriai nereikalingi.
-# 2. Kintamasis Titanic yra laivo katastrofà iğgyvenusiø keleiviø kryşminë daşniø 
-#    lentelë, sudaryta pagal lytá, amşiø ir klasæ. Konsolëje galima pamatyti, kad
-#    jà sudaro keturios atskiros dalys. Naudodami procedûrà write.table, árağykite 
-#    ğià lentelæ á tekstiná failà: eiluèiø numeriø nereikia, stulpeliai atskirti
-#    tabuliacijos şenklu, kategoriniø kintamøjø reikğmës rağomos be kabuèiø.
-# 3. Naudodami procedûrà write.table, duomenø lentelæ cars árağykite á tekstiná 
-#    failà su lietuviğkais stulpeliø pavadinimais.
-# 4. CSV formatu árağykite duomenø lentelæ iris. Trupmeninë skaièiaus dalis turi
-#    bûti skiriama kableliu.
+# 1. DuomenÅ³ lentelÄ—je iris yra duomenys apie keliÅ³ rÅ«Å¡iÅ³ augalÅ³ Å¾iedÅ³ matavimus.
+#    Naudodami procedÅ«rÄ… write.table, Ä¯raÅ¡ykite Å¡iuos matavimus Ä¯ tekstinÄ¯ failÄ… 
+#    "irisas.txt": stulpeliai faile atskiriami tabuliacijos Å¾enklu, kategoriniai 
+#    kintamieji Ä¯raÅ¡omi be kabuÄiÅ³, eiluÄiÅ³ numeriai nereikalingi.
+# 2. Kintamasis Titanic yra laivo katastrofÄ… iÅ¡gyvenusiÅ³ keleiviÅ³ kryÅ¾minÄ— daÅ¾niÅ³ 
+#    lentelÄ—, sudaryta pagal lytÄ¯, amÅ¾iÅ³ ir klasÄ™. KonsolÄ—je galima pamatyti, kad
+#    jÄ… sudaro keturios atskiros dalys. Naudodami procedÅ«rÄ… write.table, Ä¯raÅ¡ykite 
+#    Å¡iÄ… lentelÄ™ Ä¯ tekstinÄ¯ failÄ…: eiluÄiÅ³ numeriÅ³ nereikia, stulpeliai atskirti
+#    tabuliacijos Å¾enklu, kategoriniÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s raÅ¡omos be kabuÄiÅ³.
+# 3. Naudodami procedÅ«rÄ… write.table, duomenÅ³ lentelÄ™ cars Ä¯raÅ¡ykite Ä¯ tekstinÄ¯ 
+#    failÄ… su lietuviÅ¡kais stulpeliÅ³ pavadinimais.
+# 4. CSV formatu Ä¯raÅ¡ykite duomenÅ³ lentelÄ™ iris. TrupmeninÄ— skaiÄiaus dalis turi
+#    bÅ«ti skiriama kableliu.
 
 
 # --------------------------------------- #
-# DUOMENØ ÁRAĞYMAS Á BINARINÁ FAILÀ       #
+# DUOMENÅ² Ä®RAÅ YMAS Ä® BINARINÄ® FAILÄ„       #
 # --------------------------------------- #
 
-# Jei duomenys sudëtingos struktûros, juos ne visada patogu laikyti tekstiniame 
-# faile. Pavyzdşiui, tokie gali bûti sudëtingi sàrağai, R statistiniø procedûrø 
-# rezultatø lentelës ir t.t. Tokiais atvejais kintamuosius ar duomenø rinkinius 
-# patogiau uşsaugoti kaip binariná R duomenø failà su standartiniu tokio tipo
-# failui iğplëtimu .RData (iğplëtimas gali bûti ir kitoks). Taip daroma ir tada, 
-# kai reikia iğsaugoti sudëtingø ar ilgai trunkanèiø skaièiavimø rezultus, o jø 
-# pakartojimas uştrunka ilgiau nei importavimas iğ failo. Duomenis binariniu 
-# formatu árağome naudojant procedûrà save.
+# Jei duomenys sudÄ—tingos struktÅ«ros, juos ne visada patogu laikyti tekstiniame 
+# faile. PavyzdÅ¾iui, tokie gali bÅ«ti sudÄ—tingi sÄ…raÅ¡ai, R statistiniÅ³ procedÅ«rÅ³ 
+# rezultatÅ³ lentelÄ—s ir t.t. Tokiais atvejais kintamuosius ar duomenÅ³ rinkinius 
+# patogiau uÅ¾saugoti kaip binarinÄ¯ R duomenÅ³ failÄ… su standartiniu tokio tipo
+# failui iÅ¡plÄ—timu .RData (iÅ¡plÄ—timas gali bÅ«ti ir kitoks). Taip daroma ir tada, 
+# kai reikia iÅ¡saugoti sudÄ—tingÅ³ ar ilgai trunkanÄiÅ³ skaiÄiavimÅ³ rezultus, o jÅ³ 
+# pakartojimas uÅ¾trunka ilgiau nei importavimas iÅ¡ failo. Duomenis binariniu 
+# formatu Ä¯raÅ¡ome naudojant procedÅ«rÄ… save.
 
-# Pavyzdşiui, binariniu formatu iğsaugosime duomenø lentelæ. Failas bus árağytas
-# á darbiná katalogà. Taip pat galima nurodyti ir pilnà kelià iki failo.
+# PavyzdÅ¾iui, binariniu formatu iÅ¡saugosime duomenÅ³ lentelÄ™. Failas bus Ä¯raÅ¡ytas
+# Ä¯ darbinÄ¯ katalogÄ…. Taip pat galima nurodyti ir pilnÄ… keliÄ… iki failo.
 save(d, file = "duom.RData")
 
-# Tokiu bûdu galima iğsaugoti iğ karto keletà vektoriø, duomenø lenteliø ar kitø
-# R kintamøjø. Jø vardai atskiriami kableliu.
+# Tokiu bÅ«du galima iÅ¡saugoti iÅ¡ karto keletÄ… vektoriÅ³, duomenÅ³ lenteliÅ³ ar kitÅ³
+# R kintamÅ³jÅ³. JÅ³ vardai atskiriami kableliu.
 save(x, y, z, file = "duom.RData")
 
-# Jei kintamøjø, kuriuos reikia iğsaugoti, yra daug, jø vardus galima surağyti á
-# character tipo vektoriø. Tada procedûros parametrui list reikia nurodyti tø 
-# kintamøjø vardø vektoriø. Pavyzdşiui, uşsaugosime keletà tokiø kintamøjø.
+# Jei kintamÅ³jÅ³, kuriuos reikia iÅ¡saugoti, yra daug, jÅ³ vardus galima suraÅ¡yti Ä¯
+# character tipo vektoriÅ³. Tada procedÅ«ros parametrui list reikia nurodyti tÅ³ 
+# kintamÅ³jÅ³ vardÅ³ vektoriÅ³. PavyzdÅ¾iui, uÅ¾saugosime keletÄ… tokiÅ³ kintamÅ³jÅ³.
 save(list = c("x", "y", "z", "d"), file = "duom.RData")
 
 
-# Binarinio tipo failas importuojamas naudojant procedûrà load. Pademonstruosime
-# jos veikimà importuodami failà "duom.RData".
+# Binarinio tipo failas importuojamas naudojant procedÅ«rÄ… load. Pademonstruosime
+# jos veikimÄ… importuodami failÄ… "duom.RData".
 
-# Iğtrinami visi kintamieji.
+# IÅ¡trinami visi kintamieji.
 rm(list = ls())
 
-# Ásitikiname, kad prieğ importavimà nëra jokiø kintamøjø.
+# Ä®sitikiname, kad prieÅ¡ importavimÄ… nÄ—ra jokiÅ³ kintamÅ³jÅ³.
 ls()
 
-# Importuojame failà "duom.RData", kuriame árağyti kintamieji, x, y, z ir d.
+# Importuojame failÄ… "duom.RData", kuriame Ä¯raÅ¡yti kintamieji, x, y, z ir d.
 load(file = "duom.RData")
 
-# Matome, kad atsirado anksèiau á failà árağyti kintamieji.
+# Matome, kad atsirado anksÄiau Ä¯ failÄ… Ä¯raÅ¡yti kintamieji.
 ls()
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Vektoriø v ir matricà m árağykite á vienà binariná failà "vecmat.RData".
-#    Uşrağykite ir komandos variantà, kuriame naudojamas parametras list.
+# 1. VektoriÅ³ v ir matricÄ… m Ä¯raÅ¡ykite Ä¯ vienÄ… binarinÄ¯ failÄ… "vecmat.RData".
+#    UÅ¾raÅ¡ykite ir komandos variantÄ…, kuriame naudojamas parametras list.

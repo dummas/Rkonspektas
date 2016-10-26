@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Sàlygos konstrukcija if-else ir funkcija ifelse.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            SÄ…lygos konstrukcija if-else ir funkcija ifelse.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-08-16 | 2013-08-22
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. Sàlygos tikrinimas:
+#   1. SÄ…lygos tikrinimas:
 #      * funkcija if
 #      * funkcija ifelse
 #
@@ -21,19 +21,19 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -41,52 +41,52 @@ rm(list = ls())
 # IF-ELSE KONSTRUKCIJA                    #
 # --------------------------------------- #
 
-# Skaièiavimai daşnai priklauso nuo kintamiesiems ar jø reikğmëms keliamø sàlygø:
+# SkaiÄiavimai daÅ¾nai priklauso nuo kintamiesiems ar jÅ³ reikÅ¡mÄ—ms keliamÅ³ sÄ…lygÅ³:
 # jei jos tenkinamos, tai atliekami vieni veiksmai, jei netenkinamos -- kiti. 
-# Tokiais atvejais naudojama sàlygos tikrinimo konstrukcija if-else. Bendras jos
+# Tokiais atvejais naudojama sÄ…lygos tikrinimo konstrukcija if-else. Bendras jos
 # pavidalas toks:
 #
-#   if (loginë sàlyga) {
-#       iğraiğkos A
+#   if (loginÄ— sÄ…lyga) {
+#       iÅ¡raiÅ¡kos A
 #   } else {
-#       iğraiğkos B
+#       iÅ¡raiÅ¡kos B
 #   }
 #
-# Loginës sàlygos rezultatas turi bûti vienà elementà turintis loginis vektorius,
-# kurio reikğmë arba TRUE, arba FALSE. Sàlygos rezultatas negali bûti NA reikğmë.
-# Jei sàlygos vektorius turi daugiau nei vienà elementà, tikrinama tik pirmojo 
-# elemento reikğmë. Jei sàlygos reikğmë TRUE, ávykdomos iğraiğkos A, kitu atveju
-# ávykdomos iğraiğkos B.
+# LoginÄ—s sÄ…lygos rezultatas turi bÅ«ti vienÄ… elementÄ… turintis loginis vektorius,
+# kurio reikÅ¡mÄ— arba TRUE, arba FALSE. SÄ…lygos rezultatas negali bÅ«ti NA reikÅ¡mÄ—.
+# Jei sÄ…lygos vektorius turi daugiau nei vienÄ… elementÄ…, tikrinama tik pirmojo 
+# elemento reikÅ¡mÄ—. Jei sÄ…lygos reikÅ¡mÄ— TRUE, Ä¯vykdomos iÅ¡raiÅ¡kos A, kitu atveju
+# Ä¯vykdomos iÅ¡raiÅ¡kos B.
 
-# Pastaba! Komanda else turi bûti toje paèioje eilutëje kaip ir } skliaustelis.
+# Pastaba! Komanda else turi bÅ«ti toje paÄioje eilutÄ—je kaip ir } skliaustelis.
 
-# Pavyzdşiui, uşrağysime komandà, kuri patikrina ar kintamojo d reikğmë virğija 
-# nustatytà ribà. Jei ği nelygybë teisinga, reikğmë prisumuojama, o tokiø dydşiø
-# skaièius padidinamas vienetu. Prieğingu atveju á konsolæ iğvedamas praneğimas.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime komandÄ…, kuri patikrina ar kintamojo d reikÅ¡mÄ— virÅ¡ija 
+# nustatytÄ… ribÄ…. Jei Å¡i nelygybÄ— teisinga, reikÅ¡mÄ— prisumuojama, o tokiÅ³ dydÅ¾iÅ³
+# skaiÄius padidinamas vienetu. PrieÅ¡ingu atveju Ä¯ konsolÄ™ iÅ¡vedamas praneÅ¡imas.
 
-riba <- 20   # tam tikra kintamojo reikğmës riba
-kiek <- 0    # ribà virğijanèiø dydşiø skaièius
-suma <- 0    # ribà virğijanèiø dydşiø suma
+riba <- 20   # tam tikra kintamojo reikÅ¡mÄ—s riba
+kiek <- 0    # ribÄ… virÅ¡ijanÄiÅ³ dydÅ¾iÅ³ skaiÄius
+suma <- 0    # ribÄ… virÅ¡ijanÄiÅ³ dydÅ¾iÅ³ suma
 
-d <- 13      # kintamojo d reikğmæ galima keisti
+d <- 13      # kintamojo d reikÅ¡mÄ™ galima keisti
 
 if (d > riba) {
     kiek <- kiek + 1
     suma <- suma + d
 } else {
-    cat("Dydis nevirğija nustatytos ribos\n.")
+    cat("Dydis nevirÅ¡ija nustatytos ribos\n.")
 }
 
 kiek
 suma
 
-# Jei iğraiğkà riestiniuose skliaustuose galima uşrağyti kaip vienà komandà, tai 
-# skliaustø {} galima ir nenaudoti. Tokiu atveju visa if-else komanda uşrağoma 
+# Jei iÅ¡raiÅ¡kÄ… riestiniuose skliaustuose galima uÅ¾raÅ¡yti kaip vienÄ… komandÄ…, tai 
+# skliaustÅ³ {} galima ir nenaudoti. Tokiu atveju visa if-else komanda uÅ¾raÅ¡oma 
 # viena eilute:
 #
-#   if (loginë sàlyga) iğraiğka A else iğraiğka B
+#   if (loginÄ— sÄ…lyga) iÅ¡raiÅ¡ka A else iÅ¡raiÅ¡ka B
 
-# Pavyzdşiui, uşrağysime komandà, kuri, priklausomai nuo testo reikğmës, reikğmæ
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime komandÄ…, kuri, priklausomai nuo testo reikÅ¡mÄ—s, reikÅ¡mÄ™
 # 1 priskiria arba kintamajam x, arba kintamajam y.
 
 testas <- TRUE
@@ -99,15 +99,15 @@ x
 y
 
 
-# Daşnai naudojama supaprastinta if konstrukcija:
+# DaÅ¾nai naudojama supaprastinta if konstrukcija:
 #
-#   if (loginë sàlyga) {
-#       iğraiğkos A
+#   if (loginÄ— sÄ…lyga) {
+#       iÅ¡raiÅ¡kos A
 #   }
 
-# Pvz., turime du skaitinius kintamuosius: a ir b. Kintamojo a reikğmë turi bûti 
-# maşesnë uş kintamojo b reikğmæ. Jei teisinga nelygybë a > b, tai ğiø kintamøjø 
-# reikğmes sukeisime vietomis, jei ne -- kintamøjø reikğmës lieka tokios paèios.
+# Pvz., turime du skaitinius kintamuosius: a ir b. Kintamojo a reikÅ¡mÄ— turi bÅ«ti 
+# maÅ¾esnÄ— uÅ¾ kintamojo b reikÅ¡mÄ™. Jei teisinga nelygybÄ— a > b, tai Å¡iÅ³ kintamÅ³jÅ³ 
+# reikÅ¡mes sukeisime vietomis, jei ne -- kintamÅ³jÅ³ reikÅ¡mÄ—s lieka tokios paÄios.
 
 a <- 6
 b <- 2
@@ -117,20 +117,20 @@ if (a > b) {
   a <- b
   b <- t
 
-  rm(t)  # tarpinis kintamasis t iğtrinamas
+  rm(t)  # tarpinis kintamasis t iÅ¡trinamas
 }
 
 a
 b
 
 
-# Loginës sàlygos rezultatas turi bûti vienà elementà turintis loginis vektorius.
-# Tai reiğkia, kad galima patikrinti sàlygà apie visà vektoriø, taèiau negalima 
-# patikrinti sàlygos apie kiekvienà vektoriaus elementà atskirai.
+# LoginÄ—s sÄ…lygos rezultatas turi bÅ«ti vienÄ… elementÄ… turintis loginis vektorius.
+# Tai reiÅ¡kia, kad galima patikrinti sÄ…lygÄ… apie visÄ… vektoriÅ³, taÄiau negalima 
+# patikrinti sÄ…lygos apie kiekvienÄ… vektoriaus elementÄ… atskirai.
 
-# Pavyzdşiui, uşrağysime komandà, kuri patikrina, ar vektorius z turi bent vienà
-# elementà su praleista reikğme. Jei taip, á konsolæ iğvedami tokiø elementø
-# numeriai. Prieğingu atveju uşrağomas praneğimas, kad praleistø reikğmiø nëra.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime komandÄ…, kuri patikrina, ar vektorius z turi bent vienÄ…
+# elementÄ… su praleista reikÅ¡me. Jei taip, Ä¯ konsolÄ™ iÅ¡vedami tokiÅ³ elementÅ³
+# numeriai. PrieÅ¡ingu atveju uÅ¾raÅ¡omas praneÅ¡imas, kad praleistÅ³ reikÅ¡miÅ³ nÄ—ra.
 
 z <- c(1, 2, NA, 4, 5, NA, NA, 8)
 
@@ -138,47 +138,47 @@ praleistas <- is.na(z)
 praleistas
 
 # Funkcijos is.na rezultatas yra tokio pat ilgio loginis vektorius, bet komanda
-# if tikrina tik pirmojo elemento reikğmæ, todël neatsişvelgus á kitus elementus,
-# gaunamas nekorektiğkas atsakymas. 
+# if tikrina tik pirmojo elemento reikÅ¡mÄ™, todÄ—l neatsiÅ¾velgus Ä¯ kitus elementus,
+# gaunamas nekorektiÅ¡kas atsakymas. 
 
-# Naudojant funkcijà all, galima patikrinti, ar visø loginio vektoriaus elementø 
-# reikğmë yra TRUE. Èia bus naudojama funkcija any, kurios reikğmë yra TRUE, jei 
-# bent vienas loginio vektoriaus elementas turi reikğmæ TRUE.
+# Naudojant funkcijÄ… all, galima patikrinti, ar visÅ³ loginio vektoriaus elementÅ³ 
+# reikÅ¡mÄ— yra TRUE. ÄŒia bus naudojama funkcija any, kurios reikÅ¡mÄ— yra TRUE, jei 
+# bent vienas loginio vektoriaus elementas turi reikÅ¡mÄ™ TRUE.
 
 if (any(praleistas)) {
     i <- which(praleistas)
-    cat("Elementø su praleistomis reikğmëmis numeriai:\n")
+    cat("ElementÅ³ su praleistomis reikÅ¡mÄ—mis numeriai:\n")
     print(i)
 } else {
-    cat("Elementø su praleistomis reikğmëmis nëra.\n")
+    cat("ElementÅ³ su praleistomis reikÅ¡mÄ—mis nÄ—ra.\n")
 }
 
 
-# Tuo atveju, kai vektoriaus elementui priskiriama arba viena, arba kita reikğmë,
-# priklausomai nuo to, ar tam tikrà sàlygà tenkina atitinkamas kito vektoriaus
+# Tuo atveju, kai vektoriaus elementui priskiriama arba viena, arba kita reikÅ¡mÄ—,
+# priklausomai nuo to, ar tam tikrÄ… sÄ…lygÄ… tenkina atitinkamas kito vektoriaus
 # elementas, naudojama funkcija ifelse. Jos parametrai:
 #
-#     test -- loginiø reikğmiø vektorius,
-#      yes -- reikğmë, jei loginio testo reikğmë TRUE,
-#       no -- reikğmë, jei loginio testo reikğmë FALSE.
+#     test -- loginiÅ³ reikÅ¡miÅ³ vektorius,
+#      yes -- reikÅ¡mÄ—, jei loginio testo reikÅ¡mÄ— TRUE,
+#       no -- reikÅ¡mÄ—, jei loginio testo reikÅ¡mÄ— FALSE.
 
-# Ğiuo atveju loginiø reikğmiø vektorius gali bûti bet kokio ilgio ir paprastai 
-# jis yra loginës sàlygos apie vektoriaus elementus rezultatas.
+# Å iuo atveju loginiÅ³ reikÅ¡miÅ³ vektorius gali bÅ«ti bet kokio ilgio ir paprastai 
+# jis yra loginÄ—s sÄ…lygos apie vektoriaus elementus rezultatas.
 
-# Tokiu bûdu, sàlyga apie kiekvienà vektoriaus elementà patikrinama, ir viena ar
-# kita reikğmë kito vektoriaus elementui priskiriama nenaudojant ciklo.
+# Tokiu bÅ«du, sÄ…lyga apie kiekvienÄ… vektoriaus elementÄ… patikrinama, ir viena ar
+# kita reikÅ¡mÄ— kito vektoriaus elementui priskiriama nenaudojant ciklo.
 
-# Pavyzdşiui, uşrağysime komandà, kuri vektoriaus m elementui priskiria reikğmæ
-# 1, jei vektoriaus n elementas yra lyginis, ir reikğmæ -1, jei -- nelyginis.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime komandÄ…, kuri vektoriaus m elementui priskiria reikÅ¡mÄ™
+# 1, jei vektoriaus n elementas yra lyginis, ir reikÅ¡mÄ™ -1, jei -- nelyginis.
 
 n <- c(2, 5, 1, 6, 8, 7, 3, 9, 4)
 
 m <- ifelse(n %% 2 == 0, 1, -1)
 m
 
-# Pastaba! Kartais vektoriaus reikğmiø perkodavimui funkcija ifelse nereikalinga.
-# Pavyzdşiui, jei lyginá vieno vektoriaus elementà atitinka 0, o nelyginá 1, tai
-# toks perkodavimas atliekamas paprasèiau -- surandant dalybos iğ dviejø liekanà.
+# Pastaba! Kartais vektoriaus reikÅ¡miÅ³ perkodavimui funkcija ifelse nereikalinga.
+# PavyzdÅ¾iui, jei lyginÄ¯ vieno vektoriaus elementÄ… atitinka 0, o nelyginÄ¯ 1, tai
+# toks perkodavimas atliekamas paprasÄiau -- surandant dalybos iÅ¡ dviejÅ³ liekanÄ….
 
 m <- n %% 2
 m
@@ -186,17 +186,17 @@ m
 
 # NAUDINGA ------------------------------
 
-# Konstrukcijà if-else galima naudoti kaip funkcijà, kurios reikğmë priklauso
-# nuo sàlygos ir apskaièiuojama pagal vienà iğ dviejø iğraiğkø:
+# KonstrukcijÄ… if-else galima naudoti kaip funkcijÄ…, kurios reikÅ¡mÄ— priklauso
+# nuo sÄ…lygos ir apskaiÄiuojama pagal vienÄ… iÅ¡ dviejÅ³ iÅ¡raiÅ¡kÅ³:
 #
-#   y <- if (loginë sàlyga) {
-#       iğraiğkos A
+#   y <- if (loginÄ— sÄ…lyga) {
+#       iÅ¡raiÅ¡kos A
 #   } else {
-#       iğraiğkos B
+#       iÅ¡raiÅ¡kos B
 #   }
 
-# Pavyzdşiui, uşrağysime komandà, kuri pagal kintamojo x şenklà kitam kintamajam 
-# f priskiria arba tà paèià reikğmæ x, arba jai prieğingà reikğmæ -x.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime komandÄ…, kuri pagal kintamojo x Å¾enklÄ… kitam kintamajam 
+# f priskiria arba tÄ… paÄiÄ… reikÅ¡mÄ™ x, arba jai prieÅ¡ingÄ… reikÅ¡mÄ™ -x.
 
 x <- 3
 
@@ -206,51 +206,51 @@ y <- if (x > 0) {
     f <- -x
 }
 
-# Riestiniuose skliaustuose uşrağyto iğraiğkø bloko reikğmë yra paskutinës bloko 
-# viduje esanèios iğraiğkos rezultatas, todël kintamajam y priskiriama kintamojo
-# f reikğmë.
+# Riestiniuose skliaustuose uÅ¾raÅ¡yto iÅ¡raiÅ¡kÅ³ bloko reikÅ¡mÄ— yra paskutinÄ—s bloko 
+# viduje esanÄios iÅ¡raiÅ¡kos rezultatas, todÄ—l kintamajam y priskiriama kintamojo
+# f reikÅ¡mÄ—.
 y
 
 
-# Kaip ir anksèiau, jei riestiniuose skliaustuose árağyta tik viena iğraiğka, jø 
-# galima atsisakyti ir visà komandà uşrağyti vienoje eilutëje:
+# Kaip ir anksÄiau, jei riestiniuose skliaustuose Ä¯raÅ¡yta tik viena iÅ¡raiÅ¡ka, jÅ³ 
+# galima atsisakyti ir visÄ… komandÄ… uÅ¾raÅ¡yti vienoje eilutÄ—je:
 #
-# y <- if (loginë sàlyga) reikğmë A else reikğmë B
+# y <- if (loginÄ— sÄ…lyga) reikÅ¡mÄ— A else reikÅ¡mÄ— B
 
-# Pavyzdşiui, uşrağysime funkcijà-indikatoriø, kuri ágyja reikğmæ 1, jei x > 10,
-# ir reikğmæ 0 -- prieğingu atveju.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime funkcijÄ…-indikatoriÅ³, kuri Ä¯gyja reikÅ¡mÄ™ 1, jei x > 10,
+# ir reikÅ¡mÄ™ 0 -- prieÅ¡ingu atveju.
 
 x <- 3
 
 y <- if (x > 10) 1 else 0
 y
 
-# Jei x bûtø daugiau nei vienà elementà turintis vektorius, tokiam priskyrimui 
-# geriausia naudoti anksèiau aprağytà funkcijà ifelse.
+# Jei x bÅ«tÅ³ daugiau nei vienÄ… elementÄ… turintis vektorius, tokiam priskyrimui 
+# geriausia naudoti anksÄiau apraÅ¡ytÄ… funkcijÄ… ifelse.
 
 
-# Kaip funkcijà galima naudoti ir supaprastintà if konstrukcijà be else dalies.
-# Tokiu atveju, jei loginës sàlygos reikğmë yra FALSE, gràşinama NULL reikğmë!
+# Kaip funkcijÄ… galima naudoti ir supaprastintÄ… if konstrukcijÄ… be else dalies.
+# Tokiu atveju, jei loginÄ—s sÄ…lygos reikÅ¡mÄ— yra FALSE, grÄ…Å¾inama NULL reikÅ¡mÄ—!
 
 y <- if (x > 10) 1
 y
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Kintamojo egzistavimui nustatyti naudojama funkcija exists. Naudodami ğià
-#    funkcijà, uşrağykite komandà, kuri patikrina ar, egzistuoja kintamasis, ir, 
-#    jei tokio kintamojo nëra, á konsolæ iğvedamas tekstinis praneğimas.
-# 2. Naudojant funkcijà ifelse, uşrağykite komandà, kuri NA reikğmæ turintiems
-#    vektoriaus z elementams priskirtø reikğmæ 0. Uşrağykite analogiğkà komandà 
+# 1. Kintamojo egzistavimui nustatyti naudojama funkcija exists. Naudodami Å¡iÄ…
+#    funkcijÄ…, uÅ¾raÅ¡ykite komandÄ…, kuri patikrina ar, egzistuoja kintamasis, ir, 
+#    jei tokio kintamojo nÄ—ra, Ä¯ konsolÄ™ iÅ¡vedamas tekstinis praneÅ¡imas.
+# 2. Naudojant funkcijÄ… ifelse, uÅ¾raÅ¡ykite komandÄ…, kuri NA reikÅ¡mÄ™ turintiems
+#    vektoriaus z elementams priskirtÅ³ reikÅ¡mÄ™ 0. UÅ¾raÅ¡ykite analogiÅ¡kÄ… komandÄ… 
 #    nenaudojant funkcijos ifelse.
-# 3. Skaièiaus şenklo nustatymui naudojama funkcija sign. Naudojant funkcijà if,
-#    uşrağykite skaièiaus x şenklo nustatymo funkcijà, kuri ágyja reikğmæ 1, kai
-#    skaièius x > 0, reikğmæ -1, kai x < 0 ir reikğmæ 0, kai x = 0.
-# 4. Uşrağykite komandà, kuri patikrina, ar visø vektoriaus n elementø reikğmës 
-#    nevirğija 5. Jei ği sàlyga teisinga, tai kintamajam k priskiriama reikğmë 0.
-#    Jei sàlyga netenkinama, kintamajam k priskiriamas didesniø uş 5 vektoriaus
-#    elementø skaièius, o kintamajam l priskiriamas bendras elementø skaièius.
-# 5. Uşrağykite komandà, kuri patikrintø, ar vektorius n yra sveikøjø skaièiø
-#    vektorius. Jei ne, vektoriaus klasæ pakeiskite á sveikøjø ir á konsolæ
-#    iğveskite praneğimà apie vektoriaus klasës pakeitimà.
+# 3. SkaiÄiaus Å¾enklo nustatymui naudojama funkcija sign. Naudojant funkcijÄ… if,
+#    uÅ¾raÅ¡ykite skaiÄiaus x Å¾enklo nustatymo funkcijÄ…, kuri Ä¯gyja reikÅ¡mÄ™ 1, kai
+#    skaiÄius x > 0, reikÅ¡mÄ™ -1, kai x < 0 ir reikÅ¡mÄ™ 0, kai x = 0.
+# 4. UÅ¾raÅ¡ykite komandÄ…, kuri patikrina, ar visÅ³ vektoriaus n elementÅ³ reikÅ¡mÄ—s 
+#    nevirÅ¡ija 5. Jei Å¡i sÄ…lyga teisinga, tai kintamajam k priskiriama reikÅ¡mÄ— 0.
+#    Jei sÄ…lyga netenkinama, kintamajam k priskiriamas didesniÅ³ uÅ¾ 5 vektoriaus
+#    elementÅ³ skaiÄius, o kintamajam l priskiriamas bendras elementÅ³ skaiÄius.
+# 5. UÅ¾raÅ¡ykite komandÄ…, kuri patikrintÅ³, ar vektorius n yra sveikÅ³jÅ³ skaiÄiÅ³
+#    vektorius. Jei ne, vektoriaus klasÄ™ pakeiskite Ä¯ sveikÅ³jÅ³ ir Ä¯ konsolÄ™
+#    iÅ¡veskite praneÅ¡imÄ… apie vektoriaus klasÄ—s pakeitimÄ….

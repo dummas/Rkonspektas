@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Vektoriaus elementø iğrikiavimas ir duomenø lenteliø pertvarkymai.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Vektoriaus elementÅ³ iÅ¡rikiavimas ir duomenÅ³ lenteliÅ³ pertvarkymai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-09-09 | 2013-09-22
 #
@@ -12,12 +12,12 @@
 # TURINYS -------------------------------
 
 #
-#   1. Vektoriø ir duomenø lenteliø iğrikiavimas:
+#   1. VektoriÅ³ ir duomenÅ³ lenteliÅ³ iÅ¡rikiavimas:
 #      * funkcija rev
 #      * funkcija sort
 #      * funkcija order
 #
-#   2. Duomenø lenteliø pertvarkymas:
+#   2. DuomenÅ³ lenteliÅ³ pertvarkymas:
 #      * funkcija stack
 #      * funkcija unstack
 #      * funkcija reshape
@@ -27,114 +27,114 @@
 # PASTABOS ------------------------------
 
 #
-# Átraukti funkcijas rank ir xtfrm.
-# Sugalvoti uşdaviniø su funkcija reshape.
+# Ä®traukti funkcijas rank ir xtfrm.
+# Sugalvoti uÅ¾daviniÅ³ su funkcija reshape.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# VEKTORIAUS REIKĞMIØ RIKIAVIMAS          #
+# VEKTORIAUS REIKÅ MIÅ² RIKIAVIMAS          #
 # --------------------------------------- #
 
-# Prieğ atliekant statistinæ duomenø analizæ, turimus duomenis daşniausiai tenka 
-# sutvarkyti ir suteikti jiems tam tikrà standartinæ formà, kuri leidşia taikyti
-# standartines statistines procedûras. Analizuojant gautus rezultatus, juos taip
-# pat daşniausiai reikia pertvarkyti, iğrikiuoti, agreguoti ir t.t.
+# PrieÅ¡ atliekant statistinÄ™ duomenÅ³ analizÄ™, turimus duomenis daÅ¾niausiai tenka 
+# sutvarkyti ir suteikti jiems tam tikrÄ… standartinÄ™ formÄ…, kuri leidÅ¾ia taikyti
+# standartines statistines procedÅ«ras. Analizuojant gautus rezultatus, juos taip
+# pat daÅ¾niausiai reikia pertvarkyti, iÅ¡rikiuoti, agreguoti ir t.t.
 
-# Vektoriaus elementø iğrikiavimui prieğinga tvarka naudojama funkcija rev.
+# Vektoriaus elementÅ³ iÅ¡rikiavimui prieÅ¡inga tvarka naudojama funkcija rev.
 x <- c(7.7, 3.8, -0.5, 5.3, 8.9, 1.5, -3.2, 4.1, -1.4, -4.7)
 
 rev(x)
 
 
-# Vektoriaus reikğmiø iğrikiavimui nemaşëjimo arba nedidëjimo tvarka naudojama 
+# Vektoriaus reikÅ¡miÅ³ iÅ¡rikiavimui nemaÅ¾Ä—jimo arba nedidÄ—jimo tvarka naudojama 
 # funkcija sort. Jos parametrai:
 # 
 #          x -- vektorius,
-# decreasing -- pagal nutylëjimà FALSE, nurodo rikiavimo tvarka,
-#    na.last -- pagal nutylëjimà NA, gali bûti TRUE arba FALSE arba.
+# decreasing -- pagal nutylÄ—jimÄ… FALSE, nurodo rikiavimo tvarka,
+#    na.last -- pagal nutylÄ—jimÄ… NA, gali bÅ«ti TRUE arba FALSE arba.
 
-# Pagal nutylëjimà skaitinio vektoriaus elementai iğrikiuojami nemaşëjimo tvarka.
+# Pagal nutylÄ—jimÄ… skaitinio vektoriaus elementai iÅ¡rikiuojami nemaÅ¾Ä—jimo tvarka.
 
 sort(x)
 
-# Statistikoje taip gaunama imties variacinë eilutë, kurios i-asis elementas yra
-# vadinamas i-àjà pozicine statistika. Pavyzdşiui, 1-oji pozicinë statistika yra
-# imties minimumas. Uşrağysime pirmosios pozicinës statistikos nustatymo komandà 
+# Statistikoje taip gaunama imties variacinÄ— eilutÄ—, kurios i-asis elementas yra
+# vadinamas i-Ä…jÄ… pozicine statistika. PavyzdÅ¾iui, 1-oji pozicinÄ— statistika yra
+# imties minimumas. UÅ¾raÅ¡ysime pirmosios pozicinÄ—s statistikos nustatymo komandÄ… 
 # funkcinio programavimo stiliumi.
 
 sort(x)[1]
 
 
-# Rikiuojant nedidëjimo tvarka, parametro decreasing reikğmë pakeièiama á TRUE.
+# Rikiuojant nedidÄ—jimo tvarka, parametro decreasing reikÅ¡mÄ— pakeiÄiama Ä¯ TRUE.
 sort(x, decreasing = TRUE)
 
-# Rikiuojant vektoriø su praleistomis reikğmëmis, jos pagal nutylëjimà iğmetamos.
+# Rikiuojant vektoriÅ³ su praleistomis reikÅ¡mÄ—mis, jos pagal nutylÄ—jimÄ… iÅ¡metamos.
 y <- c(7.7, 3.8, NA, 5.3, 8.9, 1.5, NA, 4.1, NA, NA)
 
 sort(y)
 
-# Kad iğrikiuoto vektoriaus su praleistomis reikğmëmis elementø skaièius iğliktø 
-# toks pat, praleistas reikğmes galima nukelti á vektoriaus pradşià arba galà.
+# Kad iÅ¡rikiuoto vektoriaus su praleistomis reikÅ¡mÄ—mis elementÅ³ skaiÄius iÅ¡liktÅ³ 
+# toks pat, praleistas reikÅ¡mes galima nukelti Ä¯ vektoriaus pradÅ¾iÄ… arba galÄ….
 
 sort(y, na.last = TRUE)
 sort(y, na.last = FALSE)
 
 
-# Pagal nutylëjimà raidës iğrikiuojamos abëcëlës tvarka.
+# Pagal nutylÄ—jimÄ… raidÄ—s iÅ¡rikiuojamos abÄ—cÄ—lÄ—s tvarka.
 r <- c("Y", "M", "S", "F", "I", "Q", "Z", "E", "O", "H", "A", "W", "J", "R", "T")
 
 sort(r)
 
-# Ilgesnës simboliø sekos (nebûtinai vienodo ilgio) iğrikiuojamos leksikografine 
-# tvarka: iğ pradşiø pagal pirmà şodşio simbolá, tada pagal antrà ir t.t.
+# IlgesnÄ—s simboliÅ³ sekos (nebÅ«tinai vienodo ilgio) iÅ¡rikiuojamos leksikografine 
+# tvarka: iÅ¡ pradÅ¾iÅ³ pagal pirmÄ… Å¾odÅ¾io simbolÄ¯, tada pagal antrÄ… ir t.t.
 s <- c("ZSZ", "LFB", "IY", "OWJV", "WL", "LNXCO", "ZS", "ARIHB", "TUCYS", "KRHU")
 
 sort(s)
 
 
-# Vektoriaus elementø numerius iğrikiuotame vektoriuje nustato f-ja order. Jos
+# Vektoriaus elementÅ³ numerius iÅ¡rikiuotame vektoriuje nustato f-ja order. Jos
 # parametrai:
 #
 #        ... -- vienas arba keli vektoriai,
-#    na.last -- pagal nutylëjimà NA, gali bûti TRUE arba FALSE arba,
-# decreasing -- pagal nutylëjimà FALSE, nurodo rikiavimo tvarka.
+#    na.last -- pagal nutylÄ—jimÄ… NA, gali bÅ«ti TRUE arba FALSE arba,
+# decreasing -- pagal nutylÄ—jimÄ… FALSE, nurodo rikiavimo tvarka.
 
-# Funkcijos order reikğmë yra vektoriaus elementø perstatinys. Tai reiğkia, kad
-# ği funkcija gràşina ne iğrikiuotus vektoriaus elementus, o jø numerius. 
+# Funkcijos order reikÅ¡mÄ— yra vektoriaus elementÅ³ perstatinys. Tai reiÅ¡kia, kad
+# Å¡i funkcija grÄ…Å¾ina ne iÅ¡rikiuotus vektoriaus elementus, o jÅ³ numerius. 
 
 z <- c("c", "a", "b")
 
 i <- order(z)
 i
 
-# Pirmojo gauto vektoriaus elemento reikğmë 2 nurodo, kad pirmas tarp iğrikiuotø 
-# vektoriaus elementø bûtø antrasis vektoriaus elementas z[2], kurio reikğmë "a".
-# Antrasis elementas lygus 3 ir tai reiğkia, kad antras tarp iğrikiuotø elementø
-# bûtø z[3], kurio reikğmë "b". Treèiasis elementas lygus 1, vadinasi treèiasis
-# tarp iğrikiuotø elementø bûtø z[1], kurio reikğmë lygi "c".
+# Pirmojo gauto vektoriaus elemento reikÅ¡mÄ— 2 nurodo, kad pirmas tarp iÅ¡rikiuotÅ³ 
+# vektoriaus elementÅ³ bÅ«tÅ³ antrasis vektoriaus elementas z[2], kurio reikÅ¡mÄ— "a".
+# Antrasis elementas lygus 3 ir tai reiÅ¡kia, kad antras tarp iÅ¡rikiuotÅ³ elementÅ³
+# bÅ«tÅ³ z[3], kurio reikÅ¡mÄ— "b". TreÄiasis elementas lygus 1, vadinasi treÄiasis
+# tarp iÅ¡rikiuotÅ³ elementÅ³ bÅ«tÅ³ z[1], kurio reikÅ¡mÄ— lygi "c".
 
-# Parodysime, kad vektoriaus elementus iğdësèius pagal funkcijos order gràşinamà 
-# numeriø vektoriø, gaunamas iğrikuotas vektorius, koká gautume su funkcija sort.
+# Parodysime, kad vektoriaus elementus iÅ¡dÄ—sÄius pagal funkcijos order grÄ…Å¾inamÄ… 
+# numeriÅ³ vektoriÅ³, gaunamas iÅ¡rikuotas vektorius, kokÄ¯ gautume su funkcija sort.
 
 z[i]
 
 
-# Funkcijos order gràşinamas vektorius naudojamas matricos arba duomenø lenteliø 
-# eiluèiø iğrikiavimui pagal kurio nors stulpelio reikğmes. Pavyzdşiui, lentelës 
-# tyrimas eilutes iğrikiuosime pagal kintamàjá "X".
+# Funkcijos order grÄ…Å¾inamas vektorius naudojamas matricos arba duomenÅ³ lenteliÅ³ 
+# eiluÄiÅ³ iÅ¡rikiavimui pagal kurio nors stulpelio reikÅ¡mes. PavyzdÅ¾iui, lentelÄ—s 
+# tyrimas eilutes iÅ¡rikiuosime pagal kintamÄ…jÄ¯ "X".
 
 tyrimas <- read.table(header = TRUE, text = "
 X     Y     Z
@@ -150,71 +150,71 @@ i <- order(tyrimas$X)
 
 tyrimas[i, ]
 
-# Laikantis funkcinio programavimo stiliaus viskà galima uşrağyti viena iğraiğka.
+# Laikantis funkcinio programavimo stiliaus viskÄ… galima uÅ¾raÅ¡yti viena iÅ¡raiÅ¡ka.
 
 tyrimas[order(tyrimas$X), ]
 
-# Kad funkcijos order viduje bûtø galima tiesiogiai naudoti lentelës kintamøjø
-# pavadinimus, jà galima ákelti á funkcijà with. Tai ypaè patogu tuo atveju, kai
-# reikia uşrağyti iğ karto kelis vienos lentelës kintamuosius.
+# Kad funkcijos order viduje bÅ«tÅ³ galima tiesiogiai naudoti lentelÄ—s kintamÅ³jÅ³
+# pavadinimus, jÄ… galima Ä¯kelti Ä¯ funkcijÄ… with. Tai ypaÄ patogu tuo atveju, kai
+# reikia uÅ¾raÅ¡yti iÅ¡ karto kelis vienos lentelÄ—s kintamuosius.
 
 with(tyrimas, tyrimas[order(X), ])
 
-# Eilutes galima iğrikiuoti iğ karto pagal kelis stulpelius. Pvz., iğrikiuosime 
-# eilutes kintamojo "X" didëjimo (abëcëlës) tvarka, bet tuo atveju kai kintamojo 
-# "X" reikğmës sutampa, eilutes iğrikiuosime pagal kintamàjá "Y".
+# Eilutes galima iÅ¡rikiuoti iÅ¡ karto pagal kelis stulpelius. Pvz., iÅ¡rikiuosime 
+# eilutes kintamojo "X" didÄ—jimo (abÄ—cÄ—lÄ—s) tvarka, bet tuo atveju kai kintamojo 
+# "X" reikÅ¡mÄ—s sutampa, eilutes iÅ¡rikiuosime pagal kintamÄ…jÄ¯ "Y".
 
 with(tyrimas, tyrimas[order(X, Y), ])
 
 
 # NAUDINGA ------------------------------
 
-# Funkcija order sukuria toká perstatiná, kuris vektoriaus elementus iğrikiuoja 
-# nemaşëjimo tvarka. Jei lentelës eilutes reikia iğrikiuoti vektoriaus maşëjimo 
+# Funkcija order sukuria tokÄ¯ perstatinÄ¯, kuris vektoriaus elementus iÅ¡rikiuoja 
+# nemaÅ¾Ä—jimo tvarka. Jei lentelÄ—s eilutes reikia iÅ¡rikiuoti vektoriaus maÅ¾Ä—jimo 
 # tvarka, nurodomas parametras decreasing = TRUE. Jei vektorius arba kintamasis, 
-# pagal kurá atliekamas rikiavimas, yra skaitinis, paprasèiau pakeisti jo şenklà.
+# pagal kurÄ¯ atliekamas rikiavimas, yra skaitinis, paprasÄiau pakeisti jo Å¾enklÄ….
 
-# Pvz., iğrikiuosime lentelës tyrimas eilutes kintamojo "X" didëjimo tvarka, bet 
-# kintamojo "Y" maşëjimo tvarka.
+# Pvz., iÅ¡rikiuosime lentelÄ—s tyrimas eilutes kintamojo "X" didÄ—jimo tvarka, bet 
+# kintamojo "Y" maÅ¾Ä—jimo tvarka.
 
 with(tyrimas, tyrimas[order(X, -Y), ])
 
-# Kategoriniams kintamiesiems şenklo pakeisti negalima, todël tokiais atvejais
-# gali bûti naudojama speciali funkcija xtfrm. Pavyzdşiui, iğrikiuosime lentelæ 
-# kintamojo "X" maşëjimo tvarka ir kintamojo "Y" didëjimo tvarka.
+# Kategoriniams kintamiesiems Å¾enklo pakeisti negalima, todÄ—l tokiais atvejais
+# gali bÅ«ti naudojama speciali funkcija xtfrm. PavyzdÅ¾iui, iÅ¡rikiuosime lentelÄ™ 
+# kintamojo "X" maÅ¾Ä—jimo tvarka ir kintamojo "Y" didÄ—jimo tvarka.
 
 with(tyrimas, tyrimas[order(-xtfrm(X), Y), ])
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Vektoriø x iğrikiuokite maşëjimo tvarka nenaudojant f-jos sort parametro
-#    decreasing = TRUE. Sugalvokite kelis bûdus tokiam iğrikiavimui atlikti.
-# 2. Lentelës tyrimas eilutes iğrikiuokite pagal visus tris jos kintamuosius iğ 
-#    karto: pagal "Z", tada pagal "X", o esant vienodoms jø reikğmëms pagal "Y".
+# 1. VektoriÅ³ x iÅ¡rikiuokite maÅ¾Ä—jimo tvarka nenaudojant f-jos sort parametro
+#    decreasing = TRUE. Sugalvokite kelis bÅ«dus tokiam iÅ¡rikiavimui atlikti.
+# 2. LentelÄ—s tyrimas eilutes iÅ¡rikiuokite pagal visus tris jos kintamuosius iÅ¡ 
+#    karto: pagal "Z", tada pagal "X", o esant vienodoms jÅ³ reikÅ¡mÄ—ms pagal "Y".
 
 
 # --------------------------------------- #
-# DUOMENØ LENTELIØ PERTVARKYMAS           #
+# DUOMENÅ² LENTELIÅ² PERTVARKYMAS           #
 # --------------------------------------- #
 
-# Á tekstinius failus ar Excel lenteles surağomi duomenys daşniausiai bûna taip
-# vadinamo "wide" formato: viename stulpelyje surağytos vieno kintamojo reikğmës, 
-# kintamøjø paprastai bûna ne vienas, o vienà objektà aprağo viena eilutë. Tai 
-# natûralus duomenø surağymo bûdas, bet jis ne visada patogus duomenø analizei.
+# Ä® tekstinius failus ar Excel lenteles suraÅ¡omi duomenys daÅ¾niausiai bÅ«na taip
+# vadinamo "wide" formato: viename stulpelyje suraÅ¡ytos vieno kintamojo reikÅ¡mÄ—s, 
+# kintamÅ³jÅ³ paprastai bÅ«na ne vienas, o vienÄ… objektÄ… apraÅ¡o viena eilutÄ—. Tai 
+# natÅ«ralus duomenÅ³ suraÅ¡ymo bÅ«das, bet jis ne visada patogus duomenÅ³ analizei.
 
-# Vienos duomenø lentelës keliø kintamøjø apjungimui á vienà kintamàjá naudojama 
+# Vienos duomenÅ³ lentelÄ—s keliÅ³ kintamÅ³jÅ³ apjungimui Ä¯ vienÄ… kintamÄ…jÄ¯ naudojama 
 # funkcija stack. Jos parametrai:
 #
-#        x -- "wide" formato duomenø lentelë,
-#   select -- duomenø lentelës kintamasis arba keliø kintamøjø vardø vektorius,
+#        x -- "wide" formato duomenÅ³ lentelÄ—,
+#   select -- duomenÅ³ lentelÄ—s kintamasis arba keliÅ³ kintamÅ³jÅ³ vardÅ³ vektorius,
 
-# Funkcijos rezultatas yra lentelë, kur stulpelyje "values" surağomos kintamøjø 
-# reikğmës, o stulpelyje "ind" -- tø kintamøjø pavadinimai.
+# Funkcijos rezultatas yra lentelÄ—, kur stulpelyje "values" suraÅ¡omos kintamÅ³jÅ³ 
+# reikÅ¡mÄ—s, o stulpelyje "ind" -- tÅ³ kintamÅ³jÅ³ pavadinimai.
 
-# Tarkime, kad yra lentelë, kurioje kiekvienas matavimas pakartotas tris kartus,
-# reikğmës surağytos á kintamuosius X, Y ir Z. Sudarysime lentelæ, kurioje visi 
-# trys kintamieji apjungti á vienà bendrà kintamàjá.
+# Tarkime, kad yra lentelÄ—, kurioje kiekvienas matavimas pakartotas tris kartus,
+# reikÅ¡mÄ—s suraÅ¡ytos Ä¯ kintamuosius X, Y ir Z. Sudarysime lentelÄ™, kurioje visi 
+# trys kintamieji apjungti Ä¯ vienÄ… bendrÄ… kintamÄ…jÄ¯.
 
 kintamieji <- read.table(header = TRUE, text = "
   X    Y    Z
@@ -226,40 +226,40 @@ kintamieji <- read.table(header = TRUE, text = "
 
 kintamieji
 
-# Apjungimo rezultatas yra taip vadinamo "long" formato lentelë, kurioje á vienà 
-# kintamàjá apjungtos visø trijø lentelës kintamøjø reikğmës.
+# Apjungimo rezultatas yra taip vadinamo "long" formato lentelÄ—, kurioje Ä¯ vienÄ… 
+#Â kintamÄ…jÄ¯ apjungtos visÅ³ trijÅ³ lentelÄ—s kintamÅ³jÅ³ reikÅ¡mÄ—s.
 
 matavimai <- stack(kintamieji)
 matavimai
 
-# Naudojant parametrà select, galima nurodyti, kuriuos kintamuosius apjungti. Su 
-# minuso şenklu nurodyti kintamieji neapjungiami. Pvz., apjungsime kintamuosius
-# "X" ir "Y". Toks pats rezultatas gaunamas iğmetus kintamàjá "Z".
+# Naudojant parametrÄ… select, galima nurodyti, kuriuos kintamuosius apjungti. Su 
+# minuso Å¾enklu nurodyti kintamieji neapjungiami. Pvz., apjungsime kintamuosius
+# "X" ir "Y". Toks pats rezultatas gaunamas iÅ¡metus kintamÄ…jÄ¯ "Z".
 
 stack(kintamieji, select = c(X, Y))
 stack(kintamieji, select = -Z)
 
 
-# Galima ir atvirkğtinë duomenø lentelës transformacija, kai apjungti stulpeliai 
-# iğskaidomi á atskirus kintamuosius. Tam naudojama funkcija unstack. Parametrai:
+# Galima ir atvirkÅ¡tinÄ— duomenÅ³ lentelÄ—s transformacija, kai apjungti stulpeliai 
+# iÅ¡skaidomi Ä¯ atskirus kintamuosius. Tam naudojama funkcija unstack. Parametrai:
 #
-#        x -- "long" formato duomenø lentelë,
-#     form -- formulë, kuri nurodo, kaip á stulpelius iğskaidyti kintamàjá.
+#        x -- "long" formato duomenÅ³ lentelÄ—,
+#     form -- formulÄ—, kuri nurodo, kaip Ä¯ stulpelius iÅ¡skaidyti kintamÄ…jÄ¯.
 
-# Formulë rağoma taip: X ~ G. Èia X yra kintamasis, kurá reikia suskaidyti, o G 
+# FormulÄ— raÅ¡oma taip: X ~ G. ÄŒia X yra kintamasis, kurÄ¯ reikia suskaidyti, o G 
 # yra grupavimo kintamasis.
 
-# Jeigu "long" formato lentelë buvo gauta naudojant funkcijà stack, atvirkğtinë 
-# transformacija atliekama nenurodant jokiø parametrø (jie árağyti atributuose).
+# Jeigu "long" formato lentelÄ— buvo gauta naudojant funkcijÄ… stack, atvirkÅ¡tinÄ— 
+# transformacija atliekama nenurodant jokiÅ³ parametrÅ³ (jie Ä¯raÅ¡yti atributuose).
 
 unstack(matavimai)
 
-# Jei kintamojo reikğmes grupuojanèiø kintamøjø lentelëje yra ne vienas, galima
-# nurodyti, pagal kurá iğ jø atliekamas iğskaidymas á stulpelius. Tam nurodomas
+# Jei kintamojo reikÅ¡mes grupuojanÄiÅ³ kintamÅ³jÅ³ lentelÄ—je yra ne vienas, galima
+# nurodyti, pagal kurÄ¯ iÅ¡ jÅ³ atliekamas iÅ¡skaidymas Ä¯ stulpelius. Tam nurodomas
 # parametras form. 
 
 matavimai <- read.table(header = TRUE, text = "
-reikğmë  tipas  grupë
+reikÅ¡mÄ—  tipas  grupÄ—
 1.5      X      Pirmas
 1.2      X      Pirmas
 1.9      X      Pirmas
@@ -274,30 +274,30 @@ reikğmë  tipas  grupë
 0.1      Z      Antras
 ")
 
-unstack(matavimai, form = reikğmë ~ tipas)
-unstack(matavimai, form = reikğmë ~ grupë)
+unstack(matavimai, form = reikÅ¡mÄ— ~ tipas)
+unstack(matavimai, form = reikÅ¡mÄ— ~ grupÄ—)
 
 
-# Sudëtingesnës struktûros duomenø lentelës pertvarkymams naudojama f-ja reshape. 
+# SudÄ—tingesnÄ—s struktÅ«ros duomenÅ³ lentelÄ—s pertvarkymams naudojama f-ja reshape. 
 # Pagrindiniai jos parametrai:
 # 
-#      data -- "wide" arba "long" formato duomenø lentelë,
-#   varying -- pasikartojanèius matavimus atitinkantys lentelës kintamieji,
-#   v.names -- kintamojo, á kurá apjungiami pasikartojantys matavimai, vardas,
+#      data -- "wide" arba "long" formato duomenÅ³ lentelÄ—,
+#   varying -- pasikartojanÄius matavimus atitinkantys lentelÄ—s kintamieji,
+#   v.names -- kintamojo, Ä¯ kurÄ¯ apjungiami pasikartojantys matavimai, vardas,
 #     idvar -- vienas ar keli grupavimo kintamieji, 
-#   timevar -- kintamasis, kuris "long" lentelëje nurodo vienà matavimø serijà,
-# direction -- "long" arba "wide", nurodo á kokio formato lentelæ transformuoti.
+#   timevar -- kintamasis, kuris "long" lentelÄ—je nurodo vienÄ… matavimÅ³ serijÄ…,
+# direction -- "long" arba "wide", nurodo Ä¯ kokio formato lentelÄ™ transformuoti.
 
-# Pertvarkant lentelæ iğ "wide" formato á "long", lentelëje atsiranda kintamasis
-# "time". Já atitinkantis kintamasis nurodomas parametrui timevar, kai lentelë 
-# pertvarkoma iğ "long" formato á "wide".
+# Pertvarkant lentelÄ™ iÅ¡ "wide" formato Ä¯ "long", lentelÄ—je atsiranda kintamasis
+# "time". JÄ¯ atitinkantis kintamasis nurodomas parametrui timevar, kai lentelÄ— 
+# pertvarkoma iÅ¡ "long" formato Ä¯ "wide".
 
-# Pavyzdşiui, turime lentelæ, kurioje yra trys to paties kintamojo matavimai ir
-# grupavimo kintamasis. Sudarysime lentelæ, kurioje kintamieji "X.1", "X.2" ir 
-# "X.3" apjungiami á vienà kintamàjá.
+# PavyzdÅ¾iui, turime lentelÄ™, kurioje yra trys to paties kintamojo matavimai ir
+# grupavimo kintamasis. Sudarysime lentelÄ™, kurioje kintamieji "X.1", "X.2" ir 
+# "X.3" apjungiami Ä¯ vienÄ… kintamÄ…jÄ¯.
 
 d.ww <- read.table(header = TRUE, text = "
-nr  grupë   X.1   X.2   X.3
+nr  grupÄ—   X.1   X.2   X.3
  1      A  2.84  2.08  1.06
  2      B  2.95  2.08  0.96
  3      A  2.85  2.03  1.10
@@ -306,26 +306,26 @@ nr  grupë   X.1   X.2   X.3
  6      B  2.87  1.97  0.90
 ")
 
-# Paprasèiausiu atveju funkcijai uştenka nurodyti tik pasikartojanèius matavimus
-# atitinkanèiø kintamøjø vardus, kiti automatiğkai priskiriami parametrui idvar.
+# PaprasÄiausiu atveju funkcijai uÅ¾tenka nurodyti tik pasikartojanÄius matavimus
+# atitinkanÄiÅ³ kintamÅ³jÅ³ vardus, kiti automatiÅ¡kai priskiriami parametrui idvar.
 d.wl <- reshape(d.ww, varying = c("X.1", "X.2", "X.3"), direction = "long")
 d.wl
 
-# Kintamuosius parametrams galima iğvardinti nurodant jø stulpeliø numerius. 
+# Kintamuosius parametrams galima iÅ¡vardinti nurodant jÅ³ stulpeliÅ³ numerius. 
 d.wl <- reshape(d.ww, varying = 3:5, v.names = "X", idvar = 1:2, direc = "long")
 d.wl
 
-# Tokià pertvarkytà lentelæ galima atversti atgal panaudojant tà paèià funkcijà 
-# reshape be jokiø parametrø (visø jø reikğmës árağytos lentelës atributuose).
+# TokiÄ… pertvarkytÄ… lentelÄ™ galima atversti atgal panaudojant tÄ… paÄiÄ… funkcijÄ… 
+# reshape be jokiÅ³ parametrÅ³ (visÅ³ jÅ³ reikÅ¡mÄ—s Ä¯raÅ¡ytos lentelÄ—s atributuose).
 
 reshape(d.wl)
 
 
-# Jei pradiniai duomenys yra "long" formato, naudojant f-jà reshape, juos galima 
-# pertvarkyti á "wide" formato duomenø lentelæ.
+# Jei pradiniai duomenys yra "long" formato, naudojant f-jÄ… reshape, juos galima 
+# pertvarkyti Ä¯ "wide" formato duomenÅ³ lentelÄ™.
 
 d.ll <- read.table(header = TRUE, text = "
-nr grupë bandymas    X
+nr grupÄ— bandymas    X
 1      A        1 2.84
 2      B        1 2.95
 3      A        1 2.85
@@ -346,27 +346,27 @@ nr grupë bandymas    X
 6      B        3 0.90
 ")
 
-# Kintamàjá "time", kuris "long" formato lentelëje atskiria kintamojo matavimø 
-# serijas, ğioje lentelëje atitinka kintamasis "bandymas". 
+# KintamÄ…jÄ¯ "time", kuris "long" formato lentelÄ—je atskiria kintamojo matavimÅ³ 
+# serijas, Å¡ioje lentelÄ—je atitinka kintamasis "bandymas". 
 
 t <- "bandymas"
-g <- c("nr", "grupë")
+g <- c("nr", "grupÄ—")
 
 d.lw <- reshape(d.ll, v.names = "X", idvar = g, timevar = t, direction = "wide")
 d.lw
 
-# Taip pertvarkytos lentelës atvirkğtinë transformacija á "long" formato lentelæ 
-# atliekama naudojant f-jà reshape be jokiø papildomø parametrø.
+# Taip pertvarkytos lentelÄ—s atvirkÅ¡tinÄ— transformacija Ä¯ "long" formato lentelÄ™ 
+# atliekama naudojant f-jÄ… reshape be jokiÅ³ papildomÅ³ parametrÅ³.
 
 reshape(d.lw)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant funkcijà unstack, lentelæ tyrimas pertvarkykite iğ "long" formato 
-#    á "wide". Suskaidyti reikia kintamàjá "Y", o jo grupavimas atliekamas pagal 
-#    kintamàjá "X". Kodël tokios lentelës pervarkymui netinka funkcija reshape?
-# 2. Sugalvokite bûdà, kaip lentelës duomenys kintamuosius "X.1", "X.2" ir "X.3" 
-#    apjungti naudojant funkcijà stack.
-# 3. Pertvarkykite lentelæ chickwts: kintamàjá weight padalinkite á grupes pagal 
-#    kintamojo feed reikğmes.
+# 1. Naudojant funkcijÄ… unstack, lentelÄ™ tyrimas pertvarkykite iÅ¡ "long" formato 
+#    Ä¯ "wide". Suskaidyti reikia kintamÄ…jÄ¯ "Y", o jo grupavimas atliekamas pagal 
+#    kintamÄ…jÄ¯ "X". KodÄ—l tokios lentelÄ—s pervarkymui netinka funkcija reshape?
+# 2. Sugalvokite bÅ«dÄ…, kaip lentelÄ—s duomenys kintamuosius "X.1", "X.2" ir "X.3" 
+#    apjungti naudojant funkcijÄ… stack.
+# 3. Pertvarkykite lentelÄ™ chickwts: kintamÄ…jÄ¯ weight padalinkite Ä¯ grupes pagal 
+#    kintamojo feed reikÅ¡mes.

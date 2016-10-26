@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Skaièiø ir teksto formatavimo funkcijos.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            SkaiÄiÅ³ ir teksto formatavimo funkcijos.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2016-03-29 | 2016-04-19
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. Skaièiø ir teksto formatavimas:
+#   1. SkaiÄiÅ³ ir teksto formatavimas:
 #      * funkcija formatC
 #      * funkcija prettyNum
 #      * funkcija sprintf
@@ -22,150 +22,150 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# TRUMPAI APIE TEKSTO FORMATAVIMÀ         #
+# TRUMPAI APIE TEKSTO FORMATAVIMÄ„         #
 # --------------------------------------- #
 
-# Labai daşnai skaièiavimø rezultatus reikia áterpti á tekstà, kuris iğvedamas á
-# ekranà ar tekstiná failà. Ávairaus tipo reikğmiø, suformatuotø pagal tam tikrà
-# iğ anksto nustatytà ğablonà, iğvedimas á ekranà ar kitus árenginius, vadinamas 
-# formatuotu spausdinimu. Daugelis programavimo kalbø ğiam tikslui turi funkcijà
+# Labai daÅ¾nai skaiÄiavimÅ³ rezultatus reikia Ä¯terpti Ä¯ tekstÄ…, kuris iÅ¡vedamas Ä¯
+# ekranÄ… ar tekstinÄ¯ failÄ…. Ä®vairaus tipo reikÅ¡miÅ³, suformatuotÅ³ pagal tam tikrÄ…
+# iÅ¡ anksto nustatytÄ… Å¡ablonÄ…, iÅ¡vedimas Ä¯ ekranÄ… ar kitus Ä¯renginius, vadinamas 
+# formatuotu spausdinimu. Daugelis programavimo kalbÅ³ Å¡iam tikslui turi funkcijÄ…
 # printf (print formatted), kurios standartas susiformavo C kalboje, o R kalboje
-# ğiam tikslui naudojama funkcijos printf atmaina sprintf. Ği f-ja skaièiø ádeda 
-# á teksto ğablonà ir toká formatuotà tekstà gràşina kaip simboliø sekà.
+# Å¡iam tikslui naudojama funkcijos printf atmaina sprintf. Å i f-ja skaiÄiÅ³ Ä¯deda 
+# Ä¯ teksto Å¡ablonÄ… ir tokÄ¯ formatuotÄ… tekstÄ… grÄ…Å¾ina kaip simboliÅ³ sekÄ….
 
-# Skaièiø atvaizdavimui R dar turi funkcijas formatC, prettyNum, kurios taip pat
-# naudoja ğià iğ C kalbos atëjusià formatavimo tradicijà.
+# SkaiÄiÅ³ atvaizdavimui R dar turi funkcijas formatC, prettyNum, kurios taip pat
+# naudoja Å¡iÄ… iÅ¡ C kalbos atÄ—jusiÄ… formatavimo tradicijÄ….
 
 
 # --------------------------------------- #
-# SKAIÈIØ FORMATAVIMAS                    #
+# SKAIÄŒIÅ² FORMATAVIMAS                    #
 # --------------------------------------- #
 
-# Atskirai skaièiø formatavimui, naudojant C kalboje priimtà sintaksæ, naudojama 
+# Atskirai skaiÄiÅ³ formatavimui, naudojant C kalboje priimtÄ… sintaksÄ™, naudojama 
 # funkcija formatC. Jos parametrai:
 #
-#                x -- realiø skaièiø vektorius,
-#           digits -- reikğmingø skaitmenø skaièius,
-#            width -- skaièiui uşrağyti skirtø simboliø skaièius,
-#           format -- skaièiaus uşrağymo formatas,
-#             flag -- papildomos skaièiaus formatavimo priemonës, 
-#         big.mark -- sveikosios dalies skaitmenø grupavimo simbolis,
-#       small.mark -- trupmeninës dalies skaitmenø grupavimo simbolis, 
-#     big.interval -- skaitmenø grupës sveikojoje dalyje dydis,
-#   small.interval -- skaitmenø grupës trupmeninëje dalyje dydis,
-#     decimal.mark -- sveikosios ir trupmeninës dalies atskyrimo simbolis,
-#   preserve.width -- skaièiø su grupuotais skaitmenimis formatavimo taisyklë,
-#       zero.print -- loginis, nurodo, ar rodyti nulines vektoriaus reikğmes, 
-#    drop0trailing -- loginis, nurodo, ar rodyti nulius uş reikğminiø skaitmenø.
+#                x -- realiÅ³ skaiÄiÅ³ vektorius,
+#           digits -- reikÅ¡mingÅ³ skaitmenÅ³ skaiÄius,
+#            width -- skaiÄiui uÅ¾raÅ¡yti skirtÅ³ simboliÅ³ skaiÄius,
+#           format -- skaiÄiaus uÅ¾raÅ¡ymo formatas,
+#             flag -- papildomos skaiÄiaus formatavimo priemonÄ—s, 
+#         big.mark -- sveikosios dalies skaitmenÅ³ grupavimo simbolis,
+#       small.mark -- trupmeninÄ—s dalies skaitmenÅ³ grupavimo simbolis, 
+#     big.interval -- skaitmenÅ³ grupÄ—s sveikojoje dalyje dydis,
+#   small.interval -- skaitmenÅ³ grupÄ—s trupmeninÄ—je dalyje dydis,
+#     decimal.mark -- sveikosios ir trupmeninÄ—s dalies atskyrimo simbolis,
+#   preserve.width -- skaiÄiÅ³ su grupuotais skaitmenimis formatavimo taisyklÄ—,
+#       zero.print -- loginis, nurodo, ar rodyti nulines vektoriaus reikÅ¡mes, 
+#    drop0trailing -- loginis, nurodo, ar rodyti nulius uÅ¾ reikÅ¡miniÅ³ skaitmenÅ³.
 
 
-c <- 299792458L       # ğviesos greitis
+c <- 299792458L       # Å¡viesos greitis
 e <- 2.718281828      # Oilerio konstanta
-m <- 9.109383561e-31  # elektrono masë
-L <- 6.022140857e+23  # Avogadro skaièius
+m <- 9.109383561e-31  # elektrono masÄ—
+L <- 6.022140857e+23  # Avogadro skaiÄius
 
-# Bet kurá skaièiø galima uşrağyti keliais skirtingais formatais. Pvz., sveikàjá
-# skaièiø 1000 galima uşrağyti kaip realøjá skaièiø 1000.0 ar eksponentine forma
-# (scientific format) kaip 1.0000e+03. Skaièiaus uşrağymo formatà nustato format
-# parametras. Pagrindinës jo reikğmës tokios:
+# Bet kurÄ¯ skaiÄiÅ³ galima uÅ¾raÅ¡yti keliais skirtingais formatais. Pvz., sveikÄ…jÄ¯
+# skaiÄiÅ³ 1000 galima uÅ¾raÅ¡yti kaip realÅ³jÄ¯ skaiÄiÅ³ 1000.0 ar eksponentine forma
+# (scientific format) kaip 1.0000e+03. SkaiÄiaus uÅ¾raÅ¡ymo formatÄ… nustato format
+# parametras. PagrindinÄ—s jo reikÅ¡mÄ—s tokios:
 #
-#          "d" -- sveikiesiems skaièiams,
-#          "f" -- realiesiems skaièiams, xx.xxxx,
+#          "d" -- sveikiesiems skaiÄiams,
+#          "f" -- realiesiems skaiÄiams, xx.xxxx,
 #          "e" -- scientific format, x.xxxe+nn,
 #          "E" -- scientific format, x.xxxE+nn,
-#          "s" -- simboliø sekai.
+#          "s" -- simboliÅ³ sekai.
 
-# Be ğiø reikğmiø, dar yra "g" ir "G", kurios nurodo, kad skaièius bus uşrağomas
-# atitinkamai "e" arba "E" formatu, jei ğiuo formatu jis uşrağomas trumpiau. Dar
-# yra reikğmë "fg", kuri nurodo, kad skaièius bus uşrağytas "f" formatu --- kaip
-# realus skaièius, taèiau reikğmingø skaitmenø skaièius bus toks, koks nurodytas
-# parametru digits, todël sveikieji skaièiai, kuriems parametras digits = 0, bus
-# rağomi be trupmeninës dalies. Pagal nutylëjimà sveikiesiems skaièiams formatas
-# yra "d", o realiesiems skaièiams -- "g".
+# Be Å¡iÅ³ reikÅ¡miÅ³, dar yra "g" ir "G", kurios nurodo, kad skaiÄius bus uÅ¾raÅ¡omas
+# atitinkamai "e" arba "E" formatu, jei Å¡iuo formatu jis uÅ¾raÅ¡omas trumpiau. Dar
+# yra reikÅ¡mÄ— "fg", kuri nurodo, kad skaiÄius bus uÅ¾raÅ¡ytas "f" formatu --- kaip
+# realus skaiÄius, taÄiau reikÅ¡mingÅ³ skaitmenÅ³ skaiÄius bus toks, koks nurodytas
+# parametru digits, todÄ—l sveikieji skaiÄiai, kuriems parametras digits = 0, bus
+# raÅ¡omi be trupmeninÄ—s dalies. Pagal nutylÄ—jimÄ… sveikiesiems skaiÄiams formatas
+# yra "d", o realiesiems skaiÄiams -- "g".
 
-# Parametras digits nurodo arba norimà skaitmenø skaièiø po kablelio, kai format
-# parametro reikğmë yra "f", arba reikğmingø skaitmenø skaièiø, kai formatas yra 
-# "e", "g" arba "fg". Pagal nutylëjimà realiesiems skaièiams digits = 4.
+# Parametras digits nurodo arba norimÄ… skaitmenÅ³ skaiÄiÅ³ po kablelio, kai format
+# parametro reikÅ¡mÄ— yra "f", arba reikÅ¡mingÅ³ skaitmenÅ³ skaiÄiÅ³, kai formatas yra 
+# "e", "g" arba "fg". Pagal nutylÄ—jimÄ… realiesiems skaiÄiams digits = 4.
 
-# Parametras width nustato skaièiui uşrağyti skirtos simboliø sekos ilgá. Jei jo
-# reikğmë nenurodoma, tada automatiğkai width = digits + 1. Jeigu width = 0, tai 
-# simboliø skaièius lygus parametro digits reikğmei.
+# Parametras width nustato skaiÄiui uÅ¾raÅ¡yti skirtos simboliÅ³ sekos ilgÄ¯. Jei jo
+# reikÅ¡mÄ— nenurodoma, tada automatiÅ¡kai width = digits + 1. Jeigu width = 0, tai 
+# simboliÅ³ skaiÄius lygus parametro digits reikÅ¡mei.
 
 
-# Panagrinësime, kaip galima atvaizduoti didelá sveikàjá skaièiø. Tegul tai bûna
-# c raide şymimas ğviesos greitis vakuume. PASTABA! Sveikieji skaièiai R kalboje 
-# rağomi su simboliu L gale. Prieğingu atveju laikoma, kad skaièius yra realusis.
+# PanagrinÄ—sime, kaip galima atvaizduoti didelÄ¯ sveikÄ…jÄ¯ skaiÄiÅ³. Tegul tai bÅ«na
+# c raide Å¾ymimas Å¡viesos greitis vakuume. PASTABA! Sveikieji skaiÄiai R kalboje 
+# raÅ¡omi su simboliu L gale. PrieÅ¡ingu atveju laikoma, kad skaiÄius yra realusis.
 
 class(299792458L)
 class(299792458)
 
-# Nuo skaièiaus klasës priklauso tai, kokiu formatu tas skaièius atvaizduojamas. 
-# Pvz., jei nenurodome formato, vienu atveju tas pats skaièius vaizduojamas kaip
-# sveikasis, kitu atveju --- standartine skaièiaus iğraiğka (scientific format).
+# Nuo skaiÄiaus klasÄ—s priklauso tai, kokiu formatu tas skaiÄius atvaizduojamas. 
+# Pvz., jei nenurodome formato, vienu atveju tas pats skaiÄius vaizduojamas kaip
+# sveikasis, kitu atveju --- standartine skaiÄiaus iÅ¡raiÅ¡ka (scientific format).
 
 #       123456789
 #       ||||||||| 
 formatC(299792458L)
 formatC(299792458)
 
-# Jeigu parametrui priskiriame reikğmæ "f", tai sveikasis skaièius bus uşrağytas
-# kaip realusis. Jei parametro reikğmë "e", skaièius uşrağomas standartine forma
-# su 4 reikğminiais skaitmenimis. Parametro format reikğmë "fg" nurodo, kad toks
-# sveikasis skaièius turëtø bûti uşrağomas kaip realusis, bet kadangi reikğminiø 
-# skaitmenø skaièius digits sveikiesiems lygus nuliui, trupmeninë dalis nerodoma.
+# Jeigu parametrui priskiriame reikÅ¡mÄ™ "f", tai sveikasis skaiÄius bus uÅ¾raÅ¡ytas
+# kaip realusis. Jei parametro reikÅ¡mÄ— "e", skaiÄius uÅ¾raÅ¡omas standartine forma
+# su 4 reikÅ¡miniais skaitmenimis. Parametro format reikÅ¡mÄ— "fg" nurodo, kad toks
+# sveikasis skaiÄius turÄ—tÅ³ bÅ«ti uÅ¾raÅ¡omas kaip realusis, bet kadangi reikÅ¡miniÅ³ 
+# skaitmenÅ³ skaiÄius digits sveikiesiems lygus nuliui, trupmeninÄ— dalis nerodoma.
 
 formatC(299792458L, format = "f")
 formatC(299792458L, format = "e")
 formatC(299792458L, format = "fg")
 
-# Ğiam skaièiui uşrağyti reikia 9 skaitmenø. Jei parametro width reikğmë maşesnë 
-# uş 9, skaièius vis tiek bus uşrağomas naudojant 9 simbolius. Taèiau jam galima
-# skirti ir daugiau simboliø. Tada skaièius bus lygiuojamas pagal değiniàjà pusæ.
+# Å iam skaiÄiui uÅ¾raÅ¡yti reikia 9 skaitmenÅ³. Jei parametro width reikÅ¡mÄ— maÅ¾esnÄ— 
+# uÅ¾ 9, skaiÄius vis tiek bus uÅ¾raÅ¡omas naudojant 9 simbolius. TaÄiau jam galima
+# skirti ir daugiau simboliÅ³. Tada skaiÄius bus lygiuojamas pagal deÅ¡iniÄ…jÄ… pusÄ™.
 
 formatC(299792458L, width = 2)
 formatC(299792458L, width = 12)
 
-# Jeigu sveikasis skaièius uşrağomas kaip realusis, bet parametro digits reikğmë
-# nenurodoma, tada jis uşrağomas su 4 reikğminiais skaitmenimis po kablelio. Tai
-# galima pakeisti priskiriant parametrui digits kità reikğmæ.
+# Jeigu sveikasis skaiÄius uÅ¾raÅ¡omas kaip realusis, bet parametro digits reikÅ¡mÄ—
+# nenurodoma, tada jis uÅ¾raÅ¡omas su 4 reikÅ¡miniais skaitmenimis po kablelio. Tai
+# galima pakeisti priskiriant parametrui digits kitÄ… reikÅ¡mÄ™.
 
 formatC(299792458L, format = "f")
 formatC(299792458L, format = "f", digits = 1)
 formatC(299792458L, format = "e", digits = 1)
 
-# Kombinuojant ğiø trijø pagrindiniø parametrø reikğmes, skaièiø galima uşrağyti
-# labai ávairiai. Pavyzdşiui, skaièiui uşrağyti skirsime 20 simboliø. Uşrağysime 
-# já vienu atveju, kaip sveikàjá skaièiø, o kitu - kaip realøjá skaièiø su dviem 
-# reikğminiais skaièiais po kablelio.
+# Kombinuojant Å¡iÅ³ trijÅ³ pagrindiniÅ³ parametrÅ³ reikÅ¡mes, skaiÄiÅ³ galima uÅ¾raÅ¡yti
+# labai Ä¯vairiai. PavyzdÅ¾iui, skaiÄiui uÅ¾raÅ¡yti skirsime 20 simboliÅ³. UÅ¾raÅ¡ysime 
+# jÄ¯ vienu atveju, kaip sveikÄ…jÄ¯ skaiÄiÅ³, o kitu - kaip realÅ³jÄ¯ skaiÄiÅ³ su dviem 
+# reikÅ¡miniais skaiÄiais po kablelio.
 
 formatC(299792458L, format = "d", width = 20)
 formatC(299792458L, format = "f", width = 20, digits = 2)
 
 
-# Panagrinësime, kaip galima atvaizduoti labai maşà realøjá skaièiø. Pavyzdşiui,
-# tegul tai bûna elektrono masë m. Kadangi m realusis skaièius, pagal nutylëjimà
-# parametro format reikğmë yra "g", vadinas, jis vaizduojamas standartine forma.
-# Jeigu toks realusis skaièius uşrağomas kaip sveikasis, jis bus rodomas kaip 0.
-# Jei parametro format reikğmë "f", tada pagal nutylëjimà rodomi pirmieji keturi 
-# reikğminiai skaitmenys, kurie ğiuo atveju visi lygûs nuliui. Nurodşius formatà
-# "fg", skaièius uşrağomas taip, kad bûtø matomi keturi reikğminiai skaitmenys.
+# PanagrinÄ—sime, kaip galima atvaizduoti labai maÅ¾Ä… realÅ³jÄ¯ skaiÄiÅ³. PavyzdÅ¾iui,
+# tegul tai bÅ«na elektrono masÄ— m. Kadangi m realusis skaiÄius, pagal nutylÄ—jimÄ…
+# parametro format reikÅ¡mÄ— yra "g", vadinas, jis vaizduojamas standartine forma.
+# Jeigu toks realusis skaiÄius uÅ¾raÅ¡omas kaip sveikasis, jis bus rodomas kaip 0.
+# Jei parametro format reikÅ¡mÄ— "f", tada pagal nutylÄ—jimÄ… rodomi pirmieji keturi 
+# reikÅ¡miniai skaitmenys, kurie Å¡iuo atveju visi lygÅ«s nuliui. NurodÅ¾ius formatÄ…
+# "fg", skaiÄius uÅ¾raÅ¡omas taip, kad bÅ«tÅ³ matomi keturi reikÅ¡miniai skaitmenys.
 
 formatC(m)
 formatC(m, format = "g")
@@ -174,62 +174,62 @@ formatC(m, format = "d")
 formatC(m, format = "f")
 formatC(m, format = "fg")
 
-# Norint pamatyti visà skaièiø, papildomai reikëtø nurodyti reikğminiø skaitmenø
-# skaièiø. Ğiuo atveju jø yra 10.
+# Norint pamatyti visÄ… skaiÄiÅ³, papildomai reikÄ—tÅ³ nurodyti reikÅ¡miniÅ³ skaitmenÅ³
+# skaiÄiÅ³. Å iuo atveju jÅ³ yra 10.
 
 formatC(m, format = "fg", digits = 10)
 
-# PASTABA! Jeigu reikğminiø skaitmenø skaièius nurodomas didesnis, nei jø yra iğ
-# tikro, skaièiuje atsiranda papildomi skaitmenys, kuriø neturëtø bûti. Taip yra
-# dël slankiojo kablelio skaièiø aritmetikos paklaidø, nes kompiuterio atmintyje 
-# skaièiui uşrağyti skiriamas tam tikras fiksuotas bitø kiekis (32 ar 64), kurio 
-# neuştenka skaièiui iğreikğti. Tai galioja ir labai dideliems, ir labai maşiems
-# skaièiams. Pavyzdşiui, skaièiui m nurodysime 20 reikğminiø skaièiø, kurie visi 
-# bus rodomi, nors iğ tikro reikğminiø skaièiø ğiuo atveju yra tik 10.
+# PASTABA! Jeigu reikÅ¡miniÅ³ skaitmenÅ³ skaiÄius nurodomas didesnis, nei jÅ³ yra iÅ¡
+# tikro, skaiÄiuje atsiranda papildomi skaitmenys, kuriÅ³ neturÄ—tÅ³ bÅ«ti. Taip yra
+# dÄ—l slankiojo kablelio skaiÄiÅ³ aritmetikos paklaidÅ³, nes kompiuterio atmintyje 
+# skaiÄiui uÅ¾raÅ¡yti skiriamas tam tikras fiksuotas bitÅ³ kiekis (32 ar 64), kurio 
+# neuÅ¾tenka skaiÄiui iÅ¡reikÅ¡ti. Tai galioja ir labai dideliems, ir labai maÅ¾iems
+# skaiÄiams. PavyzdÅ¾iui, skaiÄiui m nurodysime 20 reikÅ¡miniÅ³ skaiÄiÅ³, kurie visi 
+# bus rodomi, nors iÅ¡ tikro reikÅ¡miniÅ³ skaiÄiÅ³ Å¡iuo atveju yra tik 10.
 
 formatC(m, format = "fg", digits = 20)
 
-# Jeigu skaièius nëra labai didelis arba labai maşas, o parametro digits reikğmë
-# virğija tikràjá reikğminiø skaitmenø skaièiø, tai skaièiaus gale yra prirağomi 
-# nuliai (trailing zeros). Pavyzdşiui, konstanta e èia uşrağyta su 10 reikğminiø 
-# skaièiø. Atvaizduokime já su 15 reikğminiø skaièiø.
+# Jeigu skaiÄius nÄ—ra labai didelis arba labai maÅ¾as, o parametro digits reikÅ¡mÄ—
+# virÅ¡ija tikrÄ…jÄ¯ reikÅ¡miniÅ³ skaitmenÅ³ skaiÄiÅ³, tai skaiÄiaus gale yra priraÅ¡omi 
+# nuliai (trailing zeros). PavyzdÅ¾iui, konstanta e Äia uÅ¾raÅ¡yta su 10 reikÅ¡miniÅ³ 
+# skaiÄiÅ³. Atvaizduokime jÄ¯ su 15 reikÅ¡miniÅ³ skaiÄiÅ³.
 
 formatC(e, format = "f", digits = 15)
 
-# Loginis parametras drop0trailing nustato, kad galima nerodyti nuliø, kurie yra
-# rağomi uş reikğminiø skaièiø. Taigi, nors parametras digits virğija reikğminiø
-# skaitmenø skaièiø, nuliai gale jau nebus rağomi.
+# Loginis parametras drop0trailing nustato, kad galima nerodyti nuliÅ³, kurie yra
+# raÅ¡omi uÅ¾ reikÅ¡miniÅ³ skaiÄiÅ³. Taigi, nors parametras digits virÅ¡ija reikÅ¡miniÅ³
+# skaitmenÅ³ skaiÄiÅ³, nuliai gale jau nebus raÅ¡omi.
 
 formatC(e, format = "f", digits = 15, drop0trailing = TRUE)
 
 
-# Kadangi, naudojant funkcijà formatC, skaièius atvaizduojamas kaip tekstas, yra
-# galimybë pritaikyti papildomas teksto formatavimo priemones: skaièiø rağyti su 
-# şenklu, pakeisti lygiavimà ir k.t. Tam skirtas parametras flag, kurio reikğmës
-# gali bûti tokios:
+# Kadangi, naudojant funkcijÄ… formatC, skaiÄius atvaizduojamas kaip tekstas, yra
+# galimybÄ— pritaikyti papildomas teksto formatavimo priemones: skaiÄiÅ³ raÅ¡yti su 
+# Å¾enklu, pakeisti lygiavimÄ… ir k.t. Tam skirtas parametras flag, kurio reikÅ¡mÄ—s
+# gali bÅ«ti tokios:
 #
-#          "0" -- skaièiaus pradşioje bus rağomi nuliai,
-#          "+" -- skaièius rağomas su şenklu,
-#          "-" -- iğlygiavimas pagal kairæ,
-#          " " -- jei pirmas simbolis ne şenklas, tada dedamas tarpas,
+#          "0" -- skaiÄiaus pradÅ¾ioje bus raÅ¡omi nuliai,
+#          "+" -- skaiÄius raÅ¡omas su Å¾enklu,
+#          "-" -- iÅ¡lygiavimas pagal kairÄ™,
+#          " " -- jei pirmas simbolis ne Å¾enklas, tada dedamas tarpas,
 #          "#" -- alternatyvus spausdinimas, priklauso nuo formato.
 
-# Sudarant kodus ar eilës numerius, patogumo dëlei skaièiaus pradşioje gali bûti 
-# rağomi nuliai. Pavyzdşiui, iğ sveikøjø skaièiø sekos 1, 2, ..., 100 sudarysime 
-# 3-jø simboliø ilgio kodus.
+# Sudarant kodus ar eilÄ—s numerius, patogumo dÄ—lei skaiÄiaus pradÅ¾ioje gali bÅ«ti 
+# raÅ¡omi nuliai. PavyzdÅ¾iui, iÅ¡ sveikÅ³jÅ³ skaiÄiÅ³ sekos 1, 2, ..., 100 sudarysime 
+# 3-jÅ³ simboliÅ³ ilgio kodus.
 
 formatC(1:100, flag = "0", width = 3)
 
-# Jei parametro width reikğmë didesnë uş skaièiaus skaitmenø skaièiø, tada pagal
-# nutylëjimà skaièius bus lygiuojamas pagal değinájá krağtà. Tai galima pakeisti
-# parametrui flag priskyrus reikğmæ "-".
+# Jei parametro width reikÅ¡mÄ— didesnÄ— uÅ¾ skaiÄiaus skaitmenÅ³ skaiÄiÅ³, tada pagal
+# nutylÄ—jimÄ… skaiÄius bus lygiuojamas pagal deÅ¡inÄ¯jÄ¯ kraÅ¡tÄ…. Tai galima pakeisti
+# parametrui flag priskyrus reikÅ¡mÄ™ "-".
 
 formatC(1:100, flag = "-", width = 3)
 
-# Kai kada svarbu nurodyti skaièiaus şenklà. Pvz., tai gali bûti temperatûros ar
-# ekonominiø rodikliø pokyèiai laike. Tokiu atveju parametrui flag nurodome "+".
-# Pavyzdşiui, duotas Vilniaus miesto kiekvieno mënesio şemiausiø oro temperatûrø
-# sàrağas (E. Rimkus, 2013). Pavaizduosime ğias temperatûras su şenklu.
+# Kai kada svarbu nurodyti skaiÄiaus Å¾enklÄ…. Pvz., tai gali bÅ«ti temperatÅ«ros ar
+# ekonominiÅ³ rodikliÅ³ pokyÄiai laike. Tokiu atveju parametrui flag nurodome "+".
+# PavyzdÅ¾iui, duotas Vilniaus miesto kiekvieno mÄ—nesio Å¾emiausiÅ³ oro temperatÅ«rÅ³
+# sÄ…raÅ¡as (E. Rimkus, 2013). Pavaizduosime Å¡ias temperatÅ«ras su Å¾enklu.
 
 #        Sau.   Vas.  Kov.  Bal.  Geg.  Bir.  Lie.  Rug.  Rgs.  Spa.  Lap.   Grd.
 #       -----  ----- ----- ----- ----- ----- ----- ----- ----- ----- -----  -----
@@ -238,66 +238,66 @@ t <- c(-20.5, -16.3, -9.4, -0.1,  5.9, 10.4, 12.9, 13.2,  8.1,  0.4, -7.7, -19.0
 formatC(t, flag = "+")
 formatC(t, flag = "+", format = "f", digits = 1)
 
-# Papildomai galima nurodyti, kad skaièiams pavaizduoti bûtø naudojamas vienodas
-# simboliø skaièius. Skaièiø, kurie turi maşiau skaitmenø, pradşioje bus dedamas 
+# Papildomai galima nurodyti, kad skaiÄiams pavaizduoti bÅ«tÅ³ naudojamas vienodas
+# simboliÅ³ skaiÄius. SkaiÄiÅ³, kurie turi maÅ¾iau skaitmenÅ³, pradÅ¾ioje bus dedamas 
 # tarpas.
 
 formatC(t, flag = "+", format = "f", digits = 1, width = 5)
 
-# Jeigu sekoje yra ir teigiamø, ir neigiamø skaièiø, taèiau teigiamiems nurodyti
-# şenklà nebûtina, vietoje jo galima palikti tarpà. Tai nurodoma parametrui flag 
-# priskiriant reikğmæ " ".
+# Jeigu sekoje yra ir teigiamÅ³, ir neigiamÅ³ skaiÄiÅ³, taÄiau teigiamiems nurodyti
+# Å¾enklÄ… nebÅ«tina, vietoje jo galima palikti tarpÄ…. Tai nurodoma parametrui flag 
+# priskiriant reikÅ¡mÄ™ " ".
 
 formatC(t, flag = " ")
 formatC(t, flag = " ", format = "f", digits = 1)
 formatC(t, flag = " ", format = "f", digits = 1, width = 5)
 
 
-# Pagal lietuviø kalbos taisykles, sveikoji değimtainës trupmenos dalis skiriama
-# kableliu, taèiau kitose kalbose, o taip pat ir programavimo kalbose, paprastai 
-# tam naudojamas tağkas. Tai, koks simbolis naudojamas uşrağant skaièiø, nustato 
-# parametras decimal.mark. Uşrağysime temperatûrø reikğmes pagal lietuviø kalbos 
+# Pagal lietuviÅ³ kalbos taisykles, sveikoji deÅ¡imtainÄ—s trupmenos dalis skiriama
+# kableliu, taÄiau kitose kalbose, o taip pat ir programavimo kalbose, paprastai 
+# tam naudojamas taÅ¡kas. Tai, koks simbolis naudojamas uÅ¾raÅ¡ant skaiÄiÅ³, nustato 
+# parametras decimal.mark. UÅ¾raÅ¡ysime temperatÅ«rÅ³ reikÅ¡mes pagal lietuviÅ³ kalbos 
 # taisykles.
 
 formatC(t, decimal.mark = ",")
 formatC(t, decimal.mark = ",", format = "f", digits = 1)
 
 
-# Labai didelius arba labai maşus skaièius, jei jie neuşrağyti standartine forma, 
-# vizualiai nelengva suvokti. Patogumo dëlei, tokiø skaièiø skaitmenys gali bûti 
-# grupuojami, taip atskiriant ğimtø, tûkstanèiø, milijonø ir t.t. eilæ. Funkcija
-# formatC ğiam tikslui turi tokias dvi parametrø poras:
+# Labai didelius arba labai maÅ¾us skaiÄius, jei jie neuÅ¾raÅ¡yti standartine forma, 
+# vizualiai nelengva suvokti. Patogumo dÄ—lei, tokiÅ³ skaiÄiÅ³ skaitmenys gali bÅ«ti 
+# grupuojami, taip atskiriant Å¡imtÅ³, tÅ«kstanÄiÅ³, milijonÅ³ ir t.t. eilÄ™. Funkcija
+# formatC Å¡iam tikslui turi tokias dvi parametrÅ³ poras:
 #
-#                  sveikosios dalies           trupmeninës dalies
+#                  sveikosios dalies           trupmeninÄ—s dalies
 #                  ----------------            ----------------
 #                  big.mark                    small.mark 
 #                  big.interval                small.interval
 
-# Pirmoji pora nustato sveikosios skaièiaus dalies skaitmenø grupavimo taisyklæ, 
-# antroji - trupmeninës dalies skaitmenø grupavimo taisyklæ. Parametrai big.mark
-# ir small.mark nurodo simbolá, kuriuo atskiriamos skaitmenø grupës, o parametro
-# big.interval arba small.interval reikğmë yra sveikasis skaièius, kuris nurodo, 
-# kas kiek skaitmenø skaièiuje dedamas skyriklis. Pvz., sugrupuosime skaièiaus c
-# skaitmenis grupëmis po 3.
+# Pirmoji pora nustato sveikosios skaiÄiaus dalies skaitmenÅ³ grupavimo taisyklÄ™, 
+# antroji - trupmeninÄ—s dalies skaitmenÅ³ grupavimo taisyklÄ™. Parametrai big.mark
+# ir small.mark nurodo simbolÄ¯, kuriuo atskiriamos skaitmenÅ³ grupÄ—s, o parametro
+# big.interval arba small.interval reikÅ¡mÄ— yra sveikasis skaiÄius, kuris nurodo, 
+# kas kiek skaitmenÅ³ skaiÄiuje dedamas skyriklis. Pvz., sugrupuosime skaiÄiaus c
+# skaitmenis grupÄ—mis po 3.
 
 formatC(c, format = "fg", big.mark = "'")
 
-# Pavyzdşiui, Avogadro skaièius labai didelis, todël jo skaitmenis suskirstysime 
-# á grupes po 10 skaitmenø. Taip iğ karto matosi, kad skaièiaus eilë n > 20.
+# PavyzdÅ¾iui, Avogadro skaiÄius labai didelis, todÄ—l jo skaitmenis suskirstysime 
+# Ä¯ grupes po 10 skaitmenÅ³. Taip iÅ¡ karto matosi, kad skaiÄiaus eilÄ— n > 20.
 
 formatC(L, format = "fg", big.mark = "'", big.interval = 10)
 
-# Analogiğkai sugrupuojami labai maşo realiojo skaièiaus skaitmenys po kablelio.
-# Pavyzdşiui, tokiu bûdu uşrağysime elektrono masæ m. Iğ karto matome, kad yra 6 
-# tokios grupës, vadinasi masës m eilë ne maşiau kaip -30.
+# AnalogiÅ¡kai sugrupuojami labai maÅ¾o realiojo skaiÄiaus skaitmenys po kablelio.
+# PavyzdÅ¾iui, tokiu bÅ«du uÅ¾raÅ¡ysime elektrono masÄ™ m. IÅ¡ karto matome, kad yra 6 
+# tokios grupÄ—s, vadinasi masÄ—s m eilÄ— ne maÅ¾iau kaip -30.
 
 formatC(m, format = "fg", small.mark = " ")
 
-# Grupuojant skaitmenis padidëja skaièiui uşrağyti reikalingø simboliø skaièius.
-# Jeigu reikia, kad tokiems skaièiams uşrağyti reikalingø simboliø skaièius bûtø 
-# vienodas, parametro preserve.width reikğmë keièiama iğ "individual" á "common".
-# Pavyzdşiui, duotas tam tikrø Fibonacci sekos nariø vektorius. Sugrupuosime ğiø
-# skaièiø skaitmenis po 3 iğlaikant tà patá bendrà simboliø skaièiø.
+# Grupuojant skaitmenis padidÄ—ja skaiÄiui uÅ¾raÅ¡yti reikalingÅ³ simboliÅ³ skaiÄius.
+# Jeigu reikia, kad tokiems skaiÄiams uÅ¾raÅ¡yti reikalingÅ³ simboliÅ³ skaiÄius bÅ«tÅ³ 
+# vienodas, parametro preserve.width reikÅ¡mÄ— keiÄiama iÅ¡ "individual" Ä¯ "common".
+# PavyzdÅ¾iui, duotas tam tikrÅ³ Fibonacci sekos nariÅ³ vektorius. Sugrupuosime Å¡iÅ³
+# skaiÄiÅ³ skaitmenis po 3 iÅ¡laikant tÄ… patÄ¯ bendrÄ… simboliÅ³ skaiÄiÅ³.
 
 #      10    20      30         40           50             60               70
 #      --  ----  ------  ---------  -----------  -------------  ---------------
@@ -306,15 +306,15 @@ F <- c(55, 6765, 832040, 102334155, 12586269025, 1548008755920, 190392490709135)
 F.format <- formatC(F, format = "fg", big.mark = "'", preserve.width = "common")
 F.format
 
-# Ğitoks skaièiø iğlygiavimas pasimato, kai juos atspausdiname po vienà eilutëje.
-# Tam galima panaudoti funkcijà cat.
+# Å itoks skaiÄiÅ³ iÅ¡lygiavimas pasimato, kai juos atspausdiname po vienÄ… eilutÄ—je.
+# Tam galima panaudoti funkcijÄ… cat.
 
 cat(F.format, sep = "\n")
 
 
-# Jeigu nulinëms reikğmëms formatas neturi bûti nustatomas, parametro zero.print 
-# reikğmë pakeièiama á FALSE. Tada vietoje nulio bus rodoma tarpø seka. Tai gali
-# bûti naudinga tuo atveju, kai sekoje yra daug nuliø, kuriuos galima ignoruoti.
+# Jeigu nulinÄ—ms reikÅ¡mÄ—ms formatas neturi bÅ«ti nustatomas, parametro zero.print 
+# reikÅ¡mÄ— pakeiÄiama Ä¯ FALSE. Tada vietoje nulio bus rodoma tarpÅ³ seka. Tai gali
+# bÅ«ti naudinga tuo atveju, kai sekoje yra daug nuliÅ³, kuriuos galima ignoruoti.
 
 z <- c(0, 1.1, -1.0, 0, -1.7, 1.2, 0, -1.3, 0, 1.5, 0, 1.2, 0, 0, 0, 0, 0, -1.2)
 
@@ -324,264 +324,264 @@ formatC(z, format = "f", zero.print = FALSE, digits = 1)
 
 # NAUDINGA ------------------------------
 
-# Skaièiø formatavimui gali bûti naudojama ir funkcija prettyNum. Ji turi maşiau 
-# galimybiø, bet labai panaği á funkcijà formatC. Jos parametrai:
+# SkaiÄiÅ³ formatavimui gali bÅ«ti naudojama ir funkcija prettyNum. Ji turi maÅ¾iau 
+# galimybiÅ³, bet labai panaÅ¡i Ä¯ funkcijÄ… formatC. Jos parametrai:
 #
-#                x -- skaièiø vektorius,
-#         big.mark -- sveikosios dalies skaitmenø grupavimo simbolis,
-#       small.mark -- trupmeninës dalies skaitmenø grupavimo simbolis, 
-#     big.interval -- skaitmenø grupës sveikojoje dalyje dydis,
-#   small.interval -- skaitmenø grupës trupmeninëje dalyje dydis,
-#     decimal.mark -- sveikosios ir trupmeninës dalies atskyrimo simbolis,
-#   preserve.width -- skaièiø su grupuotais skaitmenimis formatavimo taisyklë,
-#       zero.print -- loginis, nurodo, ar rodyti nulines vektoriaus reikğmes, 
-#    drop0trailing -- loginis, nurodo, ar rodyti nulius uş reikğminiø skaitmenø,
-#         is.cmplx -- loginis, nurodo, ar skaièius x yra kompleksinis.
+#                x -- skaiÄiÅ³ vektorius,
+#         big.mark -- sveikosios dalies skaitmenÅ³ grupavimo simbolis,
+#       small.mark -- trupmeninÄ—s dalies skaitmenÅ³ grupavimo simbolis, 
+#     big.interval -- skaitmenÅ³ grupÄ—s sveikojoje dalyje dydis,
+#   small.interval -- skaitmenÅ³ grupÄ—s trupmeninÄ—je dalyje dydis,
+#     decimal.mark -- sveikosios ir trupmeninÄ—s dalies atskyrimo simbolis,
+#   preserve.width -- skaiÄiÅ³ su grupuotais skaitmenimis formatavimo taisyklÄ—,
+#       zero.print -- loginis, nurodo, ar rodyti nulines vektoriaus reikÅ¡mes, 
+#    drop0trailing -- loginis, nurodo, ar rodyti nulius uÅ¾ reikÅ¡miniÅ³ skaitmenÅ³,
+#         is.cmplx -- loginis, nurodo, ar skaiÄius x yra kompleksinis.
 
 prettyNum(c, big.mark = "'")      # grupuojame skaitmenis
-prettyNum(t, decimal.mark = ",")  # tağkà pakeièiame á kablelá
+prettyNum(t, decimal.mark = ",")  # taÅ¡kÄ… pakeiÄiame Ä¯ kablelÄ¯
 prettyNum(z, zero.print = FALSE)  # nerodomi nuliai
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Ğviesos greitá c = 299792458 m/s uşrağykite standartine skaièiaus iğraiğka.
-#    Skaièius turi bûtø vaizduojamas su trimis skaitmenimis po kablelio.
-# 2. Uşrağykite komandà, kuri sukurtø sunumeruotø failø sekà pagal toká ğablonà: 
+# 1. Å viesos greitÄ¯ c = 299792458 m/s uÅ¾raÅ¡ykite standartine skaiÄiaus iÅ¡raiÅ¡ka.
+#    SkaiÄius turi bÅ«tÅ³ vaizduojamas su trimis skaitmenimis po kablelio.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri sukurtÅ³ sunumeruotÅ³ failÅ³ sekÄ… pagal tokÄ¯ Å¡ablonÄ…: 
 #    failas_001.txt, failas_002.txt, ..., failas_100.txt.
-# 3. Merseno pirminiai skaièiai iğreiğkiami formule M = 2^p - 1, kur p taip pat
-#    pirminis. Didşiausias ğiuo metu şinomas pirminis skaièius tuo paèiu yra ir
-#    Merseno pirminis skaièius su parametru p = 74207281. Jis turi net 22338618 
-#    skaitmenø ir sutrumpintai şymimas M74207281. Maşesni Merseno skaièiai taip
-#    pat yra dideli, pavyzdşiui, M127 = 170141183460469231731687303715884105727, 
-#    jo parametras p = 127. Naudojant funkcijà formatC, skaièiø M127 uşrağykite 
-#    suskirstydami skaitmenis á grupes, kad iğ to bûtø galima lengvai vizualiai
-#    nustatyti jø skaièiø.
+# 3. Merseno pirminiai skaiÄiai iÅ¡reiÅ¡kiami formule M = 2^p - 1, kur p taip pat
+#    pirminis. DidÅ¾iausias Å¡iuo metu Å¾inomas pirminis skaiÄius tuo paÄiu yra ir
+#    Merseno pirminis skaiÄius su parametru p = 74207281. Jis turi net 22338618 
+#    skaitmenÅ³ ir sutrumpintai Å¾ymimas M74207281. MaÅ¾esni Merseno skaiÄiai taip
+#    pat yra dideli, pavyzdÅ¾iui, M127 = 170141183460469231731687303715884105727, 
+#    jo parametras p = 127. Naudojant funkcijÄ… formatC, skaiÄiÅ³ M127 uÅ¾raÅ¡ykite 
+#    suskirstydami skaitmenis Ä¯ grupes, kad iÅ¡ to bÅ«tÅ³ galima lengvai vizualiai
+#    nustatyti jÅ³ skaiÄiÅ³.
 
 
 # --------------------------------------- #
 # TEKSTO FORMATAVIMAS SU FUNKCIJA SPRINTF #
 # --------------------------------------- #
 
-# Kalbant grieştai, funkcija sprintf tam tikrà duomenø srautà pertvarko pagal iğ
-# anksto uşduotà formatà ir gràşina simboliø sekà. Jos parametrai:
+# Kalbant grieÅ¾tai, funkcija sprintf tam tikrÄ… duomenÅ³ srautÄ… pertvarko pagal iÅ¡
+# anksto uÅ¾duotÄ… formatÄ… ir grÄ…Å¾ina simboliÅ³ sekÄ…. Jos parametrai:
 #
-#          fmt -- formatuoto teksto ğablonas,
-#          ... -- á ğablonà ástatomos reikğmës.
+#          fmt -- formatuoto teksto Å¡ablonas,
+#          ... -- Ä¯ Å¡ablonÄ… Ä¯statomos reikÅ¡mÄ—s.
 
-# Parametras fmt --- tai pagal specialias taisykles uşrağytas teksto ğablonas, á
-# kurá ástatomos nustatyta tvarka iğvardytø kintamøjø reikğmës. Iğ esmës fmt yra
-# simboliø seka, kurioje yra dviejø rûğiø objektai: tai áprasti simboliai, kurie
-# á iğvedamà simboliø sekà nukopijuojami taip, kaip uşrağyti, ir formatai, kurie
-# nurodo, kaip turi bûti pertvarkytos iğvardintø kintamøjø reikğmës.
+# Parametras fmt --- tai pagal specialias taisykles uÅ¾raÅ¡ytas teksto Å¡ablonas, Ä¯
+# kurÄ¯ Ä¯statomos nustatyta tvarka iÅ¡vardytÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s. IÅ¡ esmÄ—s fmt yra
+# simboliÅ³ seka, kurioje yra dviejÅ³ rÅ«Å¡iÅ³ objektai: tai Ä¯prasti simboliai, kurie
+# Ä¯ iÅ¡vedamÄ… simboliÅ³ sekÄ… nukopijuojami taip, kaip uÅ¾raÅ¡yti, ir formatai, kurie
+# nurodo, kaip turi bÅ«ti pertvarkytos iÅ¡vardintÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s.
 
-# Kad bûtø lengviau ásivaizduoti, iğ pradşiø uşrağysime ğablonà be jokiø formatø:
+# Kad bÅ«tÅ³ lengviau Ä¯sivaizduoti, iÅ¡ pradÅ¾iÅ³ uÅ¾raÅ¡ysime Å¡ablonÄ… be jokiÅ³ formatÅ³:
 #
 #                       "Atstumas nuo {} iki {} yra {} km."
 #
-# Ğiuo atveju riestiniai skliaustai nurodo vietà tekste, kur galima ástatyti tam
-# tikrà reikğmæ. Pavyzdşiui, jei kalbama apie atstumus tarp miestø, tai pirmieji
-# skliaustai nurodo vieno miesto pavadinimà, antrieji --- kito miesto pavadinimà, 
-# o vietoje treèiøjø skliaustø rağomas tam tikras skaièius, kuris nurodo atstumà 
-# tarp ğiø miestø kilometrais.
+# Å iuo atveju riestiniai skliaustai nurodo vietÄ… tekste, kur galima Ä¯statyti tam
+# tikrÄ… reikÅ¡mÄ™. PavyzdÅ¾iui, jei kalbama apie atstumus tarp miestÅ³, tai pirmieji
+# skliaustai nurodo vieno miesto pavadinimÄ…, antrieji --- kito miesto pavadinimÄ…, 
+# o vietoje treÄiÅ³jÅ³ skliaustÅ³ raÅ¡omas tam tikras skaiÄius, kuris nurodo atstumÄ… 
+# tarp Å¡iÅ³ miestÅ³ kilometrais.
 
-# Visi formatai prasideda simboliu "%", o uşsibaigia viena raide, kuri ir nurodo 
-# konkretø kintamojo atvaizdavimo reikğmës formatà:
+# Visi formatai prasideda simboliu "%", o uÅ¾sibaigia viena raide, kuri ir nurodo 
+# konkretÅ³ kintamojo atvaizdavimo reikÅ¡mÄ—s formatÄ…:
 #
-#         i, d -- sveikasis skaièius arba loginë reikğmë,
-#            o -- ağtuntainis skaièius,
-#         x, X -- ğeğioliktainis skaièius,
-#            f -- realus skaièius, "[-]mmm.ddd",
-#         e, E -- standartinë skaièiaus forma, "[-]m.ddde[+-]xx",
-#         g, G -- atitinka %e ir %E, jei eksponentë < -4, kitu atveju %f,
-#            s -- simboliø seka,
-#            % -- iğvedamas simbolis "%".
+#         i, d -- sveikasis skaiÄius arba loginÄ— reikÅ¡mÄ—,
+#            o -- aÅ¡tuntainis skaiÄius,
+#         x, X -- Å¡eÅ¡ioliktainis skaiÄius,
+#            f -- realus skaiÄius, "[-]mmm.ddd",
+#         e, E -- standartinÄ— skaiÄiaus forma, "[-]m.ddde[+-]xx",
+#         g, G -- atitinka %e ir %E, jei eksponentÄ— < -4, kitu atveju %f,
+#            s -- simboliÅ³ seka,
+#            % -- iÅ¡vedamas simbolis "%".
 
 
-# Pavyzdşiui, suformuosime ğablonà atstumui tarp dviejø miestø uşrağyti. Tarkime, 
-# kad miestus şymi raidës A ir B, o atstumas tarp jø lygus d. Tada ğablonas toks:
+# PavyzdÅ¾iui, suformuosime Å¡ablonÄ… atstumui tarp dviejÅ³ miestÅ³ uÅ¾raÅ¡yti. Tarkime, 
+# kad miestus Å¾ymi raidÄ—s A ir B, o atstumas tarp jÅ³ lygus d. Tada Å¡ablonas toks:
 #
 #                       "Atstumas nuo A iki B yra d km."
 #
-# Ğiuo atveju A ir B yra miestø pavadinimai, vadinasi jø formatas %s, o atstumas
-# h sveikas skaièius, todël ğios reikğmës formatas %i. Gauname ğtai toká ğablonà:
+# Å iuo atveju A ir B yra miestÅ³ pavadinimai, vadinasi jÅ³ formatas %s, o atstumas
+# h sveikas skaiÄius, todÄ—l Å¡ios reikÅ¡mÄ—s formatas %i. Gauname Å¡tai tokÄ¯ Å¡ablonÄ…:
 #
 #                      "Atstumas nuo %s iki %s yra %i km."                      
 #
 # Tarkime, kad vienas miestas yra Skuodas, o kitas - Druskininkai. Atstumas tarp
-# jø 349 kilometrø. Á f-jà sprintf árağome ğablonà, tada reikğmes surağome tokia 
-# tvarka, kokia jos turi bûti ástatytos á ğablonà.
+# jÅ³ 349 kilometrÅ³. Ä® f-jÄ… sprintf Ä¯raÅ¡ome Å¡ablonÄ…, tada reikÅ¡mes suraÅ¡ome tokia 
+# tvarka, kokia jos turi bÅ«ti Ä¯statytos Ä¯ Å¡ablonÄ….
 
-#                     ğablonas                          reikğmës         
+#                     Å¡ablonas                          reikÅ¡mÄ—s         
 #       |---------------------------------|  |---------------------------|
 #                     1      2      3            1           2         3
-sprintf("Atstumas nuo %s iki %s yra %i km.", "Skuodo", "Druskininkø", 349)
+sprintf("Atstumas nuo %s iki %s yra %i km.", "Skuodo", "DruskininkÅ³", 349)
 
 
-# Jeigu á ğablonà ástatomos reikğmës gali keistis, tai á funkcijà sprintf geriau
-# surağyti kintamuosius, kuriems tos reikğmës bus priskiriamos.
+# Jeigu Ä¯ Å¡ablonÄ… Ä¯statomos reikÅ¡mÄ—s gali keistis, tai Ä¯ funkcijÄ… sprintf geriau
+# suraÅ¡yti kintamuosius, kuriems tos reikÅ¡mÄ—s bus priskiriamos.
 
-ğablonas <- "Atstumas nuo %s iki %s yra %i km."
+Å¡ablonas <- "Atstumas nuo %s iki %s yra %i km."
 
 A <- "Skuodo"
-B <- "Druskininkø"
+B <- "DruskininkÅ³"
 d <- 349
 
-sprintf(ğablonas, A, B, d)
+sprintf(Å¡ablonas, A, B, d)
 
-# Tà patá ğablonà galima naudoti ir kitiems atstumams, pavyzdşiui, tarp Şemës ir
-# Mënulio, uşrağyti. Ğiuo atveju funkcijos sprintf iğraiğka nesikeièia, keièiasi
-# tik kintamøjø reikğmës.
+# TÄ… patÄ¯ Å¡ablonÄ… galima naudoti ir kitiems atstumams, pavyzdÅ¾iui, tarp Å½emÄ—s ir
+# MÄ—nulio, uÅ¾raÅ¡yti. Å iuo atveju funkcijos sprintf iÅ¡raiÅ¡ka nesikeiÄia, keiÄiasi
+# tik kintamÅ³jÅ³ reikÅ¡mÄ—s.
 
-A <- "Şemës"
-B <- "Mënulio"
+A <- "Å½emÄ—s"
+B <- "MÄ—nulio"
 d <- 384400
 
-sprintf(ğablonas, A, B, d)
+sprintf(Å¡ablonas, A, B, d)
 
 
-# Uşrağant reikğmës formatà, standartinæ formatavimo taisyklæ galima pakoreguoti 
-# tarp "%" ir formatà nurodanèios raidës árağant papildomà simbolá. Galimi tokie
+# UÅ¾raÅ¡ant reikÅ¡mÄ—s formatÄ…, standartinÄ™ formatavimo taisyklÄ™ galima pakoreguoti 
+# tarp "%" ir formatÄ… nurodanÄios raidÄ—s Ä¯raÅ¡ant papildomÄ… simbolÄ¯. Galimi tokie
 # variantai:
 #
-#          m.n -- m nurodo bendrà simboliø skaièiø, o n nurodo tikslumà
-#            0 -- skaièiaus pradşioje bus rağomi nuliai,
-#            + -- skaièius rağomas su şenklu,
-#            - -- iğlygiavimas pagal kairæ,
-#          " " -- jei pirmas simbolis ne şenklas, tada dedamas tarpas,
+#          m.n -- m nurodo bendrÄ… simboliÅ³ skaiÄiÅ³, o n nurodo tikslumÄ…
+#            0 -- skaiÄiaus pradÅ¾ioje bus raÅ¡omi nuliai,
+#            + -- skaiÄius raÅ¡omas su Å¾enklu,
+#            - -- iÅ¡lygiavimas pagal kairÄ™,
+#          " " -- jei pirmas simbolis ne Å¾enklas, tada dedamas tarpas,
 #            # -- alternatyvus spausdinimas, priklauso nuo formato.
 
-# Naudojant kombinacijà m.n galima nurodyti iğ karto kelis dalykus: tai reikğmës 
-# atvaizdavimui skirtø simboliø skaièiø bei skaitmenø po kablelio skaièiø, jeigu
-# ta reikğmë yra realusis skaièius. Èia m ir n gali ágyti reikğmes 0, 1, 2, ...
-# Pavyzdşiui, tarkime, kad realøjá skaièiø e reikia uşrağyti dviejø skaitmenø po 
-# kablelio tikslumu, vadinasi, tam reikia 4 simboliø, todël formatas bus "%4.2f".
+# Naudojant kombinacijÄ… m.n galima nurodyti iÅ¡ karto kelis dalykus: tai reikÅ¡mÄ—s 
+# atvaizdavimui skirtÅ³ simboliÅ³ skaiÄiÅ³ bei skaitmenÅ³ po kablelio skaiÄiÅ³, jeigu
+# ta reikÅ¡mÄ— yra realusis skaiÄius. ÄŒia m ir n gali Ä¯gyti reikÅ¡mes 0, 1, 2, ...
+# PavyzdÅ¾iui, tarkime, kad realÅ³jÄ¯ skaiÄiÅ³ e reikia uÅ¾raÅ¡yti dviejÅ³ skaitmenÅ³ po 
+# kablelio tikslumu, vadinasi, tam reikia 4 simboliÅ³, todÄ—l formatas bus "%4.2f".
 
 sprintf("%4.2f", e)
 
-# Jei parametras m maşesnis, nei reikğmei uşrağyti reikalingø simboliø skaièius,
-# tada jis bus ignoruojamas. Pavyzdşiui, ğiuo atveju m = 3, m = 2 ar m = 0 nieko
-# nekeièia.
+# Jei parametras m maÅ¾esnis, nei reikÅ¡mei uÅ¾raÅ¡yti reikalingÅ³ simboliÅ³ skaiÄius,
+# tada jis bus ignoruojamas. PavyzdÅ¾iui, Å¡iuo atveju m = 3, m = 2 ar m = 0 nieko
+# nekeiÄia.
 
 sprintf("%3.2f", e)
 sprintf("%2.2f", e)
 sprintf("%1.2f", e)
 sprintf("%0.2f", e)
 
-# Jei parametras m didesnis, nei skaièiui uşrağyti reikalingø simboliø skaièius,
-# tada rezultatas bus m simboliø ilgio seka su tarpais. Pavyzdşiui, ğiuo atveju,
-# nustaèius m = 5, prie skaièiaus bus pridedamas vienas tarpas, nustaèius m = 6,
+# Jei parametras m didesnis, nei skaiÄiui uÅ¾raÅ¡yti reikalingÅ³ simboliÅ³ skaiÄius,
+# tada rezultatas bus m simboliÅ³ ilgio seka su tarpais. PavyzdÅ¾iui, Å¡iuo atveju,
+# nustaÄius m = 5, prie skaiÄiaus bus pridedamas vienas tarpas, nustaÄius m = 6,
 # bus pridedami du papildomi tarpai ir pan.
 
 sprintf("%5.2f", e)
 sprintf("%6.2f", e)
 
-# Jei reikia nustatyti tik skaitmenø po kablelio skaièiø, tai parametrà m galima
-# ir visai praleisti. Dviejø skaitmenø po kablelio formatas uşrağomas "%.2f".
+# Jei reikia nustatyti tik skaitmenÅ³ po kablelio skaiÄiÅ³, tai parametrÄ… m galima
+# ir visai praleisti. DviejÅ³ skaitmenÅ³ po kablelio formatas uÅ¾raÅ¡omas "%.2f".
 
 sprintf("%.2f", e)
 
-# Jei reikia nustatyti tik bendrà reikğmei uşrağyti reikalingø simboliø skaièiø,
-# tada galima praleisti parametrà n. Pavyzdşiui, galime nurodyti, kad skaièiui e 
-# uşrağyti bûtø skirta 15 simboliø.
+# Jei reikia nustatyti tik bendrÄ… reikÅ¡mei uÅ¾raÅ¡yti reikalingÅ³ simboliÅ³ skaiÄiÅ³,
+# tada galima praleisti parametrÄ… n. PavyzdÅ¾iui, galime nurodyti, kad skaiÄiui e 
+# uÅ¾raÅ¡yti bÅ«tÅ³ skirta 15 simboliÅ³.
 
 sprintf("%15f", e)
 
-# Analogiğkai gali bûti nustatomas simboliø skaièius sveikajam skaièiui uşrağyti.
-# Jeigu sveikajam skaièiui uşrağyti reikia skirti m simboliø, tai formatas "%md".
+# AnalogiÅ¡kai gali bÅ«ti nustatomas simboliÅ³ skaiÄius sveikajam skaiÄiui uÅ¾raÅ¡yti.
+# Jeigu sveikajam skaiÄiui uÅ¾raÅ¡yti reikia skirti m simboliÅ³, tai formatas "%md".
 
 sprintf("%3d", 2)
 
-# Jeigu vietoje tarpø turi bûti rağomi nuliai, tai á formatà áterpiamas simbolis 
-# "0". Pavyzdşiui, skaièiø 2 uşrağysime kaip kodà 002.
+# Jeigu vietoje tarpÅ³ turi bÅ«ti raÅ¡omi nuliai, tai Ä¯ formatÄ… Ä¯terpiamas simbolis 
+# "0". PavyzdÅ¾iui, skaiÄiÅ³ 2 uÅ¾raÅ¡ysime kaip kodÄ… 002.
 
 sprintf("%03d", 2)
 
-# Jei skaièius ar kita reikğmë uşima maşiau vietos, nei jam skirta, tada jis bus
-# lygiuojamas pagal değinájá krağtà. Norint pakeisti lygiavimà á formatà árağome
-# simbolá "-".
+# Jei skaiÄius ar kita reikÅ¡mÄ— uÅ¾ima maÅ¾iau vietos, nei jam skirta, tada jis bus
+# lygiuojamas pagal deÅ¡inÄ¯jÄ¯ kraÅ¡tÄ…. Norint pakeisti lygiavimÄ… Ä¯ formatÄ… Ä¯raÅ¡ome
+# simbolÄ¯ "-".
 
 sprintf("%-3d", 2)
 
 
-# Jei skaièius turi bûti rağomas su şenklu, uşrağant formatà tarp "%" ir formato 
-# raidës dedamas "+" simbolis. Pavyzdşiui, sudarysime ğablonà tempratûros kitimo
-# intervalui nurodyti. Tarkime, kad temperatûros reiğmës --- sveikieji skaièiai,
+# Jei skaiÄius turi bÅ«ti raÅ¡omas su Å¾enklu, uÅ¾raÅ¡ant formatÄ… tarp "%" ir formato 
+# raidÄ—s dedamas "+" simbolis. PavyzdÅ¾iui, sudarysime Å¡ablonÄ… tempratÅ«ros kitimo
+# intervalui nurodyti. Tarkime, kad temperatÅ«ros reiÅ¡mÄ—s --- sveikieji skaiÄiai,
 # tada formatas bus "%+d".
 
 t.min <- -3
 t.max <-  2
 
-sprintf("Oro temperatûra kinta nuo %+d iki %+d.", t.min, t.max)
+sprintf("Oro temperatÅ«ra kinta nuo %+d iki %+d.", t.min, t.max)
 
-# Jei temperatûros reikğmës realieji skaièiai, galima nurodyti skaitmenø skaièiø
-# po kablelio. Pvz., skaièiaus su şenklu ir vienu skaitmeniu po kablelio formatà 
-# uşrağome taip: "%+.1f".
+# Jei temperatÅ«ros reikÅ¡mÄ—s realieji skaiÄiai, galima nurodyti skaitmenÅ³ skaiÄiÅ³
+# po kablelio. Pvz., skaiÄiaus su Å¾enklu ir vienu skaitmeniu po kablelio formatÄ… 
+# uÅ¾raÅ¡ome taip: "%+.1f".
 
 t.min <- -3.5
 t.max <-  2.5
 
-sprintf("Oro temperatûra kinta nuo %+.1f iki %+.1f.", t.min, t.max)
+sprintf("Oro temperatÅ«ra kinta nuo %+.1f iki %+.1f.", t.min, t.max)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Tarkime, kad duoti trys sveikieji skaièiai, kurie nurodo: valandas, minutes
-#    ir sekundes. Uşrağykite komandà, kuri iğ ğiø skaièiø uşrağytø laikà áprastu
+# 1. Tarkime, kad duoti trys sveikieji skaiÄiai, kurie nurodo: valandas, minutes
+#    ir sekundes. UÅ¾raÅ¡ykite komandÄ…, kuri iÅ¡ Å¡iÅ³ skaiÄiÅ³ uÅ¾raÅ¡ytÅ³ laikÄ… Ä¯prastu
 #    HH:MM:SS formatu.
-# 2. Panaudojant funkcijà Sys.time(), uşrağykite komandà, kuri á konsolæ iğvestø 
-#    praneğimà apie laikà, pavyzdşiui: "Ğiuo metu yra XX valandø ir YY minuèiø".
-# 3. Iğ statistikos kurso şinoma, kad statistinë hipotezë priimama arba atmetama
-#    pagal p-reikğmæ: jeigu p-reikğmë maşesnë uş pasirinktà reikğmingumo lygmená
-#    alpha, tada hipotezë atmetama, o prieğingu atveju -- priimama. Tarkime, kad
-#    p-reikğmë şinoma, o alpha = 0.05. Uşrağykite komandà, kuri á ekranà iğvestø 
-#    p-reikğmæ, alpha ir iğvadà apie tai, ar hipotezë priimama, ar atmetama.
+# 2. Panaudojant funkcijÄ… Sys.time(), uÅ¾raÅ¡ykite komandÄ…, kuri Ä¯ konsolÄ™ iÅ¡vestÅ³ 
+#    praneÅ¡imÄ… apie laikÄ…, pavyzdÅ¾iui: "Å iuo metu yra XX valandÅ³ ir YY minuÄiÅ³".
+# 3. IÅ¡ statistikos kurso Å¾inoma, kad statistinÄ— hipotezÄ— priimama arba atmetama
+#    pagal p-reikÅ¡mÄ™: jeigu p-reikÅ¡mÄ— maÅ¾esnÄ— uÅ¾ pasirinktÄ… reikÅ¡mingumo lygmenÄ¯
+#    alpha, tada hipotezÄ— atmetama, o prieÅ¡ingu atveju -- priimama. Tarkime, kad
+#    p-reikÅ¡mÄ— Å¾inoma, o alpha = 0.05. UÅ¾raÅ¡ykite komandÄ…, kuri Ä¯ ekranÄ… iÅ¡vestÅ³ 
+#    p-reikÅ¡mÄ™, alpha ir iÅ¡vadÄ… apie tai, ar hipotezÄ— priimama, ar atmetama.
 
 
 # --------------------------------------- #
-# PAPILDOMOS FUNKCIJOS SPRINTF GALIMYBËS  #
+# PAPILDOMOS FUNKCIJOS SPRINTF GALIMYBÄ–S  #
 # --------------------------------------- #
 
-# Aprağant funkcijà sprintf buvo pasakyta, kad kintamøjø reikğmës joje surağomos 
-# tokia tvarka, kokia jos árağomos á teksto ğablonà. Tai tiesa, taèiau formatams
-# galima suteikti eilës numerius, kurie nurodo, kokia tvarka á ğablonà turi bûti 
-# ástatomos toliau iğvardintos reikğmës, vadinasi --- nebûtinai ta paèia tvarka, 
-# kokia jos surağytos funkcijoje.
+# ApraÅ¡ant funkcijÄ… sprintf buvo pasakyta, kad kintamÅ³jÅ³ reikÅ¡mÄ—s joje suraÅ¡omos 
+# tokia tvarka, kokia jos Ä¯raÅ¡omos Ä¯ teksto Å¡ablonÄ…. Tai tiesa, taÄiau formatams
+# galima suteikti eilÄ—s numerius, kurie nurodo, kokia tvarka Ä¯ Å¡ablonÄ… turi bÅ«ti 
+# Ä¯statomos toliau iÅ¡vardintos reikÅ¡mÄ—s, vadinasi --- nebÅ«tinai ta paÄia tvarka, 
+# kokia jos suraÅ¡ytos funkcijoje.
 
-# Norint nurodyti, kelinta iğ iğvardintø reikğmiø turi bûti ástatyta konkreèioje
-# ğablono vietoje, formate po % şenklo rağomas reikğmës numeris. Reikğmës numerá
-# sudaro skaièius, po kurio rağomas "$" simbolis. Pavyzdşiui, uşrağysime ğablonà
-# binarinei operacijai: tam reikia nurodyti operatoriø ir du operandus.
+# Norint nurodyti, kelinta iÅ¡ iÅ¡vardintÅ³ reikÅ¡miÅ³ turi bÅ«ti Ä¯statyta konkreÄioje
+# Å¡ablono vietoje, formate po % Å¾enklo raÅ¡omas reikÅ¡mÄ—s numeris. ReikÅ¡mÄ—s numerÄ¯
+# sudaro skaiÄius, po kurio raÅ¡omas "$" simbolis. PavyzdÅ¾iui, uÅ¾raÅ¡ysime Å¡ablonÄ…
+# binarinei operacijai: tam reikia nurodyti operatoriÅ³ ir du operandus.
 
-sprintf("%2$d %1$s %3$d", operatorius = "+", kairë = 15, değinë = 79)
+sprintf("%2$d %1$s %3$d", operatorius = "+", kairÄ— = 15, deÅ¡inÄ— = 79)
 
 
-# Reikğmiø numeravimas leidşia tà paèià reikğmæ á ğablonà ástatyti kelis kartus.
-# Pavyzdşiui, viename sakinyje árağysime skaièiø ir tà patá skaièiø suapvalintà.
+# ReikÅ¡miÅ³ numeravimas leidÅ¾ia tÄ… paÄiÄ… reikÅ¡mÄ™ Ä¯ Å¡ablonÄ… Ä¯statyti kelis kartus.
+# PavyzdÅ¾iui, viename sakinyje Ä¯raÅ¡ysime skaiÄiÅ³ ir tÄ… patÄ¯ skaiÄiÅ³ suapvalintÄ….
 
 x <- 1/3
-sprintf("Skaièius %1$f suapvalintas iki dviejø skaièiø po kablelio: %1$.2f.", x)
+sprintf("SkaiÄius %1$f suapvalintas iki dviejÅ³ skaiÄiÅ³ po kablelio: %1$.2f.", x)
 
 
-# Jeigu toje paèioje ğablono vietoje vienà kartà reikia árağyti vienà reikğmæ, o
-# kità kartà --- kità, tai funkcijoje sprintf vietoje vienos konkreèios reikğmës
-# galima árağyti reikğmiø vektoriø. Tokiu bûdu gauname analogiğkø tekstø rinkiná 
-# su skirtingomis reikğmëmis toje paèioje teksto vietoje. Pavyzdşiui, iğrağysime
-# Lietuvos kunigaikğèiø valdymo metus.
+# Jeigu toje paÄioje Å¡ablono vietoje vienÄ… kartÄ… reikia Ä¯raÅ¡yti vienÄ… reikÅ¡mÄ™, o
+# kitÄ… kartÄ… --- kitÄ…, tai funkcijoje sprintf vietoje vienos konkreÄios reikÅ¡mÄ—s
+# galima Ä¯raÅ¡yti reikÅ¡miÅ³ vektoriÅ³. Tokiu bÅ«du gauname analogiÅ¡kÅ³ tekstÅ³ rinkinÄ¯ 
+# su skirtingomis reikÅ¡mÄ—mis toje paÄioje teksto vietoje. PavyzdÅ¾iui, iÅ¡raÅ¡ysime
+# Lietuvos kunigaikÅ¡ÄiÅ³ valdymo metus.
 
-K <- c("Mindaugas", "Treniota", "Vaiğelga", "Ğvarnas", "Traidenis", "Daumantas")
+K <- c("Mindaugas", "Treniota", "VaiÅ¡elga", "Å varnas", "Traidenis", "Daumantas")
 
 nuo <- c(1239, 1263, 1264, 1267, 1269, 1282)
 iki <- c(1263, 1264, 1267, 1268, 1281, 1285)
 
-sprintf("Lietuvos didysis kunigaikğtis %s.", K)
-sprintf("Lietuvos didysis kunigaikğtis %s valdë nuo %d iki %d.", K, nuo, iki)
+sprintf("Lietuvos didysis kunigaikÅ¡tis %s.", K)
+sprintf("Lietuvos didysis kunigaikÅ¡tis %s valdÄ— nuo %d iki %d.", K, nuo, iki)
 
 
-# Jei á ğablonà ástatomø reikğmiø vektoriai turi skirtingà elementø skaièiø, tai
-# trumpesnis vektorius cikliğkai pratæsiamas. Pvz., sudarysime ğablonà tekstiniø
-# failø pavadinimams sudaryti. Pirma pavadinimo dalis visiems failams vienoda, o 
-# kita dalis yra eilës numeris.
+# Jei Ä¯ Å¡ablonÄ… Ä¯statomÅ³ reikÅ¡miÅ³ vektoriai turi skirtingÄ… elementÅ³ skaiÄiÅ³, tai
+# trumpesnis vektorius cikliÅ¡kai pratÄ™siamas. Pvz., sudarysime Å¡ablonÄ… tekstiniÅ³
+# failÅ³ pavadinimams sudaryti. Pirma pavadinimo dalis visiems failams vienoda, o 
+# kita dalis yra eilÄ—s numeris.
 
 prefix <- "failas"
 number <- 1:10
@@ -589,79 +589,79 @@ number <- 1:10
 sprintf("%s_%02d.txt", prefix, number)
 
 
-# Uşrağant á ğablonà ádedamos reikğmës formatà galima nurodyti reikğmei uşrağyti
-# skiriamø simboliø skaièiø arba realaus skaièiaus skaitmenø po kablelio skaièiø.
-# Pavyzdşiui, iki dviejø skaitmenø suapvalinto realaus skaièiaus formatas "%.2f".
-# Ğiuo atveju konstrukcijoje m.n parametras m praleistas ir rağoma tik parametro
-# n reikğmë. Naudojant ğá formatà atvaizduosime skaièiø e.
+# UÅ¾raÅ¡ant Ä¯ Å¡ablonÄ… Ä¯dedamos reikÅ¡mÄ—s formatÄ… galima nurodyti reikÅ¡mei uÅ¾raÅ¡yti
+# skiriamÅ³ simboliÅ³ skaiÄiÅ³ arba realaus skaiÄiaus skaitmenÅ³ po kablelio skaiÄiÅ³.
+# PavyzdÅ¾iui, iki dviejÅ³ skaitmenÅ³ suapvalinto realaus skaiÄiaus formatas "%.2f".
+# Å iuo atveju konstrukcijoje m.n parametras m praleistas ir raÅ¡oma tik parametro
+# n reikÅ¡mÄ—. Naudojant Å¡Ä¯ formatÄ… atvaizduosime skaiÄiÅ³ e.
 
-sprintf("Skaièius e apytiksliai lygus %.2f", e)
+sprintf("SkaiÄius e apytiksliai lygus %.2f", e)
 
-# Ádedamos reikğmës formatas yra ğablono dalis, todël, norint pakeisti skaièiaus 
-# atvaizdavimo formatà, reikia pakeisti patá ğablonà. Tarkim, kad vietoje "%.2f"
-# turi bûti formatas "%.3f", vadinasi, uştenka pakeisti tik parametro n reikğmæ.
-# Uşrağant formatà konstrukcijoje m.n vietoje parametro n galima árağyti simbolá 
-# "*", o paties parametro reikğmæ iğkelti prie kitø á ğablonà ástatomø reikğmiø.
-# Taigi, formate "%.*f" parametras m praleistas, simbolis "*" nurodo parametrà n, 
-# o raidë "f" nurodo, kad ádedamas realusis skaièius.
+# Ä®dedamos reikÅ¡mÄ—s formatas yra Å¡ablono dalis, todÄ—l, norint pakeisti skaiÄiaus 
+# atvaizdavimo formatÄ…, reikia pakeisti patÄ¯ Å¡ablonÄ…. Tarkim, kad vietoje "%.2f"
+# turi bÅ«ti formatas "%.3f", vadinasi, uÅ¾tenka pakeisti tik parametro n reikÅ¡mÄ™.
+# UÅ¾raÅ¡ant formatÄ… konstrukcijoje m.n vietoje parametro n galima Ä¯raÅ¡yti simbolÄ¯ 
+# "*", o paties parametro reikÅ¡mÄ™ iÅ¡kelti prie kitÅ³ Ä¯ Å¡ablonÄ… Ä¯statomÅ³ reikÅ¡miÅ³.
+# Taigi, formate "%.*f" parametras m praleistas, simbolis "*" nurodo parametrÄ… n, 
+# o raidÄ— "f" nurodo, kad Ä¯dedamas realusis skaiÄius.
 
-# Tokiu pavidalu uşrağyto formato parametro n reikğmë taip pat ádedama á ğablonà.
-# Kadangi reikğmiø eiliğkumas nenurodytas, jos á ğablonà bus ástatomos ta tvarka, 
-# kuria jos surağytos. Vadinasi, ğiuo atveju pirma turi bûti parametro n reikğmë.
+# Tokiu pavidalu uÅ¾raÅ¡yto formato parametro n reikÅ¡mÄ— taip pat Ä¯dedama Ä¯ Å¡ablonÄ….
+# Kadangi reikÅ¡miÅ³ eiliÅ¡kumas nenurodytas, jos Ä¯ Å¡ablonÄ… bus Ä¯statomos ta tvarka, 
+# kuria jos suraÅ¡ytos. Vadinasi, Å¡iuo atveju pirma turi bÅ«ti parametro n reikÅ¡mÄ—.
 
 #                                       n    n
 #                                       |    |
-sprintf("Skaièius e apytiksliai lygus %.*f", 2, e)
-sprintf("Skaièius e apytiksliai lygus %.*f", 3, e)
+sprintf("SkaiÄius e apytiksliai lygus %.*f", 2, e)
+sprintf("SkaiÄius e apytiksliai lygus %.*f", 3, e)
 
-# Kadangi á ğablonà ástatomos reikğmës turi savo eilës numerius, galima nurodyti,
-# kuri iğ iğvardintø reikğmiø yra formato parametras. Pavyzdşiui, jeigu skaièius
-# e árağytas pirmas, o formato parametras n -- antras, tada formatas "%1$.*2$f".
+# Kadangi Ä¯ Å¡ablonÄ… Ä¯statomos reikÅ¡mÄ—s turi savo eilÄ—s numerius, galima nurodyti,
+# kuri iÅ¡ iÅ¡vardintÅ³ reikÅ¡miÅ³ yra formato parametras. PavyzdÅ¾iui, jeigu skaiÄius
+# e Ä¯raÅ¡ytas pirmas, o formato parametras n -- antras, tada formatas "%1$.*2$f".
 
-sprintf("Skaièius e apytiksliai lygus %1$.*2$f", e, 3)
+sprintf("SkaiÄius e apytiksliai lygus %1$.*2$f", e, 3)
 
-# Tokiu pavidalu uşrağytas formatas jau gana sunkiai skaitomas, bet, iğnaudojant 
-# reikğmiø numeravimà, galima parametrizuoti ir kompaktiğkai uşrağyti sudëtingus 
-# ğablonus. Pavyzdşiui, uşrağysime toká ğablonà, kuriame galima keisti sveikajam 
-# skaièiui atvaizduoti skiriamø simboliø skaièiø, t. y. m.n formato parametrà m,
-# o skaièiaus priekyje bûtø rağomi nuliai.
+# Tokiu pavidalu uÅ¾raÅ¡ytas formatas jau gana sunkiai skaitomas, bet, iÅ¡naudojant 
+# reikÅ¡miÅ³ numeravimÄ…, galima parametrizuoti ir kompaktiÅ¡kai uÅ¾raÅ¡yti sudÄ—tingus 
+# Å¡ablonus. PavyzdÅ¾iui, uÅ¾raÅ¡ysime tokÄ¯ Å¡ablonÄ…, kuriame galima keisti sveikajam 
+# skaiÄiui atvaizduoti skiriamÅ³ simboliÅ³ skaiÄiÅ³, t. y. m.n formato parametrÄ… m,
+# o skaiÄiaus priekyje bÅ«tÅ³ raÅ¡omi nuliai.
 
 y <- 7
 
-sprintf("Agentas %0*2$d", skaièius = y, m = 3)
-sprintf("Agentas %1$0*2$d", skaièius = y, m = 2:4)
+sprintf("Agentas %0*2$d", skaiÄius = y, m = 3)
+sprintf("Agentas %1$0*2$d", skaiÄius = y, m = 2:4)
 
-# Pavyzdşiui, sudarysime toká ğablonà, kad realø skaièiø bûtø galima atvaizduoti 
-# su vis didëjanèiu skaitmenø po kablelio skaièiumi.
+# PavyzdÅ¾iui, sudarysime tokÄ¯ Å¡ablonÄ…, kad realÅ³ skaiÄiÅ³ bÅ«tÅ³ galima atvaizduoti 
+# su vis didÄ—janÄiu skaitmenÅ³ po kablelio skaiÄiumi.
 
 phi <- 1.6180339887498948
 
-sprintf("Skaièius %1$2d skaitmenø po kablelio tikslumu: %2$.*1$f", 1:15, phi)
+sprintf("SkaiÄius %1$2d skaitmenÅ³ po kablelio tikslumu: %2$.*1$f", 1:15, phi)
 
 
 # NAUDINGA ------------------------------
 
-# F-ja sprintf paprastai naudojama ávairiø informaciniø praneğimø, kuriø turinys
-# skaièiavimø metu keièiasi, formavimui. Pavyzdşiui, atliekant ilgai trunkanèius
-# skaièiavimus, pravartu şinoti, kiek ciklo iteracijø atlikta.
+# F-ja sprintf paprastai naudojama Ä¯vairiÅ³ informaciniÅ³ praneÅ¡imÅ³, kuriÅ³ turinys
+# skaiÄiavimÅ³ metu keiÄiasi, formavimui. PavyzdÅ¾iui, atliekant ilgai trunkanÄius
+# skaiÄiavimus, pravartu Å¾inoti, kiek ciklo iteracijÅ³ atlikta.
 
 N <- 10
 
 for (i in 1:N) {
 
-  # Ásivaizduojamas skaièiavimø blokas.
+  # Ä®sivaizduojamas skaiÄiavimÅ³ blokas.
   Sys.sleep(runif(1))
 
-  # Iğvedame informacijà apie iteracijos numerá.
-  info <- sprintf("%02d iteracija iğ %d.", i, N)
+  # IÅ¡vedame informacijÄ… apie iteracijos numerÄ¯.
+  info <- sprintf("%02d iteracija iÅ¡ %d.", i, N)
   cat(info, "\n")
   flush.console()
 }
 
 
-# Uşrağysime funkcijà, kuri sekundëmis iğmatuotà laiko intervalà uşrağytø labiau
-# áprastu HH:MM:SS formatu. Apskaièiuosime valandø, minuèiø ir sekundşiø skaièiø
-# ir, naudojant funkcijà sprintf, ástatysime gautas reikğmes á ğablonà.
+# UÅ¾raÅ¡ysime funkcijÄ…, kuri sekundÄ—mis iÅ¡matuotÄ… laiko intervalÄ… uÅ¾raÅ¡ytÅ³ labiau
+# Ä¯prastu HH:MM:SS formatu. ApskaiÄiuosime valandÅ³, minuÄiÅ³ ir sekundÅ¾iÅ³ skaiÄiÅ³
+# ir, naudojant funkcijÄ… sprintf, Ä¯statysime gautas reikÅ¡mes Ä¯ Å¡ablonÄ….
 
 sec2time <- function(x) {
 
@@ -678,20 +678,20 @@ sec2time(21.6)
 sec2time(4017)
 
 
-# Tokià funkcijà galima ástatyti á ciklà ir iğvesti informacijà apie skaièiavimø
-# trukmæ. Iğ pradşiø, naudojant funkcijà difftime, apskaièiuojame laiko skirtumà 
-# sekundëmis. Tada, naudojant f-jà sec2time, tà skirtumà perrağome kitu pavidalu
-# ir ástatome á ğablonà.
+# TokiÄ… funkcijÄ… galima Ä¯statyti Ä¯ ciklÄ… ir iÅ¡vesti informacijÄ… apie skaiÄiavimÅ³
+# trukmÄ™. IÅ¡ pradÅ¾iÅ³, naudojant funkcijÄ… difftime, apskaiÄiuojame laiko skirtumÄ… 
+# sekundÄ—mis. Tada, naudojant f-jÄ… sec2time, tÄ… skirtumÄ… perraÅ¡ome kitu pavidalu
+# ir Ä¯statome Ä¯ Å¡ablonÄ….
 
 N <- 10
 start <- Sys.time()
 
 for (i in 1:N) {
 
-  # Ásivaizduojamas skaièiavimø blokas.
+  # Ä®sivaizduojamas skaiÄiavimÅ³ blokas.
   Sys.sleep(runif(1, 0, i))
 
-  # Iğvedame informacijà apie skaièiavimø laikà.
+  # IÅ¡vedame informacijÄ… apie skaiÄiavimÅ³ laikÄ….
   stop <- Sys.time()
   secs <- difftime(stop, start, units = "secs")
   time <- sec2time(secs)
@@ -701,18 +701,18 @@ for (i in 1:N) {
 }
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Duota realiøjø skaièiø seka x. Uşrağysime programà, kuri nubraişo pirmøjø n 
-#    sekos nariø kitimà laike, kur n ágyja reikğmes 1, 2, ..., 1000. Papildykite
-#    programà taip, kad animuoto grafiko antrağtëje bûtø árağoma besikeièianti n
-#    reikğmë, kuriai pavaizduoti skirti keturi simboliai, priekyje rağomi nuliai.
+# 1. Duota realiÅ³jÅ³ skaiÄiÅ³ seka x. UÅ¾raÅ¡ysime programÄ…, kuri nubraiÅ¾o pirmÅ³jÅ³ n 
+#    sekos nariÅ³ kitimÄ… laike, kur n Ä¯gyja reikÅ¡mes 1, 2, ..., 1000. Papildykite
+#    programÄ… taip, kad animuoto grafiko antraÅ¡tÄ—je bÅ«tÅ³ Ä¯raÅ¡oma besikeiÄianti n
+#    reikÅ¡mÄ—, kuriai pavaizduoti skirti keturi simboliai, priekyje raÅ¡omi nuliai.
 #    
 #    n <- 1000
 #    x <- cumsum(rnorm(n))
 #    for (i in 1:n) plot(x[1:i], type = "l", ylim = range(x), xlim = c(1, n))
 #
-# 2. Sudarykite tokià f-jà, kurios argumentas yra 1 x 2 dydşio daşniø lentelë, o
-#    rezultatas yra tekstinis praneğimas, koks yra vienos iğ reikğmiø procentas.
-#    Tarkime, duota daşniø lentelë: dd <- as.table(c(`FALSE` = 26, `TRUE` = 9)).
-#    Tada praneğimas galëtø bûti toks: "TRUE reikğmiø yra 25.7 %".
+# 2. Sudarykite tokiÄ… f-jÄ…, kurios argumentas yra 1 x 2 dydÅ¾io daÅ¾niÅ³ lentelÄ—, o
+#    rezultatas yra tekstinis praneÅ¡imas, koks yra vienos iÅ¡ reikÅ¡miÅ³ procentas.
+#    Tarkime, duota daÅ¾niÅ³ lentelÄ—: dd <- as.table(c(`FALSE` = 26, `TRUE` = 9)).
+#    Tada praneÅ¡imas galÄ—tÅ³ bÅ«ti toks: "TRUE reikÅ¡miÅ³ yra 25.7 %".

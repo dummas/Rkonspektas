@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
 #            Kategoriniai kintamieji -- faktoriai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-03-18 | 2013-05-06
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 # 
-#   1. Faktoriø sudarymas ir jø sàvybës:
+#   1. FaktoriÅ³ sudarymas ir jÅ³ sÄ…vybÄ—s:
 #      * komanda factor
 #      * komanda class
 #      * komanda mode
@@ -24,7 +24,7 @@
 #      * komanda is.ordered
 #      * komanda gl
 #
-#   2. Faktoriø reikğmø keitimas:
+#   2. FaktoriÅ³ reikÅ¡mÅ³ keitimas:
 #      * komanda relevel
 #      * komanda droplevels
 #      * operatorius [
@@ -35,106 +35,106 @@
 # PASTABOS ------------------------------
 
 #
-# Parağyti apie funkcijos reorder taikymà.
+# ParaÅ¡yti apie funkcijos reorder taikymÄ….
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# FAKTORIAI IR JØ SAVYBËS                 #
+# FAKTORIAI IR JÅ² SAVYBÄ–S                 #
 # --------------------------------------- #
 
-# Programavimo kalboje R faktoriais vadinami vardø arba rangø skalës kintamieji,
-# kurie ágyja baigtiná skaièiø skirtingø reikğmiø. Statistikoje tokie kintamieji
-# vadinami kategoriniais. Kategoriniø kintamøjø reikğmës daşnai bûna uşkoduotos 
-# simboliais, şodşiais, pavadinimais ar skaièiais. Jei faktorius sudarytas iğ 
-# vardø skalëje iğmatuoto kategorinio kintamojo, tai jo reikğmiø iğrikiavimas 
-# neturi jokios prasmës. Jei tai ranginis kintamasis, tai rango didëjimo tvarka 
-# iğrikiuotos reikğmës turi tam tikrà prasmæ.
+# Programavimo kalboje R faktoriais vadinami vardÅ³ arba rangÅ³ skalÄ—s kintamieji,
+# kurie Ä¯gyja baigtinÄ¯ skaiÄiÅ³ skirtingÅ³ reikÅ¡miÅ³. Statistikoje tokie kintamieji
+# vadinami kategoriniais. KategoriniÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s daÅ¾nai bÅ«na uÅ¾koduotos 
+# simboliais, Å¾odÅ¾iais, pavadinimais ar skaiÄiais. Jei faktorius sudarytas iÅ¡ 
+# vardÅ³ skalÄ—je iÅ¡matuoto kategorinio kintamojo, tai jo reikÅ¡miÅ³ iÅ¡rikiavimas 
+# neturi jokios prasmÄ—s. Jei tai ranginis kintamasis, tai rango didÄ—jimo tvarka 
+# iÅ¡rikiuotos reikÅ¡mÄ—s turi tam tikrÄ… prasmÄ™.
 
 # Tokiems kintamiesiems sukurti R naudojama funkcija factor. Jos parametrai:
 # 
-#        x -- kategorinio kintamojo reikğmiø vektorius,
-#   levels -- skirtingø kategorinio kintamojo reikğmiø vektorius,
-#   labels -- kintamojo reikğmiø pavadinimø vektorius,
-#  ordered -- loginë reikğmë, jei TRUE, tai nurodo, kad kintamasis yra ranginis.
+#        x -- kategorinio kintamojo reikÅ¡miÅ³ vektorius,
+#   levels -- skirtingÅ³ kategorinio kintamojo reikÅ¡miÅ³ vektorius,
+#   labels -- kintamojo reikÅ¡miÅ³ pavadinimÅ³ vektorius,
+#  ordered -- loginÄ— reikÅ¡mÄ—, jei TRUE, tai nurodo, kad kintamasis yra ranginis.
 
 
-# Turime vektoriø, kurio reikğmës nurodo pvz. anketà pildanèiø şmoniø lytá.
-# Pagal nutylëjimà galimos faktoriaus reikğmës bus iğrikiuotos pagal abëcëlæ.
+# Turime vektoriÅ³, kurio reikÅ¡mÄ—s nurodo pvz. anketÄ… pildanÄiÅ³ Å¾moniÅ³ lytÄ¯.
+# Pagal nutylÄ—jimÄ… galimos faktoriaus reikÅ¡mÄ—s bus iÅ¡rikiuotos pagal abÄ—cÄ—lÄ™.
 
 x <- c("Vyras", "Moteris", "Vyras", "Moteris", "Moteris", "Moteris", "Vyras")
 f <- factor(x)
 f
 
 
-# Faktorius kaip duomenø struktûra yra specialaus factor tipo.
+# Faktorius kaip duomenÅ³ struktÅ«ra yra specialaus factor tipo.
 class(f)
 
-# Nepriklausomai nuo to, kokias reikğmes ágyja kategorinis kintamasis, faktorius
-# yra sveikøjø skaièiø 1, 2, ... , k vektorius, kur k yra skirtingø kintamojo 
-# reikğmiø skaièius, o kiekvienam jo nariui priskirtas pavadinimas -- kategorinio 
-# kintamojo reikğmë. Todël funkcija mode nurodo, kad faktoriaus kaip vektoriaus 
-# reikğmës yra numeric tipo.
+# Nepriklausomai nuo to, kokias reikÅ¡mes Ä¯gyja kategorinis kintamasis, faktorius
+# yra sveikÅ³jÅ³ skaiÄiÅ³ 1, 2, ... , k vektorius, kur k yra skirtingÅ³ kintamojo 
+# reikÅ¡miÅ³ skaiÄius, o kiekvienam jo nariui priskirtas pavadinimas -- kategorinio 
+# kintamojo reikÅ¡mÄ—. TodÄ—l funkcija mode nurodo, kad faktoriaus kaip vektoriaus 
+# reikÅ¡mÄ—s yra numeric tipo.
 
 mode(f)
 
 
-# Kokias skirtingas reikğmes turi kategorinis kintamasis parodo funkcija levels.
+# Kokias skirtingas reikÅ¡mes turi kategorinis kintamasis parodo funkcija levels.
 levels(f)
 
-# Kiek skirtingø reikğmiø turi kategorinis kintamasis parodo funkcija nlevels.
+# Kiek skirtingÅ³ reikÅ¡miÅ³ turi kategorinis kintamasis parodo funkcija nlevels.
 nlevels(f)
 
-# Kaip ir kiekvieno vektoriaus, faktoriaus ilgis reiğkia visø jo elementø skaièiø.
+# Kaip ir kiekvieno vektoriaus, faktoriaus ilgis reiÅ¡kia visÅ³ jo elementÅ³ skaiÄiÅ³.
 length(f)
 
 
-# Faktorius kaip R kintamasis turi keletà pagrindiniø atributø: tai yra kintamojo 
-# reikğmiø vektorius ir faktoriaus kaip duomenø struktûros klasë.
+# Faktorius kaip R kintamasis turi keletÄ… pagrindiniÅ³ atributÅ³: tai yra kintamojo 
+# reikÅ¡miÅ³ vektorius ir faktoriaus kaip duomenÅ³ struktÅ«ros klasÄ—.
 attributes(f)
 
-# Faktoriaus struktûrà galima pamatyti naudojant funkcijà str. Matosi, kad faktorius 
-# yra tam tikrà skirtingø reikğmiø skaièiø turintis sveikøjø skaièiø vektorius.
+# Faktoriaus struktÅ«rÄ… galima pamatyti naudojant funkcijÄ… str. Matosi, kad faktorius 
+# yra tam tikrÄ… skirtingÅ³ reikÅ¡miÅ³ skaiÄiÅ³ turintis sveikÅ³jÅ³ skaiÄiÅ³ vektorius.
 str(f)
 
 
-# Funkcija is.ordered nurodo, ar faktorius yra ranginis kintamasis, ğiuo atveju ne.
+# Funkcija is.ordered nurodo, ar faktorius yra ranginis kintamasis, Å¡iuo atveju ne.
 is.ordered(f)
 
 
-# Tam tikra iğ anksto nustatyta tvarka iğdëstytø faktoriø seka generuojama su 
+# Tam tikra iÅ¡ anksto nustatyta tvarka iÅ¡dÄ—stytÅ³ faktoriÅ³ seka generuojama su 
 # funkcija gl. Jos parametrai:
 # 
-#       n -- kintamojo ágyjamø reikğmiø skaièius,
-#       k -- reikğmiø pakartojimø skaièius,
-#  length -- bendras faktoriaus elementø skaièius,
-#  labels -- faktoriaus ágyjamø reikğmiø pavadinimø vektorius,
+#       n -- kintamojo Ä¯gyjamÅ³ reikÅ¡miÅ³ skaiÄius,
+#       k -- reikÅ¡miÅ³ pakartojimÅ³ skaiÄius,
+#  length -- bendras faktoriaus elementÅ³ skaiÄius,
+#  labels -- faktoriaus Ä¯gyjamÅ³ reikÅ¡miÅ³ pavadinimÅ³ vektorius,
 # ordered -- loginis kintamasis, nurodantis ar faktorius yra ranginis.
 
 
-# Sukursime faktoriø turintá dvi kategorijas, kurios pakartotos po penktis kartus.
-# Kadangi kategorijø vardai nenurodyti, juos atstoja kategorijø numeriai: 1 ir 2.
+# Sukursime faktoriÅ³ turintÄ¯ dvi kategorijas, kurios pakartotos po penktis kartus.
+# Kadangi kategorijÅ³ vardai nenurodyti, juos atstoja kategorijÅ³ numeriai: 1 ir 2.
 g <- gl(n = 2, k = 5)
 g
 
-# Galima sukurti dvi periodiğkai pasikartojanèias kategorijas turintá faktoriø.
+# Galima sukurti dvi periodiÅ¡kai pasikartojanÄias kategorijas turintÄ¯ faktoriÅ³.
 g <- gl(n = 2, k = 1, length = 10)
 g
 
-# Kategorijoms galima suteikti vardus, kurie nebûtinai turi bûti şodis ar skaièius.
-g <- gl(2, 1, 10, labels = c("Mësa", "><(((°>"))
+# Kategorijoms galima suteikti vardus, kurie nebÅ«tinai turi bÅ«ti Å¾odis ar skaiÄius.
+g <- gl(2, 1, 10, labels = c("MÄ—sa", "><(((Â°>"))
 g
 
 table(g)
@@ -142,78 +142,78 @@ table(g)
 
 # NAUDINGA ------------------------------
 
-# Tà patá rezultatà galima gauti ir nenaudojant procedûros gl, taèiau komanda 
-# gaunasi ne tokia kompaktiğka: su funkcija rep generuojame pasikartojanèià sekà,
-# kurià vëliau paverèiame á faktoriø ir priskiriame kategorijoms pavadinimus.
+# TÄ… patÄ¯ rezultatÄ… galima gauti ir nenaudojant procedÅ«ros gl, taÄiau komanda 
+# gaunasi ne tokia kompaktiÅ¡ka: su funkcija rep generuojame pasikartojanÄiÄ… sekÄ…,
+# kuriÄ… vÄ—liau paverÄiame Ä¯ faktoriÅ³ ir priskiriame kategorijoms pavadinimus.
 g <- rep(1:2, length = 10)
-g <- factor(g, labels = c("Mësa", "><(((°>"))
+g <- factor(g, labels = c("MÄ—sa", "><(((Â°>"))
 g
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sugeneruokite faktoriø h, kuris turëtø po 5 kartus pasikartojanèias tris 
+# 1. Sugeneruokite faktoriÅ³ h, kuris turÄ—tÅ³ po 5 kartus pasikartojanÄias tris 
 #    kategorijas, ir suteikite joms vardus "I lygis", "II lygis" ir "III lygis".
-# 2. Faktoriø h su tokiais pat kategorijø pavadinimais sudarykite naudodami 
+# 2. FaktoriÅ³ h su tokiais pat kategorijÅ³ pavadinimais sudarykite naudodami 
 #    funkcijas rep ir factor.
-# 3. Sugeneruokite faktoriø d, kuris reikğtø visas vieno mënesio savaitës dienas.
-#    Tarkime, kad mënuo turi 30 dienø, o savaitës dienas pradedame skaièiuoti nuo
-#    pirmadienio. Savaitës dienoms suteikite pilnus vardus.
+# 3. Sugeneruokite faktoriÅ³ d, kuris reikÅ¡tÅ³ visas vieno mÄ—nesio savaitÄ—s dienas.
+#    Tarkime, kad mÄ—nuo turi 30 dienÅ³, o savaitÄ—s dienas pradedame skaiÄiuoti nuo
+#    pirmadienio. SavaitÄ—s dienoms suteikite pilnus vardus.
 
 
 # --------------------------------------- #
-# FAKTORIØ REIKĞMIØ KEITIMAS              #
+# FAKTORIÅ² REIKÅ MIÅ² KEITIMAS              #
 # --------------------------------------- #
 
-# Iğvedant faktoriø á ekranà, uşrağomi visi skirtingi kintamojo reikğmiø variantai 
-# (levels). Jei kategorinis kintamasis buvo uşrağytas kaip tekstiniø arba simboliniø 
-# reikğmiø vektorius, tai faktoriuje tos reikğmës bus iğrikiuotos abëcëlës tvarka, 
-# jei kintamojo reikğmiø vektorius buvo iğ skaièiø -- tada iğrikiuotos jø didëjimo 
-# tvarka. Taèiau tokia tvarka dar nereiğkia, kad faktorius yra ranginis kintamasis!
+# IÅ¡vedant faktoriÅ³ Ä¯ ekranÄ…, uÅ¾raÅ¡omi visi skirtingi kintamojo reikÅ¡miÅ³ variantai 
+# (levels). Jei kategorinis kintamasis buvo uÅ¾raÅ¡ytas kaip tekstiniÅ³ arba simboliniÅ³ 
+# reikÅ¡miÅ³ vektorius, tai faktoriuje tos reikÅ¡mÄ—s bus iÅ¡rikiuotos abÄ—cÄ—lÄ—s tvarka, 
+# jei kintamojo reikÅ¡miÅ³ vektorius buvo iÅ¡ skaiÄiÅ³ -- tada iÅ¡rikiuotos jÅ³ didÄ—jimo 
+# tvarka. TaÄiau tokia tvarka dar nereiÅ¡kia, kad faktorius yra ranginis kintamasis!
 
-# Faktoriaus visø galimø reikğmiø vektoriø ir jo elementø iğdëstymo tvarkà parodo 
-# funkcija levels. Pavyzdşiui, kintamojo reikğmës "Moteris" ir "Vyras" yra tekstinës,
-# todël pagal nutylëjimà faktoriuje jos iğrikiuotos pagal abëcëlæ.
+# Faktoriaus visÅ³ galimÅ³ reikÅ¡miÅ³ vektoriÅ³ ir jo elementÅ³ iÅ¡dÄ—stymo tvarkÄ… parodo 
+# funkcija levels. PavyzdÅ¾iui, kintamojo reikÅ¡mÄ—s "Moteris" ir "Vyras" yra tekstinÄ—s,
+# todÄ—l pagal nutylÄ—jimÄ… faktoriuje jos iÅ¡rikiuotos pagal abÄ—cÄ—lÄ™.
 levels(f)
 
 
-# Naudojant funkcijà levels, jau sukurto faktoriaus ágyjamø reikğmiø vektoriø galima 
-# pervadinti. Èia svarbu iğlaikyti tà paèià reikğmiø tvarkà: ("Moteris", "Vyras"), o
-# naujas reikğmiø vektorius gali bûti pvz., ("Mot", "Vyr"), ("M", "V") ar panağiai.
+# Naudojant funkcijÄ… levels, jau sukurto faktoriaus Ä¯gyjamÅ³ reikÅ¡miÅ³ vektoriÅ³ galima 
+# pervadinti. ÄŒia svarbu iÅ¡laikyti tÄ… paÄiÄ… reikÅ¡miÅ³ tvarkÄ…: ("Moteris", "Vyras"), o
+# naujas reikÅ¡miÅ³ vektorius gali bÅ«ti pvz., ("Mot", "Vyr"), ("M", "V") ar panaÅ¡iai.
 
 levels(f) <- c("Mot", "Vyr")
 levels(f)
 f
 
 
-# Su funkcija levels atliekamas faktoriaus ágyjamø reikğmiø iğdëstymo pakeitimas 
-# yra nekorektiğkas! Pavyzdşiui, pakeitus faktoriaus reikğmiø "Moteris" ir "Vyras" 
-# iğdëstymo tvarkà, á prieğingas pasikeièia ir visø faktoriaus reikğmiø prasmës!
-# Padarius tokià klaidà, visos statistinës iğvados apie kintamàjá bus neteisingos.
+# Su funkcija levels atliekamas faktoriaus Ä¯gyjamÅ³ reikÅ¡miÅ³ iÅ¡dÄ—stymo pakeitimas 
+# yra nekorektiÅ¡kas! PavyzdÅ¾iui, pakeitus faktoriaus reikÅ¡miÅ³ "Moteris" ir "Vyras" 
+# iÅ¡dÄ—stymo tvarkÄ…, Ä¯ prieÅ¡ingas pasikeiÄia ir visÅ³ faktoriaus reikÅ¡miÅ³ prasmÄ—s!
+# Padarius tokiÄ… klaidÄ…, visos statistinÄ—s iÅ¡vados apie kintamÄ…jÄ¯ bus neteisingos.
 
 levels(f) <- c("Vyras", "Moteris")
 levels(f)
 f
 
 
-# Pagal nutylëjimà abëcëlës tvarka iğdëstytà kategorinio kintamojo ágyjamø reikğmiø 
-# vektoriø galima pakeisti faktoriaus sudarymo metu nurodant reikiamà tø reikğmiø 
-# iğdëstymo vektoriø levels. 
+# Pagal nutylÄ—jimÄ… abÄ—cÄ—lÄ—s tvarka iÅ¡dÄ—stytÄ… kategorinio kintamojo Ä¯gyjamÅ³ reikÅ¡miÅ³ 
+# vektoriÅ³ galima pakeisti faktoriaus sudarymo metu nurodant reikiamÄ… tÅ³ reikÅ¡miÅ³ 
+# iÅ¡dÄ—stymo vektoriÅ³ levels. 
 
 f <- factor(x, levels = c("Vyras", "Moteris"))
 levels(f)
 f
 
-# Kartu su vektoriumi levels nurodşius já atitinkantá vektoriø labels, faktoriaus
-# sudarymo metu kategorinio kintamojo ágyjamas reikğmes galima pervadinti. 
+# Kartu su vektoriumi levels nurodÅ¾ius jÄ¯ atitinkantÄ¯ vektoriÅ³ labels, faktoriaus
+# sudarymo metu kategorinio kintamojo Ä¯gyjamas reikÅ¡mes galima pervadinti. 
 
 f <- factor(x, levels = c("Vyras", "Moteris"), labels = c("Vyr", "Mot"))
 levels(f)
 f
 
 
-# Tuo atveju, kai reikia nustatyti arba pakeisti bazinæ (reference) jau sudaryto 
-# faktoriaus reikğmæ, naudojama funkcija relevel. Èia reikğmæ "Mot" vël padarysime 
+# Tuo atveju, kai reikia nustatyti arba pakeisti bazinÄ™ (reference) jau sudaryto 
+# faktoriaus reikÅ¡mÄ™, naudojama funkcija relevel. ÄŒia reikÅ¡mÄ™ "Mot" vÄ—l padarysime 
 # bazine.
 
 f <- relevel(f, ref = "Mot")
@@ -223,147 +223,147 @@ f
 
 # NAUDINGA ------------------------------
 
-# Gana daşnai pasitaiko situacija, kad dël patogumo kategorinio kintamojo reikğmës 
-# koduojamos skaièiais. Pavyzdşiui, ávedus paşymëjimà "Vyras" = 0, "Moteris" = 1, 
-# tà patá vektoriø x buvo galima uşrağyti taip: (0, 1, 0, 1, 1, 1, 0). Sudarant 
-# faktoriø, tø kodø reikğmes galima atstatyti uşrağant pavadinimø vektoriø labels.
+# Gana daÅ¾nai pasitaiko situacija, kad dÄ—l patogumo kategorinio kintamojo reikÅ¡mÄ—s 
+# koduojamos skaiÄiais. PavyzdÅ¾iui, Ä¯vedus paÅ¾ymÄ—jimÄ… "Vyras" = 0, "Moteris" = 1, 
+# tÄ… patÄ¯ vektoriÅ³ x buvo galima uÅ¾raÅ¡yti taip: (0, 1, 0, 1, 1, 1, 0). Sudarant 
+# faktoriÅ³, tÅ³ kodÅ³ reikÅ¡mes galima atstatyti uÅ¾raÅ¡ant pavadinimÅ³ vektoriÅ³ labels.
 
 z <- c(0, 1, 0, 1, 1, 1, 0)
 f <- factor(z, levels = c(0, 1), labels = c("Vyras", "Moteris"))
 f
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. Tarkime, kad vektoriaus c(1, -1, 0, -1, -1, 1, -1, 0, 1, 1, -1, 0, 1, 1, 0) 
-#    reikğmës reiğkia atsakymus á testo klausimus. Sudarykite faktoriø a ir jo 
-#    reikğmëms priskirkite tokius pavadinimus: 1 = Taip, -1 = Ne ir 0 = Neşinau.
-# 2. Naudodami funkcijà levels, pakeiskite anksèiau sugeneruoto faktoriaus h 
-#    ágyjamø reikğmiø vardus á "Pirmas", "Antras", "Treèias".
-# 3. Naudodami funkcijà factor, pakeiskite jau sudaryto faktoriaus h ágyjamø 
-#    reikğmiø tvarkà á prieğingà: "Treèias", "Antras", "Pirmas".
+#    reikÅ¡mÄ—s reiÅ¡kia atsakymus Ä¯ testo klausimus. Sudarykite faktoriÅ³ a ir jo 
+#    reikÅ¡mÄ—ms priskirkite tokius pavadinimus: 1 = Taip, -1 = Ne ir 0 = NeÅ¾inau.
+# 2. Naudodami funkcijÄ… levels, pakeiskite anksÄiau sugeneruoto faktoriaus h 
+#    Ä¯gyjamÅ³ reikÅ¡miÅ³ vardus Ä¯ "Pirmas", "Antras", "TreÄias".
+# 3. Naudodami funkcijÄ… factor, pakeiskite jau sudaryto faktoriaus h Ä¯gyjamÅ³ 
+#    reikÅ¡miÅ³ tvarkÄ… Ä¯ prieÅ¡ingÄ…: "TreÄias", "Antras", "Pirmas".
 
 
-# Kartais kategorinis kintamasis ágyja tik dalá visø galimø reikğmiø. Tokiu atveju
-# galima sudaryti faktoriø, kurio galimø reikğmiø vektorius levels bus didesnis, 
-# nei atitinkamo kategorinio kintamojo reikğmiø aibë. 
+# Kartais kategorinis kintamasis Ä¯gyja tik dalÄ¯ visÅ³ galimÅ³ reikÅ¡miÅ³. Tokiu atveju
+# galima sudaryti faktoriÅ³, kurio galimÅ³ reikÅ¡miÅ³ vektorius levels bus didesnis, 
+# nei atitinkamo kategorinio kintamojo reikÅ¡miÅ³ aibÄ—. 
 
-# Pavyzdşiui, turime apklausoje dalyvaujanèiø gyventojø miestø vektoriø.
+# PavyzdÅ¾iui, turime apklausoje dalyvaujanÄiÅ³ gyventojÅ³ miestÅ³ vektoriÅ³.
 m <- c("Vilnius", "Vilnius", "Kaunas", "Vilnius", "Kaunas", "Vilnius", "Kaunas")
 
-# Jei tyrimas buvo atliekamas apklausiant didşiøjø miestø gyventojus, nepriklausomai
-# nuo to, kokias reikğmes ágijo kintamojo elementai, galimos kintamojo reikğmës 
-# yra "Vilnius", "Kaunas" ir "Klaipëda". Sukuriame faktoriø su tokiomis reikğmëmis.
+# Jei tyrimas buvo atliekamas apklausiant didÅ¾iÅ³jÅ³ miestÅ³ gyventojus, nepriklausomai
+# nuo to, kokias reikÅ¡mes Ä¯gijo kintamojo elementai, galimos kintamojo reikÅ¡mÄ—s 
+# yra "Vilnius", "Kaunas" ir "KlaipÄ—da". Sukuriame faktoriÅ³ su tokiomis reikÅ¡mÄ—mis.
 
-f <- factor(m, levels = c("Vilnius", "Kaunas", "Klaipëda"))
+f <- factor(m, levels = c("Vilnius", "Kaunas", "KlaipÄ—da"))
 f
 
-# Nors kategorinis kintamasis turi dvi skirtingas reikğmes, taèiau iğ jo sudarytas
-# faktorius iğ viso turi tris galimas reikğmes.
+# Nors kategorinis kintamasis turi dvi skirtingas reikÅ¡mes, taÄiau iÅ¡ jo sudarytas
+# faktorius iÅ¡ viso turi tris galimas reikÅ¡mes.
 
-unique(f)   # visos skirtingos faktoriaus reikğmës
-nlevels(f)  # viso galimos faktoriaus reikğmës
-
-
-# Sudarant tokio kintamojo daşniø lentelæ, bus átraukiamos ir tos reikğmës, kuriø
-# kintamajame nepasitaikë. Tokiu bûdu daşniø lentelë sudaroma ne iğ tø reikğmiø,
-# kurias ágijo kintamasis, bet iğ tø, kurias galëjo ágyti -- kartais tai svarbu.
-
-table(m)    # pradinio kintamojo daşniø lentelë    --   dvi reikğmës
-table(f)    # kategorinio kintamojo daşniø lentelë -- visos reikğmës
+unique(f)   # visos skirtingos faktoriaus reikÅ¡mÄ—s
+nlevels(f)  # viso galimos faktoriaus reikÅ¡mÄ—s
 
 
-# Tuo atveju, kai nenaudojamos faktoriaus reikğmës yra nereikalingos, jas galima
-# pağalinti naudojant funkcijà droplevels. Pvz., iğ faktoriaus f pağalinsime 
-# nenaudojamà kintamojo kategorijà "Klaipëda", bet pats kintamasis nepasikeis.
+# Sudarant tokio kintamojo daÅ¾niÅ³ lentelÄ™, bus Ä¯traukiamos ir tos reikÅ¡mÄ—s, kuriÅ³
+# kintamajame nepasitaikÄ—. Tokiu bÅ«du daÅ¾niÅ³ lentelÄ— sudaroma ne iÅ¡ tÅ³ reikÅ¡miÅ³,
+# kurias Ä¯gijo kintamasis, bet iÅ¡ tÅ³, kurias galÄ—jo Ä¯gyti -- kartais tai svarbu.
+
+table(m)    # pradinio kintamojo daÅ¾niÅ³ lentelÄ—    --   dvi reikÅ¡mÄ—s
+table(f)    # kategorinio kintamojo daÅ¾niÅ³ lentelÄ— -- visos reikÅ¡mÄ—s
+
+
+# Tuo atveju, kai nenaudojamos faktoriaus reikÅ¡mÄ—s yra nereikalingos, jas galima
+# paÅ¡alinti naudojant funkcijÄ… droplevels. Pvz., iÅ¡ faktoriaus f paÅ¡alinsime 
+# nenaudojamÄ… kintamojo kategorijÄ… "KlaipÄ—da", bet pats kintamasis nepasikeis.
 
 f <- droplevels(f)
 nlevels(f)
 f
 
 
-# Kadangi faktorius tuo paèiu yra ir vektorius, iğ jo galima iğskirti tam tikrus
-# elementus. Tokiu bûdu gautas faktorius nebûtinai turi turëti visas pradines
-# kintamojo reikğmes, todël kai kurios faktoriaus reikğmës taip pat gali bûti 
-# nereikalingos. Reikğmiø iğ faktoriaus iğskyrimui naudojant operatoriø [, yra
-# galimybë per parametrà drop pağalinti nereikalingas kintamojo kategorijas.
+# Kadangi faktorius tuo paÄiu yra ir vektorius, iÅ¡ jo galima iÅ¡skirti tam tikrus
+# elementus. Tokiu bÅ«du gautas faktorius nebÅ«tinai turi turÄ—ti visas pradines
+# kintamojo reikÅ¡mes, todÄ—l kai kurios faktoriaus reikÅ¡mÄ—s taip pat gali bÅ«ti 
+# nereikalingos. ReikÅ¡miÅ³ iÅ¡ faktoriaus iÅ¡skyrimui naudojant operatoriÅ³ [, yra
+# galimybÄ— per parametrÄ… drop paÅ¡alinti nereikalingas kintamojo kategorijas.
 
-# Atskiru atveju, nenurodşius faktoriaus indeksø aibës, gausime tà patá faktoriø, 
-# taèiau be nenaudojamø kategorijø.
+# Atskiru atveju, nenurodÅ¾ius faktoriaus indeksÅ³ aibÄ—s, gausime tÄ… patÄ¯ faktoriÅ³, 
+# taÄiau be nenaudojamÅ³ kategorijÅ³.
 
 f <- f[ , drop = TRUE]
 nlevels(f)
 f
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami funkcijà factor, jau sudarytam faktoriui f pridëkite anksèiau 
-#    pağalintà kategorijà "Klaipëda".
-# 2. Naudodami operatoriø [, iğ faktoriaus f iğskirkite tik tuos elementus, kurie 
-#    atitinka reikğmæ "Vilnius". Pağalinkite neegzistuojanèias naujo faktoriaus 
-#    kategorijas "Kaunas" ir "Klaipëda".
-# 3. Iğ faktoriaus d á naujà faktoriø iğskirkite darbo dienas ir pağalinkite 
-#    nebereikalingas savaitgalio dienas atitinkanèias reikğmes.
+# 1. Naudodami funkcijÄ… factor, jau sudarytam faktoriui f pridÄ—kite anksÄiau 
+#    paÅ¡alintÄ… kategorijÄ… "KlaipÄ—da".
+# 2. Naudodami operatoriÅ³ [, iÅ¡ faktoriaus f iÅ¡skirkite tik tuos elementus, kurie 
+#    atitinka reikÅ¡mÄ™ "Vilnius". PaÅ¡alinkite neegzistuojanÄias naujo faktoriaus 
+#    kategorijas "Kaunas" ir "KlaipÄ—da".
+# 3. IÅ¡ faktoriaus d Ä¯ naujÄ… faktoriÅ³ iÅ¡skirkite darbo dienas ir paÅ¡alinkite 
+#    nebereikalingas savaitgalio dienas atitinkanÄias reikÅ¡mes.
 
 
-# Jei kategorinis kintamasis yra ranginis, tai jo reikğmes galima iğrikiuoti rango
-# didëjimo tvarka ir sudaryti ordered tipo faktoriø. Pavyzdşiui, pagal nutylëjimà
-# faktoriaus reikğmës iğrikiuojamos abëcëlës tvarka, kuri ğiuo atveju nenatûrali.
+# Jei kategorinis kintamasis yra ranginis, tai jo reikÅ¡mes galima iÅ¡rikiuoti rango
+# didÄ—jimo tvarka ir sudaryti ordered tipo faktoriÅ³. PavyzdÅ¾iui, pagal nutylÄ—jimÄ…
+# faktoriaus reikÅ¡mÄ—s iÅ¡rikiuojamos abÄ—cÄ—lÄ—s tvarka, kuri Å¡iuo atveju nenatÅ«rali.
 
-y <- c("Pirmas", "Treèias", "Antras", "Treèias", "Pirmas", "Pirmas", "Antras")
+y <- c("Pirmas", "TreÄias", "Antras", "TreÄias", "Pirmas", "Pirmas", "Antras")
 r <- factor(y)
 r
 
-# Sukurdami faktoriø galime iğrağyti reikğmes jø didëjimo tvarka ir nurodyti, kad
-# jos sudaro tam tikrà rangø sistemà.
+# Sukurdami faktoriÅ³ galime iÅ¡raÅ¡yti reikÅ¡mes jÅ³ didÄ—jimo tvarka ir nurodyti, kad
+# jos sudaro tam tikrÄ… rangÅ³ sistemÄ….
 
-r <- factor(y, levels = c("Treèias", "Antras", "Pirmas"), ordered = TRUE)
+r <- factor(y, levels = c("TreÄias", "Antras", "Pirmas"), ordered = TRUE)
 r
 
 
-# Toká patá ranginá kintamàjá galima sudaryti naudojant funkcijà ordered.
-# Nenurodşius reikğmiø iğdëstymo tvarkos, jos bus iğrikiuotos pagal abëcëlæ.
-r <- ordered(y, levels = c("Treèias", "Antras", "Pirmas"))
+# TokÄ¯ patÄ¯ ranginÄ¯ kintamÄ…jÄ¯ galima sudaryti naudojant funkcijÄ… ordered.
+# NenurodÅ¾ius reikÅ¡miÅ³ iÅ¡dÄ—stymo tvarkos, jos bus iÅ¡rikiuotos pagal abÄ—cÄ—lÄ™.
+r <- ordered(y, levels = c("TreÄias", "Antras", "Pirmas"))
 r
 
-# Taip sudarytas faktorius yra ranginis kintamasis, kurio reikğmës turi tvarkà.
+# Taip sudarytas faktorius yra ranginis kintamasis, kurio reikÅ¡mÄ—s turi tvarkÄ….
 is.ordered(r)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Faktoriaus a reikğmes iğrikiuokite tokia tvarka: "Ne", "Neşinau", "Taip" ir 
-#    sukurkite naujà ranginá kintamàjá -- faktoriø t.
-# 2. Iğ faktoriaus t iğskirkite tik reikğmes "Ne", "Taip" ir taip sukurkite naujà
-#    ranginá kintamàjá.
+# 1. Faktoriaus a reikÅ¡mes iÅ¡rikiuokite tokia tvarka: "Ne", "NeÅ¾inau", "Taip" ir 
+#    sukurkite naujÄ… ranginÄ¯ kintamÄ…jÄ¯ -- faktoriÅ³ t.
+# 2. IÅ¡ faktoriaus t iÅ¡skirkite tik reikÅ¡mes "Ne", "Taip" ir taip sukurkite naujÄ…
+#    ranginÄ¯ kintamÄ…jÄ¯.
 
 
 # NAUDINGA ------------------------------
 
-# Kartais faktoriai panaudojami gana ádomiose situacijose. Pvz., funkcija cut 
-# tolydø kintamàjá suskaido á tam tikrus intervalus. Rezultatas yra tokio pat 
-# ilgio vektorius, kur vietoj pradinio vektoriaus reikğmës yra intervalas, á 
-# kurá ta reikğmë patenka.
+# Kartais faktoriai panaudojami gana Ä¯domiose situacijose. Pvz., funkcija cut 
+# tolydÅ³ kintamÄ…jÄ¯ suskaido Ä¯ tam tikrus intervalus. Rezultatas yra tokio pat 
+# ilgio vektorius, kur vietoj pradinio vektoriaus reikÅ¡mÄ—s yra intervalas, Ä¯ 
+# kurÄ¯ ta reikÅ¡mÄ— patenka.
 
-# Sugeneruosime 100 standartiniø normaliøjø dydşiø ir suskirstysime á vienodo 
-# ploèio intervalus (-3, -2], (-2, -1], ... (2, 3]. Suskaièiuosime, kiek reikğmiø 
-# patenka á ğiuos intervalus.
+# Sugeneruosime 100 standartiniÅ³ normaliÅ³jÅ³ dydÅ¾iÅ³ ir suskirstysime Ä¯ vienodo 
+# ploÄio intervalus (-3, -2], (-2, -1], ... (2, 3]. SuskaiÄiuosime, kiek reikÅ¡miÅ³ 
+# patenka Ä¯ Å¡iuos intervalus.
 
 r <- rnorm(100)
 t <- cut(r, breaks = -3:3)
 t
 
-# Toks kintamasis yra kategorinis, o visas jo reikğmes gauname su komanda levels.
+# Toks kintamasis yra kategorinis, o visas jo reikÅ¡mes gauname su komanda levels.
 class(t)
 levels(t)
 
-# Sudarome duomenø lentelæ, kurioje pirmas kintamasis yra anksèiau sunegeneruotas
-# skaièius, o antrasis kintamasis nurodo intervalà, á kurá tas skaièius patenka.
-m <- data.frame(skaièius = r, intervalas = t)
+# Sudarome duomenÅ³ lentelÄ™, kurioje pirmas kintamasis yra anksÄiau sunegeneruotas
+# skaiÄius, o antrasis kintamasis nurodo intervalÄ…, Ä¯ kurÄ¯ tas skaiÄius patenka.
+m <- data.frame(skaiÄius = r, intervalas = t)
 head(m)
 
-# Suskaièiuodami skirtingus intervalus, suşinome, po kiek reikğmiø patenka á 
-# kiekvienà intervalà. Gautà daşniø lentelæ galima atvaizduoti kaip histogramà.
+# SuskaiÄiuodami skirtingus intervalus, suÅ¾inome, po kiek reikÅ¡miÅ³ patenka Ä¯ 
+# kiekvienÄ… intervalÄ…. GautÄ… daÅ¾niÅ³ lentelÄ™ galima atvaizduoti kaip histogramÄ….
 table(t)
 plot(t)

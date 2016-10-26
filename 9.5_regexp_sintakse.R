@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Reguliarios iğraiğkos, regexp ir jø sudarymas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Reguliarios iÅ¡raiÅ¡kos, regexp ir jÅ³ sudarymas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2016-05-01 | 2016-05-10
 #
@@ -12,411 +12,411 @@
 # TURINYS -------------------------------
 
 #
-#   1. Reguliarios iğraiğkos ir regexp:
-#      * regexp ir jø panaudojimo galimybës
-#      * reguliariø iğraiğkø standartai
+#   1. Reguliarios iÅ¡raiÅ¡kos ir regexp:
+#      * regexp ir jÅ³ panaudojimo galimybÄ—s
+#      * reguliariÅ³ iÅ¡raiÅ¡kÅ³ standartai
 #
-#   2. BRE standarto reguliarios iğraiğkos:
+#   2. BRE standarto reguliarios iÅ¡raiÅ¡kos:
 #      * bazinio regexp standarto metasimboliai
 #
-#   3. ERE standarto reguliarios iğraiğkos:
-#      * iğplëstinio regexp standarto metasimboliai
-#      * şodşio ribos nustatymas
+#   3. ERE standarto reguliarios iÅ¡raiÅ¡kos:
+#      * iÅ¡plÄ—stinio regexp standarto metasimboliai
+#      * Å¾odÅ¾io ribos nustatymas
 #
-#   4. POSIX simboliø klasës:
+#   4. POSIX simboliÅ³ klasÄ—s:
 #      * valdymo simboliai
-#      * sutrumpinti simboliø klasiø paşymëjimai
-#      * POSIX klasës ir jø hierarchija
+#      * sutrumpinti simboliÅ³ klasiÅ³ paÅ¾ymÄ—jimai
+#      * POSIX klasÄ—s ir jÅ³ hierarchija
 #
 
 
 # PASTABOS ------------------------------
 
 #
-# Paminëti apie lazy matching.
-# Parağyti apie ekranavimà su \Q ir \E.
+# PaminÄ—ti apie lazy matching.
+# ParaÅ¡yti apie ekranavimÄ… su \Q ir \E.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# REGULIARIOS IĞRAIĞKOS IR REGEXP         #
+# REGULIARIOS IÅ RAIÅ KOS IR REGEXP         #
 # --------------------------------------- #
 
-# Vienoje iğ teorinës informatikos srièiø, formaliø kalbø teorijoje, sakoma, kad 
-# kalba yra reguliari, jeigu ji aprağoma reguliariomis iğraiğkomis. Tokiu atveju 
-# kalba suprantama, kaip tam tikrø şodşiø aibë. Iğ kitos pusës, norint nustatyti, 
-# ar şodis priklauso tam tikrai kalbai, gali bûti naudojami baigtiniai automatai. 
-# Tokiu bûdu susiejamos reguliarios iğraiğkos, reguliarios kalbos bei baigtiniai 
+# Vienoje iÅ¡ teorinÄ—s informatikos sriÄiÅ³, formaliÅ³ kalbÅ³ teorijoje, sakoma, kad 
+# kalba yra reguliari, jeigu ji apraÅ¡oma reguliariomis iÅ¡raiÅ¡komis. Tokiu atveju 
+# kalba suprantama, kaip tam tikrÅ³ Å¾odÅ¾iÅ³ aibÄ—. IÅ¡ kitos pusÄ—s, norint nustatyti, 
+# ar Å¾odis priklauso tam tikrai kalbai, gali bÅ«ti naudojami baigtiniai automatai. 
+# Tokiu bÅ«du susiejamos reguliarios iÅ¡raiÅ¡kos, reguliarios kalbos bei baigtiniai 
 # automatai.
 
-# Praktikoje reguliarios iğraiğkos apibrëşiamos şymiai paprasèiau. Galima sakyti,
-# kad reguliari iğraiğka - tai pagal tam tikras taisykles uşrağyta simboliø seka, 
-# kuri aprağo tam tikros simboliø sekø aibës ğablonà (pattern).
+# Praktikoje reguliarios iÅ¡raiÅ¡kos apibrÄ—Å¾iamos Å¾ymiai paprasÄiau. Galima sakyti,
+# kad reguliari iÅ¡raiÅ¡ka - tai pagal tam tikras taisykles uÅ¾raÅ¡yta simboliÅ³ seka, 
+# kuri apraÅ¡o tam tikros simboliÅ³ sekÅ³ aibÄ—s Å¡ablonÄ… (pattern).
 
-# Bet kurios kalbos tekstas yra simboliø seka. Kokie simboliai naudojami tekste,
-# priklauso nuo kalbos. Natûralios kalbos tekstas sudarytas iğ raidşiø, skyrybos
-# şenklø ir skaitmenø. Programavimo kalbø tekstai uşrağomi naudojant tuos paèius
-# simbolius. Kai kuriø kalbø rağto simboliai mums labai neáprasti, pvz., graikø,
-# armënø, gruzinø, arabø, japonø, korëjieèiø. Apie kai kurias dabar jau mirusias 
-# kalbas şinome tik todël, kad iğliko tomis kalbomis uşrağyti tekstai. Tuo paèiu
-# tokios senovës civilizacijø kalbos, kaip ğumerø ar egiptieèiø, iğsaugojo savo, 
-# daşnai egzotiğkà, rağto sistemà. Pavyzdşiui, gerai şinomas dantirağtis, runos,
-# egiptietiğki hieroglifai. Rağto sistema reikalinga ne tik şodinei informacijai
-# uşrağyti ir perduoti. Pvz., natos -- tai muzikiniam tekstui uşrağyti naudojama 
-# şenklø sistema. Taigi, bet kurios kalbos tekstas yra simboliø seka.
+# Bet kurios kalbos tekstas yra simboliÅ³ seka. Kokie simboliai naudojami tekste,
+# priklauso nuo kalbos. NatÅ«ralios kalbos tekstas sudarytas iÅ¡ raidÅ¾iÅ³, skyrybos
+# Å¾enklÅ³ ir skaitmenÅ³. Programavimo kalbÅ³ tekstai uÅ¾raÅ¡omi naudojant tuos paÄius
+# simbolius. Kai kuriÅ³ kalbÅ³ raÅ¡to simboliai mums labai neÄ¯prasti, pvz., graikÅ³,
+# armÄ—nÅ³, gruzinÅ³, arabÅ³, japonÅ³, korÄ—jieÄiÅ³. Apie kai kurias dabar jau mirusias 
+# kalbas Å¾inome tik todÄ—l, kad iÅ¡liko tomis kalbomis uÅ¾raÅ¡yti tekstai. Tuo paÄiu
+# tokios senovÄ—s civilizacijÅ³ kalbos, kaip Å¡umerÅ³ ar egiptieÄiÅ³, iÅ¡saugojo savo, 
+# daÅ¾nai egzotiÅ¡kÄ…, raÅ¡to sistemÄ…. PavyzdÅ¾iui, gerai Å¾inomas dantiraÅ¡tis, runos,
+# egiptietiÅ¡ki hieroglifai. RaÅ¡to sistema reikalinga ne tik Å¾odinei informacijai
+# uÅ¾raÅ¡yti ir perduoti. Pvz., natos -- tai muzikiniam tekstui uÅ¾raÅ¡yti naudojama 
+# Å¾enklÅ³ sistema. Taigi, bet kurios kalbos tekstas yra simboliÅ³ seka.
 
-# Áprasta sakyti, kad natûralios kalbos tekstà sudaro tarpais ir kitais skyrybos 
-# şenklais atskirti şodşiai, bet, kaip teksto dalis, şodis taip pat yra simboliø 
-# seka. Atsişvelgiant á tai, galima suformuluoti paprastesná reguliariø iğraiğkø 
-# apibrëşimà. Taigi, reguliari iğraiğka --- tai tekstinis ğablonas, kuris aprağo 
-# tam tikrø şodşiø aibæ. Toká ğablonà galima panaudoti şodşiø paieğkai ar teksto
-# redagavimui. Pavyzdşiui, tekste reikia surasti şodşius, kurie:
+# Ä®prasta sakyti, kad natÅ«ralios kalbos tekstÄ… sudaro tarpais ir kitais skyrybos 
+# Å¾enklais atskirti Å¾odÅ¾iai, bet, kaip teksto dalis, Å¾odis taip pat yra simboliÅ³ 
+# seka. AtsiÅ¾velgiant Ä¯ tai, galima suformuluoti paprastesnÄ¯ reguliariÅ³ iÅ¡raiÅ¡kÅ³ 
+# apibrÄ—Å¾imÄ…. Taigi, reguliari iÅ¡raiÅ¡ka --- tai tekstinis Å¡ablonas, kuris apraÅ¡o 
+# tam tikrÅ³ Å¾odÅ¾iÅ³ aibÄ™. TokÄ¯ Å¡ablonÄ… galima panaudoti Å¾odÅ¾iÅ³ paieÅ¡kai ar teksto
+# redagavimui. PavyzdÅ¾iui, tekste reikia surasti Å¾odÅ¾ius, kurie:
 #
 #   -- prasideda raide "a";
 #   -- prasideda raide "a" arba "A";
-#   -- prasideda raide "A", o baigiasi galûne "as";
-#   -- prasideda iğ didşiosios raidës (bet kurios);
-#   -- sudaryti vien iğ didşiøjø raidşiø;
-#   -- sudaryti iğ penkiø raidşiø;
-#   -- turi dvibalsá "uo";
-#   -- turi bet koká dvibalsá.
+#   -- prasideda raide "A", o baigiasi galÅ«ne "as";
+#   -- prasideda iÅ¡ didÅ¾iosios raidÄ—s (bet kurios);
+#   -- sudaryti vien iÅ¡ didÅ¾iÅ³jÅ³ raidÅ¾iÅ³;
+#   -- sudaryti iÅ¡ penkiÅ³ raidÅ¾iÅ³;
+#   -- turi dvibalsÄ¯ "uo";
+#   -- turi bet kokÄ¯ dvibalsÄ¯.
 
-# Tokius şodşiø ğablonus galima panaudoti klaidø şodşiuose paieğkai ir taisymui,
-# o taip pat ir kitokiems teksto redagavimams. Pavyzdşiui, reikia atlikti tokius
+# Tokius Å¾odÅ¾iÅ³ Å¡ablonus galima panaudoti klaidÅ³ Å¾odÅ¾iuose paieÅ¡kai ir taisymui,
+# o taip pat ir kitokiems teksto redagavimams. PavyzdÅ¾iui, reikia atlikti tokius
 # veiksmus:
 #
-#   -- visame tekste şodá "irba" pakeisti á şodá "arba";
-#   -- surasti tekste dvigubus tarpus "  " ir pakeisti juos á viengubus " ";
-#   -- visame tekste simbolá "\" pakeisti á "/";
-#   -- surasti tekste visas simboliø sekas, kurios yra el. pağto adresas;
-#   -- patikrinti, ar ávesta simboliø seka yra data.
+#   -- visame tekste Å¾odÄ¯ "irba" pakeisti Ä¯ Å¾odÄ¯ "arba";
+#   -- surasti tekste dvigubus tarpus "  " ir pakeisti juos Ä¯ viengubus " ";
+#   -- visame tekste simbolÄ¯ "\" pakeisti Ä¯ "/";
+#   -- surasti tekste visas simboliÅ³ sekas, kurios yra el. paÅ¡to adresas;
+#   -- patikrinti, ar Ä¯vesta simboliÅ³ seka yra data.
 
-# Tokias teksto paieğkos ir pakeitimo galimybes turi visos specializuotos teksto 
-# redagavimo programos, pavyzdşiui, vim, emacs, gedit, Light Table, Sublime Text,
-# Lime Text, Atom, Notepad++ ir daugelis kitø. Reguliarios iğraiğkos reikalingos
-# ir darbui su failais. Pavyzdşiui, reikia:
+# Tokias teksto paieÅ¡kos ir pakeitimo galimybes turi visos specializuotos teksto 
+# redagavimo programos, pavyzdÅ¾iui, vim, emacs, gedit, Light Table, Sublime Text,
+# Lime Text, Atom, Notepad++ ir daugelis kitÅ³. Reguliarios iÅ¡raiÅ¡kos reikalingos
+# ir darbui su failais. PavyzdÅ¾iui, reikia:
 #
-#   -- surasti failus, kuriø pavadinime yra data;
-#   -- surasti failus, kuriø iğplëtimas "txt";
-#   -- surasti failus su iğplëtimu "txt" ir pakeisti á iğplëtimà "dat";
-#   -- surasti failus su iğplëtimu "R", kuriø viduje yra şodis "plot";
-#   -- iğtrinti visus failus, kuriø pavadinimas prasideda raide "a".
+#   -- surasti failus, kuriÅ³ pavadinime yra data;
+#   -- surasti failus, kuriÅ³ iÅ¡plÄ—timas "txt";
+#   -- surasti failus su iÅ¡plÄ—timu "txt" ir pakeisti Ä¯ iÅ¡plÄ—timÄ… "dat";
+#   -- surasti failus su iÅ¡plÄ—timu "R", kuriÅ³ viduje yra Å¾odis "plot";
+#   -- iÅ¡trinti visus failus, kuriÅ³ pavadinimas prasideda raide "a".
 
 
-# PASTABA. Ğiuo metu priimta reguliariomis iğraiğkomis vadinti panağø, taèiau iğ
-# esmës visiğkai skirtingà dalykà -- regex. Kaip ir reguliarios iğraiğkos, regex
-# naudojamos simboliø sekø aprağymui, taèiau, skirtingai nuo reguliariø iğraiğkø, 
-# jau neaprağo reguliariø kalbø. Dabar egzistuoja trys reg. iğraiğkø standartai:
+# PASTABA. Å iuo metu priimta reguliariomis iÅ¡raiÅ¡komis vadinti panaÅ¡Å³, taÄiau iÅ¡
+# esmÄ—s visiÅ¡kai skirtingÄ… dalykÄ… -- regex. Kaip ir reguliarios iÅ¡raiÅ¡kos, regex
+# naudojamos simboliÅ³ sekÅ³ apraÅ¡ymui, taÄiau, skirtingai nuo reguliariÅ³ iÅ¡raiÅ¡kÅ³, 
+# jau neapraÅ¡o reguliariÅ³ kalbÅ³. Dabar egzistuoja trys reg. iÅ¡raiÅ¡kÅ³ standartai:
 # 
 #        BRE -- Basic Regular Syntax,
 #        ERE -- Extended Regular Expression,
 #        SRE -- Simple Regular Expressions (nebenaudojamas),
 #       PCRE -- Perl Compatible Regular Expressions.
 
-# Toliau tekste laikysimës neteisingos tradicijos ir regex arba regexp iğraiğkas 
-# taip pat vadinsime reguliariomis iğraiğkomis.
+# Toliau tekste laikysimÄ—s neteisingos tradicijos ir regex arba regexp iÅ¡raiÅ¡kas 
+# taip pat vadinsime reguliariomis iÅ¡raiÅ¡komis.
 
 
 # --------------------------------------- #
-# BRE STANDARTO REGULIARIOS IĞRAIĞKOS     #
+# BRE STANDARTO REGULIARIOS IÅ RAIÅ KOS     #
 # --------------------------------------- #
 
-# Reguliariai iğraiğkai uşrağyti naudojami simboliai skirstomi á dvi grupes: tai
-# simboliai bei metasimboliai. Simboliai reguliarioje iğraiğkoje iğreiğkia patys 
-# save, o skirtingø metasimboliø paskirtis skiriasi: vieni jø naudojami simboliø 
-# grupavimui, kiti gali reikğti simboliø grupæ ir t. t. Standartinæ metasimboliø
-# aibæ sudaro ğie simboliai:
+# Reguliariai iÅ¡raiÅ¡kai uÅ¾raÅ¡yti naudojami simboliai skirstomi Ä¯ dvi grupes: tai
+# simboliai bei metasimboliai. Simboliai reguliarioje iÅ¡raiÅ¡koje iÅ¡reiÅ¡kia patys 
+# save, o skirtingÅ³ metasimboliÅ³ paskirtis skiriasi: vieni jÅ³ naudojami simboliÅ³ 
+# grupavimui, kiti gali reikÅ¡ti simboliÅ³ grupÄ™ ir t. t. StandartinÄ™ metasimboliÅ³
+# aibÄ™ sudaro Å¡ie simboliai:
 #
 #                        [ ] ( ) { } \ / ^ $ . * | ?  +
 #
-# Metasimboliø aibës skirtinguose reguliariø iğraiğkø standartuose skiriasi, bet 
-# didşioji dalis jø yra tie patys.
+# MetasimboliÅ³ aibÄ—s skirtinguose reguliariÅ³ iÅ¡raiÅ¡kÅ³ standartuose skiriasi, bet 
+# didÅ¾ioji dalis jÅ³ yra tie patys.
 
-# Jei metasimbolis iğraiğkoje turi bûti panaudojamas kaip paprastas simbolis, já 
-# bûtina ekranuoti (uşmaskuoti). Ğiam tikslui naudojamas simbolis "\", kuris yra
-# rağomas prieğ maskuojamà metasimbolá. 
+# Jei metasimbolis iÅ¡raiÅ¡koje turi bÅ«ti panaudojamas kaip paprastas simbolis, jÄ¯ 
+# bÅ«tina ekranuoti (uÅ¾maskuoti). Å iam tikslui naudojamas simbolis "\", kuris yra
+# raÅ¡omas prieÅ¡ maskuojamÄ… metasimbolÄ¯. 
 
-# PASTABA. Tabuliacijos şenklas "\t", ávairûs valdymo simboliai, simboliø klasës
-# uşrağomos naudojant simbolá "\". Kadangi jis pats yra metasimbolis, iğraiğkose
-# já patá reikia ekranuoti, todël rağome ne "\", bet "\\".
+# PASTABA. Tabuliacijos Å¾enklas "\t", Ä¯vairÅ«s valdymo simboliai, simboliÅ³ klasÄ—s
+# uÅ¾raÅ¡omos naudojant simbolÄ¯ "\". Kadangi jis pats yra metasimbolis, iÅ¡raiÅ¡kose
+# jÄ¯ patÄ¯ reikia ekranuoti, todÄ—l raÅ¡ome ne "\", bet "\\".
 
-# PASTABA. Bazinis reguliariø iğraiğkø standartas BRE reikalauja, kad skliaustai
-# () ir {}, kurie uşrağant reg. iğraiğkà naudojami kaip metasimboliai, turi bûti 
-# rağomi atitinkamai \(, \), \[ ir \], prieğingu atveju jie interpretuojami kaip
-# áprasti skliaustø simboliai. Iğplëstiniame standarte ERE yra prieğingai -- èia
-# skliaustai () ir [] yra metasimboliai, o jø ekranuotos versijos \(, \), \[, \] 
-# interpretuojamos kaip áprasti skliaustø simboliai. Ğiame tekste reg. iğraiğkas 
-# rağysime laikydamiesi ERE standarto.
+# PASTABA. Bazinis reguliariÅ³ iÅ¡raiÅ¡kÅ³ standartas BRE reikalauja, kad skliaustai
+# () ir {}, kurie uÅ¾raÅ¡ant reg. iÅ¡raiÅ¡kÄ… naudojami kaip metasimboliai, turi bÅ«ti 
+# raÅ¡omi atitinkamai \(, \), \[ ir \], prieÅ¡ingu atveju jie interpretuojami kaip
+# Ä¯prasti skliaustÅ³ simboliai. IÅ¡plÄ—stiniame standarte ERE yra prieÅ¡ingai -- Äia
+# skliaustai () ir [] yra metasimboliai, o jÅ³ ekranuotos versijos \(, \), \[, \] 
+# interpretuojamos kaip Ä¯prasti skliaustÅ³ simboliai. Å iame tekste reg. iÅ¡raiÅ¡kas 
+# raÅ¡ysime laikydamiesi ERE standarto.
 
 
 # [ ]
 #
-# Lauştiniai skliaustai nurodo bet kurá vienà tuose skliaustuose árağytà simbolá. 
-# Pavyzdşiui, iğraiğka "[abc]" nurodo raidæ "a", "b" arba "c". Iğ eilës einanèiø
-# raidşiø sekà galima uşrağyti kompaktiğkai -- árağome brûkğneliu atskirtà pirmà 
-# ir paskutinæ sekos raidæ. Tokiu atveju brûkğnelis tik nurodo iğ eilës einanèiø
-# simboliø intervalà ir kaip simbolis "-" netraktuojamas. Pvz., iğraiğka "[a-z]" 
-# nurodo bet kurià maşàjà lotyniğkos abëcëlës raidæ. Galima nurodyti keletà sekø 
-# iğ karto. Pvz., "[a-zA-Z]" nurodo bet kurià maşàjà ar didşiàjà abëcëlës raidæ. 
-# Jeigu tarp nurodytø simboliø turi bûti "-", tada jis lauştiniuose skliaustuose 
-# rağomas arba pirmas, arba paskutinis, pvz., "[-abc]" arba "[abc-]". Jeigu tarp
-# iğvardintø simboliø turi bûti "]" ar "[", tai jis skliaustuose rağomas pirmas. 
-# Pavyzdşiui, "[[abc]" nurodo raidæ "a", "b", "c" ir simbolá "[". Pateiksime dar 
-# keletà pavyzdşiø:
+# LauÅ¾tiniai skliaustai nurodo bet kurÄ¯ vienÄ… tuose skliaustuose Ä¯raÅ¡ytÄ… simbolÄ¯. 
+# PavyzdÅ¾iui, iÅ¡raiÅ¡ka "[abc]" nurodo raidÄ™ "a", "b" arba "c". IÅ¡ eilÄ—s einanÄiÅ³
+# raidÅ¾iÅ³ sekÄ… galima uÅ¾raÅ¡yti kompaktiÅ¡kai -- Ä¯raÅ¡ome brÅ«kÅ¡neliu atskirtÄ… pirmÄ… 
+# ir paskutinÄ™ sekos raidÄ™. Tokiu atveju brÅ«kÅ¡nelis tik nurodo iÅ¡ eilÄ—s einanÄiÅ³
+# simboliÅ³ intervalÄ… ir kaip simbolis "-" netraktuojamas. Pvz., iÅ¡raiÅ¡ka "[a-z]" 
+# nurodo bet kuriÄ… maÅ¾Ä…jÄ… lotyniÅ¡kos abÄ—cÄ—lÄ—s raidÄ™. Galima nurodyti keletÄ… sekÅ³ 
+# iÅ¡ karto. Pvz., "[a-zA-Z]" nurodo bet kuriÄ… maÅ¾Ä…jÄ… ar didÅ¾iÄ…jÄ… abÄ—cÄ—lÄ—s raidÄ™. 
+# Jeigu tarp nurodytÅ³ simboliÅ³ turi bÅ«ti "-", tada jis lauÅ¾tiniuose skliaustuose 
+# raÅ¡omas arba pirmas, arba paskutinis, pvz., "[-abc]" arba "[abc-]". Jeigu tarp
+# iÅ¡vardintÅ³ simboliÅ³ turi bÅ«ti "]" ar "[", tai jis skliaustuose raÅ¡omas pirmas. 
+# PavyzdÅ¾iui, "[[abc]" nurodo raidÄ™ "a", "b", "c" ir simbolÄ¯ "[". Pateiksime dar 
+# keletÄ… pavyzdÅ¾iÅ³:
 #
-#        [a-cx-z]" -- nurodo vienà iğ raidşiø "a", "b", "c", "x", "y", "z";
-#     "[blr]ankas" -- atitinka şodşius "bankas", "lankas" ir "rankas";
-#          "[0-9]" -- nurodo bet kurá vienà skaitmená;
-#            "[[]" -- nurodo tik simbolá "[";
-#           "[][]" -- nurodo simbolá "]" arba "[";
-#           "[[]]" -- jei reikia gauti "]" arba "[", tada uşrağyta neteisingai.
+#        [a-cx-z]" -- nurodo vienÄ… iÅ¡ raidÅ¾iÅ³ "a", "b", "c", "x", "y", "z";
+#     "[blr]ankas" -- atitinka Å¾odÅ¾ius "bankas", "lankas" ir "rankas";
+#          "[0-9]" -- nurodo bet kurÄ¯ vienÄ… skaitmenÄ¯;
+#            "[[]" -- nurodo tik simbolÄ¯ "[";
+#           "[][]" -- nurodo simbolÄ¯ "]" arba "[";
+#           "[[]]" -- jei reikia gauti "]" arba "[", tada uÅ¾raÅ¡yta neteisingai.
 
 
 # [^ ]
 #
-# Lauştiniai skliaustai, kuriuose prieğ simbolius árağytas simbolis "^", reiğkia
-# bet koká simbolá, iğskyrus tuos, kurie iğvardinti skliaustuose. Pvz., "[^abc]"
-# reiğkia bet koká simbolá, iğskyrus "a", "b", "c". Jeigu simbolis "^" turi bûti 
-# interpretuojamas kaip simbolis, jis skliaustuose rağomas ne pirmas. Pateiksime
-# ğiuos pavyzdşius:
+# LauÅ¾tiniai skliaustai, kuriuose prieÅ¡ simbolius Ä¯raÅ¡ytas simbolis "^", reiÅ¡kia
+# bet kokÄ¯ simbolÄ¯, iÅ¡skyrus tuos, kurie iÅ¡vardinti skliaustuose. Pvz., "[^abc]"
+# reiÅ¡kia bet kokÄ¯ simbolÄ¯, iÅ¡skyrus "a", "b", "c". Jeigu simbolis "^" turi bÅ«ti 
+# interpretuojamas kaip simbolis, jis skliaustuose raÅ¡omas ne pirmas. Pateiksime
+# Å¡iuos pavyzdÅ¾ius:
 #
-#           "[^x]" -- nurodo bet koká simbolá, iğskyrus raidæ "x";
-#         "[^a-z]" -- nurodo bet koká simbolá, iğskyrus maşàjà raidæ;
-#         "[^0-9]" -- nurodo bet koká simbolá, iğskyrus skaitmenis;
-#        "[^-0-9]" -- bet koks simbolis, iğskyrus skaitmená ir brûkğnelá;
-#         "[0-9^]" -- nurodo bet kurá skaitmená arba simbolá "^".
+#           "[^x]" -- nurodo bet kokÄ¯ simbolÄ¯, iÅ¡skyrus raidÄ™ "x";
+#         "[^a-z]" -- nurodo bet kokÄ¯ simbolÄ¯, iÅ¡skyrus maÅ¾Ä…jÄ… raidÄ™;
+#         "[^0-9]" -- nurodo bet kokÄ¯ simbolÄ¯, iÅ¡skyrus skaitmenis;
+#        "[^-0-9]" -- bet koks simbolis, iÅ¡skyrus skaitmenÄ¯ ir brÅ«kÅ¡nelÄ¯;
+#         "[0-9^]" -- nurodo bet kurÄ¯ skaitmenÄ¯ arba simbolÄ¯ "^".
 
 
 # ( )
 #
-# Skliaustai reguliariose iğraiğkose naudojami simboliø grupavimui ir operatoriø 
-# veiksmø tvarkai pakeisti. Simboliø seka, kuri atitinka apskliaustà reguliarios
-# iğraiğkos dalá -- blokà, gali bûti pakartotinai árağoma naudojant konstrukcijà
-# \n. Tokiu bûdu uşrağomos simboliø sekos su pasikartojimais.
+# Skliaustai reguliariose iÅ¡raiÅ¡kose naudojami simboliÅ³ grupavimui ir operatoriÅ³ 
+# veiksmÅ³ tvarkai pakeisti. SimboliÅ³ seka, kuri atitinka apskliaustÄ… reguliarios
+# iÅ¡raiÅ¡kos dalÄ¯ -- blokÄ…, gali bÅ«ti pakartotinai Ä¯raÅ¡oma naudojant konstrukcijÄ…
+# \n. Tokiu bÅ«du uÅ¾raÅ¡omos simboliÅ³ sekos su pasikartojimais.
 
 
 # \n
 #
-# Konstrukcija \n nurodo n-àjá blokà. Èia n nurodo sveikàjá skaièiø nuo 1 iki 9.
-# Kiekvienas blokas reguliarioje iğraiğkoje gali bûti panaudojamas keletà kartø.
-# PASTABA. Ğioje konstrukcijoje simbolá "\" reikia ekranuoti. Pavyzdşiui:
+# Konstrukcija \n nurodo n-Ä…jÄ¯ blokÄ…. ÄŒia n nurodo sveikÄ…jÄ¯ skaiÄiÅ³ nuo 1 iki 9.
+# Kiekvienas blokas reguliarioje iÅ¡raiÅ¡koje gali bÅ«ti panaudojamas keletÄ… kartÅ³.
+# PASTABA. Å ioje konstrukcijoje simbolÄ¯ "\" reikia ekranuoti. PavyzdÅ¾iui:
 #
-#      "(abc)-\\1" -- nurodo sekà "abc-abc";
+#      "(abc)-\\1" -- nurodo sekÄ… "abc-abc";
 #    "(a)[0-9]\\1" -- nurodo sekas "a0a", "a1a", "a2a" ir t.t.;
 #    "([a-z])-\\1" -- nurodo sekas "a-a", "b-b" ir t.t.
 
 
 # {m,n}
 #
-# Ği konstrukcija naudojama simboliø pasikartojimø skaièiui nurodyti. Egzistuoja
-# keli jos uşrağymo variantai:
+# Å i konstrukcija naudojama simboliÅ³ pasikartojimÅ³ skaiÄiui nurodyti. Egzistuoja
+# keli jos uÅ¾raÅ¡ymo variantai:
 #
-#              {n} -- simbolis pakartojamas n kartø;
-#             {m,} -- simbolis pakartojamas ne maşiau, kaip m kartø;
-#            {m,n} -- simbolis pakartojamas nuo m iki n kartø.
+#              {n} -- simbolis pakartojamas n kartÅ³;
+#             {m,} -- simbolis pakartojamas ne maÅ¾iau, kaip m kartÅ³;
+#            {m,n} -- simbolis pakartojamas nuo m iki n kartÅ³.
 #
-# Pateiksime keletà paprasèiausiø pavyzdşiø:
+# Pateiksime keletÄ… paprasÄiausiÅ³ pavyzdÅ¾iÅ³:
 #
-#           "a{3}" -- nurodo sekà "aaa";
+#           "a{3}" -- nurodo sekÄ… "aaa";
 #         "a{1,3}" -- nurodo sekas "a", "aa" ir "aaa";
 #         "0{1,}1" -- nurodo sekas "01", "001", "0001" ir t.t.
 #
-# Pakartojimø skaièiø galima nurodyti ne tik atskiram simboliui, bet ir simboliø 
-# grupei (blokui) arba visai simboliø klasei. Keletas sudëtingesniø pavyzdşiø:
+# PakartojimÅ³ skaiÄiÅ³ galima nurodyti ne tik atskiram simboliui, bet ir simboliÅ³ 
+# grupei (blokui) arba visai simboliÅ³ klasei. Keletas sudÄ—tingesniÅ³ pavyzdÅ¾iÅ³:
 #
-#       "(xy){1,}" -- sekos, kuriose pora "xy" pasirodo bent vienà kartà;
-#      "[xy]{4,5}" -- sekos, kuriose "x" ar "y" pasirodo 4 ar 5 kartus iğ eilës;
-#  "([abc]{2})\\1" -- sekos, kuriose 2 kartus pasikartoja bet kuri raidşiø pora.
+#       "(xy){1,}" -- sekos, kuriose pora "xy" pasirodo bent vienÄ… kartÄ…;
+#      "[xy]{4,5}" -- sekos, kuriose "x" ar "y" pasirodo 4 ar 5 kartus iÅ¡ eilÄ—s;
+#  "([abc]{2})\\1" -- sekos, kuriose 2 kartus pasikartoja bet kuri raidÅ¾iÅ³ pora.
 
 
 # .
 #
-# Tağkas reguliariose iğraiğkose şymi bet koká vienà simbolá -- bet kurià raidæ,
-# bet kurá skaitmená, skyrybos şenklà ir t.t. Lauştiniuose skliaustuose árağytas 
-# tağkas interpretuojamas kaip "." simbolis. Pavyzdşiui:
+# TaÅ¡kas reguliariose iÅ¡raiÅ¡kose Å¾ymi bet kokÄ¯ vienÄ… simbolÄ¯ -- bet kuriÄ… raidÄ™,
+# bet kurÄ¯ skaitmenÄ¯, skyrybos Å¾enklÄ… ir t.t. LauÅ¾tiniuose skliaustuose Ä¯raÅ¡ytas 
+# taÅ¡kas interpretuojamas kaip "." simbolis. PavyzdÅ¾iui:
 #
-#         ".ankas" -- atitinka şodşius "bankas", "tankas", "lankas" ir t.t.;
-#          "[a.c]" -- atitinka raides "a", "c" ir tağkà ".";
-#       ".*[.]txt" -- atitinka failø su iğplëtimu ".txt" pavadinimus.
+#         ".ankas" -- atitinka Å¾odÅ¾ius "bankas", "tankas", "lankas" ir t.t.;
+#          "[a.c]" -- atitinka raides "a", "c" ir taÅ¡kÄ… ".";
+#       ".*[.]txt" -- atitinka failÅ³ su iÅ¡plÄ—timu ".txt" pavadinimus.
 
 
 # *
 #
-# Simbolis "*" reguliariose iğraiğkose --- tai operatorius Klini şvaigşdë. Prieğ 
-# já stovinèio simbolio sekoje gali nebûti visai arba jis gali pasikartoti vienà, 
-# du ar daugiau kartø. Klini şvaigşdæ galima pritaikyti ir simboliø blokui. Pvz.:
+# Simbolis "*" reguliariose iÅ¡raiÅ¡kose --- tai operatorius Klini Å¾vaigÅ¾dÄ—. PrieÅ¡ 
+# jÄ¯ stovinÄio simbolio sekoje gali nebÅ«ti visai arba jis gali pasikartoti vienÄ…, 
+# du ar daugiau kartÅ³. Klini Å¾vaigÅ¾dÄ™ galima pritaikyti ir simboliÅ³ blokui. Pvz.:
 #
-#             "a*" -- nurodo tuğèià sekà "" arba "a", "aa", "aaa", ...
+#             "a*" -- nurodo tuÅ¡ÄiÄ… sekÄ… "" arba "a", "aa", "aaa", ...
 #           "ab*c" -- nurodo sekas "ab", "abc", "abbc", ...
-#          "(ab)*" -- nurodo tuğèià sekà "", "ab", "abab", "ababab", ...
-#          "[ab]*" -- nurodo bet kokio ilgio sekas sudarytas iğ "a" ir "b";
-#             ".*" -- nurodo bet kokio ilgio sekas iğ visø ámanomø simboliø.
+#          "(ab)*" -- nurodo tuÅ¡ÄiÄ… sekÄ… "", "ab", "abab", "ababab", ...
+#          "[ab]*" -- nurodo bet kokio ilgio sekas sudarytas iÅ¡ "a" ir "b";
+#             ".*" -- nurodo bet kokio ilgio sekas iÅ¡ visÅ³ Ä¯manomÅ³ simboliÅ³.
 
 
 # ^
 #
-# Simbolis "^" reguliarioje iğraiğkoje nurodo tai, kad seka yra simboliø eilutës
-# pradşioje. Pavyzdşiui:
+# Simbolis "^" reguliarioje iÅ¡raiÅ¡koje nurodo tai, kad seka yra simboliÅ³ eilutÄ—s
+# pradÅ¾ioje. PavyzdÅ¾iui:
 #
-#           "^abc" -- atitinka sekà "abc ...", bet neatitinka sekos "... abc";
-#       "^[A-Z].*" -- bet kokio ilgio sekos iğ didşiosios raidës sekos pradşioje;
-#   "^[A-Z][a-z]*" -- iğ didşiosios raidës prasidedantys şodşiai sekos pradşioje.
+#           "^abc" -- atitinka sekÄ… "abc ...", bet neatitinka sekos "... abc";
+#       "^[A-Z].*" -- bet kokio ilgio sekos iÅ¡ didÅ¾iosios raidÄ—s sekos pradÅ¾ioje;
+#   "^[A-Z][a-z]*" -- iÅ¡ didÅ¾iosios raidÄ—s prasidedantys Å¾odÅ¾iai sekos pradÅ¾ioje.
 
 
 # $
 #
-# Simbolis "$" reguliarioje iğraiğkoje nurodo tai, kad seka yra simboliø eilutës
-# gale. Pavyzdşiui:
+# Simbolis "$" reguliarioje iÅ¡raiÅ¡koje nurodo tai, kad seka yra simboliÅ³ eilutÄ—s
+# gale. PavyzdÅ¾iui:
 #
-#          ".*as$" -- bet kokio ilgio simboliø sekos su galûne "as" sekos gale;
-#         ".*[.]$" -- bet kokio ilgio simboliø sekos su tağku sekos gale;
-#     "^[0-9]{6}$" -- bet kokie ğeğiaşenkliai kodai.
+#          ".*as$" -- bet kokio ilgio simboliÅ³ sekos su galÅ«ne "as" sekos gale;
+#         ".*[.]$" -- bet kokio ilgio simboliÅ³ sekos su taÅ¡ku sekos gale;
+#     "^[0-9]{6}$" -- bet kokie Å¡eÅ¡iaÅ¾enkliai kodai.
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite reguliarià iğraiğkà, kuri atitinka simbolá "\". Pakeiskite gautà
-#    iğraiğkà taip, kad ji atitiktø du greta stovinèius simbolius "\".
-# 2. Uşrağykite reguliarià iğraiğkà, kuri simboliø sekoje surastø simbolá "/" ar 
-#    "\". Pakeiskite iğraiğkà taip, kad ji atitiktø bet kokià ğiø simboliø porà.
-# 3. Uşrağykite reguliarià iğraiğkà, atitinkanèià bet kokio ilgio şodşius, kuriø 
-#    pirmoji ir paskutinë raidës sutampa. Pavyzdşiui, "àşuolà", "sausas" ir t.t. 
-#    Atkreipkite dëmesá, kad simboliø sekoje yra tik tas şodis ir nieko daugiau.
-# 4. Daugtağkis -- skyrybos şenklas (ellipsis), kuris nurodo nutylëtà mintá arba 
-#    praleista tekstà. Gali bûti şymimas trimis iğ eilës einanèiais tağkais arba 
-#    specialiu simboliu, kurio kodas Alt + 0133. Uşrağykite reg. iğraiğkà, kurià
-#    atitinka daugtağkis "..." bet kurioje teksto vietoje.
-# 5. Palindromas -- tai tokia simboliø seka, kuri skaitoma vienodai iğ kairës ir
-#    iğ değinës, pavyzdşiui, "savas". Uşrağykite tokià reguliarià iğraiğkà, kuri 
-#    bet kur tekste atpaşintø palindromus sudarytus iğ 4 maşøjø raidşiø.
-# 6. Uşrağykite reguliarià iğraiğkà palindromui iğ 5 skaitmenø atpaşinti. Be to,
-#    pirmas skaitmuo (vadinasi -- ir paskutinis) negali bûti nulis.
-# 7. Paprastai failo vardas susideda iğ 2 daliø, kurios atskirtos tağku. Antroji 
-#    dalis vadinama failo iğplëtimu. Windows OS failo pavadinime negali bûti ğiø 
-#    simboliø: \ / : * ? " < > ir |. Uşrağykite tokià reguliarià iğraiğkà, kurià 
-#    atitinka korektiğki failø vardai su iğplëtimu iğ dviejø arba trijø raidşiø.
-#    Pastaba. Simboliø sekoje be failo vardo daugiau neturi bûti jokiø papildomø
-#    simboliø.
+# 1. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri atitinka simbolÄ¯ "\". Pakeiskite gautÄ…
+#    iÅ¡raiÅ¡kÄ… taip, kad ji atitiktÅ³ du greta stovinÄius simbolius "\".
+# 2. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri simboliÅ³ sekoje surastÅ³ simbolÄ¯ "/" ar 
+#    "\". Pakeiskite iÅ¡raiÅ¡kÄ… taip, kad ji atitiktÅ³ bet kokiÄ… Å¡iÅ³ simboliÅ³ porÄ….
+# 3. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, atitinkanÄiÄ… bet kokio ilgio Å¾odÅ¾ius, kuriÅ³ 
+#    pirmoji ir paskutinÄ— raidÄ—s sutampa. PavyzdÅ¾iui, "Ä…Å¾uolÄ…", "sausas" ir t.t. 
+#    Atkreipkite dÄ—mesÄ¯, kad simboliÅ³ sekoje yra tik tas Å¾odis ir nieko daugiau.
+# 4. DaugtaÅ¡kis -- skyrybos Å¾enklas (ellipsis), kuris nurodo nutylÄ—tÄ… mintÄ¯ arba 
+#    praleista tekstÄ…. Gali bÅ«ti Å¾ymimas trimis iÅ¡ eilÄ—s einanÄiais taÅ¡kais arba 
+#    specialiu simboliu, kurio kodas Alt + 0133. UÅ¾raÅ¡ykite reg. iÅ¡raiÅ¡kÄ…, kuriÄ…
+#    atitinka daugtaÅ¡kis "..." bet kurioje teksto vietoje.
+# 5. Palindromas -- tai tokia simboliÅ³ seka, kuri skaitoma vienodai iÅ¡ kairÄ—s ir
+#    iÅ¡ deÅ¡inÄ—s, pavyzdÅ¾iui, "savas". UÅ¾raÅ¡ykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri 
+#    bet kur tekste atpaÅ¾intÅ³ palindromus sudarytus iÅ¡ 4 maÅ¾Å³jÅ³ raidÅ¾iÅ³.
+# 6. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ… palindromui iÅ¡ 5 skaitmenÅ³ atpaÅ¾inti. Be to,
+#    pirmas skaitmuo (vadinasi -- ir paskutinis) negali bÅ«ti nulis.
+# 7. Paprastai failo vardas susideda iÅ¡ 2 daliÅ³, kurios atskirtos taÅ¡ku. Antroji 
+#    dalis vadinama failo iÅ¡plÄ—timu. Windows OS failo pavadinime negali bÅ«ti Å¡iÅ³ 
+#    simboliÅ³: \ / : * ? " < > ir |. UÅ¾raÅ¡ykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuriÄ… 
+#    atitinka korektiÅ¡ki failÅ³ vardai su iÅ¡plÄ—timu iÅ¡ dviejÅ³ arba trijÅ³ raidÅ¾iÅ³.
+#    Pastaba. SimboliÅ³ sekoje be failo vardo daugiau neturi bÅ«ti jokiÅ³ papildomÅ³
+#    simboliÅ³.
 
 
 # --------------------------------------- #
-# ERE STANDARTO REGULIARIOS IĞRAIĞKOS     #
+# ERE STANDARTO REGULIARIOS IÅ RAIÅ KOS     #
 # --------------------------------------- #
 
-# BRE standartas numato tik ğiuos metasimbolius. ERE reg. iğraiğkø standarte yra
-# naudojami dar trys metasimboliai. Taèiau ERE standarte nëra konstrukcijos "\n",
-# kuri teoriğkai nereguliari, bet dël standartø suderinamumo jà vis dëlto galima 
+# BRE standartas numato tik Å¡iuos metasimbolius. ERE reg. iÅ¡raiÅ¡kÅ³ standarte yra
+# naudojami dar trys metasimboliai. TaÄiau ERE standarte nÄ—ra konstrukcijos "\n",
+# kuri teoriÅ¡kai nereguliari, bet dÄ—l standartÅ³ suderinamumo jÄ… vis dÄ—lto galima 
 # naudoti.
 
 
 # |
 #
-# Simbolis "|" yra aibiø sàjungos operatorius (alternation). Jis nurodo simbolá, 
-# kuris stovi prieğ já arba uş jo. Aiğku, ğá operatoriø galima pritaikyti ne tik 
-# atskiriems simboliams, bet ir simboliø grupei (blokui) arba net visai simboliø 
-# klasei. Pavyzdşiui:
+# Simbolis "|" yra aibiÅ³ sÄ…jungos operatorius (alternation). Jis nurodo simbolÄ¯, 
+# kuris stovi prieÅ¡ jÄ¯ arba uÅ¾ jo. AiÅ¡ku, Å¡Ä¯ operatoriÅ³ galima pritaikyti ne tik 
+# atskiriems simboliams, bet ir simboliÅ³ grupei (blokui) arba net visai simboliÅ³ 
+# klasei. PavyzdÅ¾iui:
 #
-#            "a|e" -- atitinka raidæ "a" arba "e";
-#      "gray|grey" -- atitinka şodá "gray" arba "grey";
-#      "R(i|o)mas" -- atitinka vardà "Rimas" arba "Romas";
-#    "(xx|yy)-\\1" -- atitinka sekà "xx-xx" arba "yy-yy", bet ne "xx-yy".
+#            "a|e" -- atitinka raidÄ™ "a" arba "e";
+#      "gray|grey" -- atitinka Å¾odÄ¯ "gray" arba "grey";
+#      "R(i|o)mas" -- atitinka vardÄ… "Rimas" arba "Romas";
+#    "(xx|yy)-\\1" -- atitinka sekÄ… "xx-xx" arba "yy-yy", bet ne "xx-yy".
 #
-# PASTABA. Jei alternatyva yra tik tarp dviejø simboliø, tada geriau yra naudoti 
-# konstrukcijà su lauştiniais skliaustais. Perrağysime ankstesnius pavyzdşius:
+# PASTABA. Jei alternatyva yra tik tarp dviejÅ³ simboliÅ³, tada geriau yra naudoti 
+# konstrukcijÄ… su lauÅ¾tiniais skliaustais. PerraÅ¡ysime ankstesnius pavyzdÅ¾ius:
 #
-#           "[ae]" -- atitinka raidæ "a" arba "e";
-#        "gr[ae]y" -- atitinka şodá "gray" arba "grey";
-#       "R[io]mas" -- atitinka vardà "Rimas" arba "Romas".
+#           "[ae]" -- atitinka raidÄ™ "a" arba "e";
+#        "gr[ae]y" -- atitinka Å¾odÄ¯ "gray" arba "grey";
+#Â       "R[io]mas" -- atitinka vardÄ… "Rimas" arba "Romas".
 
 
 # ?
 #
-# Metasimbolis "?" nurodo, kad prieğ já stovintis simbolis pasikartoja nulá arba
-# vienà kartà, t. y. simbolis arba yra, arba jo nëra. Operatoriø taip pat galima
-# pritaikyti simboliø grupei (blokui) arba simboliø klasei. Pavyzdşiui:
+# Metasimbolis "?" nurodo, kad prieÅ¡ jÄ¯ stovintis simbolis pasikartoja nulÄ¯ arba
+# vienÄ… kartÄ…, t. y. simbolis arba yra, arba jo nÄ—ra. OperatoriÅ³ taip pat galima
+# pritaikyti simboliÅ³ grupei (blokui) arba simboliÅ³ klasei. PavyzdÅ¾iui:
 #
 #           "ab?c" -- atitinka sekas "ac" ir "abc";
-#       "p?laukai" -- atitinka şodşius "laukai" ir "plaukai";
-# "(nu|á|iğ)?eiti" -- atitinka şodşius "eiti", "nueiti", "áeiti", "iğeiti".
+#       "p?laukai" -- atitinka Å¾odÅ¾ius "laukai" ir "plaukai";
+# "(nu|Ä¯|iÅ¡)?eiti" -- atitinka Å¾odÅ¾ius "eiti", "nueiti", "Ä¯eiti", "iÅ¡eiti".
 #
-# PASTABA. Formaliø kalbø teorijos poşiûriu ğis operatorius yra perteklinis, nes 
-# já galima iğreikğti standartinëmis priemonëmis: "a?" = "(a|e)", kur simbolis e 
-# şymi tuğèià sekà "".
+# PASTABA. FormaliÅ³ kalbÅ³ teorijos poÅ¾iÅ«riu Å¡is operatorius yra perteklinis, nes 
+# jÄ¯ galima iÅ¡reikÅ¡ti standartinÄ—mis priemonÄ—mis: "a?" = "(a|e)", kur simbolis e 
+# Å¾ymi tuÅ¡ÄiÄ… sekÄ… "".
 
 
 # +
 #
-# Reguliariose iğraiğkose metasimbolis "+" nurodo, kad prieğ já esantis simbolis 
-# arba simboliø grupë sekoje pasirodo bent vienà kartà. Pavyzdşiui:
+# Reguliariose iÅ¡raiÅ¡kose metasimbolis "+" nurodo, kad prieÅ¡ jÄ¯ esantis simbolis 
+# arba simboliÅ³ grupÄ— sekoje pasirodo bent vienÄ… kartÄ…. PavyzdÅ¾iui:
 #
 #             "-+" -- nurodo sekas "-", "--", "---", ... 
 #            "0+1" -- nurodo sekas "01", "001", "0001", ...
-#          "x\\+y" -- metasimbolis "+" ekranuotas, todël gauname sekà "x+y";
+#          "x\\+y" -- metasimbolis "+" ekranuotas, todÄ—l gauname sekÄ… "x+y";
 #         "(cha)+" -- nurodo sekas "cha", "chacha", "chachacha", ...
 #       "k_[0-9]+" -- nurodo sekas "k_0", "k_5", "k_42", "k_1579" ir pan;
-#   "[0-9]+[a-z]+" -- sekos, kuriose pirma pusë iğ skaitmenø, o kita iğ raidşiø;
-# "([a-z]{2})\\1+" -- nurodo sekas su bet kokios raidşiø poros pasikartojimu.
+#   "[0-9]+[a-z]+" -- sekos, kuriose pirma pusÄ— iÅ¡ skaitmenÅ³, o kita iÅ¡ raidÅ¾iÅ³;
+# "([a-z]{2})\\1+" -- nurodo sekas su bet kokios raidÅ¾iÅ³ poros pasikartojimu.
 #
-# PASTABA. Ğá operatoriø galima iğreikğti per Klini operatoriø. Pavyzdşiui, "a+"
-# aprağo tokias paèia sekas kaip ir reguliari iğraiğka "aa*".
+# PASTABA. Å Ä¯ operatoriÅ³ galima iÅ¡reikÅ¡ti per Klini operatoriÅ³. PavyzdÅ¾iui, "a+"
+# apraÅ¡o tokias paÄia sekas kaip ir reguliari iÅ¡raiÅ¡ka "aa*".
 
 
 # NAUDINGA ------------------------------
 
-# Metasimbolius "^" ir "$" árağome tais atvejais, kai reguliarià iğraiğkà reikia 
-# patikslinti, kad iğ visø jà atitinkanèiø simboliø sekø bûtø atrenkamos tik tos, 
-# kurios yra eilutës pradşioje arba jos gale.
+# Metasimbolius "^" ir "$" Ä¯raÅ¡ome tais atvejais, kai reguliariÄ… iÅ¡raiÅ¡kÄ… reikia 
+# patikslinti, kad iÅ¡ visÅ³ jÄ… atitinkanÄiÅ³ simboliÅ³ sekÅ³ bÅ«tÅ³ atrenkamos tik tos, 
+# kurios yra eilutÄ—s pradÅ¾ioje arba jos gale.
 
-# ERE standartas numato dar vienà reg. iğraiğkos lokalizacijos metodà --- şodşio 
-# riba. Şodşio riba tai tokia simboliø sekos vieta, kurià iğ kairës arba değinës 
-# pusës riboja tarpo simbolis. Analogiğkai galima nurodyti simboliø sekos vietà,
-# kuri nëra şodşio riba. Tam naudojamos \b ir \B konstrukcijos. Panağiai taikoma
-# konstrukcija \< arba \>, kuri nurodo tuğèià sekà şodşio pradşioje arba jo gale.
+# ERE standartas numato dar vienÄ… reg. iÅ¡raiÅ¡kos lokalizacijos metodÄ… --- Å¾odÅ¾io 
+# riba. Å½odÅ¾io riba tai tokia simboliÅ³ sekos vieta, kuriÄ… iÅ¡ kairÄ—s arba deÅ¡inÄ—s 
+# pusÄ—s riboja tarpo simbolis. AnalogiÅ¡kai galima nurodyti simboliÅ³ sekos vietÄ…,
+# kuri nÄ—ra Å¾odÅ¾io riba. Tam naudojamos \b ir \B konstrukcijos. PanaÅ¡iai taikoma
+# konstrukcija \< arba \>, kuri nurodo tuÅ¡ÄiÄ… sekÄ… Å¾odÅ¾io pradÅ¾ioje arba jo gale.
 
 
 # \b ir \B
 #
-# ERE standarto reg. iğraiğkose konstrukcija \b nurodo şodşio ribà. Priklausomai
-# nuo to, kurioje iğraiğkos pusëje ji bus rağoma, galima nurodyti şodşio pradşià 
-# arba jo pabaigà. Pavyzdşiui:
+# ERE standarto reg. iÅ¡raiÅ¡kose konstrukcija \b nurodo Å¾odÅ¾io ribÄ…. Priklausomai
+# nuo to, kurioje iÅ¡raiÅ¡kos pusÄ—je ji bus raÅ¡oma, galima nurodyti Å¾odÅ¾io pradÅ¾iÄ… 
+# arba jo pabaigÄ…. PavyzdÅ¾iui:
 #
-#          "as\\b" -- atitinka şodşio galûnæ "as";
-#          "\\bas" -- atitinka şodşio pradşià "as";
-#       "\\bir\\b" -- atitinka şodá "ir", bet neatitinka "asiras" ar "Airija".
+#          "as\\b" -- atitinka Å¾odÅ¾io galÅ«nÄ™ "as";
+#          "\\bas" -- atitinka Å¾odÅ¾io pradÅ¾iÄ… "as";
+#       "\\bir\\b" -- atitinka Å¾odÄ¯ "ir", bet neatitinka "asiras" ar "Airija".
 #
-# Konstrukcija \B prieğingai -- nurodo, kad reguliarià iğraiğkà atitinkanti seka
-# yra ne şodşio riboje. Galima nurodyti, kad ieğkoma simboliø seka bûtø grieştai 
-# şodşio viduje. Pateiksime ğiuos pavyzdşius:
+# Konstrukcija \B prieÅ¡ingai -- nurodo, kad reguliariÄ… iÅ¡raiÅ¡kÄ… atitinkanti seka
+# yra ne Å¾odÅ¾io riboje. Galima nurodyti, kad ieÅ¡koma simboliÅ³ seka bÅ«tÅ³ grieÅ¾tai 
+# Å¾odÅ¾io viduje. Pateiksime Å¡iuos pavyzdÅ¾ius:
 #
-#          "\\Buo" -- "uo" kairëje turi bûti ne şodşio riba: "vanduo", "duona";
-#          "uo\\B" -- "uo" değinëje turi bûti ne şodşio riba: "uoga", "duona";
-#       "\\Buo\\B" -- raidşiø junginys "uo" şodşio viduje, pvz., "duona".
+#          "\\Buo" -- "uo" kairÄ—je turi bÅ«ti ne Å¾odÅ¾io riba: "vanduo", "duona";
+#          "uo\\B" -- "uo" deÅ¡inÄ—je turi bÅ«ti ne Å¾odÅ¾io riba: "uoga", "duona";
+#       "\\Buo\\B" -- raidÅ¾iÅ³ junginys "uo" Å¾odÅ¾io viduje, pvz., "duona".
 
 
 # NAUDINGA ------------------------------
 
-# Istoriğkai tekstiniuose failuose buvo árağomi ávairûs valdymo simboliai, kurie
-# neturi grafinës iğraiğkos ir naudojami ávedimo ir iğvedimo árenginiø valdymui. 
-# Pavyzdşiui, komanda CR gràşina kursoriø á eilutës pradşià, komanda LF kursoriø
-# perkelia á kità eilutæ, komanda BS gràşina kursoriø per vienà simbolá atgal, o
-# komanda BEL reiğkia garso signalà. Ğiuo metu tokiems tikslams naudojamos kitos
-# priemonës, todël didşioji dalis valdymo simboliø nenaudojami. POSIX standartas
-# numato ağtuonis privalomus valdymo simbolius: \0, \a, \b, \t, \n, \v, \f ir \r.
+# IstoriÅ¡kai tekstiniuose failuose buvo Ä¯raÅ¡omi Ä¯vairÅ«s valdymo simboliai, kurie
+# neturi grafinÄ—s iÅ¡raiÅ¡kos ir naudojami Ä¯vedimo ir iÅ¡vedimo Ä¯renginiÅ³ valdymui. 
+# PavyzdÅ¾iui, komanda CR grÄ…Å¾ina kursoriÅ³ Ä¯ eilutÄ—s pradÅ¾iÄ…, komanda LF kursoriÅ³
+# perkelia Ä¯ kitÄ… eilutÄ™, komanda BS grÄ…Å¾ina kursoriÅ³ per vienÄ… simbolÄ¯ atgal, o
+# komanda BEL reiÅ¡kia garso signalÄ…. Å iuo metu tokiems tikslams naudojamos kitos
+# priemonÄ—s, todÄ—l didÅ¾ioji dalis valdymo simboliÅ³ nenaudojami. POSIX standartas
+# numato aÅ¡tuonis privalomus valdymo simbolius: \0, \a, \b, \t, \n, \v, \f ir \r.
 
-# Reguliariose iğraiğkose kartu su simboliais, metasimboliais galima nurodyti ir
-# valdymo simbolius. Jø sàrağas toks:
+# Reguliariose iÅ¡raiÅ¡kose kartu su simboliais, metasimboliais galima nurodyti ir
+# valdymo simbolius. JÅ³ sÄ…raÅ¡as toks:
 #
 #           \t -- HT, horizontal tabulation;
 #           \v -- VT, vertical tabulation (R nepalaiko);
@@ -428,12 +428,12 @@ rm(list = ls())
 #           \b -- BS, backspace (R nepalaiko).
 
 
-# Praktikoje daşnai naudojamas tabuliacijos şenklas "\t". Pavyzdşiui, tokiu bûdu
-# tekstiniame faile galima atskirti duomenø stulpelius. Nuskaitant duomenø failà
-# bûtina nurodyti, kad stulpeliai atskirti tabuliacija. Funkcija read.table turi
-# specialø parametrà sep, kuriam tokiu atveju priskiriamas valdymo simbolis "\t".
-# Pavyzdşiui, sukursime virtualø tekstiná failà, kur reikğmës eilutëse atskirtos 
-# tabuliacijos şenklu. Prie tokio failo jungiamës naudojant f-jà textConnection.
+# Praktikoje daÅ¾nai naudojamas tabuliacijos Å¾enklas "\t". PavyzdÅ¾iui, tokiu bÅ«du
+# tekstiniame faile galima atskirti duomenÅ³ stulpelius. Nuskaitant duomenÅ³ failÄ…
+# bÅ«tina nurodyti, kad stulpeliai atskirti tabuliacija. Funkcija read.table turi
+# specialÅ³ parametrÄ… sep, kuriam tokiu atveju priskiriamas valdymo simbolis "\t".
+# PavyzdÅ¾iui, sukursime virtualÅ³ tekstinÄ¯ failÄ…, kur reikÅ¡mÄ—s eilutÄ—se atskirtos 
+# tabuliacijos Å¾enklu. Prie tokio failo jungiamÄ—s naudojant f-jÄ… textConnection.
 
 f <- "X1\tX2\tX3
       11\t12\t13
@@ -444,103 +444,103 @@ f <- "X1\tX2\tX3
 d <- read.table(file = textConnection(f), header = TRUE, sep = "\t")
 d
 
-# Perkëlimo á kità eilutæ simbolis "\n" reikalingas iğvedant praneğimus á ekranà
-# ar tekstiná failà. Pavyzdşiui, jei praneğimas iğvedamas á konsolæ, bet jo gale
-# nëra perkëlimo á kità eilutæ simbolio, tai kursorius lieka eilutës gale. Tokiu
-# atveju sekantis praneğimas bus iğvedamas toje paèioje eilutëje. Palyginsime du
+# PerkÄ—limo Ä¯ kitÄ… eilutÄ™ simbolis "\n" reikalingas iÅ¡vedant praneÅ¡imus Ä¯ ekranÄ…
+# ar tekstinÄ¯ failÄ…. PavyzdÅ¾iui, jei praneÅ¡imas iÅ¡vedamas Ä¯ konsolÄ™, bet jo gale
+# nÄ—ra perkÄ—limo Ä¯ kitÄ… eilutÄ™ simbolio, tai kursorius lieka eilutÄ—s gale. Tokiu
+# atveju sekantis praneÅ¡imas bus iÅ¡vedamas toje paÄioje eilutÄ—je. Palyginsime du
 # atvejus. Pirmuoju atveju kursorius neperkeliamas, kitu atveju --- perkeliamas.
 
 for (i in 0:9) cat(i)
 for (i in 0:9) cat(i, "\n")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite tokià reguliarià iğraiğkà, kurià atitinka teigiami arba neigiami 
-#    sveikieji skaièiai. Pirmas skaitmuo negali bûti nulis, iğskyrus atvejá, kai
-#    pats skaièius yra nulis.
-# 2. Sudarykite tokià reguliarià iğraiğkà, kuri atpaşintø 2 brûkğneliu atskirtas 
-#    skaitmenø grupes, kuriose yra nuo 1 iki 3 skaitmenø, taèiau pirmas skaitmuo
-#    negali bûti nulis. Be to, antrosios grupës gale gali bûti arba nebûti viena 
-#    maşoji raidë. Pavyzdşiui, "15-2", "11-424a".
+# 1. UÅ¾raÅ¡ykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuriÄ… atitinka teigiami arba neigiami 
+#    sveikieji skaiÄiai. Pirmas skaitmuo negali bÅ«ti nulis, iÅ¡skyrus atvejÄ¯, kai
+#    pats skaiÄius yra nulis.
+# 2. Sudarykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri atpaÅ¾intÅ³ 2 brÅ«kÅ¡neliu atskirtas 
+#    skaitmenÅ³ grupes, kuriose yra nuo 1 iki 3 skaitmenÅ³, taÄiau pirmas skaitmuo
+#    negali bÅ«ti nulis. Be to, antrosios grupÄ—s gale gali bÅ«ti arba nebÅ«ti viena 
+#    maÅ¾oji raidÄ—. PavyzdÅ¾iui, "15-2", "11-424a".
 # 3. Interneto puslapio adresas prasideda "http://" arba "https://". Atkreipkite 
-#    dëmesá, kad simboliø seka skiriasi tik raide "s", kuri arba yra, arba nëra.
-#    Uşrağykite ğias sekas atitinkanèià reguliarià iğraiğkà.
-# 4. Tarkime, kad sakinio pabaigà tekste nurodo tağkas, daugtağkis, ğauktukas ir 
-#    klaustukas. Jei sakinys ne paskutinis, tada uş skyrybos şenklo dedamas bent 
-#    vienas tarpo simbolis " ", po kurio seka şodis iğ didşiosios raidës. Reikia
-#    uşrağyti reguliarià iğraiğkà sekos iğ skyrybos şenklø sakinio gale radimui.
-# 5. Pakeiskite ankstesnëje uşduotyje sudarytà reg. iğraiğkà atsişvelgdami á tai,
-#    kad sakinys gali ir pasibaigti, ir prasidëti ne tik raide, bet ir skaièiumi.
-# 6. Uşrağykite reguliarià iğraiğkà, kuri atitinka pagal ğias taisykles sudarytà
-#    simboliø sekà --- kodas iğ 3 maşøjø raidşiø sekos pradşioje, tada dvitağkiu 
-#    atskirti vienas ar daugiau kableliu atskirtø (sveikøjø) skaièiø. Pavyzdşiui,
-#    "fvt:4", "drm:1,5", "uvr:3,8,10,11,12" ir panağiai.
-# 7. Uşrağykite reguliarià iğraiğkà, kurià atitinka kodas iğ trijø raidşiø sekos 
-#    pradşioje, uş kurio yra dar vienas ar keli kableliu atskirti trijø raidşiø 
-#    kodai. Pavyzdşiui, "rts-neu", "kit-oft,ort" ir panağiai.
+#    dÄ—mesÄ¯, kad simboliÅ³ seka skiriasi tik raide "s", kuri arba yra, arba nÄ—ra.
+#    UÅ¾raÅ¡ykite Å¡ias sekas atitinkanÄiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ….
+# 4. Tarkime, kad sakinio pabaigÄ… tekste nurodo taÅ¡kas, daugtaÅ¡kis, Å¡auktukas ir 
+#    klaustukas. Jei sakinys ne paskutinis, tada uÅ¾ skyrybos Å¾enklo dedamas bent 
+#    vienas tarpo simbolis " ", po kurio seka Å¾odis iÅ¡ didÅ¾iosios raidÄ—s. Reikia
+#    uÅ¾raÅ¡yti reguliariÄ… iÅ¡raiÅ¡kÄ… sekos iÅ¡ skyrybos Å¾enklÅ³ sakinio gale radimui.
+# 5. Pakeiskite ankstesnÄ—je uÅ¾duotyje sudarytÄ… reg. iÅ¡raiÅ¡kÄ… atsiÅ¾velgdami Ä¯ tai,
+#    kad sakinys gali ir pasibaigti, ir prasidÄ—ti ne tik raide, bet ir skaiÄiumi.
+# 6. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri atitinka pagal Å¡ias taisykles sudarytÄ…
+#    simboliÅ³ sekÄ… --- kodas iÅ¡ 3 maÅ¾Å³jÅ³ raidÅ¾iÅ³ sekos pradÅ¾ioje, tada dvitaÅ¡kiu 
+#    atskirti vienas ar daugiau kableliu atskirtÅ³ (sveikÅ³jÅ³) skaiÄiÅ³. PavyzdÅ¾iui,
+#    "fvt:4", "drm:1,5", "uvr:3,8,10,11,12" ir panaÅ¡iai.
+# 7. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuriÄ… atitinka kodas iÅ¡ trijÅ³ raidÅ¾iÅ³ sekos 
+#    pradÅ¾ioje, uÅ¾ kurio yra dar vienas ar keli kableliu atskirti trijÅ³ raidÅ¾iÅ³ 
+#    kodai. PavyzdÅ¾iui, "rts-neu", "kit-oft,ort" ir panaÅ¡iai.
 
 
 # --------------------------------------- #
-# POSIX IR KITOS SIMBOLIØ KLASËS          #
+# POSIX IR KITOS SIMBOLIÅ² KLASÄ–S          #
 # --------------------------------------- #
 
-# Iki ğiol reguliarios iğraiğkos buvo uşrağomos naudojant atskirus simbolius bei
-# metasimbolius. Simbolius galima apjungti á grupæ ir taip kompaktiğkai uşrağyti
-# tam tikrà simboliø aibæ. Pavyzdşiui, iğraiğka "[a-z]" reiğkia bet kurià maşàjà 
-# abëcëlës raidæ, "[A-Z]" -- bet kurià didşiàjà raidæ ir t.t. Daşnai naudojamoms 
-# simboliø klasëms egzistuoja sutrumpinti paşymëjimai:
+# Iki Å¡iol reguliarios iÅ¡raiÅ¡kos buvo uÅ¾raÅ¡omos naudojant atskirus simbolius bei
+# metasimbolius. Simbolius galima apjungti Ä¯ grupÄ™ ir taip kompaktiÅ¡kai uÅ¾raÅ¡yti
+# tam tikrÄ… simboliÅ³ aibÄ™. PavyzdÅ¾iui, iÅ¡raiÅ¡ka "[a-z]" reiÅ¡kia bet kuriÄ… maÅ¾Ä…jÄ… 
+# abÄ—cÄ—lÄ—s raidÄ™, "[A-Z]" -- bet kuriÄ… didÅ¾iÄ…jÄ… raidÄ™ ir t.t. DaÅ¾nai naudojamoms 
+# simboliÅ³ klasÄ—ms egzistuoja sutrumpinti paÅ¾ymÄ—jimai:
 #
 #           \d -- skaitmenys, [0-9];
-#           \D -- bet koks simbolis, iğskyrus skaitmenis, [^\d];
-#           \w -- raidës, skaitmenys ir simbolis "_", [A-Za-z0-9_];
-#           \W -- bet koks simbolis, iğskyrus raides, skaitmenis ir "_";
+#           \D -- bet koks simbolis, iÅ¡skyrus skaitmenis, [^\d];
+#           \w -- raidÄ—s, skaitmenys ir simbolis "_", [A-Za-z0-9_];
+#           \W -- bet koks simbolis, iÅ¡skyrus raides, skaitmenis ir "_";
 #           \s -- tarpas, tabuliacija, kiti atskyrimo simboliai, [ \t\v\r\n\f];
 #           \S -- bet koks ne tarpo, tabuliacijos ar atskyrimo simbolis, [^\s].
 
 
-# Neretai simboliø intervalas priklauso nuo lokalizacijos. Pavyzdşiui, lotyniğka
-# abëcëlë turi 26 raides, o lietuviğkoje abëcëlëje yra 32 raidës. Taigi, raidşiø
-# aibë nusakoma nevienareikğmiğkai, nes priklauso nuo naudojamos abëcëlës. POSIX 
-# standartas suvienodino kai kuriø simboliø klasiø paşymëjimus:
+# Neretai simboliÅ³ intervalas priklauso nuo lokalizacijos. PavyzdÅ¾iui, lotyniÅ¡ka
+# abÄ—cÄ—lÄ— turi 26 raides, o lietuviÅ¡koje abÄ—cÄ—lÄ—je yra 32 raidÄ—s. Taigi, raidÅ¾iÅ³
+# aibÄ— nusakoma nevienareikÅ¡miÅ¡kai, nes priklauso nuo naudojamos abÄ—cÄ—lÄ—s. POSIX 
+# standartas suvienodino kai kuriÅ³ simboliÅ³ klasiÅ³ paÅ¾ymÄ—jimus:
 #
-#    [:lower:] -- maşosios abëcëlës raidës;
-#    [:upper:] -- didşiosios abëcëlës raidës;
-#    [:alpha:] -- didşiosios ir maşosios raidës: [:lower:] ir [:upper:];
+#    [:lower:] -- maÅ¾osios abÄ—cÄ—lÄ—s raidÄ—s;
+#    [:upper:] -- didÅ¾iosios abÄ—cÄ—lÄ—s raidÄ—s;
+#    [:alpha:] -- didÅ¾iosios ir maÅ¾osios raidÄ—s: [:lower:] ir [:upper:];
 #    [:digit:] -- skaitmenys: 0 1 2 3 4 5 6 7 8 9;
-#    [:alnum:] -- visos abëcëlës raidës ir skaitmenys: [:alpha:] ir [:digit:];
-#    [:punct:] -- ávairûs skyrybos şenklai;
-#    [:graph:] -- visi rağto şenklai: [:alnum:] ir [:punct:];
+#    [:alnum:] -- visos abÄ—cÄ—lÄ—s raidÄ—s ir skaitmenys: [:alpha:] ir [:digit:];
+#    [:punct:] -- Ä¯vairÅ«s skyrybos Å¾enklai;
+#    [:graph:] -- visi raÅ¡to Å¾enklai: [:alnum:] ir [:punct:];
 #    [:blank:] -- tarpo ir tabuliacijos simboliai: [ \t];
 #    [:space:] -- tarpas, tabuliacija, kiti atskyrimo simboliai, (whitespace);
 #    [:print:] -- spausdinami simboliai: [:alnum:], [:punct:] ir [:space:];
-#    [:cntrl:] -- valdymo simboliai, tarp jø yra ir ğie: [\v\r\n\f];
-#   [:xdigit:] -- ğeğioliktainiai skaitmenys.
+#    [:cntrl:] -- valdymo simboliai, tarp jÅ³ yra ir Å¡ie: [\v\r\n\f];
+#   [:xdigit:] -- Å¡eÅ¡ioliktainiai skaitmenys.
 
 
-# Skyrybos şenklø klasë [:punct:] turi visus simbolius, kurie nëra skaitmenys ar
-# didşiosios ir maşosios raidës. Á jà patenka ir metasimboliai. Visa aibë atrodo
+# Skyrybos Å¾enklÅ³ klasÄ— [:punct:] turi visus simbolius, kurie nÄ—ra skaitmenys ar
+# didÅ¾iosios ir maÅ¾osios raidÄ—s. Ä® jÄ… patenka ir metasimboliai. Visa aibÄ— atrodo
 # taip:
 #        ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ] \ ^ _ ` { } | ~         
 #
-# Atskirai galima paminëti klasæ [:space:]. Jà sudaro simboliai, kurie naudojami
-# kitø simboliø atskyrimui. Áprastas tarpo simbolis " " naudojamas şodşiø tekste 
-# atskyrimui. Èia şodis suprantamas apibendrintai, juo gali bûti ir viena raidë, 
-# skaièius ir bet kokia kita simboliø seka. Kitas tarpo simbolis -- tabuliacija.
-# Tabuliacijos şenklas simboliø sekoje nurodo, kad kursorius turi bûti perkeltas
-# á değinæ pusæ iki artimiausios tabuliacijos pozicijos, kurios iğdëstytos kas 8, 
-# 4 ar 2 simbolius. Tokiu bûdu tabuliacijos şenklas panaudojamas teksto eilutëje 
-# iğlyginimui. Tarpo ir tabuliacijos simboliai apjungti á vienà klasæ [:blank:]. 
-# Taèiau simboliams atskirti naudojami ir kiti simboliai: vertikali tabuliacija,
-# kursoriaus gràşinimo á eilutës pradşià, perkëlimo á naujà eilutæ bei perkëlimo
-# á naujà puslapá simboliai. Visi jie yra valdymo simboliai ir şymimi \v, \r, \n 
-# ir \f. Ğie simboliai kartu su tarpu bei horizontalia tabuliacija sudaro bendrà
-# atskyrimo simboliø (whitespace) klasæ [:space:]. Ğie simboliai tekste nematomi,
-# taèiau uşima tam tikrà vietà.
+# Atskirai galima paminÄ—ti klasÄ™ [:space:]. JÄ… sudaro simboliai, kurie naudojami
+# kitÅ³ simboliÅ³ atskyrimui. Ä®prastas tarpo simbolis " " naudojamas Å¾odÅ¾iÅ³ tekste 
+# atskyrimui. ÄŒia Å¾odis suprantamas apibendrintai, juo gali bÅ«ti ir viena raidÄ—, 
+# skaiÄius ir bet kokia kita simboliÅ³ seka. Kitas tarpo simbolis -- tabuliacija.
+# Tabuliacijos Å¾enklas simboliÅ³ sekoje nurodo, kad kursorius turi bÅ«ti perkeltas
+# Ä¯ deÅ¡inÄ™ pusÄ™ iki artimiausios tabuliacijos pozicijos, kurios iÅ¡dÄ—stytos kas 8, 
+# 4 ar 2 simbolius. Tokiu bÅ«du tabuliacijos Å¾enklas panaudojamas teksto eilutÄ—je 
+# iÅ¡lyginimui. Tarpo ir tabuliacijos simboliai apjungti Ä¯ vienÄ… klasÄ™ [:blank:]. 
+# TaÄiau simboliams atskirti naudojami ir kiti simboliai: vertikali tabuliacija,
+# kursoriaus grÄ…Å¾inimo Ä¯ eilutÄ—s pradÅ¾iÄ…, perkÄ—limo Ä¯ naujÄ… eilutÄ™ bei perkÄ—limo
+# Ä¯ naujÄ… puslapÄ¯ simboliai. Visi jie yra valdymo simboliai ir Å¾ymimi \v, \r, \n 
+# ir \f. Å ie simboliai kartu su tarpu bei horizontalia tabuliacija sudaro bendrÄ…
+# atskyrimo simboliÅ³ (whitespace) klasÄ™ [:space:]. Å ie simboliai tekste nematomi,
+# taÄiau uÅ¾ima tam tikrÄ… vietÄ….
 
 
-# Galima pastebëti, kad vienos simboliø klasës gaunamos apjungiant kitas klases.
-# Tokiu bûdu gauname tam tikrà klasiø hierarchijà, kurià galima atvaizduoti ğtai
+# Galima pastebÄ—ti, kad vienos simboliÅ³ klasÄ—s gaunamos apjungiant kitas klases.
+# Tokiu bÅ«du gauname tam tikrÄ… klasiÅ³ hierarchijÄ…, kuriÄ… galima atvaizduoti Å¡tai
 # tokia dendrograma:
 #
 #    [:lower:] --+
@@ -556,32 +556,32 @@ for (i in 0:9) cat(i, "\n")
 #   [\v\r\n\f] --+
 
 
-# Lauştiniai skliaustai yra POSIX simboliø klasës pavadinimo dalis. Jeigu reikia
-# apjungti kelias klases arba vienà POSIX klasæ papildyti kitais simboliais, tam
-# naudojame lauştinius skliaustus [ ], kuriuose árağome pilnà klasës pavadinimà.
-# Pavyzdşiui, klasæ [:alpha:] gauname kaip [[:lower:][:upper:]], klasë [:space:] 
-# gali bûti uşrağoma kaip [[:blank:]\v\r\n\f].
+# LauÅ¾tiniai skliaustai yra POSIX simboliÅ³ klasÄ—s pavadinimo dalis. Jeigu reikia
+# apjungti kelias klases arba vienÄ… POSIX klasÄ™ papildyti kitais simboliais, tam
+# naudojame lauÅ¾tinius skliaustus [ ], kuriuose Ä¯raÅ¡ome pilnÄ… klasÄ—s pavadinimÄ….
+# PavyzdÅ¾iui, klasÄ™ [:alpha:] gauname kaip [[:lower:][:upper:]], klasÄ— [:space:] 
+# gali bÅ«ti uÅ¾raÅ¡oma kaip [[:blank:]\v\r\n\f].
 
 
-# Uşrağysime keletà reguliariø iğraiğkø naudojant sutrumpintus arba POSIX klasiø 
-# pavadinimus. Pavyzdşiui:
+# UÅ¾raÅ¡ysime keletÄ… reguliariÅ³ iÅ¡raiÅ¡kÅ³ naudojant sutrumpintus arba POSIX klasiÅ³ 
+# pavadinimus. PavyzdÅ¾iui:
 #
-#             "\\s+" -- atitinka bet kokio ilgio tarpo simboliø sekà;
+#             "\\s+" -- atitinka bet kokio ilgio tarpo simboliÅ³ sekÄ…;
 #           "k_\\d+" -- nurodo sekas "k_0", "k_5", "k_42", "k_1579" ir pan;
-#     "[:alpha:]{4}" -- atitinka şodşius iğ bet kokiø keturiø raidşiø;
-#         "-?0,\\d+" -- atitinka realiuosius skaièius nuo -0,999... iki 0,999...
+#     "[:alpha:]{4}" -- atitinka Å¾odÅ¾ius iÅ¡ bet kokiÅ³ keturiÅ³ raidÅ¾iÅ³;
+#         "-?0,\\d+" -- atitinka realiuosius skaiÄius nuo -0,999... iki 0,999...
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Reguliarià iğraiğkà "^[0-9]+$" perrağykite panaudojant POSIX simboliø klasæ
-#    ir sutrumpintà skaitmenø aibës pavadinimà.    
-# 2. Uşrağykite tokià reguliarià iğraiğkà, kuri surastø vienà arba daugiau tarpo 
-#    ar tabuliacijos simbolá simboliø sekos pradşioje ar pabaigoje. Tà paèià reg.
-#    iğraiğkà uşrağykite panaudojant tinkamà POSIX simboliø klasæ.
-# 3. Uşrağykite reguliarià iğraiğkà, kurià atitinka gif, jpg, jpeg, png grafiniø
-#    failø pavadinimai. Tarkime, kad vardà sudaro tik raidës, skaitmenys ir "_".
-#    Pavyzdşiui, "DSC_46290.jpg", "DHUfv0w.png" ir panağiai. Atkreipkite dëmesá, 
-#    kad simboliø sekoje yra tik failo vardas ir nieko daugiau nei priekyje, nei
-#    gale. Iğraiğkai uşrağyti panaudokite POSIX ar sutrumpintà tinkamos simboliø 
-#    aibës pavadinimà.
+# 1. ReguliariÄ… iÅ¡raiÅ¡kÄ… "^[0-9]+$" perraÅ¡ykite panaudojant POSIX simboliÅ³ klasÄ™
+#    ir sutrumpintÄ… skaitmenÅ³ aibÄ—s pavadinimÄ….    
+# 2. UÅ¾raÅ¡ykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri surastÅ³ vienÄ… arba daugiau tarpo 
+#    ar tabuliacijos simbolÄ¯ simboliÅ³ sekos pradÅ¾ioje ar pabaigoje. TÄ… paÄiÄ… reg.
+#    iÅ¡raiÅ¡kÄ… uÅ¾raÅ¡ykite panaudojant tinkamÄ… POSIX simboliÅ³ klasÄ™.
+# 3. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuriÄ… atitinka gif, jpg, jpeg, png grafiniÅ³
+#    failÅ³ pavadinimai. Tarkime, kad vardÄ… sudaro tik raidÄ—s, skaitmenys ir "_".
+#    PavyzdÅ¾iui, "DSC_46290.jpg", "DHUfv0w.png" ir panaÅ¡iai. Atkreipkite dÄ—mesÄ¯, 
+#    kad simboliÅ³ sekoje yra tik failo vardas ir nieko daugiau nei priekyje, nei
+#    gale. IÅ¡raiÅ¡kai uÅ¾raÅ¡yti panaudokite POSIX ar sutrumpintÄ… tinkamos simboliÅ³ 
+#    aibÄ—s pavadinimÄ….

@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Şemo lygio grafinës funkcijos: tağkai, linijos ir tiesës.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Å½emo lygio grafinÄ—s funkcijos: taÅ¡kai, linijos ir tiesÄ—s.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-04-25 | 2014-06-08 | 2015-02-28
 #
@@ -12,12 +12,12 @@
 # TURINYS -------------------------------
 
 #
-#   1. Grafikus papildanèios funkcijos:
+#   1. Grafikus papildanÄios funkcijos:
 #      * funkcija points
 #      * funkcija lines
 #      * funkcija abline
 #
-#   2. Kintamøjø iğ matricos stulpeliø braişymas:
+#   2. KintamÅ³jÅ³ iÅ¡ matricos stulpeliÅ³ braiÅ¾ymas:
 #      * funkcija matplot
 #      * funkcija matpoints
 #      * funkcija matlines
@@ -27,66 +27,66 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti daugiau uşdaviniø.
+# Sugalvoti daugiau uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# AUKĞTO IR ŞEMO LYGIO GRAFINËS FUNKCIJOS #
+# AUKÅ TO IR Å½EMO LYGIO GRAFINÄ–S FUNKCIJOS #
 # --------------------------------------- #
 
-# Visas R grafines funkcijas sàlyginai galima padalinti á dvi dideles grupes:
+# Visas R grafines funkcijas sÄ…lyginai galima padalinti Ä¯ dvi dideles grupes:
 #
-#   1) aukğto lygio grafinës funkcijos,
-#   2) şemo lygio grafinës funkcijos.
+#   1) aukÅ¡to lygio grafinÄ—s funkcijos,
+#   2) Å¾emo lygio grafinÄ—s funkcijos.
 #
-# Aukğto lygio grafinës funkcijos yra skirtos baziniam tam tikro tipo grafiko ar
-# diagramos braişymui. Toks grafikas turi suformuotà koordinaèiø sistemà, ağis,
-# antrağtes ir visus kitus tokio tipo grafikui reikalingus elementus. Şemo lygio
-# grafinës funkcijos yra skirtos jau suformuotø grafikø papildymu tam tikrais jo
-# elementais: papildomais tağkais, linijomis, kitokiomis nei standartinës ağimis,
+# AukÅ¡to lygio grafinÄ—s funkcijos yra skirtos baziniam tam tikro tipo grafiko ar
+# diagramos braiÅ¾ymui. Toks grafikas turi suformuotÄ… koordinaÄiÅ³ sistemÄ…, aÅ¡is,
+# antraÅ¡tes ir visus kitus tokio tipo grafikui reikalingus elementus. Å½emo lygio
+# grafinÄ—s funkcijos yra skirtos jau suformuotÅ³ grafikÅ³ papildymu tam tikrais jo
+# elementais: papildomais taÅ¡kais, linijomis, kitokiomis nei standartinÄ—s aÅ¡imis,
 # tekstu ir kitais elementais.
 
-# Aukğto lygio grafinës funkcijos visada suformuoja ir nubraişo naujà grafikà, o
-# şemo lygio funkcijos tağkus, linijas arba kitus grafinius elementus uşdeda ant 
+# AukÅ¡to lygio grafinÄ—s funkcijos visada suformuoja ir nubraiÅ¾o naujÄ… grafikÄ…, o
+# Å¾emo lygio funkcijos taÅ¡kus, linijas arba kitus grafinius elementus uÅ¾deda ant 
 # jau sudaryto grafiko.
 
-# Didelæ dalá daşniausiai naudojamø grafikø galima nubraişyti naudojant funkcijà
-# plot, taèiau kai kuriuos grafikus ir diagramas patogiau braişyti naudojant tam
+# DidelÄ™ dalÄ¯ daÅ¾niausiai naudojamÅ³ grafikÅ³ galima nubraiÅ¾yti naudojant funkcijÄ…
+# plot, taÄiau kai kuriuos grafikus ir diagramas patogiau braiÅ¾yti naudojant tam
 # skirtas specializuotas funkcijas. 
 
 
 # --------------------------------------- #
-# PAPILDOMI TAĞKAI                        #
+# PAPILDOMI TAÅ KAI                        #
 # --------------------------------------- #
 
-# Tağkai su koordinatëmis (x, y) ant jau nubraişyto grafiko uşdedami naudojant 
-# funkcijà points. Pagrindiniai jos parametrai:
+# TaÅ¡kai su koordinatÄ—mis (x, y) ant jau nubraiÅ¾yto grafiko uÅ¾dedami naudojant 
+# funkcijÄ… points. Pagrindiniai jos parametrai:
 #
-#          x -- x reikğmiø vektorius,
-#          y -- y reikğmiø vektorius,
-#        pch -- tağko simbolis,
-#        cex -- tağko simbolio dydis,
-#        col -- tağko spalva.
+#          x -- x reikÅ¡miÅ³ vektorius,
+#          y -- y reikÅ¡miÅ³ vektorius,
+#        pch -- taÅ¡ko simbolis,
+#        cex -- taÅ¡ko simbolio dydis,
+#        col -- taÅ¡ko spalva.
 #
-# Iğ dalies galima sakyti, kad f-ja points(x, y) yra f-ja plot(x, y, type = "p"),
-# taèiau ji daşniausiai naudojama tuo atveju, kai ant kitos funkcijos nubraişyto 
-# grafiko tam tikrose vietose dar reikia uşdëti vienà ar kelis papildomus tağkus.
+# IÅ¡ dalies galima sakyti, kad f-ja points(x, y) yra f-ja plot(x, y, type = "p"),
+# taÄiau ji daÅ¾niausiai naudojama tuo atveju, kai ant kitos funkcijos nubraiÅ¾yto 
+# grafiko tam tikrose vietose dar reikia uÅ¾dÄ—ti vienÄ… ar kelis papildomus taÅ¡kus.
 
-# Pavyzdşiui, ant tağkø su koordinatëmis (x y) sklaidos diagramos uşdësime vienà
-# raudonà tağkà su koordinatëmis (2, 2).
+# PavyzdÅ¾iui, ant taÅ¡kÅ³ su koordinatÄ—mis (x y) sklaidos diagramos uÅ¾dÄ—sime vienÄ…
+# raudonÄ… taÅ¡kÄ… su koordinatÄ—mis (2, 2).
 
 x <- c(2.0, 1.6, 1.2, 1.0, 1.0, 1.3, 1.6, 2.0, 2.3, 2.8, 2.8, 3.0, 2.8, 2.4, 2.1)
 y <- c(0.8, 1.1, 1.3, 1.6, 2.2, 2.5, 2.9, 3.1, 3.0, 2.8, 2.4, 1.8, 1.4, 1.0, 0.9)
@@ -94,8 +94,8 @@ y <- c(0.8, 1.1, 1.3, 1.6, 2.2, 2.5, 2.9, 3.1, 3.0, 2.8, 2.4, 1.8, 1.4, 1.0, 0.9
 plot(x, y, asp = 1)
 points(2, 2, pch = 19, col = "red")
 
-# Ant jau nubraişytos diagramos uşdësime vienetinio apskritimo su centru (2, 2)
-# tağkus. Jø koordinates (a, b) apskaièiuosime atskirai.
+# Ant jau nubraiÅ¾ytos diagramos uÅ¾dÄ—sime vienetinio apskritimo su centru (2, 2)
+# taÅ¡kus. JÅ³ koordinates (a, b) apskaiÄiuosime atskirai.
 
 k <- 1:360
 a <- cos(k) + 2
@@ -104,52 +104,52 @@ b <- sin(k) + 2
 points(a, b, pch = ".")
 
 
-# Vienà ar kelis tağkus galima uşdëti ant bet kokios kitos diagramos. Gana daşna
-# situacija, kada reikia papildyti kokios nors kitos grafinës funkcijos sudarytà
-# standartinæ diagramà. Pvz., naudojant duomenø lentelæ airquality, nubraişysime
-# atskirø mënesiø oro temperatûros boxplot diagramas. Ant jø papildomai uşdësime
-# vidutinæ mënesio temperatûrà şyminèius tağkus.
+# VienÄ… ar kelis taÅ¡kus galima uÅ¾dÄ—ti ant bet kokios kitos diagramos. Gana daÅ¾na
+# situacija, kada reikia papildyti kokios nors kitos grafinÄ—s funkcijos sudarytÄ…
+# standartinÄ™ diagramÄ…. Pvz., naudojant duomenÅ³ lentelÄ™ airquality, nubraiÅ¾ysime
+# atskirÅ³ mÄ—nesiÅ³ oro temperatÅ«ros boxplot diagramas. Ant jÅ³ papildomai uÅ¾dÄ—sime
+# vidutinÄ™ mÄ—nesio temperatÅ«rÄ… Å¾yminÄius taÅ¡kus.
 
 temp.vid <- with(airquality, tapply(Temp, Month, mean))
 temp.vid
 
-# Kadangi lentelëje yra penkiø mënesiø duomenys, nubraişomos penkios diagramos,
-# kurios ant Ox ağies atidedamos ties tağkais x = 1, x = 2 ir t.t. 
+# Kadangi lentelÄ—je yra penkiÅ³ mÄ—nesiÅ³ duomenys, nubraiÅ¾omos penkios diagramos,
+# kurios ant Ox aÅ¡ies atidedamos ties taÅ¡kais x = 1, x = 2 ir t.t. 
 
 boxplot(Temp ~ Month, data = airquality)
 points(x = 1:5, y = temp.vid, col = "red", pch = 19, cex = 1.2)
 
 
-# Funkcijai points tağkø koordinates galima nurodyti ir per jø sàryğio formulæ.
-# Pvz., ant pagal mënesius suskirstytos temperatûros boxplot diagramos uşdësime 
-# visas atitinkamo mënesio temperatûrø reikğmes. 
+# Funkcijai points taÅ¡kÅ³ koordinates galima nurodyti ir per jÅ³ sÄ…ryÅ¡io formulÄ™.
+# Pvz., ant pagal mÄ—nesius suskirstytos temperatÅ«ros boxplot diagramos uÅ¾dÄ—sime 
+# visas atitinkamo mÄ—nesio temperatÅ«rÅ³ reikÅ¡mes. 
 
-# Pagal nutylëjimà funkcija boxplot diagramas ant Ox ağies atideda ties tağkais 
-# x = 1, x = 2 ir t.t., taèiau kintamojo Month reikğmës kinta nuo 5 iki 9. Tam,
-# kad vieno mënesio temperatûros reikğmës bûtø atidedamos ant atitinkamo mënesio
-# boxplot diagramos, jos taip pat turi bûti atidedamos ties tağkais x = 5, x = 6 
-# ir t.t. Toká diagramos postûmá ant ağies Ox galima atlikti naudojant funkcijos 
-# boxplot parametrà at.
+# Pagal nutylÄ—jimÄ… funkcija boxplot diagramas ant Ox aÅ¡ies atideda ties taÅ¡kais 
+# x = 1, x = 2 ir t.t., taÄiau kintamojo Month reikÅ¡mÄ—s kinta nuo 5 iki 9. Tam,
+# kad vieno mÄ—nesio temperatÅ«ros reikÅ¡mÄ—s bÅ«tÅ³ atidedamos ant atitinkamo mÄ—nesio
+# boxplot diagramos, jos taip pat turi bÅ«ti atidedamos ties taÅ¡kais x = 5, x = 6 
+# ir t.t. TokÄ¯ diagramos postÅ«mÄ¯ ant aÅ¡ies Ox galima atlikti naudojant funkcijos 
+# boxplot parametrÄ… at.
 
 boxplot(Temp ~ Month, data = airquality, at = 5:9)
 points(Temp ~ Month, data = airquality, pch = 20, col = 3)
 
 
-# Iğ praëjusio pavyzdşio aiğku, kad, norint teisingai uşdëti tağkus ant sudaryto
-# grafiko, reikia prisiderinti prie to grafiko koordinaèiø sistemos. Èia galima
-# pasinaudoti tuo, kad aukğto lygio grafinës funkcijos ne tik nubraişo diagramà,
-# bet ir leidşia iğsaugoti jai nubraişyti reikalingas statistikas. 
+# IÅ¡ praÄ—jusio pavyzdÅ¾io aiÅ¡ku, kad, norint teisingai uÅ¾dÄ—ti taÅ¡kus ant sudaryto
+# grafiko, reikia prisiderinti prie to grafiko koordinaÄiÅ³ sistemos. ÄŒia galima
+# pasinaudoti tuo, kad aukÅ¡to lygio grafinÄ—s funkcijos ne tik nubraiÅ¾o diagramÄ…,
+# bet ir leidÅ¾ia iÅ¡saugoti jai nubraiÅ¾yti reikalingas statistikas. 
 
-# Pavyzdşiui, nubraişysime temperatûros histogramà ir uşdësime stulpeliø vidurá 
-# şyminèius tağkus. Jø koordinates pasiimsime iğ f-jos hist sukurto histogramos 
+# PavyzdÅ¾iui, nubraiÅ¾ysime temperatÅ«ros histogramÄ… ir uÅ¾dÄ—sime stulpeliÅ³ vidurÄ¯ 
+# Å¾yminÄius taÅ¡kus. JÅ³ koordinates pasiimsime iÅ¡ f-jos hist sukurto histogramos 
 # objekto.
 
 t <- as.numeric(nhtemp)
 
-histat <- hist(t, xlim = c(46, 56), main = "Temperatûros pasiskirstymas")
+histat <- hist(t, xlim = c(46, 56), main = "TemperatÅ«ros pasiskirstymas")
 histat
 
-# Iğ histogramos objekto pasiimame tik intervalø centrø vektoriø.
+# IÅ¡ histogramos objekto pasiimame tik intervalÅ³ centrÅ³ vektoriÅ³.
 
 x <- histat$mids
 y <- rep(0, length(x))
@@ -157,10 +157,10 @@ y <- rep(0, length(x))
 points(x, y, pch = 19, col = "red")
 
 
-# Keièiant parametro type reikğmæ, galime keisti stiliø, kuriuo funkcija points 
-# vaizduoja tağkus. Pavyzdşiui, nubraişysime f-jos y = sin(x) grafikà intervale
-# [-pi, pi] ir kas pi/8 iğdëstytus tağkus sujungsime laiptuota linija: viena po
-# funkcijos grafiku, kita -- virğ jo.
+# KeiÄiant parametro type reikÅ¡mÄ™, galime keisti stiliÅ³, kuriuo funkcija points 
+# vaizduoja taÅ¡kus. PavyzdÅ¾iui, nubraiÅ¾ysime f-jos y = sin(x) grafikÄ… intervale
+# [-pi, pi] ir kas pi/8 iÅ¡dÄ—stytus taÅ¡kus sujungsime laiptuota linija: viena po
+# funkcijos grafiku, kita -- virÅ¡ jo.
 
 curve(sin, -pi, pi)
 
@@ -172,15 +172,15 @@ points(x, y, type = "s")
 points(x, y, type = "S")
 
 
-# Dar vienas pavyzdys. Nubraişysime standartinio normaliojo pasiskirstymo tankio 
-# funkcijos grafikà, o plotà po tankio funkcija padalinsime á lygias dalis pagal 
-# kvartilius. Kvartilius ir tankio funkcijos reikğmes juose paşymësime tağkais.
-# Pasinaudosime tuo, kad keièiant parametro type reikğmæ, galima nustatyti tağkø
-# atvaizdavimo stiliø.
+# Dar vienas pavyzdys. NubraiÅ¾ysime standartinio normaliojo pasiskirstymo tankio 
+# funkcijos grafikÄ…, o plotÄ… po tankio funkcija padalinsime Ä¯ lygias dalis pagal 
+# kvartilius. Kvartilius ir tankio funkcijos reikÅ¡mes juose paÅ¾ymÄ—sime taÅ¡kais.
+# Pasinaudosime tuo, kad keiÄiant parametro type reikÅ¡mÄ™, galima nustatyti taÅ¡kÅ³
+# atvaizdavimo stiliÅ³.
 
-# Pirmiausia sudarome kvartilius atitinkanèiø tikimybiø vektoriø p, tada randame
-# paèiø kvantiliø reikğmes ir apskaièiuojame tankio funkcijos reikğmes kvartiliø
-# tağkuose. Kvantilius q atidedame ant Ox ağies ir ant tankio funkcijos grafiko.
+# Pirmiausia sudarome kvartilius atitinkanÄiÅ³ tikimybiÅ³ vektoriÅ³ p, tada randame
+# paÄiÅ³ kvantiliÅ³ reikÅ¡mes ir apskaiÄiuojame tankio funkcijos reikÅ¡mes kvartiliÅ³
+# taÅ¡kuose. Kvantilius q atidedame ant Ox aÅ¡ies ir ant tankio funkcijos grafiko.
 
 curve(dnorm, -3, 3, ylab = "p(x)", las = 1, frame = FALSE)
 
@@ -195,12 +195,12 @@ points(q, d-d, pch = 19)
 
 # NAUDINGA ------------------------------
 
-# Jei sudëtingoje diagramoje yra kelios pasikartojanèios grafinës konstrukcijos, 
-# jas galima uşrağyti kaip funkcijà. Keièiant funkcijos parametrus galima keisti
-# grafinës konstrukcijos diagramoje vietà, dydá ir kitas charakteristikas. 
+# Jei sudÄ—tingoje diagramoje yra kelios pasikartojanÄios grafinÄ—s konstrukcijos, 
+# jas galima uÅ¾raÅ¡yti kaip funkcijÄ…. KeiÄiant funkcijos parametrus galima keisti
+# grafinÄ—s konstrukcijos diagramoje vietÄ…, dydÄ¯ ir kitas charakteristikas. 
 
-# Pavyzdşiui, p lygio kvantilá atitinkanèià atkarpà ant tankio funkcijos grafiko
-# uşdësime naudojant specialià funkcijà add.line. Jos parametras p yra kvantilio
+# PavyzdÅ¾iui, p lygio kvantilÄ¯ atitinkanÄiÄ… atkarpÄ… ant tankio funkcijos grafiko
+# uÅ¾dÄ—sime naudojant specialiÄ… funkcijÄ… add.line. Jos parametras p yra kvantilio
 # lygis, 0 < p < 1. 
 
 curve(dnorm, -3, 3, ylab = "p(x)", las = 1, frame = FALSE)
@@ -220,55 +220,55 @@ add.line(0.1)
 add.line(0.2)
 add.line(0.3)
 
-# Jei tokiø kvantilius atitinkanèiø atkarpø ant grafiko reikia uşdëti ir daugiau, 
-# jas braişanèià funkcijà galima ádëti á ciklà.
+# Jei tokiÅ³ kvantilius atitinkanÄiÅ³ atkarpÅ³ ant grafiko reikia uÅ¾dÄ—ti ir daugiau, 
+# jas braiÅ¾anÄiÄ… funkcijÄ… galima Ä¯dÄ—ti Ä¯ ciklÄ….
 
 p <- c(0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
 
 for (i in p) add.line(i)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Duotas daşniø vektorius (3, 2, 5, 3, 1). Nubraişykite stulpelinæ ğiø daşniø 
-#    diagramà. Kiekvieno stulpelio centre (pagal plotá ir pagal aukğtá) uşdëkite
-#    raudonà tağkà.
-# 2. Naudojant funkcijà plot, grafike atidëkite tağkà su koordinatëmis (10, 10). 
-#    Keisdami tik to paties vieno tağko simbolio dydá, gaukite grafikà, kuriame 
-#    yra keletas koncentriğkø apskritimø.
+# 1. Duotas daÅ¾niÅ³ vektorius (3, 2, 5, 3, 1). NubraiÅ¾ykite stulpelinÄ™ Å¡iÅ³ daÅ¾niÅ³ 
+#    diagramÄ…. Kiekvieno stulpelio centre (pagal plotÄ¯ ir pagal aukÅ¡tÄ¯) uÅ¾dÄ—kite
+#    raudonÄ… taÅ¡kÄ….
+# 2. Naudojant funkcijÄ… plot, grafike atidÄ—kite taÅ¡kÄ… su koordinatÄ—mis (10, 10). 
+#    Keisdami tik to paties vieno taÅ¡ko simbolio dydÄ¯, gaukite grafikÄ…, kuriame 
+#    yra keletas koncentriÅ¡kÅ³ apskritimÅ³.
 
 
 # --------------------------------------- #
-# PAPILDOMOS KREIVËS                      #
+# PAPILDOMOS KREIVÄ–S                      #
 # --------------------------------------- #
 
-# Tuo atveju, kai papildomai uşdëtus tağkus reikia sujungti, naudojama funkcija 
-# lines. Galima sakyti, kad f-ja lines(x, y) yra f-ja plot(x, y, type = "l"). Iğ 
-# esmës skiriasi tik tuo, kad funkcija lines naudojama tağkø ir linijø uşdëjimui 
-# ant jau nubraişyto grafiko. Pagrindiniai ğios funkcijos parametrai:
+# Tuo atveju, kai papildomai uÅ¾dÄ—tus taÅ¡kus reikia sujungti, naudojama funkcija 
+# lines. Galima sakyti, kad f-ja lines(x, y) yra f-ja plot(x, y, type = "l"). IÅ¡ 
+# esmÄ—s skiriasi tik tuo, kad funkcija lines naudojama taÅ¡kÅ³ ir linijÅ³ uÅ¾dÄ—jimui 
+# ant jau nubraiÅ¾yto grafiko. Pagrindiniai Å¡ios funkcijos parametrai:
 # 
-#          x -- x reikğmiø vektorius,
-#          y -- y reikğmiø vektorius,
+#          x -- x reikÅ¡miÅ³ vektorius,
+#          y -- y reikÅ¡miÅ³ vektorius,
 #        lty -- linijos tipas,
 #        lwd -- linijos storis,
 #        col -- linijos spalva.
 
-# Pavyzdşiui, ant anksèiau sudarytos temperatûros histogramos uşdësime poligonà. 
-# Tai tokia kreivë, kuri sudaryta iğ atkarpomis sujungtø tağkø (x, y). Èia x yra
-# histogramos stulpelio vidurio tağkas, o y -- to paties stulpelio aukğtis. Ğias
-# koordinates pasiimsime iğ to paties anksèiau sudaryto histogramos objekto.
+# PavyzdÅ¾iui, ant anksÄiau sudarytos temperatÅ«ros histogramos uÅ¾dÄ—sime poligonÄ…. 
+# Tai tokia kreivÄ—, kuri sudaryta iÅ¡ atkarpomis sujungtÅ³ taÅ¡kÅ³ (x, y). ÄŒia x yra
+# histogramos stulpelio vidurio taÅ¡kas, o y -- to paties stulpelio aukÅ¡tis. Å ias
+# koordinates pasiimsime iÅ¡ to paties anksÄiau sudaryto histogramos objekto.
 
 histat
 
 x <- histat$mids
 y <- histat$counts
 
-plot(histat, xlim = c(46, 56), main = "Temperatûros pasiskirstymas")
+plot(histat, xlim = c(46, 56), main = "TemperatÅ«ros pasiskirstymas")
 lines(x, y, type = "b", pch = 19, col = "red")
 
 
-# Nubraişysime á mënesius suskirstytos temperatûros sklaidos diagramà ir mënesiø
-# temperatûros vidurkiø tağkus sujungsime atkarpomis.
+# NubraiÅ¾ysime Ä¯ mÄ—nesius suskirstytos temperatÅ«ros sklaidos diagramÄ… ir mÄ—nesiÅ³
+# temperatÅ«ros vidurkiÅ³ taÅ¡kus sujungsime atkarpomis.
 
 plot(Temp ~ Month, data = airquality, pch = 20)
 
@@ -278,61 +278,61 @@ temp.vid
 lines(x = 5:9, y = temp.vid, type = "b", pch = 19, col = "red")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Duomenø lentelëje cars yra automobilio greièio ir stabdymo atstumo duomenys.
-#    Nubraişykite ğiø kintamøjø sklaidos diagramà. Kiekvienai skirtingai greièio
-#    reikğmei apskaièiuokite stabdymo atstumo vidurká. Gautus tağkus uşdëkite ant
-#    grafiko ir sujunkite juos tiesës atkarpomis.
+# 1. DuomenÅ³ lentelÄ—je cars yra automobilio greiÄio ir stabdymo atstumo duomenys.
+#    NubraiÅ¾ykite Å¡iÅ³ kintamÅ³jÅ³ sklaidos diagramÄ…. Kiekvienai skirtingai greiÄio
+#    reikÅ¡mei apskaiÄiuokite stabdymo atstumo vidurkÄ¯. Gautus taÅ¡kus uÅ¾dÄ—kite ant
+#    grafiko ir sujunkite juos tiesÄ—s atkarpomis.
 
 
 # --------------------------------------- #
-# TIESËS BRAIŞYMAS                        #
+# TIESÄ–S BRAIÅ½YMAS                        #
 # --------------------------------------- #
 
-# Tiesës atkarpà galima nubraişyti naudojant bendro pobûdşio funkcijas plot arba
-# lines -- uştenka nurodyti dviejø tağkø koordinates. Dël tos paèios prieşasties
-# ğis bûdas nëra patogus. 
+# TiesÄ—s atkarpÄ… galima nubraiÅ¾yti naudojant bendro pobÅ«dÅ¾io funkcijas plot arba
+# lines -- uÅ¾tenka nurodyti dviejÅ³ taÅ¡kÅ³ koordinates. DÄ—l tos paÄios prieÅ¾asties
+# Å¡is bÅ«das nÄ—ra patogus. 
 
-# Tiesës plokğtumoje lygtis y = a + bx. Jà vienareikğmiğkai nusako du parametrai:
-# a ir b. Norint nubraişyti vertikalià ar horizontalià tiesæ, uştenka şinoti tik
-# tağkà, kuriame ği tiesë kerta Ox arba Oy ağá. Tokiø tiesiø braişymui naudojama
+# TiesÄ—s plokÅ¡tumoje lygtis y = a + bx. JÄ… vienareikÅ¡miÅ¡kai nusako du parametrai:
+# a ir b. Norint nubraiÅ¾yti vertikaliÄ… ar horizontaliÄ… tiesÄ™, uÅ¾tenka Å¾inoti tik
+# taÅ¡kÄ…, kuriame Å¡i tiesÄ— kerta Ox arba Oy aÅ¡Ä¯. TokiÅ³ tiesiÅ³ braiÅ¾ymui naudojama
 # funkcija abline. Pagrindiniai jos parametrai:
 #
-#          a -- tiesës y = a + bx parametras a,
-#          b -- tiesës y = a + bx parametras b,
-#          h -- tağkas, kuriame ağá Oy kerta horizontali tiesë,
-#          v -- tağkas, kuriame ağá Ox kerta vertikali tiesë,
-#        col -- tiesës spalvos pavadinimas arba numeris,
-#       type -- tiesës tipas, 1 iğtisinë, 2 punktyrinë ir t.t.
+#          a -- tiesÄ—s y = a + bx parametras a,
+#          b -- tiesÄ—s y = a + bx parametras b,
+#          h -- taÅ¡kas, kuriame aÅ¡Ä¯ Oy kerta horizontali tiesÄ—,
+#          v -- taÅ¡kas, kuriame aÅ¡Ä¯ Ox kerta vertikali tiesÄ—,
+#        col -- tiesÄ—s spalvos pavadinimas arba numeris,
+#       type -- tiesÄ—s tipas, 1 iÅ¡tisinÄ—, 2 punktyrinÄ— ir t.t.
 
 
-# Pavyzdşiui, nubraişysime temperatûros kitimo laike grafikà ir uşdësime ant jo
-# horizontalià linijà ties 80 laipsniø riba.
+# PavyzdÅ¾iui, nubraiÅ¾ysime temperatÅ«ros kitimo laike grafikÄ… ir uÅ¾dÄ—sime ant jo
+# horizontaliÄ… linijÄ… ties 80 laipsniÅ³ riba.
 
 plot(Temp ~ 1, data = airquality, pch = 20)
 abline(h = 80)
 
-# Tiesæ galima uşdëti ant bet kokio grafiko. Pavyzdşiui, nubraişysime stulpelinæ
-# diagramà, kurioje pavaizduotas Titaniko keleiviø skaièius atskirose klasëse ir
-# ant jos uşdësime vidutiná keleiviø skaièiø şyminèià horizontalià linijà.
+# TiesÄ™ galima uÅ¾dÄ—ti ant bet kokio grafiko. PavyzdÅ¾iui, nubraiÅ¾ysime stulpelinÄ™
+# diagramÄ…, kurioje pavaizduotas Titaniko keleiviÅ³ skaiÄius atskirose klasÄ—se ir
+# ant jos uÅ¾dÄ—sime vidutinÄ¯ keleiviÅ³ skaiÄiÅ³ Å¾yminÄiÄ… horizontaliÄ… linijÄ….
 
 d <- margin.table(Titanic, 1)
 barplot(d)
 abline(h = mean(d))
 
 
-# Norint nubraişyti pasvirà tiesæ y = a + bx, funcijai abline nurodome parametrø 
-# a ir b reikğmes. Pavyzdşiui, taip uşdësime funkcijos f(x) = x + 1/x vertikalià
-# ir pasviràjà asimptotes.
+# Norint nubraiÅ¾yti pasvirÄ… tiesÄ™ y = a + bx, funcijai abline nurodome parametrÅ³ 
+# a ir b reikÅ¡mes. PavyzdÅ¾iui, taip uÅ¾dÄ—sime funkcijos f(x) = x + 1/x vertikaliÄ…
+# ir pasvirÄ…jÄ… asimptotes.
 
 fx <- function(x) x + 1/x
-curve(fx, -5, 5, col = "red", main = "Funkcijos y = x + 1/x asimptotës")
+curve(fx, -5, 5, col = "red", main = "Funkcijos y = x + 1/x asimptotÄ—s")
 abline(a = 0, b = 1, v = 0, lty = 5)
 
 
-# Parametrams v ir h galima nurodyti iğ karto kelias reikğmes. Tokiu bûdu galima
-# nubraişyti iğ karto daug horizontaliø ar vertikaliø linijø. 
+# Parametrams v ir h galima nurodyti iÅ¡ karto kelias reikÅ¡mes. Tokiu bÅ«du galima
+# nubraiÅ¾yti iÅ¡ karto daug horizontaliÅ³ ar vertikaliÅ³ linijÅ³. 
 
 plot(Temp ~ Month, data = airquality, type = "n")
 abline(v = 5:9, h = 60:90, col = "gray")
@@ -341,32 +341,32 @@ points(Temp ~ Month, data = airquality, pch = 19)
 
 # NAUDINGA ------------------------------
 
-# Vienas iğ tipiniø duomenø analizës uşdaviniø -- nustatyti kintamøjø tarpusavio
-# ryğá. Paprastai prieğ sudarant statistiná modeli braişomos kintamøjø diagramos.
+# Vienas iÅ¡ tipiniÅ³ duomenÅ³ analizÄ—s uÅ¾daviniÅ³ -- nustatyti kintamÅ³jÅ³ tarpusavio
+# ryÅ¡Ä¯. Paprastai prieÅ¡ sudarant statistinÄ¯ modeli braiÅ¾omos kintamÅ³jÅ³ diagramos.
 
 x <- c(9.5, 4.0, 4.9, 8.1, 9.9, 2.6, 8.7, 4.4, 4.3, 3.2, 2.2, 9.2, 5.0, 3.2, 7.4)
 y <- c(8.7, 6.1, 6.0, 7.7, 9.9, 5.1, 9.5, 5.3, 5.6, 5.8, 4.5, 8.8, 6.6, 5.9, 8.2)
 
 plot(x, y, pch = 19)
 
-# Iğ sklaidos diagramos matome, kad tağkai iğsibarstæ apie tiesæ. Kad kintamieji
-# tiesiğkai susijæ, rodo ir artimas vienetui koreliacijos koeficientas.
+# IÅ¡ sklaidos diagramos matome, kad taÅ¡kai iÅ¡sibarstÄ™ apie tiesÄ™. Kad kintamieji
+# tiesiÅ¡kai susijÄ™, rodo ir artimas vienetui koreliacijos koeficientas.
 
 cor(x, y)
 
-# Paprastai kintamøjø y ir x regresijos tiesës y = a + bx parametrai neşinomi ir 
-# vertinami iğ duomenø. Tiesinës regresijos modelio parametrams a ir b ávertinti 
-# naudojama standartinë funkcija lm.
+# Paprastai kintamÅ³jÅ³ y ir x regresijos tiesÄ—s y = a + bx parametrai neÅ¾inomi ir 
+# vertinami iÅ¡ duomenÅ³. TiesinÄ—s regresijos modelio parametrams a ir b Ä¯vertinti 
+# naudojama standartinÄ— funkcija lm.
 
 lm(y ~ x)
 
-# Turint parametrø a ir b áverèius, juos galima surağyti á funkcijà abline. Taip
-# gauname regresijos tiesës grafikà.
+# Turint parametrÅ³ a ir b Ä¯verÄius, juos galima suraÅ¡yti Ä¯ funkcijÄ… abline. Taip
+# gauname regresijos tiesÄ—s grafikÄ….
 
 abline(a = 3.3900, b = 0.6103)
 
-# Tam, kad tiesës parametrø nereikëtø kopijuoti ar perrağinëti, funkcijai abline
-# kaip parametrà galima perduoti funkcijos lm gràşinamà rezultatø objektà.
+# Tam, kad tiesÄ—s parametrÅ³ nereikÄ—tÅ³ kopijuoti ar perraÅ¡inÄ—ti, funkcijai abline
+# kaip parametrÄ… galima perduoti funkcijos lm grÄ…Å¾inamÄ… rezultatÅ³ objektÄ….
 
 modelis <- lm(y ~ x)
 modelis
@@ -374,49 +374,49 @@ modelis
 abline(modelis)
 
 
-# Tokiu bûdu, apjungiant kai kurias komandas, dviejø kintamøjø sklaidos diagramà
-# ir jø regresijos tiesës grafikà galima gauti labai paprastai ir greitai.
+# Tokiu bÅ«du, apjungiant kai kurias komandas, dviejÅ³ kintamÅ³jÅ³ sklaidos diagramÄ…
+# ir jÅ³ regresijos tiesÄ—s grafikÄ… galima gauti labai paprastai ir greitai.
 
 plot(x, y)
 abline(lm(y ~ x))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Kintamasis Nile yra vandens lygio Nilo upëje laiko eilutë. Nubraişykite jos
-#    grafikà ir uşdëkite vidutiná vandens lygá şyminèià raudonos spalvos linijà.
-# 2. Nubraişykite temperatûros iğ duomenø lentelës airquality kitimo laike tağkø
-#    sklaidos diagramà. Tada vertikaliomis tiesëmis atskirkite kiekvieno mënesio 
+# 1. Kintamasis Nile yra vandens lygio Nilo upÄ—je laiko eilutÄ—. NubraiÅ¾ykite jos
+#    grafikÄ… ir uÅ¾dÄ—kite vidutinÄ¯ vandens lygÄ¯ Å¾yminÄiÄ… raudonos spalvos linijÄ….
+# 2. NubraiÅ¾ykite temperatÅ«ros iÅ¡ duomenÅ³ lentelÄ—s airquality kitimo laike taÅ¡kÅ³
+#    sklaidos diagramÄ…. Tada vertikaliomis tiesÄ—mis atskirkite kiekvieno mÄ—nesio 
 #    stebinius.
 
 
 # --------------------------------------- #
-# MATRICOS STULPELIØ BRAIŞYMAS            #
+# MATRICOS STULPELIÅ² BRAIÅ½YMAS            #
 # --------------------------------------- #
 
-# Gana daşnai pasitaiko situacija, kada reikia nubraişyti iğ karto daug kreiviø,
-# kuriø koordinatës surağytos matricos stulpeliuose. Ğiuo atveju áprasta naudoti
+# Gana daÅ¾nai pasitaiko situacija, kada reikia nubraiÅ¾yti iÅ¡ karto daug kreiviÅ³,
+# kuriÅ³ koordinatÄ—s suraÅ¡ytos matricos stulpeliuose. Å iuo atveju Ä¯prasta naudoti
 # specialias funkcijas:
 #
-#    matplot -- nubraişo kreives arba tağkø sklaidos diagramà,
-#  matpoints -- uşdeda ant grafiko tağkus,
-#   matlines -- uşdeda ant grafiko linijas.
+#    matplot -- nubraiÅ¾o kreives arba taÅ¡kÅ³ sklaidos diagramÄ…,
+#  matpoints -- uÅ¾deda ant grafiko taÅ¡kus,
+#   matlines -- uÅ¾deda ant grafiko linijas.
 
 
-# Ğios f-jos yra standartiniø funkcijø plot, points ir lines matricinës versijos.
-# Pagrindiniai parametrai yra ğie:
+# Å ios f-jos yra standartiniÅ³ funkcijÅ³ plot, points ir lines matricinÄ—s versijos.
+# Pagrindiniai parametrai yra Å¡ie:
 #
-#          x -- vektorius arba matrica su x koordinatëmis,
-#          y -- vektorius arba matrica su y koordinatëmis.
+#          x -- vektorius arba matrica su x koordinatÄ—mis,
+#          y -- vektorius arba matrica su y koordinatÄ—mis.
 
-# Matricø x ir y eiluèiø skaièius turi bûti vienodas. Tada tağkus (x, y) gauname
-# iğ matricø x ir y imdami stulpelius su vienodais numeriais. Stulpeliø skaièius
-# gali bûti nevienodas. Pavyzdşiui, jei kelios y reikğmës gautos prie tos paèios
-# x reikğmës, tai uştenka, kad matrica x turëtø tik vienà stulpelá.
+# MatricÅ³ x ir y eiluÄiÅ³ skaiÄius turi bÅ«ti vienodas. Tada taÅ¡kus (x, y) gauname
+# iÅ¡ matricÅ³ x ir y imdami stulpelius su vienodais numeriais. StulpeliÅ³ skaiÄius
+# gali bÅ«ti nevienodas. PavyzdÅ¾iui, jei kelios y reikÅ¡mÄ—s gautos prie tos paÄios
+# x reikÅ¡mÄ—s, tai uÅ¾tenka, kad matrica x turÄ—tÅ³ tik vienÄ… stulpelÄ¯.
 
-# Pavyzdşiui, nubraişysime 1000 atsitiktinio klaidşiojimo su dreifu trajektorijø.
-# Vienà trajektorijà sudaro 100 tağkø, kuriø x koordinatë sutampa, todël matrica
-# X turi tik vienà stulpelá.
+# PavyzdÅ¾iui, nubraiÅ¾ysime 1000 atsitiktinio klaidÅ¾iojimo su dreifu trajektorijÅ³.
+# VienÄ… trajektorijÄ… sudaro 100 taÅ¡kÅ³, kuriÅ³ x koordinatÄ— sutampa, todÄ—l matrica
+# X turi tik vienÄ… stulpelÄ¯.
 
 X <- matrix(1:100)
 X
@@ -424,22 +424,22 @@ X
 Y <- replicate(1000, cumsum(rnorm(100)))
 Y
 
-# Jei nenurodyta kitaip, f-ja matplot kiekvienos kreivës tağkus şymi skirtingais 
-# simboliais. Be to, kiekviena kreivë turi savo spalvà. Tai kontroliuoja áprasti
-# grafiniai parametrai: type, lty, lwd, col ir t.t. Èia nustatysime, kad kreivës
-# bûtø permatomos iğtisinës linijos.
+# Jei nenurodyta kitaip, f-ja matplot kiekvienos kreivÄ—s taÅ¡kus Å¾ymi skirtingais 
+# simboliais. Be to, kiekviena kreivÄ— turi savo spalvÄ…. Tai kontroliuoja Ä¯prasti
+# grafiniai parametrai: type, lty, lwd, col ir t.t. ÄŒia nustatysime, kad kreivÄ—s
+# bÅ«tÅ³ permatomos iÅ¡tisinÄ—s linijos.
 
 matplot(X, Y, type = "l", lty = 1, col = rgb(0, 0, 0, 0.1))
 
-# Tokiu atveju, kai x koordinatë nurodo tik tağko eilës numerá, uştenka nurodyti 
-# tik Y koordinaèiø matricà.
+# Tokiu atveju, kai x koordinatÄ— nurodo tik taÅ¡ko eilÄ—s numerÄ¯, uÅ¾tenka nurodyti 
+# tik Y koordinaÄiÅ³ matricÄ….
 
 matplot(Y, type = "l", lty = 1, col = rgb(0, 0, 0, 0.1))
 
 
-# Naudojant funkcijà matlines, ant jau nubraişyto grafiko uşdësime dvi krağtines
-# trajektorijas: şemiausià ir aukğèiausià. Jø koordinates atrinksime iğ pradiniø 
-# duomenø matricos Y ir sudarysime matricà su dviem stulpeliais Z.
+# Naudojant funkcijÄ… matlines, ant jau nubraiÅ¾yto grafiko uÅ¾dÄ—sime dvi kraÅ¡tines
+# trajektorijas: Å¾emiausiÄ… ir aukÅ¡ÄiausiÄ…. JÅ³ koordinates atrinksime iÅ¡ pradiniÅ³ 
+# duomenÅ³ matricos Y ir sudarysime matricÄ… su dviem stulpeliais Z.
 
 Z <- t(apply(Y, 1, range))
 Z
@@ -447,7 +447,7 @@ Z
 matlines(X, Z, lty = 1, col = "red")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Ant 1000 kreiviø grafiko uşdëkite suvidurkintos trajektorijos tağkus. Tağko
-#    simbolá pakeiskite, nustatykite tağko spalvà ir dydá.
+# 1. Ant 1000 kreiviÅ³ grafiko uÅ¾dÄ—kite suvidurkintos trajektorijos taÅ¡kus. TaÅ¡ko
+#    simbolÄ¯ pakeiskite, nustatykite taÅ¡ko spalvÄ… ir dydÄ¯.

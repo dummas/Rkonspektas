@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Matricø ir sàrağø ciklo funkcijos apply, lapply ir sapply.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            MatricÅ³ ir sÄ…raÅ¡Å³ ciklo funkcijos apply, lapply ir sapply.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-08-25 | 2013-08-29
 #
@@ -12,10 +12,10 @@
 # TURINYS -------------------------------
 
 #
-#   1. Kelios pastabos apie funkciná programavimà:
+#   1. Kelios pastabos apie funkcinÄ¯ programavimÄ…:
 #      * trumpai apie duomenis ir ciklus
 #
-#   2. Matricos ir sàrağo ciklo funkcijos:
+#   2. Matricos ir sÄ…raÅ¡o ciklo funkcijos:
 #      * funkcija apply
 #      * funkcija lapply
 #      * funkcija sapply
@@ -25,19 +25,19 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti daugiau uşdaviniø.
+# Sugalvoti daugiau uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -45,10 +45,10 @@ rm(list = ls())
 # TRUMPAI APIE DUOMENIS IR CIKLUS         #
 # --------------------------------------- #
 
-# Paprastai statistiniai duomenys yra vektoriaus, matricos arba duomenø lentelës
-# pavidalo. Visi vektoriaus elementai bûtinai yra to paties tipo: arba skaièiai, 
+# Paprastai statistiniai duomenys yra vektoriaus, matricos arba duomenÅ³ lentelÄ—s
+# pavidalo. Visi vektoriaus elementai bÅ«tinai yra to paties tipo: arba skaiÄiai, 
 # arba simboliai ir t.t. Kadangi visi matricos elementai yra to paties tipo, tai 
-# bet kuri matricos eilutë arba stulpelis taip pat yra vektorius.
+# bet kuri matricos eilutÄ— arba stulpelis taip pat yra vektorius.
 
 v <- c(60, 9, 61, 62, 64, 4, 91, 6, 57, 2, 78, 76, 3, 41, 72, 95, 47, 11, 8, 96)
 
@@ -56,81 +56,81 @@ m <- matrix(v, ncol = 5)
 m
 
 class(m)           # m yra matricos tipo objektas
-mode(m)            # matrica sudaryta iğ skaièiø
+mode(m)            # matrica sudaryta iÅ¡ skaiÄiÅ³
 
-is.vector(m[1, ])  # pirma matricos eilutë yra vektorius
+is.vector(m[1, ])  # pirma matricos eilutÄ— yra vektorius
 is.vector(m[, 1])  # pirmas matricos stulpelis taip pat vektorius
 
 
-# Duomenø lentelës stulpeliai gali bûti skirtingø tipø, todël eilutës elementai
-# taip pat bus skirtingø tipø. Dël tos prieşasties viena atskirai paimta duomenø
-# lentelës eilutë nëra vektorius, taèiau yra specialaus list tipo sàrağas, kurio 
-# elementai gali bûti skirtingo tipo.
+# DuomenÅ³ lentelÄ—s stulpeliai gali bÅ«ti skirtingÅ³ tipÅ³, todÄ—l eilutÄ—s elementai
+# taip pat bus skirtingÅ³ tipÅ³. DÄ—l tos prieÅ¾asties viena atskirai paimta duomenÅ³
+# lentelÄ—s eilutÄ— nÄ—ra vektorius, taÄiau yra specialaus list tipo sÄ…raÅ¡as, kurio 
+# elementai gali bÅ«ti skirtingo tipo.
 
 d <- data.frame(x = 1:5, y = letters[1:5], z = TRUE)
 d
 
-class(d)           # duomenø lentelë iğ skirtingo tipo vektoriø stulpeliuose
-mode(d)            # duomenø lentelë sudaryta iğ list tipo árağø eilutëse
+class(d)           # duomenÅ³ lentelÄ— iÅ¡ skirtingo tipo vektoriÅ³ stulpeliuose
+mode(d)            # duomenÅ³ lentelÄ— sudaryta iÅ¡ list tipo Ä¯raÅ¡Å³ eilutÄ—se
 
-# Priklausomai nuo to, kaip interpretuojama duomenø lentelë, yra keli bûdai kaip 
-# iğ lentelës kaip vektoriø iğskirti vienà jos stulpelá. Bet kokiu atveju reikia
-# nurodyti arba kintamojo pavadinimà, arba stulpelio numerá duomenø lentelëje.
+# Priklausomai nuo to, kaip interpretuojama duomenÅ³ lentelÄ—, yra keli bÅ«dai kaip 
+# iÅ¡ lentelÄ—s kaip vektoriÅ³ iÅ¡skirti vienÄ… jos stulpelÄ¯. Bet kokiu atveju reikia
+# nurodyti arba kintamojo pavadinimÄ…, arba stulpelio numerÄ¯ duomenÅ³ lentelÄ—je.
 
-d$x                # á duomenø lentelæ şiûrim kaip á duomenø lentelæ
+d$x                # Ä¯ duomenÅ³ lentelÄ™ Å¾iÅ«rim kaip Ä¯ duomenÅ³ lentelÄ™
 
-d[, 1]             # á duomenø lentelæ şiûrim kaip á matricà
+d[, 1]             # Ä¯ duomenÅ³ lentelÄ™ Å¾iÅ«rim kaip Ä¯ matricÄ…
 d[, "x"]           #
 
-d[[1]]             # á duomenø lentelæ şiûrim kaip á list tipo sàrağà
+d[[1]]             # Ä¯ duomenÅ³ lentelÄ™ Å¾iÅ«rim kaip Ä¯ list tipo sÄ…raÅ¡Ä…
 d[["x"]]           #
 
 
-# R turi labai daug standartiniø funkcijø skaitinëms vektoriø charateristikoms 
-# apskaièiuoti:
+# R turi labai daug standartiniÅ³ funkcijÅ³ skaitinÄ—ms vektoriÅ³ charateristikoms 
+# apskaiÄiuoti:
 
-length(v)          # elementø skaièius
+length(v)          # elementÅ³ skaiÄius
 min(v)             # minimumas
 max(v)             # maksimumas
 sum(v)             # suma
 median(v)          # mediana
 mean(v)            # vidurkis
 
-# Statistikoje ğias ir daug kitø charakteristikø tenka apskaièiuoti matricoms ir
-# duomenø lentelëms. Kadangi matrica turi daug stulpeliø, o kiekvienas iğ jø yra 
-# vektorius, tam tikrai vektoriaus charakteristikai apskaièiuoti skirtà funkcijà 
-# galima ádëti á ciklà ir tokiu bûdu jà apskaièiuoti visoms matricos eilutëms ar 
-# stulpeliams iğ karto.
+# Statistikoje Å¡ias ir daug kitÅ³ charakteristikÅ³ tenka apskaiÄiuoti matricoms ir
+# duomenÅ³ lentelÄ—ms. Kadangi matrica turi daug stulpeliÅ³, o kiekvienas iÅ¡ jÅ³ yra 
+# vektorius, tam tikrai vektoriaus charakteristikai apskaiÄiuoti skirtÄ… funkcijÄ… 
+# galima Ä¯dÄ—ti Ä¯ ciklÄ… ir tokiu bÅ«du jÄ… apskaiÄiuoti visoms matricos eilutÄ—ms ar 
+# stulpeliams iÅ¡ karto.
 
-# Pavyzdşiui, tokiu bûdu apskaièiuosime matricos eiluèiø sumas. Sukursime tuğèià
-# vektoriø, kurio i-ajam elementui priskirsime i-osios eilutës m[i, ] elementø
-# sumà. Sumavimas atliekamas cikle, ten ciklo kintamasis i ágyja reikğmes nuo 1 
-# iki nrow(m) ir taip "perbëga" per visas matricos eilutes.
+# PavyzdÅ¾iui, tokiu bÅ«du apskaiÄiuosime matricos eiluÄiÅ³ sumas. Sukursime tuÅ¡ÄiÄ…
+# vektoriÅ³, kurio i-ajam elementui priskirsime i-osios eilutÄ—s m[i, ] elementÅ³
+# sumÄ…. Sumavimas atliekamas cikle, ten ciklo kintamasis i Ä¯gyja reikÅ¡mes nuo 1 
+# iki nrow(m) ir taip "perbÄ—ga" per visas matricos eilutes.
 
-eilutës.suma <- vector()
+eilutÄ—s.suma <- vector()
 
 for (i in 1:nrow(m)) {
-  eilutë <- m[i, ]
-  eilutës.suma[i] <- sum(eilutë)
+  eilutÄ— <- m[i, ]
+  eilutÄ—s.suma[i] <- sum(eilutÄ—)
 }
 
-eilutës.suma
+eilutÄ—s.suma
 
-# Tokia programa, kurioje detaliai aprağomos visos skaièiavimo instrukcijos, yra 
-# tipiğkas imperatyvinio programavimo, kurio pagrindas yra kintamasis, pavyzdys. 
+# Tokia programa, kurioje detaliai apraÅ¡omos visos skaiÄiavimo instrukcijos, yra 
+# tipiÅ¡kas imperatyvinio programavimo, kurio pagrindas yra kintamasis, pavyzdys. 
 
-# R yra funkcinio programavimo kalba, ir pagal funkcinio programavimo paradigmà
-# bet kokie skaièiavimai traktuojami kaip funkcijos (matematine prasme) reikğmës 
-# apskaièiavimas, kuri priklauso nuo pradiniø duomenø ir kitø funkcijø rezultato.
+# R yra funkcinio programavimo kalba, ir pagal funkcinio programavimo paradigmÄ…
+# bet kokie skaiÄiavimai traktuojami kaip funkcijos (matematine prasme) reikÅ¡mÄ—s 
+# apskaiÄiavimas, kuri priklauso nuo pradiniÅ³ duomenÅ³ ir kitÅ³ funkcijÅ³ rezultato.
 
-# Funkcinis programavimas daugeliu dalykø iğ esmës skiriasi nuo imperatyvinio 
-# programavimo. Pavyzdşiui, grynai funkciniame programavime nëra ciklo sàvokos. 
-# Vietoje ciklo iteracijos realizuojamos per rekursijà, kada funkcija iğğaukia
-# pati save. Dël tos prieşasties, programuojant su R reikia prisiminti taisyklæ: 
+# Funkcinis programavimas daugeliu dalykÅ³ iÅ¡ esmÄ—s skiriasi nuo imperatyvinio 
+# programavimo. PavyzdÅ¾iui, grynai funkciniame programavime nÄ—ra ciklo sÄ…vokos. 
+# Vietoje ciklo iteracijos realizuojamos per rekursijÄ…, kada funkcija iÅ¡Å¡aukia
+# pati save. DÄ—l tos prieÅ¾asties, programuojant su R reikia prisiminti taisyklÄ™: 
 
-# JEI KYLA NORAS RAĞYTI FOR CIKLÀ, TAI GREIÈIAUSIAI JIS ÈIA VISAI NEREIKALINGAS.
+# JEI KYLA NORAS RAÅ YTI FOR CIKLÄ„, TAI GREIÄŒIAUSIAI JIS ÄŒIA VISAI NEREIKALINGAS.
 
-# Ğiam tikslui R naudojamos apply ğeimos funkcijos, kuriø aprağymui skirtas ğis
+# Å iam tikslui R naudojamos apply Å¡eimos funkcijos, kuriÅ³ apraÅ¡ymui skirtas Å¡is
 # konspektas.
 
 
@@ -138,35 +138,35 @@ eilutës.suma
 # FUNKCIJA APPLY                          #
 # --------------------------------------- #
 
-# Daug statistiniø skaièiavimø atliekama su matricomis. Jei tam tikrus veiksmus 
-# reikia atlikti su visomis matricos eilutëmis ar stulpeliais, ir tuos veiksmus
-# galima uşrağyti kaip funkcijà, tai tokiais atvejais naudojama funkcija apply.
+# Daug statistiniÅ³ skaiÄiavimÅ³ atliekama su matricomis. Jei tam tikrus veiksmus 
+# reikia atlikti su visomis matricos eilutÄ—mis ar stulpeliais, ir tuos veiksmus
+# galima uÅ¾raÅ¡yti kaip funkcijÄ…, tai tokiais atvejais naudojama funkcija apply.
 # Jos parametrai:
 # 
 #        X -- matricos pavadinimas,
-#   MARGIN -- indekso reikğmë: eilutëms 1, stulpeliams 2,
+#   MARGIN -- indekso reikÅ¡mÄ—: eilutÄ—ms 1, stulpeliams 2,
 #      FUN -- funkcija,
 #      ... -- papildomi funkcijos parametrai (jei tokie yra).
 
-# Parametras FUN gali bûti bet kokia standartinë R funkcija, kurios argumentas
+# Parametras FUN gali bÅ«ti bet kokia standartinÄ— R funkcija, kurios argumentas
 # yra vektorius. 
 
-# Pavyzdşiui, naudodami funkcijà apply apskaièiuosime matricos m eiluèiø sumas.
+# PavyzdÅ¾iui, naudodami funkcijÄ… apply apskaiÄiuosime matricos m eiluÄiÅ³ sumas.
 apply(m, 1, sum)
 
-# Analogiğkai gaunamos matricos stulpeliø sumos.
+# AnalogiÅ¡kai gaunamos matricos stulpeliÅ³ sumos.
 apply(m, 2, sum)
 
-# Funkcijos reikğmë nebûtinai turi bûti vienas skaièius. Pavyzdşiui, nurodşius
-# funkcijà summary, kiekvienai matricos eilutei arba stulpeliui apskaièiuojamos 
-# iğ karto kelios skaitinës charakteristikos.
+# Funkcijos reikÅ¡mÄ— nebÅ«tinai turi bÅ«ti vienas skaiÄius. PavyzdÅ¾iui, nurodÅ¾ius
+# funkcijÄ… summary, kiekvienai matricos eilutei arba stulpeliui apskaiÄiuojamos 
+# iÅ¡ karto kelios skaitinÄ—s charakteristikos.
 apply(m, 2, summary)
 
 
-# Atliekant specifinius skaièiavimus, nevisada galima rasti tinkamà standartinæ 
-# R funkcijà. Tokiais atvejais tenka sukurti savo funkcijà. Tarkime, kad reikia 
-# apskaièiuoti maşiausios ir didşiausios vektoriaus reikğmës vidurká. Konkreèiai 
-# tokios funkcijos R neturi, todël jà uşrağysime. 
+# Atliekant specifinius skaiÄiavimus, nevisada galima rasti tinkamÄ… standartinÄ™ 
+# R funkcijÄ…. Tokiais atvejais tenka sukurti savo funkcijÄ…. Tarkime, kad reikia 
+# apskaiÄiuoti maÅ¾iausios ir didÅ¾iausios vektoriaus reikÅ¡mÄ—s vidurkÄ¯. KonkreÄiai 
+# tokios funkcijos R neturi, todÄ—l jÄ… uÅ¾raÅ¡ysime. 
 
 minmax.vidurkis <- function (x) {
   min <- min(x)
@@ -175,32 +175,32 @@ minmax.vidurkis <- function (x) {
   return(vid)
 }
 
-# Tokià funkcijà jau galima árağyti á funkcijà apply.
+# TokiÄ… funkcijÄ… jau galima Ä¯raÅ¡yti Ä¯ funkcijÄ… apply.
 apply(m, 2, minmax.vidurkis)
 
 
-# Tà paèià funkcijà uşrağysime vadovaudamiesi funkcinio programavimo paradigma, 
-# pagal kurià vienos funkcijos rezultatas tiesiogiai perduodamas kitai funkcijai.
-# Standartinë funkcija range gràşina vektoriø su maşiausia ir didşiausia reikğme, 
-# kurá be tarpiniø kintamøjø perduodame vidurkio skaièiavimo funkcijai mean. 
+# TÄ… paÄiÄ… funkcijÄ… uÅ¾raÅ¡ysime vadovaudamiesi funkcinio programavimo paradigma, 
+# pagal kuriÄ… vienos funkcijos rezultatas tiesiogiai perduodamas kitai funkcijai.
+# StandartinÄ— funkcija range grÄ…Å¾ina vektoriÅ³ su maÅ¾iausia ir didÅ¾iausia reikÅ¡me, 
+# kurÄ¯ be tarpiniÅ³ kintamÅ³jÅ³ perduodame vidurkio skaiÄiavimo funkcijai mean. 
 
 minmax.vidurkis <- function (x) mean(range(x))
 
 apply(m, 2, minmax.vidurkis)
 
-# Tais atvejais, kai funkcijà pavyksta uşrağyti labai kompaktiğkai, jà galima 
-# árağyti tiesiai á funkcijà apply. Toks apply naudojimas yra áprasta praktika
+# Tais atvejais, kai funkcijÄ… pavyksta uÅ¾raÅ¡yti labai kompaktiÅ¡kai, jÄ… galima 
+# Ä¯raÅ¡yti tiesiai Ä¯ funkcijÄ… apply. Toks apply naudojimas yra Ä¯prasta praktika
 # programuojant su R.
 
 apply(m, 2, function (x) mean(range(x)))
 
-# Èia funkcijos argumentas x yra matricos eilutë, jei apply parametras MARGIN
-# lygus 1, arba stulpelis, jei MARGIN reikğmë yra 2.
+# ÄŒia funkcijos argumentas x yra matricos eilutÄ—, jei apply parametras MARGIN
+# lygus 1, arba stulpelis, jei MARGIN reikÅ¡mÄ— yra 2.
 
 
-# Á apply ástatomos funkcijos daşnai paèios turi savo parametrus. Pvz., funkcija
-# sum ir daugelis kitø R funkcijø turi parametrà na.rm, kuriam priskyrus reikğmæ 
-# TRUE, praleistos reikğmës duomenyse ignoruojamos. Tokie papildomi parametrai
+# Ä® apply Ä¯statomos funkcijos daÅ¾nai paÄios turi savo parametrus. Pvz., funkcija
+# sum ir daugelis kitÅ³ R funkcijÅ³ turi parametrÄ… na.rm, kuriam priskyrus reikÅ¡mÄ™ 
+# TRUE, praleistos reikÅ¡mÄ—s duomenyse ignoruojamos. Tokie papildomi parametrai
 # perduodami kaip ... parametras.
 
 u <- c(60, 9, NA, 62, 64, 4, 91, 6, 57, 2, NA, 76, 3, 41, 72, 95, 47, 11, 8, 96)
@@ -208,59 +208,59 @@ u <- c(60, 9, NA, 62, 64, 4, 91, 6, 57, 2, NA, 76, 3, 41, 72, 95, 47, 11, 8, 96)
 n <- matrix(u, ncol = 5)
 n
 
-# Pavyzdşiui, apskaièiuosime matricos su praleistomis reikğmëmis stulpeliø sumas.
-# Kadangi pirmame ir treèiame stulpeliuose yra praleistø reikğmiø, apskaièiuoto
-# sumø vektoriaus pirmas ir treèias elementai taip pat turi praleistas reikğmes.
+# PavyzdÅ¾iui, apskaiÄiuosime matricos su praleistomis reikÅ¡mÄ—mis stulpeliÅ³ sumas.
+# Kadangi pirmame ir treÄiame stulpeliuose yra praleistÅ³ reikÅ¡miÅ³, apskaiÄiuoto
+# sumÅ³ vektoriaus pirmas ir treÄias elementai taip pat turi praleistas reikÅ¡mes.
 
 apply(n, 2, sum)
 
-# Pakeitus funkcijos sum parametro na.rm reikğmæ á TRUE, sumos apskaièiuojamos
-# visiems matricos stulpeliams (reikia nepamirğti, kad sumos gautos atmetus NA
-# reikğmes ir susumavus skirtingà elementø skaièiø, todël nelabai palyginamos).
+# Pakeitus funkcijos sum parametro na.rm reikÅ¡mÄ™ Ä¯ TRUE, sumos apskaiÄiuojamos
+# visiems matricos stulpeliams (reikia nepamirÅ¡ti, kad sumos gautos atmetus NA
+# reikÅ¡mes ir susumavus skirtingÄ… elementÅ³ skaiÄiÅ³, todÄ—l nelabai palyginamos).
 
 apply(n, 2, sum, na.rm = TRUE)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant funkcijà apply, uşrağykite komandà, kuri apskaièiuotø matricos m 
-#    stulpeliø vidurká. Uşrağykite tokià komandos versijà, kuri apskaièiuotø tik
-#    pirmø dviejø stulpeliø vidurkius.
-# 2. Naudojant f-jà apply, uşrağykite komandà, kuri matricos stulpeliø elementus 
-#    iğrikiuotø didëjimo tvarka. Vektoriaus elementø iğrikiavimui naudojama f-ja 
+# 1. Naudojant funkcijÄ… apply, uÅ¾raÅ¡ykite komandÄ…, kuri apskaiÄiuotÅ³ matricos m 
+#    stulpeliÅ³ vidurkÄ¯. UÅ¾raÅ¡ykite tokiÄ… komandos versijÄ…, kuri apskaiÄiuotÅ³ tik
+#    pirmÅ³ dviejÅ³ stulpeliÅ³ vidurkius.
+# 2. Naudojant f-jÄ… apply, uÅ¾raÅ¡ykite komandÄ…, kuri matricos stulpeliÅ³ elementus 
+#    iÅ¡rikiuotÅ³ didÄ—jimo tvarka. Vektoriaus elementÅ³ iÅ¡rikiavimui naudojama f-ja 
 #    sort.
-# 3. Naudojant f-jà apply, uşrağykite komandà, kuri iğ skaièiø matricos eiluèiø 
-#    iğrinktø po du didşiausius elementus. Funkcijà dviejø didşiausiø vektoriaus 
-#    elementø iğrinkimui galima uşsirağyti atskirai ir ástatyti jà á f-jà apply.
-# 4. Naudodami funkcijà apply, apskaièiuokite, kiek matricos m stulpeliuose yra
-#    elementø, kuriø reikğmës didesnës nei 50.
+# 3. Naudojant f-jÄ… apply, uÅ¾raÅ¡ykite komandÄ…, kuri iÅ¡ skaiÄiÅ³ matricos eiluÄiÅ³ 
+#    iÅ¡rinktÅ³ po du didÅ¾iausius elementus. FunkcijÄ… dviejÅ³ didÅ¾iausiÅ³ vektoriaus 
+#    elementÅ³ iÅ¡rinkimui galima uÅ¾siraÅ¡yti atskirai ir Ä¯statyti jÄ… Ä¯ f-jÄ… apply.
+# 4. Naudodami funkcijÄ… apply, apskaiÄiuokite, kiek matricos m stulpeliuose yra
+#    elementÅ³, kuriÅ³ reikÅ¡mÄ—s didesnÄ—s nei 50.
 
 
 # --------------------------------------- #
 # FUNKCIJOS LAPPLY IR SAPPLY              #
 # --------------------------------------- #
 
-# Ne visus duomenis galima pateikti matricos pavidalu. Pvz., nevienodà elementø
-# skaièiø turinèiø vektoriø negalima apjungti á matricà. Be to, nei vektorius,
-# nei matrica negali turëti skirtingo tipo elementø. Tokios struktûros duomenims
-# naudojamas list tipo sàrağas. Labai daşnai á sàrağà apjungiami to paties tipo, 
-# taèiau gana sudëtingi objektai. Tai gali bûti vektoriø ar matricø sàrağas, net 
-# duomenø lenteliø ar dar sudëtingesniø objektø sàrağas.
+# Ne visus duomenis galima pateikti matricos pavidalu. Pvz., nevienodÄ… elementÅ³
+# skaiÄiÅ³ turinÄiÅ³ vektoriÅ³ negalima apjungti Ä¯ matricÄ…. Be to, nei vektorius,
+# nei matrica negali turÄ—ti skirtingo tipo elementÅ³. Tokios struktÅ«ros duomenims
+# naudojamas list tipo sÄ…raÅ¡as. Labai daÅ¾nai Ä¯ sÄ…raÅ¡Ä… apjungiami to paties tipo, 
+# taÄiau gana sudÄ—tingi objektai. Tai gali bÅ«ti vektoriÅ³ ar matricÅ³ sÄ…raÅ¡as, net 
+# duomenÅ³ lenteliÅ³ ar dar sudÄ—tingesniÅ³ objektÅ³ sÄ…raÅ¡as.
 
-# Funkcijos apply analogas sàrağams yra funkcijos lapply ir sapply. Pagrindiniai
-# jø parametrai:
+# Funkcijos apply analogas sÄ…raÅ¡ams yra funkcijos lapply ir sapply. Pagrindiniai
+# jÅ³ parametrai:
 # 
-#        X -- sàrağo pavadinimas,
+#        X -- sÄ…raÅ¡o pavadinimas,
 #      FUN -- funkcija,
 #      ... -- papildomi funkcijos parametrai (jei tokie yra).
 
-# Tais atvejais, kai funkcijos FUN reikğmë yra vektorius arba dar sudëtingesnis
-# objektas, ir rezultatai turi bûti sàrağo pavidalu, naudojama funkcija lapply. 
-# Jeigu funkcijos FUN reikğmë yra vienas skaièius, simbolis arba loginë reikğmë, 
-# patogiau, kai bendras rezultatas yra vektorius, todël tokiu atveju naudojama 
-# funkcija sapply. Rezultatø pateikimo forma vienintelis ğiø funkcijø skirtumas.
+# Tais atvejais, kai funkcijos FUN reikÅ¡mÄ— yra vektorius arba dar sudÄ—tingesnis
+# objektas, ir rezultatai turi bÅ«ti sÄ…raÅ¡o pavidalu, naudojama funkcija lapply. 
+# Jeigu funkcijos FUN reikÅ¡mÄ— yra vienas skaiÄius, simbolis arba loginÄ— reikÅ¡mÄ—, 
+# patogiau, kai bendras rezultatas yra vektorius, todÄ—l tokiu atveju naudojama 
+# funkcija sapply. RezultatÅ³ pateikimo forma vienintelis Å¡iÅ³ funkcijÅ³ skirtumas.
 
-# Pvz., apskaièiuosime sàrağo, kurá sudaro nevienodà elementø skaièiø turintys
+# Pvz., apskaiÄiuosime sÄ…raÅ¡o, kurÄ¯ sudaro nevienodÄ… elementÅ³ skaiÄiÅ³ turintys
 # vektoriai, vidurkius.
 
 v1 <- c(11, 21, 38, 32,  7, 41, 14, 10, 32, 19, 42, 28, 33, 38, 5, 17)
@@ -270,24 +270,24 @@ v4 <- c(81, 95, 74, 61, 27, 73, 60, 72, 50, 32, 79, 32, 10, 74)
 v5 <- c(12, 14, 56, 45, 6, 85, 64, 8, 59, 59, 69, 5, 50, 34)
 
 
-l <- list(Pirmas = v1, Antras = v2, Treèias = v3, Ketvirtas = v4, Penktas = v5)
+l <- list(Pirmas = v1, Antras = v2, TreÄias = v3, Ketvirtas = v4, Penktas = v5)
 
-# Naudojant lapply rezultatas bus sàrağas iğ penkiø elementø, kuriø reikğmës yra
+# Naudojant lapply rezultatas bus sÄ…raÅ¡as iÅ¡ penkiÅ³ elementÅ³, kuriÅ³ reikÅ¡mÄ—s yra
 # atskirai kiekvieno vektoriaus vidurkis.
 lapply(l, mean)
 
-# Naudojant sapply rezultatas yra penkis elementus turintis vidurkiø vektorius.
-# Kadangi pradinio sàrağo elementai turi vardus, tai ir rezultatø vektorius taip 
-# pat turi elementø vardus.
+# Naudojant sapply rezultatas yra penkis elementus turintis vidurkiÅ³ vektorius.
+# Kadangi pradinio sÄ…raÅ¡o elementai turi vardus, tai ir rezultatÅ³ vektorius taip 
+# pat turi elementÅ³ vardus.
 sapply(l, mean)
 
 
-# Jei funkcijos FUN rezultatas yra vektorius, tai lapply rezultatas bus sàrağas,
-# kurio elementai yra tie vektoriai, o sapply rezultatas bus matrica, kuri turës
-# tiek stulpeliø, kiek elementø turëjo pradinis sàrağas.
+# Jei funkcijos FUN rezultatas yra vektorius, tai lapply rezultatas bus sÄ…raÅ¡as,
+# kurio elementai yra tie vektoriai, o sapply rezultatas bus matrica, kuri turÄ—s
+# tiek stulpeliÅ³, kiek elementÅ³ turÄ—jo pradinis sÄ…raÅ¡as.
 
-# Pavyzdşiui, naudojant funkcijà summary, apskaièiuosime kiekvieno vektoriaus iğ 
-# sàrağo l pagrindines skaitines charakteristikas. Patogumo dëlei, ğiø funkcijø 
+# PavyzdÅ¾iui, naudojant funkcijÄ… summary, apskaiÄiuosime kiekvieno vektoriaus iÅ¡ 
+# sÄ…raÅ¡o l pagrindines skaitines charakteristikas. Patogumo dÄ—lei, Å¡iÅ³ funkcijÅ³ 
 # rezultatus priskirsime kintamiesiems.
 
 rez.l <- lapply(l, summary)
@@ -296,100 +296,100 @@ rez.l
 rez.s <- sapply(l, summary)
 rez.s
 
-# Paprastai tokiø skaièiavimø rezultatai naudojami tolimesnei duomenø analizei,
-# kur, priklausomai nuo gautø rezultatø pavidalo (vektorius, matricà ar sàrağas) 
-# vël galima taikyti kurià nors apply ğeimos ar kità funkcijà.
+# Paprastai tokiÅ³ skaiÄiavimÅ³ rezultatai naudojami tolimesnei duomenÅ³ analizei,
+# kur, priklausomai nuo gautÅ³ rezultatÅ³ pavidalo (vektorius, matricÄ… ar sÄ…raÅ¡as) 
+# vÄ—l galima taikyti kuriÄ… nors apply Å¡eimos ar kitÄ… funkcijÄ….
 
-# Pavyzdşiui, galima nesunkiai atsakyti á klausimà, kurio vektoriaus minimumas
-# didşiausias. Tam reikia surasti didşiausià pirmosios eilutës (Min) elementà.
-# Tam panaudosime funkcijà which.max.
+# PavyzdÅ¾iui, galima nesunkiai atsakyti Ä¯ klausimÄ…, kurio vektoriaus minimumas
+# didÅ¾iausias. Tam reikia surasti didÅ¾iausiÄ… pirmosios eilutÄ—s (Min) elementÄ….
+# Tam panaudosime funkcijÄ… which.max.
 
 which.max(rez.s[1, ])
 
 
-# Funkcijos lapply ir sapply gali bûti naudojamos ne tik skaièiavimams, bet ir 
-# duomenø pertvarkymams. Pvz., uşrağysime komandà, kuri iğ kiekvieno vektoriaus 
-# iğskirs pirmuosius k elementø, k yra maşiausias vektoriaus elementø skaièius.
-# Vektoriaus elementø skaièiø apskaièiuosime naudojant funkcijà length.
+# Funkcijos lapply ir sapply gali bÅ«ti naudojamos ne tik skaiÄiavimams, bet ir 
+# duomenÅ³ pertvarkymams. Pvz., uÅ¾raÅ¡ysime komandÄ…, kuri iÅ¡ kiekvieno vektoriaus 
+# iÅ¡skirs pirmuosius k elementÅ³, k yra maÅ¾iausias vektoriaus elementÅ³ skaiÄius.
+# Vektoriaus elementÅ³ skaiÄiÅ³ apskaiÄiuosime naudojant funkcijÄ… length.
 
 sapply(l, length)
 
-# Matome, kad vektoriø elementø skaièius nevienodas, vadinasi, pirmiausia reikia
-# susirasti maşiausià vektoriaus elementø skaièiø. 
+# Matome, kad vektoriÅ³ elementÅ³ skaiÄius nevienodas, vadinasi, pirmiausia reikia
+# susirasti maÅ¾iausiÄ… vektoriaus elementÅ³ skaiÄiÅ³. 
 
 k <- min(sapply(l, length))
 k
 
-# Vektoriaus elementø iğskyrimui sudarysime specialià funkcijà, kurià árağysime
-# tiesiai á funkcijà lapply.
+# Vektoriaus elementÅ³ iÅ¡skyrimui sudarysime specialiÄ… funkcijÄ…, kuriÄ… Ä¯raÅ¡ysime
+# tiesiai Ä¯ funkcijÄ… lapply.
 
 lapply(l, function(x) x[1:k])
 
 
-# Funkcinio programavimo apologetai visas komandas apjungtø á vienà iğraiğkà!
+# Funkcinio programavimo apologetai visas komandas apjungtÅ³ Ä¯ vienÄ… iÅ¡raiÅ¡kÄ…!
 
 lapply(l, "[", 1:min(sapply(l, length)))
 
-# Vektoriaus elementø iğskyrimui naudojamas operatorius [, kurá galima panaudoti 
-# ir kaip funkcijà, kurios parametras yra iğskiriamø elementø indeksø vektorius.
-# Ğiuo atveju tai bûtø sveikieji skaièiai nuo 1 iki k.
+# Vektoriaus elementÅ³ iÅ¡skyrimui naudojamas operatorius [, kurÄ¯ galima panaudoti 
+# ir kaip funkcijÄ…, kurios parametras yra iÅ¡skiriamÅ³ elementÅ³ indeksÅ³ vektorius.
+# Å iuo atveju tai bÅ«tÅ³ sveikieji skaiÄiai nuo 1 iki k.
 
 lapply(l, "[", 1:k)
 sapply(l, "[", 1:k)
 
-# Pirmuoju atveju gaunamas sàrağas, kuriame visi vektoriai turi vienodà elementø
-# skaièiø, antruoju atveju gaunama matrica, kurios stulpeliuose yra vektoriai.
+# Pirmuoju atveju gaunamas sÄ…raÅ¡as, kuriame visi vektoriai turi vienodÄ… elementÅ³
+# skaiÄiÅ³, antruoju atveju gaunama matrica, kurios stulpeliuose yra vektoriai.
 
 
 # NAUDINGA ------------------------------
 
-# Nors funkcijos lapply ir sapply skirtos sàrağams, jas lygiai taip pat galima 
-# panaudoti pasikartojantiems veiksmams su vektoriais ir duomenø lentelëmis. 
+# Nors funkcijos lapply ir sapply skirtos sÄ…raÅ¡ams, jas lygiai taip pat galima 
+# panaudoti pasikartojantiems veiksmams su vektoriais ir duomenÅ³ lentelÄ—mis. 
 
-# Pavyzdşiui, sugeneruosime n skirtingø vektoriø, kuriø elementai yra sveikieji 
-# skaièiai nuo 1 iki n. Tam naudosime kaip funkcijà uşrağytà iğraiğkà 1:n, kur n 
-# ágyja reikğmes 1, 2 ir t.t. iki 5. Kadangi visø vektoriø elementø skaièius yra
-# skirtingas ir á matricà jø apjungti negalima, todël galutinis rezultatas bus 
-# tokiø vektoriø sàrağas.
+# PavyzdÅ¾iui, sugeneruosime n skirtingÅ³ vektoriÅ³, kuriÅ³ elementai yra sveikieji 
+# skaiÄiai nuo 1 iki n. Tam naudosime kaip funkcijÄ… uÅ¾raÅ¡ytÄ… iÅ¡raiÅ¡kÄ… 1:n, kur n 
+# Ä¯gyja reikÅ¡mes 1, 2 ir t.t. iki 5. Kadangi visÅ³ vektoriÅ³ elementÅ³ skaiÄius yra
+# skirtingas ir Ä¯ matricÄ… jÅ³ apjungti negalima, todÄ—l galutinis rezultatas bus 
+# tokiÅ³ vektoriÅ³ sÄ…raÅ¡as.
 
 lapply(1:5, function(n) 1:n)
 
 
-# Á funkcijà lapply arba sapply ástaèius duomenø lentelæ, funkcija "perbëga" per
-# stulpelius. Pavyzdşiui, naudodami funkcijà class, nustatysime duomenø lentelës
-# kintamøjø tipà.
+# Ä® funkcijÄ… lapply arba sapply Ä¯staÄius duomenÅ³ lentelÄ™, funkcija "perbÄ—ga" per
+# stulpelius. PavyzdÅ¾iui, naudodami funkcijÄ… class, nustatysime duomenÅ³ lentelÄ—s
+# kintamÅ³jÅ³ tipÄ….
 
 sapply(d, class)
 
-# Elementø iğskyrimo operatoriø [ naudojant kaip funkcijà, galima uşrağyti tokià
-# komandà, kuri á atskirus vektorius iğskirtø duomenø lentelës stulpelius.
+# ElementÅ³ iÅ¡skyrimo operatoriÅ³ [ naudojant kaip funkcijÄ…, galima uÅ¾raÅ¡yti tokiÄ…
+# komandÄ…, kuri Ä¯ atskirus vektorius iÅ¡skirtÅ³ duomenÅ³ lentelÄ—s stulpelius.
 
 lapply(d, "[")
 
-# Funkcija complete.cases nustato, ar duomenø lentelës eilutë turi bent vienà
-# praleistà reikğmæ. Naudojant funkcijà sapply, galima uşrağyti komandà, kuri
-# patikrina, ar lentelës stulpelyje yra bent viena praleista reikğmë.
+# Funkcija complete.cases nustato, ar duomenÅ³ lentelÄ—s eilutÄ— turi bent vienÄ…
+# praleistÄ… reikÅ¡mÄ™. Naudojant funkcijÄ… sapply, galima uÅ¾raÅ¡yti komandÄ…, kuri
+# patikrina, ar lentelÄ—s stulpelyje yra bent viena praleista reikÅ¡mÄ—.
 
 sapply(d, function(x) any(is.na(x)))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant f-jà sapply, uşrağykite iğraiğkà, kuri surastø atskirai kiekvieno
-#    vektoriaus iğ sàrağo l didşiausià reikğmæ. Uşrağykite iğraiğkà, kuri rastø 
-#    paèià didşiausià visø vektoriø reikğmæ (bendrà maksimumà iğ visø maksimumø).
-# 2. Naudojant funkcijà sapply, uşrağykite iğraiğkà, kuri apskaièiuotø kiekvieno
-#    vektoriaus iğ sàrağo l elementø kvadratø sumà.
-# 3. Uşrağykite tokià iğraiğkà, kuri apskaièiuotø, kuris sàrağo l vektorius turi
-#    didşiausià skirtumà tarp savo didşiausios ir maşiausios reikğmës. Atsakymas
-#    turi bûti sàrağo elemento, t.y. vektoriaus numeris.
-# 4. Naudojant funkcijà sapply, apskaièiuokite, kiek kiekvienas sàrağo vektorius 
-#    turi elementø, kuriø reikğmës didesnës uş 50.
-# 5. Naudojant funkcijà lapply, uşrağykite komandà, kuri iğ kiekvieno sàrağo l
-#    vektoriaus suformuotø matricà su dviem stulpeliais.
-# 6. F-jà lapply pritaikant vektoriui, uşrağykite komandà, kuri intervalà [0, 1] 
-#    lygiomis dalimis padalina á 10, 20 ir 30 daliø. Intervalà dalinanèiø tağkø
-#    sekos generavimui naudokite funkcijà seq su parametru length.out.
-# 7. Naudojant f-jà sapply patikrinkite, kurie duomenø lentelës d stulpeliai yra
-#    numeric tipo. Uşrağykite iğraiğkà, kuri suskaièiuotø, kiek tokiø stulpeliø
-#    lentelëje yra iğ viso.
+# 1. Naudojant f-jÄ… sapply, uÅ¾raÅ¡ykite iÅ¡raiÅ¡kÄ…, kuri surastÅ³ atskirai kiekvieno
+#    vektoriaus iÅ¡ sÄ…raÅ¡o l didÅ¾iausiÄ… reikÅ¡mÄ™. UÅ¾raÅ¡ykite iÅ¡raiÅ¡kÄ…, kuri rastÅ³ 
+#    paÄiÄ… didÅ¾iausiÄ… visÅ³ vektoriÅ³ reikÅ¡mÄ™ (bendrÄ… maksimumÄ… iÅ¡ visÅ³ maksimumÅ³).
+# 2. Naudojant funkcijÄ… sapply, uÅ¾raÅ¡ykite iÅ¡raiÅ¡kÄ…, kuri apskaiÄiuotÅ³ kiekvieno
+#    vektoriaus iÅ¡ sÄ…raÅ¡o l elementÅ³ kvadratÅ³ sumÄ….
+# 3. UÅ¾raÅ¡ykite tokiÄ… iÅ¡raiÅ¡kÄ…, kuri apskaiÄiuotÅ³, kuris sÄ…raÅ¡o l vektorius turi
+#    didÅ¾iausiÄ… skirtumÄ… tarp savo didÅ¾iausios ir maÅ¾iausios reikÅ¡mÄ—s. Atsakymas
+#    turi bÅ«ti sÄ…raÅ¡o elemento, t.y. vektoriaus numeris.
+# 4. Naudojant funkcijÄ… sapply, apskaiÄiuokite, kiek kiekvienas sÄ…raÅ¡o vektorius 
+#    turi elementÅ³, kuriÅ³ reikÅ¡mÄ—s didesnÄ—s uÅ¾ 50.
+# 5. Naudojant funkcijÄ… lapply, uÅ¾raÅ¡ykite komandÄ…, kuri iÅ¡ kiekvieno sÄ…raÅ¡o l
+#    vektoriaus suformuotÅ³ matricÄ… su dviem stulpeliais.
+# 6. F-jÄ… lapply pritaikant vektoriui, uÅ¾raÅ¡ykite komandÄ…, kuri intervalÄ… [0, 1] 
+#    lygiomis dalimis padalina Ä¯ 10, 20 ir 30 daliÅ³. IntervalÄ… dalinanÄiÅ³ taÅ¡kÅ³
+#    sekos generavimui naudokite funkcijÄ… seq su parametru length.out.
+# 7. Naudojant f-jÄ… sapply patikrinkite, kurie duomenÅ³ lentelÄ—s d stulpeliai yra
+#    numeric tipo. UÅ¾raÅ¡ykite iÅ¡raiÅ¡kÄ…, kuri suskaiÄiuotÅ³, kiek tokiÅ³ stulpeliÅ³
+#    lentelÄ—je yra iÅ¡ viso.

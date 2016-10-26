@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Ávairûs kintamøjø iğvedimo á ekranà bûdai.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Ä®vairÅ«s kintamÅ³jÅ³ iÅ¡vedimo Ä¯ ekranÄ… bÅ«dai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-07-25 | 2013-07-26 | 2014-02-22
 #
@@ -12,11 +12,11 @@
 # TURINYS -------------------------------
 
 #
-#   1. Kintamøjø iğvedimas:
-#      * procedûra cat
-#      * procedûra print
+#   1. KintamÅ³jÅ³ iÅ¡vedimas:
+#      * procedÅ«ra cat
+#      * procedÅ«ra print
 #
-#   2. Kintamøjø struktûros uşrağymas:
+#   2. KintamÅ³jÅ³ struktÅ«ros uÅ¾raÅ¡ymas:
 #      * funkcija dput
 #      * funkcija dget
 #      * funkcija dump
@@ -27,141 +27,141 @@
 # PASTABOS ------------------------------
 
 #
-# Parağyti apie funkcijas sink ir capture.output.
+# ParaÅ¡yti apie funkcijas sink ir capture.output.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# KINTAMØJØ IĞVEDIMAS Á EKRANÀ            #
+# KINTAMÅ²JÅ² IÅ VEDIMAS Ä® EKRANÄ„            #
 # --------------------------------------- #
 
-# Pats paprasèiausias bûdas pamatyti vektoriaus, matricos arba bet kokio kito R 
-# kintamojo reikğmæ -- iğvesti á ekranà. Tam konsolëje reikia parağyti kintamojo
-# vardà ir paspausti klaviğà Enter. Rağant programà á failà (skriptà), kintamojo
-# reikğmë á ekranà iğvedama paspaudus ant jo klaviğà F5. Pavyzdşiui, taip galima 
-# pamatyti standartinio R kintamojo konstantos pi reikğmæ.
+# Pats paprasÄiausias bÅ«das pamatyti vektoriaus, matricos arba bet kokio kito R 
+# kintamojo reikÅ¡mÄ™ -- iÅ¡vesti Ä¯ ekranÄ…. Tam konsolÄ—je reikia paraÅ¡yti kintamojo
+# vardÄ… ir paspausti klaviÅ¡Ä… Enter. RaÅ¡ant programÄ… Ä¯ failÄ… (skriptÄ…), kintamojo
+# reikÅ¡mÄ— Ä¯ ekranÄ… iÅ¡vedama paspaudus ant jo klaviÅ¡Ä… F5. PavyzdÅ¾iui, taip galima 
+# pamatyti standartinio R kintamojo konstantos pi reikÅ¡mÄ™.
 pi
 
-# Rağant programà ir atliekant skaièiavimus, rezultatus tenka iğvesti tam tikru
-# pavidalu. Pvz., "Kintamojo pi reikğmë yra 3.141593". Ğiuo atveju tekstà reikia
-# apjungti su kintamojo pi reikğme. Tokiu atveju rezultato iğvedimui á ekranà
-# naudojama procedûra cat. Jos parametrai:
+# RaÅ¡ant programÄ… ir atliekant skaiÄiavimus, rezultatus tenka iÅ¡vesti tam tikru
+# pavidalu. Pvz., "Kintamojo pi reikÅ¡mÄ— yra 3.141593". Å iuo atveju tekstÄ… reikia
+# apjungti su kintamojo pi reikÅ¡me. Tokiu atveju rezultato iÅ¡vedimui Ä¯ ekranÄ…
+# naudojama procedÅ«ra cat. Jos parametrai:
 #
 #     ... -- R kintamasis: vektorius arba matrica,
-#    file -- kabutëse uşrağomas duomenø failo vardas arba kelias iki failo,
+#    file -- kabutÄ—se uÅ¾raÅ¡omas duomenÅ³ failo vardas arba kelias iki failo,
 #     sep -- simbolis, kuriuo atskiriami objektai,
-#    fill -- pagal nutylëjimà FALSE, nurodo kaip uşpildomos eilutës,
-#  labels -- character tipo vektorius su eiluèiø vardais,
-#  append -- jei TRUE, vektoriaus reikğmës árağomos á jau esantá failà.
+#    fill -- pagal nutylÄ—jimÄ… FALSE, nurodo kaip uÅ¾pildomos eilutÄ—s,
+#  labels -- character tipo vektorius su eiluÄiÅ³ vardais,
+#  append -- jei TRUE, vektoriaus reikÅ¡mÄ—s Ä¯raÅ¡omos Ä¯ jau esantÄ¯ failÄ….
 
-# Pagal nutylëjimà parametro file reikğmë yra tuğèios kabutës, todël rezultatas
-# iğvedamas á konsolæ. Nurodşius failo vardà, rezultatas bus iğvedamas á failà
+# Pagal nutylÄ—jimÄ… parametro file reikÅ¡mÄ— yra tuÅ¡Äios kabutÄ—s, todÄ—l rezultatas
+# iÅ¡vedamas Ä¯ konsolÄ™. NurodÅ¾ius failo vardÄ…, rezultatas bus iÅ¡vedamas Ä¯ failÄ…
 # darbiniame kataloge. 
 
-# Vietoje parametro ... rağomi kintamøjø vardai, kurie vienas nuo kito atskiriami 
-# kableliu. Taip pat kabutëse galima rağyti tekstà, kuris bus prijungtas prie kitø
-# kintamøjø.
+# Vietoje parametro ... raÅ¡omi kintamÅ³jÅ³ vardai, kurie vienas nuo kito atskiriami 
+# kableliu. Taip pat kabutÄ—se galima raÅ¡yti tekstÄ…, kuris bus prijungtas prie kitÅ³
+# kintamÅ³jÅ³.
 
-# Paèiu paprasèiausiu atveju procedûra cat kintamojo reikğmæ iğveda á konsolæ.
+# PaÄiu paprasÄiausiu atveju procedÅ«ra cat kintamojo reikÅ¡mÄ™ iÅ¡veda Ä¯ konsolÄ™.
 cat(pi)
 
-# Kad kursorius po rezultato iğvedimo konsolëje bûtø perkeliamas á kità eilutæ, 
-# procedûrai papildomai perduodame eilutës galo simbolá \n.
+# Kad kursorius po rezultato iÅ¡vedimo konsolÄ—je bÅ«tÅ³ perkeliamas Ä¯ kitÄ… eilutÄ™, 
+# procedÅ«rai papildomai perduodame eilutÄ—s galo simbolÄ¯ \n.
 cat(pi, "\n")
 
 
-# Uşrağysime komandà, kuri iğveda tekstà "Kintamojo pi reikğmë yra 3.141593". Já 
-# galima suskaidyti á tris sudëtines dalis: tekstà, kintamàjá pi ir kursoriaus 
-# perkëlimo á kità eilutæ simbolá \n. Juos reikia apjungti. Sudarome atitinkamus 
-# kintamuosius ir perduodame juos procedûrai.
+# UÅ¾raÅ¡ysime komandÄ…, kuri iÅ¡veda tekstÄ… "Kintamojo pi reikÅ¡mÄ— yra 3.141593". JÄ¯ 
+# galima suskaidyti Ä¯ tris sudÄ—tines dalis: tekstÄ…, kintamÄ…jÄ¯ pi ir kursoriaus 
+# perkÄ—limo Ä¯ kitÄ… eilutÄ™ simbolÄ¯ \n. Juos reikia apjungti. Sudarome atitinkamus 
+# kintamuosius ir perduodame juos procedÅ«rai.
 
-txt <- "Apytikslë skaièiaus pi reikğmë yra"
+txt <- "ApytikslÄ— skaiÄiaus pi reikÅ¡mÄ— yra"
 var <- pi
 new <- "\n"
 
 cat(txt, var, new)
 
-# Kad bûtø paprasèiau, tokias nesudëtingas komandas galima apjungti á vienà.
-cat("Apytikslë skaièiaus pi reikğmë yra", pi, "\n")
+# Kad bÅ«tÅ³ paprasÄiau, tokias nesudÄ—tingas komandas galima apjungti Ä¯ vienÄ….
+cat("ApytikslÄ— skaiÄiaus pi reikÅ¡mÄ— yra", pi, "\n")
 
 
 # NAUDINGA ------------------------------
 
-# Procedûrà cat galima panaudoti nesudëtingø duomenø rinkiniø iğvedimui á failà.
-# Tam reikia nurodyti failo vardà arba pilnà kelià iki failo.
+# ProcedÅ«rÄ… cat galima panaudoti nesudÄ—tingÅ³ duomenÅ³ rinkiniÅ³ iÅ¡vedimui Ä¯ failÄ….
+# Tam reikia nurodyti failo vardÄ… arba pilnÄ… keliÄ… iki failo.
 cat(pi, file = "test.dat")
 
-# Pagal nutylëjimà kintamojo reikğmës atskiriamos tarpu, todël faile surağomos á
-# vienà eilutæ.
+# Pagal nutylÄ—jimÄ… kintamojo reikÅ¡mÄ—s atskiriamos tarpu, todÄ—l faile suraÅ¡omos Ä¯
+# vienÄ… eilutÄ™.
 v <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 cat(v, file = "test.dat")
 
-# Nurodşius, kad kintamojo reikğmës bus atskirtos eilutës galo simboliu \n, jos 
-# faile bus surağomos po vienà á vienà eilutæ.
+# NurodÅ¾ius, kad kintamojo reikÅ¡mÄ—s bus atskirtos eilutÄ—s galo simboliu \n, jos 
+# faile bus suraÅ¡omos po vienÄ… Ä¯ vienÄ… eilutÄ™.
 cat(v, file = "test.dat", sep = "\n")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Tegu kintamasis k lygus 3, o kintamasis n lygus 8. Naudodami procedûrà cat,
-#    uşrağykite komandà, kuri á konsolæ iğvestø tekstà "Atlikta: 3 iğ 8".
-# 2. Naudodami procedûrà cat, uşrağykite komandà, kuri á ekranà iğveda tekstà: 
-#    "Data: 2013-07-26". Datà parodo standartinë R funkcija Sys.Date(). 
-# 3. Naudodami procedûrà cat, sukurkite tekstiná failà, kurio pirma eilutë yra 
-#    uşkomentuota simboliu #, uş jo árağyta data ir laikas, antra eilutë tuğèia, 
-#    treèioje eilutëje skaièiai 1, 2 ir 3. Datà ir laikà parodo funkcija date().
-#    Toká failà galima sukurti su viena komanda, bet naudojant parametrà append 
-#    visas tris eilutes á tà patá failà galima árağyti atskirai vienà po kitos.
+# 1. Tegu kintamasis k lygus 3, o kintamasis n lygus 8. Naudodami procedÅ«rÄ… cat,
+#    uÅ¾raÅ¡ykite komandÄ…, kuri Ä¯ konsolÄ™ iÅ¡vestÅ³ tekstÄ… "Atlikta: 3 iÅ¡ 8".
+# 2. Naudodami procedÅ«rÄ… cat, uÅ¾raÅ¡ykite komandÄ…, kuri Ä¯ ekranÄ… iÅ¡veda tekstÄ…: 
+#    "Data: 2013-07-26". DatÄ… parodo standartinÄ— R funkcija Sys.Date(). 
+# 3. Naudodami procedÅ«rÄ… cat, sukurkite tekstinÄ¯ failÄ…, kurio pirma eilutÄ— yra 
+#    uÅ¾komentuota simboliu #, uÅ¾ jo Ä¯raÅ¡yta data ir laikas, antra eilutÄ— tuÅ¡Äia, 
+#    treÄioje eilutÄ—je skaiÄiai 1, 2 ir 3. DatÄ… ir laikÄ… parodo funkcija date().
+#    TokÄ¯ failÄ… galima sukurti su viena komanda, bet naudojant parametrÄ… append 
+#    visas tris eilutes Ä¯ tÄ… patÄ¯ failÄ… galima Ä¯raÅ¡yti atskirai vienÄ… po kitos.
 
 
-# Sudëtingesniø kintamøjø, pvz., daşniø lentelës, iğvedimui naudojama procedûra 
-# print. Jos parametrai priklauso nuo kintamojo klasës, pagrindiniai yra tokie:
+# SudÄ—tingesniÅ³ kintamÅ³jÅ³, pvz., daÅ¾niÅ³ lentelÄ—s, iÅ¡vedimui naudojama procedÅ«ra 
+# print. Jos parametrai priklauso nuo kintamojo klasÄ—s, pagrindiniai yra tokie:
 #
 #          x -- R kintamasis,
-#      quote -- jei TRUE, tai tekstas iğvedamas kabutëse,
-#     digits -- reikğminiø skaitmenø skaièius, pagal nutylëjimà 7,
-#   na.print -- simbolis, kuris spausdinamas vietoje praleistos reikğmës,
-# zero.print -- simbolis, kuris spausdinamas vietoj nulio daşniø lentelëje.
+#      quote -- jei TRUE, tai tekstas iÅ¡vedamas kabutÄ—se,
+#     digits -- reikÅ¡miniÅ³ skaitmenÅ³ skaiÄius, pagal nutylÄ—jimÄ… 7,
+#   na.print -- simbolis, kuris spausdinamas vietoje praleistos reikÅ¡mÄ—s,
+# zero.print -- simbolis, kuris spausdinamas vietoj nulio daÅ¾niÅ³ lentelÄ—je.
 
-# Jei vektorius turi praleistø reikğmiø, jos şymimos ir ekrane matomos kaip NA. 
+# Jei vektorius turi praleistÅ³ reikÅ¡miÅ³, jos Å¾ymimos ir ekrane matomos kaip NA. 
 v <- c(0, 1, 2, 3, NA, 5, NA, 7, 8, 9)
 v
 
-# Be papildomø nustatymø procedûra print vektoriø su praleistomis reikğmëmis 
-# iğveda toká, koks jis ir yra.
+# Be papildomÅ³ nustatymÅ³ procedÅ«ra print vektoriÅ³ su praleistomis reikÅ¡mÄ—mis 
+# iÅ¡veda tokÄ¯, koks jis ir yra.
 print(v)
 
-# Kartais praleistas reikğmes NA galima pakeisti kitu simboliu, pvz., brûkğniu, 
+# Kartais praleistas reikÅ¡mes NA galima pakeisti kitu simboliu, pvz., brÅ«kÅ¡niu, 
 # arba ir visai nespausdinti.
 print(v, na.print = "-")
 
 
-# Jei vektoriaus reikğmës yra simboliai, şodşiai arba jø junginiai, jie rağomi 
-# kabutëse ir á ekranà taip pat iğvedami kabutëse.
+# Jei vektoriaus reikÅ¡mÄ—s yra simboliai, Å¾odÅ¾iai arba jÅ³ junginiai, jie raÅ¡omi 
+# kabutÄ—se ir Ä¯ ekranÄ… taip pat iÅ¡vedami kabutÄ—se.
 t <- c("A", "B", "C", "D")
 t
 
 print(t)
 
-# Parametro quote reikğmæ pakeitus á FALSE, character tipo vektoriaus reikğmës á
-# ekranà bus iğvedamos be kabuèiø.
+# Parametro quote reikÅ¡mÄ™ pakeitus Ä¯ FALSE, character tipo vektoriaus reikÅ¡mÄ—s Ä¯
+# ekranÄ… bus iÅ¡vedamos be kabuÄiÅ³.
 print(t, quote = FALSE)
 
 
-# Keièiant parametro digits reikğmæ, galima keisti á ekranà iğvedamø reikğminiø
-# skaitmenø skaièiø.
+# KeiÄiant parametro digits reikÅ¡mÄ™, galima keisti Ä¯ ekranÄ… iÅ¡vedamÅ³ reikÅ¡miniÅ³
+# skaitmenÅ³ skaiÄiÅ³.
 
 print(pi)
 print(pi, digits = 1)
@@ -169,144 +169,144 @@ print(pi, digits = 3)
 print(pi, digits = 5)
 
 
-# Parametras zero.print gali bûti naudingas, kai á ekranà iğvedama "reta" daşniø
-# lentelë, kuri turi daug nuliniø reikğmiø ir kurios vizualiai trukdo áşvelgti
-# kitas lentelës reikğmes. Tokiu atveju galima nurodyti, kad vietoje nulio bûtø
+# Parametras zero.print gali bÅ«ti naudingas, kai Ä¯ ekranÄ… iÅ¡vedama "reta" daÅ¾niÅ³
+# lentelÄ—, kuri turi daug nuliniÅ³ reikÅ¡miÅ³ ir kurios vizualiai trukdo Ä¯Å¾velgti
+# kitas lentelÄ—s reikÅ¡mes. Tokiu atveju galima nurodyti, kad vietoje nulio bÅ«tÅ³
 # atspausdinamas koks nors kitas simbolis.
 
-# Sukursime testinæ daşniø lentelæ iğ automobiliø greièio ir stabdymo atstumo
-# duomenø rinkinio cars.
+# Sukursime testinÄ™ daÅ¾niÅ³ lentelÄ™ iÅ¡ automobiliÅ³ greiÄio ir stabdymo atstumo
+# duomenÅ³ rinkinio cars.
 cars
 
-# Gaunama gana didelë daşniø lentelë, taèiau didşioji dauguma jos reikğmiø yra 
-# nuliai ir pastebëti nenulines reikğmes sunku.
+# Gaunama gana didelÄ— daÅ¾niÅ³ lentelÄ—, taÄiau didÅ¾ioji dauguma jos reikÅ¡miÅ³ yra 
+# nuliai ir pastebÄ—ti nenulines reikÅ¡mes sunku.
 l <- table(cars)
 l
 
-# Vietoje nulio galima atspausdinti tağkà, ir vaizdas pasidaro şymiai geresnis.
+# Vietoje nulio galima atspausdinti taÅ¡kÄ…, ir vaizdas pasidaro Å¾ymiai geresnis.
 print(l, zero.print = ".")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami procedûrà print, vektoriø v iğveskite á ekranà taip, kad vietoje
-#    praleistø reikğmiø bûtø tuğèias tarpas.
-# 2. Duomenø lentelëje co2 yra 1959-1997 metø duomenys apie CO2 koncentracijà.
-#    Naudodami procedûrà print, iğveskite duomenis á ekranà taip, kad matavimø
-#    reikğmës bûtø sveiki skaièiai.
+# 1. Naudodami procedÅ«rÄ… print, vektoriÅ³ v iÅ¡veskite Ä¯ ekranÄ… taip, kad vietoje
+#    praleistÅ³ reikÅ¡miÅ³ bÅ«tÅ³ tuÅ¡Äias tarpas.
+# 2. DuomenÅ³ lentelÄ—je co2 yra 1959-1997 metÅ³ duomenys apie CO2 koncentracijÄ….
+#    Naudodami procedÅ«rÄ… print, iÅ¡veskite duomenis Ä¯ ekranÄ… taip, kad matavimÅ³
+#    reikÅ¡mÄ—s bÅ«tÅ³ sveiki skaiÄiai.
 
 
 # --------------------------------------- #
-# KINTAMØJØ STRUKTÛROS UŞRAĞYMAS          #
+# KINTAMÅ²JÅ² STRUKTÅªROS UÅ½RAÅ YMAS          #
 # --------------------------------------- #
 
-# Daşnai vektoriai, matricos arba kitos duomenø struktûros sukuriamos uşrağant
-# tam tikrà komandà. Pvz., vieno tipo reikğmës á vektoriø apjungiamos naudojant 
-# komandà c.
+# DaÅ¾nai vektoriai, matricos arba kitos duomenÅ³ struktÅ«ros sukuriamos uÅ¾raÅ¡ant
+# tam tikrÄ… komandÄ…. Pvz., vieno tipo reikÅ¡mÄ—s Ä¯ vektoriÅ³ apjungiamos naudojant 
+# komandÄ… c.
 v <- c(1, 2, 3, 4, 5, 6)
 v
 
-# Naudojant komandà matrix iğ vektoriaus v sukursime 2x3 dydşio matricà.
+# Naudojant komandÄ… matrix iÅ¡ vektoriaus v sukursime 2x3 dydÅ¾io matricÄ….
 m <- matrix(v, nrow = 2, ncol = 3)
 m
 
-# Duomenø lentelæ galima sukurti naudojant komandà data.frame.
-d <- data.frame(var = c("a", "b", "c"), ats = c("taip", "ne", "neşinau"))
+# DuomenÅ³ lentelÄ™ galima sukurti naudojant komandÄ… data.frame.
+d <- data.frame(var = c("a", "b", "c"), ats = c("taip", "ne", "neÅ¾inau"))
 d
 
-# Kartais iğkyla atvirkğtinis uşdavinys -- turint vektoriø, matricà arba duomenø
-# lentelæ reikia uşrağyti tà duomenø struktûrà sukurianèià komandà. Tam naudojama 
+# Kartais iÅ¡kyla atvirkÅ¡tinis uÅ¾davinys -- turint vektoriÅ³, matricÄ… arba duomenÅ³
+# lentelÄ™ reikia uÅ¾raÅ¡yti tÄ… duomenÅ³ struktÅ«rÄ… sukurianÄiÄ… komandÄ…. Tam naudojama 
 # funkcija dput. Pagrindiniai jos parametrai:
 #
 #       x -- R kintamasis,
-#    file -- failo, á kurá iğvedama kintamàjá sukurianti komanda, vardas,
-# control -- kintamojo struktûros detalumo parametras, "all", NULL.
+#    file -- failo, Ä¯ kurÄ¯ iÅ¡vedama kintamÄ…jÄ¯ sukurianti komanda, vardas,
+# control -- kintamojo struktÅ«ros detalumo parametras, "all", NULL.
 
-# Pagal nutylëjimà parametro file reikğmë yra "", todël nenurodşius failo vardo, 
-# funkcijos dput rezultatas automatiğkai iğvedamas á konsolæ (ekranà). Kintamojo
-# struktûros detalumà nusako parametras control. Pagal nutylëjimà jo reikğmë yra 
-# "all", todël kintamojo struktûra atstatoma kiek ámanoma tiksliau. Norint gauti
-# minimalià kintamojo struktûrà, parametrui control galima nurodyti reikğmæ NULL.
+# Pagal nutylÄ—jimÄ… parametro file reikÅ¡mÄ— yra "", todÄ—l nenurodÅ¾ius failo vardo, 
+# funkcijos dput rezultatas automatiÅ¡kai iÅ¡vedamas Ä¯ konsolÄ™ (ekranÄ…). Kintamojo
+# struktÅ«ros detalumÄ… nusako parametras control. Pagal nutylÄ—jimÄ… jo reikÅ¡mÄ— yra 
+# "all", todÄ—l kintamojo struktÅ«ra atstatoma kiek Ä¯manoma tiksliau. Norint gauti
+# minimaliÄ… kintamojo struktÅ«rÄ…, parametrui control galima nurodyti reikÅ¡mÄ™ NULL.
 
-# Tekstinio pavidalo kintamojo struktûrà galima nukopijuoti, pataisyti, perkelti 
-# á kità programà ir taip atkartoti kintamàjá.
+# Tekstinio pavidalo kintamojo struktÅ«rÄ… galima nukopijuoti, pataisyti, perkelti 
+# Ä¯ kitÄ… programÄ… ir taip atkartoti kintamÄ…jÄ¯.
 
 
-# Kadangi vektorius -- labai paprasta duomenø struktûra, jà sukurianti komanda 
-# taip pat yra nesudëtinga.
+# Kadangi vektorius -- labai paprasta duomenÅ³ struktÅ«ra, jÄ… sukurianti komanda 
+# taip pat yra nesudÄ—tinga.
 dput(v)
 
-# Matrica m nuo vektoriaus v skiriasi tuo, kad turi eiluèiø ir stulpeliø skaièiø
-# nusakantá atributà (dimensijà).
+# Matrica m nuo vektoriaus v skiriasi tuo, kad turi eiluÄiÅ³ ir stulpeliÅ³ skaiÄiÅ³
+# nusakantÄ¯ atributÄ… (dimensijÄ…).
 dput(m)
 
-# Á konsolæ iğvedama komanda, kurià suvykdşius gaunama tokia pati matrica.
+# Ä® konsolÄ™ iÅ¡vedama komanda, kuriÄ… suvykdÅ¾ius gaunama tokia pati matrica.
 n <- structure(c(1, 2, 3, 4, 5, 6), .Dim = 2:3)
 n
 
-# Duomenø lentelës struktûra şymiai sudëtingesnë. Kiekviena data.frame kintamojo
-# eilutë yra sàrağas, o stulpeliai yra vektoriai, kurie gali bûti skirtingo tipo.
-# Taip pat lentelë turi eiluèiø numerius ir stulpeliø pavadinimus.
+# DuomenÅ³ lentelÄ—s struktÅ«ra Å¾ymiai sudÄ—tingesnÄ—. Kiekviena data.frame kintamojo
+# eilutÄ— yra sÄ…raÅ¡as, o stulpeliai yra vektoriai, kurie gali bÅ«ti skirtingo tipo.
+# Taip pat lentelÄ— turi eiluÄiÅ³ numerius ir stulpeliÅ³ pavadinimus.
 dput(d)
 
-# Á konsolæ iğvedamas toks data.frame tipo kintamojo struktûrà aprağantis kodas.
+# Ä® konsolÄ™ iÅ¡vedamas toks data.frame tipo kintamojo struktÅ«rÄ… apraÅ¡antis kodas.
 
 structure(list(var = structure(1:3, .Label = c("a", "b", "c"), class = "factor"), 
-    ats = structure(c(3L, 1L, 2L), .Label = c("ne", "neşinau", 
+    ats = structure(c(3L, 1L, 2L), .Label = c("ne", "neÅ¾inau", 
     "taip"), class = "factor")), .Names = c("var", "ats"), row.names = c(NA, 
 -3L), class = "data.frame")
 
-# Esminë ğios lentelës dalis yra du kategoriniai kintamieji var ir ats, kuriø
-# reikğmes galima sutapatinti su sveikais skaièiais. Tokià minimalià kintamojo
-# struktûrà galima gauti parametrui control nurodæ reikğmæ NULL.
+# EsminÄ— Å¡ios lentelÄ—s dalis yra du kategoriniai kintamieji var ir ats, kuriÅ³
+# reikÅ¡mes galima sutapatinti su sveikais skaiÄiais. TokiÄ… minimaliÄ… kintamojo
+# struktÅ«rÄ… galima gauti parametrui control nurodÄ™ reikÅ¡mÄ™ NULL.
 dput(d, control = NULL)
 
 
-# Kintamojo struktûros kodà galima iğsaugoti tekstiniame faile.
+# Kintamojo struktÅ«ros kodÄ… galima iÅ¡saugoti tekstiniame faile.
 dput(d, file = "duom.dmp")
 
-# Kintamasis atkuriamas naudojant funkcijà dget, kuriai nurodomas failo vardas.
-# Iğ failo nuskaityta struktûra paverèiama á kintamàjá ir iğvedama á konsolæ.
+# Kintamasis atkuriamas naudojant funkcijÄ… dget, kuriai nurodomas failo vardas.
+# IÅ¡ failo nuskaityta struktÅ«ra paverÄiama Ä¯ kintamÄ…jÄ¯ ir iÅ¡vedama Ä¯ konsolÄ™.
 dget(file = "duom.dmp")
 
-# Funkcijos dget rezultatà galima priskirti kitam kintamajam. Pvz., nuskaitysime
-# failà "duom.dmp" ir sukursime naujà duomenø lentelæ b.
+# Funkcijos dget rezultatÄ… galima priskirti kitam kintamajam. Pvz., nuskaitysime
+# failÄ… "duom.dmp" ir sukursime naujÄ… duomenÅ³ lentelÄ™ b.
 b <- dget(file = "duom.dmp")
 b
 
 
-# Panağiu bûdu tekstiná kintamojo pavidalà galima gauti naudojant fukcijà dump. 
+# PanaÅ¡iu bÅ«du tekstinÄ¯ kintamojo pavidalÄ… galima gauti naudojant fukcijÄ… dump. 
 # Pagrindiniai jos parametrai:
 #
-#    list -- character tipo kintamøjø vardø vektorius,
-#    file -- failo, á kurá iğvedama kintamàjá sukurianti komanda, vardas,
-# control -- kintamojo struktûros detalumo parametras, "all", NULL,
-#  append -- jei TRUE, vektoriaus reikğmës árağomos á jau esantá failà.
+#    list -- character tipo kintamÅ³jÅ³ vardÅ³ vektorius,
+#    file -- failo, Ä¯ kurÄ¯ iÅ¡vedama kintamÄ…jÄ¯ sukurianti komanda, vardas,
+# control -- kintamojo struktÅ«ros detalumo parametras, "all", NULL,
+#  append -- jei TRUE, vektoriaus reikÅ¡mÄ—s Ä¯raÅ¡omos Ä¯ jau esantÄ¯ failÄ….
 
-# Parametrui file nurodşius failo vardà, darbiniame kataloge sukuriamas R script 
-# failas, kurá suvykdşius gaunami list vektoriuje nurodyti kintamieji.
+# Parametrui file nurodÅ¾ius failo vardÄ…, darbiniame kataloge sukuriamas R script 
+# failas, kurÄ¯ suvykdÅ¾ius gaunami list vektoriuje nurodyti kintamieji.
 
 
-# Pavyzdşiui, á konsolæ iğvesime kintamojo v kodà.
+# PavyzdÅ¾iui, Ä¯ konsolÄ™ iÅ¡vesime kintamojo v kodÄ….
 dump(list = "v", file = "")
 
-# Tokiu bûdu galima gauti iğ karto keliø kintamøjø kodà.
+# Tokiu bÅ«du galima gauti iÅ¡ karto keliÅ³ kintamÅ³jÅ³ kodÄ….
 dump(list = c("v", "m"), file = "")
 
 
-# Sukursime keletos kintamøjø script failà. 
+# Sukursime keletos kintamÅ³jÅ³ script failÄ…. 
 dump(list = c("v", "m"), file = "dump.R")
 
-# Naudojant funkcijà source toká failà galima suvykdyti ir atkurti jame árağytus 
+# Naudojant funkcijÄ… source tokÄ¯ failÄ… galima suvykdyti ir atkurti jame Ä¯raÅ¡ytus 
 # kintamuosius.
 source(file = "dump.R")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami funkcijà dput, sukurkite duomenø lentelës cars struktûros kodà.
-#    Nukopijuokite iğ jo tà dalá, kuri atitinka kintamàjá speed ir naudodami jà 
-#    sukurkite naujà vektoriø s.
-# 2. Darbiniame kataloge sukurkite tekstiná failà "vector.R", jo viduje árağykite
-#    komandà, kuri sukuria bet koká skaièiø vektoriø. Naudodami funkcijà source
-#    nuskaitykite ğá failà.
+# 1. Naudodami funkcijÄ… dput, sukurkite duomenÅ³ lentelÄ—s cars struktÅ«ros kodÄ….
+#    Nukopijuokite iÅ¡ jo tÄ… dalÄ¯, kuri atitinka kintamÄ…jÄ¯ speed ir naudodami jÄ… 
+#    sukurkite naujÄ… vektoriÅ³ s.
+# 2. Darbiniame kataloge sukurkite tekstinÄ¯ failÄ… "vector.R", jo viduje Ä¯raÅ¡ykite
+#    komandÄ…, kuri sukuria bet kokÄ¯ skaiÄiÅ³ vektoriÅ³. Naudodami funkcijÄ… source
+#    nuskaitykite Å¡Ä¯ failÄ….

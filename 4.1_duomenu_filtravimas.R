@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Sàlygà tenkinanèiø elementø paieğka ir duomenø filtravimas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            SÄ…lygÄ… tenkinanÄiÅ³ elementÅ³ paieÅ¡ka ir duomenÅ³ filtravimas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-07-27 | 2013-08-13
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. Sàlygà tenkinanèiø elementø paieğka:
+#   1. SÄ…lygÄ… tenkinanÄiÅ³ elementÅ³ paieÅ¡ka:
 #      * funkcija which
 #      * funkcijo which.min
 #      * funkcijo which.max
@@ -23,14 +23,14 @@
 #      * funkcija anyDuplicated
 #      * funkcija unique
 #
-#   3. Praleistos reikğmës duomenyse:
-#      * procedûra summary 
+#   3. Praleistos reikÅ¡mÄ—s duomenyse:
+#      * procedÅ«ra summary 
 #      * funkcija is.na
 #      * funkcija complete.cases
 #      * funkcija na.exclude
 #      * funkcija na.omit
 #
-#   4. Duomenø filtravimas:
+#   4. DuomenÅ³ filtravimas:
 #      * funkcija subset 
 #
 
@@ -38,178 +38,178 @@
 # PASTABOS ------------------------------
 
 #
-# Jokiø pastabø nëra.
+# JokiÅ³ pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# SÀLYGÀ TENKINANÈIØ ELEMENTØ PAIEĞKA     #
+# SÄ„LYGÄ„ TENKINANÄŒIÅ² ELEMENTÅ² PAIEÅ KA     #
 # --------------------------------------- #
 
-# Funkcija which nustato, kuriø loginio vektoriaus elementø reikğmës lygios TRUE. 
+# Funkcija which nustato, kuriÅ³ loginio vektoriaus elementÅ³ reikÅ¡mÄ—s lygios TRUE. 
 # Jos parametrai:
 #
-#        x -- loginiø reikğmiø vektorius arba matrica,
-#  arr.ind -- jei x yra matrica, nurodo ar gràşinti ieğkomos reikğmës numerá.
+#        x -- loginiÅ³ reikÅ¡miÅ³ vektorius arba matrica,
+#  arr.ind -- jei x yra matrica, nurodo ar grÄ…Å¾inti ieÅ¡komos reikÅ¡mÄ—s numerÄ¯.
 
-# Jei x yra vektorius, tai rezultatas yra TRUE reikğmiø indeksø vektorius. Jeigu
-# x yra loginiø reikğmiø matrica, tai parametrui arr.ind nurodşius reikğmæ TRUE,
-# gràşinama matrica su reikğmës TRUE matricoje x eiluèiø ir stulpeliø indeksais.
+# Jei x yra vektorius, tai rezultatas yra TRUE reikÅ¡miÅ³ indeksÅ³ vektorius. Jeigu
+# x yra loginiÅ³ reikÅ¡miÅ³ matrica, tai parametrui arr.ind nurodÅ¾ius reikÅ¡mÄ™ TRUE,
+# grÄ…Å¾inama matrica su reikÅ¡mÄ—s TRUE matricoje x eiluÄiÅ³ ir stulpeliÅ³ indeksais.
 
 
-# Pavyzdşiui, surasime tuos loginio vektoriaus elementus, kuriø reikğmë yra TRUE.
+# PavyzdÅ¾iui, surasime tuos loginio vektoriaus elementus, kuriÅ³ reikÅ¡mÄ— yra TRUE.
 t <- c(FALSE, FALSE, TRUE, FALSE)
 
 which(t)
 
 
-# Ğià funkcijà galima pritaikyti ir kitokio tipo vektoriaus tam tikras sàlygas 
-# tenkinanèiø elementø radimui. Pirmiausia sudarome loginá testà ir patikriname, 
-# kurie vektoriaus elementai já tenkina. Tada gautas loginiø reikğmiø vektorius 
+# Å iÄ… funkcijÄ… galima pritaikyti ir kitokio tipo vektoriaus tam tikras sÄ…lygas 
+# tenkinanÄiÅ³ elementÅ³ radimui. Pirmiausia sudarome loginÄ¯ testÄ… ir patikriname, 
+# kurie vektoriaus elementai jÄ¯ tenkina. Tada gautas loginiÅ³ reikÅ¡miÅ³ vektorius 
 # perduodamas funkcijai which, kuri nustato, kurie elementai yra TRUE.
 
 x <- c(7, -2, 4, 24, 22, 26, 27, -2, 12, -9, -6, 0, 29, 16, -7, 6, 26, 1, 5, 12)
 x
 
-# Pavyzdşiui, surasime, kuris vektoriaus x elementas lygus 0. Sudarant loginá 
-# testà apie lygybæ, naudojamas == operatorius.
+# PavyzdÅ¾iui, surasime, kuris vektoriaus x elementas lygus 0. Sudarant loginÄ¯ 
+# testÄ… apie lygybÄ™, naudojamas == operatorius.
 x == 0
 
-# Loginæ sàlygà galima árağyti tiesiai á funkcijà which. Gaunamas ğià sàlygà 
-# atitinkanèiø vektoriaus elementø numeriø vektorius. Matome, kad vektorius x
-# turi tik vienà nuliná elementà.
+# LoginÄ™ sÄ…lygÄ… galima Ä¯raÅ¡yti tiesiai Ä¯ funkcijÄ… which. Gaunamas Å¡iÄ… sÄ…lygÄ… 
+# atitinkanÄiÅ³ vektoriaus elementÅ³ numeriÅ³ vektorius. Matome, kad vektorius x
+# turi tik vienÄ… nulinÄ¯ elementÄ….
 which(x == 0)
 
-# Tokiu bûdu galima surasti ir kelias sàlygas tenkinanèius vektoriaus elementus.
-# Surasime tuos vektoriaus x elementus, kuriø reikğmës yra iğ intervalo [0, 10].
+# Tokiu bÅ«du galima surasti ir kelias sÄ…lygas tenkinanÄius vektoriaus elementus.
+# Surasime tuos vektoriaus x elementus, kuriÅ³ reikÅ¡mÄ—s yra iÅ¡ intervalo [0, 10].
 which(x >= 0 & x <= 10)
 
 
-# Ieğkomo elemento vietà matricoje galima nurodyti dvejopai: nurodant jo eilës
-# numerá vektoriuje, iğ kurio elementø ir buvo sudaryta matrica, arba nurodant 
-# eilutës ir stulpelio numerá. 
+# IeÅ¡komo elemento vietÄ… matricoje galima nurodyti dvejopai: nurodant jo eilÄ—s
+# numerÄ¯ vektoriuje, iÅ¡ kurio elementÅ³ ir buvo sudaryta matrica, arba nurodant 
+# eilutÄ—s ir stulpelio numerÄ¯. 
 
-# Iğ vektoriaus x elementø sudarysime 5x4 dydşio matricà.
+# IÅ¡ vektoriaus x elementÅ³ sudarysime 5x4 dydÅ¾io matricÄ….
 m <- matrix(x, ncol = 4)
 m
 
-# Vektoriuje x nulinis elementas yra 12-tas, todël ir matricoje jo indeksas 12.
+# Vektoriuje x nulinis elementas yra 12-tas, todÄ—l ir matricoje jo indeksas 12.
 which(x == 0)
 which(m == 0)
 
-# Elemento vietà matricoje patogiau nustatyti uşrağant jo eilutës ir stulpelio
-# numerá. Tam reikia pakeisti parametro arr.ind reikğmæ á TRUE.
+# Elemento vietÄ… matricoje patogiau nustatyti uÅ¾raÅ¡ant jo eilutÄ—s ir stulpelio
+# numerÄ¯. Tam reikia pakeisti parametro arr.ind reikÅ¡mÄ™ Ä¯ TRUE.
 which(m == 0, arr.ind = TRUE)
 
 
-# Kartais tenka surasti maşiausio ar didşiausio vektoriaus elemento numerá. Tam 
+# Kartais tenka surasti maÅ¾iausio ar didÅ¾iausio vektoriaus elemento numerÄ¯. Tam 
 # naudojamos specialios funkcijos which.min ir which.max.
 which.min(x)
 which.max(x)
 
 
-# Jei reikia patikrinti, ar tam tikra reikğmë yra vektoriuje (aibëje), naudojama 
+# Jei reikia patikrinti, ar tam tikra reikÅ¡mÄ— yra vektoriuje (aibÄ—je), naudojama 
 # funkcija match. Jos parametrai:
 #
-#        x -- ieğkoma reikğmë arba jø vektorius,
-#    table -- vektorius, kuriame ieğkoma reikğmë x.
+#        x -- ieÅ¡koma reikÅ¡mÄ— arba jÅ³ vektorius,
+#    table -- vektorius, kuriame ieÅ¡koma reikÅ¡mÄ— x.
 
-# Funkcijos match rezultatas yra pirmojo reikğmæ x atitinkanèio elemento numeris.
-# Jei ieğkomos reikğmës vektoriuje nëra, gràşinama reikğmë NA.
+# Funkcijos match rezultatas yra pirmojo reikÅ¡mÄ™ x atitinkanÄio elemento numeris.
+# Jei ieÅ¡komos reikÅ¡mÄ—s vektoriuje nÄ—ra, grÄ…Å¾inama reikÅ¡mÄ— NA.
 
-# Pavyzdşiui, patikrinsime, ar vektoriuje x yra elementas, kurio reikğmë lygi 1.
+# PavyzdÅ¾iui, patikrinsime, ar vektoriuje x yra elementas, kurio reikÅ¡mÄ— lygi 1.
 match(x = 1, x)
 
-# Jei vektorius turi kelis tuos paèius elementus, f-ja match gràşina tik pirmojo
-# iğ jø eilës numerá.
+# Jei vektorius turi kelis tuos paÄius elementus, f-ja match grÄ…Å¾ina tik pirmojo
+# iÅ¡ jÅ³ eilÄ—s numerÄ¯.
 match(x = -2, x)
 
 
 # NAUDINGA ------------------------------
 
-# Funkcijos which rezultatas yra tam tikrà sàlygà tenkinanèiø vektoriaus elementø 
-# numeriai. Juos galima panaudoti ieğkomø elementø iğskyrimui á atskirà vektoriø.
+# Funkcijos which rezultatas yra tam tikrÄ… sÄ…lygÄ… tenkinanÄiÅ³ vektoriaus elementÅ³ 
+# numeriai. Juos galima panaudoti ieÅ¡komÅ³ elementÅ³ iÅ¡skyrimui Ä¯ atskirÄ… vektoriÅ³.
 
-# Pavyzdşiui, surasime visus teigiamus vektoriaus x elementus.
+# PavyzdÅ¾iui, surasime visus teigiamus vektoriaus x elementus.
 i <- which(x > 0)
 i 
 
-# Vienas iğ bûdø iğskirti reikiamus vektoriaus elementus -- nurodyti jø numerius.
+# Vienas iÅ¡ bÅ«dÅ³ iÅ¡skirti reikiamus vektoriaus elementus -- nurodyti jÅ³ numerius.
 x[i]
 
-# Tai atvejais, kai iğ vektoriaus reikia iğskirti tam tikrà sàlygà tenkinanèius
-# elementus, jø numeriø nustatymà naudojant funkcijà which galima praleisti, ir 
-# loginæ sàlygà árağyti tiesiogiai. Taip yra ir paprasèiau, ir greièiau.
+# Tai atvejais, kai iÅ¡ vektoriaus reikia iÅ¡skirti tam tikrÄ… sÄ…lygÄ… tenkinanÄius
+# elementus, jÅ³ numeriÅ³ nustatymÄ… naudojant funkcijÄ… which galima praleisti, ir 
+# loginÄ™ sÄ…lygÄ… Ä¯raÅ¡yti tiesiogiai. Taip yra ir paprasÄiau, ir greiÄiau.
 
 x[x > 0]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant funkcijà which, suraskite numerius tø vektoriaus x elementø, kurie 
-#    lygûs 6 arba -6.
-# 2. Uşrağykite komandà, kuri surastø nelyginiø vienşenkliø vektoriaus x elementø
+# 1. Naudojant funkcijÄ… which, suraskite numerius tÅ³ vektoriaus x elementÅ³, kurie 
+#    lygÅ«s 6 arba -6.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri surastÅ³ nelyginiÅ³ vienÅ¾enkliÅ³ vektoriaus x elementÅ³
 #    numerius.
-# 3. Sugalvokite bûdà, kaip, nenaudojant funkcijos which.min, surasti maşiausio
-#    vektoriaus elemento numerá.
-# 4. Sugalvokite bûdà, kaip, naudojant funkcijà which.min, surasti didşiausià
-#    vektoriaus elementà.
+# 3. Sugalvokite bÅ«dÄ…, kaip, nenaudojant funkcijos which.min, surasti maÅ¾iausio
+#    vektoriaus elemento numerÄ¯.
+# 4. Sugalvokite bÅ«dÄ…, kaip, naudojant funkcijÄ… which.min, surasti didÅ¾iausiÄ…
+#    vektoriaus elementÄ….
 
 
 # --------------------------------------- #
 # PASIKARTOJANTYS VEKTORIAUS ELEMENTAI    #
 # --------------------------------------- #
 
-# Pasikartojanèiø vektoriaus elementø nustatymui naudojama funkcija duplicated.
-# Jos rezultatas yra tokio pat ilgio loginis vektorius, kur reikğmë TRUE rağoma
-# tada, kai elementas pasikartoja. Visø kitø elementø reikğmës lygios FALSE.
+# PasikartojanÄiÅ³ vektoriaus elementÅ³ nustatymui naudojama funkcija duplicated.
+# Jos rezultatas yra tokio pat ilgio loginis vektorius, kur reikÅ¡mÄ— TRUE raÅ¡oma
+# tada, kai elementas pasikartoja. VisÅ³ kitÅ³ elementÅ³ reikÅ¡mÄ—s lygios FALSE.
 
 s <- c("s", "u", "s", "i", "s", "u", "k", "o")
 
-# Pavyzdşiui, nustatysime, kurios raidës şodyje kartojasi.
+# PavyzdÅ¾iui, nustatysime, kurios raidÄ—s Å¾odyje kartojasi.
 duplicated(s)
 
 # Funkcija anyDuplicated patikrina, ar bent vienas elementas pasikartoja. Jos
 # rezultatas yra pirmojo pasikartojimo vektoriuje numeris.
 anyDuplicated(s)
 
-# Vektoriaus elementø aibei gauti naudojama funkcija unique. Jos rezultatas
-# yra pradinis vektorius, iğ kurio pağalinami besidubliuojantys elementai.
+# Vektoriaus elementÅ³ aibei gauti naudojama funkcija unique. Jos rezultatas
+# yra pradinis vektorius, iÅ¡ kurio paÅ¡alinami besidubliuojantys elementai.
 unique(s)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sugalvokite komandà, kuri á atskirà vektoriø iğrinktø bent vienà kartà 
-#    pasikartojanèius vektoriaus s elementus.
-# 2. Uşrağykite komandà, kuri iğrinktø tuos vektoriaus s elementus, kurie
-#    neturi pasikartojimø, t.y reikia gauti vektoriø c("i", "k", "o").
+# 1. Sugalvokite komandÄ…, kuri Ä¯ atskirÄ… vektoriÅ³ iÅ¡rinktÅ³ bent vienÄ… kartÄ… 
+#    pasikartojanÄius vektoriaus s elementus.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri iÅ¡rinktÅ³ tuos vektoriaus s elementus, kurie
+#    neturi pasikartojimÅ³, t.y reikia gauti vektoriÅ³ c("i", "k", "o").
 
 
 # --------------------------------------- #
-# PRALEISTOS REIKĞMËS DUOMENYSE           #
+# PRALEISTOS REIKÅ MÄ–S DUOMENYSE           #
 # --------------------------------------- #
 
-# Dël ávairiø prieşasèiø realiuose duomenyse kartais bûna praleistø reikğmiø. 
-# Standartiğkai joms şymëti naudojama speciali konstanta NA. 
+# DÄ—l Ä¯vairiÅ³ prieÅ¾asÄiÅ³ realiuose duomenyse kartais bÅ«na praleistÅ³ reikÅ¡miÅ³. 
+# StandartiÅ¡kai joms Å¾ymÄ—ti naudojama speciali konstanta NA. 
 
 y <- c(7, -2, 4, NA, 22, 26, 27, -2, 12, -9, NA, 0, 29, 16, -7, 6, 26, 1, 5, 12)
 
 
 d <- read.table(header = TRUE, text = "
-   lytis  ûgis svoris grupë
+   lytis  Å«gis svoris grupÄ—
   vyras   175     76     B
   vyras   180     NA     B
 moteris   170     67     A
@@ -223,9 +223,9 @@ moteris   177     70     A
 ")
 
 
-# Procedûra summary parodo pagrindines duomenø charakteristikas ir suskaièiuoja 
-# praleistas reikğmes. Vektoriui surandamas bendras praleistø reikğmiø skaièius, 
-# o duomenø lentelei - jø skaièius kiekvienam kintamajam atskirai.
+# ProcedÅ«ra summary parodo pagrindines duomenÅ³ charakteristikas ir suskaiÄiuoja 
+# praleistas reikÅ¡mes. Vektoriui surandamas bendras praleistÅ³ reikÅ¡miÅ³ skaiÄius, 
+# o duomenÅ³ lentelei - jÅ³ skaiÄius kiekvienam kintamajam atskirai.
 
 y
 d
@@ -234,91 +234,91 @@ summary(y)
 summary(d)
 
 
-# Praleistø reikğmiø vektoriuje nustatymui naudojama funkcija is.na. Rezultatas 
-# yra loginis vektorius, kurio elementø reikğmë yra TRUE, jei tikrinamo elemento 
-# reikğmë NA arba NaN, ir FALSE - kitais atvejais.
+# PraleistÅ³ reikÅ¡miÅ³ vektoriuje nustatymui naudojama funkcija is.na. Rezultatas 
+# yra loginis vektorius, kurio elementÅ³ reikÅ¡mÄ— yra TRUE, jei tikrinamo elemento 
+# reikÅ¡mÄ— NA arba NaN, ir FALSE - kitais atvejais.
 is.na(y)
 
-# Jei praleistø reikğmiø ieğkoma matricoje arba duomenø lentelëje, tai funkcijos 
-# rezultatas yra tokio pat dydşio loginiø reikğmiø matrica.
+# Jei praleistÅ³ reikÅ¡miÅ³ ieÅ¡koma matricoje arba duomenÅ³ lentelÄ—je, tai funkcijos 
+# rezultatas yra tokio pat dydÅ¾io loginiÅ³ reikÅ¡miÅ³ matrica.
 is.na(d)
 
 
-# Atliekant duomenø analizæ, reikia şinoti, kurie duomenø lentelës árağai neturi
-# praleistø reikğmiø. Tam naudojama funkcija complete.cases. Jos rezultatas yra 
-# loginis vektorius, kurio reikğmë lygi TRUE, jei duomenø lentelës eilutëje nëra
-# praleistø reikğmiø, ir FALSE - jei eilutëje yra bent viena praleista reikğmë.
+# Atliekant duomenÅ³ analizÄ™, reikia Å¾inoti, kurie duomenÅ³ lentelÄ—s Ä¯raÅ¡ai neturi
+# praleistÅ³ reikÅ¡miÅ³. Tam naudojama funkcija complete.cases. Jos rezultatas yra 
+# loginis vektorius, kurio reikÅ¡mÄ— lygi TRUE, jei duomenÅ³ lentelÄ—s eilutÄ—je nÄ—ra
+# praleistÅ³ reikÅ¡miÅ³, ir FALSE - jei eilutÄ—je yra bent viena praleista reikÅ¡mÄ—.
 
 complete.cases(d)
 
 
-# Funkcijos all ir any patikrina, ar visø loginio vektoriaus elementø reikğmës 
-# yra TRUE, ir ar bent vieno elemento reikğmë yra TRUE. Naudojant ğias funkcijas, 
-# galima patikrinti, ar vektorius turi praleistø reikğmiø.
+# Funkcijos all ir any patikrina, ar visÅ³ loginio vektoriaus elementÅ³ reikÅ¡mÄ—s 
+# yra TRUE, ir ar bent vieno elemento reikÅ¡mÄ— yra TRUE. Naudojant Å¡ias funkcijas, 
+# galima patikrinti, ar vektorius turi praleistÅ³ reikÅ¡miÅ³.
 
-all(is.na(y))   # ar visø vektoriaus elementø reikğmës praleistos
-any(is.na(y))   # ar bent vieno vektoriaus elemento reikğmë praleista
+all(is.na(y))   # ar visÅ³ vektoriaus elementÅ³ reikÅ¡mÄ—s praleistos
+any(is.na(y))   # ar bent vieno vektoriaus elemento reikÅ¡mÄ— praleista
 
-# Analogiğkai galima patikrinti, ar visos duomenø lentelës eilutës uşpildytos, 
-# ar yra bent viena eilutë, kuri neturi praleistø reikğmiø.
+# AnalogiÅ¡kai galima patikrinti, ar visos duomenÅ³ lentelÄ—s eilutÄ—s uÅ¾pildytos, 
+# ar yra bent viena eilutÄ—, kuri neturi praleistÅ³ reikÅ¡miÅ³.
 
 all(complete.cases(d))
 any(complete.cases(d))
 
 
-# Naudojant anksèiau aprağytà funkcijà which, galima nustatyti, kurie vektoriaus 
-# elementai yra praleistos reikğmës.
+# Naudojant anksÄiau apraÅ¡ytÄ… funkcijÄ… which, galima nustatyti, kurie vektoriaus 
+# elementai yra praleistos reikÅ¡mÄ—s.
 
 which(is.na(y))
 
-# Lygiai taip pat, galima nustatyti, kurios duomenø lentelës eilutës turi bent 
-# vienà praleistà reikğmæ.
+# Lygiai taip pat, galima nustatyti, kurios duomenÅ³ lentelÄ—s eilutÄ—s turi bent 
+# vienÄ… praleistÄ… reikÅ¡mÄ™.
 
 which(!complete.cases(d))
 
 
-# Atliekant statistinæ duomenø analizæ, praleistos reikğmës iğ duomenø turi bûti
-# pağalintos. Sukuriame loginá indeksà, kur TRUE reikğmë nurodo, kad tà elementà
+# Atliekant statistinÄ™ duomenÅ³ analizÄ™, praleistos reikÅ¡mÄ—s iÅ¡ duomenÅ³ turi bÅ«ti
+# paÅ¡alintos. Sukuriame loginÄ¯ indeksÄ…, kur TRUE reikÅ¡mÄ— nurodo, kad tÄ… elementÄ…
 # reikia pasirinkti.
 
 i <- !is.na(y)
 y[i]
 
-# Iğ duomenø lentelës, paprastai, reikia pağalinti tas eilutes, kuriose yra bent
-# viena praleista reikğmë. Sudarome loginá indeksà, kur TRUE reikğmë nurodo, kad
-# tà eilutæ reikia pasirinkti.
+# IÅ¡ duomenÅ³ lentelÄ—s, paprastai, reikia paÅ¡alinti tas eilutes, kuriose yra bent
+# viena praleista reikÅ¡mÄ—. Sudarome loginÄ¯ indeksÄ…, kur TRUE reikÅ¡mÄ— nurodo, kad
+# tÄ… eilutÄ™ reikia pasirinkti.
 
 i <- complete.cases(d)
 d[i, ]
 
 
-# Nepilnø stebiniø pağalinimui galima naudoti funkcijas na.exclude arba na.omit.
+# NepilnÅ³ stebiniÅ³ paÅ¡alinimui galima naudoti funkcijas na.exclude arba na.omit.
 
 na.omit(d)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite komandà, kuri apskaièiuotø elementø su praleistomis reikğmëmis
-#    skaièiø vektoriuje y. 
-# 2. Uşrağykite komandà, kuri apskaièiuotø eiluèiø su praleistomis reikğmëmis
-#    skaièiø duomenø lentelëje d. Kiek iğ viso yra praleistø reikğmiø lentelëje?
-# 3. Sukurkite duomenø lentelæ, kurioje bûtø tik tie stebiniai (eilutës), kurios
-#    turi bent vienà praleistà reikğmæ.
+# 1. UÅ¾raÅ¡ykite komandÄ…, kuri apskaiÄiuotÅ³ elementÅ³ su praleistomis reikÅ¡mÄ—mis
+#    skaiÄiÅ³ vektoriuje y. 
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri apskaiÄiuotÅ³ eiluÄiÅ³ su praleistomis reikÅ¡mÄ—mis
+#    skaiÄiÅ³ duomenÅ³ lentelÄ—je d. Kiek iÅ¡ viso yra praleistÅ³ reikÅ¡miÅ³ lentelÄ—je?
+# 3. Sukurkite duomenÅ³ lentelÄ™, kurioje bÅ«tÅ³ tik tie stebiniai (eilutÄ—s), kurios
+#    turi bent vienÄ… praleistÄ… reikÅ¡mÄ™.
 
 
 # --------------------------------------- #
-# DUOMENØ FILTRAVIMAS                     #
+# DUOMENÅ² FILTRAVIMAS                     #
 # --------------------------------------- #
 
-# Duomenø filtravimu vadinamas tam tikras sàlygas atitinkanèiø vektoriaus arba
-# duomenø lentelës elementø iğrinkimas. Pavyzdşiui, duomenø lentelës eiluèiø, 
-# kurios neturi praleistø reikğmiø iğrinkimas, taip pat yra duomenø filtravimas.
+# DuomenÅ³ filtravimu vadinamas tam tikras sÄ…lygas atitinkanÄiÅ³ vektoriaus arba
+# duomenÅ³ lentelÄ—s elementÅ³ iÅ¡rinkimas. PavyzdÅ¾iui, duomenÅ³ lentelÄ—s eiluÄiÅ³, 
+# kurios neturi praleistÅ³ reikÅ¡miÅ³ iÅ¡rinkimas, taip pat yra duomenÅ³ filtravimas.
 
-# Daşnai duomenø analizei reikalinga tik tam tikra dalis visø turimø duomenø.
-# Pvz., iğ duomenø lentelës iğrinksime tik vyrø stebinius. Paprasèiausiu atveju 
-# reikiamø eiluèiø numerius galima surağyti rankiniu bûdu, ir tokiu bûdu gautà 
-# indeksø vektoriø naudojame konkreèiø eiluèiø iğrinkimui.
+# DaÅ¾nai duomenÅ³ analizei reikalinga tik tam tikra dalis visÅ³ turimÅ³ duomenÅ³.
+# Pvz., iÅ¡ duomenÅ³ lentelÄ—s iÅ¡rinksime tik vyrÅ³ stebinius. PaprasÄiausiu atveju 
+# reikiamÅ³ eiluÄiÅ³ numerius galima suraÅ¡yti rankiniu bÅ«du, ir tokiu bÅ«du gautÄ… 
+# indeksÅ³ vektoriÅ³ naudojame konkreÄiÅ³ eiluÄiÅ³ iÅ¡rinkimui.
 
 d
 
@@ -327,73 +327,73 @@ i
 
 d[i, ]
 
-# Tais atvejais, kai vektorius ar duomenø lentelë yra didelë, reikiamø elementø 
-# iğrinkimà reikia atlikti automatiğkai. Uşrağysime sàlygà, kuri tikrina, kuriø 
-# kintamojo "lytis" elementø reikğmë yra "vyras". Gauname loginá vektoriø, kur 
-# TRUE reiğkia, kad sàlyga tenkinama, o FALSE - kad netenkinama.
+# Tais atvejais, kai vektorius ar duomenÅ³ lentelÄ— yra didelÄ—, reikiamÅ³ elementÅ³ 
+# iÅ¡rinkimÄ… reikia atlikti automatiÅ¡kai. UÅ¾raÅ¡ysime sÄ…lygÄ…, kuri tikrina, kuriÅ³ 
+# kintamojo "lytis" elementÅ³ reikÅ¡mÄ— yra "vyras". Gauname loginÄ¯ vektoriÅ³, kur 
+# TRUE reiÅ¡kia, kad sÄ…lyga tenkinama, o FALSE - kad netenkinama.
 
 i <- d$lytis == "vyras"
 i 
 
 d[i, ]
 
-# Daşnai tenka iğrinkti stebinius, kurie tenkina ne vienà sàlygà. Pavyzdşiui, iğ
-# lentelës d iğrinksime aukğtesnius nei 180 cm vyrus.
+# DaÅ¾nai tenka iÅ¡rinkti stebinius, kurie tenkina ne vienÄ… sÄ…lygÄ…. PavyzdÅ¾iui, iÅ¡
+# lentelÄ—s d iÅ¡rinksime aukÅ¡tesnius nei 180 cm vyrus.
 
-i <- d$lytis == "vyras" & d$ûgis > 180
+i <- d$lytis == "vyras" & d$Å«gis > 180
 
 d[i, ]
 
 
-# Svarbu atsiminti, kad bet koks loginis testas su NA reikğme, duoda NA, todël 
-# duomenyse, kuriuose yra praleistø reikğmiø, papildomai reikia tikrinti ar 
-# reikğmë yra nepraleista. Pavyzdşiui, iğ duomenø lentelës iğrinksime B grupës
+# Svarbu atsiminti, kad bet koks loginis testas su NA reikÅ¡me, duoda NA, todÄ—l 
+# duomenyse, kuriuose yra praleistÅ³ reikÅ¡miÅ³, papildomai reikia tikrinti ar 
+# reikÅ¡mÄ— yra nepraleista. PavyzdÅ¾iui, iÅ¡ duomenÅ³ lentelÄ—s iÅ¡rinksime B grupÄ—s
 # stebinius.
 
-i <- d$grupë == "B" & !is.na(d$grupë)     # 1 bûdas, sàlyga kartu su NA testu
+i <- d$grupÄ— == "B" & !is.na(d$grupÄ—)     # 1 bÅ«das, sÄ…lyga kartu su NA testu
 i                                         #
 d.1 <- d[i, ]                             #
 d.1
 
-i <- which(d$grupë == "B")                # 2 bûdas, trumpesnë komanda
+i <- which(d$grupÄ— == "B")                # 2 bÅ«das, trumpesnÄ— komanda
 i                                         #
 d.2 <- d[i, ]                             #
 d.2
 
-# Galima ásitikinti, kad abiem bûdais gauti duomenø rinkiniai sutampa.
+# Galima Ä¯sitikinti, kad abiem bÅ«dais gauti duomenÅ³ rinkiniai sutampa.
 identical(d.1, d.2)
 
 
-# Duomenø filtravimui naudojama procedûra subset. Jos parametrai:
+# DuomenÅ³ filtravimui naudojama procedÅ«ra subset. Jos parametrai:
 #
-#        x -- vektorius, matrica ar duomenø lentelë,
-#   subset -- loginë sàlyga,
-#   select -- paliekamø kintamøjø (stulpeliø) sàrağas.
+#        x -- vektorius, matrica ar duomenÅ³ lentelÄ—,
+#   subset -- loginÄ— sÄ…lyga,
+#   select -- paliekamÅ³ kintamÅ³jÅ³ (stulpeliÅ³) sÄ…raÅ¡as.
 
-# Naudojant ğià procedûrà, loginiai veiksmai su konstanta NA duoda reikğmæ FALSE. 
-# Pavyzdşiui, iğ lentelës d iğrinksime tik B grupës stebinius.
-subset(d, grupë == "B")
+# Naudojant Å¡iÄ… procedÅ«rÄ…, loginiai veiksmai su konstanta NA duoda reikÅ¡mÄ™ FALSE. 
+# PavyzdÅ¾iui, iÅ¡ lentelÄ—s d iÅ¡rinksime tik B grupÄ—s stebinius.
+subset(d, grupÄ— == "B")
 
-# Kadangi naujai sudarytame duomenø rinkinyje kintamasis "grupë" turi vienintelæ
-# reikğmæ "B", jis nebereikalingas, todël já galima iğmesti.
-subset(d, grupë == "B", selec = -grupë)
+# Kadangi naujai sudarytame duomenÅ³ rinkinyje kintamasis "grupÄ—" turi vienintelÄ™
+# reikÅ¡mÄ™ "B", jis nebereikalingas, todÄ—l jÄ¯ galima iÅ¡mesti.
+subset(d, grupÄ— == "B", selec = -grupÄ—)
 
-# Galima nurodyti ir kelis kintamuosius, kuriuos reikia palikti arba iğmesti.
-subset(d, grupë == "B", selec = c(lytis, ûgis))
+# Galima nurodyti ir kelis kintamuosius, kuriuos reikia palikti arba iÅ¡mesti.
+subset(d, grupÄ— == "B", selec = c(lytis, Å«gis))
 
-# Iğ eilës einanèiø kintamøjø aibæ galima nurodyti per dvitağká uşrağant pirmojo 
+# IÅ¡ eilÄ—s einanÄiÅ³ kintamÅ³jÅ³ aibÄ™ galima nurodyti per dvitaÅ¡kÄ¯ uÅ¾raÅ¡ant pirmojo 
 # ir paskutinio kintamojo vardus.
-subset(d, grupë == "B", selec = lytis:ûgis)
+subset(d, grupÄ— == "B", selec = lytis:Å«gis)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite komandà, kuri surastø, kuriose duomenø lentelës d eilutëse yra
-#    daugiau nei 80 kg sveriantys vyrai. Turite gauti eiluèiø numeriø vektoriø.
-#    Naudojant ğá indeksø vektoriø sudarykite naujà duomenø lentelæ.
-# 2. Uşrağykite komandà, kuri apskaièiuotø, kiek grupëje B yra moterø. Turite
-#    gauti vienà skaièiø.
-# 3. Iğ duomenø lentelës d iğrinkite B grupës moterø stebinius. Uşrağykite dvi
-#    tokios komandos versijas: naudojant procedûrà subset ir nenaudojant jos.
-# 4. Iğ duomenø lentelës mtcars iğrinkite tas mağinas, kuriø variklis turi 4 
+# 1. UÅ¾raÅ¡ykite komandÄ…, kuri surastÅ³, kuriose duomenÅ³ lentelÄ—s d eilutÄ—se yra
+#    daugiau nei 80 kg sveriantys vyrai. Turite gauti eiluÄiÅ³ numeriÅ³ vektoriÅ³.
+#    Naudojant Å¡Ä¯ indeksÅ³ vektoriÅ³ sudarykite naujÄ… duomenÅ³ lentelÄ™.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri apskaiÄiuotÅ³, kiek grupÄ—je B yra moterÅ³. Turite
+#    gauti vienÄ… skaiÄiÅ³.
+# 3. IÅ¡ duomenÅ³ lentelÄ—s d iÅ¡rinkite B grupÄ—s moterÅ³ stebinius. UÅ¾raÅ¡ykite dvi
+#    tokios komandos versijas: naudojant procedÅ«rÄ… subset ir nenaudojant jos.
+# 4. IÅ¡ duomenÅ³ lentelÄ—s mtcars iÅ¡rinkite tas maÅ¡inas, kuriÅ³ variklis turi 4 
 #    cilindrus (kintamasis "cyl").

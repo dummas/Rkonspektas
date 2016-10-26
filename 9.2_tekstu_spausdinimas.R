@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Simboliø sekø apjungimas ir jø atvaizdavimas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            SimboliÅ³ sekÅ³ apjungimas ir jÅ³ atvaizdavimas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2016-03-29 | 2016-04-09 | 2016-04-12 | 2016-04-19
 #
@@ -12,14 +12,14 @@
 # TURINYS -------------------------------
 
 #
-#   1. Simboliø sekø apjungimas:
+#   1. SimboliÅ³ sekÅ³ apjungimas:
 #      * funkcija paste
 #      * funkcija paste0
 #
-#   2. Objektø atvaizdavimas ekrane:
+#   2. ObjektÅ³ atvaizdavimas ekrane:
 #      * funkcija print
 #
-#   3. Pagalbinës simboliø sekø atvaizdavimo funkcijos:
+#   3. PagalbinÄ—s simboliÅ³ sekÅ³ atvaizdavimo funkcijos:
 #      * funkcija noquote
 #      * funkcija strtrim
 #      * funkcija abbreviate
@@ -31,79 +31,79 @@
 # PASTABOS ------------------------------
 
 #
-# Parağyti apie funkcijà format ir format.info.
-# Sugalvoti daugiau uşdaviniø.
+# ParaÅ¡yti apie funkcijÄ… format ir format.info.
+# Sugalvoti daugiau uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# SEKØ APJUNGIMAS                         #
+# SEKÅ² APJUNGIMAS                         #
 # --------------------------------------- #
 
-# Atliekant ávairius skaièiavimus arba pateikiant tø skaièiavimø rezultatus, yra 
-# kelios tipinës situacijos, kada simboliø sekà reikia sujungti su kita simboliø
-# seka. Simboliai èia gali bûti tiek skaièiai, tiek raidës arba skyrybos şenklai. 
-# R kalboje simboliø sekø apjungimui naudojama funkcija paste. Jos parametrai:
+# Atliekant Ä¯vairius skaiÄiavimus arba pateikiant tÅ³ skaiÄiavimÅ³ rezultatus, yra 
+# kelios tipinÄ—s situacijos, kada simboliÅ³ sekÄ… reikia sujungti su kita simboliÅ³
+# seka. Simboliai Äia gali bÅ«ti tiek skaiÄiai, tiek raidÄ—s arba skyrybos Å¾enklai. 
+# R kalboje simboliÅ³ sekÅ³ apjungimui naudojama funkcija paste. Jos parametrai:
 #
 #        ... -- apjungiami vektoriai,
-#        sep -- simboliø seka, kuri atskiria atskirø vektoriø elementus.
-#   collapse -- NULL arba simboliø seka, kuri atskiria vektorius.
+#        sep -- simboliÅ³ seka, kuri atskiria atskirÅ³ vektoriÅ³ elementus.
+#   collapse -- NULL arba simboliÅ³ seka, kuri atskiria vektorius.
 
-# Parametras ... nurodo, kad apjungiamø sekø ar vektoriø skaièius nëra iğ anksto
-# nustatytas, todël vektoriø gali bûti du, trys ir daugiau. Apjungimas gali bûti 
-# atliekamas keliais bûdais. Paprasèiausiu atveju vieno vektoriaus elementai bus
+# Parametras ... nurodo, kad apjungiamÅ³ sekÅ³ ar vektoriÅ³ skaiÄius nÄ—ra iÅ¡ anksto
+# nustatytas, todÄ—l vektoriÅ³ gali bÅ«ti du, trys ir daugiau. Apjungimas gali bÅ«ti 
+# atliekamas keliais bÅ«dais. PaprasÄiausiu atveju vieno vektoriaus elementai bus
 # apjungiami su atitinkamais kito vektoriaus elementais. 
 
-# Pavyzdşiui, apjungsime didşiàsias ir maşàsias lotyniğkos abëcëlës raides. Ğiuo
-# atveju gaunamos tarpu atskirtos atitinkamø raidşiø poros. Tarpu, nes tokia yra
-# parametro sep numatyta reikğmë.
+# PavyzdÅ¾iui, apjungsime didÅ¾iÄ…sias ir maÅ¾Ä…sias lotyniÅ¡kos abÄ—cÄ—lÄ—s raides. Å iuo
+# atveju gaunamos tarpu atskirtos atitinkamÅ³ raidÅ¾iÅ³ poros. Tarpu, nes tokia yra
+# parametro sep numatyta reikÅ¡mÄ—.
 
 paste(LETTERS, letters)
 
-# Norint, kad vektoriø elementai bûtø sujungti be tarpo, parametrui sep nurodome
-# tuğèià sekà "".
+# Norint, kad vektoriÅ³ elementai bÅ«tÅ³ sujungti be tarpo, parametrui sep nurodome
+# tuÅ¡ÄiÄ… sekÄ… "".
 
 paste(LETTERS, letters, sep = "")
 
-# Tokiu atveju kartais patogiau naudoti f-jà paste0(...) = paste(..., sep = "").
+# Tokiu atveju kartais patogiau naudoti f-jÄ… paste0(...) = paste(..., sep = "").
 
 paste(LETTERS, letters)
 
 
-# Apjungiant raides, kiekvienas vektorius turëjo daug elementø -- tiek, kiek yra
-# raidşiø. Lygiai taip pat galima apjungti dvi sekas ir gauti vienà bendrà sekà.
-# Pavyzdşiui, suformuluosime tekstà, kuris pasako ğios dienos datà.
+# Apjungiant raides, kiekvienas vektorius turÄ—jo daug elementÅ³ -- tiek, kiek yra
+# raidÅ¾iÅ³. Lygiai taip pat galima apjungti dvi sekas ir gauti vienÄ… bendrÄ… sekÄ….
+# PavyzdÅ¾iui, suformuluosime tekstÄ…, kuris pasako Å¡ios dienos datÄ….
 
-paste("Ğios dienos data:", Sys.Date())
+paste("Å ios dienos data:", Sys.Date())
 
 
-# Funkcija paste apjungiamus skaitinius arba kitokio tipo vektorius automatiğkai 
-# paverèia á character tipo reikğmiø vektorius. Pavyzdşiui, taip galima sudaryti
-# datas iğ atskirø metø, mënesiø ir dienø vektoriø.
+# Funkcija paste apjungiamus skaitinius arba kitokio tipo vektorius automatiÅ¡kai 
+# paverÄia Ä¯ character tipo reikÅ¡miÅ³ vektorius. PavyzdÅ¾iui, taip galima sudaryti
+# datas iÅ¡ atskirÅ³ metÅ³, mÄ—nesiÅ³ ir dienÅ³ vektoriÅ³.
 
 metai <- c(1236, 1260, 1410, 1514, 1605)
-mënuo <- c(9, 7, 7, 9, 9)
+mÄ—nuo <- c(9, 7, 7, 9, 9)
 diena <- c(22, 13, 15, 8, 27)
 
-datos <- paste(metai, mënuo, diena, sep = "-")
+datos <- paste(metai, mÄ—nuo, diena, sep = "-")
 datos
 
 
-# Jeigu apjungiami nevienodà elementø skaièiø turintys vektoriai, tai trumpesnis
-# vektorius cikliğkai pratæsiamas. Pavyzdşiui, taip paprastai galima sugeneruoti
-# ávairias numeruotas sekas:
+# Jeigu apjungiami nevienodÄ… elementÅ³ skaiÄiÅ³ turintys vektoriai, tai trumpesnis
+# vektorius cikliÅ¡kai pratÄ™siamas. PavyzdÅ¾iui, taip paprastai galima sugeneruoti
+# Ä¯vairias numeruotas sekas:
 
 paste("A", 0:9, sep = "")
 
@@ -112,11 +112,11 @@ paste(1, 1:10, sep = "/")
 paste(seq(5, 25, 5), "%")
 
 
-# Jeigu vektoriø elementus reikia apjungti á vienà bendrà tekstà, tai parametrui
-# collapse priskiriama simboliø seka, kuri tekste atskiria vektoriaus elementus.
-# Standartinë parametro reikğmë NULL nurodo, kad elementai á vienà bendrà tekstà
-# nebus apjungiami. Jeigu parametrui priskiriame tuğèià sekà "", tada apjungimas 
-# bus be tarpø. Pavyzdşiui, taip galima apjungti abëcëlës raides ar skaièiø sekà.
+# Jeigu vektoriÅ³ elementus reikia apjungti Ä¯ vienÄ… bendrÄ… tekstÄ…, tai parametrui
+# collapse priskiriama simboliÅ³ seka, kuri tekste atskiria vektoriaus elementus.
+# StandartinÄ— parametro reikÅ¡mÄ— NULL nurodo, kad elementai Ä¯ vienÄ… bendrÄ… tekstÄ…
+# nebus apjungiami. Jeigu parametrui priskiriame tuÅ¡ÄiÄ… sekÄ… "", tada apjungimas 
+# bus be tarpÅ³. PavyzdÅ¾iui, taip galima apjungti abÄ—cÄ—lÄ—s raides ar skaiÄiÅ³ sekÄ….
 
 paste(letters, collapse = "")
 
@@ -127,12 +127,12 @@ paste(1, 1:10, sep = "/", collapse = " + ")
 
 # NAUDINGA ------------------------------
 
-# Gana daşnai skaièiavimø rezultatus reikia árağyti á atskirus failus. Paprastai
-# tokie failai sudaromi automatiğkai, o jø vardai daşniausiai skiriasi tik eilës 
-# numeriu. Pavyzdşiui, sudarysime penkiø tekstiniø failø pavadinimø vektoriø.
+# Gana daÅ¾nai skaiÄiavimÅ³ rezultatus reikia Ä¯raÅ¡yti Ä¯ atskirus failus. Paprastai
+# tokie failai sudaromi automatiÅ¡kai, o jÅ³ vardai daÅ¾niausiai skiriasi tik eilÄ—s 
+# numeriu. PavyzdÅ¾iui, sudarysime penkiÅ³ tekstiniÅ³ failÅ³ pavadinimÅ³ vektoriÅ³.
 
 base <- "failas_"  # bendra visiems failams pavadinimo dalis
-type <- ".txt"     # failo iğplëtimas
+type <- ".txt"     # failo iÅ¡plÄ—timas
 numb <- 1:5        # failo numeris
 
 failai <- paste(base, numb, type, sep = "")
@@ -141,70 +141,70 @@ failai
 
 # NAUDINGA ------------------------------
 
-# Funkcijà paste galima panaudoti kodø generavimui. Pavyzdşiui, uşrağysime f-jà,
-# kuri sudaro kodà iğ atsitiktinai su vienodomis tikimybëmis pasirinktø didşiøjø 
-# lotyniğkos abëcëlës raidşiø. Tarkime, kad kodas bus iğ k raidşiø. Jø iğrinkimà
-# atliksime naudojant funkcijà sample, o apjungimà á kodà --- su funkcija paste.
+# FunkcijÄ… paste galima panaudoti kodÅ³ generavimui. PavyzdÅ¾iui, uÅ¾raÅ¡ysime f-jÄ…,
+# kuri sudaro kodÄ… iÅ¡ atsitiktinai su vienodomis tikimybÄ—mis pasirinktÅ³ didÅ¾iÅ³jÅ³ 
+# lotyniÅ¡kos abÄ—cÄ—lÄ—s raidÅ¾iÅ³. Tarkime, kad kodas bus iÅ¡ k raidÅ¾iÅ³. JÅ³ iÅ¡rinkimÄ…
+# atliksime naudojant funkcijÄ… sample, o apjungimÄ… Ä¯ kodÄ… --- su funkcija paste.
 
 kodas <- function(k = 5) paste(sample(LETTERS, k, TRUE), collapse = "")
 
-# Tokios f-jos rezultatas bus vienas kodas. Tarkime, mums reikalingas trişenklis 
+# Tokios f-jos rezultatas bus vienas kodas. Tarkime, mums reikalingas triÅ¾enklis 
 # kodas.
 
 kodas(3)
 
-# Ástaèius kodo generavimo funkcijà á funkcijà replicate, galime sugeneruoti bet
-# koká kieká nustatyto ilgio kodø. Pavyzdşiui, sugeneruosime 10 trişenkliø kodø.
+# Ä®staÄius kodo generavimo funkcijÄ… Ä¯ funkcijÄ… replicate, galime sugeneruoti bet
+# kokÄ¯ kiekÄ¯ nustatyto ilgio kodÅ³. PavyzdÅ¾iui, sugeneruosime 10 triÅ¾enkliÅ³ kodÅ³.
 
 kodai <- replicate(10, kodas(3))
 kodai
 
-# Paprastai reikalaujama, kad visi kodai (pvz., duomenø lentelës eiluèiø vardai)
-# bûtø unikalûs. Tai nesunku patikrinti.
+# Paprastai reikalaujama, kad visi kodai (pvz., duomenÅ³ lentelÄ—s eiluÄiÅ³ vardai)
+# bÅ«tÅ³ unikalÅ«s. Tai nesunku patikrinti.
 
 anyDuplicated(kodai)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite tokià komandà, kuri bet kokios duomenø lentelës kintamøjø vardus 
-#    automatiğkai pakeistø á "X_1", "X_2" ir t. t.
-# 2. Uşrağykite komandà, kuri şodá arba bet kokià kità simboliø sekà uşrağytø iğ 
+# 1. UÅ¾raÅ¡ykite tokiÄ… komandÄ…, kuri bet kokios duomenÅ³ lentelÄ—s kintamÅ³jÅ³ vardus 
+#    automatiÅ¡kai pakeistÅ³ Ä¯ "X_1", "X_2" ir t. t.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri Å¾odÄ¯ arba bet kokiÄ… kitÄ… simboliÅ³ sekÄ… uÅ¾raÅ¡ytÅ³ iÅ¡ 
 #    kito galo.
-# 3. Sudarykite programà, kuri generuotø atsitiktiná skaièiø şodşiø, sudarytø iğ
-#    atsitiktinio skaièiaus maşøjø lotyniğkos abëcëlës raidşiø.
+# 3. Sudarykite programÄ…, kuri generuotÅ³ atsitiktinÄ¯ skaiÄiÅ³ Å¾odÅ¾iÅ³, sudarytÅ³ iÅ¡
+#    atsitiktinio skaiÄiaus maÅ¾Å³jÅ³ lotyniÅ¡kos abÄ—cÄ—lÄ—s raidÅ¾iÅ³.
 
 
 # --------------------------------------- #
-# OBJEKTØ ATVAIZDAVIMAS EKRANE            #
+# OBJEKTÅ² ATVAIZDAVIMAS EKRANE            #
 # --------------------------------------- #
 
-# Tai, kaip ekrane bus vaizduojamas vektorius, matrica, duomenø lentelë ar kitas 
-# R objektas, priklauso nuo to objekto tipo (klasës). Pavyzdşiui, character tipo
-# reikğmës vaizduojamos kabutëse, o factor tipo reikğmës - be kabuèiø. Paprastai
-# objektai vaizduojami taip, kaip numatyta, be papildomo apipavidalinimo, taèiau 
-# standartines R objektø atvaizdavimo taisykles galima pakeisti.
+# Tai, kaip ekrane bus vaizduojamas vektorius, matrica, duomenÅ³ lentelÄ— ar kitas 
+# R objektas, priklauso nuo to objekto tipo (klasÄ—s). PavyzdÅ¾iui, character tipo
+# reikÅ¡mÄ—s vaizduojamos kabutÄ—se, o factor tipo reikÅ¡mÄ—s - be kabuÄiÅ³. Paprastai
+# objektai vaizduojami taip, kaip numatyta, be papildomo apipavidalinimo, taÄiau 
+# standartines R objektÅ³ atvaizdavimo taisykles galima pakeisti.
 
-# Ávairiø R objektø iğvedimui á ekranà naudojama funkcija print. Jos parametrai:
+# Ä®vairiÅ³ R objektÅ³ iÅ¡vedimui Ä¯ ekranÄ… naudojama funkcija print. Jos parametrai:
 #
 #          x -- vektorius ar kitokio tipo R objektas,
-#     digits -- maşiausias realiojo skaièiaus reikğmingø skaitmenø skaièius,
-#      quote -- TRUE nurodo, kad character tipo reikğmës rodomos su kabutëmis,
-#   na.print -- simboliø seka, kuri vaizduojama vietoje NA reikğmës,
-#  print.gap -- tarpo plotis tarp vektoriaus elementø arba matricos stulpeliø,
-#      right -- FALSE nurodo, kad simboliø sekos lygiuojamos pagal değinæ pusæ,
-#        max -- á ekranà iğvedamø vektoriaus ar matricos elementø skaièius.
+#     digits -- maÅ¾iausias realiojo skaiÄiaus reikÅ¡mingÅ³ skaitmenÅ³ skaiÄius,
+#      quote -- TRUE nurodo, kad character tipo reikÅ¡mÄ—s rodomos su kabutÄ—mis,
+#   na.print -- simboliÅ³ seka, kuri vaizduojama vietoje NA reikÅ¡mÄ—s,
+#  print.gap -- tarpo plotis tarp vektoriaus elementÅ³ arba matricos stulpeliÅ³,
+#      right -- FALSE nurodo, kad simboliÅ³ sekos lygiuojamos pagal deÅ¡inÄ™ pusÄ™,
+#        max -- Ä¯ ekranÄ… iÅ¡vedamÅ³ vektoriaus ar matricos elementÅ³ skaiÄius.
 
 
-# Kiek realiojo skaièiaus skaitmenø rodoma ekrane, nustato sisteminis parametras
-# digits. Standartinë jo reikğmë yra 7.
+# Kiek realiojo skaiÄiaus skaitmenÅ³ rodoma ekrane, nustato sisteminis parametras
+# digits. StandartinÄ— jo reikÅ¡mÄ— yra 7.
 
 options("digits")
 
-# Jeigu realiøjø skaièiø atvaizdavimui ekrane naudojama funkcija print, keièiant
-# jos parametro digits reikğmæ, galima nustatyti ekrane rodomø skaitmenø skaièiø. 
-# Pademonstruosime, kaip, keièiant ğio parametro reikğmæ, kompiuterio ekrane bus 
-# atvaizduojamas realiøjø skaièiø vektorius.
+# Jeigu realiÅ³jÅ³ skaiÄiÅ³ atvaizdavimui ekrane naudojama funkcija print, keiÄiant
+# jos parametro digits reikÅ¡mÄ™, galima nustatyti ekrane rodomÅ³ skaitmenÅ³ skaiÄiÅ³. 
+# Pademonstruosime, kaip, keiÄiant Å¡io parametro reikÅ¡mÄ™, kompiuterio ekrane bus 
+# atvaizduojamas realiÅ³jÅ³ skaiÄiÅ³ vektorius.
 
 x <- rnorm(20)
 x
@@ -216,14 +216,14 @@ print(x, digits = 5)
 print(x, digits = 20)
 
 
-# Parametras print.gap nurodo tarpo tarp gretimø vektoriaus reikğmiø ar matricos
-# stulpeliø plotá. Pavyzdşiui, padidinsime tarpà tarp vektoriaus elementø iki 5.
+# Parametras print.gap nurodo tarpo tarp gretimÅ³ vektoriaus reikÅ¡miÅ³ ar matricos
+# stulpeliÅ³ plotÄ¯. PavyzdÅ¾iui, padidinsime tarpÄ… tarp vektoriaus elementÅ³ iki 5.
 
 print(x)
 print(x, print.gap = 5)
 print(x, print.gap = 5, digits = 3)
 
-# Taip pat galima padidinti tarpus tarp matricos arba duomenø lentelës stulpeliø.
+# Taip pat galima padidinti tarpus tarp matricos arba duomenÅ³ lentelÄ—s stulpeliÅ³.
 
 m <- matrix(x, 5, byrow = TRUE)
 m
@@ -232,10 +232,10 @@ print(m, print.gap = 4)
 print(m, print.gap = 4, digits = 3)
 
 
-# Praleistos reikğmës standartiğkai şymimos NA, lygiai taip pat jos vaizduojamos
-# ir ekrane. Taèiau, naudojant parametrà na.print, vietoje NA galima pavaizduoti 
-# kitokià simboliø sekà arba net ir vienà simbolá. Pavyzdşiui, iğvesime á ekranà
-# skaitiná vektoriø su praleistomis reikğmëmis, kurias şymi tağko simbolis. 
+# Praleistos reikÅ¡mÄ—s standartiÅ¡kai Å¾ymimos NA, lygiai taip pat jos vaizduojamos
+# ir ekrane. TaÄiau, naudojant parametrÄ… na.print, vietoje NA galima pavaizduoti 
+# kitokiÄ… simboliÅ³ sekÄ… arba net ir vienÄ… simbolÄ¯. PavyzdÅ¾iui, iÅ¡vesime Ä¯ ekranÄ…
+# skaitinÄ¯ vektoriÅ³ su praleistomis reikÅ¡mÄ—mis, kurias Å¾ymi taÅ¡ko simbolis. 
 
 y <- airquality$Ozone
 y
@@ -244,8 +244,8 @@ print(y)
 print(y, na.print = ".")
 
 
-# Standartiğkai character tipo reikğmë ekrane rodoma su kabutëmis. Jeigu tekstas
-# turi bûti rodomas be kabuèiø, parametro quote reikğmæ reikia pakeisti á FALSE.
+# StandartiÅ¡kai character tipo reikÅ¡mÄ— ekrane rodoma su kabutÄ—mis. Jeigu tekstas
+# turi bÅ«ti rodomas be kabuÄiÅ³, parametro quote reikÅ¡mÄ™ reikia pakeisti Ä¯ FALSE.
 
 w <- c("lorem", "ipsum", "dolor", "sit", "amet", "aliquip", "docendi", "decore",
        "mnesarchum", "nullam", "perfecto", "an", "vix", "cu", "et", "molestiae",
@@ -255,8 +255,8 @@ w <- c("lorem", "ipsum", "dolor", "sit", "amet", "aliquip", "docendi", "decore",
 print(w)
 print(w, quote = FALSE)
 
-# Jeigu şodşiai ar kitos character tipo reikğmës yra nevienodo ilgio, jas galima
-# iğlygiuoti pagal ilgiausio şodşio kairæ arba değinæ pusæ. Tam naudojamas f-jos
+# Jeigu Å¾odÅ¾iai ar kitos character tipo reikÅ¡mÄ—s yra nevienodo ilgio, jas galima
+# iÅ¡lygiuoti pagal ilgiausio Å¾odÅ¾io kairÄ™ arba deÅ¡inÄ™ pusÄ™. Tam naudojamas f-jos
 # print parametras rigth.
 
 print(w)
@@ -267,34 +267,34 @@ print(w, right = TRUE, quote = FALSE, print.gap = 7)
 
 # NAUDINGA ------------------------------
 
-# Tai, kaip R objektas vaizduojamas ekrane, priklauso nuo jo tipo (klasës). F-ja
-# print turi keletà metodø, kurie pritaikomi ávairaus tipo objektø atvaizdavimui.
+# Tai, kaip R objektas vaizduojamas ekrane, priklauso nuo jo tipo (klasÄ—s). F-ja
+# print turi keletÄ… metodÅ³, kurie pritaikomi Ä¯vairaus tipo objektÅ³ atvaizdavimui.
 
 methods(print)
 
-# Vienas iğ daşnai pasitaikanèiø objektø -- daşniø lentelës. Joms funkcija print
-# taip pat turi metodà bei keletà specifiniø parametrø, nuo kuriø priklauso, tai 
-# kaip atrodo ekrane atspausdinta daşniø lentelë.
+# Vienas iÅ¡ daÅ¾nai pasitaikanÄiÅ³ objektÅ³ -- daÅ¾niÅ³ lentelÄ—s. Joms funkcija print
+# taip pat turi metodÄ… bei keletÄ… specifiniÅ³ parametrÅ³, nuo kuriÅ³ priklauso, tai 
+# kaip atrodo ekrane atspausdinta daÅ¾niÅ³ lentelÄ—.
 
-# Pavyzdşiui, sudarysime gretimø raidşiø lietuviğkuose şodşiuose daşniø lentelæ.
-# Iğ pradşiø uşrağome daşnai pasitaikanèiø şodşiø vektoriø.
+# PavyzdÅ¾iui, sudarysime gretimÅ³ raidÅ¾iÅ³ lietuviÅ¡kuose Å¾odÅ¾iuose daÅ¾niÅ³ lentelÄ™.
+# IÅ¡ pradÅ¾iÅ³ uÅ¾raÅ¡ome daÅ¾nai pasitaikanÄiÅ³ Å¾odÅ¾iÅ³ vektoriÅ³.
 
-z <- c("prie", "taèiau", "didelis", "sistema", "gamyba", "ámonë", "koks", "nes",
-      "vieta", "şemë", "pirmas", "norëti", "naujas", "dabar", "narys", "şinoti",
-      "pagal", "ástatymas", "vaikas", "todël", "net", "iki", "gyvenimas", "jei",
-      "daşnai", "pirmininkas", "svarbus", "ant", "grupë", "kiekvienas", "dalis",
-      "atlikti", "seimas", "diena", "tai", "sakyti", "du", "valstybë", "duomuo",
-      "gerai", "prieğ", "kur", "negalëti", "jeigu", "pasaulis", "niekas", "dël",
-      "ğalis", "klausimas", "geras", "nei", "nustatyti", "be", "metas", "savæs",
-      "viskas", "pradëti", "procesas", "pateikti", "kartas", "priimti", "gauti",
-      "veikla", "ûkis", "vanduo", "ávairus", "dirbti", "ligonis", "pagrindinis",
-      "kiek", "pavyzdys", "imti", "skirti", "informacija", "lietuvis", "padëti",
-      "tarp", "ranka", "tapti", "bendras", "vyriausybë", "kalbëti", "projektas",
-      "miestas", "şodis", "projektas", "respublika", "kalba", "daryti", "sàlyga")
+z <- c("prie", "taÄiau", "didelis", "sistema", "gamyba", "Ä¯monÄ—", "koks", "nes",
+      "vieta", "Å¾emÄ—", "pirmas", "norÄ—ti", "naujas", "dabar", "narys", "Å¾inoti",
+      "pagal", "Ä¯statymas", "vaikas", "todÄ—l", "net", "iki", "gyvenimas", "jei",
+      "daÅ¾nai", "pirmininkas", "svarbus", "ant", "grupÄ—", "kiekvienas", "dalis",
+      "atlikti", "seimas", "diena", "tai", "sakyti", "du", "valstybÄ—", "duomuo",
+      "gerai", "prieÅ¡", "kur", "negalÄ—ti", "jeigu", "pasaulis", "niekas", "dÄ—l",
+      "Å¡alis", "klausimas", "geras", "nei", "nustatyti", "be", "metas", "savÄ™s",
+      "viskas", "pradÄ—ti", "procesas", "pateikti", "kartas", "priimti", "gauti",
+      "veikla", "Å«kis", "vanduo", "Ä¯vairus", "dirbti", "ligonis", "pagrindinis",
+      "kiek", "pavyzdys", "imti", "skirti", "informacija", "lietuvis", "padÄ—ti",
+      "tarp", "ranka", "tapti", "bendras", "vyriausybÄ—", "kalbÄ—ti", "projektas",
+      "miestas", "Å¾odis", "projektas", "respublika", "kalba", "daryti", "sÄ…lyga")
 
-# Şodşius iğskaidome á atskiras raides, sudarome vienas po kito einanèiø raidşiø
-# poras, atskirø şodşiø raidşiø poras apjungiame á bendrà lentelæ ir tada iğ jos 
-# sudarome raidşiø porø daşniø lentelæ.
+# Å½odÅ¾ius iÅ¡skaidome Ä¯ atskiras raides, sudarome vienas po kito einanÄiÅ³ raidÅ¾iÅ³
+# poras, atskirÅ³ Å¾odÅ¾iÅ³ raidÅ¾iÅ³ poras apjungiame Ä¯ bendrÄ… lentelÄ™ ir tada iÅ¡ jos 
+# sudarome raidÅ¾iÅ³ porÅ³ daÅ¾niÅ³ lentelÄ™.
 
 s <- strsplit(z, "")
 p <- sapply(s, embed, 2)
@@ -306,31 +306,31 @@ antra <- g[, 1]
 L <- table(pirma, antra)
 L
 
-# Matome, kad daşniø lentelëje yra gana daug nuliniø daşniø. Taip yra todël, kad 
-# nagrinëjamø şodşiø palyginus nedaug ir retos raidşiø poros tarp jø nepasitaiko.
-# Didelis nuliniø daşniø kiekis lentelëje trukdo áşvelgti kitus skaièius. Taèiau,
-# naudojant funkcijos print parametrà zero.print, galima nustatyti, koká simbolá 
-# rodyti vietoje nulio. Pavyzdşiui, nustatysime, kad bûtø rodomas tağkas.
+# Matome, kad daÅ¾niÅ³ lentelÄ—je yra gana daug nuliniÅ³ daÅ¾niÅ³. Taip yra todÄ—l, kad 
+# nagrinÄ—jamÅ³ Å¾odÅ¾iÅ³ palyginus nedaug ir retos raidÅ¾iÅ³ poros tarp jÅ³ nepasitaiko.
+# Didelis nuliniÅ³ daÅ¾niÅ³ kiekis lentelÄ—je trukdo Ä¯Å¾velgti kitus skaiÄius. TaÄiau,
+# naudojant funkcijos print parametrÄ… zero.print, galima nustatyti, kokÄ¯ simbolÄ¯ 
+# rodyti vietoje nulio. PavyzdÅ¾iui, nustatysime, kad bÅ«tÅ³ rodomas taÅ¡kas.
 
 print(L)
 print(L, zero.print = ".")
 
 
-# Daşniø lentelë iğ esmës yra skaièiø matrica, taèiau jos klasë ne "matrix", bet 
-# "table", ir pagal ğá poşymá daşniø lentelës atskiriamos nuo visø kitø matricø. 
-# Taèiau R objekto klasæ galima nesunkiai pakeisti. Pavyzdşiui, skaièiø matricai 
-# priskirsime "table" klasæ ir taip apgausime funkcijà print.
+# DaÅ¾niÅ³ lentelÄ— iÅ¡ esmÄ—s yra skaiÄiÅ³ matrica, taÄiau jos klasÄ— ne "matrix", bet 
+# "table", ir pagal Å¡Ä¯ poÅ¾ymÄ¯ daÅ¾niÅ³ lentelÄ—s atskiriamos nuo visÅ³ kitÅ³ matricÅ³. 
+# TaÄiau R objekto klasÄ™ galima nesunkiai pakeisti. PavyzdÅ¾iui, skaiÄiÅ³ matricai 
+# priskirsime "table" klasÄ™ ir taip apgausime funkcijÄ… print.
 
 m <- matrix(sample(0:1, 100, TRUE), 10)
 m
 
-# Paprasta matrica nëra daşniø lentelë ir parametras zero.print nieko nepakeièia.
+# Paprasta matrica nÄ—ra daÅ¾niÅ³ lentelÄ— ir parametras zero.print nieko nepakeiÄia.
 
 class(m)
 print(m, zero.print = ".")
 
-# Pakeitus objekto klasæ, ta pati matrica atpaşástama kaip daşniø lentelë, todël
-# jau galima nustatyti, kaip ji turi bûti atvaizduojama ekrane.
+# Pakeitus objekto klasÄ™, ta pati matrica atpaÅ¾Ä¯stama kaip daÅ¾niÅ³ lentelÄ—, todÄ—l
+# jau galima nustatyti, kaip ji turi bÅ«ti atvaizduojama ekrane.
 
 class(m)
 class(m) <- "table"
@@ -338,101 +338,101 @@ class(m) <- "table"
 print(m, zero.print = ".")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sugalvokite tokià koreliacijø matricos atvaizdavimo funkcijà, kad reikğmës, 
-#    absoliutiniu dydşiu maşesnës uş tam tikrà pasirenkamà ribà, bûtø nerodomos.
+# 1. Sugalvokite tokiÄ… koreliacijÅ³ matricos atvaizdavimo funkcijÄ…, kad reikÅ¡mÄ—s, 
+#    absoliutiniu dydÅ¾iu maÅ¾esnÄ—s uÅ¾ tam tikrÄ… pasirenkamÄ… ribÄ…, bÅ«tÅ³ nerodomos.
 # 2. 
 #    
 
 
 # --------------------------------------- #
-# SIMBOLIØ SEKØ ATVAIZDAVIMO FUNKCIJOS    #
+# SIMBOLIÅ² SEKÅ² ATVAIZDAVIMO FUNKCIJOS    #
 # --------------------------------------- #
 
-# Dël ávairiø prieşasèiø skaièiø vektoriø, duomenø lentelæ, simboliø sekà ar bet
-# koká kità R objektà nevisada galima pavaizduoti toká, koks jis yra. Pavyzdşiui,
-# gali bûti taip, kad teksto ilgá riboja simboliø skaièius eilutëje. Tada tekstà
-# reikia nukirpti, kad jis tilptø á eilutæ. Panağiø situacijø yra ir daugiau.
+# DÄ—l Ä¯vairiÅ³ prieÅ¾asÄiÅ³ skaiÄiÅ³ vektoriÅ³, duomenÅ³ lentelÄ™, simboliÅ³ sekÄ… ar bet
+# kokÄ¯ kitÄ… R objektÄ… nevisada galima pavaizduoti tokÄ¯, koks jis yra. PavyzdÅ¾iui,
+# gali bÅ«ti taip, kad teksto ilgÄ¯ riboja simboliÅ³ skaiÄius eilutÄ—je. Tada tekstÄ…
+# reikia nukirpti, kad jis tilptÅ³ Ä¯ eilutÄ™. PanaÅ¡iÅ³ situacijÅ³ yra ir daugiau.
 
-# R turi keletà pagalbiniø funkcijø, kurios padeda suformuoti tekstà: paversti á
-# simboliø sekà skaièiø vektorius, nukirpti simboliø sekà iki tam tikro simboliø 
-# skaièiaus, sulygiuoti atskiras simboliø sekas ir pan.
+# R turi keletÄ… pagalbiniÅ³ funkcijÅ³, kurios padeda suformuoti tekstÄ…: paversti Ä¯
+# simboliÅ³ sekÄ… skaiÄiÅ³ vektorius, nukirpti simboliÅ³ sekÄ… iki tam tikro simboliÅ³ 
+# skaiÄiaus, sulygiuoti atskiras simboliÅ³ sekas ir pan.
 
-# Pati paprasèiausia iğ tokiø funkcijø -- noquote. Ği funkcija pakeièia simboliø
-# sekos klasæ á "noquote", ir tokia simboliø seka ekrane vaizduojama be kabuèiø.
-# Kabutës parodo simboliø sekos ribas ir tuo paèiu parodo, kad simboliø seka yra
-# simboliø seka, o ne kintamojo pavadinimas, taèiau kartais tai nebûtina şinoti. 
-# Pavyzdşiui, pakeisime lietuviğkø şodşiø vektoriaus klasæ ir juos atvaizduosime
-# ekrane be kabuèiø.
+# Pati paprasÄiausia iÅ¡ tokiÅ³ funkcijÅ³ -- noquote. Å i funkcija pakeiÄia simboliÅ³
+# sekos klasÄ™ Ä¯ "noquote", ir tokia simboliÅ³ seka ekrane vaizduojama be kabuÄiÅ³.
+# KabutÄ—s parodo simboliÅ³ sekos ribas ir tuo paÄiu parodo, kad simboliÅ³ seka yra
+# simboliÅ³ seka, o ne kintamojo pavadinimas, taÄiau kartais tai nebÅ«tina Å¾inoti. 
+# PavyzdÅ¾iui, pakeisime lietuviÅ¡kÅ³ Å¾odÅ¾iÅ³ vektoriaus klasÄ™ ir juos atvaizduosime
+# ekrane be kabuÄiÅ³.
 
 z <- noquote(z)
 z
 
-# Şinoma, naudojant funkcijà unclass, galima sugràşinti pradinæ vektoriaus klasæ.
+# Å½inoma, naudojant funkcijÄ… unclass, galima sugrÄ…Å¾inti pradinÄ™ vektoriaus klasÄ™.
 
 z <- unclass(z)
 z
 
 
-# Funkcija strtrim nukerpa ilgos simboliø sekos galà ir tokiu bûdu sutrumpina jà
-# iki nustatyto simboliø skaièiaus. Ği funkcija turi tik du parametrus:
+# Funkcija strtrim nukerpa ilgos simboliÅ³ sekos galÄ… ir tokiu bÅ«du sutrumpina jÄ…
+# iki nustatyto simboliÅ³ skaiÄiaus. Å i funkcija turi tik du parametrus:
 #
-#          x -- simboliø seka,
-#      width -- simboliø sekos ilgis.
+#          x -- simboliÅ³ seka,
+#      width -- simboliÅ³ sekos ilgis.
 
-# Pavyzdşiui, visø savaitës dienø pavadinimus sutrumpinsime iki trijø raidşiø.
+# PavyzdÅ¾iui, visÅ³ savaitÄ—s dienÅ³ pavadinimus sutrumpinsime iki trijÅ³ raidÅ¾iÅ³.
 
-dienos <- c("Pirmadienis", "Antradienis", "Treèiadienis", "Ketvirtadienis", 
-            "Penktadienis", "Ğeğtadienis", "Sekmadienis") 
+dienos <- c("Pirmadienis", "Antradienis", "TreÄiadienis", "Ketvirtadienis", 
+            "Penktadienis", "Å eÅ¡tadienis", "Sekmadienis") 
 
 strtrim(dienos, 3)
 
 
-# Jeigu sutrumpinta seka turi bûti unikali, naudojama funkcija abbreviate. Sekos 
-# sutrumpinimo algoritmas toks: iğ pradşiø iğ sekos pağalinami visi tarpai, tada 
-# panaikinamos maşàjà raide uşrağytos balsës, kurios eina po priebalsiø, ir, jei
-# tokia seka turi daugiau simboliø, negu nurodyta, pağalinamos didşiosios raidës.
+# Jeigu sutrumpinta seka turi bÅ«ti unikali, naudojama funkcija abbreviate. Sekos 
+# sutrumpinimo algoritmas toks: iÅ¡ pradÅ¾iÅ³ iÅ¡ sekos paÅ¡alinami visi tarpai, tada 
+# panaikinamos maÅ¾Ä…jÄ… raide uÅ¾raÅ¡ytos balsÄ—s, kurios eina po priebalsiÅ³, ir, jei
+# tokia seka turi daugiau simboliÅ³, negu nurodyta, paÅ¡alinamos didÅ¾iosios raidÄ—s.
 # Funkcijos parametrai:
 # 
-#    names.arg -- simboliø sekø vektorius,
+#    names.arg -- simboliÅ³ sekÅ³ vektorius,
 #    minlength -- minimalus sutrumpintos sekos ilgis,
-#          dot -- loginis, nurodo ar trumpinio gale turi bûti dedamas tağkas,
-#       strict -- loginis, nurodo ar bûtinai iğlaikyti minimalø trumpinio ilgá,
+#          dot -- loginis, nurodo ar trumpinio gale turi bÅ«ti dedamas taÅ¡kas,
+#       strict -- loginis, nurodo ar bÅ«tinai iÅ¡laikyti minimalÅ³ trumpinio ilgÄ¯,
 #       method -- c("left.kept", "both.sides")
 
-# Pavyzdşiui, iki trijø raidşiø sutrumpinsime lietuviğkus mënesiø pavadinimus.
+# PavyzdÅ¾iui, iki trijÅ³ raidÅ¾iÅ³ sutrumpinsime lietuviÅ¡kus mÄ—nesiÅ³ pavadinimus.
 
-mënesiai <- c("Sausis", "Vasaris", "Kovas", "Balandis", 
-              "Geguşë", "Birşelis", "Liepa", "Rugpjûtis", 
-              "Rugsëjis", "Spalis", "Lapkritis", "Gruodis")
+mÄ—nesiai <- c("Sausis", "Vasaris", "Kovas", "Balandis", 
+              "GeguÅ¾Ä—", "BirÅ¾elis", "Liepa", "RugpjÅ«tis", 
+              "RugsÄ—jis", "Spalis", "Lapkritis", "Gruodis")
 
-abbreviate(mënesiai, minlength = 3)
+abbreviate(mÄ—nesiai, minlength = 3)
 
-# Naudojant funkcijà strtrim, mënesiø pavadinimai gaunami labiau áprasti, taèiau 
-# dël to, kad sutampa pirmosios trys raidës, rugpjûtis ir rugsëjis neatskiriami.
-# Kartais, pavyzdşiui, sudarant daşniø lentelæ, tai gali sukelti problemø.
+# Naudojant funkcijÄ… strtrim, mÄ—nesiÅ³ pavadinimai gaunami labiau Ä¯prasti, taÄiau 
+# dÄ—l to, kad sutampa pirmosios trys raidÄ—s, rugpjÅ«tis ir rugsÄ—jis neatskiriami.
+# Kartais, pavyzdÅ¾iui, sudarant daÅ¾niÅ³ lentelÄ™, tai gali sukelti problemÅ³.
 
-strtrim(mënesiai, 3)
+strtrim(mÄ—nesiai, 3)
 
-# Jei simboliø seka susideda iğ keliø şodşiø, sutrumpinimas sudaromas iğ pirmøjø
-# tø şodşiø raidşiø. Pavyzdşiui, sudarysime trumpinius iğ vardø ir pavardşiø.
+# Jei simboliÅ³ seka susideda iÅ¡ keliÅ³ Å¾odÅ¾iÅ³, sutrumpinimas sudaromas iÅ¡ pirmÅ³jÅ³
+# tÅ³ Å¾odÅ¾iÅ³ raidÅ¾iÅ³. PavyzdÅ¾iui, sudarysime trumpinius iÅ¡ vardÅ³ ir pavardÅ¾iÅ³.
 
 vardai <- c("Pierre de Fermat", "Carl Friedrich Gauss", "Alan Mathison Turing")
 
 abbreviate(vardai, minlength = 3)
 
 
-# F-ja toString apjungia vektoriaus elementus á vienà simboliø sekà. Jeigu sekos
-# simboliø skaièius virğija nustatytà ribà, sekos galas nukerpamas, o vietoje jo
-# árağomas daugtağkis. Taip parodoma, kad sekà turi tæsiná. Funkcijos parametrai:
+# F-ja toString apjungia vektoriaus elementus Ä¯ vienÄ… simboliÅ³ sekÄ…. Jeigu sekos
+# simboliÅ³ skaiÄius virÅ¡ija nustatytÄ… ribÄ…, sekos galas nukerpamas, o vietoje jo
+# Ä¯raÅ¡omas daugtaÅ¡kis. Taip parodoma, kad sekÄ… turi tÄ™sinÄ¯. Funkcijos parametrai:
 #
 #          x -- vektorius,
 #      width -- apjungtos sekos ilgis,
 
-# Ğis vektoriaus elementø apjungimo bûdas natûraliai gerai tinka tuo atveju, kai
-# vektoriaus elementai patys sudaro lengvai atspëjamà sekà. Pavyzdşiui, tai gali
-# bûti skaièiø arba şodşiø seka, datos, kaşkokie şinomi posakiai ir pan.
+# Å is vektoriaus elementÅ³ apjungimo bÅ«das natÅ«raliai gerai tinka tuo atveju, kai
+# vektoriaus elementai patys sudaro lengvai atspÄ—jamÄ… sekÄ…. PavyzdÅ¾iui, tai gali
+# bÅ«ti skaiÄiÅ³ arba Å¾odÅ¾iÅ³ seka, datos, kaÅ¾kokie Å¾inomi posakiai ir pan.
 
 toString(getwd(), 20)
 toString(letters, 20)
@@ -440,43 +440,43 @@ toString(dienos, 30)
 toString(1:100, 20)
 
 
-# Funkcija encodeString vektoriaus elementus paverèia á tam tikro ilgio simboliø 
-# sekas. Jei seka trumpesnë, prie jos kairës arba değinës pusës pridedami tarpai.
-# Iğ kurios pusës bus pridedami tarpai, priklauso nuo to, pagal kurià pusæ sekos
+# Funkcija encodeString vektoriaus elementus paverÄia Ä¯ tam tikro ilgio simboliÅ³ 
+# sekas. Jei seka trumpesnÄ—, prie jos kairÄ—s arba deÅ¡inÄ—s pusÄ—s pridedami tarpai.
+# IÅ¡ kurios pusÄ—s bus pridedami tarpai, priklauso nuo to, pagal kuriÄ… pusÄ™ sekos
 # lygiuojamos. Funkcijos parametrai:
 #
 #          x -- vektorius,
-#      width -- sekos ilgis, NA arba NULL nurodo ilgiausios sekos ilgá,
-#      quote -- kabuèiø simbolis,
+#      width -- sekos ilgis, NA arba NULL nurodo ilgiausios sekos ilgÄ¯,
+#      quote -- kabuÄiÅ³ simbolis,
 #  na.encode -- jeigu FALSE, tai seka nebus sudaroma,
-#    justify -- lygiavimo taisyklë: "left", "right", "centre" arba "none".
+#    justify -- lygiavimo taisyklÄ—: "left", "right", "centre" arba "none".
 
-# Pavyzdşiui, duotas skirtingø ilgiø şodşiø vektorius. Iğ jo elementø sudarysime
-# vienodo ilgio simboliø sekas.
+# PavyzdÅ¾iui, duotas skirtingÅ³ ilgiÅ³ Å¾odÅ¾iÅ³ vektorius. IÅ¡ jo elementÅ³ sudarysime
+# vienodo ilgio simboliÅ³ sekas.
 
-şodşiai <- c("á", "ağ", "ğuo", "imti", "şodis", "sodyba", "pradëti", "susisuko")
-şodşiai
+Å¾odÅ¾iai <- c("Ä¯", "aÅ¡", "Å¡uo", "imti", "Å¾odis", "sodyba", "pradÄ—ti", "susisuko")
+Å¾odÅ¾iai
 
-# Jei parametro width reikğmë NA ar NULL, tai gaunamos sekos, kuriø ilgiai lygûs
-# daugiausia simboliø turinèio vektoriaus elemento ilgiui. Ğiuo atveju visos jos
-# suvienodinamos pagal ilgiausià şodá.
+# Jei parametro width reikÅ¡mÄ— NA ar NULL, tai gaunamos sekos, kuriÅ³ ilgiai lygÅ«s
+# daugiausia simboliÅ³ turinÄio vektoriaus elemento ilgiui. Å iuo atveju visos jos
+# suvienodinamos pagal ilgiausiÄ… Å¾odÄ¯.
 
-encodeString(şodşiai, width = NA)
+encodeString(Å¾odÅ¾iai, width = NA)
 
-# Nustaèius didesná simboliø sekø ilgá, papildomais tarpais bus prapleèiamos jau
+# NustaÄius didesnÄ¯ simboliÅ³ sekÅ³ ilgÄ¯, papildomais tarpais bus prapleÄiamos jau
 # visos sekos.
 
-encodeString(şodşiai, width = 50)
+encodeString(Å¾odÅ¾iai, width = 50)
 
-# Standartiğkai visos sekos lygiuojamos pagal kairájá krağtà. Lygiavimo taisyklæ 
-# nusako parametro justify reikğmë. Pavyzdşiui, priskyrus reikğmæ "right", sekas 
-# iğlygiuosime pagal değinájá krağtà, priskyrus reikğmæ "centre" -- centruosime.
+# StandartiÅ¡kai visos sekos lygiuojamos pagal kairÄ¯jÄ¯ kraÅ¡tÄ…. Lygiavimo taisyklÄ™ 
+# nusako parametro justify reikÅ¡mÄ—. PavyzdÅ¾iui, priskyrus reikÅ¡mÄ™ "right", sekas 
+# iÅ¡lygiuosime pagal deÅ¡inÄ¯jÄ¯ kraÅ¡tÄ…, priskyrus reikÅ¡mÄ™ "centre" -- centruosime.
 
-encodeString(şodşiai, width = 50, justify = "right")
-encodeString(şodşiai, width = 50, justify = "centre")
+encodeString(Å¾odÅ¾iai, width = 50, justify = "right")
+encodeString(Å¾odÅ¾iai, width = 50, justify = "centre")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    

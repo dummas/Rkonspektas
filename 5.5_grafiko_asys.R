@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Grafiko ağiø, rëmelio ir tinklelio formavimas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Grafiko aÅ¡iÅ³, rÄ—melio ir tinklelio formavimas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-06-10 | 2014-06-27
 #
@@ -12,14 +12,14 @@
 # TURINYS -------------------------------
 
 #
-#   1. Grafiko ağiø sudarymas:
+#   1. Grafiko aÅ¡iÅ³ sudarymas:
 #      * funkcija axis
 #
-#   2. Koordinaèiø ağiø padalijimo tağkø radimas:
+#   2. KoordinaÄiÅ³ aÅ¡iÅ³ padalijimo taÅ¡kÅ³ radimas:
 #      * funkcija axTicks
 #      * funkcija axisTicks
 #
-#   3. Rëmelio ir tinklelio braişymas:
+#   3. RÄ—melio ir tinklelio braiÅ¾ymas:
 #      * funkcija box
 #      * funkcija grid
 #
@@ -34,52 +34,52 @@
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# GRAFIKO AĞIØ FORMAVIMAS                 #
+# GRAFIKO AÅ IÅ² FORMAVIMAS                 #
 # --------------------------------------- #
 
-# Aukğto lygio grafinës funkcijos diagramos ağis suformuoja automatiğkai, taèiau
-# jas galima pakeisti. Taip daroma tada, kada automatiğkai sudaryta ağis netinka 
-# ir sudaroma nauja. Tam naudojama speciali funkcija axis. Daşniausiai naudojami 
-# ğie funkcijos parametrai:
+# AukÅ¡to lygio grafinÄ—s funkcijos diagramos aÅ¡is suformuoja automatiÅ¡kai, taÄiau
+# jas galima pakeisti. Taip daroma tada, kada automatiÅ¡kai sudaryta aÅ¡is netinka 
+# ir sudaroma nauja. Tam naudojama speciali funkcija axis. DaÅ¾niausiai naudojami 
+# Å¡ie funkcijos parametrai:
 #
-#       side -- ağies pozicija: 1 apaèioje, 2 kairëje, 3 virğuje, 4 değinëje,
-#         at -- padalinimo tağkø vektorius,
-#     labels -- loginis arba padalinimo tağkø pavadinimø vektorius.
+#       side -- aÅ¡ies pozicija: 1 apaÄioje, 2 kairÄ—je, 3 virÅ¡uje, 4 deÅ¡inÄ—je,
+#         at -- padalinimo taÅ¡kÅ³ vektorius,
+#     labels -- loginis arba padalinimo taÅ¡kÅ³ pavadinimÅ³ vektorius.
 
-# Naudojant grafinius parametrus xaxt ir yaxt galima uşdrausti braişyti vienà ar 
-# abi grafiko ağis. Iğ karto abi ağis galima uşdrausti per loginá parametrà axes.
+# Naudojant grafinius parametrus xaxt ir yaxt galima uÅ¾drausti braiÅ¾yti vienÄ… ar 
+# abi grafiko aÅ¡is. IÅ¡ karto abi aÅ¡is galima uÅ¾drausti per loginÄ¯ parametrÄ… axes.
 
 curve(sin, -pi, pi, axes = FALSE)
 
-# Standartines ağis grafikui galima atstatyti vien tik nurodşius parametrà side.
-# Èia parametro reikğmë 1 nurodo, kad ağis bus apaèioje, o 2 --- kairëje pusëje.
-# Kadangi side yra pirmas f-jos axes parametras, jo vardo galima nerağyti.
+# Standartines aÅ¡is grafikui galima atstatyti vien tik nurodÅ¾ius parametrÄ… side.
+# ÄŒia parametro reikÅ¡mÄ— 1 nurodo, kad aÅ¡is bus apaÄioje, o 2 --- kairÄ—je pusÄ—je.
+# Kadangi side yra pirmas f-jos axes parametras, jo vardo galima neraÅ¡yti.
 
 axis(1)
 axis(2)
 
-# Sinusoidës grafike Ox ağá natûraliau sudalinti ne kas vienetà, taèiau kas pi/2. 
-# Sudalinimo tağkø vektoriø sudarysime su funkcija seq ir priskirsime parametrui 
+# SinusoidÄ—s grafike Ox aÅ¡Ä¯ natÅ«raliau sudalinti ne kas vienetÄ…, taÄiau kas pi/2. 
+# Sudalinimo taÅ¡kÅ³ vektoriÅ³ sudarysime su funkcija seq ir priskirsime parametrui 
 # at.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 axis(1, at = seq(-pi, pi, by = pi/2))
 
 
-# Matome, kad ağies padalinimo tağkuose uşrağytos teisingos reikğmës, taèiau jos
-# dël savo uşrağymo pavidalo nelabai informatyvios. Ğiuo atveju galima iğnaudoti
-# funkcijà expression ir tas reikğmes uşrağyti per skaièiø pi. Taip bus graşiau.
+# Matome, kad aÅ¡ies padalinimo taÅ¡kuose uÅ¾raÅ¡ytos teisingos reikÅ¡mÄ—s, taÄiau jos
+# dÄ—l savo uÅ¾raÅ¡ymo pavidalo nelabai informatyvios. Å iuo atveju galima iÅ¡naudoti
+# funkcijÄ… expression ir tas reikÅ¡mes uÅ¾raÅ¡yti per skaiÄiÅ³ pi. Taip bus graÅ¾iau.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 
@@ -89,8 +89,8 @@ Ox.pav <- expression(-pi, -pi/2, 0, pi/2, pi)
 axis(1, at = Ox.tas, labels = Ox.pav)
 
 
-# Reikğmës gali bûti surağytos nebûtinai ties kiekvienu ağies padalinimo tağku.
-# Tokiu atveju parametrui label priskiriame vektoriø su praleistomis reikğmëmis.
+# ReikÅ¡mÄ—s gali bÅ«ti suraÅ¡ytos nebÅ«tinai ties kiekvienu aÅ¡ies padalinimo taÅ¡ku.
+# Tokiu atveju parametrui label priskiriame vektoriÅ³ su praleistomis reikÅ¡mÄ—mis.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 
@@ -100,8 +100,8 @@ Ox.pav <- expression(-pi, NA, -pi/2, NA, 0, NA, pi/2, NA, pi)
 axis(1, at = Ox.tas, labels = Ox.pav)
 
 
-# Toje paèioje pozicijoje galima pridëti kelias ağis. Kiekviena ağis gali turëti
-# savo padalinimo tağkus ir jø pavadinimus.
+# Toje paÄioje pozicijoje galima pridÄ—ti kelias aÅ¡is. Kiekviena aÅ¡is gali turÄ—ti
+# savo padalinimo taÅ¡kus ir jÅ³ pavadinimus.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 
@@ -112,10 +112,10 @@ axis(1, at = Ox.tas, labels = Ox.pav)
 axis(1, at = seq(0, 3, by = 0.5), labels = c(0, NA, 1, NA, 2, NA, 3))
 
 
-# Dar vienas pavyzdys, kaip toje paèioje pozicijoje atidedamos 2 skirtingos ağys.
-# Viena iğ jø padalina ağá á intervalus, o kita --- tø intervalø viduryje uşdeda
-# jø pavadinimus. Todël pirmoje ağyje nerağomi sudalinimo tağkai, o antroje nëra
-# ağies linijos.
+# Dar vienas pavyzdys, kaip toje paÄioje pozicijoje atidedamos 2 skirtingos aÅ¡ys.
+# Viena iÅ¡ jÅ³ padalina aÅ¡Ä¯ Ä¯ intervalus, o kita --- tÅ³ intervalÅ³ viduryje uÅ¾deda
+# jÅ³ pavadinimus. TodÄ—l pirmoje aÅ¡yje neraÅ¡omi sudalinimo taÅ¡kai, o antroje nÄ—ra
+# aÅ¡ies linijos.
 
 curve(sin, -pi, pi, axes = FALSE, ann = FALSE)
 
@@ -128,48 +128,48 @@ axis(1, at = Ox.ta2, labels = LETTERS[1:4], tick = FALSE)
 abline(v = Ox.ta1, lty = 2, col = "gray")
 
 
-# Funkcija axis turi ir daugiau parametrø, kuriais galima nustatyti bendrà ağies 
-# arba atskirø jos daliø vaizdà:
+# Funkcija axis turi ir daugiau parametrÅ³, kuriais galima nustatyti bendrÄ… aÅ¡ies 
+# arba atskirÅ³ jos daliÅ³ vaizdÄ…:
 # 
-#       tick -- loginis, nurodo ar braişyti ağies linijà,
-#       line -- eilutës, kurioje braişoma ağis, numeris,
-#        pos -- koordinatë, ties kuria nubrëşiama ağis, 
-#       hadj -- nustato ağies uşrağø poslinká horizontaliai,
-#       padj -- nustato ağies uşrağø poslinká vertikaliai,
-#        lty -- linijos tipas: 0 -- nebraişoma, 1 -- iğtisinë ir taip iki 7,
+#       tick -- loginis, nurodo ar braiÅ¾yti aÅ¡ies linijÄ…,
+#       line -- eilutÄ—s, kurioje braiÅ¾oma aÅ¡is, numeris,
+#        pos -- koordinatÄ—, ties kuria nubrÄ—Å¾iama aÅ¡is, 
+#       hadj -- nustato aÅ¡ies uÅ¾raÅ¡Å³ poslinkÄ¯ horizontaliai,
+#       padj -- nustato aÅ¡ies uÅ¾raÅ¡Å³ poslinkÄ¯ vertikaliai,
+#        lty -- linijos tipas: 0 -- nebraiÅ¾oma, 1 -- iÅ¡tisinÄ— ir taip iki 7,
 #        lwd -- linijos storis,
 #        col -- linijos spalva,
-#  lwd.ticks -- padalijimo brûkğneliø storis,
-#  col.ticks -- padalijimo brûkğneliø spalva.
+#  lwd.ticks -- padalijimo brÅ«kÅ¡neliÅ³ storis,
+#  col.ticks -- padalijimo brÅ«kÅ¡neliÅ³ spalva.
 
-# Kartais grafike uşrağai ant ağies nereikalingi. Tokiu atveju parametrui labels 
-# priskiriame reikğmæ FALSE.
+# Kartais grafike uÅ¾raÅ¡ai ant aÅ¡ies nereikalingi. Tokiu atveju parametrui labels 
+# priskiriame reikÅ¡mÄ™ FALSE.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 axis(1, labels = FALSE)
 
-# Galima ir prieğinga situacija, kai ağies linija nereikalinga, o reikalingi tik 
-# ağies padalijimo tağkø uşrağai. Tada parametrui tick priskiriame reikğmæ FALSE.
+# Galima ir prieÅ¡inga situacija, kai aÅ¡ies linija nereikalinga, o reikalingi tik 
+# aÅ¡ies padalijimo taÅ¡kÅ³ uÅ¾raÅ¡ai. Tada parametrui tick priskiriame reikÅ¡mÄ™ FALSE.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 axis(1, tick = FALSE)
 
-# Toká patá efektà galima pasiekti ir naudojant linijos tipo parametrà lty. Ğiam
-# parametrui priskyrus nulinæ reikğmæ, ağis iğ viso nebraişoma.
+# TokÄ¯ patÄ¯ efektÄ… galima pasiekti ir naudojant linijos tipo parametrÄ… lty. Å iam
+# parametrui priskyrus nulinÄ™ reikÅ¡mÄ™, aÅ¡is iÅ¡ viso nebraiÅ¾oma.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 axis(1, lty = 0)
 
 
-# Paprastai ağys braişomos uş funkcijos grafiko ar kitokios diagramos ribø, t.y. 
-# parağtëse. Parağtës eilutës, kurioje atidedama ağis, numerá nurodome naudojant 
-# parametrà line. Pagal nutylëjimà ağis braişoma nulinëje eilutëje. 
+# Paprastai aÅ¡ys braiÅ¾omos uÅ¾ funkcijos grafiko ar kitokios diagramos ribÅ³, t.y. 
+# paraÅ¡tÄ—se. ParaÅ¡tÄ—s eilutÄ—s, kurioje atidedama aÅ¡is, numerÄ¯ nurodome naudojant 
+# parametrÄ… line. Pagal nutylÄ—jimÄ… aÅ¡is braiÅ¾oma nulinÄ—je eilutÄ—je. 
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 axis(1, line = 0)
 axis(1, line = 2)
 
-# Ağies pozicijà grafike galima nurodyti uşrağant kitos ağies kirtimo koordinatæ.
+# AÅ¡ies pozicijÄ… grafike galima nurodyti uÅ¾raÅ¡ant kitos aÅ¡ies kirtimo koordinatÄ™.
 # Tam naudojamas parametras pos.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
@@ -177,17 +177,17 @@ axis(1, pos = -0.5)
 axis(1, pos =  0.5)
 
 
-# Uşrağus ties ağies padalinimo tağkais galima pastumti á kairæ arba değinæ. Tam
-# naudojamas parametras hadj. Pagal nutylëjimà jam priskiriama reikğmë 0.5, kuri
-# reiğkia, kad uşrağai ties padalinimo tağkais centruojami. Didinant ğià reikğmæ,
-# uşrağai pastumiami á kairæ. Jei uşrağus ties padalinimo tağkais reikia pakelti 
-# virğ ağies linijos arba nuleisti dar şemiau, naudojamas parametras padj.
+# UÅ¾raÅ¡us ties aÅ¡ies padalinimo taÅ¡kais galima pastumti Ä¯ kairÄ™ arba deÅ¡inÄ™. Tam
+# naudojamas parametras hadj. Pagal nutylÄ—jimÄ… jam priskiriama reikÅ¡mÄ— 0.5, kuri
+# reiÅ¡kia, kad uÅ¾raÅ¡ai ties padalinimo taÅ¡kais centruojami. Didinant Å¡iÄ… reikÅ¡mÄ™,
+# uÅ¾raÅ¡ai pastumiami Ä¯ kairÄ™. Jei uÅ¾raÅ¡us ties padalinimo taÅ¡kais reikia pakelti 
+# virÅ¡ aÅ¡ies linijos arba nuleisti dar Å¾emiau, naudojamas parametras padj.
 
-# Pavyzdşiui, nubraişysime sinusoidës grafikà, kuriame Ox ağis Oy ağá kertà ties
-# nuliu. Galime pastebëti, kad funkcijos grafikas kerta kairájá padalinimo tağkø
-# uşrağà. Ğá grafiko defektà galima iğtaisyti dviem bûdais: arba nerodyti uşrağo 
-# "-3", arba já pakelti virğ ağies. Antruoju atveju naudojamas parametras padj.
-# Jam priskiriame visø uşrağø ties padalinimo tağkais postûmio reikğmiø vektoriø.
+# PavyzdÅ¾iui, nubraiÅ¾ysime sinusoidÄ—s grafikÄ…, kuriame Ox aÅ¡is Oy aÅ¡Ä¯ kertÄ… ties
+# nuliu. Galime pastebÄ—ti, kad funkcijos grafikas kerta kairÄ¯jÄ¯ padalinimo taÅ¡kÅ³
+# uÅ¾raÅ¡Ä…. Å Ä¯ grafiko defektÄ… galima iÅ¡taisyti dviem bÅ«dais: arba nerodyti uÅ¾raÅ¡o 
+# "-3", arba jÄ¯ pakelti virÅ¡ aÅ¡ies. Antruoju atveju naudojamas parametras padj.
+# Jam priskiriame visÅ³ uÅ¾raÅ¡Å³ ties padalinimo taÅ¡kais postÅ«mio reikÅ¡miÅ³ vektoriÅ³.
 
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n")
 axis(1, pos = 0, at = -3:3, labels = c(NA, -2:3))
@@ -198,55 +198,55 @@ axis(1, pos = 0, padj = c(-4, rep(0, 6)))
 
 # NAUDINGA ------------------------------
 
-# Ne visi grafikai turi áprastas koordinaèiø ağis. Pvz., stulpelinëje diagramoje 
-# svarbiausia yra stulpeliø aukğtis, o stulpeliai ant tiesës gali bûti iğdëstyti 
-# bet kokia tvarka - nuo to iğ esmës niekas nesikeièia. Pavyzdşiui, nubraişysime
-# Titaniko keleiviø pasiskirstymo pagal lytá skirtingose keleiviø klasëse daşniø
-# diagramà.
+# Ne visi grafikai turi Ä¯prastas koordinaÄiÅ³ aÅ¡is. Pvz., stulpelinÄ—je diagramoje 
+# svarbiausia yra stulpeliÅ³ aukÅ¡tis, o stulpeliai ant tiesÄ—s gali bÅ«ti iÅ¡dÄ—styti 
+# bet kokia tvarka - nuo to iÅ¡ esmÄ—s niekas nesikeiÄia. PavyzdÅ¾iui, nubraiÅ¾ysime
+# Titaniko keleiviÅ³ pasiskirstymo pagal lytÄ¯ skirtingose keleiviÅ³ klasÄ—se daÅ¾niÅ³
+# diagramÄ….
 
 d <- margin.table(Titanic, c(2, 1))
 d
 
 barplot(d)
 
-# Uşrağus po kategorijø stulpeliais galima keisti parametrui names.arg priskyrus 
-# kità reikğmiø vektoriø. 
+# UÅ¾raÅ¡us po kategorijÅ³ stulpeliais galima keisti parametrui names.arg priskyrus 
+# kitÄ… reikÅ¡miÅ³ vektoriÅ³. 
 
-barplot(d, names.arg = c("Pirma", "Antra", "Treèia", "Águla"))
+barplot(d, names.arg = c("Pirma", "Antra", "TreÄia", "Ä®gula"))
 
-# Parametrui axes priskyrus reikğmæ FALSE, dingsta tik Oy ağis, o uşrağai ant Ox 
-# ağies iğlieka. Galima sakyti, kad stulpelinë diagrama formaliai turi tik vienà 
-# Oy ağá, kadangi Ox ağis pagal nutylëjimà iğ viso nebraişoma.
+# Parametrui axes priskyrus reikÅ¡mÄ™ FALSE, dingsta tik Oy aÅ¡is, o uÅ¾raÅ¡ai ant Ox 
+# aÅ¡ies iÅ¡lieka. Galima sakyti, kad stulpelinÄ— diagrama formaliai turi tik vienÄ… 
+# Oy aÅ¡Ä¯, kadangi Ox aÅ¡is pagal nutylÄ—jimÄ… iÅ¡ viso nebraiÅ¾oma.
 
 barplot(d, axes = FALSE)
 
-# Stulpelinës diagramos Ox ağies linijos tipà reguliuoja parametras axis.lty. Jo
-# reikğmë pagal nutylëjimà lygi nuliui. Priskyrus vienetà, ağis jau bus braişoma.
+# StulpelinÄ—s diagramos Ox aÅ¡ies linijos tipÄ… reguliuoja parametras axis.lty. Jo
+# reikÅ¡mÄ— pagal nutylÄ—jimÄ… lygi nuliui. Priskyrus vienetÄ…, aÅ¡is jau bus braiÅ¾oma.
 
 barplot(d, axis.lty = 1)
 
-# Uşrağø ant Ox ağies rodymas priklauso nuo loginio parametro axisnames reikğmës.
-# Jei ji lygi FALSE, nepriklausomai nuo to, kam lygi parametro axis.lty reikğmë,
-# Ox ağis nebraişoma visai.
+# UÅ¾raÅ¡Å³ ant Ox aÅ¡ies rodymas priklauso nuo loginio parametro axisnames reikÅ¡mÄ—s.
+# Jei ji lygi FALSE, nepriklausomai nuo to, kam lygi parametro axis.lty reikÅ¡mÄ—,
+# Ox aÅ¡is nebraiÅ¾oma visai.
 
 barplot(d, axisnames = FALSE)
 
-# Şinoma, ağis galima uşdrausti ir naudojant standartinius grafinius parametrus 
+# Å½inoma, aÅ¡is galima uÅ¾drausti ir naudojant standartinius grafinius parametrus 
 # xaxt ir yaxt.
 
 barplot(d, xaxt = "n")
 barplot(d, yaxt = "n")
 
 
-# Naudojant standartinius funkcijos axis nustatymus, nubraişyti tokià pat Ox ağá
-# nepavyksta. Tuo galima nesunkiai ásitikinti.
+# Naudojant standartinius funkcijos axis nustatymus, nubraiÅ¾yti tokiÄ… pat Ox aÅ¡Ä¯
+# nepavyksta. Tuo galima nesunkiai Ä¯sitikinti.
 
 barplot(d, axisnames = FALSE)
 axis(1)
 
-# Problema tame, kad stulpeliø centrai nesutampa su ağies Ox padalinimo tağkais. 
-# Ğioje situacijoje galima pasinaudoti tuo, kad f-ja barplot gali iğsaugoti visø
-# stulpeliø centrø koordinates, kurias vëliau galima panaudoti ağies sudalinimui.
+# Problema tame, kad stulpeliÅ³ centrai nesutampa su aÅ¡ies Ox padalinimo taÅ¡kais. 
+# Å ioje situacijoje galima pasinaudoti tuo, kad f-ja barplot gali iÅ¡saugoti visÅ³
+# stulpeliÅ³ centrÅ³ koordinates, kurias vÄ—liau galima panaudoti aÅ¡ies sudalinimui.
 
 barstat <- barplot(d, axisnames = FALSE)
 barstat
@@ -254,90 +254,90 @@ barstat
 axis(1, at = barstat)
 
 
-# Kadangi stulpelinëje diagramoje skaièiai ant kategorinio kintamojo ağies nieko 
-# nereiğkia, juos pakeisime á kategorijø pavadinimus, o ağies linijà uşdrausime.
+# Kadangi stulpelinÄ—je diagramoje skaiÄiai ant kategorinio kintamojo aÅ¡ies nieko 
+# nereiÅ¡kia, juos pakeisime Ä¯ kategorijÅ³ pavadinimus, o aÅ¡ies linijÄ… uÅ¾drausime.
 
 barstat <- barplot(d, axisnames = FALSE)
-axis(1, at = barstat, labels = c("Pirma", "Antra", "Treèia", "Águla"), tick = F)
+axis(1, at = barstat, labels = c("Pirma", "Antra", "TreÄia", "Ä®gula"), tick = F)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite funkcijos y = sin(x) grafikà intervale [-pi, pi]. Grafike turi
-#    bûti dvi Ox ağys: apaèioje sugraduota kas pi/2, o virğuje kas vienetà.
-# 2. Nubraişykite lentelës airquality kintamojo Temp kitimo laike grafikà, kuris
-#    turëtø dvi Oy ağis. Vienoje iğ jø temperatûra matuojama Farenheito skalëje, 
-#    kitoje -- pagal Celsijø.
-# 3. Nubraişykite daşniø lentelës d stulpelinæ diagramà be Oy ağies ir be uşrağø
-#    ant Ox ağies. Tam naudokite tik standartinius funkcijos barplot parametrus.
-# 4. Nubraişykite daşniø lentelës d stulpelinæ diagramà su parametru beside = T.
-#    Gaunamos keturios grupës po 2 stulpelius, kurie rodo vyrø ir moterø skaièiø. 
-#    Grafikà pakeiskite taip, kad po kiekvienu stulpeliu bûtø parağyta lytis, o
-#    dar şemiau bûtø uşrağytas kategorijos, kuriai priklauso kiekviena stulpeliø 
+# 1. NubraiÅ¾ykite funkcijos y = sin(x) grafikÄ… intervale [-pi, pi]. Grafike turi
+#    bÅ«ti dvi Ox aÅ¡ys: apaÄioje sugraduota kas pi/2, o virÅ¡uje kas vienetÄ….
+# 2. NubraiÅ¾ykite lentelÄ—s airquality kintamojo Temp kitimo laike grafikÄ…, kuris
+#    turÄ—tÅ³ dvi Oy aÅ¡is. Vienoje iÅ¡ jÅ³ temperatÅ«ra matuojama Farenheito skalÄ—je, 
+#    kitoje -- pagal CelsijÅ³.
+# 3. NubraiÅ¾ykite daÅ¾niÅ³ lentelÄ—s d stulpelinÄ™ diagramÄ… be Oy aÅ¡ies ir be uÅ¾raÅ¡Å³
+#    ant Ox aÅ¡ies. Tam naudokite tik standartinius funkcijos barplot parametrus.
+# 4. NubraiÅ¾ykite daÅ¾niÅ³ lentelÄ—s d stulpelinÄ™ diagramÄ… su parametru beside = T.
+#    Gaunamos keturios grupÄ—s po 2 stulpelius, kurie rodo vyrÅ³ ir moterÅ³ skaiÄiÅ³. 
+#    GrafikÄ… pakeiskite taip, kad po kiekvienu stulpeliu bÅ«tÅ³ paraÅ¡yta lytis, o
+#    dar Å¾emiau bÅ«tÅ³ uÅ¾raÅ¡ytas kategorijos, kuriai priklauso kiekviena stulpeliÅ³ 
 #    pora, pavadinimas.
-# 5. Nubraişykite kintamojo Nile histogramà. Ant Ox ağies turi bûti paşymëti tik
-#    stulpeliø vidurio tağkai, kurie korektiğkai atidedami nepriklausomai nuo to,
-#    kiek stulpeliø yra histogramoje.
-# 6. Nubraişykite lentelës airquality kintamojo Temp kitimo laike grafikà. Ağies
-#    Ox sudalinimo tağkai turi sutapti su vieno mënesio pradşia ir kito pabaiga.
-#    Ties sudalinimo tağkais ant grafiko nubraişykite vertikalias pilkas linijas, 
-#    o tarpuose tarp padalinimo tağkø uşrağykite atitinkamo mënesio pavadinimà.
+# 5. NubraiÅ¾ykite kintamojo Nile histogramÄ…. Ant Ox aÅ¡ies turi bÅ«ti paÅ¾ymÄ—ti tik
+#    stulpeliÅ³ vidurio taÅ¡kai, kurie korektiÅ¡kai atidedami nepriklausomai nuo to,
+#    kiek stulpeliÅ³ yra histogramoje.
+# 6. NubraiÅ¾ykite lentelÄ—s airquality kintamojo Temp kitimo laike grafikÄ…. AÅ¡ies
+#    Ox sudalinimo taÅ¡kai turi sutapti su vieno mÄ—nesio pradÅ¾ia ir kito pabaiga.
+#    Ties sudalinimo taÅ¡kais ant grafiko nubraiÅ¾ykite vertikalias pilkas linijas, 
+#    o tarpuose tarp padalinimo taÅ¡kÅ³ uÅ¾raÅ¡ykite atitinkamo mÄ—nesio pavadinimÄ….
 
 
 # --------------------------------------- #
-# AĞIES PADALIJIMO TAĞKØ RADIMAS          #
+# AÅ IES PADALIJIMO TAÅ KÅ² RADIMAS          #
 # --------------------------------------- #
 
-# Nubraişyto grafiko ağiø padalinimo tağkus galima gauti naudojant f-jà axTicks. 
-# Jos rezultatas yra padalinimo tağkø koordinaèiø vektorius. Paprastai naudojami 
-# ğie funkcijos parametrai:
+# NubraiÅ¾yto grafiko aÅ¡iÅ³ padalinimo taÅ¡kus galima gauti naudojant f-jÄ… axTicks. 
+# Jos rezultatas yra padalinimo taÅ¡kÅ³ koordinaÄiÅ³ vektorius. Paprastai naudojami 
+# Å¡ie funkcijos parametrai:
 #
-#       side -- ağies pozicija: 1 apaèioje, 2 kairëje, 3 virğuje, 4 değinëje,
-#        axp -- ağies ribø ir intervalø skaièiaus vektorius c(min, max, k),
-#        usr -- grafiko ribø vektorius c(xmin, xmax, ymin, ymax),
-#        log -- jei TRUE, tai nurodo, kad ağis logaritminëje skalëje.
+#       side -- aÅ¡ies pozicija: 1 apaÄioje, 2 kairÄ—je, 3 virÅ¡uje, 4 deÅ¡inÄ—je,
+#        axp -- aÅ¡ies ribÅ³ ir intervalÅ³ skaiÄiaus vektorius c(min, max, k),
+#        usr -- grafiko ribÅ³ vektorius c(xmin, xmax, ymin, ymax),
+#        log -- jei TRUE, tai nurodo, kad aÅ¡is logaritminÄ—je skalÄ—je.
 
-# Pavyzdşui, nubraişysime funkcijos y = sin(x) grafikà be ağiø. Nustatysime, kam 
-# lygios ağies Ox sudalijimo tağkø koordinatës, kurios bûtø naudojamos, jei ağis 
-# bûtø braişoma.
+# PavyzdÅ¾ui, nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ… be aÅ¡iÅ³. Nustatysime, kam 
+# lygios aÅ¡ies Ox sudalijimo taÅ¡kÅ³ koordinatÄ—s, kurios bÅ«tÅ³ naudojamos, jei aÅ¡is 
+# bÅ«tÅ³ braiÅ¾oma.
 
 curve(sin, -pi, pi, axes = FALSE)
 axTicks(1)
 
-# Ağies padalijimo tağkø vektorius priklauso nuo grafiko. Norint, kad rezultatas
-# nepriklausytø nuo konkretaus grafiko, reikia nurodyti visø parametrø reikğmes.
-# Pavyzdşiui, apskaièiuosime intervalo nuo 5 iki 20, padalijimo á 6 lygias dalis 
-# tağkø koordinates, kai viso grafiko ribos pagal Ox ağá nustatytos nuo 0 iki 25.
+# AÅ¡ies padalijimo taÅ¡kÅ³ vektorius priklauso nuo grafiko. Norint, kad rezultatas
+# nepriklausytÅ³ nuo konkretaus grafiko, reikia nurodyti visÅ³ parametrÅ³ reikÅ¡mes.
+# PavyzdÅ¾iui, apskaiÄiuosime intervalo nuo 5 iki 20, padalijimo Ä¯ 6 lygias dalis 
+# taÅ¡kÅ³ koordinates, kai viso grafiko ribos pagal Ox aÅ¡Ä¯ nustatytos nuo 0 iki 25.
 
 axTicks(side = 1, axp = c(5, 20, 6), usr = c(0, 25, -10, 10), log = FALSE)
 
-# Tokiø koordinaèiø vektoriø galima panaudoti automatiniam grafiko padalinimui á 
-# sektorius pagal ağies sudalinimo tağkus. Pavyzdşiui, nubraişysim laiko eilutës 
-# grafikà ir já padalinsime á keletà laiko intervalø.
+# TokiÅ³ koordinaÄiÅ³ vektoriÅ³ galima panaudoti automatiniam grafiko padalinimui Ä¯ 
+# sektorius pagal aÅ¡ies sudalinimo taÅ¡kus. PavyzdÅ¾iui, nubraiÅ¾ysim laiko eilutÄ—s 
+# grafikÄ… ir jÄ¯ padalinsime Ä¯ keletÄ… laiko intervalÅ³.
 
 plot(Nile)
 abline(v = axTicks(1), col = "red")
 
 
-# Negrieştam intervalo sudalijimui lygiomis dalimis naudojama funkcija axisTicks. 
-# Funkcijos rezultatas yra intervalo sudalijimo lygiomis dalimis tağkø vektorius.
-# Tam, kad tağkø koordinatës bûtø tam tikra prasme "graşios", pradinio intervalo 
-# galai ir padalijimo tağkø skaièius gali bûti automatiğkai ğiek tiek pataisyti. 
+# NegrieÅ¾tam intervalo sudalijimui lygiomis dalimis naudojama funkcija axisTicks. 
+# Funkcijos rezultatas yra intervalo sudalijimo lygiomis dalimis taÅ¡kÅ³ vektorius.
+# Tam, kad taÅ¡kÅ³ koordinatÄ—s bÅ«tÅ³ tam tikra prasme "graÅ¾ios", pradinio intervalo 
+# galai ir padalijimo taÅ¡kÅ³ skaiÄius gali bÅ«ti automatiÅ¡kai Å¡iek tiek pataisyti. 
 # Funkcijos parametrai:
 #
-#        usr -- grafiko ribø pagal vienà ağá vektorius c(min, max),
-#        log -- jei TRUE, tai nurodo, kad ağis logaritminëje skalëje,
-#        axp -- ağies ribø ir intervalø skaièiaus vektorius c(min, max, k),
-#       nint -- pageidaujamas intervalø daliø skaièius.
+#        usr -- grafiko ribÅ³ pagal vienÄ… aÅ¡Ä¯ vektorius c(min, max),
+#        log -- jei TRUE, tai nurodo, kad aÅ¡is logaritminÄ—je skalÄ—je,
+#        axp -- aÅ¡ies ribÅ³ ir intervalÅ³ skaiÄiaus vektorius c(min, max, k),
+#       nint -- pageidaujamas intervalÅ³ daliÅ³ skaiÄius.
 
-# Pavyzdşiui, lygiomis dalimis sudalinsime intervalà [-5, 15]. Jei intervalø sk.
-# nenurodome, jis parenkamas automatiğkai. Matome, kad nedaug pakeitus intervalo 
-# galus, funkcijos rezultatas nepasikeièia - gaunami tie patys sudalinimo tağkai.
+# PavyzdÅ¾iui, lygiomis dalimis sudalinsime intervalÄ… [-5, 15]. Jei intervalÅ³ sk.
+# nenurodome, jis parenkamas automatiÅ¡kai. Matome, kad nedaug pakeitus intervalo 
+# galus, funkcijos rezultatas nepasikeiÄia - gaunami tie patys sudalinimo taÅ¡kai.
 
 axisTicks(usr = c(-5.0, 15.0), log = FALSE)
 axisTicks(usr = c(-5.3, 15.9), log = FALSE)
 
-# Nurodşius intervalo daliø skaièiø, á pageidavimus atsişvelgiama tik iğ dalies.
+# NurodÅ¾ius intervalo daliÅ³ skaiÄiÅ³, Ä¯ pageidavimus atsiÅ¾velgiama tik iÅ¡ dalies.
 
 axisTicks(usr = c(-5, 15), log = FALSE, nint = 4)
 axisTicks(usr = c(-5, 15), log = FALSE, nint = 5)
@@ -346,12 +346,12 @@ axisTicks(usr = c(-5, 15), log = FALSE, nint = 7)
 
 
 # --------------------------------------- #
-# RËMELIO IR TINKLELIO BRAIŞYMAS          #
+# RÄ–MELIO IR TINKLELIO BRAIÅ½YMAS          #
 # --------------------------------------- #
 
-# Kai kurios aukğto lygio grafinës funkcijos grafikà apriboja rëmeliu. Paprastai 
-# toks rëmelis visiğkai nereikalingas. Parametrui frame priskyrus reikğmæ FALSE, 
-# rëmelis nebus braişomas. Palyginsime keletà tipiniø grafikø su rëmeliu ir be. 
+# Kai kurios aukÅ¡to lygio grafinÄ—s funkcijos grafikÄ… apriboja rÄ—meliu. Paprastai 
+# toks rÄ—melis visiÅ¡kai nereikalingas. Parametrui frame priskyrus reikÅ¡mÄ™ FALSE, 
+# rÄ—melis nebus braiÅ¾omas. Palyginsime keletÄ… tipiniÅ³ grafikÅ³ su rÄ—meliu ir be. 
 
 curve(sin, -pi, pi)
 curve(sin, -pi, pi, frame = FALSE)
@@ -363,9 +363,9 @@ boxplot(Temp ~ Month, data = airquality)
 boxplot(Temp ~ Month, data = airquality, frame = FALSE)
 
 
-# Globaliai rëmelio braişymà arba nebraişymà reguliuoja grafinis parametras bty.
-# Pagal nutylëjimà jo reikğmë lygi "o". Jei reikia, kad rëmelis bûtø nebraişomas
-# visuose grafikuose, parametrui bty priskiriame reikğmæ "n".
+# Globaliai rÄ—melio braiÅ¾ymÄ… arba nebraiÅ¾ymÄ… reguliuoja grafinis parametras bty.
+# Pagal nutylÄ—jimÄ… jo reikÅ¡mÄ— lygi "o". Jei reikia, kad rÄ—melis bÅ«tÅ³ nebraiÅ¾omas
+# visuose grafikuose, parametrui bty priskiriame reikÅ¡mÄ™ "n".
 
 par("bty" = "n")
 
@@ -376,38 +376,38 @@ boxplot(Temp ~ Month, data = airquality)
 par("bty" = "o")
 
 
-# Jei parametrui bty reikğmë priskiriama kaip grafinës funkcijos argumentui, tai
-# jo poveikis pasireiğkia tik tos funkcijos sudarytam grafikui. Pavyzdşiui, taip
-# galima vienai konkreèiai funkcijai uşdrausti braişyti rëmelá.
+# Jei parametrui bty reikÅ¡mÄ— priskiriama kaip grafinÄ—s funkcijos argumentui, tai
+# jo poveikis pasireiÅ¡kia tik tos funkcijos sudarytam grafikui. PavyzdÅ¾iui, taip
+# galima vienai konkreÄiai funkcijai uÅ¾drausti braiÅ¾yti rÄ—melÄ¯.
 
 curve(sin, -pi, pi)
 curve(sin, -pi, pi, bty = "n")
 
 
-# Rëmeliui ant jau nubraişyto grafiko uşdëti naudojama funkcija box. Pavyzdşiui, 
-# histograma braişoma be rëmelio, bet já galima uşdëti papildomai.
+# RÄ—meliui ant jau nubraiÅ¾yto grafiko uÅ¾dÄ—ti naudojama funkcija box. PavyzdÅ¾iui, 
+# histograma braiÅ¾oma be rÄ—melio, bet jÄ¯ galima uÅ¾dÄ—ti papildomai.
 
 hist(Nile)
 box()
 
-# Kaip ir kitoms funkcijoms, funkcijai box kaip argumentà galima perduoti bendro 
-# pobûdşio grafiniø parametrø reikğmes. Pvz., galima pakeisti rëmelio spalvà.
+# Kaip ir kitoms funkcijoms, funkcijai box kaip argumentÄ… galima perduoti bendro 
+# pobÅ«dÅ¾io grafiniÅ³ parametrÅ³ reikÅ¡mes. Pvz., galima pakeisti rÄ—melio spalvÄ….
 
 hist(Nile)
 box(col = "red")
 
 
-# Koordinaèiø tinklelis ant jau nubraişyto grafiko uşdedamas naudojant f-jà grid. 
+# KoordinaÄiÅ³ tinklelis ant jau nubraiÅ¾yto grafiko uÅ¾dedamas naudojant f-jÄ… grid. 
 # Jos parametrai:
 #
-#         nx -- tinklelio langeliø skaièius ant Ox ağies, 
-#         ny -- tinklelio langeliø skaièius ant Oy ağies,
-#        col -- tinklelio linijø spalva, 
-#        lty -- tinklelio linijø tipas: 1 -- iğtisinë, 2 -- punktyras ir t.t.,
-#        lwd -- tinklelio linijø storis.
+#         nx -- tinklelio langeliÅ³ skaiÄius ant Ox aÅ¡ies, 
+#         ny -- tinklelio langeliÅ³ skaiÄius ant Oy aÅ¡ies,
+#        col -- tinklelio linijÅ³ spalva, 
+#        lty -- tinklelio linijÅ³ tipas: 1 -- iÅ¡tisinÄ—, 2 -- punktyras ir t.t.,
+#        lwd -- tinklelio linijÅ³ storis.
 
-# Pagal nutylëjimà parametrø nx ir ny reikğmës yra NULL, todël tinklelio linijos 
-# sutampa su ağiø padalijimo tağkais, kurie bûtø gauti su f-ja axTicks. 
+# Pagal nutylÄ—jimÄ… parametrÅ³ nx ir ny reikÅ¡mÄ—s yra NULL, todÄ—l tinklelio linijos 
+# sutampa su aÅ¡iÅ³ padalijimo taÅ¡kais, kurie bÅ«tÅ³ gauti su f-ja axTicks. 
 
 curve(sin, -pi, pi)
 grid()
@@ -415,14 +415,14 @@ grid()
 curve(sin, -pi, pi)
 grid(nx = 2, ny = 2)
 
-# Jei parametrui nx arba ny priskiriama reikğmë NA, tinklelio linijos atitinkama
-# kryptimi nebraişomos.
+# Jei parametrui nx arba ny priskiriama reikÅ¡mÄ— NA, tinklelio linijos atitinkama
+# kryptimi nebraiÅ¾omos.
 
 curve(sin, -pi, pi)
 grid(nx = NA, ny = NULL)
 
-# Jei kitaip nenurodyta, braişomos ğviesiai pilkos "lightgray" tağkinës "dotted"
-# linijos. Şinoma, ğiø parametrø reikğmes galima pakeisti.
+# Jei kitaip nenurodyta, braiÅ¾omos Å¡viesiai pilkos "lightgray" taÅ¡kinÄ—s "dotted"
+# linijos. Å½inoma, Å¡iÅ³ parametrÅ³ reikÅ¡mes galima pakeisti.
 
 curve(sin, -pi, pi)
 grid(col = "red", lty = 2)
@@ -430,24 +430,24 @@ grid(col = "red", lty = 2)
 
 # NAUDINGA ------------------------------
 
-# Rëmelio ribos priskiriamos grafiniam parametrui usr. Jo reikğmë -- koordinaèiø 
-# c(xmin, xmax, ymin, ymax) vektorius. Turint jau nubraişytà grafikà, jas galima 
-# gauti naudojant funkcijà par.
+# RÄ—melio ribos priskiriamos grafiniam parametrui usr. Jo reikÅ¡mÄ— -- koordinaÄiÅ³ 
+# c(xmin, xmax, ymin, ymax) vektorius. Turint jau nubraiÅ¾ytÄ… grafikÄ…, jas galima 
+# gauti naudojant funkcijÄ… par.
 
 hist(Nile)
 
 ribos <- par("usr")
 ribos
 
-# Turint tokias koordinates, rëmelá ant grafiko galima uşdëti naudojant funkcijà
-# abline. Tam reikia nubraişyti dvi vertikalias ir dvi horizontalias linijas.
+# Turint tokias koordinates, rÄ—melÄ¯ ant grafiko galima uÅ¾dÄ—ti naudojant funkcijÄ…
+# abline. Tam reikia nubraiÅ¾yti dvi vertikalias ir dvi horizontalias linijas.
 
 abline(v = ribos[1:2], h = ribos[3:4])
 
 
-# Funkcijos grid galimybës gan ribotos, todël tinklelio braişymui galima naudoti 
-# funkcijà abline. Pavyzdşiui, nubraişysime sinusoidës grafikà, kuriame Ox ağies 
-# sudalinimo tağkai kas pi/2, o tinklelio linijos dvigubai tankesnës -- kas pi/4.
+# Funkcijos grid galimybÄ—s gan ribotos, todÄ—l tinklelio braiÅ¾ymui galima naudoti 
+# funkcijÄ… abline. PavyzdÅ¾iui, nubraiÅ¾ysime sinusoidÄ—s grafikÄ…, kuriame Ox aÅ¡ies 
+# sudalinimo taÅ¡kai kas pi/2, o tinklelio linijos dvigubai tankesnÄ—s -- kas pi/4.
 
 curve(sin, -pi, pi, xaxt = "n")
 
@@ -457,27 +457,27 @@ abline(v = seq(-pi, pi, pi/4), col = "lightgray", lty = "dotted")
 abline(h = seq(-1., 1., 0.25), col = "lightgray", lty = "dotted")
 
 
-# Tinklelis nebûtinai turi bûti tolygus. Pvz., nubraişysime eksponentës grafikà,
-# kuriame tarpai tarp vertikaliø tinklelio linijø taip pat eksponentiğkai didëja.
+# Tinklelis nebÅ«tinai turi bÅ«ti tolygus. Pvz., nubraiÅ¾ysime eksponentÄ—s grafikÄ…,
+# kuriame tarpai tarp vertikaliÅ³ tinklelio linijÅ³ taip pat eksponentiÅ¡kai didÄ—ja.
 
 curve(exp, 0, 4)
 abline(v = exp(0:30/10) - 1, col = "gray")
 
 
-# Tinklelá galima nubraişyti ir gana egzotiğku bûdu. Galima pasinaudoti tuo, kad
-# ağies padalijimo brûkğneliø ilgá galima iğreikğti per grafiko ilgá arba plotá. 
-# Jeigu parametrui tck priskiriame reikğmæ 1, tai brûkğnelio ilgis, priklausomai 
-# ağies, sutampa su viso grafiko aukğèiu arba ploèiu.
+# TinklelÄ¯ galima nubraiÅ¾yti ir gana egzotiÅ¡ku bÅ«du. Galima pasinaudoti tuo, kad
+# aÅ¡ies padalijimo brÅ«kÅ¡neliÅ³ ilgÄ¯ galima iÅ¡reikÅ¡ti per grafiko ilgÄ¯ arba plotÄ¯. 
+# Jeigu parametrui tck priskiriame reikÅ¡mÄ™ 1, tai brÅ«kÅ¡nelio ilgis, priklausomai 
+# aÅ¡ies, sutampa su viso grafiko aukÅ¡Äiu arba ploÄiu.
 
 curve(sin, -pi, pi)
 axis(1, tck = 1, col.ticks = "lightgray", lty = "dotted")
 axis(2, tck = 1, col.ticks = "lightgray", lty = "dotted")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite daşniø lentelës d stulpelinæ diagramà. Papildomai uşdëkite jai
-#    rëmelá, taèiau taip, kad aukğèiausias stulpelis su rëmeliu nesiliestø.
-# 2. Nubraişykite funkcijos y = x*sin(x) grafikà intervale [0, 5pi]. Suformuokit
-#    toká tinklelá, kur vertikalios ir horizontalios linijos eitø per funkcijos
-#    lokaliø minimumø ir maksimumø tağkus.
+# 1. NubraiÅ¾ykite daÅ¾niÅ³ lentelÄ—s d stulpelinÄ™ diagramÄ…. Papildomai uÅ¾dÄ—kite jai
+#    rÄ—melÄ¯, taÄiau taip, kad aukÅ¡Äiausias stulpelis su rÄ—meliu nesiliestÅ³.
+# 2. NubraiÅ¾ykite funkcijos y = x*sin(x) grafikÄ… intervale [0, 5pi]. Suformuokit
+#    tokÄ¯ tinklelÄ¯, kur vertikalios ir horizontalios linijos eitÅ³ per funkcijos
+#    lokaliÅ³ minimumÅ³ ir maksimumÅ³ taÅ¡kus.

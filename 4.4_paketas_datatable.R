@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Pagrindiniai veiksmai su data.table tipo lentelëmis.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Pagrindiniai veiksmai su data.table tipo lentelÄ—mis.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-08-12 | 2015-08-20
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. data.table lentelës sudarymas:
+#   1. data.table lentelÄ—s sudarymas:
 #      * funkcija data.table
 #      * parametras keep.rownames
 #      * parametras key 
@@ -26,7 +26,7 @@
 #      * funkcija setnames
 #      * funkcija setcolorder
 #
-#   2. eiluèiø ir stulpeliø iğrinkimas:
+#   2. eiluÄiÅ³ ir stulpeliÅ³ iÅ¡rinkimas:
 #      * operatorius %between% 
 #      * operatorius %like% 
 #
@@ -34,12 +34,12 @@
 #      * operatorius :=
 #      * operatorius .()
 #
-#   4. eiluèiø grupavimas:
+#   4. eiluÄiÅ³ grupavimas:
 #      * parametras .N
 #      * parametras .SD
 #      * parametras .EACHI
 #
-#   5. data.table eiluèiø indeksavimas:
+#   5. data.table eiluÄiÅ³ indeksavimas:
 #      * funkcija setkey
 #      * funkcija key
 #
@@ -48,19 +48,19 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti uşdavinius.
+# Sugalvoti uÅ¾davinius.
 #
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -68,123 +68,123 @@ rm(list = ls())
 # TRUMPAI APIE DATA.TABLE                 #
 # --------------------------------------- #
 
-# Tipiniai veiksmai su duomenø lentelëmis tai -- reikiamø eiluèiø arba stulpeliø
-# iğrinkimas, vieno ar daugiau stulpeliø sumos, vidurkio ar kitø charakteristikø 
-# apskaièiavimas. Daşnai vienoje lentelëje yra keliø skirtingø grupiø matavimai,
-# todël skaièiuojamos sàlyginës charakteristikos -- atskirai kiekvienoje grupëje.
+# Tipiniai veiksmai su duomenÅ³ lentelÄ—mis tai -- reikiamÅ³ eiluÄiÅ³ arba stulpeliÅ³
+# iÅ¡rinkimas, vieno ar daugiau stulpeliÅ³ sumos, vidurkio ar kitÅ³ charakteristikÅ³ 
+# apskaiÄiavimas. DaÅ¾nai vienoje lentelÄ—je yra keliÅ³ skirtingÅ³ grupiÅ³ matavimai,
+# todÄ—l skaiÄiuojamos sÄ…lyginÄ—s charakteristikos -- atskirai kiekvienoje grupÄ—je.
 
-# Standartiğkai R naudojamos data.frame tipo duomenø lentelës. Veiksmams atlikti 
-# naudojamos ávairios tam skirtos funkcijos. Ğtai keletas daşniausiai naudojamø:
+# StandartiÅ¡kai R naudojamos data.frame tipo duomenÅ³ lentelÄ—s. Veiksmams atlikti 
+# naudojamos Ä¯vairios tam skirtos funkcijos. Å tai keletas daÅ¾niausiai naudojamÅ³:
 # 
-#     subset -- eiluèiø ir stulpeliø iğrinkimui iğ duomenø lentelës,
-#  transform -- naujø lentelës stulpeliø sudarymui ar senø perskaièiavimui,
-#      merge -- dviejø lenteliø apjungimui,
-#    colSums -- matricos ar lentelës stulpeliø sumos, 
-#    rowSums -- matricos ar lentelës eiluèiø sumos, 
-#   colMeans -- matricos ar lentelës stulpeliø vidurkiai, 
-#   rowMeans -- matricos ar lentelës eiluèiø vidurkiai, 
-#        ave -- vieno kintamojo vidurkinimui grupëse,
-#      scale -- naudojama vektoriaus ar lentelës centravimui ir normavimui,
-#      sweep -- galima naudoti vektoriaus reikğmiø vidurkinimui,
-#      apply -- veiksmai matricos eilutëse arba stulpeliuose,
-#     tapply -- sàlyginiø charakteristikø skaièiavimas grupëse.
+#     subset -- eiluÄiÅ³ ir stulpeliÅ³ iÅ¡rinkimui iÅ¡ duomenÅ³ lentelÄ—s,
+#  transform -- naujÅ³ lentelÄ—s stulpeliÅ³ sudarymui ar senÅ³ perskaiÄiavimui,
+#      merge -- dviejÅ³ lenteliÅ³ apjungimui,
+#    colSums -- matricos ar lentelÄ—s stulpeliÅ³ sumos, 
+#    rowSums -- matricos ar lentelÄ—s eiluÄiÅ³ sumos, 
+#   colMeans -- matricos ar lentelÄ—s stulpeliÅ³ vidurkiai, 
+#   rowMeans -- matricos ar lentelÄ—s eiluÄiÅ³ vidurkiai, 
+#        ave -- vieno kintamojo vidurkinimui grupÄ—se,
+#      scale -- naudojama vektoriaus ar lentelÄ—s centravimui ir normavimui,
+#      sweep -- galima naudoti vektoriaus reikÅ¡miÅ³ vidurkinimui,
+#      apply -- veiksmai matricos eilutÄ—se arba stulpeliuose,
+#     tapply -- sÄ…lyginiÅ³ charakteristikÅ³ skaiÄiavimas grupÄ—se.
 
 
-# Pavyzdşiui, keliais standartiniais bûdais apskaièiuosime duomenø lentelës iris 
-# kintamojo Sepal.Length vidurká grupëse pagal kintamojo Species reikğmes.
+# PavyzdÅ¾iui, keliais standartiniais bÅ«dais apskaiÄiuosime duomenÅ³ lentelÄ—s iris 
+# kintamojo Sepal.Length vidurkÄ¯ grupÄ—se pagal kintamojo Species reikÅ¡mes.
 
    tapply(iris[, "Sepal.Length"],      iris[, "Species"],  mean)
        by(iris[, "Sepal.Length"],      iris[, "Species"],  mean)
 aggregate(iris[, "Sepal.Length"], list(iris[, "Species"]), mean)
 
-# Tokiu atveju tipinë veiksmø seka: suskaidyti lentelæ pagal grupavimo kintamàjá,
-# apskaièiuot reikiamas charakteristikas ir (kartais) apjungti gautus rezultatus.
+# Tokiu atveju tipinÄ— veiksmÅ³ seka: suskaidyti lentelÄ™ pagal grupavimo kintamÄ…jÄ¯,
+# apskaiÄiuot reikiamas charakteristikas ir (kartais) apjungti gautus rezultatus.
 
       sapply(split(iris, iris$Species), function(x) mean(x$Sepal.Length))
 stack(lapply(split(iris, iris$Species), function(x) mean(x$Sepal.Length)))
 
-# Kitas pavyzdys -- apskaièiuoti visø kintamøjø vidurkius atskirai grupëse pagal
-# grupavimo kintamojo reikğmes.
+# Kitas pavyzdys -- apskaiÄiuoti visÅ³ kintamÅ³jÅ³ vidurkius atskirai grupÄ—se pagal
+# grupavimo kintamojo reikÅ¡mes.
 
-aggregate(iris[, -5], list(Rûğis = iris[, 5]), mean)
+aggregate(iris[, -5], list(RÅ«Å¡is = iris[, 5]), mean)
 
 lapply(split(iris, iris$Species), function(x) colMeans(x[, -5]))
 lapply(split(iris, iris$Species), function(x)    apply(x[, -5], 2, mean))
 
 
-# Laikas, per kurá atliekamos tokios operacijos, priklauso nuo eiluèiø ir grupiø
-# skaièiaus lentelëje -- kuo jø daugiau, tuo ilgiau uştrunka skaièiavimai, todël
-# net paprasèiausios duomenø pertvarkymo operacijos su itin didelëmis data.frame
-# tipo lentelëmis gali uştrukti labai ilgai.
+# Laikas, per kurÄ¯ atliekamos tokios operacijos, priklauso nuo eiluÄiÅ³ ir grupiÅ³
+# skaiÄiaus lentelÄ—je -- kuo jÅ³ daugiau, tuo ilgiau uÅ¾trunka skaiÄiavimai, todÄ—l
+# net paprasÄiausios duomenÅ³ pertvarkymo operacijos su itin didelÄ—mis data.frame
+# tipo lentelÄ—mis gali uÅ¾trukti labai ilgai.
 
-# Kita problema -- visi R objektai ir duomenys bûtinai turi tilpti á kompiuterio 
-# atmintá. Dël tos prieşasties sudëtingos struktûros ir didelës apimties duomenø 
-# saugojimui naudojamos specializuotos duomenø bazës.
+# Kita problema -- visi R objektai ir duomenys bÅ«tinai turi tilpti Ä¯ kompiuterio 
+# atmintÄ¯. DÄ—l tos prieÅ¾asties sudÄ—tingos struktÅ«ros ir didelÄ—s apimties duomenÅ³ 
+# saugojimui naudojamos specializuotos duomenÅ³ bazÄ—s.
 
-# Labai dideliø duomenø lenteliø apdorojimui naudojamas data.table tipo lentelës
-# formatas. Nuo standartinës R data.frame tipo lentelës data.table skiriasi tuo, 
-# kad leidşia indeksuoti eilutes, dël ko şymiai pagreitëja eiluèiø iğrinkimas ir 
-# jø grupavimas. Pagrindiniai veiksmai su data.table tipo lentelëmis:
+# Labai dideliÅ³ duomenÅ³ lenteliÅ³ apdorojimui naudojamas data.table tipo lentelÄ—s
+# formatas. Nuo standartinÄ—s R data.frame tipo lentelÄ—s data.table skiriasi tuo, 
+# kad leidÅ¾ia indeksuoti eilutes, dÄ—l ko Å¾ymiai pagreitÄ—ja eiluÄiÅ³ iÅ¡rinkimas ir 
+# jÅ³ grupavimas. Pagrindiniai veiksmai su data.table tipo lentelÄ—mis:
 # 
-#   -- eiluèiø iğrinkimas, 
-#   -- eiluèiø grupavimas,
-#   -- naujø stulpeliø sudarymas,
-#   -- nereikalingø stulpeliø panaikinimas,
-#   -- stulpeliø reikğmiø perskaièiavimas,
-#   -- stulpeliø charakteristikø apskaièiavimas,
-#   -- lenteliø apjungimas.
+#   -- eiluÄiÅ³ iÅ¡rinkimas, 
+#   -- eiluÄiÅ³ grupavimas,
+#   -- naujÅ³ stulpeliÅ³ sudarymas,
+#   -- nereikalingÅ³ stulpeliÅ³ panaikinimas,
+#   -- stulpeliÅ³ reikÅ¡miÅ³ perskaiÄiavimas,
+#   -- stulpeliÅ³ charakteristikÅ³ apskaiÄiavimas,
+#   -- lenteliÅ³ apjungimas.
 
-# Pagal savo struktûrà data.table tipo lentelë, kaip ir data.frame, yra vektoriø 
-# sàrağas. data.frame lentelës turi unikalius eiluèiø pavadinimus, o jeigu tokiø
-# nëra -- eilutës numeruojamos. data.table eiluèiø pavadinimø neturi, vietoje jø
-# visos eilutës turi unikalius raktus. Ğiuo poşiûriu data.table panağu á duomenø
+# Pagal savo struktÅ«rÄ… data.table tipo lentelÄ—, kaip ir data.frame, yra vektoriÅ³ 
+# sÄ…raÅ¡as. data.frame lentelÄ—s turi unikalius eiluÄiÅ³ pavadinimus, o jeigu tokiÅ³
+# nÄ—ra -- eilutÄ—s numeruojamos. data.table eiluÄiÅ³ pavadinimÅ³ neturi, vietoje jÅ³
+# visos eilutÄ—s turi unikalius raktus. Å iuo poÅ¾iÅ«riu data.table panaÅ¡u Ä¯ duomenÅ³
 # bazes. 
 
 # Kaip ir data.frame, data.table lenteles galima apjungti naudojant rbind, cbind
-# ar merge funkcijas. Unikaliø eiluèiø iğskyrimui naudojama standartinë funkcija 
+# ar merge funkcijas. UnikaliÅ³ eiluÄiÅ³ iÅ¡skyrimui naudojama standartinÄ— funkcija 
 # unique. 
 
-# Atliekant veiksmus su data.frame tipo lentele, kiekvienà kartà sukuriama nauja 
-# lentelë, o pradinë lentelë iğlieka tokia pati. Pvz., naudojant funkcijà subset 
-# iğ lentelës iris iğmesime vienà stulpelá. 
+# Atliekant veiksmus su data.frame tipo lentele, kiekvienÄ… kartÄ… sukuriama nauja 
+# lentelÄ—, o pradinÄ— lentelÄ— iÅ¡lieka tokia pati. Pvz., naudojant funkcijÄ… subset 
+# iÅ¡ lentelÄ—s iris iÅ¡mesime vienÄ… stulpelÄ¯. 
 
 subset(iris, select = -Species)
 
-# Buvo sudaryta nauja lentelë, bet pradinë lentelë nepasikeitë. Ji nepasikeis ir
-# tuo atveju, jei, pvz., naudojant funkcijà transform, sudarysime naujà stulpelá.
+# Buvo sudaryta nauja lentelÄ—, bet pradinÄ— lentelÄ— nepasikeitÄ—. Ji nepasikeis ir
+# tuo atveju, jei, pvz., naudojant funkcijÄ… transform, sudarysime naujÄ… stulpelÄ¯.
 
 transform(iris, Sepal.Sum = Sepal.Length + Sepal.Width)
 
-# Veiksmai su data.table lentelës stulpeliais atliekami nedarant lentelës kopijø.
-# Tai iğ esmës skiriasi nuo data.frame ir yra didelis privalumas dirbant didelës 
+# Veiksmai su data.table lentelÄ—s stulpeliais atliekami nedarant lentelÄ—s kopijÅ³.
+# Tai iÅ¡ esmÄ—s skiriasi nuo data.frame ir yra didelis privalumas dirbant didelÄ—s 
 # apimties duomenimis.
 
 
-# Tarkime, kad turime data.table lentelæ DT. Jos argumentus galima suskirstyti á 
+# Tarkime, kad turime data.table lentelÄ™ DT. Jos argumentus galima suskirstyti Ä¯ 
 # tris dalis:
 #                                 DT[i, j, by]
 # 
-#          i -- iğrenkamø eiluèiø numeriai arba loginë sàlyga,
-#          j -- iğrenkamø stulpeliø pavadinimai,
-#         by -- grupavimo kintamojo pavadinimas arba loginë sàlyga.
+#          i -- iÅ¡renkamÅ³ eiluÄiÅ³ numeriai arba loginÄ— sÄ…lyga,
+#          j -- iÅ¡renkamÅ³ stulpeliÅ³ pavadinimai,
+#         by -- grupavimo kintamojo pavadinimas arba loginÄ— sÄ…lyga.
 #
-# Priklausomai nuo atliekamø veiksmø ğiuos argumentus galima naudoti ir visus iğ 
-# karto, ir atskirai po vienà arba du. Lentelës viduje visi stulpeliai yra tarsi
-# kintamieji, todël standartiğkai vietoje stulpeliø numeriø naudojami jø vardai.
+# Priklausomai nuo atliekamÅ³ veiksmÅ³ Å¡iuos argumentus galima naudoti ir visus iÅ¡ 
+# karto, ir atskirai po vienÄ… arba du. LentelÄ—s viduje visi stulpeliai yra tarsi
+# kintamieji, todÄ—l standartiÅ¡kai vietoje stulpeliÅ³ numeriÅ³ naudojami jÅ³ vardai.
 
 
 # --------------------------------------- #
-# DATA.TABLE LENTELËS SUDARYMAS           #
+# DATA.TABLE LENTELÄ–S SUDARYMAS           #
 # --------------------------------------- #
 
-# Norint naudoti data.table tipo lenteles, turi bûti suinstaliuotas ir átrauktas
+# Norint naudoti data.table tipo lenteles, turi bÅ«ti suinstaliuotas ir Ä¯trauktas
 # to paties pavadinimo R paketas.
 
 library(data.table)
 
 
-# data.table tipo lentelë sudaroma panağiai, kaip ir data.frame lentelë, tik èia
-# vektoriø apjungimui á lentelæ naudojama funkcija data.table.
+# data.table tipo lentelÄ— sudaroma panaÅ¡iai, kaip ir data.frame lentelÄ—, tik Äia
+# vektoriÅ³ apjungimui Ä¯ lentelÄ™ naudojama funkcija data.table.
 
 x <- c("Re_5", "Mi_5", "Do_5", "Do_4", "So_4")
 y <- c(587.33, 659.25, 523.25, 261.63, 329.00)
@@ -193,99 +193,99 @@ xy <- data.table(X = x, Y = y)
 xy
 
 
-# Kitas bûdas sudaryti data.table tipo lentelæ -- konvertuoti data.frame lentelæ.
-# Tam naudojama ta pati funkcija data.table. Pvz., tokiu bûdu iğ lentelës mtcars 
-# sudarysime data.table tipo lentelæ.
+# Kitas bÅ«das sudaryti data.table tipo lentelÄ™ -- konvertuoti data.frame lentelÄ™.
+# Tam naudojama ta pati funkcija data.table. Pvz., tokiu bÅ«du iÅ¡ lentelÄ—s mtcars 
+# sudarysime data.table tipo lentelÄ™.
 
 mtcars
 
 mt <- data.table(mtcars)
 mt
 
-# Paprastai data.frame lentelës eilutës turi unikalius numerius, bet joms galima 
-# priskirti ir pavadinimus, kurie taip pat turi bûti unikalûs. Taèiau data.table
-# tipo lentelës eilutës turi tik numerius. Norint iğlaikyti eiluèiø pavadinimus,
-# naudojamas loginis argumentas keep.rownames. Tokiu atveju lentelëje sukuriamas
+# Paprastai data.frame lentelÄ—s eilutÄ—s turi unikalius numerius, bet joms galima 
+# priskirti ir pavadinimus, kurie taip pat turi bÅ«ti unikalÅ«s. TaÄiau data.table
+# tipo lentelÄ—s eilutÄ—s turi tik numerius. Norint iÅ¡laikyti eiluÄiÅ³ pavadinimus,
+# naudojamas loginis argumentas keep.rownames. Tokiu atveju lentelÄ—je sukuriamas
 # papildomas kintamasis rn.
 
 mt <- data.table(mtcars, keep.rownames = TRUE)
 mt
 
 
-# Jeigu duomenys árağyti á tekstiná failà, juos galima nuskaityti naudojant f-jà
-# fread. Rezultatas bus data.table tipo duomenø lentelë. Pavyzdşiui, árağysime á
-# tekstiná failà duomenø lentelæ iris ir jà nuskaitysime kaip data.table lentelæ.
+# Jeigu duomenys Ä¯raÅ¡yti Ä¯ tekstinÄ¯ failÄ…, juos galima nuskaityti naudojant f-jÄ…
+# fread. Rezultatas bus data.table tipo duomenÅ³ lentelÄ—. PavyzdÅ¾iui, Ä¯raÅ¡ysime Ä¯
+# tekstinÄ¯ failÄ… duomenÅ³ lentelÄ™ iris ir jÄ… nuskaitysime kaip data.table lentelÄ™.
 
 write.table(iris, file = "df.txt", quote = FALSE, row.names = FALSE, sep = ";")
 
 # Funkcijos fread parametrai beveik tokie pat kaip ir read.table parametrai, bet 
-# yra ir kai kuriø skirtumø. Pagrindiai parametrai tokie:
+# yra ir kai kuriÅ³ skirtumÅ³. Pagrindiai parametrai tokie:
 #
 #      input -- failo vardas,
-#     header -- loginis kintamasis, nurodo ar lentelë turi antrağtæ,
-#        sep -- stulpeliø atskyrimo simbolis,
-#      nrows -- nuskaitomø eiluèiø skaièius,
-#       skip -- praleidşiamø eiluèiø skaièius,
-#     select -- nuskaitomø stulpeliø pavadinimø vektorius,
-#       drop -- praleidşiamø stulpeliø pavadinimø vektorius.
+#     header -- loginis kintamasis, nurodo ar lentelÄ— turi antraÅ¡tÄ™,
+#        sep -- stulpeliÅ³ atskyrimo simbolis,
+#      nrows -- nuskaitomÅ³ eiluÄiÅ³ skaiÄius,
+#       skip -- praleidÅ¾iamÅ³ eiluÄiÅ³ skaiÄius,
+#     select -- nuskaitomÅ³ stulpeliÅ³ pavadinimÅ³ vektorius,
+#       drop -- praleidÅ¾iamÅ³ stulpeliÅ³ pavadinimÅ³ vektorius.
 
 df <- fread(input = "df.txt", header = TRUE, sep = ";")
 df
 
 
-# data.table tipo lentelë tuo paèiu yra ir data.frame lentelë, dël to jas galima 
-# naudoti su visomis funkcijomis, kuriø argumentas yra data.frame lentelë. Pvz.,
-# su data.table lentelëmis veikia tokios funkcijos kaip names, colnames, nrow su 
-# ncol ir daugelis kitø.
+# data.table tipo lentelÄ— tuo paÄiu yra ir data.frame lentelÄ—, dÄ—l to jas galima 
+# naudoti su visomis funkcijomis, kuriÅ³ argumentas yra data.frame lentelÄ—. Pvz.,
+# su data.table lentelÄ—mis veikia tokios funkcijos kaip names, colnames, nrow su 
+# ncol ir daugelis kitÅ³.
 
 class(df)
 
 # Visi veiksmai su data.table tipo lentele atliekami by reference, t.y. nedarant 
-# jos kopijø. Dël tos prieşasties, jei viena data.table lentelë priskiriam kitai, 
-# tai naujas objektas nesukuriamas, o gauname tà paèià lentelæ su dviem vardais.
-# Dar daugiau -- visi pakeitimai padaryti pradinëje lentelëje, bus matomi ir jos
-# "kopijoje". Ğità faktà patikrinsime kiek vëliau.
+# jos kopijÅ³. DÄ—l tos prieÅ¾asties, jei viena data.table lentelÄ— priskiriam kitai, 
+# tai naujas objektas nesukuriamas, o gauname tÄ… paÄiÄ… lentelÄ™ su dviem vardais.
+# Dar daugiau -- visi pakeitimai padaryti pradinÄ—je lentelÄ—je, bus matomi ir jos
+# "kopijoje". Å itÄ… faktÄ… patikrinsime kiek vÄ—liau.
 
 yx <- xy
 yx
 
-# Norint gauti nepriklausomà data.table lentelës kopijà, naudojama funkcija copy.
+# Norint gauti nepriklausomÄ… data.table lentelÄ—s kopijÄ…, naudojama funkcija copy.
 
 dt <- copy(xy)
 dt
 
-# Visø data.table lenteliø bei jø charakteristikø sàrağà sudaro funkcija tables.
+# VisÅ³ data.table lenteliÅ³ bei jÅ³ charakteristikÅ³ sÄ…raÅ¡Ä… sudaro funkcija tables.
 
 tables()
 
 
-# Jei lentelëje reikia pakeisti kurià nors vienà reikğmæ, galim naudoti funkcijà
-# set. Jos sintaksë set(x, iL, jL, value) atitinka konstrukcijà x[i, j] <- value.
-# Eilutës ir stulpelio numeriai i ir j turi bûti sveikieji skaièiai. Pavyzdşiui,
-# taip pakeisime pirmos eilutës ir pirmo stulpelio reikğmæ iğ "Re_5" á "re".
+# Jei lentelÄ—je reikia pakeisti kuriÄ… nors vienÄ… reikÅ¡mÄ™, galim naudoti funkcijÄ…
+# set. Jos sintaksÄ— set(x, iL, jL, value) atitinka konstrukcijÄ… x[i, j] <- value.
+# EilutÄ—s ir stulpelio numeriai i ir j turi bÅ«ti sveikieji skaiÄiai. PavyzdÅ¾iui,
+# taip pakeisime pirmos eilutÄ—s ir pirmo stulpelio reikÅ¡mÄ™ iÅ¡ "Re_5" Ä¯ "re".
 
 set(xy, 1L, 1L, "re")
 xy
 
-# Jeigu eilutës numeris nenurodomas, tada laikoma, kad keièiamos visos stulpelio 
-# reikğmës, ir parametrui value priskiriamas naujø stulpelio reikğmiø vektorius.
+# Jeigu eilutÄ—s numeris nenurodomas, tada laikoma, kad keiÄiamos visos stulpelio 
+# reikÅ¡mÄ—s, ir parametrui value priskiriamas naujÅ³ stulpelio reikÅ¡miÅ³ vektorius.
 
 set(xy, j = 1L, value = c("re", "mi", "do", "do", "sol"))
 xy
 
-# Funkcija setnames naudojama data.table lentelës stulpeliø pavadinimams keisti.
+# Funkcija setnames naudojama data.table lentelÄ—s stulpeliÅ³ pavadinimams keisti.
 
-setnames(xy, c("X", "Y"), c("Nata", "Daşnis"))
+setnames(xy, c("X", "Y"), c("Nata", "DaÅ¾nis"))
 xy
 
-# Stulpeliø tvarkos pakeitimui naudojama funkcija setcolorder. Pavyzdşiui, ğitai
+# StulpeliÅ³ tvarkos pakeitimui naudojama funkcija setcolorder. PavyzdÅ¾iui, Å¡itai
 # lentelei sukeisime vietomis stulpelius.
 
-setcolorder(xy, c("Daşnis", "Nata"))
+setcolorder(xy, c("DaÅ¾nis", "Nata"))
 xy
 
-# Dabar galima patikrinti ar lentelëje yx matosi visi tie pakeitimai, kurie buvo
-# atlikti su lentele xy, o lentelë dt liko nepakitusi.
+# Dabar galima patikrinti ar lentelÄ—je yx matosi visi tie pakeitimai, kurie buvo
+# atlikti su lentele xy, o lentelÄ— dt liko nepakitusi.
 
 identical(xy, yx)
 
@@ -294,7 +294,7 @@ yx
 dt
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -303,71 +303,71 @@ dt
 
 
 # --------------------------------------- #
-# EILUÈIØ IR STULPELIØ IĞRINKIMAS         #
+# EILUÄŒIÅ² IR STULPELIÅ² IÅ RINKIMAS         #
 # --------------------------------------- #
 
 dt <- data.table(iris)
 dt
 
-# Eilutës iğrenkamos argumentui i priskiriant reikiamø eiluèiø numeriø vektoriø. 
-# Pavyzdşiui, iğ visos lentelës iğrinksime treèià eilutæ.
+# EilutÄ—s iÅ¡renkamos argumentui i priskiriant reikiamÅ³ eiluÄiÅ³ numeriÅ³ vektoriÅ³. 
+# PavyzdÅ¾iui, iÅ¡ visos lentelÄ—s iÅ¡rinksime treÄiÄ… eilutÄ™.
 
 dt[3]
 
-# Eilutes galima iğrinkti pagal tam tikrà loginæ sàlygà. Pavyzdşiui, iğrinksime
-# tas eilutes, kuriose kintamojo Sepal.Length reikğmë didesnë uş 7.
+# Eilutes galima iÅ¡rinkti pagal tam tikrÄ… loginÄ™ sÄ…lygÄ…. PavyzdÅ¾iui, iÅ¡rinksime
+# tas eilutes, kuriose kintamojo Sepal.Length reikÅ¡mÄ— didesnÄ— uÅ¾ 7.
 
 dt[Sepal.Length > 7]
 
-# Loginës sàlygos gali bûti gana sudëtingos. Pavyzdşiui., iğrinksime tas eilutes,
-# kuriose kintamojo Sepal.Length reikğmës lygios 4.3, 5.4, 6.1, 7.2. Ğiuo atveju 
-# panaudosime standartiná R operatoriø %in%.
+# LoginÄ—s sÄ…lygos gali bÅ«ti gana sudÄ—tingos. PavyzdÅ¾iui., iÅ¡rinksime tas eilutes,
+# kuriose kintamojo Sepal.Length reikÅ¡mÄ—s lygios 4.3, 5.4, 6.1, 7.2. Å iuo atveju 
+# panaudosime standartinÄ¯ R operatoriÅ³ %in%.
 
 dt[Sepal.Length %in% c(4.3, 5.4, 6.1, 7.2)]
 
-# Tuo atveju, kada eilutes reikia iğrinkti iğ tam tikro vieno stulpelio reikğmiø
-# intervalo, galima naudoti specialø operatoriø %between%.
+# Tuo atveju, kada eilutes reikia iÅ¡rinkti iÅ¡ tam tikro vieno stulpelio reikÅ¡miÅ³
+# intervalo, galima naudoti specialÅ³ operatoriÅ³ %between%.
 
 dt[Sepal.Length %between% c(5.3, 5.5)]
 
-# Jeigu ieğkoma reikğmë nëra tiksliai şinoma, jos paieğkai galima naudoti %like%
-# operatoriø. Pvz., rasime visas eilutes, kuriose stulpelio Sepal.Length reikğmë
-# po kablelio turi skaièiø 4: 3.4, 4.4, 5.4 ir t. t.
+# Jeigu ieÅ¡koma reikÅ¡mÄ— nÄ—ra tiksliai Å¾inoma, jos paieÅ¡kai galima naudoti %like%
+# operatoriÅ³. Pvz., rasime visas eilutes, kuriose stulpelio Sepal.Length reikÅ¡mÄ—
+# po kablelio turi skaiÄiÅ³ 4: 3.4, 4.4, 5.4 ir t. t.
 
 dt[Sepal.Length %like% ".4"]
 
 
-# Stulpelio reikğmës iğrenkamos argumentui j priskiriant to stulpelio pavadinimà.
-# Jei eiluèiø numeriai nenurodomi, iğrenkamos visos to stulpelio reikğmës. Pvz.,
-# taip á atskirà vektoriø iğrinksime stulpelio Sepal.Length reikğmes.
+# Stulpelio reikÅ¡mÄ—s iÅ¡renkamos argumentui j priskiriant to stulpelio pavadinimÄ….
+# Jei eiluÄiÅ³ numeriai nenurodomi, iÅ¡renkamos visos to stulpelio reikÅ¡mÄ—s. Pvz.,
+# taip Ä¯ atskirÄ… vektoriÅ³ iÅ¡rinksime stulpelio Sepal.Length reikÅ¡mes.
 
 dt[, Sepal.Length]
 
-# Jei iğ atrinktø stulpeliø reikia gauti naujà lentelæ, tø stulpeliø pavadinimus 
-# reikia apjungti á sàrağà. Tam galima naudoti specialià data.table konstrukcijà
-# .() arba áprastà funkcijà list -- rezultatas bus tas pats. Pavyzdşiui, gausime
-# lentelæ su dviem stulpeliais Sepal.Length ir Sepal.Width.
+# Jei iÅ¡ atrinktÅ³ stulpeliÅ³ reikia gauti naujÄ… lentelÄ™, tÅ³ stulpeliÅ³ pavadinimus 
+# reikia apjungti Ä¯ sÄ…raÅ¡Ä…. Tam galima naudoti specialiÄ… data.table konstrukcijÄ…
+# .() arba Ä¯prastÄ… funkcijÄ… list -- rezultatas bus tas pats. PavyzdÅ¾iui, gausime
+# lentelÄ™ su dviem stulpeliais Sepal.Length ir Sepal.Width.
 
 dt[, .(Sepal.Length, Sepal.Width)]
 
 dt[, list(Sepal.Length, Sepal.Width)]
 
-# SVARBI PASTABA! Kadangi data.table lentelës viduje stulpeliø vardai suprantami
-# kaip paprasti R kintamieji, tai visos konstrukcijos su jais yra iğraiğkos. Dël 
-# to, kintamøjø vardus apjungus su funkcija c, gausime vienà bendrà vektoriø.
+# SVARBI PASTABA! Kadangi data.table lentelÄ—s viduje stulpeliÅ³ vardai suprantami
+# kaip paprasti R kintamieji, tai visos konstrukcijos su jais yra iÅ¡raiÅ¡kos. DÄ—l 
+# to, kintamÅ³jÅ³ vardus apjungus su funkcija c, gausime vienÄ… bendrÄ… vektoriÅ³.
 
 dt[, c(Sepal.Length, Sepal.Width)]
 
 
-# Stulpelius galima iğrinkti ir pagal jø numerá lentelëje, taèiau tam reikalinga
-# pakeisti papildomo data.table parametro with reikğmæ iğ TRUE á FALSE.
+# Stulpelius galima iÅ¡rinkti ir pagal jÅ³ numerÄ¯ lentelÄ—je, taÄiau tam reikalinga
+# pakeisti papildomo data.table parametro with reikÅ¡mÄ™ iÅ¡ TRUE Ä¯ FALSE.
 
 dt[, c(1, 2), with = FALSE]
 
-# Toks bûdas naudojamas ir tuo atveju, kai reikia manipuliuoti kintamøjø vardais.
-# Kintamøjø vardus á vektoriø galima apjungti rankiniu bûdu arba galima naudoti 
-# kitus metodus, pavyzdşiui, reikiamø stulpeliø ieğkoti naudojant funkcijà grep.
-# Pvz., iğ lentelës iğrinksime tik tuos kintamuosius, kuriø pavadinime yra şodis 
+# Toks bÅ«das naudojamas ir tuo atveju, kai reikia manipuliuoti kintamÅ³jÅ³ vardais.
+# KintamÅ³jÅ³ vardus Ä¯ vektoriÅ³ galima apjungti rankiniu bÅ«du arba galima naudoti 
+# kitus metodus, pavyzdÅ¾iui, reikiamÅ³ stulpeliÅ³ ieÅ¡koti naudojant funkcijÄ… grep.
+# Pvz., iÅ¡ lentelÄ—s iÅ¡rinksime tik tuos kintamuosius, kuriÅ³ pavadinime yra Å¾odis 
 # "Sepal".
 
 dt[, c("Sepal.Length", "Sepal.Width"), with = FALSE]
@@ -375,7 +375,7 @@ dt[, c("Sepal.Length", "Sepal.Width"), with = FALSE]
 dt[, grep("Sepal", names(dt)), with = FALSE]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -384,179 +384,179 @@ dt[, grep("Sepal", names(dt)), with = FALSE]
 
 
 # --------------------------------------- #
-# STULPELIØ SUKÛRIMAS IR PANAIKINIMAS     #
+# STULPELIÅ² SUKÅªRIMAS IR PANAIKINIMAS     #
 # --------------------------------------- #
 
-# Kintamasis data.table lentelëje sukuriamas naudojant := priskyrimo operatoriø.
-# Kairëje ğio operatoriaus pusëje rağomas kintamojo vardas, o değinëje tam tikra 
-# iğraiğka. Pvz., sukursime kintamàjá Sepal.Sum, kuris bus dviejø kintamøjø suma.
+# Kintamasis data.table lentelÄ—je sukuriamas naudojant := priskyrimo operatoriÅ³.
+# KairÄ—je Å¡io operatoriaus pusÄ—je raÅ¡omas kintamojo vardas, o deÅ¡inÄ—je tam tikra 
+# iÅ¡raiÅ¡ka. Pvz., sukursime kintamÄ…jÄ¯ Sepal.Sum, kuris bus dviejÅ³ kintamÅ³jÅ³ suma.
 
 dt[, Sepal.Sum := Sepal.Length + Sepal.Width]
 dt
 
-# SVARBI PASTABA! Kintamasis data.table lentelëje sukuriamas ar perskaièiuojamas 
-# by reference, todël èia áprasta R konstrukcija dt <- dt[...] nenaudotina! 
+# SVARBI PASTABA! Kintamasis data.table lentelÄ—je sukuriamas ar perskaiÄiuojamas 
+# by reference, todÄ—l Äia Ä¯prasta R konstrukcija dt <- dt[...] nenaudotina! 
 
-# Tuo atveju, kai değinëje pusëje reikğmiø neuştenka uşpildyti visam stulpeliui,
-# jos cikliğkai pratæsiamos. Pavyzdşiui, taip paprastai galima sukurti kintamàjá 
-# X su viena ir ta paèia reikğme.
+# Tuo atveju, kai deÅ¡inÄ—je pusÄ—je reikÅ¡miÅ³ neuÅ¾tenka uÅ¾pildyti visam stulpeliui,
+# jos cikliÅ¡kai pratÄ™siamos. PavyzdÅ¾iui, taip paprastai galima sukurti kintamÄ…jÄ¯ 
+# X su viena ir ta paÄia reikÅ¡me.
 
 dt[, X := 1]
 dt
 
-# Jeigu vienu metu sukuriami arba perskaièiuojami iğ karto keli kintamieji, tada
-# kairëje operatoriaus := pusëje rağomas kintamøjø vardø vektorius, değinëje --
-# sàrağas, kurio elementai yra tø kintamøjø reikğmës arba reikğmiø apskaièiavimo
-# iğraiğkos.
+# Jeigu vienu metu sukuriami arba perskaiÄiuojami iÅ¡ karto keli kintamieji, tada
+# kairÄ—je operatoriaus := pusÄ—je raÅ¡omas kintamÅ³jÅ³ vardÅ³ vektorius, deÅ¡inÄ—je --
+# sÄ…raÅ¡as, kurio elementai yra tÅ³ kintamÅ³jÅ³ reikÅ¡mÄ—s arba reikÅ¡miÅ³ apskaiÄiavimo
+# iÅ¡raiÅ¡kos.
 
 dt[, c("V", "G") := list(mean(Sepal.Length), as.numeric(Species))]
 dt
 
-# Kintamajam priskyrus reikğmæ NULL, jis iğ lentelës panaikinamas.
+# Kintamajam priskyrus reikÅ¡mÄ™ NULL, jis iÅ¡ lentelÄ—s panaikinamas.
 
 dt[, X := NULL]
 dt
 
-# Analogiğkai panaikinami iğ karto keli stulpeliai.
+# AnalogiÅ¡kai panaikinami iÅ¡ karto keli stulpeliai.
 
 dt[, c("Sepal.Sum", "V", "G") := NULL]
 dt
 
 
-# Vienas iğ tipiniø veiksmø -- vieno ar keliø lentelës stulpeliø charakteristikø
-# skaièiavimas. Tai gali bûti kintamøjø vidurkiai, elementø skaièius ir panağios
+# Vienas iÅ¡ tipiniÅ³ veiksmÅ³ -- vieno ar keliÅ³ lentelÄ—s stulpeliÅ³ charakteristikÅ³
+# skaiÄiavimas. Tai gali bÅ«ti kintamÅ³jÅ³ vidurkiai, elementÅ³ skaiÄius ir panaÅ¡ios
 # charakteristikos. Tokiu atveju argumentui j priskiriama funkcija nuo kintamojo. 
-# Pavyzdşiui, apskaièiuosime kintamojo Sepal.Length vidurká.
+# PavyzdÅ¾iui, apskaiÄiuosime kintamojo Sepal.Length vidurkÄ¯.
 
 dt[, mean(Sepal.Length)]
 
-# Jeigu iğraiğka átraukiama á .() skliaustus, rezultatas yra data.table lentelë.
-# Beje, Kaip ir anksèiau, vietoje skliaustø galima naudoti funkcijà list.
+# Jeigu iÅ¡raiÅ¡ka Ä¯traukiama Ä¯ .() skliaustus, rezultatas yra data.table lentelÄ—.
+# Beje, Kaip ir anksÄiau, vietoje skliaustÅ³ galima naudoti funkcijÄ… list.
 
 dt[, .(mean(Sepal.Length))]
 
-# Şinoma, apskaièiuotai kintamojo charakteristikai galima priskirti naujà vardà.
+# Å½inoma, apskaiÄiuotai kintamojo charakteristikai galima priskirti naujÄ… vardÄ….
 
 dt[, .(Vidurkis = mean(Sepal.Length))]
 
-# Tokiu bûdu galima uşrağyti komandà iğ karto keliø stulpeliø statistikoms gauti.
-# Pavyzdşiui, sudarysime lentelæ su dviejø kintamøjø Sepal.Length ir Sepal.Width 
-# vidurkiais ir reikğmiø ğiuose stulpeliuose skaièiumi.
+# Tokiu bÅ«du galima uÅ¾raÅ¡yti komandÄ… iÅ¡ karto keliÅ³ stulpeliÅ³ statistikoms gauti.
+# PavyzdÅ¾iui, sudarysime lentelÄ™ su dviejÅ³ kintamÅ³jÅ³ Sepal.Length ir Sepal.Width 
+# vidurkiais ir reikÅ¡miÅ³ Å¡iuose stulpeliuose skaiÄiumi.
 
 dt[, .(N = length(Sepal.Length), L = mean(Sepal.Length), W = mean(Sepal.Width))]
 
 
 # NAUDINGA ------------------------------
 
-# Iğ esmës data.table lentelës viduje su kintamaisiais galima daryti kà tik nori.
-# Pavyzdşiui, kintamøjø vardus galima naudoti grafikø braişymui.
+# IÅ¡ esmÄ—s data.table lentelÄ—s viduje su kintamaisiais galima daryti kÄ… tik nori.
+# PavyzdÅ¾iui, kintamÅ³jÅ³ vardus galima naudoti grafikÅ³ braiÅ¾ymui.
 
 dt[, plot(Petal.Length, Petal.Width, col = Species, pch = 19)]
 
-# Jei reikia, kelias kabliatağkiu atskirtas komandas galima apjungti riestiniais 
-# skliaustais. Pavyzdşiui, nubraişysime dviejø kintamøjø sklaidos diagramà ir jà
-# papildysime paprastosios tiesinës regresijos tiese.
+# Jei reikia, kelias kabliataÅ¡kiu atskirtas komandas galima apjungti riestiniais 
+# skliaustais. PavyzdÅ¾iui, nubraiÅ¾ysime dviejÅ³ kintamÅ³jÅ³ sklaidos diagramÄ… ir jÄ…
+# papildysime paprastosios tiesinÄ—s regresijos tiese.
 
 dt[, {plot(Petal.Length, Petal.Width); abline(lm(Petal.Width ~ Petal.Length))}]
 
 
 # --------------------------------------- #
-# EILUÈIØ GRUPAVIMAS                      #
+# EILUÄŒIÅ² GRUPAVIMAS                      #
 # --------------------------------------- #
 
-# Labai daşnai reikia apskaièiuoti tam tikras kintamøjø charakteristikas grupëse
-# pagal kategorinio kintamojo reikğmes. Ğiuo atveju data.table lentelæ papildome
-# argumentu by, kuriam nurodomas arba grupavimo kintamasis, arba loginës sàlygos.
-# Pavyzdşiui, apskaièiuosime kintamojo Sepal.Length vidurká atskirai kiekvienoje 
-# kintamojo Species reikğmiø grupëje -- gausime trijø sàlyginiø vidurkiø lentelæ.
+# Labai daÅ¾nai reikia apskaiÄiuoti tam tikras kintamÅ³jÅ³ charakteristikas grupÄ—se
+# pagal kategorinio kintamojo reikÅ¡mes. Å iuo atveju data.table lentelÄ™ papildome
+# argumentu by, kuriam nurodomas arba grupavimo kintamasis, arba loginÄ—s sÄ…lygos.
+# PavyzdÅ¾iui, apskaiÄiuosime kintamojo Sepal.Length vidurkÄ¯ atskirai kiekvienoje 
+# kintamojo Species reikÅ¡miÅ³ grupÄ—je -- gausime trijÅ³ sÄ…lyginiÅ³ vidurkiÅ³ lentelÄ™.
 
 dt[, mean(Sepal.Length), by = Species]
 
-# Şinoma, vienu metu galima apskaièiuoti kelias sàlygines charakteristikas. Pvz.,
-# apskaièiuosime kintamojo Sepal.Length vidurká ir sumà atskirai pagal kintamojo
-# Species reikğmes.
+# Å½inoma, vienu metu galima apskaiÄiuoti kelias sÄ…lygines charakteristikas. Pvz.,
+# apskaiÄiuosime kintamojo Sepal.Length vidurkÄ¯ ir sumÄ… atskirai pagal kintamojo
+# Species reikÅ¡mes.
 
 dt[, .(Vidurkis = mean(Sepal.Length), Suma = sum(Sepal.Length)), by = Species]
 
-# Grupavimas gali bûti atliekamas pagal loginæ sàlygà. Pvz., sudarysime 2 grupes
-# pagal tai, ar kintamojo Sepal.Width reikğmë didesnë uş 3, ar ne.
+# Grupavimas gali bÅ«ti atliekamas pagal loginÄ™ sÄ…lygÄ…. Pvz., sudarysime 2 grupes
+# pagal tai, ar kintamojo Sepal.Width reikÅ¡mÄ— didesnÄ— uÅ¾ 3, ar ne.
 
 dt[, .(Vidurkis = mean(Sepal.Length)), by = Sepal.Width > 3]
 
-# Jeigu grupavimas atliekamas pagal kelis kintamuosius arba logines sàlygas, tai
-# juos apjungiame su .() skliaustais (kaip ir anksèiau, vietoje .() tinka list). 
+# Jeigu grupavimas atliekamas pagal kelis kintamuosius arba logines sÄ…lygas, tai
+# juos apjungiame su .() skliaustais (kaip ir anksÄiau, vietoje .() tinka list). 
 
 dt[, .(Vidurkis = mean(Sepal.Length)), by = .(Species, Sepal.Width > 3)]
 
 
 # NAUDINGA ------------------------------
 
-# Grupavimo kintamiesiems ir loginëms sàlygoms galima suteikti pavadinimà. Pvz.,
-# papildysime anksèiau uşrağytà komandà taip, kad loginës sàlygos sudaryta grupë 
-# taip pat turëtø pavadinimà. 
+# Grupavimo kintamiesiems ir loginÄ—ms sÄ…lygoms galima suteikti pavadinimÄ…. Pvz.,
+# papildysime anksÄiau uÅ¾raÅ¡ytÄ… komandÄ… taip, kad loginÄ—s sÄ…lygos sudaryta grupÄ— 
+# taip pat turÄ—tÅ³ pavadinimÄ…. 
 
-# Patogumo dëlei loginio kintamojo reikğmes TRUE ir FALSE bûtø geriau pakeisti á 
-# labiau suprantamus pavadinimus. Vienas iğ bûdø -- naudoti funkcijà ifelse. Bet 
-# tokia komanda bus labai ilga, todël jà geriau iğskaidyti á dvi dalis. Problema
-# tame, kad data.table tipo lentelëje stulpeliø pavadinimai interpretuojami kaip 
-# kintamieji, todël rağomi be kabuèiø ir uş lentelës ribø jokios prasmës neturi.
-# Skliaustai .() taip pat naudojami tik data.table lentelës viduje. 
+# Patogumo dÄ—lei loginio kintamojo reikÅ¡mes TRUE ir FALSE bÅ«tÅ³ geriau pakeisti Ä¯ 
+# labiau suprantamus pavadinimus. Vienas iÅ¡ bÅ«dÅ³ -- naudoti funkcijÄ… ifelse. Bet 
+# tokia komanda bus labai ilga, todÄ—l jÄ… geriau iÅ¡skaidyti Ä¯ dvi dalis. Problema
+# tame, kad data.table tipo lentelÄ—je stulpeliÅ³ pavadinimai interpretuojami kaip 
+# kintamieji, todÄ—l raÅ¡omi be kabuÄiÅ³ ir uÅ¾ lentelÄ—s ribÅ³ jokios prasmÄ—s neturi.
+# Skliaustai .() taip pat naudojami tik data.table lentelÄ—s viduje. 
 
-# Ğiuo atveju, naudojant funkcijà quote, reikiamà komandà paverèiame á call tipo 
-# iğraiğkà. Ji suvykdoma lentelës viduje, kur kintamøjø pavadinimai turi prasmæ.
+# Å iuo atveju, naudojant funkcijÄ… quote, reikiamÄ… komandÄ… paverÄiame Ä¯ call tipo 
+# iÅ¡raiÅ¡kÄ…. Ji suvykdoma lentelÄ—s viduje, kur kintamÅ³jÅ³ pavadinimai turi prasmÄ™.
 
-grupë <- quote(.(Rûğis = Species, 
+grupÄ— <- quote(.(RÅ«Å¡is = Species, 
                  Lapas = ifelse(Sepal.Width > 3, "Platus", "Siauras")))
-grupë
+grupÄ—
 
-dt[, .(Vidurkis = mean(Sepal.Length)), by = grupë]
+dt[, .(Vidurkis = mean(Sepal.Length)), by = grupÄ—]
 
 
 # NAUDINGA ------------------------------
 
 # Kartu su grupavimo argumentu by naudojamos kelios specialios funkcijos, kurios 
-# leidşia supaprastintai uşrağyti daşnai pasitaikanèias konstrukcijas:
+# leidÅ¾ia supaprastintai uÅ¾raÅ¡yti daÅ¾nai pasitaikanÄias konstrukcijas:
 #
-#        .SD -- ta pati lentelë, taèiau be grupavimo kintamojo,
-#        .BY -- grupavimo kintamojo reikğmiø sàrağas,
-#         .N -- eiluèiø skaièius grupëje,
-#         .I -- eiluèiø numeriai grupëje,
-#       .GRP -- grupës numeris.
+#        .SD -- ta pati lentelÄ—, taÄiau be grupavimo kintamojo,
+#        .BY -- grupavimo kintamojo reikÅ¡miÅ³ sÄ…raÅ¡as,
+#         .N -- eiluÄiÅ³ skaiÄius grupÄ—je,
+#         .I -- eiluÄiÅ³ numeriai grupÄ—je,
+#       .GRP -- grupÄ—s numeris.
 
 
-# Priklausomai nuo to, kuriam argumentui priskiriama reikğmë .N, rezultatas gali 
-# bûti arba paskutini lentelë eilutë, arba bendras eiluèiø skaièius.
+# Priklausomai nuo to, kuriam argumentui priskiriama reikÅ¡mÄ— .N, rezultatas gali 
+# bÅ«ti arba paskutini lentelÄ— eilutÄ—, arba bendras eiluÄiÅ³ skaiÄius.
 
 dt[.N]
 dt[, .N]
 
-# Kadangi .N nurodo eiluèiø skaièiø grupëje, naudojant .N galima sudaryti daşniø 
-# lentelæ.
+# Kadangi .N nurodo eiluÄiÅ³ skaiÄiÅ³ grupÄ—je, naudojant .N galima sudaryti daÅ¾niÅ³ 
+# lentelÄ™.
 
 dt[, .N, by = .(Species, Lapas = ifelse(Sepal.Width > 3, "Platus", "Siauras"))]
 
-# Naudojant .I, galima suşinoti á konkreèias grupes patenkanèiø eiluèiø numerius.
+# Naudojant .I, galima suÅ¾inoti Ä¯ konkreÄias grupes patenkanÄiÅ³ eiluÄiÅ³ numerius.
 
 dt[, .I, by = .(Species, Lapas = ifelse(Sepal.Width > 3, "Platus", "Siauras"))]
 
 
-# Atlikus eiluèiø grupavimà, tolimesniems skaièiavimams tas grupavimo kintamasis 
-# daşniausiai nereikalingas ir tam, kad netrukdytø, iğ lentelës yra pağalinamas.
+# Atlikus eiluÄiÅ³ grupavimÄ…, tolimesniems skaiÄiavimams tas grupavimo kintamasis 
+# daÅ¾niausiai nereikalingas ir tam, kad netrukdytÅ³, iÅ¡ lentelÄ—s yra paÅ¡alinamas.
 # Kaip tik tokiais atvejais ir naudojama .SD konstrukcija. 
 
-# .SD lentelës viduje galima taikyti áprastas funkcijas nuo kintamøjø-stulpeliø.
-# Pavyzdşiui, naudojant funkcijà lapply, apskaièiuosime visø lentelës stulpeliø 
-# vidurkius grupëse pagal kintamojo Species reikğmes.
+# .SD lentelÄ—s viduje galima taikyti Ä¯prastas funkcijas nuo kintamÅ³jÅ³-stulpeliÅ³.
+# PavyzdÅ¾iui, naudojant funkcijÄ… lapply, apskaiÄiuosime visÅ³ lentelÄ—s stulpeliÅ³ 
+# vidurkius grupÄ—se pagal kintamojo Species reikÅ¡mes.
 
 dt[, lapply(.SD, mean), by = Species]
 
-# Iğ esmës toká pat rezultatà galima gauti ir naudojant kitas standartines f-jas.
+# IÅ¡ esmÄ—s tokÄ¯ pat rezultatÄ… galima gauti ir naudojant kitas standartines f-jas.
 
 dt[, .(Vidurkis = apply(.SD, 2, mean)), by = Species]
 dt[, .(Vidurkis = colMeans(.SD)), by = Species]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -565,28 +565,28 @@ dt[, .(Vidurkis = colMeans(.SD)), by = Species]
 
 
 # --------------------------------------- #
-# DATA.TABLE EILUÈIØ INDEKSAVIMAS         #
+# DATA.TABLE EILUÄŒIÅ² INDEKSAVIMAS         #
 # --------------------------------------- #
 
-# data.table lentelei galima priskirti raktus - tokias stulpeliø reikğmes, pagal 
-# kurias vienareikğmiğkai nustatoma, iğ kurios eilutës ta reikğmë paimta. Raktas
-# gali bûti sudaromas pagal vienà ar kelis lentelës stulpelius. Dël ğios savybës
-# data.table lentelës primena duomenø bazes. 
+# data.table lentelei galima priskirti raktus - tokias stulpeliÅ³ reikÅ¡mes, pagal 
+# kurias vienareikÅ¡miÅ¡kai nustatoma, iÅ¡ kurios eilutÄ—s ta reikÅ¡mÄ— paimta. Raktas
+# gali bÅ«ti sudaromas pagal vienÄ… ar kelis lentelÄ—s stulpelius. DÄ—l Å¡ios savybÄ—s
+# data.table lentelÄ—s primena duomenÅ³ bazes. 
 
-# Raktà turinèios lentelës eilutës iğrikiuojamos pagal to rakto reikğmes, dël to
-# eiluèiø iğrinkimas pagal raktà yra labai greitas. 
+# RaktÄ… turinÄios lentelÄ—s eilutÄ—s iÅ¡rikiuojamos pagal to rakto reikÅ¡mes, dÄ—l to
+# eiluÄiÅ³ iÅ¡rinkimas pagal raktÄ… yra labai greitas. 
 
-# Raktas data.table lentelei priskiriamas naudojant funkcijà setkey. Pavyzdşiui, 
-# lentelei dt priskirsime raktà pagal stulpelio Species reikğmes.
+# Raktas data.table lentelei priskiriamas naudojant funkcijÄ… setkey. PavyzdÅ¾iui, 
+# lentelei dt priskirsime raktÄ… pagal stulpelio Species reikÅ¡mes.
 
 setkey(dt, Species)
 
-# Kokius raktus turi lentelë, nustatoma naudojant funkcijà key.
+# Kokius raktus turi lentelÄ—, nustatoma naudojant funkcijÄ… key.
 
 key(dt)
 
-# Raktas gali bûti nustatomas ir sudarant lentelæ. Tam naudojamas parametras key,
-# kuriam priskiriamas kintamøjø vardø vektorius.
+# Raktas gali bÅ«ti nustatomas ir sudarant lentelÄ™. Tam naudojamas parametras key,
+# kuriam priskiriamas kintamÅ³jÅ³ vardÅ³ vektorius.
 
 dt <- data.table(iris, key = "Species")
 dt
@@ -594,41 +594,41 @@ dt
 key(dt)
 
 
-# Iğrenkant eilutes pagal rakto reikğmæ, rakto reikğmë priskiriama argumentui i.
-# Pavyzdşiui, iğrinksime tas lentelës eilutes, kurios priklauso "setosa" grupei.
+# IÅ¡renkant eilutes pagal rakto reikÅ¡mÄ™, rakto reikÅ¡mÄ— priskiriama argumentui i.
+# PavyzdÅ¾iui, iÅ¡rinksime tas lentelÄ—s eilutes, kurios priklauso "setosa" grupei.
 
 dt["setosa"]
 
-# Standartiğkai iğvedamos visos eilutës, kurios turi nurodytà rakto reikğmæ, bet
-# iğ viso galimi keli variantai: rodyti visas eilutes, rodyti pirmà ar paskutinæ
-# eilutæ. Tam naudojamas parametras mult.
+# StandartiÅ¡kai iÅ¡vedamos visos eilutÄ—s, kurios turi nurodytÄ… rakto reikÅ¡mÄ™, bet
+# iÅ¡ viso galimi keli variantai: rodyti visas eilutes, rodyti pirmÄ… ar paskutinÄ™
+# eilutÄ™. Tam naudojamas parametras mult.
 
 dt["setosa", mult = "all"]
 dt["setosa", mult = "first"]
 dt["setosa", mult = "last"]
 
-# Gali bûti, kad lentelëje nëra eiluèiø, kurios turëtø nustatytas rakto reikğmes.
-# Tokios nerastos eilutës paşymimos NA reikğme, bet, naudojant parametrà nomatch, 
-# galima nustatyti, kad jos nebûtø rodomos. Pvz., iğrinksime tas eilutes, kurios
+# Gali bÅ«ti, kad lentelÄ—je nÄ—ra eiluÄiÅ³, kurios turÄ—tÅ³ nustatytas rakto reikÅ¡mes.
+# Tokios nerastos eilutÄ—s paÅ¾ymimos NA reikÅ¡me, bet, naudojant parametrÄ… nomatch, 
+# galima nustatyti, kad jos nebÅ«tÅ³ rodomos. Pvz., iÅ¡rinksime tas eilutes, kurios
 # priklauso "setosa" arba "mimosa" grupei.
 
 dt[c("setosa", "mimosa")]
 
-# Matome, kad "mimosa" grupëje nëra në vienos eilutës, todël ta grupë şymima NA.
-# Kad tokia eilutë nebûtø rodoma, parametrui nomatch priskiriame reikğmæ 0.
+# Matome, kad "mimosa" grupÄ—je nÄ—ra nÄ— vienos eilutÄ—s, todÄ—l ta grupÄ— Å¾ymima NA.
+# Kad tokia eilutÄ— nebÅ«tÅ³ rodoma, parametrui nomatch priskiriame reikÅ¡mÄ™ 0.
 
 dt[c("setosa", "mimosa"), nomatch = 0]
 
 
-# Raktas gali bûti naudojamas skaièiuojant sàlygines stulpeliø charakteristikas. 
-# Tai atliekama argumentui by priskiriant .EACHI reikğmæ. Pavyzdşiui, uşrağysime
-# komandà, kuri apskaièiuotø kintamojo Sepal.Length vidurká grupëse pagal rakto 
-# reikğmes "setosa" ir "virginica".
+# Raktas gali bÅ«ti naudojamas skaiÄiuojant sÄ…lygines stulpeliÅ³ charakteristikas. 
+# Tai atliekama argumentui by priskiriant .EACHI reikÅ¡mÄ™. PavyzdÅ¾iui, uÅ¾raÅ¡ysime
+# komandÄ…, kuri apskaiÄiuotÅ³ kintamojo Sepal.Length vidurkÄ¯ grupÄ—se pagal rakto 
+# reikÅ¡mes "setosa" ir "virginica".
 
 dt[c("setosa", "virginica"), mean(Sepal.Length), by = .EACHI]
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -637,7 +637,7 @@ dt[c("setosa", "virginica"), mean(Sepal.Length), by = .EACHI]
 
 
 # --------------------------------------- #
-# NEDIDELIS GREIÈIO BANDYMAS: DF vs DT    #
+# NEDIDELIS GREIÄŒIO BANDYMAS: DF vs DT    #
 # --------------------------------------- #
 
 n = 1e7

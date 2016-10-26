@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
 #            Grafiniai parametrai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-06-24 | 0215-02-14 | 2015-02-26
 #
@@ -12,11 +12,11 @@
 # TURINYS -------------------------------
 
 #
-#   1. Grafiniø parametrø reikğmës nustatymas:
+#   1. GrafiniÅ³ parametrÅ³ reikÅ¡mÄ—s nustatymas:
 #      * funkcija par
 #      * parametras no.readonly
 #      
-#   2. Bendro pobûdşio grafiniai parametrai:
+#   2. Bendro pobÅ«dÅ¾io grafiniai parametrai:
 #      * new
 #      * ask
 #      * ann
@@ -29,7 +29,7 @@
 #      * lmitre
 #      * pch
 #
-#   3. Grafiko spalvos, mastelis ir antrağèiø ğriftas:
+#   3. Grafiko spalvos, mastelis ir antraÅ¡ÄiÅ³ Å¡riftas:
 #      * bg
 #      * fg
 #      * col
@@ -37,7 +37,7 @@
 #      * font
 #      * family
 #
-#   4. Su ağiø braişymu susijæ grafiniai parametrai:
+#   4. Su aÅ¡iÅ³ braiÅ¾ymu susijÄ™ grafiniai parametrai:
 #      * xaxt ir yaxt
 #      * xaxp ir yaxp
 #      * xaxs ir yaxs
@@ -47,7 +47,7 @@
 #      * tck ir tcl
 #      * las
 #
-#   5. Grafinio lango padalinimas, iğmatavimai ir parağtës:
+#   5. Grafinio lango padalinimas, iÅ¡matavimai ir paraÅ¡tÄ—s:
 #      * mfrow ir mfcol
 #      * mfg
 #      * mar ir mai
@@ -66,7 +66,7 @@
 #      * srt ir crt
 #      * ps
 #
-#   7. Parametrai, kuriø reikğmës pakeisti negalima:
+#   7. Parametrai, kuriÅ³ reikÅ¡mÄ—s pakeisti negalima:
 #      * csi, cin, cra, cxy
 #      * din
 #      * page
@@ -79,177 +79,177 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 #
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# GRAFINIØ PARAMETRØ REIKĞMËS NUSTATYMAS  #
+# GRAFINIÅ² PARAMETRÅ² REIKÅ MÄ–S NUSTATYMAS  #
 # --------------------------------------- #
 
-# Bet kuri diagrama turi daug grafiniø elementø: koordinaèiø ağys, jø padalinimo
-# tağkai, parağtës, grafiko antrağtë ir atskirø ağiø pavadinimai, ğriftø, linijø 
-# ir tağkø tipas, dydis, spalva ir visa kita. Priklausomai nuo grafiko kai kurie 
-# jo elementai gali bûti ir nebraişomi. Pavyzdşiui, kartais nubraişoma tik viena 
-# koordinaèiø ağis, nevisada reikalingas grafiko rëmelis, ağies ar viso grafiko 
-# antrağtë ir pan.
+# Bet kuri diagrama turi daug grafiniÅ³ elementÅ³: koordinaÄiÅ³ aÅ¡ys, jÅ³ padalinimo
+# taÅ¡kai, paraÅ¡tÄ—s, grafiko antraÅ¡tÄ— ir atskirÅ³ aÅ¡iÅ³ pavadinimai, Å¡riftÅ³, linijÅ³ 
+# ir taÅ¡kÅ³ tipas, dydis, spalva ir visa kita. Priklausomai nuo grafiko kai kurie 
+# jo elementai gali bÅ«ti ir nebraiÅ¾omi. PavyzdÅ¾iui, kartais nubraiÅ¾oma tik viena 
+# koordinaÄiÅ³ aÅ¡is, nevisada reikalingas grafiko rÄ—melis, aÅ¡ies ar viso grafiko 
+# antraÅ¡tÄ— ir pan.
 
-# Visø grafiniø elementø iğvaizda kontroliuojama vienu ar keliais parametrais. 
-# Visø parametrø reikğmes galima paşiûrëti naudojant funkcijà par().
+# VisÅ³ grafiniÅ³ elementÅ³ iÅ¡vaizda kontroliuojama vienu ar keliais parametrais. 
+# VisÅ³ parametrÅ³ reikÅ¡mes galima paÅ¾iÅ«rÄ—ti naudojant funkcijÄ… par().
 
 par()
 
-# Nurodşius grafiniø parametrø vardø vektoriø, funkcija par gràşina jø reikğmes.
-# Pavyzdşiui, linijos tipà ir storá kontroliuoja parametrai lty ir lwd. Gausime
-# jø reikğmes.
+# NurodÅ¾ius grafiniÅ³ parametrÅ³ vardÅ³ vektoriÅ³, funkcija par grÄ…Å¾ina jÅ³ reikÅ¡mes.
+# PavyzdÅ¾iui, linijos tipÄ… ir storÄ¯ kontroliuoja parametrai lty ir lwd. Gausime
+# jÅ³ reikÅ¡mes.
 
 par(c("lty", "lwd"))
 
 
-# Jei nenurodyta kitaip, visos grafinës funkcijos naudoja standartines parametrø
-# reikğmes. Jas galima pakeisti naudojant tà paèià funkcijà par(). 
+# Jei nenurodyta kitaip, visos grafinÄ—s funkcijos naudoja standartines parametrÅ³
+# reikÅ¡mes. Jas galima pakeisti naudojant tÄ… paÄiÄ… funkcijÄ… par(). 
 
-# Pavyzdşiui, loginis parametras ann nustato, ar grafikas bus braişomas su ağies
-# pavadinimu ir antrağte. Priskirdami reikğmæ FALSE, uşdrausime visas antrağtes.
+# PavyzdÅ¾iui, loginis parametras ann nustato, ar grafikas bus braiÅ¾omas su aÅ¡ies
+# pavadinimu ir antraÅ¡te. Priskirdami reikÅ¡mÄ™ FALSE, uÅ¾drausime visas antraÅ¡tes.
 
 par(ann = FALSE)
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
-# Atstatome pradinæ parametro reikğmæ TRUE, todël visi grafikai vël bus braişomi 
-# su antrağtëmis ir ağiø pavadinimais.
+# Atstatome pradinÄ™ parametro reikÅ¡mÄ™ TRUE, todÄ—l visi grafikai vÄ—l bus braiÅ¾omi 
+# su antraÅ¡tÄ—mis ir aÅ¡iÅ³ pavadinimais.
 
 par(ann = TRUE)
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 
-# Analogiğkai galima nustatyti iğ karto keliø grafiniø parametrø reikğmes. Pvz.,
-# nustatysime, kad visø grafikø fono spalvà bûtø pilka, o linijø spalva raudona.
+# AnalogiÅ¡kai galima nustatyti iÅ¡ karto keliÅ³ grafiniÅ³ parametrÅ³ reikÅ¡mes. Pvz.,
+# nustatysime, kad visÅ³ grafikÅ³ fono spalvÄ… bÅ«tÅ³ pilka, o linijÅ³ spalva raudona.
 
 par(bg = "gray", fg = "red")
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 par(bg = "transparent", fg = "black")
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 
-# Grafinio parametro reikğmës nustatymui naudojant funkcijà par, jo poveikis yra
-# globalus - tà paèià parametro reikğmæ naudoja visos grafinës funkcijos. Taèiau
-# dalies parametrø reikğmes galima pakeisti per grafines funkcijas. Tokiu atveju
-# parametro reikğmës pasikeitimas turi átakos tik vienam grafikui.
+# Grafinio parametro reikÅ¡mÄ—s nustatymui naudojant funkcijÄ… par, jo poveikis yra
+# globalus - tÄ… paÄiÄ… parametro reikÅ¡mÄ™ naudoja visos grafinÄ—s funkcijos. TaÄiau
+# dalies parametrÅ³ reikÅ¡mes galima pakeisti per grafines funkcijas. Tokiu atveju
+# parametro reikÅ¡mÄ—s pasikeitimas turi Ä¯takos tik vienam grafikui.
 
-# Pavyzdşiui, parametras font reguliuoja koordinaèiø ağiø ir kitø grafiko daliø 
-# ğriftà. Pagal nutylëjimà jo reikğmë lygi 1, kurià atitinka plain text ğriftas.
+# PavyzdÅ¾iui, parametras font reguliuoja koordinaÄiÅ³ aÅ¡iÅ³ ir kitÅ³ grafiko daliÅ³ 
+# Å¡riftÄ…. Pagal nutylÄ—jimÄ… jo reikÅ¡mÄ— lygi 1, kuriÄ… atitinka plain text Å¡riftas.
 
 par("font")
 
-# Toká ğriftà naudoja visi grafikai, taèiau konkreèiame grafike naudojamà ğriftà 
-# galima pakeisti nurodant jo reikğmæ per kokià nors grafinæ funkcijà. Parametro 
-# font reikğmæ pakeisime á 2, kurià atitinka pastorintas ğriftas.
+# TokÄ¯ Å¡riftÄ… naudoja visi grafikai, taÄiau konkreÄiame grafike naudojamÄ… Å¡riftÄ… 
+# galima pakeisti nurodant jo reikÅ¡mÄ™ per kokiÄ… nors grafinÄ™ funkcijÄ…. Parametro 
+# font reikÅ¡mÄ™ pakeisime Ä¯ 2, kuriÄ… atitinka pastorintas Å¡riftas.
 
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", font = 2)
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", font = 2)
 
-# Galima pastebëti, kad globali parametro reikğmë iğliko nepakitusi, todël visi
-# kiti grafikai bus braişomi naudojant standartiná ğriftà.
+# Galima pastebÄ—ti, kad globali parametro reikÅ¡mÄ— iÅ¡liko nepakitusi, todÄ—l visi
+# kiti grafikai bus braiÅ¾omi naudojant standartinÄ¯ Å¡riftÄ….
 
 par("font")
 
 
 # NAUDINGA ------------------------------
 
-# Grafinio parametro reikğmës pakeitimui naudojant funkcijà par, pradinë reikğmë
-# prarandama, todël pakeitus keliø parametrø reikğmes, vëliau atstatyti pradines 
-# jø reikğmes ir gráşti prie áprasto grafikø vaizdo gali bûti sudëtinga. Kadangi
-# visø parametrø reikğmës saugomos viename sàrağe, prieğ atliekant pakeitimus já 
-# galima iğsaugoti ir vëliau atstatyti.
+# Grafinio parametro reikÅ¡mÄ—s pakeitimui naudojant funkcijÄ… par, pradinÄ— reikÅ¡mÄ—
+# prarandama, todÄ—l pakeitus keliÅ³ parametrÅ³ reikÅ¡mes, vÄ—liau atstatyti pradines 
+# jÅ³ reikÅ¡mes ir grÄ¯Å¾ti prie Ä¯prasto grafikÅ³ vaizdo gali bÅ«ti sudÄ—tinga. Kadangi
+# visÅ³ parametrÅ³ reikÅ¡mÄ—s saugomos viename sÄ…raÅ¡e, prieÅ¡ atliekant pakeitimus jÄ¯ 
+# galima iÅ¡saugoti ir vÄ—liau atstatyti.
 
-# Pavyzdşiui, iğsaugosime keletos grafiniø parametrø reikğmes, kurias pakeisime,
-# o nubraişius grafikà, atstatysime atgal.
+# PavyzdÅ¾iui, iÅ¡saugosime keletos grafiniÅ³ parametrÅ³ reikÅ¡mes, kurias pakeisime,
+# o nubraiÅ¾ius grafikÄ…, atstatysime atgal.
 
 original.par <- par(c("adj", "bg", "col", "lwd", "bty"))
 
 par(adj = 0.3, bg = "gray", col = "red", lwd = 2, bty = "n")
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 par(original.par)
 
-# Atstaèius pradines parametrø reikğmes, braişomas áprastas grafikas.
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+# AtstaÄius pradines parametrÅ³ reikÅ¡mes, braiÅ¾omas Ä¯prastas grafikas.
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 
-# Galima iğsaugoti iğ karto visø grafiniø parametrø reikğmes. Problema tame, kad
-# ne visø parametrø reikğmes galima pakeisti, dalis iğ jø yra "read only". Todël
-# parametrui no.readonly priskirdami reikğmæ TRUE, iğsaugome tik tuos parametrus, 
-# kuriems vëliau bus galima gràşinti pradines jø reikğmes.
+# Galima iÅ¡saugoti iÅ¡ karto visÅ³ grafiniÅ³ parametrÅ³ reikÅ¡mes. Problema tame, kad
+# ne visÅ³ parametrÅ³ reikÅ¡mes galima pakeisti, dalis iÅ¡ jÅ³ yra "read only". TodÄ—l
+# parametrui no.readonly priskirdami reikÅ¡mÄ™ TRUE, iÅ¡saugome tik tuos parametrus, 
+# kuriems vÄ—liau bus galima grÄ…Å¾inti pradines jÅ³ reikÅ¡mes.
 
 original.par <- par(no.readonly = TRUE)
 
 par(adj = 0.3, bg = "gray", col = "red", lwd = 2, bty = "n")
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 par(original.par)
 
-# Atstaèius pradines parametrø reikğmes, braişomas áprastas grafikas.
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+# AtstaÄius pradines parametrÅ³ reikÅ¡mes, braiÅ¾omas Ä¯prastas grafikas.
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite dvi komandas, kurios a) apskaièiuotø grafiniø parametrø skaièiø,
-#    b) sudarytø visø grafiniø parametrø pavadinimø vektoriø.
-# 2. Uşrağykite komandà, kuri sudarytø vektoriø tø grafiniø parametrø, kurie yra
+# 1. UÅ¾raÅ¡ykite dvi komandas, kurios a) apskaiÄiuotÅ³ grafiniÅ³ parametrÅ³ skaiÄiÅ³,
+#    b) sudarytÅ³ visÅ³ grafiniÅ³ parametrÅ³ pavadinimÅ³ vektoriÅ³.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri sudarytÅ³ vektoriÅ³ tÅ³ grafiniÅ³ parametrÅ³, kurie yra
 #    "read only".
 
 
 # --------------------------------------- #
-# BENDRO POBÛDŞIO GRAFINIAI PARAMETRAI    #
+# BENDRO POBÅªDÅ½IO GRAFINIAI PARAMETRAI    #
 # --------------------------------------- #
 
-# Grafiko braişymui naudojant aukğto lygio grafinæ funkcijà, anksèiau atidarytas 
-# grafinis langas yra iğvalomas. Tai atlieka funkcija plot.new(), kuri suvykdoma
-# automatiğkai dar prieğ aukğto lygio grafinæ funkcijà. Taip grafinis langas yra
-# paruoğiamas naujo grafiko braişymui. Taèiau ğià taisyklæ galima anuliuoti. Tam
-# naudojami ğie grafiniai parametrai: 
+# Grafiko braiÅ¾ymui naudojant aukÅ¡to lygio grafinÄ™ funkcijÄ…, anksÄiau atidarytas 
+# grafinis langas yra iÅ¡valomas. Tai atlieka funkcija plot.new(), kuri suvykdoma
+# automatiÅ¡kai dar prieÅ¡ aukÅ¡to lygio grafinÄ™ funkcijÄ…. Taip grafinis langas yra
+# paruoÅ¡iamas naujo grafiko braiÅ¾ymui. TaÄiau Å¡iÄ… taisyklÄ™ galima anuliuoti. Tam
+# naudojami Å¡ie grafiniai parametrai: 
 # 
-#        new -- loginis, nustato, ar naujas grafikas braişomas ant senojo,
-#        ask -- loginis, nustato, ar prieğ braişant grafikà reikia patvirtinimo.
+#        new -- loginis, nustato, ar naujas grafikas braiÅ¾omas ant senojo,
+#        ask -- loginis, nustato, ar prieÅ¡ braiÅ¾ant grafikÄ… reikia patvirtinimo.
 
-# Pvz., naudojant funkcijà curve, nubraişysime funkcijø y = sin(x) ir y = cos(x) 
-# grafikus. F-ja curve yra aukğto lygio grafinë funkcija, todël kiekvienà naujà
-# grafikà ji braişo iğ naujo.
+# Pvz., naudojant funkcijÄ… curve, nubraiÅ¾ysime funkcijÅ³ y = sin(x) ir y = cos(x) 
+# grafikus. F-ja curve yra aukÅ¡to lygio grafinÄ— funkcija, todÄ—l kiekvienÄ… naujÄ…
+# grafikÄ… ji braiÅ¾o iÅ¡ naujo.
 
 curve(sin, -pi, pi)
 curve(cos, -pi, pi)
 
-# Matome, kad kiekvienas naujas grafikas panaikina prieğ tai nubraişytà grafikà.
-# Parametrui new priskiriant reikğmæ TRUE, grafinis langas interpretuojamas kaip
-# naujas, todël, prieğ suvykdant aukğto lygio grafinæ funkcijà, jis neiğvalomas.
-# Tokiu naujas grafikas braişomas ant senojo virğaus.
+# Matome, kad kiekvienas naujas grafikas panaikina prieÅ¡ tai nubraiÅ¾ytÄ… grafikÄ….
+# Parametrui new priskiriant reikÅ¡mÄ™ TRUE, grafinis langas interpretuojamas kaip
+# naujas, todÄ—l, prieÅ¡ suvykdant aukÅ¡to lygio grafinÄ™ funkcijÄ…, jis neiÅ¡valomas.
+# Tokiu naujas grafikas braiÅ¾omas ant senojo virÅ¡aus.
 
 curve(sin, -pi, pi)
 par(new = TRUE)
 curve(cos, -pi, pi, ann = FALSE, axes = FALSE, col = "red")
 
 
-# Paprastai naujas grafikas nubraişomas iğ karto, kai tik ávykdoma grafinë f-ja.
-# Ğià taisyklæ nustato parametras ask, kurio standartinë reikğmë yra FALSE.
+# Paprastai naujas grafikas nubraiÅ¾omas iÅ¡ karto, kai tik Ä¯vykdoma grafinÄ— f-ja.
+# Å iÄ… taisyklÄ™ nustato parametras ask, kurio standartinÄ— reikÅ¡mÄ— yra FALSE.
 
 par("ask")
 
-# Jeigu parametrui priskiriame reikğmæ TRUE, tai, ávykdşius aukğto lygio grafinæ
-# funkcijà, grafikas nubraişomas ne iğ karto, o laukiama patvirtinimo -- klaviğo
-# Enter paspaudimo arba pelës klaviğo paspaudimo ant grafiko.
+# Jeigu parametrui priskiriame reikÅ¡mÄ™ TRUE, tai, Ä¯vykdÅ¾ius aukÅ¡to lygio grafinÄ™
+# funkcijÄ…, grafikas nubraiÅ¾omas ne iÅ¡ karto, o laukiama patvirtinimo -- klaviÅ¡o
+# Enter paspaudimo arba pelÄ—s klaviÅ¡o paspaudimo ant grafiko.
 
 curve(sin, -pi, pi)
 par(ask = TRUE)
@@ -257,86 +257,86 @@ plot(cars)
 hist(Nile)
 
 
-# Yra keletas grafiniø parametrø, kurie nustato bendro pobûdşio grafikø savybes:
+# Yra keletas grafiniÅ³ parametrÅ³, kurie nustato bendro pobÅ«dÅ¾io grafikÅ³ savybes:
 #
-#        ann -- loginis, leidşia arba uşdraudşia grafiko ir ağiø antrağtes,
-#        adj -- nustato horizontalø antrağtës ir ağiø pavadinimø iğlygiavimà,
-#        bty -- nustato grafiko rëmelio tipà,
-#        lty -- nustato linijos tipà,
-#        lwd -- nustato linijos storá,
-#        pch -- nustato tağko simbolá.
+#        ann -- loginis, leidÅ¾ia arba uÅ¾draudÅ¾ia grafiko ir aÅ¡iÅ³ antraÅ¡tes,
+#        adj -- nustato horizontalÅ³ antraÅ¡tÄ—s ir aÅ¡iÅ³ pavadinimÅ³ iÅ¡lygiavimÄ…,
+#        bty -- nustato grafiko rÄ—melio tipÄ…,
+#        lty -- nustato linijos tipÄ…,
+#        lwd -- nustato linijos storÄ¯,
+#        pch -- nustato taÅ¡ko simbolÄ¯.
 
 
-# Pavyzdşiui, loginis parametras ann nustato, ar grafike vaizduojama antrağtë ir 
-# koordinaèiø ağiø pavadinimai. Pagal nutylëjimà ğio parametro reikğmë lygi TRUE,
-# taèiau pakeitus á FALSE, visi grafikai bus braişomi be antrağèiø ir pavadinimø.
+# PavyzdÅ¾iui, loginis parametras ann nustato, ar grafike vaizduojama antraÅ¡tÄ— ir 
+# koordinaÄiÅ³ aÅ¡iÅ³ pavadinimai. Pagal nutylÄ—jimÄ… Å¡io parametro reikÅ¡mÄ— lygi TRUE,
+# taÄiau pakeitus Ä¯ FALSE, visi grafikai bus braiÅ¾omi be antraÅ¡ÄiÅ³ ir pavadinimÅ³.
 
 par(ann = FALSE)
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
-curve(cos, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "cos(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
+curve(cos, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "cos(x)")
 
 par(ann = TRUE)
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
-# Kartais reikia uşdrausti konkretaus grafiko antrağtes. Tokiu atveju paprasèiau
-# parametro ann reikğmæ keisti per grafinæ funkcijà. Pvz., funkcija curve uşdeda
-# ağiø pavadinimus automatiğkai. Jeigu jie nereikalingi, tai naudojant parametrà 
-# ann juos galima uşdrausti.
+# Kartais reikia uÅ¾drausti konkretaus grafiko antraÅ¡tes. Tokiu atveju paprasÄiau
+# parametro ann reikÅ¡mÄ™ keisti per grafinÄ™ funkcijÄ…. Pvz., funkcija curve uÅ¾deda
+# aÅ¡iÅ³ pavadinimus automatiÅ¡kai. Jeigu jie nereikalingi, tai naudojant parametrÄ… 
+# ann juos galima uÅ¾drausti.
 
 curve(sin, -pi, pi)
 curve(sin, -pi, pi, ann = FALSE)
 
 
-# Naudojant parametrà adj, nustatomas antrağtës ir ağiø pavadinimø iğlygiavimas.
-# Parametro reikğmë 0.5 atitinka centravimà, 0 arba 1 atitinka iğlygiavimà pagal
-# kairájá arba değinájá eilutës krağtà.
+# Naudojant parametrÄ… adj, nustatomas antraÅ¡tÄ—s ir aÅ¡iÅ³ pavadinimÅ³ iÅ¡lygiavimas.
+# Parametro reikÅ¡mÄ— 0.5 atitinka centravimÄ…, 0 arba 1 atitinka iÅ¡lygiavimÄ… pagal
+# kairÄ¯jÄ¯ arba deÅ¡inÄ¯jÄ¯ eilutÄ—s kraÅ¡tÄ….
 
-# Pavyzdşiui, nustatysime tokià parametro adj reikğmæ, kad antrağtë bûtø kairëje
-# eilutës pusëje, bet ne prie pat krağto.
+# PavyzdÅ¾iui, nustatysime tokiÄ… parametro adj reikÅ¡mÄ™, kad antraÅ¡tÄ— bÅ«tÅ³ kairÄ—je
+# eilutÄ—s pusÄ—je, bet ne prie pat kraÅ¡to.
 
 par(adj = 0.3)
-curve(sin, -pi, pi, main = "Grafiko antrağtë", xlab = "x", ylab = "sin(x)")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", xlab = "x", ylab = "sin(x)")
 
-# Vieno grafiko antrağtës iğlygiaviams keièiamas per grafinæ funkcijà. Pvz., èia
-# nurodysime, kad antrağtë bûtø iğlygiuota pagal değinájá eilutës krağtà.
+# Vieno grafiko antraÅ¡tÄ—s iÅ¡lygiaviams keiÄiamas per grafinÄ™ funkcijÄ…. Pvz., Äia
+# nurodysime, kad antraÅ¡tÄ— bÅ«tÅ³ iÅ¡lygiuota pagal deÅ¡inÄ¯jÄ¯ eilutÄ—s kraÅ¡tÄ….
 
-curve(sin, -pi, pi, main = "Grafiko antrağtë", adj = 1)
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", adj = 1)
 
 
-# Parametras bty kontroliuoja grafiko rëmelio braişymà. Jei parametrui priskirta
-# reikğmë "o", rëmelis braişomas, jeigu reikğmë "n" -- nebraişomas.
+# Parametras bty kontroliuoja grafiko rÄ—melio braiÅ¾ymÄ…. Jei parametrui priskirta
+# reikÅ¡mÄ— "o", rÄ—melis braiÅ¾omas, jeigu reikÅ¡mÄ— "n" -- nebraiÅ¾omas.
 
 par(bty = "n")
 curve(sin, -pi, pi)
 
-# Kai kurios aukğto lygio grafinës funkcijos rëmelio nebraişo, net ir tuo atveju,
-# jei parametrui bty priskiriama reikğmë "o". Pavyzdşiui, histograma, nubraişyta
-# naudojant funkcijà hist, visada yra be rëmelio.
+# Kai kurios aukÅ¡to lygio grafinÄ—s funkcijos rÄ—melio nebraiÅ¾o, net ir tuo atveju,
+# jei parametrui bty priskiriama reikÅ¡mÄ— "o". PavyzdÅ¾iui, histograma, nubraiÅ¾yta
+# naudojant funkcijÄ… hist, visada yra be rÄ—melio.
 
 par(bty = "o")
-hist(Nile, main = "Histograma be rëmelio, nors jis turëtø bûti")
+hist(Nile, main = "Histograma be rÄ—melio, nors jis turÄ—tÅ³ bÅ«ti")
 
-# Parametrui bty galima priskirti reikğmes "l", "7", "c", "u", "]". Tokiu atveju
-# rëmelis bus braişomas ne iğ visø keturiø pusiø. Pavyzdşiui, reikğmë "l" nurodo,
-# kad rëmelis bus braişomas tik iğ kairës ir apaèios.
+# Parametrui bty galima priskirti reikÅ¡mes "l", "7", "c", "u", "]". Tokiu atveju
+# rÄ—melis bus braiÅ¾omas ne iÅ¡ visÅ³ keturiÅ³ pusiÅ³. PavyzdÅ¾iui, reikÅ¡mÄ— "l" nurodo,
+# kad rÄ—melis bus braiÅ¾omas tik iÅ¡ kairÄ—s ir apaÄios.
 
 par(bty = "l")
 curve(sin, -pi, pi)
 
-# Jei rëmelio braişymo taisyklæ reikia pakeisti konkreèiam grafikui, tai reikğmæ 
-# parametrui bty galima priskirti per grafinæ funkcijà. Pvz., uşdrausime rëmelio
-# braişymà vienam funkcijos grafikui.
+# Jei rÄ—melio braiÅ¾ymo taisyklÄ™ reikia pakeisti konkreÄiam grafikui, tai reikÅ¡mÄ™ 
+# parametrui bty galima priskirti per grafinÄ™ funkcijÄ…. Pvz., uÅ¾drausime rÄ—melio
+# braiÅ¾ymÄ… vienam funkcijos grafikui.
 
-curve(sin, -pi, pi, main = "Grafiko antrağtë", bty = "n")
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", bty = "n")
 
-# Jei grafikas braişomas su funkcijomis plot, curve ir pan., leisti ar uşdrausti 
-# rëmelá galima naudojant loginá parametrà frame.plot.
+# Jei grafikas braiÅ¾omas su funkcijomis plot, curve ir pan., leisti ar uÅ¾drausti 
+# rÄ—melÄ¯ galima naudojant loginÄ¯ parametrÄ… frame.plot.
 
-curve(sin, -pi, pi, main = "Grafiko antrağtë", frame.plot = FALSE)
+curve(sin, -pi, pi, main = "Grafiko antraÅ¡tÄ—", frame.plot = FALSE)
 
 
-# Parametras lty nustato linijos tipà. Jam galima priskirti tokias simbolines ar
-# jas atitinkanèias skaitines reikğmes:
+# Parametras lty nustato linijos tipÄ…. Jam galima priskirti tokias simbolines ar
+# jas atitinkanÄias skaitines reikÅ¡mes:
 # 
 #          0 -- blank,
 #          1 -- solid,
@@ -346,25 +346,25 @@ curve(sin, -pi, pi, main = "Grafiko antrağtë", frame.plot = FALSE)
 #          5 -- longdash,
 #          6 -- twodash.
 
-# Paprastai diagramos braişomos iğtisine (solid) linija. Jei viename grafike yra
-# linijos, kurios turi iğsiskirti, jø tipà galima pakeisti per grafinæ funkcijà.
-# Pavyzdşiui, iğtisine linija nubraişysime funkcijos y = sin(x) grafikà, o tiesæ
-# y = 0 tame paèiame grafike nubraişysime punktyrine linija.
+# Paprastai diagramos braiÅ¾omos iÅ¡tisine (solid) linija. Jei viename grafike yra
+# linijos, kurios turi iÅ¡siskirti, jÅ³ tipÄ… galima pakeisti per grafinÄ™ funkcijÄ….
+# PavyzdÅ¾iui, iÅ¡tisine linija nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ…, o tiesÄ™
+# y = 0 tame paÄiame grafike nubraiÅ¾ysime punktyrine linija.
 
 curve(sin, -pi, pi)
 abline(h = 0, lty = 3)
 
 
-# Parametras lwd nustato linijos storá. Laikoma, kad standartinës linijos storis
-# lygus 1. Didesnës parametro reikğmës nurodo grafinëms funkcijoms, jog diagrama 
-# turi bûti braişoma naudojant storesnæ linijà.
+# Parametras lwd nustato linijos storÄ¯. Laikoma, kad standartinÄ—s linijos storis
+# lygus 1. DidesnÄ—s parametro reikÅ¡mÄ—s nurodo grafinÄ—ms funkcijoms, jog diagrama 
+# turi bÅ«ti braiÅ¾oma naudojant storesnÄ™ linijÄ….
 
 par("lwd" = 2)
 curve(sin, -pi, pi)
 abline(h = 0)
 
-# Galima pastebëti, kad pastorinta linija braişomas ir grafiko rëmelis. Taip pat
-# pastorinta linija braişoma histograma, staèiakampë diagrama ir kitos diagramos.
+# Galima pastebÄ—ti, kad pastorinta linija braiÅ¾omas ir grafiko rÄ—melis. Taip pat
+# pastorinta linija braiÅ¾oma histograma, staÄiakampÄ— diagrama ir kitos diagramos.
 
 hist(Nile)
 boxplot(Nile)
@@ -372,17 +372,17 @@ boxplot(Nile)
 graphics.off()
 
 
-# Yra keli grafiniai parametrai, kurie reguliuoja linijø sujungimà ir galø formà.
-# Plonoms linijoms jø poveikis yra praktiğkai nepastebimas, bet storoms - matosi. 
+# Yra keli grafiniai parametrai, kurie reguliuoja linijÅ³ sujungimÄ… ir galÅ³ formÄ….
+# Plonoms linijoms jÅ³ poveikis yra praktiÅ¡kai nepastebimas, bet storoms - matosi. 
 # Parametrai tokie:
 #
-#       lend -- nustato linijos galø suapvalinimo bûdà,
-#      ljoin -- nustato linijø sujungimo bûdà,
-#     lmitre -- nustato linijø sujungimo smaigalio nukirtimà.
+#       lend -- nustato linijos galÅ³ suapvalinimo bÅ«dÄ…,
+#      ljoin -- nustato linijÅ³ sujungimo bÅ«dÄ…,
+#     lmitre -- nustato linijÅ³ sujungimo smaigalio nukirtimÄ….
 
-# Parametrui lend galima priskirti reikğmæ 0 (standartinë), 1 arba 2. Pavyzdşiui,
-# nubraişysime grafikà, kuriame vienas ant kito pavaizduoti 3 tos paèios linijos
-# galai. Raudona spalva nubraişytas standartinis variantas.
+# Parametrui lend galima priskirti reikÅ¡mÄ™ 0 (standartinÄ—), 1 arba 2. PavyzdÅ¾iui,
+# nubraiÅ¾ysime grafikÄ…, kuriame vienas ant kito pavaizduoti 3 tos paÄios linijos
+# galai. Raudona spalva nubraiÅ¾ytas standartinis variantas.
 
 y <- c(10, 1, 10)
 
@@ -398,10 +398,10 @@ points(y, type = "l", lwd = 40, col = "blue")
 graphics.off()
 
 
-# Parametras ljoint nustato, kaip linija atvaizduojama lûşio ar sujungimo tağke. 
-# Standartinë parametro reikğmë 0, kitos reikğmës - 1 arba 2. Pvz., nubraişysime
-# tris tos paèios lauştës variantus, iğ kuriø matosi, kaip gali bûti sujungiamos
-# tiesës: sujungimas gali bûti suapvalintas, smailas arba nukirstas.
+# Parametras ljoint nustato, kaip linija atvaizduojama lÅ«Å¾io ar sujungimo taÅ¡ke. 
+# StandartinÄ— parametro reikÅ¡mÄ— 0, kitos reikÅ¡mÄ—s - 1 arba 2. Pvz., nubraiÅ¾ysime
+# tris tos paÄios lauÅ¾tÄ—s variantus, iÅ¡ kuriÅ³ matosi, kaip gali bÅ«ti sujungiamos
+# tiesÄ—s: sujungimas gali bÅ«ti suapvalintas, smailas arba nukirstas.
 
 y <- c(10, 1, 10)
 
@@ -417,10 +417,10 @@ lines(y + 6, lwd = 40, type = "l")
 graphics.off()
 
 
-# Parametras lmitre nustato, kaip atvaizduoti linijø sujungimo tağke susidarantá
-# smaigalá -- trumpesná ar ilgesná. Parametrui galima priskirti skaièiø didesná 
-# uş 1, standartinë jo reikğmë lygi 10. Pvz., nubraişysime du tos paèios lauştës
-# fragmento variantus, iğ kur matyti, kad, didinant parametro reikğmæ, smaigalys
+# Parametras lmitre nustato, kaip atvaizduoti linijÅ³ sujungimo taÅ¡ke susidarantÄ¯
+# smaigalÄ¯ -- trumpesnÄ¯ ar ilgesnÄ¯. Parametrui galima priskirti skaiÄiÅ³ didesnÄ¯ 
+# uÅ¾ 1, standartinÄ— jo reikÅ¡mÄ— lygi 10. Pvz., nubraiÅ¾ysime du tos paÄios lauÅ¾tÄ—s
+# fragmento variantus, iÅ¡ kur matyti, kad, didinant parametro reikÅ¡mÄ™, smaigalys
 # paliekamas ilgesnis.
 
 y <- c(0, 50, 0)
@@ -435,210 +435,210 @@ lines(x + 4, y, lwd = 10, type = "l")
 graphics.off()
 
 
-# Parametras pch nustato, kokiu simboliu grafike vaizduojamas tağkas. Jo reikğmë
-# gali bûti skaièius nuo 0 iki 25, kuris atitinka specialø simbolá. Standartinis
-# tağko simbolis yra nedidelis apskritimas, kurá atitinka parametro reikğmë 1.
+# Parametras pch nustato, kokiu simboliu grafike vaizduojamas taÅ¡kas. Jo reikÅ¡mÄ—
+# gali bÅ«ti skaiÄius nuo 0 iki 25, kuris atitinka specialÅ³ simbolÄ¯. Standartinis
+# taÅ¡ko simbolis yra nedidelis apskritimas, kurÄ¯ atitinka parametro reikÅ¡mÄ— 1.
 
-# Pavyzdşiui, parametrui priskirsime reikğmæ 20. Tada sklaidos diagramoje tağkas
-# bus vaizduojamas pilnu tağku.
+# PavyzdÅ¾iui, parametrui priskirsime reikÅ¡mÄ™ 20. Tada sklaidos diagramoje taÅ¡kas
+# bus vaizduojamas pilnu taÅ¡ku.
 
 par("pch" = 20)
 plot(dist ~ speed, data = cars)
 
-# Parametrui galima priskirti ir bet koká tekstiná simbolá iğ klaviatûros. Pvz.,
-# jei grafike yra labai daug tağkø, jø vaizdavimui galima parinkti áprasto tağko
-# iğ klaviatûros simbolá. Parametro reikğmæ pakeisime per grafinæ funkcijà.
+# Parametrui galima priskirti ir bet kokÄ¯ tekstinÄ¯ simbolÄ¯ iÅ¡ klaviatÅ«ros. Pvz.,
+# jei grafike yra labai daug taÅ¡kÅ³, jÅ³ vaizdavimui galima parinkti Ä¯prasto taÅ¡ko
+# iÅ¡ klaviatÅ«ros simbolÄ¯. Parametro reikÅ¡mÄ™ pakeisime per grafinÄ™ funkcijÄ….
 
 plot(rnorm(100000), rnorm(100000), pch = ".")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant parametrà lty, nubraişykite funkcijos y = sin(x) grafikà, kuriame
-#    pati sinusoidë bûtø nematoma! Sugalvokite dar kitø bûdø nubraişyti nematomà
-#    kreivæ.
-# 2. Viename grafike nubraişykite funkcijø sin(x) ir cos(x) grafikus. Kurià nors
-#    vienà kreivæ pavaizduokite iğtisine, o kità -- punktyrine linija.
-# 3. Pakeiskite grafinius parametrus taip, kad visos diagramos bûtø braişomos be
-#    rëmelio, tağko simbolis pakeistas á uşpildytà tağkà, o linijos plonesnës.
+# 1. Naudojant parametrÄ… lty, nubraiÅ¾ykite funkcijos y = sin(x) grafikÄ…, kuriame
+#    pati sinusoidÄ— bÅ«tÅ³ nematoma! Sugalvokite dar kitÅ³ bÅ«dÅ³ nubraiÅ¾yti nematomÄ…
+#    kreivÄ™.
+# 2. Viename grafike nubraiÅ¾ykite funkcijÅ³ sin(x) ir cos(x) grafikus. KuriÄ… nors
+#    vienÄ… kreivÄ™ pavaizduokite iÅ¡tisine, o kitÄ… -- punktyrine linija.
+# 3. Pakeiskite grafinius parametrus taip, kad visos diagramos bÅ«tÅ³ braiÅ¾omos be
+#    rÄ—melio, taÅ¡ko simbolis pakeistas Ä¯ uÅ¾pildytÄ… taÅ¡kÄ…, o linijos plonesnÄ—s.
 
 
 # --------------------------------------- #
-# GRAFIKO SPALVOS, MASTELIS IR ĞRIFTAS    #
+# GRAFIKO SPALVOS, MASTELIS IR Å RIFTAS    #
 # --------------------------------------- #
 
-# Dalis grafiniø parametrø reguliuoja grafiko fono, tağkø, linijø, ağiø, rëmelio
-# spalvas, antrağèiø ğriftà ir simboliø dydá:
+# Dalis grafiniÅ³ parametrÅ³ reguliuoja grafiko fono, taÅ¡kÅ³, linijÅ³, aÅ¡iÅ³, rÄ—melio
+# spalvas, antraÅ¡ÄiÅ³ Å¡riftÄ… ir simboliÅ³ dydÄ¯:
 # 
 #         bg -- grafiko fono spalva,
-#         fg -- linijø, tağkø, rëmelio ir koordinaèiø ağiø spalva,
-#        col -- linijø, tağkø, rëmelio spalva,
-#        cex -- grafiko tağkø ir antrağèiø dydis,
-#       font -- ğrifo tipas,
-#     family -- ğrifto ğeima.
+#         fg -- linijÅ³, taÅ¡kÅ³, rÄ—melio ir koordinaÄiÅ³ aÅ¡iÅ³ spalva,
+#        col -- linijÅ³, taÅ¡kÅ³, rÄ—melio spalva,
+#        cex -- grafiko taÅ¡kÅ³ ir antraÅ¡ÄiÅ³ dydis,
+#       font -- Å¡rifo tipas,
+#     family -- Å¡rifto Å¡eima.
 
-# Parametras bg nustato grafiko fono spalvà, o parametras fg -- bendrà diagramos
-# tağkø ir linijø, koordinaèiø ağiø ir rëmelio spalvà. Fono spalva priklauso nuo
-# árenginio tipo, bet paprastai fonas bûna baltas, o kitos linijos juodos.
+# Parametras bg nustato grafiko fono spalvÄ…, o parametras fg -- bendrÄ… diagramos
+# taÅ¡kÅ³ ir linijÅ³, koordinaÄiÅ³ aÅ¡iÅ³ ir rÄ—melio spalvÄ…. Fono spalva priklauso nuo
+# Ä¯renginio tipo, bet paprastai fonas bÅ«na baltas, o kitos linijos juodos.
 
 par(c("bg", "fg"))
 
-# Pavyzdşiui, pakeisime fono spalvà á pilkà, o linijø ir tağkø spalvà á raudonà.
+# PavyzdÅ¾iui, pakeisime fono spalvÄ… Ä¯ pilkÄ…, o linijÅ³ ir taÅ¡kÅ³ spalvÄ… Ä¯ raudonÄ….
 
 par(bg = "gray", fg = "red")
 plot(dist ~ speed, data = cars, pch = 20)
 
 
-# Parametras col taip pat nustato linijø, tağkø ir rëmelio spalvà, taèiau negali
-# pakeisti koordinaèiø ağiø spalvos!
+# Parametras col taip pat nustato linijÅ³, taÅ¡kÅ³ ir rÄ—melio spalvÄ…, taÄiau negali
+# pakeisti koordinaÄiÅ³ aÅ¡iÅ³ spalvos!
 
 par(col = "red")
 plot(dist ~ speed, data = cars, pch = 20, frame = FALSE)
 
 
-# Diagramos tağko simbolio, antrağèiø teksto, ağies padalø ir jø pavadinimø dydá 
-# nustato mastelio parametras cex. Didinant parametro reikğmæ, tağkai ir tekstas 
-# didëja, maşinant -- maşëja. Standartinë parametro reikğmë lygi 1.
+# Diagramos taÅ¡ko simbolio, antraÅ¡ÄiÅ³ teksto, aÅ¡ies padalÅ³ ir jÅ³ pavadinimÅ³ dydÄ¯ 
+# nustato mastelio parametras cex. Didinant parametro reikÅ¡mÄ™, taÅ¡kai ir tekstas 
+# didÄ—ja, maÅ¾inant -- maÅ¾Ä—ja. StandartinÄ— parametro reikÅ¡mÄ— lygi 1.
 
-# Pavyzdşiui, jeigu antrağtës tekstas ir diagramos tağkai turi bûti 20 % didesni, 
-# tai parametrui cex priskiriame reikğmæ 1.2.
+# PavyzdÅ¾iui, jeigu antraÅ¡tÄ—s tekstas ir diagramos taÅ¡kai turi bÅ«ti 20 % didesni, 
+# tai parametrui cex priskiriame reikÅ¡mÄ™ 1.2.
 
 par(cex = 1.2)
 plot(dist ~ speed, data = cars, pch = 20)
 
 
-# Parametras font nustato, koks ğriftas naudojamas tekstui ant grafiko uşrağyti.
-# Galimos reikğmës:
+# Parametras font nustato, koks Å¡riftas naudojamas tekstui ant grafiko uÅ¾raÅ¡yti.
+# Galimos reikÅ¡mÄ—s:
 #
 #          1 -- plain text,
 #          2 -- bold face,
 #          3 -- italic,
 #          4 -- bold italic.
 
-# Pvz., nustatysime, kad tekstas ant grafiko bûtø rağomas pastorintu ğriftu. Tam
-# parametrui font priskiriame reikğmæ 2. Tekstà ant grafiko uşrağome su funkcija
+# Pvz., nustatysime, kad tekstas ant grafiko bÅ«tÅ³ raÅ¡omas pastorintu Å¡riftu. Tam
+# parametrui font priskiriame reikÅ¡mÄ™ 2. TekstÄ… ant grafiko uÅ¾raÅ¡ome su funkcija
 # text.
 
 par(font = 2)
-plot(1, 1, type = "n", main = "Grafiko antrağtë")
-text(1, 1, "Tekstas pastorintu ğriftu.")
+plot(1, 1, type = "n", main = "Grafiko antraÅ¡tÄ—")
+text(1, 1, "Tekstas pastorintu Å¡riftu.")
 
 
-# Ğriftø, kuriuo rağomos grafiko ir ağiø antrağtës bei padalø pavadinimai, ğeimà 
-# nusako parametras family. Standartinë parametro reikğmë yra "", kiti variantai 
+# Å riftÅ³, kuriuo raÅ¡omos grafiko ir aÅ¡iÅ³ antraÅ¡tÄ—s bei padalÅ³ pavadinimai, Å¡eimÄ… 
+# nusako parametras family. StandartinÄ— parametro reikÅ¡mÄ— yra "", kiti variantai 
 # tokie:
 # 
-#      serif -- lotyniğkas ğriftas, pvz., Times,
-#       sans -- groteskinis ğriftas, pvz., Aria, Helvetica,
-#       mono -- pastovaus ploèio ğriftas, pvz., Courier.
+#      serif -- lotyniÅ¡kas Å¡riftas, pvz., Times,
+#       sans -- groteskinis Å¡riftas, pvz., Aria, Helvetica,
+#       mono -- pastovaus ploÄio Å¡riftas, pvz., Courier.
 
-# Pavyzdşiui, pakeisime parametro reikğmæ taip, kad visos grafiko antrağtës bûtø
-# rağomos pastovaus ploèio ğriftu.
+# PavyzdÅ¾iui, pakeisime parametro reikÅ¡mÄ™ taip, kad visos grafiko antraÅ¡tÄ—s bÅ«tÅ³
+# raÅ¡omos pastovaus ploÄio Å¡riftu.
 
 par(family = "mono")
-plot(dist ~ speed, data = cars, main = "Grafiko antrağtë")
+plot(dist ~ speed, data = cars, main = "Grafiko antraÅ¡tÄ—")
 
 
-# Keièiant parametrø col, cex ir font reikğmes, nustatoma bendra ávairiø grafiko 
-# daliø spalva, vienodas mastelis arba tas pats ğrifto tipas. Spalvà, mastelá ir
-# ğriftà galima pakeisti atskirai ağims, ağiø antrağtëms, bendrai bei papildomai 
-# grafiko antrağtëms. Tam naudojami ğie grafiniai parametrai:
+# KeiÄiant parametrÅ³ col, cex ir font reikÅ¡mes, nustatoma bendra Ä¯vairiÅ³ grafiko 
+# daliÅ³ spalva, vienodas mastelis arba tas pats Å¡rifto tipas. SpalvÄ…, mastelÄ¯ ir
+# Å¡riftÄ… galima pakeisti atskirai aÅ¡ims, aÅ¡iÅ³ antraÅ¡tÄ—ms, bendrai bei papildomai 
+# grafiko antraÅ¡tÄ—ms. Tam naudojami Å¡ie grafiniai parametrai:
 # 
 #     col.axis    cex.axis    font.axis
 #     col.lab     cex.lab     font.lab
 #     col.main    cex.main    font.main
 #     col.sub     cex.sub     font.sub
 
-# Pavyzdşiui, nubraişysime grafikà, kuriame skaièiai ties padalomis 20 % didesni,
-# o ağies antrağtës uşrağytos pasvirusiu pastorintu ğriftu.
+# PavyzdÅ¾iui, nubraiÅ¾ysime grafikÄ…, kuriame skaiÄiai ties padalomis 20 % didesni,
+# o aÅ¡ies antraÅ¡tÄ—s uÅ¾raÅ¡ytos pasvirusiu pastorintu Å¡riftu.
 
 par(cex.axis = 1.2, font.lab = 4)
-plot(dist ~ speed, data = cars, main = "Grafiko antrağtë", frame = F)
+plot(dist ~ speed, data = cars, main = "Grafiko antraÅ¡tÄ—", frame = F)
 
 
 # NAUDINGA ------------------------------
 
-# Spalvos, mastelio ir ğrifto parametrams reikğmæ priskiriant per grafines f-jas,
-# jø poveikis yra lokalus, t.y. galioja tik vienam konkreèiam grafikui. Svarbiau
-# yra tai, kad ğie parametrai skirtingai veikia reikğmæ priskiriant per f-jà par
-# ir per grafinæ funkcijà!
+# Spalvos, mastelio ir Å¡rifto parametrams reikÅ¡mÄ™ priskiriant per grafines f-jas,
+# jÅ³ poveikis yra lokalus, t.y. galioja tik vienam konkreÄiam grafikui. Svarbiau
+# yra tai, kad Å¡ie parametrai skirtingai veikia reikÅ¡mÄ™ priskiriant per f-jÄ… par
+# ir per grafinÄ™ funkcijÄ…!
 
-# Pavyzdşiui, parametrui bg reikğmæ priskiriant per grafinæ funkcijà, jis keièia
-# tağko simbolio fonà, bet ne grafiko fonà. Tai galima pastebëti, jei parametrui
-# pch priskiriama reikğmë 21, 22 ir t.t. iki 25.
+# PavyzdÅ¾iui, parametrui bg reikÅ¡mÄ™ priskiriant per grafinÄ™ funkcijÄ…, jis keiÄia
+# taÅ¡ko simbolio fonÄ…, bet ne grafiko fonÄ…. Tai galima pastebÄ—ti, jei parametrui
+# pch priskiriama reikÅ¡mÄ— 21, 22 ir t.t. iki 25.
 
 plot(dist ~ speed, data = cars, bg = "red", pch = 21)
 
-# Pavyzdşiui, parametrui fg reikğmæ priskiriant per grafinæ funkcijà, jis keièia 
-# tik ağiø ir rëmelio spalvà, bet nekeièia kitø grafiko linijø ir tağkø spalvos.
+# PavyzdÅ¾iui, parametrui fg reikÅ¡mÄ™ priskiriant per grafinÄ™ funkcijÄ…, jis keiÄia 
+# tik aÅ¡iÅ³ ir rÄ—melio spalvÄ…, bet nekeiÄia kitÅ³ grafiko linijÅ³ ir taÅ¡kÅ³ spalvos.
 
 plot(dist ~ speed, data = cars, fg = "red")
 
 
-# Analogiğkai, parametro col reikğmæ priskiriant per grafinæ funkcijà, nustatome
-# tik tağko simbolio spalvà.
+# AnalogiÅ¡kai, parametro col reikÅ¡mÄ™ priskiriant per grafinÄ™ funkcijÄ…, nustatome
+# tik taÅ¡ko simbolio spalvÄ….
 
 plot(dist ~ speed, data = cars, pch = 20)
 plot(dist ~ speed, data = cars, pch = 20, col = "red")
 
 
-# Pavyzdşiui, parametro cex reikğmæ priskiriant per grafinæ funkcijà, pakeièiame
-# tik tağko simbolio dydá.
+# PavyzdÅ¾iui, parametro cex reikÅ¡mÄ™ priskiriant per grafinÄ™ funkcijÄ…, pakeiÄiame
+# tik taÅ¡ko simbolio dydÄ¯.
 
 plot(dist ~ speed, data = cars)
 plot(dist ~ speed, data = cars, cex = 2)
 
 
-# Parametras font, jeigu jo reikğmë priskiriama per grafinæ funkcijà, keièia tik 
-# padalø skaièiø ğriftà.
+# Parametras font, jeigu jo reikÅ¡mÄ— priskiriama per grafinÄ™ funkcijÄ…, keiÄia tik 
+# padalÅ³ skaiÄiÅ³ Å¡riftÄ….
 
 plot(dist ~ speed, data = cars, pch = 20)
 plot(dist ~ speed, data = cars, pch = 20, font = 2)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Grafinius parametrus pakeiskite taip, kad grafiko fonas bûtø juodas, tağkai
+# 1. Grafinius parametrus pakeiskite taip, kad grafiko fonas bÅ«tÅ³ juodas, taÅ¡kai
 #    ir linijos -- balti.
-# 2. Nubraişykite sklaidos diagramà plot(dist ~ speed, data = cars). Nustatykite
-#    grafinius parametrus taip, kad tağkai bûtø raudoni, o ağys mëlynos spalvos.
-#    Sugalvokite kelis skirtingus bûdus.
-# 3. Sugalvokite, kaip nubraişyti apskritimà, jei grafike galima pavaizduoti tik
-#    vienà tağkà.
-# 4. Tarkime, kad mastelio parametro cex reikğmë priskiriama taip: par(cex = 2).
-#    Sugalvokite bûdà, kaip nubraişyti diagramà, kad antrağtës joje bûtø áprasto
-#    dydşio, lyg parametro cex reikğmë bûtø lygi 1.
+# 2. NubraiÅ¾ykite sklaidos diagramÄ… plot(dist ~ speed, data = cars). Nustatykite
+#    grafinius parametrus taip, kad taÅ¡kai bÅ«tÅ³ raudoni, o aÅ¡ys mÄ—lynos spalvos.
+#    Sugalvokite kelis skirtingus bÅ«dus.
+# 3. Sugalvokite, kaip nubraiÅ¾yti apskritimÄ…, jei grafike galima pavaizduoti tik
+#    vienÄ… taÅ¡kÄ….
+# 4. Tarkime, kad mastelio parametro cex reikÅ¡mÄ— priskiriama taip: par(cex = 2).
+#    Sugalvokite bÅ«dÄ…, kaip nubraiÅ¾yti diagramÄ…, kad antraÅ¡tÄ—s joje bÅ«tÅ³ Ä¯prasto
+#    dydÅ¾io, lyg parametro cex reikÅ¡mÄ— bÅ«tÅ³ lygi 1.
 
 
 # --------------------------------------- #
-# KOORDINAÈIØ AĞIØ PARAMETRAI             #
+# KOORDINAÄŒIÅ² AÅ IÅ² PARAMETRAI             #
 # --------------------------------------- #
 
-# Daug grafiniø parametrø kontroliuoja koordinaèiø ağiø sudarymà bei atskiras jø
-# dalis. Tarp jø yra grupë parametrø, kurie nustato atskirø ağiø braişymà:
+# Daug grafiniÅ³ parametrÅ³ kontroliuoja koordinaÄiÅ³ aÅ¡iÅ³ sudarymÄ… bei atskiras jÅ³
+# dalis. Tarp jÅ³ yra grupÄ— parametrÅ³, kurie nustato atskirÅ³ aÅ¡iÅ³ braiÅ¾ymÄ…:
 #
-#       xaxt -- uşdraudşia arba leidşia braişyti Ox ağá,
+#       xaxt -- uÅ¾draudÅ¾ia arba leidÅ¾ia braiÅ¾yti Ox aÅ¡Ä¯,
 #       yaxt
-#       xaxp -- nustato Ox ağies ribas ir padalinimø skaièiø,
+#       xaxp -- nustato Ox aÅ¡ies ribas ir padalinimÅ³ skaiÄiÅ³,
 #       yaxp
-#       xaxs -- nustato Ox ağies ilgio apskaièiavimo bûdà,
+#       xaxs -- nustato Ox aÅ¡ies ilgio apskaiÄiavimo bÅ«dÄ…,
 #       yaxs
-#       xlog -- loginis, nurodo ar Ox ağis bus logaritminëje skalëje.
+#       xlog -- loginis, nurodo ar Ox aÅ¡is bus logaritminÄ—je skalÄ—je.
 #       ylog
 
-# Braişant grafikà, funkcija plot, hist ar kitos aukğto lygio grafinës funkcijos 
-# automatiğkai nubraişo ir koordinaèiø ağis. Parametrui xaxt arba yaxt nurodşius 
-# reikğmæ "n", uşdraudşiama uşdëti atitinkamai Ox arba Oy ağá. Reikğmæ priskirti
-# galima naudojant funkcijà par. Pavyzdşiui, nustatysime, kad visi grafikai bûtø
-# braişomi be Ox ağies.
+# BraiÅ¾ant grafikÄ…, funkcija plot, hist ar kitos aukÅ¡to lygio grafinÄ—s funkcijos 
+# automatiÅ¡kai nubraiÅ¾o ir koordinaÄiÅ³ aÅ¡is. Parametrui xaxt arba yaxt nurodÅ¾ius 
+# reikÅ¡mÄ™ "n", uÅ¾draudÅ¾iama uÅ¾dÄ—ti atitinkamai Ox arba Oy aÅ¡Ä¯. ReikÅ¡mÄ™ priskirti
+# galima naudojant funkcijÄ… par. PavyzdÅ¾iui, nustatysime, kad visi grafikai bÅ«tÅ³
+# braiÅ¾omi be Ox aÅ¡ies.
 
 par(xaxt = "n")
 
 curve(sin, -pi, pi, frame = FALSE)
 plot(Nile)
 
-# Pagal nutylëjimà ğiø parametrø reikğmës yra "s". Atstatysime pradinæ parametro
-# reikğmæ, prieğingu atveju visi kiti grafikai toliau bûtø braişomi be Ox ağies.
+# Pagal nutylÄ—jimÄ… Å¡iÅ³ parametrÅ³ reikÅ¡mÄ—s yra "s". Atstatysime pradinÄ™ parametro
+# reikÅ¡mÄ™, prieÅ¡ingu atveju visi kiti grafikai toliau bÅ«tÅ³ braiÅ¾omi be Ox aÅ¡ies.
 
 par(xaxt = "s")
 
@@ -646,10 +646,10 @@ curve(sin, -pi, pi, frame = FALSE)
 plot(Nile)
 
 
-# Ğiø grafiniø parametrø reikğmes galima pakeisti naudojant aukğto lygio grafinæ 
-# funkcijà. Tokiu atveju kuri nors ağis nebraişoma tik ğiame konkreèiame grafike.
-# Pavyzdşiui, nubraişysime funkcijos grafikà ir, keisdami ğiø parametrø reikğmes,
-# nurodysime, kuriø ağiø nerodyti.
+# Å iÅ³ grafiniÅ³ parametrÅ³ reikÅ¡mes galima pakeisti naudojant aukÅ¡to lygio grafinÄ™ 
+# funkcijÄ…. Tokiu atveju kuri nors aÅ¡is nebraiÅ¾oma tik Å¡iame konkreÄiame grafike.
+# PavyzdÅ¾iui, nubraiÅ¾ysime funkcijos grafikÄ… ir, keisdami Å¡iÅ³ parametrÅ³ reikÅ¡mes,
+# nurodysime, kuriÅ³ aÅ¡iÅ³ nerodyti.
 
 curve(sin, -pi, pi)
 curve(sin, -pi, pi, frame = FALSE)
@@ -658,63 +658,63 @@ curve(sin, -pi, pi, frame = FALSE, yaxt = "n")
 curve(sin, -pi, pi, frame = FALSE, xaxt = "n", yaxt = "n")
 
 
-# Ağiø Ox ir Oy ribas ir padalijimo intervalø skaièiø kontroliuoja du parametrai 
-# xaxp ir yaxp. Tokio parametro reikğmë yra vektorius c(min, max, k), kur min ir 
-# max yra maşiausia ir didşiausia ağies ribos, o k yra intervalø, á kuriuos ağis
-# padalijama, skaièius. Braişant grafikà reikğmës ğiems parametrams priskiriamos 
-# automatiğkai. Jas galima gauti naudojant funkcijà par.
+# AÅ¡iÅ³ Ox ir Oy ribas ir padalijimo intervalÅ³ skaiÄiÅ³ kontroliuoja du parametrai 
+# xaxp ir yaxp. Tokio parametro reikÅ¡mÄ— yra vektorius c(min, max, k), kur min ir 
+# max yra maÅ¾iausia ir didÅ¾iausia aÅ¡ies ribos, o k yra intervalÅ³, Ä¯ kuriuos aÅ¡is
+# padalijama, skaiÄius. BraiÅ¾ant grafikÄ… reikÅ¡mÄ—s Å¡iems parametrams priskiriamos 
+# automatiÅ¡kai. Jas galima gauti naudojant funkcijÄ… par.
 
 curve(sin, -pi, pi, frame = FALSE)
 par("xaxp")
 par("yaxp")
 
 
-# Galima pastebëti, kad funkcijos grafikas braişomas intervale [-pi, pi], taèiau
-# Ox ağies ribos nesutampa ir yra ğiek tiek siauresnës. Nubraişius kità grafikà, 
-# parametrams priskiriamos já atitinkanèios naujos reikğmës.
+# Galima pastebÄ—ti, kad funkcijos grafikas braiÅ¾omas intervale [-pi, pi], taÄiau
+# Ox aÅ¡ies ribos nesutampa ir yra Å¡iek tiek siauresnÄ—s. NubraiÅ¾ius kitÄ… grafikÄ…, 
+# parametrams priskiriamos jÄ¯ atitinkanÄios naujos reikÅ¡mÄ—s.
 
 curve(sin, -2*pi, pi, frame = FALSE)
 par("xaxp")
 par("yaxp")
 
-# Parametrui xaxp arba yaxp reikğmæ galima priskirti tiesiogiai per aukğto lygio 
-# grafinæ funkcijà. Tokiu bûdu galima kontroliuoti ağies padalinimà á intervalus.
-# Pvz., nubraişysime grafikà, kuriame Ox ağis bus nuo -3 iki 1 ir padalinta á dvi 
+# Parametrui xaxp arba yaxp reikÅ¡mÄ™ galima priskirti tiesiogiai per aukÅ¡to lygio 
+# grafinÄ™ funkcijÄ…. Tokiu bÅ«du galima kontroliuoti aÅ¡ies padalinimÄ… Ä¯ intervalus.
+# Pvz., nubraiÅ¾ysime grafikÄ…, kuriame Ox aÅ¡is bus nuo -3 iki 1 ir padalinta Ä¯ dvi 
 # lygias dalis.
 
 curve(sin, -pi, pi, frame = FALSE, xaxp = c(-3, 1, 2))
 
 
-# Parametrai xaxs ir yaxs nustato taisyklæ, pagal kurià nustatomos ağiø Ox ir Oy
-# ribos. Parametrui priskyrus reikğmæ "r", parenkamos tokios ağies ribos, kurios 
-# yra 4 % didesnës nei duomenø kitimo intervalas ir pagal tai randami padalijimo 
-# tağkai. Jei priskiriama reikğmë "i", tai ağies ribos sutampa su duomenø kitimo 
+# Parametrai xaxs ir yaxs nustato taisyklÄ™, pagal kuriÄ… nustatomos aÅ¡iÅ³ Ox ir Oy
+# ribos. Parametrui priskyrus reikÅ¡mÄ™ "r", parenkamos tokios aÅ¡ies ribos, kurios 
+# yra 4 % didesnÄ—s nei duomenÅ³ kitimo intervalas ir pagal tai randami padalijimo 
+# taÅ¡kai. Jei priskiriama reikÅ¡mÄ— "i", tai aÅ¡ies ribos sutampa su duomenÅ³ kitimo 
 # riba.
 
-# Pvz., nubraişysime funkcijos y = sin(x) grafikà intervale [-pi, pi]. Priskyrus
-# parametrams reikğmæ "i", funkcijos grafikas lieèia ir ağá Ox, ir ağá Oy. 
+# Pvz., nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ… intervale [-pi, pi]. Priskyrus
+# parametrams reikÅ¡mÄ™ "i", funkcijos grafikas lieÄia ir aÅ¡Ä¯ Ox, ir aÅ¡Ä¯ Oy. 
 
 par(xaxs = "i", yaxs = "i")
 curve(sin, -pi, pi)
 abline(v = -pi, col = "red")
 
-# Pagal nutylëjimà abiems parametrams priskiriama reikğmë "r", todël abiejø ağiø 
-# ribos yra platesnës.
+# Pagal nutylÄ—jimÄ… abiems parametrams priskiriama reikÅ¡mÄ— "r", todÄ—l abiejÅ³ aÅ¡iÅ³ 
+# ribos yra platesnÄ—s.
 
 par(xaxs = "r", yaxs = "r")
 curve(sin, -pi, pi)
 abline(v = -pi, col = "red")
 
 
-# Parametro xlog reikğmë TRUE nurodo, kad Ox ağis yra logaritminëje skalëje. Kai
-# nubraişomas naujas grafikas, parametrui automatiğkai priskiriama reikğmæ FALSE.
-# Ji pasikeièia, kai aukğto lygio grafinë funkcija sudaro grafikà su logaritmine
-# ağimi. Lygiai tas pats galioja ir parametrui ylog.
+# Parametro xlog reikÅ¡mÄ— TRUE nurodo, kad Ox aÅ¡is yra logaritminÄ—je skalÄ—je. Kai
+# nubraiÅ¾omas naujas grafikas, parametrui automatiÅ¡kai priskiriama reikÅ¡mÄ™ FALSE.
+# Ji pasikeiÄia, kai aukÅ¡to lygio grafinÄ— funkcija sudaro grafikÄ… su logaritmine
+# aÅ¡imi. Lygiai tas pats galioja ir parametrui ylog.
 
-# Pavyzdşiui, nubraişysime dvi stulpelines diagramas, vienà su áprasta Oy ağimi,
-# kità - su logaritmine. Galima pastebëti, kad pirmuoju atveju parametro reikğmë
-# yra FALSE, o tuos paèius duomenis atvaizdavus logaritminëje skalëje, parametro 
-# reikğmë pasikeièia á TRUE.
+# PavyzdÅ¾iui, nubraiÅ¾ysime dvi stulpelines diagramas, vienÄ… su Ä¯prasta Oy aÅ¡imi,
+# kitÄ… - su logaritmine. Galima pastebÄ—ti, kad pirmuoju atveju parametro reikÅ¡mÄ—
+# yra FALSE, o tuos paÄius duomenis atvaizdavus logaritminÄ—je skalÄ—je, parametro 
+# reikÅ¡mÄ— pasikeiÄia Ä¯ TRUE.
 
 barplot(c(1, 10, 100))
 par("ylog")
@@ -723,59 +723,59 @@ barplot(c(1, 10, 100), log = "y")
 par("ylog")
 
 
-# Yra dar keletas grafiniø parametrø, kurie kontroliuoja abiejø koordinaèiø ağiø 
-# ir atskirø jø daliø braişymà:
+# Yra dar keletas grafiniÅ³ parametrÅ³, kurie kontroliuoja abiejÅ³ koordinaÄiÅ³ aÅ¡iÅ³ 
+# ir atskirÅ³ jÅ³ daliÅ³ braiÅ¾ymÄ…:
 # 
-#        lab -- apytikslis Ox ir Oy ağiø padalø skaièius,
-#        mgp -- ağies antrağtës, padalø teksto ir ağies linijos pozicija,
-#        tck -- padalø ilgis santykiniais vienetais,
-#        tcl -- padalø ilgis eilutës aukğèio vienetais,
-#        las -- nustatomas ağies padalos teksto pasukimas.
+#        lab -- apytikslis Ox ir Oy aÅ¡iÅ³ padalÅ³ skaiÄius,
+#        mgp -- aÅ¡ies antraÅ¡tÄ—s, padalÅ³ teksto ir aÅ¡ies linijos pozicija,
+#        tck -- padalÅ³ ilgis santykiniais vienetais,
+#        tcl -- padalÅ³ ilgis eilutÄ—s aukÅ¡Äio vienetais,
+#        las -- nustatomas aÅ¡ies padalos teksto pasukimas.
 
-# Parametrui lab priskiriamas vektorius c(x, y, len), kur skaièiai x ir y nurodo
-# apytikslá ağies Ox ir Oy padalø skaièiø. Paskutinis elementas nurodo antrağtës
-# ilgá, taèiau R jis nenaudojamas. Standartinë parametro lab reikğmë c(5, 5, 7).
+# Parametrui lab priskiriamas vektorius c(x, y, len), kur skaiÄiai x ir y nurodo
+# apytikslÄ¯ aÅ¡ies Ox ir Oy padalÅ³ skaiÄiÅ³. Paskutinis elementas nurodo antraÅ¡tÄ—s
+# ilgÄ¯, taÄiau R jis nenaudojamas. StandartinÄ— parametro lab reikÅ¡mÄ— c(5, 5, 7).
 
-# Pvz., naudojant parametrà lab nurodysime, kad Ox ağis turëtø 3 padalas, o ağis 
-# Oy -- 10 padalø.
+# Pvz., naudojant parametrÄ… lab nurodysime, kad Ox aÅ¡is turÄ—tÅ³ 3 padalas, o aÅ¡is 
+# Oy -- 10 padalÅ³.
 
 par(lab = c(3, 10, 7))
 curve(sin, -pi, pi, frame = FALSE)
 
-# Kadangi parametro lab reikğmë yra tik rekomendacija ağiø sudarymui, konkreèios 
-# ağies galø reikğmës ir jos padalø skaièius kiekvienam grafikui apskaièiuojamas 
-# vis kitaip. Tai parodo parametrø xaxp ir yaxp reikğmës.
+# Kadangi parametro lab reikÅ¡mÄ— yra tik rekomendacija aÅ¡iÅ³ sudarymui, konkreÄios 
+# aÅ¡ies galÅ³ reikÅ¡mÄ—s ir jos padalÅ³ skaiÄius kiekvienam grafikui apskaiÄiuojamas 
+# vis kitaip. Tai parodo parametrÅ³ xaxp ir yaxp reikÅ¡mÄ—s.
 
 par(c("xaxp", "yaxp"))
 
-# Grafikà su tokiomis pat ağimis galima gauti parametrams xaxp ir yaxp priskyrus
-# konkreèias reikğmes per aukğto lygio grafinæ funkcijà.
+# GrafikÄ… su tokiomis pat aÅ¡imis galima gauti parametrams xaxp ir yaxp priskyrus
+# konkreÄias reikÅ¡mes per aukÅ¡to lygio grafinÄ™ funkcijÄ….
 
 curve(sin, -pi, pi, frame = FALSE, xaxp = c(-2, 2, 2), yaxp = c(-1, 1, 10))
 
 
-# Parametras mgp nustato ağies antrağtës, teksto ties padalomis ir ağies linijos
-# postûmá (eilutëmis) tikrosios ağies atşvilgiu. 
+# Parametras mgp nustato aÅ¡ies antraÅ¡tÄ—s, teksto ties padalomis ir aÅ¡ies linijos
+# postÅ«mÄ¯ (eilutÄ—mis) tikrosios aÅ¡ies atÅ¾vilgiu. 
 
 par("mgp")
 
-# Parametro reikğmë c(3, 1, 0) nurodo, kad ağies antrağtë yra treèioje eilutëje,
-# padalø pavadinimai pirmoje, o grafike braişoma ağies linija sutampa su tikràja 
-# ağimi. Şinoma, ğias reikğmes galima pakeisti. Pvz., padalø reikğmes perkelsime
-# á kità ağies pusæ, o ağies linijà atitrauksime nuo tikrosios ağies linijos.
+# Parametro reikÅ¡mÄ— c(3, 1, 0) nurodo, kad aÅ¡ies antraÅ¡tÄ— yra treÄioje eilutÄ—je,
+# padalÅ³ pavadinimai pirmoje, o grafike braiÅ¾oma aÅ¡ies linija sutampa su tikrÄ…ja 
+# aÅ¡imi. Å½inoma, Å¡ias reikÅ¡mes galima pakeisti. Pvz., padalÅ³ reikÅ¡mes perkelsime
+# Ä¯ kitÄ… aÅ¡ies pusÄ™, o aÅ¡ies linijÄ… atitrauksime nuo tikrosios aÅ¡ies linijos.
 
 par(mgp = c(3, -0.3, 1.8))
 curve(sin, -pi, pi, frame = FALSE)
 
 
-# Brûkğneliø ties ağies sudalinimo tağkais ilgá reguliuoja parametrai tck ir tcl.
-# Naudojant tck, brûkğnelio ilgis yra santykinis ir priklauso nuo grafiko ploèio
-# arba ilgio. Naudojant tcl, brûkğnelio ilgis iğreiğkiamas per eilutës aukğtá ir 
-# pagal nutylëjimà jo reikğmë lygi -0.5. Pakeitus şenklà, brûkğneliai perkeliami
-# á kità ağies pusæ.
+# BrÅ«kÅ¡neliÅ³ ties aÅ¡ies sudalinimo taÅ¡kais ilgÄ¯ reguliuoja parametrai tck ir tcl.
+# Naudojant tck, brÅ«kÅ¡nelio ilgis yra santykinis ir priklauso nuo grafiko ploÄio
+# arba ilgio. Naudojant tcl, brÅ«kÅ¡nelio ilgis iÅ¡reiÅ¡kiamas per eilutÄ—s aukÅ¡tÄ¯ ir 
+# pagal nutylÄ—jimÄ… jo reikÅ¡mÄ— lygi -0.5. Pakeitus Å¾enklÄ…, brÅ«kÅ¡neliai perkeliami
+# Ä¯ kitÄ… aÅ¡ies pusÄ™.
 
-# Pavyzdşiui, nubraişysime grafikà, kuriame padalos trumpesnës nei standartinës.
-# Vienu atveju padalos bus nukreiptos á grafiko vidø, kitu -- á grafiko iğoræ.
+# PavyzdÅ¾iui, nubraiÅ¾ysime grafikÄ…, kuriame padalos trumpesnÄ—s nei standartinÄ—s.
+# Vienu atveju padalos bus nukreiptos Ä¯ grafiko vidÅ³, kitu -- Ä¯ grafiko iÅ¡orÄ™.
 
 par(tcl = -0.3)
 curve(sin, -pi, pi, frame = FALSE)
@@ -784,74 +784,74 @@ par(tcl = 0.3)
 curve(sin, -pi, pi, frame = FALSE)
 
 
-# Naudojant parametrà tck, padalos ilgá galima susieti su grafiko dydşiu. Pvz.,
-# nustatysime, kad padalos ilgis bûtø 1 % nuo grafiko dydşio.
+# Naudojant parametrÄ… tck, padalos ilgÄ¯ galima susieti su grafiko dydÅ¾iu. Pvz.,
+# nustatysime, kad padalos ilgis bÅ«tÅ³ 1 % nuo grafiko dydÅ¾io.
 
 par(tck = -0.01)
 curve(sin, -pi, pi, frame = FALSE)
 
-# Jei padalos ilgis keièiamas tik vienam konkreèiam grafikui, reikğmæ parametrui 
-# galima priskirti per aukğto lygio grafinæ funkcijà. 
+# Jei padalos ilgis keiÄiamas tik vienam konkreÄiam grafikui, reikÅ¡mÄ™ parametrui 
+# galima priskirti per aukÅ¡to lygio grafinÄ™ funkcijÄ…. 
 
 curve(sin, -pi, pi, frame = FALSE, tcl = -0.3)
 curve(sin, -pi, pi, frame = FALSE, tck = 0.01)
 
 
-# Parametras las nustato skaièiø ties padalomis orientacijà ağies atşvilgiu. Jam 
-# galima priskirti tokias reikğmes:
+# Parametras las nustato skaiÄiÅ³ ties padalomis orientacijÄ… aÅ¡ies atÅ¾vilgiu. Jam 
+# galima priskirti tokias reikÅ¡mes:
 # 
-#          0 -- padalø pavadinimai rağomi lygiagreèiai ağiai,
-#          1 -- padalø pavadinimai rağomi horizontaliai,
-#          2 -- padalø pavadinimai rağomi statmenai ağiai,
-#          3 -- padalø pavadinimai rağomi vertikaliai.
+#          0 -- padalÅ³ pavadinimai raÅ¡omi lygiagreÄiai aÅ¡iai,
+#          1 -- padalÅ³ pavadinimai raÅ¡omi horizontaliai,
+#          2 -- padalÅ³ pavadinimai raÅ¡omi statmenai aÅ¡iai,
+#          3 -- padalÅ³ pavadinimai raÅ¡omi vertikaliai.
 
-# Standartiğkai visuose grafikuose padalø pavadinimai rağomi lygiagreèiai ağiai, 
-# todël ağies Oy padalø pavadinimai skaitomi iğ apaèios á virğø, o tai nepatogu.
-# Ğià taisyklæ galima pakeisti parametrui las priskiriant reikğmæ 1.
+# StandartiÅ¡kai visuose grafikuose padalÅ³ pavadinimai raÅ¡omi lygiagreÄiai aÅ¡iai, 
+# todÄ—l aÅ¡ies Oy padalÅ³ pavadinimai skaitomi iÅ¡ apaÄios Ä¯ virÅ¡Å³, o tai nepatogu.
+# Å iÄ… taisyklÄ™ galima pakeisti parametrui las priskiriant reikÅ¡mÄ™ 1.
 
 par("las" = 1)
 curve(sin, -pi, pi)
 
-# Parametro reikğmæ galima pakeisti ir per grafinæ funkcijà. Tai padalø uşrağymo
-# taisyklæ pakeièiam tik tam vienam grafikui.
+# Parametro reikÅ¡mÄ™ galima pakeisti ir per grafinÄ™ funkcijÄ…. Tai padalÅ³ uÅ¾raÅ¡ymo
+# taisyklÄ™ pakeiÄiam tik tam vienam grafikui.
 
 curve(sin, -pi, pi, las = 1)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite sklaidos diagramà plot(dist ~ speed, data = cars). Nustatykite
-#    tokias grafiniø parametrø reikğmes, kad Ox ağies ribos bûtø 10 ir 20, o jos
-#    padalø skaièius (áskaitant ir galus) lygus 6.
-# 2. Naudojant parametrà tck, nubraişykite bet kokios funkcijos y = f(x) grafikà 
+# 1. NubraiÅ¾ykite sklaidos diagramÄ… plot(dist ~ speed, data = cars). Nustatykite
+#    tokias grafiniÅ³ parametrÅ³ reikÅ¡mes, kad Ox aÅ¡ies ribos bÅ«tÅ³ 10 ir 20, o jos
+#    padalÅ³ skaiÄius (Ä¯skaitant ir galus) lygus 6.
+# 2. Naudojant parametrÄ… tck, nubraiÅ¾ykite bet kokios funkcijos y = f(x) grafikÄ… 
 #    su tinkleliu (paprastai tam naudojama funkcija grid).
-# 3. Nubraişykite bet kokios funkcijos y = f(x) grafikà su koordinaèiø ağimis be
-#    padalø brûkğneliø, bet su skaièiais ties padalomis.
+# 3. NubraiÅ¾ykite bet kokios funkcijos y = f(x) grafikÄ… su koordinaÄiÅ³ aÅ¡imis be
+#    padalÅ³ brÅ«kÅ¡neliÅ³, bet su skaiÄiais ties padalomis.
 
 
 # --------------------------------------- #
-# GRAFIKO DALYS, IĞMATAVIMAI IR PARAĞTËS  #
+# GRAFIKO DALYS, IÅ MATAVIMAI IR PARAÅ TÄ–S  #
 # --------------------------------------- #
 
-# Grafinio lango suskaidymui á kelias vienodas dalis ir grafikø iğdëstymo tvarkà
-# ğiose grafinio lango dalyse nustato ğie grafiniai parametrai:
+# Grafinio lango suskaidymui Ä¯ kelias vienodas dalis ir grafikÅ³ iÅ¡dÄ—stymo tvarkÄ…
+# Å¡iose grafinio lango dalyse nustato Å¡ie grafiniai parametrai:
 # 
-#      mfcol -- grafiná langà padalina á m x n dalis, uşpildo stulpeliais,
-#      mfrow -- grafiná langà padalina á m x n dalis, uşpildo eilutëmis, 
-#        mfg -- grafinio lango eilutë ir stulpelis, kuriame braişomas grafikas.
+#      mfcol -- grafinÄ¯ langÄ… padalina Ä¯ m x n dalis, uÅ¾pildo stulpeliais,
+#      mfrow -- grafinÄ¯ langÄ… padalina Ä¯ m x n dalis, uÅ¾pildo eilutÄ—mis, 
+#        mfg -- grafinio lango eilutÄ— ir stulpelis, kuriame braiÅ¾omas grafikas.
 
-# Paprastai viename grafiniame lange braişomas vienas grafikas. Kartais susidaro
-# situacija, kai grafiniame lange reikia nubraişyti iğ karto kelis grafikus. Tai
-# áprastas dalykas, kai reikia palyginti kelis analogiğkus grafikus. Ğiuo atveju 
-# grafinis langas iğskaidomas á kelias dalis. Tam naudojamas parametras mfrow ar
+# Paprastai viename grafiniame lange braiÅ¾omas vienas grafikas. Kartais susidaro
+# situacija, kai grafiniame lange reikia nubraiÅ¾yti iÅ¡ karto kelis grafikus. Tai
+# Ä¯prastas dalykas, kai reikia palyginti kelis analogiÅ¡kus grafikus. Å iuo atveju 
+# grafinis langas iÅ¡skaidomas Ä¯ kelias dalis. Tam naudojamas parametras mfrow ar
 # mfcol. Parametrams priskiriamas du elementus turintis vektorius c(m, n), kur m 
-# yra eiluèiø, o n stulpeliø skaièius. Taip sudaroma m x n dydşio matrica, kurià
-# uşpildome grafikais. Grafikø iğdëliojimo tvarka priklauso nuo parametro. Jeigu
-# naudojamas parametras mfcol, tai grafikai iğdëstomi stulpeliais, jei naudojame
-# parametrà mfrow -- tada eilutëmis.
+# yra eiluÄiÅ³, o n stulpeliÅ³ skaiÄius. Taip sudaroma m x n dydÅ¾io matrica, kuriÄ…
+# uÅ¾pildome grafikais. GrafikÅ³ iÅ¡dÄ—liojimo tvarka priklauso nuo parametro. Jeigu
+# naudojamas parametras mfcol, tai grafikai iÅ¡dÄ—stomi stulpeliais, jei naudojame
+# parametrÄ… mfrow -- tada eilutÄ—mis.
 
-# Pavyzdşiui, naudojant parametrà mfrow, grafiná langà padalinsime á 2 x 2 dalis
-# ir nubraişysime keturis skirtingus grafikus. Grafikai bus iğdëstomi eilutëmis.
+# PavyzdÅ¾iui, naudojant parametrÄ… mfrow, grafinÄ¯ langÄ… padalinsime Ä¯ 2 x 2 dalis
+# ir nubraiÅ¾ysime keturis skirtingus grafikus. Grafikai bus iÅ¡dÄ—stomi eilutÄ—mis.
 
 par(mfrow = c(2, 2))
 curve(sin, -pi, pi)
@@ -860,11 +860,11 @@ hist(Nile)
 plot(Nile)
 
 
-# Naudojant parametrà mfg, galima pakeisti standartinæ grafikø iğdëstymo tvarkà.
-# Pvz., 3 x 3 grafiniame lange pirmas grafikas braişomas pirmos eilutës pirmame
-# stulpelyje. Sekanèio grafiko vietà nurodome per parametrà mfg, ğiuo atveju tai
-# bus antros eilutës antrame stulpelyje, treèias iğ eilës grafikas bus braişomas 
-# treèios eilutës antrame stulpelyje.
+# Naudojant parametrÄ… mfg, galima pakeisti standartinÄ™ grafikÅ³ iÅ¡dÄ—stymo tvarkÄ….
+# Pvz., 3 x 3 grafiniame lange pirmas grafikas braiÅ¾omas pirmos eilutÄ—s pirmame
+# stulpelyje. SekanÄio grafiko vietÄ… nurodome per parametrÄ… mfg, Å¡iuo atveju tai
+# bus antros eilutÄ—s antrame stulpelyje, treÄias iÅ¡ eilÄ—s grafikas bus braiÅ¾omas 
+# treÄios eilutÄ—s antrame stulpelyje.
 
 par(mfrow = c(2, 2))
 curve(sin, -pi, pi)
@@ -874,43 +874,43 @@ par(mfg = c(3, 2))
 hist(Nile)
 
 
-# Grafiniame lange yra kelios viena á kità ádëtos grafiko sritys. Pati maşiausia
-# sritis (plot) apribota ağimis arba rëmeliu ir joje braişoma diagrama. Diagrama 
-# paprastai turi parağtes, kuriose yra viso grafiko ir ağiø antrağtës. Kartu su 
-# parağtëmis diagrama sudaro paveikslëlio sritá (figure). Paveikslëlis turi savo
-# parağtes, su kuriomis ir uşima visà grafiná langà (device). Parağtës priklauso 
-# nuo ğiø grafiniø parametrø:
+# Grafiniame lange yra kelios viena Ä¯ kitÄ… Ä¯dÄ—tos grafiko sritys. Pati maÅ¾iausia
+# sritis (plot) apribota aÅ¡imis arba rÄ—meliu ir joje braiÅ¾oma diagrama. Diagrama 
+# paprastai turi paraÅ¡tes, kuriose yra viso grafiko ir aÅ¡iÅ³ antraÅ¡tÄ—s. Kartu su 
+# paraÅ¡tÄ—mis diagrama sudaro paveikslÄ—lio sritÄ¯ (figure). PaveikslÄ—lis turi savo
+# paraÅ¡tes, su kuriomis ir uÅ¾ima visÄ… grafinÄ¯ langÄ… (device). ParaÅ¡tÄ—s priklauso 
+# nuo Å¡iÅ³ grafiniÅ³ parametrÅ³:
 #
-#        mar -- diagramos parağèiø plotis eiluèiø skaièiumi,
-#        mai -- diagramos parağèiø plotis coliais,
-#        oma -- viso grafiko parağèiø plotis eiluèiø skaièiumi,
-#        omi -- viso grafiko parağèiø plotis coliais.
+#        mar -- diagramos paraÅ¡ÄiÅ³ plotis eiluÄiÅ³ skaiÄiumi,
+#        mai -- diagramos paraÅ¡ÄiÅ³ plotis coliais,
+#        oma -- viso grafiko paraÅ¡ÄiÅ³ plotis eiluÄiÅ³ skaiÄiumi,
+#        omi -- viso grafiko paraÅ¡ÄiÅ³ plotis coliais.
 #
-# Parağtës turi savo numerius: 1 -- apaèia, 2 -- kairë, 3 -- virğus, 4 -- değinë.
-# Parağtës ploèio parametrui priskiriamas vektorius su keturiø parağèiø dydşiais.
+# ParaÅ¡tÄ—s turi savo numerius: 1 -- apaÄia, 2 -- kairÄ—, 3 -- virÅ¡us, 4 -- deÅ¡inÄ—.
+# ParaÅ¡tÄ—s ploÄio parametrui priskiriamas vektorius su keturiÅ³ paraÅ¡ÄiÅ³ dydÅ¾iais.
 
-# Kadangi diagramos parağtëse rağomi koordinaèiø ağiø pavadinimai, padalø vardai
-# ir viso grafiko antrağtë, tai kiekvienos pusës parağtës plotis skiriasi. Pvz.,
-# standartinës diagramos parağtës eilutëmis yra c(5.1, 4.1, 4.1, 2.1).
+# Kadangi diagramos paraÅ¡tÄ—se raÅ¡omi koordinaÄiÅ³ aÅ¡iÅ³ pavadinimai, padalÅ³ vardai
+# ir viso grafiko antraÅ¡tÄ—, tai kiekvienos pusÄ—s paraÅ¡tÄ—s plotis skiriasi. Pvz.,
+# standartinÄ—s diagramos paraÅ¡tÄ—s eilutÄ—mis yra c(5.1, 4.1, 4.1, 2.1).
 
 par("mar")
 
-# Pavyzdşiui, nustatysime, kad parağtës iğ visø pusiø bûtø dviejø eiluèiø ploèio.
+# PavyzdÅ¾iui, nustatysime, kad paraÅ¡tÄ—s iÅ¡ visÅ³ pusiÅ³ bÅ«tÅ³ dviejÅ³ eiluÄiÅ³ ploÄio.
 
 par(mar = c(2, 2, 2, 2))
 curve(sin, -pi, pi)
 
 graphics.off()
 
-# Galima pastebëti, kad diagramoje nesimato ağiø pavadinimø. Taip atsitiko todël,
-# kad koordinaèiø ağiø pavadinimai rağomi ketvirtoje eilutëje, o parağèiø plotis
-# tik dvi eilutës.
+# Galima pastebÄ—ti, kad diagramoje nesimato aÅ¡iÅ³ pavadinimÅ³. Taip atsitiko todÄ—l,
+# kad koordinaÄiÅ³ aÅ¡iÅ³ pavadinimai raÅ¡omi ketvirtoje eilutÄ—je, o paraÅ¡ÄiÅ³ plotis
+# tik dvi eilutÄ—s.
 
 
-# Jei nenurodyta kitaip, paveikslëlio parağtës lygios nuliui, todël paveikslëlis
-# uşima visà grafiná langà. Pavyzdşiui, nustatysime, kad paveikslo parağtës bûtø
-# po dvi eilutes iğ visø pusiø. Papildomai nubraişysime vidiná iğoriniø parağèiø 
-# rëmelá.
+# Jei nenurodyta kitaip, paveikslÄ—lio paraÅ¡tÄ—s lygios nuliui, todÄ—l paveikslÄ—lis
+# uÅ¾ima visÄ… grafinÄ¯ langÄ…. PavyzdÅ¾iui, nustatysime, kad paveikslo paraÅ¡tÄ—s bÅ«tÅ³
+# po dvi eilutes iÅ¡ visÅ³ pusiÅ³. Papildomai nubraiÅ¾ysime vidinÄ¯ iÅ¡oriniÅ³ paraÅ¡ÄiÅ³ 
+# rÄ—melÄ¯.
 
 par(oma = c(2, 2, 2, 2))
 curve(sin, -pi, pi)
@@ -919,27 +919,27 @@ box("inner")
 graphics.off()
 
 
-# Paprastai vienas grafikas uşima visà grafiná langà, taèiau ğià taisyklæ galima
-# pakeisti. Kokià dalá grafinio lango uşims ávairios grafiko sritys nustato keli
+# Paprastai vienas grafikas uÅ¾ima visÄ… grafinÄ¯ langÄ…, taÄiau Å¡iÄ… taisyklÄ™ galima
+# pakeisti. KokiÄ… dalÄ¯ grafinio lango uÅ¾ims Ä¯vairios grafiko sritys nustato keli
 # grafiniai parametrai:
 #
-#        fin -- nurodo viso grafiko dydá grafiniame lange,
-#        pin -- nurodo diagramos srities dydá,
-#        omd -- nurodo iğoriniø grafiko parağèiø koordinates grafiniame lange,
-#        fig -- nurodo, kokià dalá grafiko sritis uşims iğoriniø parağèiø viduje,
-#        plt -- nurodo, kokià dalá diagramos sritis uşims grafiko srityje,
-#        pty -- nurodo, ar grafikas bus kvadratinis, ar staèiakampis,
-#        usr -- koordinaèiø ağiø ribos,
-#        xpd -- nurodo kokiose ribose galima braişyti tağkus ir linijas.
+#        fin -- nurodo viso grafiko dydÄ¯ grafiniame lange,
+#        pin -- nurodo diagramos srities dydÄ¯,
+#        omd -- nurodo iÅ¡oriniÅ³ grafiko paraÅ¡ÄiÅ³ koordinates grafiniame lange,
+#        fig -- nurodo, kokiÄ… dalÄ¯ grafiko sritis uÅ¾ims iÅ¡oriniÅ³ paraÅ¡ÄiÅ³ viduje,
+#        plt -- nurodo, kokiÄ… dalÄ¯ diagramos sritis uÅ¾ims grafiko srityje,
+#        pty -- nurodo, ar grafikas bus kvadratinis, ar staÄiakampis,
+#        usr -- koordinaÄiÅ³ aÅ¡iÅ³ ribos,
+#        xpd -- nurodo kokiose ribose galima braiÅ¾yti taÅ¡kus ir linijas.
 
 
-# Standartiğkai grafinis langas yra 7 x 7 coliø dydşio. Tam tikrà ğio lango dalá 
-# uşima diagrama, kuri kartu su ağimis, antrağtëmis ir parağtëmis sudaro grafikà.
-# Grafikas taip pat turi (iğorines) parağtes, su kuriomis uşpildo grafiná langà.
-# Grafiko bei diagramos srities iğmatavimai nustatomi per parametrus fin ir pin.
+# StandartiÅ¡kai grafinis langas yra 7 x 7 coliÅ³ dydÅ¾io. Tam tikrÄ… Å¡io lango dalÄ¯ 
+# uÅ¾ima diagrama, kuri kartu su aÅ¡imis, antraÅ¡tÄ—mis ir paraÅ¡tÄ—mis sudaro grafikÄ….
+# Grafikas taip pat turi (iÅ¡orines) paraÅ¡tes, su kuriomis uÅ¾pildo grafinÄ¯ langÄ….
+# Grafiko bei diagramos srities iÅ¡matavimai nustatomi per parametrus fin ir pin.
 
-# Pvz., nustatysime, kad grafiko dalis grafiniame lange butø 5 x 5 coliø dydşio,
-# o nuo iğoriniø parağèiø jà atskirsime raudonos spalvos rëmeliu.
+# Pvz., nustatysime, kad grafiko dalis grafiniame lange butÅ³ 5 x 5 coliÅ³ dydÅ¾io,
+# o nuo iÅ¡oriniÅ³ paraÅ¡ÄiÅ³ jÄ… atskirsime raudonos spalvos rÄ—meliu.
 
 par(fin = c(5, 5))
 hist(Nile)
@@ -947,9 +947,9 @@ box("figure", col = "red")
 
 graphics.off()
 
-# Analogiğkai, naudojant parametrà pin, nustatomi diagramos srities iğmatavimai.
-# Pvz., nustatysime 3 x 3 coliø dydşio diagramos sritá, kurià apribosime mëlynos
-# spalvos rëmeliu. Raudonas rëmelis, kaip ir anksèiau, şymi grafiko dalies ribas.
+# AnalogiÅ¡kai, naudojant parametrÄ… pin, nustatomi diagramos srities iÅ¡matavimai.
+# Pvz., nustatysime 3 x 3 coliÅ³ dydÅ¾io diagramos sritÄ¯, kuriÄ… apribosime mÄ—lynos
+# spalvos rÄ—meliu. Raudonas rÄ—melis, kaip ir anksÄiau, Å¾ymi grafiko dalies ribas.
 
 par(pin = c(3, 3))
 hist(Nile)
@@ -958,8 +958,8 @@ box("figure", col = "red")
 
 graphics.off()
 
-# Kaip histograma ádëta á grafikà, o grafikas su iğorinëmis parağtëmis á grafiná 
-# langà, galima pademonstruoti pakeitus iğ karto abiejø parametrø reikğmes.
+# Kaip histograma Ä¯dÄ—ta Ä¯ grafikÄ…, o grafikas su iÅ¡orinÄ—mis paraÅ¡tÄ—mis Ä¯ grafinÄ¯ 
+# langÄ…, galima pademonstruoti pakeitus iÅ¡ karto abiejÅ³ parametrÅ³ reikÅ¡mes.
 
 par(fin = c(5, 5), pin = c(3, 3))
 hist(Nile)
@@ -971,16 +971,16 @@ graphics.off()
 
 # Parametras omd nustato, kokiose grafinio lango ribose bus formuojamas grafikas.
 # Jam priskiriamas 4 elementus turintis vektorius c(xmin, xmax, ymin, ymax), kur 
-# elementø reikğmës yra iğ intervalo [0, 1]. Tos reikğmës nurodo grafikui skirto 
-# staèiakampio ribas grafiniame lange.
+# elementÅ³ reikÅ¡mÄ—s yra iÅ¡ intervalo [0, 1]. Tos reikÅ¡mÄ—s nurodo grafikui skirto 
+# staÄiakampio ribas grafiniame lange.
 
-# Jei grafikas neturi iğoriniø parağèiø, tada jis uşima visà grafiná langà. Tada
+# Jei grafikas neturi iÅ¡oriniÅ³ paraÅ¡ÄiÅ³, tada jis uÅ¾ima visÄ… grafinÄ¯ langÄ…. Tada
 # parametras omd = c(0, 1, 0, 1).
 
 par("omd")
 
-# Nustatysime, kad grafikas uşimtø apatinæ grafinio lango pusæ. Kad bûtø matyti,
-# kur yra grafiko ribos, nubraişysime vidiná grafiko rëmelá.
+# Nustatysime, kad grafikas uÅ¾imtÅ³ apatinÄ™ grafinio lango pusÄ™. Kad bÅ«tÅ³ matyti,
+# kur yra grafiko ribos, nubraiÅ¾ysime vidinÄ¯ grafiko rÄ—melÄ¯.
 
 par(omd = c(0, 1, 0, 0.5))
 curve(sin, -pi, pi)
@@ -989,16 +989,16 @@ box("inner")
 graphics.off()
 
 
-# Nuo grafinio parametro fig priklauso, kokià dalá grafiko sritis (figure) uşims 
-# iğorinëmis parağtëmis apribotame staèiakampyje. Jei iğorinës parağtës nulinës,
-# tada parametras fig nurodo, kokià dalá grafikas uşims visame grafiniame lange.
-# Paprastai grafiko sritis uşima visà iğorinëmis parağtëmis apribotà staèiakampá,
-# kuris tiesiog sutampa su grafiniu langu. Tai rodo pradinës parametrø reikğmës:
+# Nuo grafinio parametro fig priklauso, kokiÄ… dalÄ¯ grafiko sritis (figure) uÅ¾ims 
+# iÅ¡orinÄ—mis paraÅ¡tÄ—mis apribotame staÄiakampyje. Jei iÅ¡orinÄ—s paraÅ¡tÄ—s nulinÄ—s,
+# tada parametras fig nurodo, kokiÄ… dalÄ¯ grafikas uÅ¾ims visame grafiniame lange.
+# Paprastai grafiko sritis uÅ¾ima visÄ… iÅ¡orinÄ—mis paraÅ¡tÄ—mis apribotÄ… staÄiakampÄ¯,
+# kuris tiesiog sutampa su grafiniu langu. Tai rodo pradinÄ—s parametrÅ³ reikÅ¡mÄ—s:
 
 par(c("omd", "fig"))
 
-# Pvz., nustatysime, kad grafikas uşimtø apatinæ iğorinëmis parağtëmis apribotos
-# srities dalá.
+# Pvz., nustatysime, kad grafikas uÅ¾imtÅ³ apatinÄ™ iÅ¡orinÄ—mis paraÅ¡tÄ—mis apribotos
+# srities dalÄ¯.
 
 par(fig = c(0, 1, 0, 0.5))
 curve(sin, -pi, pi)
@@ -1006,14 +1006,14 @@ box("figure")
 
 graphics.off()
 
-# Vizualiai ğis pavyzdys tarsi niekuo nesiskiria nuo ankstesnio, taèiau atidşiau
-# paşvelgus, galima pastebëti, kad tà paèià grafinio lango dalá uşima skirtingos
-# grafiko sritys. Pirmuoju atveju tuğèias plotas iğ virğaus yra iğorinë parağtë,
-# antruoju atveju iğorinës parağtës nulinës, o grafikas uşima tik pusæ paveikslo.
+# Vizualiai Å¡is pavyzdys tarsi niekuo nesiskiria nuo ankstesnio, taÄiau atidÅ¾iau
+# paÅ¾velgus, galima pastebÄ—ti, kad tÄ… paÄiÄ… grafinio lango dalÄ¯ uÅ¾ima skirtingos
+# grafiko sritys. Pirmuoju atveju tuÅ¡Äias plotas iÅ¡ virÅ¡aus yra iÅ¡orinÄ— paraÅ¡tÄ—,
+# antruoju atveju iÅ¡orinÄ—s paraÅ¡tÄ—s nulinÄ—s, o grafikas uÅ¾ima tik pusÄ™ paveikslo.
 
-# Pvz., parametrø reikğmes nustatysime taip, kad grafikas uşimtø dalá paveikslui 
-# skirtos srities, o paveikslas uşimtø tik dalá viso grafinio lango. Taip galima
-# pastebëti, kad skirtingos grafiko sritys ádëtos viena á kità.
+# Pvz., parametrÅ³ reikÅ¡mes nustatysime taip, kad grafikas uÅ¾imtÅ³ dalÄ¯ paveikslui 
+# skirtos srities, o paveikslas uÅ¾imtÅ³ tik dalÄ¯ viso grafinio lango. Taip galima
+# pastebÄ—ti, kad skirtingos grafiko sritys Ä¯dÄ—tos viena Ä¯ kitÄ….
 
 par(omd = c(0.1, 0.9, 0.1, 0.9), fig = c(0.1, 0.9, 0.1, 0.9))
 curve(sin, -pi, pi)
@@ -1023,27 +1023,27 @@ box("inner", col = "blue")
 graphics.off()
 
 
-# Parametras plt kontroliuoja, kokià dalá grafike (figure) uşima diagrama (plot).
-# Kadangi diagramà riboja ağys, ağiø padalos, skaièiai ties padalomis, antrağtës
-# yra uş diagramos ribø. Dël tos prieşasties diagrama neuşima viso grafiko ploto.
+# Parametras plt kontroliuoja, kokiÄ… dalÄ¯ grafike (figure) uÅ¾ima diagrama (plot).
+# Kadangi diagramÄ… riboja aÅ¡ys, aÅ¡iÅ³ padalos, skaiÄiai ties padalomis, antraÅ¡tÄ—s
+# yra uÅ¾ diagramos ribÅ³. DÄ—l tos prieÅ¾asties diagrama neuÅ¾ima viso grafiko ploto.
 
 par("plt")
 
-# Pavyzdşiui, parametro plt reikğmæ pakeisime taip, kad grafike bûtø matytis tik 
-# ağiø padalos ir jø pavadinimai, bet ağiø antrağtës jau nesimatytø.
+# PavyzdÅ¾iui, parametro plt reikÅ¡mÄ™ pakeisime taip, kad grafike bÅ«tÅ³ matytis tik 
+# aÅ¡iÅ³ padalos ir jÅ³ pavadinimai, bet aÅ¡iÅ³ antraÅ¡tÄ—s jau nesimatytÅ³.
 
 par(plt = c(0.06, 0.99, 0.06, 0.99))
-curve(sin, -pi, pi, xlab = "Ox ağies antrağtës nesimato")
+curve(sin, -pi, pi, xlab = "Ox aÅ¡ies antraÅ¡tÄ—s nesimato")
 
 graphics.off()
 
 
-# Parametro pty reikğmës "s" arba "m" nustato diagramos srities formà, kuri gali 
-# bûti kvadratinë ar staèiakampë. Pirmuoju atveju kvadrato krağtinë lygi grafiko
-# srities krağtiniø minimumui, todël diagrama neuşpildys visos grafiko srities.
-# Pavyzdşiui, nustatysime, kad grafiko sritis uşimtø pusæ grafinio lango ir joje
-# nubraişysime histogramà. Galima pastebëti, kad, priklausomai nuo parametro pty 
-# reikğmës, histograma arba yra kvadratinë, arba uşima visà grafiko sritá.
+# Parametro pty reikÅ¡mÄ—s "s" arba "m" nustato diagramos srities formÄ…, kuri gali 
+# bÅ«ti kvadratinÄ— ar staÄiakampÄ—. Pirmuoju atveju kvadrato kraÅ¡tinÄ— lygi grafiko
+# srities kraÅ¡tiniÅ³ minimumui, todÄ—l diagrama neuÅ¾pildys visos grafiko srities.
+# PavyzdÅ¾iui, nustatysime, kad grafiko sritis uÅ¾imtÅ³ pusÄ™ grafinio lango ir joje
+# nubraiÅ¾ysime histogramÄ…. Galima pastebÄ—ti, kad, priklausomai nuo parametro pty 
+# reikÅ¡mÄ—s, histograma arba yra kvadratinÄ—, arba uÅ¾ima visÄ… grafiko sritÄ¯.
 
 par(pty = "s", fig = c(0, 1, 0, 0.5))
 hist(Nile)
@@ -1054,14 +1054,14 @@ hist(Nile)
 graphics.off()
 
 
-# Parametro usr reikğmë -- vektorius su 4 elementais: c(xmin, xmax, ymin, ymax).
-# Ğio vektoriaus elementai nurodo diagramos braişymo ribas, kurios paprastai yra
-# ğiek tiek platesnës nei ağiø ribos.
+# Parametro usr reikÅ¡mÄ— -- vektorius su 4 elementais: c(xmin, xmax, ymin, ymax).
+# Å io vektoriaus elementai nurodo diagramos braiÅ¾ymo ribas, kurios paprastai yra
+# Å¡iek tiek platesnÄ—s nei aÅ¡iÅ³ ribos.
 
 curve(sin, -pi, pi, frame.plot = FALSE)
 par("usr")
 
-# Jeigu parametrø xaxs ir yaxs reikğmë "i", tada diagramos ribos sutampa su ağiø
+# Jeigu parametrÅ³ xaxs ir yaxs reikÅ¡mÄ— "i", tada diagramos ribos sutampa su aÅ¡iÅ³
 # ribomis.
 
 par(xaxs = "i", yaxs = "i")
@@ -1069,8 +1069,8 @@ curve(sin, -pi, pi, frame.plot = FALSE)
 par("usr")
 
 
-# Loginis parametras xpd nurodo, kurios srities ribose galima nubraişyti linijas
-# ar tağkus. Standartiğkai linijos ir tağkai braişomi tik diagramos ribose.
+# Loginis parametras xpd nurodo, kurios srities ribose galima nubraiÅ¾yti linijas
+# ar taÅ¡kus. StandartiÅ¡kai linijos ir taÅ¡kai braiÅ¾omi tik diagramos ribose.
 
 par(omd = c(0.1, 0.9, 0.1, 0.9), xpd = FALSE)
 curve(sin, -pi, pi, main = "Raudona linija tik diagramos ribose")
@@ -1092,18 +1092,18 @@ graphics.off()
 
 # NAUDINGA ------------------------------
 
-# Tradicinis bûdas nubraişyti kelis grafikus viename lange -- naudoti parametrus
-# mfrow arba mfcol. Tà patá galima padaryti ir naudojant parametrà fig, nurodant
-# kaşkurià grafinio lango dalá ir nubraişant joje grafikà. Tokiu bûdu grafiniame
-# lange galima iğskirti kelias dalis, kuriose braişomas vis kitas grafikas.
+# Tradicinis bÅ«das nubraiÅ¾yti kelis grafikus viename lange -- naudoti parametrus
+# mfrow arba mfcol. TÄ… patÄ¯ galima padaryti ir naudojant parametrÄ… fig, nurodant
+# kaÅ¾kuriÄ… grafinio lango dalÄ¯ ir nubraiÅ¾ant joje grafikÄ…. Tokiu bÅ«du grafiniame
+# lange galima iÅ¡skirti kelias dalis, kuriose braiÅ¾omas vis kitas grafikas.
 
-# Reikia şinoti, kad parametrui fig priskiriant naujà reikğmæ, sukuriamas naujas
-# grafikas. Norint, kad anksèiau nubraişytas grafikas iğliktø, reikia nustatyti,
-# kad aukğto lygio grafinës funkcijos grafikà braişytø ant virğaus. Ğiam tikslui
+# Reikia Å¾inoti, kad parametrui fig priskiriant naujÄ… reikÅ¡mÄ™, sukuriamas naujas
+# grafikas. Norint, kad anksÄiau nubraiÅ¾ytas grafikas iÅ¡liktÅ³, reikia nustatyti,
+# kad aukÅ¡to lygio grafinÄ—s funkcijos grafikÄ… braiÅ¾ytÅ³ ant virÅ¡aus. Å iam tikslui
 # naudojamas grafinis parametras new.
 
-# Pvz., kairës pusës apatiniame ir değinës pusës virğutiniame kampe nubraişysime
-# po vienà grafikà.
+# Pvz., kairÄ—s pusÄ—s apatiniame ir deÅ¡inÄ—s pusÄ—s virÅ¡utiniame kampe nubraiÅ¾ysime
+# po vienÄ… grafikÄ….
 
 par(fig = c(0, 0.5, 0, 0.5))
 curve(sin, -pi, pi)
@@ -1113,9 +1113,9 @@ hist(Nile)
 box("figure")
 
 
-# Analogiğkai galima iğnaudoti ir parametrà omd. Pavyzdşiui, naudojant parametrà
-# omd, iğ pradşiø iğskirsime apatinæ grafinio lango dalá, o vëliau ir virğutinæ.
-# Abiejose dalyse nubraişysime po funkcijos grafikà.
+# AnalogiÅ¡kai galima iÅ¡naudoti ir parametrÄ… omd. PavyzdÅ¾iui, naudojant parametrÄ…
+# omd, iÅ¡ pradÅ¾iÅ³ iÅ¡skirsime apatinÄ™ grafinio lango dalÄ¯, o vÄ—liau ir virÅ¡utinÄ™.
+# Abiejose dalyse nubraiÅ¾ysime po funkcijos grafikÄ….
 
 par(omd = c(0, 1, 0, 0.5))
 curve(sin, -pi, pi)
@@ -1123,124 +1123,124 @@ par(omd = c(0, 1, 0.5, 1), new = TRUE)
 curve(cos, -pi, pi)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant parametrà mfcol, grafiniame lange nubraişykite 3 duomenø rinkinio
-#    Nile grafikus: laiko eilutæ, daşniø histogramà ir boxplot diagramà.
-# 2. Nubraişykite funkcijos y = sin(x) grafikà, kur bûtø tik funkcijos kreivë be
-#    koordinaèiø ağiø, ağiø padalø ir antrağèiø.
-# 3. Kiekvienas grafikas turi parağtes, todël, viename grafiniame lange braişant
-#    kelis grafikus, tarp jø susidaro pernelyg dideli tarpai. Pirmoje uşduotyje
-#    grafikus nubraişykite taip, kad tarp jø nebûtø nereikalingø parağèiø.
-# 4. Uşrağykite tokià komandà, kuri bet kokio tipo diagramos centre uşdëtø şalià 
-#    tağkà.
+# 1. Naudojant parametrÄ… mfcol, grafiniame lange nubraiÅ¾ykite 3 duomenÅ³ rinkinio
+#    Nile grafikus: laiko eilutÄ™, daÅ¾niÅ³ histogramÄ… ir boxplot diagramÄ….
+# 2. NubraiÅ¾ykite funkcijos y = sin(x) grafikÄ…, kur bÅ«tÅ³ tik funkcijos kreivÄ— be
+#    koordinaÄiÅ³ aÅ¡iÅ³, aÅ¡iÅ³ padalÅ³ ir antraÅ¡ÄiÅ³.
+# 3. Kiekvienas grafikas turi paraÅ¡tes, todÄ—l, viename grafiniame lange braiÅ¾ant
+#    kelis grafikus, tarp jÅ³ susidaro pernelyg dideli tarpai. Pirmoje uÅ¾duotyje
+#    grafikus nubraiÅ¾ykite taip, kad tarp jÅ³ nebÅ«tÅ³ nereikalingÅ³ paraÅ¡ÄiÅ³.
+# 4. UÅ¾raÅ¡ykite tokiÄ… komandÄ…, kuri bet kokio tipo diagramos centre uÅ¾dÄ—tÅ³ Å¾aliÄ… 
+#    taÅ¡kÄ….
 
 
 # --------------------------------------- #
 # TEKSTO GRAFINIAI PARAMETRAI             #
 # --------------------------------------- #
 
-# Tekstas diagramoje arba jos parağtëse taip pat yra grafiko dalis. Yra keletas
-# grafiniø parametrø, kurie nustato papildomo teksto rağymo taisykles:
+# Tekstas diagramoje arba jos paraÅ¡tÄ—se taip pat yra grafiko dalis. Yra keletas
+# grafiniÅ³ parametrÅ³, kurie nustato papildomo teksto raÅ¡ymo taisykles:
 #
-#     ylbias -- teksto parağtëse postûmio koeficientas,
-#    lheight -- diagramos eilutës aukğèio daugiklis,
-#        mex -- parağtës eilutës aukğtis,
+#     ylbias -- teksto paraÅ¡tÄ—se postÅ«mio koeficientas,
+#    lheight -- diagramos eilutÄ—s aukÅ¡Äio daugiklis,
+#        mex -- paraÅ¡tÄ—s eilutÄ—s aukÅ¡tis,
 #        srt -- teksto pasukimo kampas,
 #        crt -- simbolio pasukimo kampas,
-#         ps -- ğrifto dydis tağkais.
+#         ps -- Å¡rifto dydis taÅ¡kais.
 
 
-# Parametras ylbias nustato teksto eiluèiø parağtëse pozicijà ağiø atşvilgiu. Jo
-# reikğmë priklauso nuo árenginio, taèiau standartinë R reikğmë lygi 0.2. Keisti
-# ğio parametro reikğmæ prasmës nëra.
+# Parametras ylbias nustato teksto eiluÄiÅ³ paraÅ¡tÄ—se pozicijÄ… aÅ¡iÅ³ atÅ¾vilgiu. Jo
+# reikÅ¡mÄ— priklauso nuo Ä¯renginio, taÄiau standartinÄ— R reikÅ¡mÄ— lygi 0.2. Keisti
+# Å¡io parametro reikÅ¡mÄ™ prasmÄ—s nÄ—ra.
 
 
-# Parametras lheight yra ant diagramos rağomo teksto eilutës aukğèio daugiklis.
-# Pvz., parametrui priskirsime reikğmæ 2, kuri atitinka dvigubà eilutës aukğtá.
+# Parametras lheight yra ant diagramos raÅ¡omo teksto eilutÄ—s aukÅ¡Äio daugiklis.
+# Pvz., parametrui priskirsime reikÅ¡mÄ™ 2, kuri atitinka dvigubÄ… eilutÄ—s aukÅ¡tÄ¯.
 
 par(lheight = 2)
 curve(sin, -pi, pi)
-text(pi/2, 0, "Èia tarpas tarp\n dviejø eiluèiø dvigubas.")
+text(pi/2, 0, "ÄŒia tarpas tarp\n dviejÅ³ eiluÄiÅ³ dvigubas.")
 
 
-# Parametras mex nustato eilutës aukğtá diagramos parağtëse. Standartinë reikğmë
-# lygi 1. Skaièiai ties ağies padalomis rağomi pirmoje eilutëje, ağies antrağtës
-# rağomos treèioje eilutëje. Pakeitus parametro mex reikğmæ, keièiasi ir eiluèiø
-# aukğtis, todël pasikeièia ir parağèiø plotis, nors eiluèiø skaièius jose lieka
-# nepakitæs (jei nesikeièia kitø parametrø reikğmës).
+# Parametras mex nustato eilutÄ—s aukÅ¡tÄ¯ diagramos paraÅ¡tÄ—se. StandartinÄ— reikÅ¡mÄ—
+# lygi 1. SkaiÄiai ties aÅ¡ies padalomis raÅ¡omi pirmoje eilutÄ—je, aÅ¡ies antraÅ¡tÄ—s
+# raÅ¡omos treÄioje eilutÄ—je. Pakeitus parametro mex reikÅ¡mÄ™, keiÄiasi ir eiluÄiÅ³
+# aukÅ¡tis, todÄ—l pasikeiÄia ir paraÅ¡ÄiÅ³ plotis, nors eiluÄiÅ³ skaiÄius jose lieka
+# nepakitÄ™s (jei nesikeiÄia kitÅ³ parametrÅ³ reikÅ¡mÄ—s).
 
-# Pavyzdşiui, nubraişysime grafikà su dvigubo aukğèio parağtës eilutëmis. Teksto
-# ant diagramos eiluèiø aukğtis lieka nepakitæs.
+# PavyzdÅ¾iui, nubraiÅ¾ysime grafikÄ… su dvigubo aukÅ¡Äio paraÅ¡tÄ—s eilutÄ—mis. Teksto
+# ant diagramos eiluÄiÅ³ aukÅ¡tis lieka nepakitÄ™s.
 
 par(mex = 2)
 curve(sin, -pi, pi)
-mtext("Nulinë eilutë", side = 1, line = 0, at = 2)
-mtext("Pirma eilutë",  side = 1, line = 1, at = 2)
-mtext("Antra eilutë",  side = 1, line = 2, at = 2)
-mtext("Treèia eilutë", side = 1, line = 3, at = 2)
+mtext("NulinÄ— eilutÄ—", side = 1, line = 0, at = 2)
+mtext("Pirma eilutÄ—",  side = 1, line = 1, at = 2)
+mtext("Antra eilutÄ—",  side = 1, line = 2, at = 2)
+mtext("TreÄia eilutÄ—", side = 1, line = 3, at = 2)
 
-text(pi/2, 0, "Èia tarpas tarp\n dviejø eiluèiø viengubas.")
+text(pi/2, 0, "ÄŒia tarpas tarp\n dviejÅ³ eiluÄiÅ³ viengubas.")
 
 graphics.off()
 
 
-# Parametras srt nustato, kokiu kampu pasukama teksto eilutë. Parametras crt yra
-# skirtas tam paèiam tikslui, taèiau jis veikia ne su visais árenginiais.
+# Parametras srt nustato, kokiu kampu pasukama teksto eilutÄ—. Parametras crt yra
+# skirtas tam paÄiam tikslui, taÄiau jis veikia ne su visais Ä¯renginiais.
 
-# Pvz., nubraişysime funkcijos y = sin(x) grafikà ir ant jo uşdësime 70 laipsniø 
-# kampu pasuktà tekstà.
+# Pvz., nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ… ir ant jo uÅ¾dÄ—sime 70 laipsniÅ³ 
+# kampu pasuktÄ… tekstÄ….
 
 par(srt = 70)
 curve(sin, -pi, pi)
-text(0, 0.3, "Pasukta eilutë.")
+text(0, 0.3, "Pasukta eilutÄ—.")
 
 
-# Parametras ps nustato ğrifto dydá pikseliais. Standartinë jo reikğmë priklauso
-# nuo árenginio, taèiau paprastai laikoma, kad pikselis lygus 1/72 colio. 
+# Parametras ps nustato Å¡rifto dydÄ¯ pikseliais. StandartinÄ— jo reikÅ¡mÄ— priklauso
+# nuo Ä¯renginio, taÄiau paprastai laikoma, kad pikselis lygus 1/72 colio. 
 
 par("ps")
 
-# Pavyzdşiui, pakeisime parametro reikğmæ ir sumaşinsime ğrifto dydá.
+# PavyzdÅ¾iui, pakeisime parametro reikÅ¡mÄ™ ir sumaÅ¾insime Å¡rifto dydÄ¯.
 
 par(ps = 9)
 curve(sin, -pi, pi)
 text(pi/2, 0, "Tekstas ant grafiko.")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite paprastà stulpelinæ diagramà barplot(1:3). Kiekvieno stulpelio
-#    viduje ğalia değiniojo krağto vertikaliu tekstu uşrağykite stulpelio numerá.
+# 1. NubraiÅ¾ykite paprastÄ… stulpelinÄ™ diagramÄ… barplot(1:3). Kiekvieno stulpelio
+#    viduje Å¡alia deÅ¡iniojo kraÅ¡to vertikaliu tekstu uÅ¾raÅ¡ykite stulpelio numerÄ¯.
 
 
 # --------------------------------------- #
 # READ ONLY GRAFINIAI PARAMETRAI          #
 # --------------------------------------- #
 
-# Kai kuriø grafiniø parametrø reikğmës negali bûti pakeistos, nes priklauso nuo 
-# árenginio, kuriame vaizduojamas grafikas. Tai gali bûti monitorius, pdf failas
-# ir pan. Tokiø parametrø nëra daug, beveik visi jie nustato simbolio dydá:
+# Kai kuriÅ³ grafiniÅ³ parametrÅ³ reikÅ¡mÄ—s negali bÅ«ti pakeistos, nes priklauso nuo 
+# Ä¯renginio, kuriame vaizduojamas grafikas. Tai gali bÅ«ti monitorius, pdf failas
+# ir pan. TokiÅ³ parametrÅ³ nÄ—ra daug, beveik visi jie nustato simbolio dydÄ¯:
 # 
-#        csi -- simbolio aukğtis coliais,
-#        cin -- simbolio plotis ir aukğtis coliais,
-#        cra -- simbolio plotis ir aukğtis pikseliais,
-#        cxy -- simbolio plotis ir aukğtis standartizuotais vienetais,
-#        din -- grafinio lango plotis ir aukğtis coliais,
-#       page -- loginis, nurodo ar sekantis grafikas bus sudaromas iğ naujo.
+#        csi -- simbolio aukÅ¡tis coliais,
+#        cin -- simbolio plotis ir aukÅ¡tis coliais,
+#        cra -- simbolio plotis ir aukÅ¡tis pikseliais,
+#        cxy -- simbolio plotis ir aukÅ¡tis standartizuotais vienetais,
+#        din -- grafinio lango plotis ir aukÅ¡tis coliais,
+#       page -- loginis, nurodo ar sekantis grafikas bus sudaromas iÅ¡ naujo.
 
-# Nors visi ğie parametrai yra "read only" ir jø reikğmës negali bûti pakeistos, 
-# jas galima suşinoti ir tam tikrose situacijose panaudoti.
+# Nors visi Å¡ie parametrai yra "read only" ir jÅ³ reikÅ¡mÄ—s negali bÅ«ti pakeistos, 
+# jas galima suÅ¾inoti ir tam tikrose situacijose panaudoti.
 
-# Parametrai cin, cra ir cxy parodo grafiko simboliø plotá ir aukğtá skirtingais
-# matavimo vienetais. Parametras csi parodo tik simbolio aukğtá coliais.
+# Parametrai cin, cra ir cxy parodo grafiko simboliÅ³ plotÄ¯ ir aukÅ¡tÄ¯ skirtingais
+# matavimo vienetais. Parametras csi parodo tik simbolio aukÅ¡tÄ¯ coliais.
 
 par(c("csi", "cin", "cra", "cxy"))
 
 
-# Parametras cxy parodo simboliø dydá sàlyginiais vienetais, todël ğio parametro
-# reikğmë priklauso nuo grafinio lango dydşio. Kuo didesnis grafinis langas, tuo
-# simbolis yra sàlyginai maşesnis, todël ir parametro reikğmës maşesnës. 
+# Parametras cxy parodo simboliÅ³ dydÄ¯ sÄ…lyginiais vienetais, todÄ—l Å¡io parametro
+# reikÅ¡mÄ— priklauso nuo grafinio lango dydÅ¾io. Kuo didesnis grafinis langas, tuo
+# simbolis yra sÄ…lyginai maÅ¾esnis, todÄ—l ir parametro reikÅ¡mÄ—s maÅ¾esnÄ—s. 
 
 windows(width = 7, height = 7)
 par("cxy")
@@ -1251,7 +1251,7 @@ par("cxy")
 graphics.off()
 
 
-# Parametras din parodo grafinio lango iğmatavimus coliais.
+# Parametras din parodo grafinio lango iÅ¡matavimus coliais.
 
 windows(width = 7, height = 7)
 par("din")
@@ -1262,20 +1262,20 @@ par("din")
 graphics.off()
 
 
-# Parametro page reikğmë TRUE nurodo, kad aukğto lygio grafinë funkcija sudarytø
-# naujà grafikà vietoje seno. Tiksliau, tai yra nurodymas, kad funkcija plot.new,
-# kuri ávykdoma prieğ grafinæ f-jà, nutrauktø braişymà ant dabartinio grafiko ir
-# sukurtø pagrindà naujam grafikui.
+# Parametro page reikÅ¡mÄ— TRUE nurodo, kad aukÅ¡to lygio grafinÄ— funkcija sudarytÅ³
+# naujÄ… grafikÄ… vietoje seno. Tiksliau, tai yra nurodymas, kad funkcija plot.new,
+# kuri Ä¯vykdoma prieÅ¡ grafinÄ™ f-jÄ…, nutrauktÅ³ braiÅ¾ymÄ… ant dabartinio grafiko ir
+# sukurtÅ³ pagrindÄ… naujam grafikui.
 
 par("page")
 
 
-# Yra keli grafiniai parametrai, kuriø reikğmæ galima pakeisti, taèiau jie patys
-# nieko nekeièia. Taip yra todël, kad funkcija ar grafiko savybë, kurià jie turi
+# Yra keli grafiniai parametrai, kuriÅ³ reikÅ¡mÄ™ galima pakeisti, taÄiau jie patys
+# nieko nekeiÄia. Taip yra todÄ—l, kad funkcija ar grafiko savybÄ—, kuriÄ… jie turi
 # reguliuoti, R kalboje nerealizuota. Tai yra:
 #
-#        err -- nurodo, ar áspëti apie tağkus uş diagramos ribø ir kitas klaidas,
-#        mkh -- nustato specialaus tağko simbolio dydá,
-#        smo -- reguliuoja braişomø kreiviø glodumà.
+#        err -- nurodo, ar Ä¯spÄ—ti apie taÅ¡kus uÅ¾ diagramos ribÅ³ ir kitas klaidas,
+#        mkh -- nustato specialaus taÅ¡ko simbolio dydÄ¯,
+#        smo -- reguliuoja braiÅ¾omÅ³ kreiviÅ³ glodumÄ….
 
 par(c("err", "mkh", "smo"))

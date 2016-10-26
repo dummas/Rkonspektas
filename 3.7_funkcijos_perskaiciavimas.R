@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Funkcijos perskaièiavimas keièiant ir nekeièiant parametrø.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Funkcijos perskaiÄiavimas keiÄiant ir nekeiÄiant parametrÅ³.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-08-29 | 2013-09-07
 #
@@ -12,10 +12,10 @@
 # TURINYS -------------------------------
 
 #
-#   1. Ciklas per funkcijos parametrø vektoriø:
+#   1. Ciklas per funkcijos parametrÅ³ vektoriÅ³:
 #      * funkcija mapply
 #
-#   2. Funkcijø ir kitø iğraiğkø pakartojimas:
+#   2. FunkcijÅ³ ir kitÅ³ iÅ¡raiÅ¡kÅ³ pakartojimas:
 #      * funkcija replicate
 #
 
@@ -23,19 +23,19 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -43,13 +43,13 @@ rm(list = ls())
 # FUNKCIJA MAPPLY                         #
 # --------------------------------------- #
 
-# Funkcijos apply, lapply arba sapply perbëga per duomenø rinkinio elementus ir 
-# kaip argumentus juos perduoda kitai funkcijai. Tas duomenø rinkinys gali bûti
-# ir funkcijos kokio nors vieno parametro reikğmiø vektorius. Tokiu bûdu galima
-# reguliuoti funkcijos veikimà.
+# Funkcijos apply, lapply arba sapply perbÄ—ga per duomenÅ³ rinkinio elementus ir 
+# kaip argumentus juos perduoda kitai funkcijai. Tas duomenÅ³ rinkinys gali bÅ«ti
+# ir funkcijos kokio nors vieno parametro reikÅ¡miÅ³ vektorius. Tokiu bÅ«du galima
+# reguliuoti funkcijos veikimÄ….
 
-# Pavyzdşiui, uşrağysime funkcijà, kuri kiekvienà vektoriaus elementà pakartoja 
-# po k kartø. Èia parametras k yra sveikasis skaièius, kurio reikğmë kinta nuo 1 
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime funkcijÄ…, kuri kiekvienÄ… vektoriaus elementÄ… pakartoja 
+# po k kartÅ³. ÄŒia parametras k yra sveikasis skaiÄius, kurio reikÅ¡mÄ— kinta nuo 1 
 # iki m = 4.
 
 m <- 4
@@ -58,37 +58,37 @@ w <- c("A", "B", "C")
 sapply(1:m, function(k) rep(w, each = k))
 
 
-# Tuo atveju, kai funkcijai reikia perduoti iğ karto keliø parametrø reikğmes, 
+# Tuo atveju, kai funkcijai reikia perduoti iÅ¡ karto keliÅ³ parametrÅ³ reikÅ¡mes, 
 # naudojama funkcija mapply. Jos parametrai:
 #
-#      FUN -- funkcijos pavadinimas arba iğraiğka,
+#      FUN -- funkcijos pavadinimas arba iÅ¡raiÅ¡ka,
 #      ... -- funkcijai perduodami parametrai,
-# MoreArgs -- nekintanèiø funkcijos parametrø sàrağas.
+# MoreArgs -- nekintanÄiÅ³ funkcijos parametrÅ³ sÄ…raÅ¡as.
 
-# Pavyzdşiui, naudodami standartinæ funkcijà seq, intervalà [0, 1] padalinsime á 
-# 10, 50 ir 100 vienodø daliø. Tağkø, kuriø reikia intervalà padalinti á k lygiø
-# daliø, yra k + 1, o jø skaièiø nusako funkcijos seq parametras length.out. Èia
-# parametrø from ir to reikğmës fiksuotos, nes dalinamas tas pats intervalas. 
+# PavyzdÅ¾iui, naudodami standartinÄ™ funkcijÄ… seq, intervalÄ… [0, 1] padalinsime Ä¯ 
+# 10, 50 ir 100 vienodÅ³ daliÅ³. TaÅ¡kÅ³, kuriÅ³ reikia intervalÄ… padalinti Ä¯ k lygiÅ³
+# daliÅ³, yra k + 1, o jÅ³ skaiÄiÅ³ nusako funkcijos seq parametras length.out. ÄŒia
+# parametrÅ³ from ir to reikÅ¡mÄ—s fiksuotos, nes dalinamas tas pats intervalas. 
 
 mapply(seq, from = 0, to = 1, length.out = c(11, 51, 101))
 
-# Nekintanèius funkcijos parametrus ar jai reikalingus duomenis galima perduoti
-# per parametrà MoreArgs. Pavyzdşiui, perrağysime tà paèià funkcijà taip, kad
-# fiksuoti parametrai from ir to bûtø perduodami atskiru sàrağu.
+# NekintanÄius funkcijos parametrus ar jai reikalingus duomenis galima perduoti
+# per parametrÄ… MoreArgs. PavyzdÅ¾iui, perraÅ¡ysime tÄ… paÄiÄ… funkcijÄ… taip, kad
+# fiksuoti parametrai from ir to bÅ«tÅ³ perduodami atskiru sÄ…raÅ¡u.
 
 mapply(seq, length.out = c(11, 51, 101), MoreArgs = list(from = 0, to = 1))
 
-# Ğiuo atveju keièiasi tik vieno parametro reikğmë, todël funkcija mapply nëra
-# pilnai iğnaudojama. Pvz., tà patá rezultatà galima gauti naudojant sapply.
+# Å iuo atveju keiÄiasi tik vieno parametro reikÅ¡mÄ—, todÄ—l funkcija mapply nÄ—ra
+# pilnai iÅ¡naudojama. Pvz., tÄ… patÄ¯ rezultatÄ… galima gauti naudojant sapply.
 
 sapply(c(11, 51, 101), function(k) seq(0, 1, length.out = k))
 
 
-# Uşrağysime paprastà funkcijà, kuri iğ ilgos simboliø sekos iğkarpo trumpesnes
-# sekas. Ğios f-jos argumentai yra trumpesniø sekø pradşios ir pabaigos indeksø
-# vektoriai. Kadangi funkcijos duomenys - ilgoji seka - nesikeièia, jà árağome á
-# fiksuotø parametrø sàrağà MoreArgs. Galutinis rezultatas yra keliø trumpesniø 
-# sekø sàrağas.
+# UÅ¾raÅ¡ysime paprastÄ… funkcijÄ…, kuri iÅ¡ ilgos simboliÅ³ sekos iÅ¡karpo trumpesnes
+# sekas. Å ios f-jos argumentai yra trumpesniÅ³ sekÅ³ pradÅ¾ios ir pabaigos indeksÅ³
+# vektoriai. Kadangi funkcijos duomenys - ilgoji seka - nesikeiÄia, jÄ… Ä¯raÅ¡ome Ä¯
+# fiksuotÅ³ parametrÅ³ sÄ…raÅ¡Ä… MoreArgs. Galutinis rezultatas yra keliÅ³ trumpesniÅ³ 
+# sekÅ³ sÄ…raÅ¡as.
 
 s <- c("G", "C", "T", "T", "T", "T", "C", "A", "T", "T", "C", "T", "G", "A", "C")
 
@@ -97,72 +97,72 @@ b <- c(7, 10, 15)
 
 mapply(function(seka, i, j) seka[i:j], i = a, j = b, MoreArgs = list(seka = s))
 
-# Jei tokia funkcija skirta visada tos paèios sekos karpymui, jos vardà galima 
-# árağyti tiesiai á funkcijà ir tokiu bûdu atsisakyti vieno parametro.
+# Jei tokia funkcija skirta visada tos paÄios sekos karpymui, jos vardÄ… galima 
+# Ä¯raÅ¡yti tiesiai Ä¯ funkcijÄ… ir tokiu bÅ«du atsisakyti vieno parametro.
 
 mapply(function(i, j) s[i:j], i = a, j = b)
 
 
 # NAUDINGA ------------------------------
 
-# Funkcija mapply daşnai naudojama atsitiktiniø dydşiø su skirtingais skirstinio
-# parametrais generavimui. Pavyzdşiui, normalusis ats. dydis turi du parametrus: 
-# vidurká ir standartiná nuokrypá. Tokio dydşio generavimui naudojama funkcija
-# rnorm, kuri turi tris parametrus: imties tûrá n, vidurká mean ir std. nuokrypá 
+# Funkcija mapply daÅ¾nai naudojama atsitiktiniÅ³ dydÅ¾iÅ³ su skirtingais skirstinio
+# parametrais generavimui. PavyzdÅ¾iui, normalusis ats. dydis turi du parametrus: 
+# vidurkÄ¯ ir standartinÄ¯ nuokrypÄ¯. Tokio dydÅ¾io generavimui naudojama funkcija
+# rnorm, kuri turi tris parametrus: imties tÅ«rÄ¯ n, vidurkÄ¯ mean ir std. nuokrypÄ¯ 
 # sd. Sugeneruosime tris normaliasias imtis, kurios skiriasi abiem parametrais. 
 
-vid <- c(A = 9, B = 5, C = 1)    # ats. dydşio vidurkiø vektorius
-std <- c(a = 1, b = 2, c = 3)    # standartiniø nuokrypiø vektorius
+vid <- c(A = 9, B = 5, C = 1)    # ats. dydÅ¾io vidurkiÅ³ vektorius
+std <- c(a = 1, b = 2, c = 3)    # standartiniÅ³ nuokrypiÅ³ vektorius
 
-# Uşrağome funkcijà, kuri turi du parametrus - vidurkio ir nuokrypiø vektorius.
-# Imties tûris árağytas tiesiai á funkcijà. Galutinis rezultatas yra matrica su
-# sugeneruotomis imtimis stulpeliuose, kurià priskirsim kintamajam.
+# UÅ¾raÅ¡ome funkcijÄ…, kuri turi du parametrus - vidurkio ir nuokrypiÅ³ vektorius.
+# Imties tÅ«ris Ä¯raÅ¡ytas tiesiai Ä¯ funkcijÄ…. Galutinis rezultatas yra matrica su
+# sugeneruotomis imtimis stulpeliuose, kuriÄ… priskirsim kintamajam.
 
 rnd <- mapply(function(m, s) rnorm(20, mean = m, sd = s), m = vid, s = std)
 rnd
 
-# Kaip ir kitose funkcijose, jei parametrai rağomi nustatyta tvarka, jø vardø 
-# galima nerağyti visai. Taip funkcijos iğraiğka tampa trumpesnë ir aiğkesnë.
+# Kaip ir kitose funkcijose, jei parametrai raÅ¡omi nustatyta tvarka, jÅ³ vardÅ³ 
+# galima neraÅ¡yti visai. Taip funkcijos iÅ¡raiÅ¡ka tampa trumpesnÄ— ir aiÅ¡kesnÄ—.
 
 rnd <- mapply(function(m, s) rnorm(20, m, s), vid, std)
 rnd
 
 
-# Ğià funkcijà galima supaprastinti, generavimo funkcijai parametrus perduodant
+# Å iÄ… funkcijÄ… galima supaprastinti, generavimo funkcijai parametrus perduodant
 # tiesiogiai.
 
 rnd <- mapply(rnorm, n = 20, mean = vid, sd = std)
 rnd
 
-# Nerağant parametrø vardø, gaunama labai kompaktiğka iğraiğka!
+# NeraÅ¡ant parametrÅ³ vardÅ³, gaunama labai kompaktiÅ¡ka iÅ¡raiÅ¡ka!
 
 rnd <- mapply(rnorm, 20, vid, std)
 rnd
 
 
-# Gautas atsitiktiniø dydşiø imtis galima perduoti ávairioms kitoms funkcijoms.
-# Pvz., apskaièiuosime imèiø vidurkius ir nubraişysime jø sklaidos grafikus.
+# Gautas atsitiktiniÅ³ dydÅ¾iÅ³ imtis galima perduoti Ä¯vairioms kitoms funkcijoms.
+# Pvz., apskaiÄiuosime imÄiÅ³ vidurkius ir nubraiÅ¾ysime jÅ³ sklaidos grafikus.
 
 apply(rnd, 2, mean)
 boxplot(rnd)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Deriniø skaièiui apskaièiuoti naudojama R funkcija choose. Naudodami mapply, 
-#    uşrağykite funkcijà iğ karto keletos deriniø skaièiaus radimui, kai dydşiai
-#    n ir k yra keletà reikğmiø turintys vektoriai. Pavyzdşiui, tegu n = (5, 10), 
-#    o k = (2, 3). Ğiuo atveju reikia gauti deriniø skaièiø iğ 5 po 2 ir deriniø
-#    skaièiø iğ 10 po 3.
-# 2. Siekiant eliminuoti iğsiskirianèiø stebiniø átakà, vietoje vidurkio kartais
-#    skaièiuojamas nukirstas vidurkis (truncated mean). Tai vidurkis skaièiuotas
-#    imèiai, iğ kurios atmesta k*100% didşiausiø ir maşiausiø reikğmiø. Vidurkio
-#    funkcija mean turi tam skirtà parametrà trim, reikğmë iğ intervalo [0, 0.5]. 
-#    Naudojant mapply, uşrağykite funkcijà, kuri apskaièiuotø 0.10, 0.15, 0.20 
-#    lygio "nukirstus" vidurkius. Tokià paèià funkcijà uşrağykite su f-ja sapply.
-# 3. Naudodami funkcijà mapply, sugeneruokite tris tolygiai intervaluose [0, 1], 
-#    [0, 5] ir [-1, 1] pasiskirsèiusiø dydşiø imtis po 100 elementø kiekvienoje. 
-#    Tolygø pasiskirstymà turinèio ats. dydşio generavimui naudojama standartinë 
+# 1. DeriniÅ³ skaiÄiui apskaiÄiuoti naudojama R funkcija choose. Naudodami mapply, 
+#    uÅ¾raÅ¡ykite funkcijÄ… iÅ¡ karto keletos deriniÅ³ skaiÄiaus radimui, kai dydÅ¾iai
+#    n ir k yra keletÄ… reikÅ¡miÅ³ turintys vektoriai. PavyzdÅ¾iui, tegu n = (5, 10), 
+#    o k = (2, 3). Å iuo atveju reikia gauti deriniÅ³ skaiÄiÅ³ iÅ¡ 5 po 2 ir deriniÅ³
+#    skaiÄiÅ³ iÅ¡ 10 po 3.
+# 2. Siekiant eliminuoti iÅ¡siskirianÄiÅ³ stebiniÅ³ Ä¯takÄ…, vietoje vidurkio kartais
+#    skaiÄiuojamas nukirstas vidurkis (truncated mean). Tai vidurkis skaiÄiuotas
+#    imÄiai, iÅ¡ kurios atmesta k*100% didÅ¾iausiÅ³ ir maÅ¾iausiÅ³ reikÅ¡miÅ³. Vidurkio
+#    funkcija mean turi tam skirtÄ… parametrÄ… trim, reikÅ¡mÄ— iÅ¡ intervalo [0, 0.5]. 
+#    Naudojant mapply, uÅ¾raÅ¡ykite funkcijÄ…, kuri apskaiÄiuotÅ³ 0.10, 0.15, 0.20 
+#    lygio "nukirstus" vidurkius. TokiÄ… paÄiÄ… funkcijÄ… uÅ¾raÅ¡ykite su f-ja sapply.
+# 3. Naudodami funkcijÄ… mapply, sugeneruokite tris tolygiai intervaluose [0, 1], 
+#    [0, 5] ir [-1, 1] pasiskirsÄiusiÅ³ dydÅ¾iÅ³ imtis po 100 elementÅ³ kiekvienoje. 
+#    TolygÅ³ pasiskirstymÄ… turinÄio ats. dydÅ¾io generavimui naudojama standartinÄ— 
 #    funkcija runif.
 
 
@@ -170,27 +170,27 @@ boxplot(rnd)
 # FUNKCIJA REPLICATE                      #
 # --------------------------------------- #
 
-# Atliekant tikimybiná modeliavimà, eksperimentà labai daşnai reikia pakartoti 
-# daug kartø. Tokiais atvejais galima naudoti funkcijà replicate. Jos parametrai:
+# Atliekant tikimybinÄ¯ modeliavimÄ…, eksperimentÄ… labai daÅ¾nai reikia pakartoti 
+# daug kartÅ³. Tokiais atvejais galima naudoti funkcijÄ… replicate. Jos parametrai:
 #
-#        n -- pakartojimø skaièius,
-#     expr -- funkcija ar bet kokia kita iğraiğka, kurià reikia pakartoti,
-# simplify -- loginis parametras nurodantis, kad rezultatas turi bûti vektorius.
+#        n -- pakartojimÅ³ skaiÄius,
+#     expr -- funkcija ar bet kokia kita iÅ¡raiÅ¡ka, kuriÄ… reikia pakartoti,
+# simplify -- loginis parametras nurodantis, kad rezultatas turi bÅ«ti vektorius.
 
-# Pavyzdşiui, sumodeliuosime n = 10 normaliøjø imèiø po 50 elementø kiekvienoje. 
-# Tegul atsitiktinio dydşio vidurkis lygus 20, o standartinis nuokrypis lygus 5.
-# Rezultatas yra matrica, kurios stulpeliuose yra ats. dydşiø imtys.
+# PavyzdÅ¾iui, sumodeliuosime n = 10 normaliÅ³jÅ³ imÄiÅ³ po 50 elementÅ³ kiekvienoje. 
+# Tegul atsitiktinio dydÅ¾io vidurkis lygus 20, o standartinis nuokrypis lygus 5.
+# Rezultatas yra matrica, kurios stulpeliuose yra ats. dydÅ¾iÅ³ imtys.
 
 replicate(10, rnorm(50, mean = 20, sd = 5))
 
-# Parametro simplify reikğmæ pakeitus á FALSE, vietoje matricos gaunamas sàrağas, 
-# kurio elementai yra atsitiktiniø dydşiø imtys.
+# Parametro simplify reikÅ¡mÄ™ pakeitus Ä¯ FALSE, vietoje matricos gaunamas sÄ…raÅ¡as, 
+# kurio elementai yra atsitiktiniÅ³ dydÅ¾iÅ³ imtys.
 
 replicate(10, rnorm(50, 20, 5), simplify = F)
 
-# Kaip visada, toká sàrağà galima perduoti kitoms skaièiavimø funkcijoms. Pvz.,
-# apskaièiuosime tokiø sugeneruotø imèiø vidurkius. Pirmu atveju naudosime f-jà
-# apply ir skaièiuosime vidurkius stulpeliuose, antru atveju naudosime funkcijà
+# Kaip visada, tokÄ¯ sÄ…raÅ¡Ä… galima perduoti kitoms skaiÄiavimÅ³ funkcijoms. Pvz.,
+# apskaiÄiuosime tokiÅ³ sugeneruotÅ³ imÄiÅ³ vidurkius. Pirmu atveju naudosime f-jÄ…
+# apply ir skaiÄiuosime vidurkius stulpeliuose, antru atveju naudosime funkcijÄ…
 # sapply.
 
 apply(replicate(10, rnorm(50, 20, 5)), 2, mean)
@@ -198,38 +198,38 @@ apply(replicate(10, rnorm(50, 20, 5)), 2, mean)
 sapply(replicate(10, rnorm(50, 20, 5), simplify = F), mean)
 
 
-# Pavyzdşiui, sumodeliuosime monetos mëtymo eksperimentà, kur moneta metama 1000
-# kartø. Atliksime 10 tokiø eksperimentø ir apskaièiuosime, kiek vienos serijos
-# metu atsivertë herbø ir skaièiø.
+# PavyzdÅ¾iui, sumodeliuosime monetos mÄ—tymo eksperimentÄ…, kur moneta metama 1000
+# kartÅ³. Atliksime 10 tokiÅ³ eksperimentÅ³ ir apskaiÄiuosime, kiek vienos serijos
+# metu atsivertÄ— herbÅ³ ir skaiÄiÅ³.
 
-# Vienos monetos mëtymo eksperimentà galima uşrağyti naudojant funkcijà sample.
+# Vienos monetos mÄ—tymo eksperimentÄ… galima uÅ¾raÅ¡yti naudojant funkcijÄ… sample.
 sample(c("H", "S"), 1000, replace = TRUE)
 
-# Ğià iğraiğkà ástaèius á funkcijà replicate, gaunama 1000 x 10 dydşio matrica, 
-# kurios stulpeliuose yra bandymø serijos.
+# Å iÄ… iÅ¡raiÅ¡kÄ… Ä¯staÄius Ä¯ funkcijÄ… replicate, gaunama 1000 x 10 dydÅ¾io matrica, 
+# kurios stulpeliuose yra bandymÅ³ serijos.
 replicate(10, sample(c("H", "S"), 1000, TRUE))
 
-# Naudojant funkcijà apply, kiekvienam eksperimentø matricos stulpeliui sudaroma 
-# herbø ir skaièiø daşniø lentelë. Galima pastebëti, kad herbø ir skaièiø daşnis
-# apytiksliai lygus, koks ir turi bûti mëtant simetriğkà monetà.
+# Naudojant funkcijÄ… apply, kiekvienam eksperimentÅ³ matricos stulpeliui sudaroma 
+# herbÅ³ ir skaiÄiÅ³ daÅ¾niÅ³ lentelÄ—. Galima pastebÄ—ti, kad herbÅ³ ir skaiÄiÅ³ daÅ¾nis
+# apytiksliai lygus, koks ir turi bÅ«ti mÄ—tant simetriÅ¡kÄ… monetÄ….
 apply(replicate(10, sample(c("H", "S"), 1000, TRUE)), 2, table)
 
 
-# Şinoma, funkcijà replicate naudojama ne tik atsitiktiniø dydşiø generavimui ar 
-# tikimybiniam modeliavimui. Pavyzdşiui, sudarysime 10x10 dydşio matricà, kurios 
-# pirmos eilutës elementai lygûs 1, antros lygûs 2 ir t.t. Visi tokios matricos 
-# stulpeliai yra vienodi, todël reikia sugeneruoti 10 vienodø vektoriø, kuriø
+# Å½inoma, funkcijÄ… replicate naudojama ne tik atsitiktiniÅ³ dydÅ¾iÅ³ generavimui ar 
+# tikimybiniam modeliavimui. PavyzdÅ¾iui, sudarysime 10x10 dydÅ¾io matricÄ…, kurios 
+# pirmos eilutÄ—s elementai lygÅ«s 1, antros lygÅ«s 2 ir t.t. Visi tokios matricos 
+# stulpeliai yra vienodi, todÄ—l reikia sugeneruoti 10 vienodÅ³ vektoriÅ³, kuriÅ³
 # elementai kinta nuo 1 iki 10. 
 
 replicate(10, 1:10)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant f-jas replicate ir sample, sudarykite 10 atsitiktiniø kodø sàrağà. 
-#    Vienas kodas gaunamas iğ vektoriaus LETTERS atsitiktine tvarka iğrenkant po
-#    tris raides ir, naudojant f-jà paste su parametru collapse = "", apjungiant
-#    jas á vienà simboliø sekà.
-# 2. Naudodami funkcijà replicate, sugeneruokite tris tolygiai intervale [0, 10]
-#    pasiskirsèiusio atsitiktinio dydşio imtis po n = 100 elementø. Sugalvokite, 
+# 1. Naudojant f-jas replicate ir sample, sudarykite 10 atsitiktiniÅ³ kodÅ³ sÄ…raÅ¡Ä…. 
+#    Vienas kodas gaunamas iÅ¡ vektoriaus LETTERS atsitiktine tvarka iÅ¡renkant po
+#    tris raides ir, naudojant f-jÄ… paste su parametru collapse = "", apjungiant
+#    jas Ä¯ vienÄ… simboliÅ³ sekÄ….
+# 2. Naudodami funkcijÄ… replicate, sugeneruokite tris tolygiai intervaleÂ [0, 10]
+#    pasiskirsÄiusio atsitiktinio dydÅ¾io imtis po n = 100 elementÅ³. Sugalvokite, 
 #    kaip tokias imtis gauti nenaudojant funkcijos replicate.

@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Grafiko antrağtës ir kitas papildomas tekstas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Grafiko antraÅ¡tÄ—s ir kitas papildomas tekstas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-06-10 | 2014-06-29
 #
@@ -12,12 +12,12 @@
 # TURINYS -------------------------------
 
 #
-#   1. Grafiko antrağtës formavimo funkcijos:
+#   1. Grafiko antraÅ¡tÄ—s formavimo funkcijos:
 #      * funkcija title
 #      * funkcija expression
 #      * funkcija substitute
 #
-#   2. Papildomo teksto ant grafiko uşdëjimas:
+#   2. Papildomo teksto ant grafiko uÅ¾dÄ—jimas:
 #      * funkcija text
 #      * funkcija mtext
 #
@@ -26,126 +26,126 @@
 # PASTABOS ------------------------------
 
 #
-# Parağyti apie funkcijà symbols.
+# ParaÅ¡yti apie funkcijÄ… symbols.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# DIAGRAMOS ANTRAĞÈIØ FORMAVIMAS          #
+# DIAGRAMOS ANTRAÅ ÄŒIÅ² FORMAVIMAS          #
 # --------------------------------------- #
 
-# Funkcija plot ir kitos aukğto lygio grafinës funkcijos turi standartinius ağiø
-# ir pagrindinës grafiko antrağtës nustatymo parametrus: xlab, ylab ir main. Bet
-# kartais ağiø ir viso grafiko antrağèiø formavimui gali bûti naudojama speciali 
+# Funkcija plot ir kitos aukÅ¡to lygio grafinÄ—s funkcijos turi standartinius aÅ¡iÅ³
+# ir pagrindinÄ—s grafiko antraÅ¡tÄ—s nustatymo parametrus: xlab, ylab ir main. Bet
+# kartais aÅ¡iÅ³ ir viso grafiko antraÅ¡ÄiÅ³ formavimui gali bÅ«ti naudojama speciali 
 # funkcija title. Pagrindiniai jos parametrai yra tokie:
 #
-#       main -- pagrindinës antrağtës tekstas,
-#        sub -- pagalbinës antrağtës tekstas,
-#       xlab -- ağies Ox antrağës pavadinimas,
-#       ylab -- ağies Oy antrağës pavadinimas.
+#       main -- pagrindinÄ—s antraÅ¡tÄ—s tekstas,
+#        sub -- pagalbinÄ—s antraÅ¡tÄ—s tekstas,
+#       xlab -- aÅ¡ies Ox antraÅ¡Ä—s pavadinimas,
+#       ylab -- aÅ¡ies Oy antraÅ¡Ä—s pavadinimas.
 
-# Pavyzdşiui, naudojant funkcijà curve nubraişysime funkcijos y = sin(x) grafikà. 
-# Matome, kad grafike yra abiejø ağiø antrağtës, taèiau nëra pagrindinës grafiko 
-# antrağtës. 
+# PavyzdÅ¾iui, naudojant funkcijÄ… curve nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ…. 
+# Matome, kad grafike yra abiejÅ³ aÅ¡iÅ³ antraÅ¡tÄ—s, taÄiau nÄ—ra pagrindinÄ—s grafiko 
+# antraÅ¡tÄ—s. 
 
 curve(sin, -pi, pi)
 
-# Diagramos antrağtæ ant jau sudaryto grafiko uşdedame naudojant funkcijà title.
+# Diagramos antraÅ¡tÄ™ ant jau sudaryto grafiko uÅ¾dedame naudojant funkcijÄ… title.
 
 title(main = "Funkcijos y = sin(x) grafikas")
 
 
-# Lygiai taip pat ant jau sudaryto grafiko uşdedamos ağiø antrağtës. Pavyzdşiui,
-# braişant funkcijos grafikà, uşdrausime ağies Oy antrağtæ, o vëliau jà uşdësime 
-# naudojant funkcijà title ir jos parametrà ylab.
+# Lygiai taip pat ant jau sudaryto grafiko uÅ¾dedamos aÅ¡iÅ³ antraÅ¡tÄ—s. PavyzdÅ¾iui,
+# braiÅ¾ant funkcijos grafikÄ…, uÅ¾drausime aÅ¡ies Oy antraÅ¡tÄ™, o vÄ—liau jÄ… uÅ¾dÄ—sime 
+# naudojant funkcijÄ… title ir jos parametrÄ… ylab.
 
 curve(sin, -pi, pi, ylab = "")
 title(main = "Funkcijos y = sin(x) grafikas")
 title(ylab = "y = sin(x)")
 
 
-# Jei dël kokiø nors prieşasèiø visas grafiko antrağtes reikia uşdrausti, tokiam
-# tikslui naudojamas loginis parametras ann. Ant tokio grafiko antrağtæ uşdedame
-# naudojant funkcijà title.
+# Jei dÄ—l kokiÅ³ nors prieÅ¾asÄiÅ³ visas grafiko antraÅ¡tes reikia uÅ¾drausti, tokiam
+# tikslui naudojamas loginis parametras ann. Ant tokio grafiko antraÅ¡tÄ™ uÅ¾dedame
+# naudojant funkcijÄ… title.
 
 curve(sin, -pi, pi, ann = FALSE)
 title(main = "Funkcijos y = sin(x) grafikas", xlab = "x", ylab = "f(x)")
 
 
-# Funkcija title daşniausiai naudojama tokiais atvejais, kai antrağtës yra labai
-# ilgos, turi specialiø matematiniø simboliø ar priklauso nuo kaşkokiø papildomø 
-# duomenø. Kartais antrağtæ tenka sudaryti iğ keliø atskirø daliø. Iğnagrinësime 
-# keletà tipiniø situacijø.
+# Funkcija title daÅ¾niausiai naudojama tokiais atvejais, kai antraÅ¡tÄ—s yra labai
+# ilgos, turi specialiÅ³ matematiniÅ³ simboliÅ³ ar priklauso nuo kaÅ¾kokiÅ³ papildomÅ³ 
+# duomenÅ³. Kartais antraÅ¡tÄ™ tenka sudaryti iÅ¡ keliÅ³ atskirÅ³ daliÅ³. IÅ¡nagrinÄ—sime 
+# keletÄ… tipiniÅ³ situacijÅ³.
 
 
-# Antrağtës tekste gali bûti ávairiø matematiniø simboliø. Tai graikiğkos raidës, 
-# indeksai, laipsniai, ğaknies, sumos, integralo ir kiti specialûs simboliai. Jø
-# uşrağymo sintaksë ğiek tiek primena LaTeX taisykles:
+# AntraÅ¡tÄ—s tekste gali bÅ«ti Ä¯vairiÅ³ matematiniÅ³ simboliÅ³. Tai graikiÅ¡kos raidÄ—s, 
+# indeksai, laipsniai, Å¡aknies, sumos, integralo ir kiti specialÅ«s simboliai. JÅ³
+# uÅ¾raÅ¡ymo sintaksÄ— Å¡iek tiek primena LaTeX taisykles:
  
 ?plotmath
 
-# Tokio uşrağymo bûdo galimybiø demonstracija:
+# Tokio uÅ¾raÅ¡ymo bÅ«do galimybiÅ³ demonstracija:
 
 demo(plotmath)
 
-# Norint á antrağtës tekstà árağyti matematinius simbolius, reikia kad funkcijos
-# title parametrui bûtø priskirta R iğraiğka. Tam naudojama funkcija expression.
-# Pavyzdşiui, nubraişysime funkcijos y = sin(x) grafikà, bet antrağtëse vietoje 
-# argumento x árağysime alpha.
+# Norint Ä¯ antraÅ¡tÄ—s tekstÄ… Ä¯raÅ¡yti matematinius simbolius, reikia kad funkcijos
+# title parametrui bÅ«tÅ³ priskirta R iÅ¡raiÅ¡ka. Tam naudojama funkcija expression.
+# PavyzdÅ¾iui, nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ…, bet antraÅ¡tÄ—se vietoje 
+# argumento x Ä¯raÅ¡ysime alpha.
 
 curve(sin, -pi, pi, xlab = "", ylab = "")
 title(xlab = expression(alpha), ylab = expression(sin ~ alpha))
 
-# Ant to paties grafiko uşdësime bendrà antrağtæ. Ğiuo atveju antrağtë susideda 
-# iğ teksto ir viduryje esanèios formulës. Tokiu bûdu gauname tris dalis: şodis,
-# formulë ir vël şodis. Ğias tris dalis á iğraiğkà sujungsime naudojant funkcijà 
-# paste. Èia simbolis ~ nurodo tarpà tarp şodşiø, o == reiğkia formulëje esanèià
-# lygybæ.
+# Ant to paties grafiko uÅ¾dÄ—sime bendrÄ… antraÅ¡tÄ™. Å iuo atveju antraÅ¡tÄ— susideda 
+# iÅ¡ teksto ir viduryje esanÄios formulÄ—s. Tokiu bÅ«du gauname tris dalis: Å¾odis,
+# formulÄ— ir vÄ—l Å¾odis. Å ias tris dalis Ä¯ iÅ¡raiÅ¡kÄ… sujungsime naudojant funkcijÄ… 
+# paste. ÄŒia simbolis ~ nurodo tarpÄ… tarp Å¾odÅ¾iÅ³, o == reiÅ¡kia formulÄ—je esanÄiÄ…
+# lygybÄ™.
 
 curve(sin, -pi, pi, xlab = expression(alpha), ylab = expression(sin ~ alpha))
 title(main = expression(paste("Funkcijos ", y == sin ~ alpha, " grafikas")))
 
-# Nubraişysime dar vienà grafikà, kurio antrağtëse bus keli specialûs simboliai. 
-# Tai bus natûraliøjø skaièiø sumos diagrama. Jos antrağtëse panaudosime apatiná 
-# indeksà ir sumos şenklà.
+# NubraiÅ¾ysime dar vienÄ… grafikÄ…, kurio antraÅ¡tÄ—se bus keli specialÅ«s simboliai. 
+# Tai bus natÅ«raliÅ³jÅ³ skaiÄiÅ³ sumos diagrama. Jos antraÅ¡tÄ—se panaudosime apatinÄ¯ 
+# indeksÄ… ir sumos Å¾enklÄ….
 
 plot(cumsum(1:100), type = "h", ann = F)
 title(xlab = "n", ylab = expression(S[n]))
 title(main = expression(paste("Sumos ", S[n] == sum(k, k==1, n), " grafikas")))
 
 
-# Kita daşnai pasitaikanti situacija, kada grafiko antrağtëje reikia árağyti tam
-# tikro kintamojo reikğmæ. Pavyzdşiui, tai gali bûti kreivës parametrø reikğmës,
-# grafiko eilës numeris ir pan. Tokiu atveju naudojama funkcija substitute, kuri 
-# iğraiğkoje esanèiam kintamajam priskiria tam tikrà reikğmæ. Pagrindiniai f-jos
+# Kita daÅ¾nai pasitaikanti situacija, kada grafiko antraÅ¡tÄ—je reikia Ä¯raÅ¡yti tam
+# tikro kintamojo reikÅ¡mÄ™. PavyzdÅ¾iui, tai gali bÅ«ti kreivÄ—s parametrÅ³ reikÅ¡mÄ—s,
+# grafiko eilÄ—s numeris ir pan. Tokiu atveju naudojama funkcija substitute, kuri 
+# iÅ¡raiÅ¡koje esanÄiam kintamajam priskiria tam tikrÄ… reikÅ¡mÄ™. Pagrindiniai f-jos
 # parametrai tokie:
 #
-#       expr -- R iğraiğka,
-#        env -- iğraiğkoje esanèiø kintamøjø reikğmiø sàrağas.
+#       expr -- R iÅ¡raiÅ¡ka,
+#        env -- iÅ¡raiÅ¡koje esanÄiÅ³ kintamÅ³jÅ³ reikÅ¡miÅ³ sÄ…raÅ¡as.
 
-# Pavyzdşiui, nubraişysime funkcijos y = sin(kx) grafikà ir uşdësime antrağtæ su
-# konkreèia parametro k reikğme.
+# PavyzdÅ¾iui, nubraiÅ¾ysime funkcijos y = sin(kx) grafikÄ… ir uÅ¾dÄ—sime antraÅ¡tÄ™ su
+# konkreÄia parametro k reikÅ¡me.
 
 k <- 5
 curve(sin(k*x), -pi, pi, xlab = "x", ylab = "y")
 title(substitute(paste("Funkcijos ", y == sin(m*x), " grafikas"), list(m = k)))
 
-# Naudojant funkcijà substitute, galima perduoti keliø parametrø reikğmes. Pvz.,
-# nubraişysime tiesës y = b_0 + b_1*x grafikà, o tiesës lygtá su tokiø parametrø 
-# reikğmëmis uşrağysime antrağtëje. Ğiuo atveju reikës perduoti parametrø b_0 ir 
-# b_1 reikğmes.
+# Naudojant funkcijÄ… substitute, galima perduoti keliÅ³ parametrÅ³ reikÅ¡mes. Pvz.,
+# nubraiÅ¾ysime tiesÄ—s y = b_0 + b_1*x grafikÄ…, o tiesÄ—s lygtÄ¯ su tokiÅ³ parametrÅ³ 
+# reikÅ¡mÄ—mis uÅ¾raÅ¡ysime antraÅ¡tÄ—je. Å iuo atveju reikÄ—s perduoti parametrÅ³ b_0 ir 
+# b_1 reikÅ¡mes.
 
 b.0 <- 5.12
 b.1 <- 0.53
@@ -153,34 +153,34 @@ b.1 <- 0.53
 curve(b.0 + b.1*x, 0, 10, ann = F, asp = 1)
 
 title(xlab = "x", ylab = expression(y == beta[0] + beta[1]*x))
-title(substitute(paste("Tiesë ", y == a + b*x), list(a = b.0, b = b.1)))
+title(substitute(paste("TiesÄ— ", y == a + b*x), list(a = b.0, b = b.1)))
 
 
-# Nubraişysime chi-kvadrat skirstinio tankio funkcijos grafikà ir uşrağysime jam
-# antrağtæ, kurioje árağomas skirstinio parametro -- laisvës laipsniø skaièius k.
+# NubraiÅ¾ysime chi-kvadrat skirstinio tankio funkcijos grafikÄ… ir uÅ¾raÅ¡ysime jam
+# antraÅ¡tÄ™, kurioje Ä¯raÅ¡omas skirstinio parametro -- laisvÄ—s laipsniÅ³ skaiÄius k.
 
 k <- 5
 curve(dchisq(x, df = k), 0, 20, xlab = "x", ylab = "p(x)")
 
-# Kadangi antrağtës tekstas gana ilgas, já galima iğskaidyti á atskiras dalis ir,
-# naudojant funkcijà paste, á vientisà sakiná sudëti funkcijos substitute viduje. 
-# Tokiu atveju teksto dalys taip pat yra kintamieji, todël jiems reikğmes reikia 
+# Kadangi antraÅ¡tÄ—s tekstas gana ilgas, jÄ¯ galima iÅ¡skaidyti Ä¯ atskiras dalis ir,
+# naudojant funkcijÄ… paste, Ä¯ vientisÄ… sakinÄ¯ sudÄ—ti funkcijos substitute viduje. 
+# Tokiu atveju teksto dalys taip pat yra kintamieji, todÄ—l jiems reikÅ¡mes reikia 
 # priskirti.
 
 t.1 <- " skirstinio su "
-t.2 <- " laisvës l. tankio funkcijos grafikas"
+t.2 <- " laisvÄ—s l. tankio funkcijos grafikas"
 title(main = substitute(paste(chi^2, a, b, c), list(a = t.1, b = k, c = t.2)))
 
 
 # NAUDINGA ------------------------------
 
-# Grafiko braişymo funkcijas galima ádëti á ciklà. Jei tokiø funkcijø parametrai
-# priklauso nuo ciklo kintamojo, gauname laikei besikeièiantá grafikà, animacijà.
-# Tam, kad bûtø galima sekti funkcijø parametrø reikğmes arba tam tikras duomenø 
-# statistikas, jas galima nurodyti grafiko antrağtëje.
+# Grafiko braiÅ¾ymo funkcijas galima Ä¯dÄ—ti Ä¯ ciklÄ…. Jei tokiÅ³ funkcijÅ³ parametrai
+# priklauso nuo ciklo kintamojo, gauname laikei besikeiÄiantÄ¯ grafikÄ…, animacijÄ….
+# Tam, kad bÅ«tÅ³ galima sekti funkcijÅ³ parametrÅ³ reikÅ¡mes arba tam tikras duomenÅ³ 
+# statistikas, jas galima nurodyti grafiko antraÅ¡tÄ—je.
 
-# Pavyzdşiui, nubraişysime funkcijos y = sin(x) grafikà, kuriame vienas po kito
-# uşdedami sinusoidæ sudarantys tağkai. Antrağtëje nurodysime k-ojo tağko numerá.
+# PavyzdÅ¾iui, nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ…, kuriame vienas po kito
+# uÅ¾dedami sinusoidÄ™ sudarantys taÅ¡kai. AntraÅ¡tÄ—je nurodysime k-ojo taÅ¡ko numerÄ¯.
 
 n <- 1000
 x <- seq(-2*pi, 2*pi, length.out = n)
@@ -192,11 +192,11 @@ for (i in 1:n) {
 }
 
 
-# Èia matome, kad kiekvienos iteracijos metu braişomas tas pats grafikas, taèiau
-# dalis tağkø yra baltos spalvos, ir todël jø nesimato. Taip gaunamas animacijos
-# efektas. Nubraişysime dar vienà animuotà grafikà. Èia pavaizduosime normaliojo 
-# dësnio su besikeièianèiu vidurkiu, taèiau pastovia dispersija tankio funkcijos 
-# grafikà. Antrağtëje uşrağysime skirstinio parametro, t. y. vidurkio reikğmæ.
+# ÄŒia matome, kad kiekvienos iteracijos metu braiÅ¾omas tas pats grafikas, taÄiau
+# dalis taÅ¡kÅ³ yra baltos spalvos, ir todÄ—l jÅ³ nesimato. Taip gaunamas animacijos
+# efektas. NubraiÅ¾ysime dar vienÄ… animuotÄ… grafikÄ…. ÄŒia pavaizduosime normaliojo 
+# dÄ—snio su besikeiÄianÄiu vidurkiu, taÄiau pastovia dispersija tankio funkcijos 
+# grafikÄ…. AntraÅ¡tÄ—je uÅ¾raÅ¡ysime skirstinio parametro, t. y. vidurkio reikÅ¡mÄ™.
 
 m <- seq(20, 80, by = 0.05)
 
@@ -207,51 +207,51 @@ for (i in m) {
 }
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite f-jos y = x^3 - 10*x^2 - 10*x + 10 grafikà intervale [-10, 20]. 
-#    Grafiko antrağtëje uşrağykite matematinæ ğios funkcijos formulæ, o ağies Oy
-#    uşrağà pakeiskite á y.
-# 2. Nubraişykite trupmenø 1/2^k sumos, kai k - sveikieji skaièiai nuo 0 iki 10,
-#    grafikà. Grafiko antrağtëje uşrağykite sumos matematinæ iğraiğkà.
-# 3. Sudarykite programà, kuri pasirinktame tağke (x, y) nubraişytø R spindulio 
-#    apskritimà. Grafiko antrağtëje turi bûti nurodytos centro koordinatës ir R
-#    reikğmë.
-# 4. Sudarykite programà, kuri nubraişytø normaliojo pasiskirstymo su pasirinktu
-#    vidurkiu ir dispersija tankio funkcijos grafikà. Abiejø parametrø reikğmës 
-#    turi bûti automatiğkai uşrağomos grafiko antrağtëje.
-# 5. Sudarykite animuotà grafikà, kuriame pavaizduokite, kaip nuosekliai tağkas 
-#    po tağko nubraişomas apskritimas. Grafiko antrağtëje nurodykite tağko eilës
-#    numerá. Apskritimà sudaranèiø tağkø skaièiø n galima pasirinkti laisvai.
-# 6. Sudarykite animuotà grafikà, kuriame pavaizduota, kaip keièiasi chi-kvadrat
-#    skirstinio tankio funkcija, kai laisvës laipsniø skaièius k kinta nuo 1 iki
-#    100. Grafiko antrağtëje turi bûti rodoma besikeièianti k reikğmë.
+# 1. NubraiÅ¾ykite f-jos y = x^3 - 10*x^2 - 10*x + 10 grafikÄ… intervale [-10, 20]. 
+#    Grafiko antraÅ¡tÄ—je uÅ¾raÅ¡ykite matematinÄ™ Å¡ios funkcijos formulÄ™, o aÅ¡ies Oy
+#    uÅ¾raÅ¡Ä… pakeiskite Ä¯ y.
+# 2. NubraiÅ¾ykite trupmenÅ³ 1/2^k sumos, kai k - sveikieji skaiÄiai nuo 0 iki 10,
+#    grafikÄ…. Grafiko antraÅ¡tÄ—je uÅ¾raÅ¡ykite sumos matematinÄ™ iÅ¡raiÅ¡kÄ….
+# 3. Sudarykite programÄ…, kuri pasirinktame taÅ¡ke (x, y) nubraiÅ¾ytÅ³ R spindulio 
+#    apskritimÄ…. Grafiko antraÅ¡tÄ—je turi bÅ«ti nurodytos centro koordinatÄ—s ir R
+#    reikÅ¡mÄ—.
+# 4. Sudarykite programÄ…, kuri nubraiÅ¾ytÅ³ normaliojo pasiskirstymo su pasirinktu
+#    vidurkiu ir dispersija tankio funkcijos grafikÄ…. AbiejÅ³ parametrÅ³ reikÅ¡mÄ—s 
+#    turi bÅ«ti automatiÅ¡kai uÅ¾raÅ¡omos grafiko antraÅ¡tÄ—je.
+# 5. Sudarykite animuotÄ… grafikÄ…, kuriame pavaizduokite, kaip nuosekliai taÅ¡kas 
+#    po taÅ¡ko nubraiÅ¾omas apskritimas. Grafiko antraÅ¡tÄ—je nurodykite taÅ¡ko eilÄ—s
+#    numerÄ¯. ApskritimÄ… sudaranÄiÅ³ taÅ¡kÅ³ skaiÄiÅ³ n galima pasirinkti laisvai.
+# 6. Sudarykite animuotÄ… grafikÄ…, kuriame pavaizduota, kaip keiÄiasi chi-kvadrat
+#    skirstinio tankio funkcija, kai laisvÄ—s laipsniÅ³ skaiÄius k kinta nuo 1 iki
+#    100. Grafiko antraÅ¡tÄ—je turi bÅ«ti rodoma besikeiÄianti k reikÅ¡mÄ—.
 
 
 # --------------------------------------- #
-# PAPILDOMO TEKSTO ANT GRAFIKO UŞDËJIMAS  #
+# PAPILDOMO TEKSTO ANT GRAFIKO UÅ½DÄ–JIMAS  #
 # --------------------------------------- #
 
-# Teksto ant grafiko uşdëjimui tağkuose (x, y) naudojama cpeciali funkcija text. 
+# Teksto ant grafiko uÅ¾dÄ—jimui taÅ¡kuose (x, y) naudojama cpeciali funkcija text. 
 # Pagrindiniai jos parametrai tokie:
 #
-#          x -- tağko, kuriame uşdedamas tekstas, abscisë,
-#          y -- tağko, kuriame uşdedamas tekstas, ordinatë,
-#     labels -- tağkuose (x, y) uşdedamas tekstø vektorius,
-#        pos -- tağko pusë, kurioje atidedamas tekstas, 1, 2 3 arba 4,
-#     offset -- uşdedamo teksto postûmis nuo tağko (x, y),
-#        cex -- uşdedamo teksto dydis,
-#        col -- uşdedamo teksto spalva,
-#       font -- ğrifto tipas,
+#          x -- taÅ¡ko, kuriame uÅ¾dedamas tekstas, abscisÄ—,
+#          y -- taÅ¡ko, kuriame uÅ¾dedamas tekstas, ordinatÄ—,
+#     labels -- taÅ¡kuose (x, y) uÅ¾dedamas tekstÅ³ vektorius,
+#        pos -- taÅ¡ko pusÄ—, kurioje atidedamas tekstas, 1, 2 3 arba 4,
+#     offset -- uÅ¾dedamo teksto postÅ«mis nuo taÅ¡ko (x, y),
+#        cex -- uÅ¾dedamo teksto dydis,
+#        col -- uÅ¾dedamo teksto spalva,
+#       font -- Å¡rifto tipas,
 #        srt -- kampas, kuriuo pasukamas tekstas.
 
-# Iğ pradşiø nubraişysime paprastà keletos tağkø sklaidos diagramà. Kintamasis x 
-# yra planetos pusiaujo skersmuo kilometrais, o y --- vidutinis tankis gramais á 
-# kubiná centimetrà.
+# IÅ¡ pradÅ¾iÅ³ nubraiÅ¾ysime paprastÄ… keletos taÅ¡kÅ³ sklaidos diagramÄ…. Kintamasis x 
+# yra planetos pusiaujo skersmuo kilometrais, o y --- vidutinis tankis gramais Ä¯ 
+# kubinÄ¯ centimetrÄ….
 
 x <- c(5.427, 5.24, 5.5153, 3.934)
 y <- c(4879.4, 12103.7, 12756.274, 6804.9)
-t <- c("Merkurijus", "Venera", "Şemë", "Marsas")
+t <- c("Merkurijus", "Venera", "Å½emÄ—", "Marsas")
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
 
@@ -259,83 +259,83 @@ title(xlab = expression(paste("Tankis, ", g/cm^3)))
 title(ylab = "Pusiaujo skersmuo, km")
 
 
-# Tarkime, kad tuos tağkus plokğtumoje reikia tam tikru bûdu identifikuoti. Pats
-# paprasèiausias bûdas juos atskirti -- pagal eilës numerá, kurá uşrağysime prie
-# kiekvieno tağko. Pasinaudosime funkcija text. Jei funkcijai text nurodome vien
-# tik tağkø (x, y) koordinates, pagal nutylëjimà ant tağkø uşrağomas jø numeris.
+# Tarkime, kad tuos taÅ¡kus plokÅ¡tumoje reikia tam tikru bÅ«du identifikuoti. Pats
+# paprasÄiausias bÅ«das juos atskirti -- pagal eilÄ—s numerÄ¯, kurÄ¯ uÅ¾raÅ¡ysime prie
+# kiekvieno taÅ¡ko. Pasinaudosime funkcija text. Jei funkcijai text nurodome vien
+# tik taÅ¡kÅ³ (x, y) koordinates, pagal nutylÄ—jimÄ… ant taÅ¡kÅ³ uÅ¾raÅ¡omas jÅ³ numeris.
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
 text(x, y)
 
-# Tam, kad tekstas bûtø uşdedamas ğalia tağko (x, y), naudojamas parametras pos. 
-# Jei jam priskiriama reikğmë 1, tekstas uşdedamas şemiau tağko, jei 2 - kairëje 
-# pusëje ir t.t.
+# Tam, kad tekstas bÅ«tÅ³ uÅ¾dedamas Å¡alia taÅ¡ko (x, y), naudojamas parametras pos. 
+# Jei jam priskiriama reikÅ¡mÄ— 1, tekstas uÅ¾dedamas Å¾emiau taÅ¡ko, jei 2 - kairÄ—je 
+# pusÄ—je ir t.t.
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
 text(x, y, pos = 2)
 
-# Daşniausiai tağkø numeriai patys savaime nieko nereiğkia, todël vien tik pagal 
-# stebinio numerá negalima pasakyti kuo vienas tağkas skiriasi nuo kito. Tokiais
-# atvejais tağkams galima priskirti koká nors kità poşymá. Ğiuo atveju naudosime
-# naujà kintamàjá -- planetos pavadinimø vektoriø t.
+# DaÅ¾niausiai taÅ¡kÅ³ numeriai patys savaime nieko nereiÅ¡kia, todÄ—l vien tik pagal 
+# stebinio numerÄ¯ negalima pasakyti kuo vienas taÅ¡kas skiriasi nuo kito. Tokiais
+# atvejais taÅ¡kams galima priskirti kokÄ¯ nors kitÄ… poÅ¾ymÄ¯. Å iuo atveju naudosime
+# naujÄ… kintamÄ…jÄ¯ -- planetos pavadinimÅ³ vektoriÅ³ t.
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
 text(x, y, pos = 2, labels = t)
 
-# Toje paèioje pozicijoje galima uşdëti kelis skirtingus tekstus. Tam, kad naujà
-# uşdedamà tekstà bûtø galima pastumti á ğonà, naudojamas parametras offset.
+# Toje paÄioje pozicijoje galima uÅ¾dÄ—ti kelis skirtingus tekstus. Tam, kad naujÄ…
+# uÅ¾dedamÄ… tekstÄ… bÅ«tÅ³ galima pastumti Ä¯ Å¡onÄ…, naudojamas parametras offset.
 
 text(x, y, pos = 2, offset = -1)
 
-# Şinoma, nebûtina prisiriğti prie duomenø tağkø. Tekstà galima uşdëti ir kitoje
-# grafiko vietoje. Pvz., ant sklaidos grafiko tağke (4, 10000) uşrağysime tekstà.
+# Å½inoma, nebÅ«tina prisiriÅ¡ti prie duomenÅ³ taÅ¡kÅ³. TekstÄ… galima uÅ¾dÄ—ti ir kitoje
+# grafiko vietoje. Pvz., ant sklaidos grafiko taÅ¡ke (4, 10000) uÅ¾raÅ¡ysime tekstÄ….
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
-text(4, 10000, labels = "Planetø iğsidëstymas pagal skersmená ir tanká")
+text(4, 10000, labels = "PlanetÅ³ iÅ¡sidÄ—stymas pagal skersmenÄ¯ ir tankÄ¯")
 
 
-# Parametrais galima reguliuoti uşdedamo teksto dydá, spalvà, ğrifto tipà ir pan.
-# Pvz., tağkø numerius padidinsime, naudosime pastorintà ğriftà ir kiekvienam iğ
-# jø suteiksime vis kità spalvà.
+# Parametrais galima reguliuoti uÅ¾dedamo teksto dydÄ¯, spalvÄ…, Å¡rifto tipÄ… ir pan.
+# Pvz., taÅ¡kÅ³ numerius padidinsime, naudosime pastorintÄ… Å¡riftÄ… ir kiekvienam iÅ¡
+# jÅ³ suteiksime vis kitÄ… spalvÄ….
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
 text(x, y, pos = 1, cex = 3, font = 2, col = 1:4)
 
-# Jei tekstà reikia pasukti tam tikru kampu, naudojamas grafinis parametras srt.
+# Jei tekstÄ… reikia pasukti tam tikru kampu, naudojamas grafinis parametras srt.
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), pch = 19, ann = FALSE)
 text(x, y, pos = 1, srt = 45)
 
 
-# Grafikas paprastai turi pagrindinæ antrağæ ir ağiø antrağtes. Teksto uşrağymui 
-# grafiko parağtëse naudojama funkcija mtext. Jos parametrai:
+# Grafikas paprastai turi pagrindinÄ™ antraÅ¡Ä™ ir aÅ¡iÅ³ antraÅ¡tes. Teksto uÅ¾raÅ¡ymui 
+# grafiko paraÅ¡tÄ—se naudojama funkcija mtext. Jos parametrai:
 #
-#       text -- tekstas arba iğraiğka,
-#       side -- tağko pusë, kurioje atidedamas tekstas, 1, 2 3 arba 4,
-#       line -- parağtës eilutës, kurioje uşrağomas tekstas numeris, 
-#         at -- koordinatë, ties kuria parağtëje atidedamas tekstas,
-#        adj -- skaièius iğ [0, 1], nurodo, pagal kurià pusæ lygiuoti tekstà,
-#        cex -- uşdedamo teksto dydis,
-#        col -- uşdedamo teksto spalva,
-#       font -- ğrifto tipas.
+#       text -- tekstas arba iÅ¡raiÅ¡ka,
+#       side -- taÅ¡ko pusÄ—, kurioje atidedamas tekstas, 1, 2 3 arba 4,
+#       line -- paraÅ¡tÄ—s eilutÄ—s, kurioje uÅ¾raÅ¡omas tekstas numeris, 
+#         at -- koordinatÄ—, ties kuria paraÅ¡tÄ—je atidedamas tekstas,
+#        adj -- skaiÄius iÅ¡ [0, 1], nurodo, pagal kuriÄ… pusÄ™ lygiuoti tekstÄ…,
+#        cex -- uÅ¾dedamo teksto dydis,
+#        col -- uÅ¾dedamo teksto spalva,
+#       font -- Å¡rifto tipas.
 
-# Dar kartà nubraişysim planetø iğsidëstymo grafikà, kuriame tağkas proporcingas
-# planetos dydşiui. Suformuosime grafiko ağis bei parağtëse uşrağysime papildomà
-# informacijà.
+# Dar kartÄ… nubraiÅ¾ysim planetÅ³ iÅ¡sidÄ—stymo grafikÄ…, kuriame taÅ¡kas proporcingas
+# planetos dydÅ¾iui. Suformuosime grafiko aÅ¡is bei paraÅ¡tÄ—se uÅ¾raÅ¡ysime papildomÄ…
+# informacijÄ….
 
 plot(x, y, xlim = c(3, 6), ylim = c(4000, 14000), ann = F, fra = F, cex = y/2000)
 
-title(main = "Şemës tipo planetø iğsidëstymas pagal tanká ir diametrà")
+title(main = "Å½emÄ—s tipo planetÅ³ iÅ¡sidÄ—stymas pagal tankÄ¯ ir diametrÄ…")
 title(xlab = expression(paste("Tankis, ", g/cm^3)))
 title(ylab = "Pusiaujo skersmuo, km")
 
 text(x, y, labels = t, pos = 2, offset = 2)
 text(x, y, labels = x, pos = 1, offset = 1.5, cex = 0.7)
 
-# Grafiko parağtëse uşrağysime papildomà informacijà: değinëje nurodytas duomenø
-# ğaltinis, apaèioje değinëje uşrağoma grafiko sudarymo data.
+# Grafiko paraÅ¡tÄ—se uÅ¾raÅ¡ysime papildomÄ… informacijÄ…: deÅ¡inÄ—je nurodytas duomenÅ³
+# Å¡altinis, apaÄioje deÅ¡inÄ—je uÅ¾raÅ¡oma grafiko sudarymo data.
 
-informacija <- "Duomenys apie planetas paimti iğ wikipedijos"
+informacija <- "Duomenys apie planetas paimti iÅ¡ wikipedijos"
 
 mtext(text = informacija, side = 4, at = 4000, adj = 0.0, cex = 0.8, col = 8)
 mtext(Sys.Date(), side = 1, line = 3, adj = 1, font = 11, cex = 0.8, col = 8)
@@ -343,49 +343,49 @@ mtext(Sys.Date(), side = 1, line = 3, adj = 1, font = 11, cex = 0.8, col = 8)
 
 # NAUDINGA ------------------------------
 
-# Papildomi uşrağai prie tağkø --- gana savotiğkas bûdas plokğtumoje atvaizduoti 
-# daugiamaèius duomenis. Pavyzdşiui, paimsime keturiø ğaliø 2011-2013 m. nedarbo 
-# ir infliacijos lygio duomenis. Èia tokie kintamieji: ğalis, metai, nedarbas ir 
+# Papildomi uÅ¾raÅ¡ai prie taÅ¡kÅ³ --- gana savotiÅ¡kas bÅ«das plokÅ¡tumoje atvaizduoti 
+# daugiamaÄius duomenis. PavyzdÅ¾iui, paimsime keturiÅ³ Å¡aliÅ³ 2011-2013 m. nedarbo 
+# ir infliacijos lygio duomenis. ÄŒia tokie kintamieji: Å¡alis, metai, nedarbas ir 
 # infliacijos lygis.
 
 t <- textConnection("
-Ğalis    Metai  N     I
+Å alis    Metai  N     I
 Lietuva  2011   15.3  4.1
 Latvija  2011   16.2  4.4
 Estija   2011   12.5  5.0
-Ğvedija  2011   7.8   3.0
+Å vedija  2011   7.8   3.0
 Lietuva  2012   13.2  3.1
 Latvija  2012   15.0  2.3
 Estija   2012   10.2  3.9
-Ğvedija  2012   8.0   0.9
+Å vedija  2012   8.0   0.9
 Lietuva  2013   11.5  1.5
 Latvija  2013   11.6  0.4
 Estija   2013   8.9   3.3
-Ğvedija  2013   8.1   0.2")
+Å vedija  2013   8.1   0.2")
 
 d <- read.table(file = t, header = TRUE)
 d
 
-# Pradşioje nubraişysime paprastà infliacijos ir nedarbo lygio sklaidos diagramà.
+# PradÅ¾ioje nubraiÅ¾ysime paprastÄ… infliacijos ir nedarbo lygio sklaidos diagramÄ….
 
 plot(d$N, d$I, xlim = c(6, 17), ylim = c(0, 6), ann = FALSE)
 title(xlab = "Nedarbo lygis, %", ylab = "Infliacija, %")
 
-# Kadangi tağkai diagramoje niekaip neatskiriami, be papildomø paaiğkinimø tokia
-# diagrama nieko neparodo. Todël prie kiekvieno tağko prirağysime, kuriai ğaliai
+# Kadangi taÅ¡kai diagramoje niekaip neatskiriami, be papildomÅ³ paaiÅ¡kinimÅ³ tokia
+# diagrama nieko neparodo. TodÄ—l prie kiekvieno taÅ¡ko priraÅ¡ysime, kuriai Å¡aliai
 # ir kuriems metams jis priklauso.
 
-text(d$N, d$I, labels = d$Ğalis, pos = 3)
+text(d$N, d$I, labels = d$Å alis, pos = 3)
 text(d$N, d$I, labels = d$Metai, pos = 1, cex = 0.5, col = d$Metai - 2010)
 
 points(d$N, d$I, col = d$Metai - 2010, pch = 19)
 
 
-# Tà patá grafikà galima perbraişyti dar kitaip. Sujungsime linijomis tos paèios
-# ğalies skirtingø metø tağkus. Taip gausime jø judëjimo laike trajektorijà. Èia
-# sklaidos grafikà nubraişysime naudojant kintamøjø priklausomybës formulæ. Toks
-# uşrağymo bûdas yra patogesnis, kai iğ duomenø lentelës reikia iğskirti atskirø 
-# ğaliø stebinius, tada galima pasinaudoti parametru subset.
+# TÄ… patÄ¯ grafikÄ… galima perbraiÅ¾yti dar kitaip. Sujungsime linijomis tos paÄios
+# Å¡alies skirtingÅ³ metÅ³ taÅ¡kus. Taip gausime jÅ³ judÄ—jimo laike trajektorijÄ…. ÄŒia
+# sklaidos grafikÄ… nubraiÅ¾ysime naudojant kintamÅ³jÅ³ priklausomybÄ—s formulÄ™. Toks
+# uÅ¾raÅ¡ymo bÅ«das yra patogesnis, kai iÅ¡ duomenÅ³ lentelÄ—s reikia iÅ¡skirti atskirÅ³ 
+# Å¡aliÅ³ stebinius, tada galima pasinaudoti parametru subset.
 
 plot(I ~ N, data = d, xlim = c(6, 17), ann = FALSE)
 title(xlab = "Nedarbo lygis, %", ylab = "Infliacija, %")
@@ -393,30 +393,30 @@ title(xlab = "Nedarbo lygis, %", ylab = "Infliacija, %")
 text(I ~ N, data = d, labels = d$Metai, pos = 2, cex = .8, col = d$Metai - 2010)
 points(I ~ N, data = d, col = d$Metai - 2010, pch = 19)
 
-lines(I ~ N, data = d, subset = Ğalis == "Lietuva", type = "b", lty = 3)
-lines(I ~ N, data = d, subset = Ğalis == "Latvija", type = "b", lty = 3)
-lines(I ~ N, data = d, subset = Ğalis == "Estija",  type = "b", lty = 3)
-lines(I ~ N, data = d, subset = Ğalis == "Ğvedija", type = "b", lty = 3)
+lines(I ~ N, data = d, subset = Å alis == "Lietuva", type = "b", lty = 3)
+lines(I ~ N, data = d, subset = Å alis == "Latvija", type = "b", lty = 3)
+lines(I ~ N, data = d, subset = Å alis == "Estija",  type = "b", lty = 3)
+lines(I ~ N, data = d, subset = Å alis == "Å vedija", type = "b", lty = 3)
 
 text(I ~ N, data = d, subset = Metai == 2012, 
-	labels = d$Ğalis, pos = 4, offset = 1, font = 2)
+	labels = d$Å alis, pos = 4, offset = 1, font = 2)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite parabolës x^2 + 2x - 15 grafikà. Grafike ğalia tağkø, kuriuose
-#    parabolë kerta Ox ağá, uşdëkite tekstà su ğaknø x_1 ir x_2 reikğmëmis. Èia
-#    indeksams 1 ir 2 uşrağyti naudokite expression.
-# 2. Nubraişykite laiko eilutës Nile grafikà. Ties didşiausia ir maşiausia laiko
-#    eilutës reikğme uşdëkite tekstus su atitinkamo stebinio numeriu ir eilutës 
-#    reikğme.
-# 3. Nubraişykite duomenø lentelës airquality kintamojo Temp reikğmiø histogramà.
-#    F-jos hist parametrui labels priskyrus reikğmæ TRUE, daşniø reikğmes galima 
-#    uşrağyti ant stulpeliø virğaus. Sugalvokite, kaip, naudojant funkcijà text, 
-#    tuos paèius daşnius bûtø galima uşrağyti stulpelio viduryje.
-# 4. Naudojant planetø skersmens ir tankio duomenis, sudarykite grafikà, kuriame
-#    vietoje planetas atitinkanèiø tağkø bûtø pavaizduotas planetos pavadinimas.
-# 5. Naudojant infliacijos ir nedarbo lygio duomenø lentelæ d, nubraişykite 2013 
-#    metø infliacijos ir nedarbo lygio sklaidos diagramà. Greta tağkø uşrağykite
-#    ğalies pavadinimà. Apatinëje grafiko parağtëje uşrağykite infliacijos lygio
-#    vidurká, kuris turi bûti apskaièiuojamas automatiğkai.
+# 1. NubraiÅ¾ykite parabolÄ—s x^2 + 2x - 15 grafikÄ…. Grafike Å¡alia taÅ¡kÅ³, kuriuose
+#    parabolÄ— kerta Ox aÅ¡Ä¯, uÅ¾dÄ—kite tekstÄ… su Å¡aknÅ³ x_1 ir x_2 reikÅ¡mÄ—mis. ÄŒia
+#    indeksams 1 ir 2 uÅ¾raÅ¡yti naudokite expression.
+# 2. NubraiÅ¾ykite laiko eilutÄ—s Nile grafikÄ…. Ties didÅ¾iausia ir maÅ¾iausia laiko
+#    eilutÄ—s reikÅ¡me uÅ¾dÄ—kite tekstus su atitinkamo stebinio numeriu ir eilutÄ—s 
+#    reikÅ¡me.
+# 3. NubraiÅ¾ykite duomenÅ³ lentelÄ—s airquality kintamojo Temp reikÅ¡miÅ³ histogramÄ….
+#    F-jos hist parametrui labels priskyrus reikÅ¡mÄ™ TRUE, daÅ¾niÅ³ reikÅ¡mes galima 
+#    uÅ¾raÅ¡yti ant stulpeliÅ³ virÅ¡aus. Sugalvokite, kaip, naudojant funkcijÄ… text, 
+#    tuos paÄius daÅ¾nius bÅ«tÅ³ galima uÅ¾raÅ¡yti stulpelio viduryje.
+# 4. Naudojant planetÅ³ skersmens ir tankio duomenis, sudarykite grafikÄ…, kuriame
+#    vietoje planetas atitinkanÄiÅ³ taÅ¡kÅ³ bÅ«tÅ³ pavaizduotas planetos pavadinimas.
+# 5. Naudojant infliacijos ir nedarbo lygio duomenÅ³ lentelÄ™ d, nubraiÅ¾ykite 2013 
+#    metÅ³ infliacijos ir nedarbo lygio sklaidos diagramÄ…. Greta taÅ¡kÅ³ uÅ¾raÅ¡ykite
+#    Å¡alies pavadinimÄ…. ApatinÄ—je grafiko paraÅ¡tÄ—je uÅ¾raÅ¡ykite infliacijos lygio
+#    vidurkÄ¯, kuris turi bÅ«ti apskaiÄiuojamas automatiÅ¡kai.

@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Reguliarios iğraiğkos.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Reguliarios iÅ¡raiÅ¡kos.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2016-04-19 | 2016-04-23 | 2016-04-30
 #
@@ -12,37 +12,37 @@
 # TURINYS -------------------------------
 
 #
-#   1. Teorinis reguliariø iğraiğkø pagrindimas:
-#      * ávadas á baigtiniø automatø teorijà
+#   1. Teorinis reguliariÅ³ iÅ¡raiÅ¡kÅ³ pagrindimas:
+#      * Ä¯vadas Ä¯ baigtiniÅ³ automatÅ³ teorijÄ…
 #      * Kleene teorema apie baigtinius automatus
-#      * reguliariø iğraiğkø ryğys su automatais
+#      * reguliariÅ³ iÅ¡raiÅ¡kÅ³ ryÅ¡ys su automatais
 #      * formalios kalbos ir formalios gramatikos
 #
-#   2. Reguliariø iğraiğkø sudarymo taisyklës:
-#      * trumpai apie reguliarias iğraiğkø istorijà
-#      * reguliariø iğraiğkø ir reguliariø kalbø ryğys
-#      * reguliariø iğraiğkø sudarymo taisyklës
-#      * operacijos su reguliariomis iğraiğkomis
-#      * operatoriø prioritetai ir savybës
+#   2. ReguliariÅ³ iÅ¡raiÅ¡kÅ³ sudarymo taisyklÄ—s:
+#      * trumpai apie reguliarias iÅ¡raiÅ¡kÅ³ istorijÄ…
+#      * reguliariÅ³ iÅ¡raiÅ¡kÅ³ ir reguliariÅ³ kalbÅ³ ryÅ¡ys
+#      * reguliariÅ³ iÅ¡raiÅ¡kÅ³ sudarymo taisyklÄ—s
+#      * operacijos su reguliariomis iÅ¡raiÅ¡komis
+#      * operatoriÅ³ prioritetai ir savybÄ—s
 #
 
 
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -50,243 +50,243 @@ rm(list = ls())
 # BAIGTINIAI AUTOMATAI, FORMALIOS KALBOS  #
 # --------------------------------------- #
 
-# Automatø teorija -- diskreèiosios matematikos ğaka, nagrinëjanti matematiniais
-# modeliais uşrağomas abstrakèias skaièiavimo mağinas (jos vadinamos automatais)
-# ir uşdavinius, kuriuos jos gali spræsti. Automatas diskreèiais laiko momentais
-# konvertuoja diskreèià informacijà ir şingsnis po şingsnio vykdydamas iğ anksto
-# uşduotà algoritmà formuoja rezultatà. Ğiuo atşvilgiu automatø teorija susijusi
-# su algoritmø teorija. Atskirai galima paminëti baigtinius automatus. Tai tokie
-# automatai, kuriø vidiniø bûsenø aibë yra baigtinë. Baigtinis automatas ásimena
-# savo bûsenà ir, priklausomai nuo veiksmo ir dabartinës bûsenos, pereina á kità
-# bûsenà. 
+# AutomatÅ³ teorija -- diskreÄiosios matematikos Å¡aka, nagrinÄ—janti matematiniais
+# modeliais uÅ¾raÅ¡omas abstrakÄias skaiÄiavimo maÅ¡inas (jos vadinamos automatais)
+# ir uÅ¾davinius, kuriuos jos gali sprÄ™sti. Automatas diskreÄiais laiko momentais
+# konvertuoja diskreÄiÄ… informacijÄ… ir Å¾ingsnis po Å¾ingsnio vykdydamas iÅ¡ anksto
+# uÅ¾duotÄ… algoritmÄ… formuoja rezultatÄ…. Å iuo atÅ¾vilgiu automatÅ³ teorija susijusi
+# su algoritmÅ³ teorija. Atskirai galima paminÄ—ti baigtinius automatus. Tai tokie
+# automatai, kuriÅ³ vidiniÅ³ bÅ«senÅ³ aibÄ— yra baigtinÄ—. Baigtinis automatas Ä¯simena
+# savo bÅ«senÄ… ir, priklausomai nuo veiksmo ir dabartinÄ—s bÅ«senos, pereina Ä¯ kitÄ…
+# bÅ«senÄ…. 
 
-# Norint detaliau aprağyti baigtinio automato veikimo principà, paaiğkinsime kai
-# kuriuos toliau tekste naudojamus terminus. Simboliu vadiname bet koká nedalomà
-# duomenø blokà. Daşniausiai simboliais laikomi natûralios kalbos rağto şenklai:
-# raidës, skaièiai, skyrybos şenklai. Taèiau simboliai gali bûti ir abstraktesni
-# objektai, pavyzdşiui, grafiniai diagramos elementai. Alfabetas -- tai baigtinë
-# skirtingø simboliø aibë. Şodis --- simboliø seka, gaunama apjungiant simbolius
-# iğ vieno alfabeto. Kalba --- tam tikro alfabeto pagrindu sudarytø şodşiø aibë.
-# Jei kalbà sudaro riboto ilgio şodşiai, tai jø aibë bus baigtinë, bet prieğingu
-# atveju gaunama begalinë aibë. Kalbà sudaro nebûtinai visi şodşiai, kuriuos tik
-# ámanoma sudaryti iğ tam tikro alfabeto simboliø, todël bendru atveju kalba yra
-# poaibis visø ámanomø vieno alfabeto şodşiø aibës.
+# Norint detaliau apraÅ¡yti baigtinio automato veikimo principÄ…, paaiÅ¡kinsime kai
+# kuriuos toliau tekste naudojamus terminus. Simboliu vadiname bet kokÄ¯ nedalomÄ…
+# duomenÅ³ blokÄ…. DaÅ¾niausiai simboliais laikomi natÅ«ralios kalbos raÅ¡to Å¾enklai:
+# raidÄ—s, skaiÄiai, skyrybos Å¾enklai. TaÄiau simboliai gali bÅ«ti ir abstraktesni
+# objektai, pavyzdÅ¾iui, grafiniai diagramos elementai. Alfabetas -- tai baigtinÄ—
+# skirtingÅ³ simboliÅ³ aibÄ—. Å½odis --- simboliÅ³ seka, gaunama apjungiant simbolius
+# iÅ¡ vieno alfabeto. Kalba --- tam tikro alfabeto pagrindu sudarytÅ³ Å¾odÅ¾iÅ³ aibÄ—.
+# Jei kalbÄ… sudaro riboto ilgio Å¾odÅ¾iai, tai jÅ³ aibÄ— bus baigtinÄ—, bet prieÅ¡ingu
+# atveju gaunama begalinÄ— aibÄ—. KalbÄ… sudaro nebÅ«tinai visi Å¾odÅ¾iai, kuriuos tik
+# Ä¯manoma sudaryti iÅ¡ tam tikro alfabeto simboliÅ³, todÄ—l bendru atveju kalba yra
+# poaibis visÅ³ Ä¯manomÅ³ vieno alfabeto Å¾odÅ¾iÅ³ aibÄ—s.
 
-# Laikoma, kad baigtinis automatas pradeda darbà tam tikroje pradinëje bûsenoje.
-# Toliau nuosekliai skaitoma simboliø seka s_1 s_2 ... s_n, kuri vadinama áëjimo
-# şodşiu. Kiekvienas nuskaitytas simbolis perveda automatà á naujà bûsenà. Kokia
-# bus nauja bûsena, priklauso nuo dabartinës bûsenos ir nuskaityto simbolio. Ğià
-# perëjimo iğ bûsenos á bûsenà taisyklæ aprağo perëjimo funkcija. Taip automatas
-# skaitydamas sekà bei keisdamas bûsenas nuskaito paskutiná simbolá ir patenka á
-# tam tikrà bûsenà. Jeigu ği bûsena yra iğ leistinø baigtiniø bûsenos aibës, tai
-# sakoma, kad nuskaityta simboliø seka (şodis) yra priimtina. 
+# Laikoma, kad baigtinis automatas pradeda darbÄ… tam tikroje pradinÄ—je bÅ«senoje.
+# Toliau nuosekliai skaitoma simboliÅ³ seka s_1 s_2 ... s_n, kuri vadinama Ä¯Ä—jimo
+# Å¾odÅ¾iu. Kiekvienas nuskaitytas simbolis perveda automatÄ… Ä¯ naujÄ… bÅ«senÄ…. Kokia
+# bus nauja bÅ«sena, priklauso nuo dabartinÄ—s bÅ«senos ir nuskaityto simbolio. Å iÄ…
+# perÄ—jimo iÅ¡ bÅ«senos Ä¯ bÅ«senÄ… taisyklÄ™ apraÅ¡o perÄ—jimo funkcija. Taip automatas
+# skaitydamas sekÄ… bei keisdamas bÅ«senas nuskaito paskutinÄ¯ simbolÄ¯ ir patenka Ä¯
+# tam tikrÄ… bÅ«senÄ…. Jeigu Å¡i bÅ«sena yra iÅ¡ leistinÅ³ baigtiniÅ³ bÅ«senos aibÄ—s, tai
+# sakoma, kad nuskaityta simboliÅ³ seka (Å¾odis) yra priimtina. 
 
-# Apibendrintai baigtinis automatas uşrağomas rinkiniu M = {A, Q, q, F, d}, kur:
+# Apibendrintai baigtinis automatas uÅ¾raÅ¡omas rinkiniu M = {A, Q, q, F, d}, kur:
 #
-#          A -- áëjimo simboliø aibë (alfabetas),
-#          Q -- baigtinë vidiniø bûsenø aibë,
-#          q -- pradinë bûsena, q priklauso aibei Q,
-#          F -- galutiniø bûsenø aibë, F yra aibës Q poaibis,
-#          d -- perëjimo funkcija, kuri aprağo perëjimo á kità bûsenà taisyklæ.
+#          A -- Ä¯Ä—jimo simboliÅ³ aibÄ— (alfabetas),
+#          Q -- baigtinÄ— vidiniÅ³ bÅ«senÅ³ aibÄ—,
+#          q -- pradinÄ— bÅ«sena, q priklauso aibei Q,
+#          F -- galutiniÅ³ bÅ«senÅ³ aibÄ—, F yra aibÄ—s Q poaibis,
+#          d -- perÄ—jimo funkcija, kuri apraÅ¡o perÄ—jimo Ä¯ kitÄ… bÅ«senÄ… taisyklÄ™.
 
-# Baigtiná automatà galima atvaizduoti orientuotu grafu. Grafo virğûnës atitinka
-# automato bûsenas, o briauna, su jai priskirtu simboliu, atitinka parëjimà tarp
-# dviejø bûsenø. 
+# BaigtinÄ¯ automatÄ… galima atvaizduoti orientuotu grafu. Grafo virÅ¡Å«nÄ—s atitinka
+# automato bÅ«senas, o briauna, su jai priskirtu simboliu, atitinka parÄ—jimÄ… tarp
+# dviejÅ³ bÅ«senÅ³. 
 
-# Baigtiniai automatai skirstomi á deterministinius ir nedeterministinius. Jeigu
-# automatui leidşiama pereiti á kità bûsenà nenuskaièius simbolio arba iğ vienos
-# bûsenos (nuskaièius tà patá simbolá) galima patekti á daugiau nei vienà bûsenà,
+# Baigtiniai automatai skirstomi Ä¯ deterministinius ir nedeterministinius. Jeigu
+# automatui leidÅ¾iama pereiti Ä¯ kitÄ… bÅ«senÄ… nenuskaiÄius simbolio arba iÅ¡ vienos
+# bÅ«senos (nuskaiÄius tÄ… patÄ¯ simbolÄ¯) galima patekti Ä¯ daugiau nei vienÄ… bÅ«senÄ…,
 # tada toks automatas vadinamas nedeterministiniu. 
 
-# Automatø teorija --- ğiuolaikinës skaièiavimo technikos ir programinës árangos
-# pagrindas. Baigtiniai deterministiniai automatai naudojami sprendşiant plataus
-# spektro uşdavinius, pavyzdşiui:
+# AutomatÅ³ teorija --- Å¡iuolaikinÄ—s skaiÄiavimo technikos ir programinÄ—s Ä¯rangos
+# pagrindas. Baigtiniai deterministiniai automatai naudojami sprendÅ¾iant plataus
+# spektro uÅ¾davinius, pavyzdÅ¾iui:
 #
 #   -- automatizuotame elektronikos projektavime,
-#   -- neurologiniø sistemø ir jø veiklos aprağymui,
-#   -- informacijos perdavimo protokolø sudarymui,
-#   -- natûralios kalbos tekstø analizëje,
-#   -- natûralios kalbos signalø atpaşinime,
-#   -- atliekant programinës árangos testavimà,
-#   -- nustatant algoritmø korektiğkumà kriptografijoje,
-#   -- projektuojant programavimo kalbas ir jø kompiliatorius.
+#   -- neurologiniÅ³ sistemÅ³ ir jÅ³ veiklos apraÅ¡ymui,
+#   -- informacijos perdavimo protokolÅ³ sudarymui,
+#   -- natÅ«ralios kalbos tekstÅ³ analizÄ—je,
+#   -- natÅ«ralios kalbos signalÅ³ atpaÅ¾inime,
+#   -- atliekant programinÄ—s Ä¯rangos testavimÄ…,
+#   -- nustatant algoritmÅ³ korektiÅ¡kumÄ… kriptografijoje,
+#   -- projektuojant programavimo kalbas ir jÅ³ kompiliatorius.
 #
-# Kai kurie visiğkai paprasti, o kartais ir gana sudëtingi mechaniniai árengimai
-# bei elektronikos prietaisai suprojektuoti taip, kad jie veiktø kaip baigtiniai
-# automatai. Pavyzdşiui, ğviesoforas, kavos aparatas ar pardavimø automatas.
+# Kai kurie visiÅ¡kai paprasti, o kartais ir gana sudÄ—tingi mechaniniai Ä¯rengimai
+# bei elektronikos prietaisai suprojektuoti taip, kad jie veiktÅ³ kaip baigtiniai
+# automatai. PavyzdÅ¾iui, Å¡viesoforas, kavos aparatas ar pardavimÅ³ automatas.
 
-# Buvo pasakyta, kad nuskaitytas şodis yra leistinas, jeigu jis automatà perveda
-# á leistinà baigtinæ bûsenà. Iğ èia iğplaukia dar bendresnë iğvada: sakoma, kad
-# kalba L priimama automato M, jeigu ji susideda iğ alfabeto A pagrindu sudarytø
-# şodşiø, kurie automatà perveda á bûsenas iğ baigtiniø bûsenø aibës F. Teisinga
-# ir tokia iğvada, kad baigtiná automatà galima suprasti, kaip kalbos atpaşinimo
-# prietaisà.
+# Buvo pasakyta, kad nuskaitytas Å¾odis yra leistinas, jeigu jis automatÄ… perveda
+# Ä¯ leistinÄ… baigtinÄ™ bÅ«senÄ…. IÅ¡ Äia iÅ¡plaukia dar bendresnÄ— iÅ¡vada: sakoma, kad
+# kalba L priimama automato M, jeigu ji susideda iÅ¡ alfabeto A pagrindu sudarytÅ³
+# Å¾odÅ¾iÅ³, kurie automatÄ… perveda Ä¯ bÅ«senas iÅ¡ baigtiniÅ³ bÅ«senÅ³ aibÄ—s F. Teisinga
+# ir tokia iÅ¡vada, kad baigtinÄ¯ automatÄ… galima suprasti, kaip kalbos atpaÅ¾inimo
+# prietaisÄ….
 
-# Automatø teorija glaudşiai susijusi su formaliø kalbø teorija. Paaiğkinsime ğá
-# ryğá. Iğ pradşiø suformuluosime tekste naudojamos formalios kalbos apibrëşimà.
-# Formali kalba --- tai baigtinio ilgio simboliø iğ baigtinio alfabeto sekø aibë.
-# Taisyklës, pagal kurias sudaromos tokios simboliø sekos, vadinamos formaliomis
-# taisyklëmis arba formalia gramatika. Formalias kalbas nagrinëja formaliø kalbø 
-# teorija. Jos naudojamos automatø teorijoje, algoritmø ir skaièiavimo teorijoje.
+# AutomatÅ³ teorija glaudÅ¾iai susijusi su formaliÅ³ kalbÅ³ teorija. PaaiÅ¡kinsime Å¡Ä¯
+# ryÅ¡Ä¯. IÅ¡ pradÅ¾iÅ³ suformuluosime tekste naudojamos formalios kalbos apibrÄ—Å¾imÄ….
+# Formali kalba --- tai baigtinio ilgio simboliÅ³ iÅ¡ baigtinio alfabeto sekÅ³ aibÄ—.
+# TaisyklÄ—s, pagal kurias sudaromos tokios simboliÅ³ sekos, vadinamos formaliomis
+# taisyklÄ—mis arba formalia gramatika. Formalias kalbas nagrinÄ—ja formaliÅ³ kalbÅ³ 
+# teorija. Jos naudojamos automatÅ³ teorijoje, algoritmÅ³ ir skaiÄiavimo teorijoje.
 
-# Formaliø kalbø teorijoje reguliari kalba yra tokia, kuri iğreiğkiama naudojant
-# reguliaras iğraiğkas. Ğis teiginys susieja reguliarias kalbas su reguliariomis
-# iğraiğkomis, bet neatsako á klausimà, kas tai yra reguliari iğraiğka. Galutiná
-# atsakymà duoda Kleene teorema, kuri susieja reguliarias iğraiğkas, reguliarias
+# FormaliÅ³ kalbÅ³ teorijoje reguliari kalba yra tokia, kuri iÅ¡reiÅ¡kiama naudojant
+# reguliaras iÅ¡raiÅ¡kas. Å is teiginys susieja reguliarias kalbas su reguliariomis
+# iÅ¡raiÅ¡komis, bet neatsako Ä¯ klausimÄ…, kas tai yra reguliari iÅ¡raiÅ¡ka. GalutinÄ¯
+# atsakymÄ… duoda Kleene teorema, kuri susieja reguliarias iÅ¡raiÅ¡kas, reguliarias
 # kalbas ir baigtinius automatus.
 
-# Teorema. Tegul A yra baigtinis alfabetas. Ğio alfabeto pagrindu sudaryta kalba 
+# Teorema. Tegul A yra baigtinis alfabetas. Å io alfabeto pagrindu sudaryta kalba 
 # L yra reguliari tada ir tik tada, jei ji priimama tam tikro baigtinio automato.
-# Árodymas remiasi tuo, kad kiekvienai reguliariai iğraiğkai gali bûti sudarytas 
-# baigtinis automatas, kartai nedeterminuotas, atpaşástantis reguliaria iğraiğka 
-# R uşduotà kalbà. Vadinas, kiekvienà reguliarià kalbà galima sutapatinti su tam 
-# tikru baigtiniu automatu. Iğ èia seka galutinë iğvada, kad reguliariø kalbø ir 
-# kalbø, kurias atpaşásta baigtiniai automatai, klasës sutampa. 
+# Ä®rodymas remiasi tuo, kad kiekvienai reguliariai iÅ¡raiÅ¡kai gali bÅ«ti sudarytas 
+# baigtinis automatas, kartai nedeterminuotas, atpaÅ¾Ä¯stantis reguliaria iÅ¡raiÅ¡ka 
+# R uÅ¾duotÄ… kalbÄ…. Vadinas, kiekvienÄ… reguliariÄ… kalbÄ… galima sutapatinti su tam 
+# tikru baigtiniu automatu. IÅ¡ Äia seka galutinÄ— iÅ¡vada, kad reguliariÅ³ kalbÅ³ ir 
+# kalbÅ³, kurias atpaÅ¾Ä¯sta baigtiniai automatai, klasÄ—s sutampa. 
 
-# Galima paminëti, kad automatai paprastai klasifikuojami pagal formalios kalbos,
-# kurià jie gali atpaşinti, klasæ. Visa automatø ávairovë gali bûti aprağyta per
-# taip vadinamà Chomskio hierarchijà, kuri aprağo ryğius tarp formaliø gramatikø.
-# Formaliø kalbø teorijoje formali gramatika yra formalios kalbos aprağymo bûdas.
-# Jei tiksliau, gramatika nusako bûdà, kaip iğ visø alfabeto A pagrindu sudarytø 
-# şodşiø aibës iğskirti tam tikrà poaibá, kurio elementai (şodşiai) ir sudaro jà 
-# atitinkanèià formalià kalbà L. Iğskiriamos dviejø rûğiø gramatikos: 
+# Galima paminÄ—ti, kad automatai paprastai klasifikuojami pagal formalios kalbos,
+# kuriÄ… jie gali atpaÅ¾inti, klasÄ™. Visa automatÅ³ Ä¯vairovÄ— gali bÅ«ti apraÅ¡yta per
+# taip vadinamÄ… Chomskio hierarchijÄ…, kuri apraÅ¡o ryÅ¡ius tarp formaliÅ³ gramatikÅ³.
+# FormaliÅ³ kalbÅ³ teorijoje formali gramatika yra formalios kalbos apraÅ¡ymo bÅ«das.
+# Jei tiksliau, gramatika nusako bÅ«dÄ…, kaip iÅ¡ visÅ³ alfabeto A pagrindu sudarytÅ³ 
+# Å¾odÅ¾iÅ³ aibÄ—s iÅ¡skirti tam tikrÄ… poaibÄ¯, kurio elementai (Å¾odÅ¾iai) ir sudaro jÄ… 
+# atitinkanÄiÄ… formaliÄ… kalbÄ… L. IÅ¡skiriamos dviejÅ³ rÅ«Å¡iÅ³ gramatikos: 
 #
-#   -- generuojanèios,
-#   -- atpaşástanèios.
+#   -- generuojanÄios,
+#   -- atpaÅ¾Ä¯stanÄios.
 
-# Generuojanti gramatika yra toks taisykliø rinkinys, pagal kurá galima sudaryti 
-# bet koká kalbos şodá. Atpaşástanti arba analitinë gramatika leidşia nustatyti, 
-# ar şodis priklauso tam tikrai kalbai, ar nepriklauso.
+# Generuojanti gramatika yra toks taisykliÅ³ rinkinys, pagal kurÄ¯ galima sudaryti 
+# bet kokÄ¯ kalbos Å¾odÄ¯. AtpaÅ¾Ä¯stanti arba analitinÄ— gramatika leidÅ¾ia nustatyti, 
+# ar Å¾odis priklauso tam tikrai kalbai, ar nepriklauso.
 
 
 # --------------------------------------- #
-# TRUMPAI APIE REGULIARIAS IĞRAIĞKAS      #
+# TRUMPAI APIE REGULIARIAS IÅ RAIÅ KAS      #
 # --------------------------------------- #
 
-# Reguliari iğraiğka --- pagal specialias taisykles sudaryta simboliø seka, kuri
-# aprağo paieğkos kitoje simboliø sekoje ğablonà. Reguliariø iğraiğkø koncepcija
-# atsirado apie 1950 m., kai matematikas Stephen'as Kleene formalizavo teorinëje
-# informatikoje nagrinëjamø reguliariø kalbø apibrëşimà. Vienas iğ UNIX sistemos
-# kûrëjø Kenneth Thompson realizavo reguliarias iğraiğkas pirmame standartiniame
-# UNIX tekstiniame redaktoriuje ed. Nuo to laiko reguliarios iğraiğkos tapo UNIX
-# operacinës sistemos dalimi, kartu su tokiomis programomis kaip grep ar filter.
-# Reg. iğraiğkos naudojamos specializuotose programavimo kalbose, kurios skirtos
-# teksto skanavimui ir apdorojimui, pavyzdşiui, sed, awk ir perl. Jos palaikomos
-# ir daugelyje bendro pobûdşio programavimo kalbø. Reguliarios iğraiğkos plaèiai
-# naudojamos teksto redaktoriuose tokiuose, kaip Emacs, vim. Kita svarbi taikymø
-# sritis -- leksiniai analizatoriai programavimo kalbø kompiliatoriuose. 
+# Reguliari iÅ¡raiÅ¡ka --- pagal specialias taisykles sudaryta simboliÅ³ seka, kuri
+# apraÅ¡o paieÅ¡kos kitoje simboliÅ³ sekoje Å¡ablonÄ…. ReguliariÅ³ iÅ¡raiÅ¡kÅ³ koncepcija
+# atsirado apie 1950 m., kai matematikas Stephen'as Kleene formalizavo teorinÄ—je
+# informatikoje nagrinÄ—jamÅ³ reguliariÅ³ kalbÅ³ apibrÄ—Å¾imÄ…. Vienas iÅ¡ UNIX sistemos
+# kÅ«rÄ—jÅ³ Kenneth Thompson realizavo reguliarias iÅ¡raiÅ¡kas pirmame standartiniame
+# UNIX tekstiniame redaktoriuje ed. Nuo to laiko reguliarios iÅ¡raiÅ¡kos tapo UNIX
+# operacinÄ—s sistemos dalimi, kartu su tokiomis programomis kaip grep ar filter.
+# Reg. iÅ¡raiÅ¡kos naudojamos specializuotose programavimo kalbose, kurios skirtos
+# teksto skanavimui ir apdorojimui, pavyzdÅ¾iui, sed, awk ir perl. Jos palaikomos
+# ir daugelyje bendro pobÅ«dÅ¾io programavimo kalbÅ³. Reguliarios iÅ¡raiÅ¡kos plaÄiai
+# naudojamos teksto redaktoriuose tokiuose, kaip Emacs, vim. Kita svarbi taikymÅ³
+# sritis -- leksiniai analizatoriai programavimo kalbÅ³ kompiliatoriuose. 
 
 
-# Formaliø kalbø teorijoje reguliarios iğraiğkos aprağo reguliarias kalbas. Reg.
-# iğraiğkos susideda iğ konstantø ir operatoriø. Iğ konstantø sudaromos simboliø
-# sekø aibës, o operatoriai aprağo operacijas, kurias galima atlikti su tø aibiø
-# elementais -- sekomis. Ásivesime kai kuriuos reguliarioms iğraiğkoms apibrëşti
+# FormaliÅ³ kalbÅ³ teorijoje reguliarios iÅ¡raiÅ¡kos apraÅ¡o reguliarias kalbas. Reg.
+# iÅ¡raiÅ¡kos susideda iÅ¡ konstantÅ³ ir operatoriÅ³. IÅ¡ konstantÅ³ sudaromos simboliÅ³
+# sekÅ³ aibÄ—s, o operatoriai apraÅ¡o operacijas, kurias galima atlikti su tÅ³ aibiÅ³
+# elementais -- sekomis. Ä®sivesime kai kuriuos reguliarioms iÅ¡raiÅ¡koms apibrÄ—Å¾ti
 # reikalingus terminus. 
 
-# Tarkime, kad L ir K yra dvi kalbos. Jø sàjunga vadinsime aibæ şodşiø, kuri yra
-# tas kalbas atitinkanèiø şodşiø aibiø sàjunga. Pavyzdşiui, kalba L = {001, 10},
-# o K = {1, 001}. Tada ğiø kalbø sàjunga bus aibë {1, 001, 10}.
+# Tarkime, kad L ir K yra dvi kalbos. JÅ³ sÄ…junga vadinsime aibÄ™ Å¾odÅ¾iÅ³, kuri yra
+# tas kalbas atitinkanÄiÅ³ Å¾odÅ¾iÅ³ aibiÅ³ sÄ…junga. PavyzdÅ¾iui, kalba L = {001, 10},
+# o K = {1, 001}. Tada Å¡iÅ³ kalbÅ³ sÄ…junga bus aibÄ— {1, 001, 10}.
 
-# Kalbø L ir K konkatenacija vadinsime aibæ şodşiø, kurie yra gauti prie aibës L
-# şodşiø prijungus aibës K şodşius. Pavyzdşiui, jei L = {001, 10}, K = {1, 001},
-# tada jø konkatenacija yra aibë {0011, 101, 001001, 10001}.
+# KalbÅ³ L ir K konkatenacija vadinsime aibÄ™ Å¾odÅ¾iÅ³, kurie yra gauti prie aibÄ—s L
+# Å¾odÅ¾iÅ³ prijungus aibÄ—s K Å¾odÅ¾ius. PavyzdÅ¾iui, jei L = {001, 10}, K = {1, 001},
+# tada jÅ³ konkatenacija yra aibÄ— {0011, 101, 001001, 10001}.
 
-# Kalbos L uşdariniu L* vadinsime aibæ tokiø şodşiø, kurie gauti visais galimais 
-# bûdais sujungus kalbos L şodşius. Şodşiai konkatenacijose gali kartotis norima 
-# kieká kartø, t.y. galima visø L laipsniø konkatenacija. Pvz., jeigu L = {0, 1}, 
-# tai L* bus visø galimø iğ nuliø ir vienetø sudarytø şodşiø aibë. Uşdariniui L* 
-# priklauso ir tuğèias şodis "", kurá şymime e. Tuğèios aibës uşdarinys yra aibë,
-# turinti tik vienà elementà -- tuğèià şodá e.
+# Kalbos L uÅ¾dariniu L* vadinsime aibÄ™ tokiÅ³ Å¾odÅ¾iÅ³, kurie gauti visais galimais 
+# bÅ«dais sujungus kalbos L Å¾odÅ¾ius. Å½odÅ¾iai konkatenacijose gali kartotis norima 
+# kiekÄ¯ kartÅ³, t.y. galima visÅ³ L laipsniÅ³ konkatenacija. Pvz., jeigu L = {0, 1}, 
+# tai L* bus visÅ³ galimÅ³ iÅ¡ nuliÅ³ ir vienetÅ³ sudarytÅ³ Å¾odÅ¾iÅ³ aibÄ—. UÅ¾dariniui L* 
+# priklauso ir tuÅ¡Äias Å¾odis "", kurÄ¯ Å¾ymime e. TuÅ¡Äios aibÄ—s uÅ¾darinys yra aibÄ—,
+# turinti tik vienÄ… elementÄ… -- tuÅ¡ÄiÄ… Å¾odÄ¯ e.
 
-# Dabar galime apibrëşti konstantas ir operatorius, kurie naudojami reguliariøjø
-# iğraiğkø sudarymui. Tarkime, kad A yra baigtinis alfabetas. Tada reg. iğraiğkø 
+# Dabar galime apibrÄ—Å¾ti konstantas ir operatorius, kurie naudojami reguliariÅ³jÅ³
+# iÅ¡raiÅ¡kÅ³ sudarymui. Tarkime, kad A yra baigtinis alfabetas. Tada reg. iÅ¡raiÅ¡kÅ³ 
 # konstantos yra tokie objektai:
 #
-#          0 -- tuğèia aibë,
-#          e -- tuğèias şodis,
-#          a -- simboliai iğ alfabeto A.
+#          0 -- tuÅ¡Äia aibÄ—,
+#          e -- tuÅ¡Äias Å¾odis,
+#          a -- simboliai iÅ¡ alfabeto A.
 #
-# Tegul R ir S yra reguliarios iğraiğkos. Tada joms apibrëştos ğitos operacijos:
+# Tegul R ir S yra reguliarios iÅ¡raiÅ¡kos. Tada joms apibrÄ—Å¾tos Å¡itos operacijos:
 #
-#         RS -- sekø iğ R ir S sujungimas (concatenation);
-#        R|S -- sekø iğ R ir S sàjunga (alternation);
-#         R* -- sekø iğ R uşdarinys (Kleene star).
+#         RS -- sekÅ³ iÅ¡ R ir S sujungimas (concatenation);
+#        R|S -- sekÅ³ iÅ¡ R ir S sÄ…junga (alternation);
+#         R* -- sekÅ³ iÅ¡ R uÅ¾darinys (Kleene star).
 
 
-# Galima priminti, kad reguliari iğraiğka aprağo kalbà, o kalba yra şodşiø aibë.
-# Tarkime, kad L(R) nurodo kalbà, kurià aprağo reguliari iğraiğka R. Pagrindinës
-# taisyklës nurodanèios, kokias kalbas aprağo reguliarios iğraiğkos, yra tokios: 
+# Galima priminti, kad reguliari iÅ¡raiÅ¡ka apraÅ¡o kalbÄ…, o kalba yra Å¾odÅ¾iÅ³ aibÄ—.
+# Tarkime, kad L(R) nurodo kalbÄ…, kuriÄ… apraÅ¡o reguliari iÅ¡raiÅ¡ka R. PagrindinÄ—s
+# taisyklÄ—s nurodanÄios, kokias kalbas apraÅ¡o reguliarios iÅ¡raiÅ¡kos, yra tokios: 
 #
-#   -- L(a) = {a}, kiekvienam simboliui a iğ alfabeto A;
+#   -- L(a) = {a}, kiekvienam simboliui a iÅ¡ alfabeto A;
 #   -- L(e) = e;
 #   -- L(0) = 0;
 #   -- L(R|S) = L(R) U L(S);
-#   -- L(RS) = L(R)L(S) = {ab | a iğ R, b iğ S};
-#   -- L(R*) = {e} U {s_1 ... s_k | s_1, ..., s_k iğ R}.
+#   -- L(RS) = L(R)L(S) = {ab | a iÅ¡ R, b iÅ¡ S};
+#   -- L(R*) = {e} U {s_1 ... s_k | s_1, ..., s_k iÅ¡ R}.
 
-# Taigi, konkatenacija RS nurodo aibæ tokiø şodşiø (sekø), kurie gaunami şodşius 
-# iğ kalbos, kurià aprağo reguliari iğraiğka R, prijungus prie şodşiø iğ kalbos, 
-# kurià aprağo reguliari iğraiğka S. 
+# Taigi, konkatenacija RS nurodo aibÄ™ tokiÅ³ Å¾odÅ¾iÅ³ (sekÅ³), kurie gaunami Å¾odÅ¾ius 
+# iÅ¡ kalbos, kuriÄ… apraÅ¡o reguliari iÅ¡raiÅ¡ka R, prijungus prie Å¾odÅ¾iÅ³ iÅ¡ kalbos, 
+# kuriÄ… apraÅ¡o reguliari iÅ¡raiÅ¡ka S. 
 
-# Pvz., tarkime, kad iğraiğka R aprağo kalbà, kurios şodşiø aibë yra {"ab", "c"}, 
-# o reguliari iğraiğka S atitinka kalbà, kurios şodşiø aibë {"d", "ef"}. Vadinas,
+# Pvz., tarkime, kad iÅ¡raiÅ¡ka R apraÅ¡o kalbÄ…, kurios Å¾odÅ¾iÅ³ aibÄ— yra {"ab", "c"}, 
+# o reguliari iÅ¡raiÅ¡ka S atitinka kalbÄ…, kurios Å¾odÅ¾iÅ³ aibÄ— {"d", "ef"}. Vadinas,
 # konkatenacija RS = {"ab", "c"}{"d", "ef"} = {"abd", "abef", "cd", "cef"}.
 
-# Taip R|S aprağo aibæ, kuri yra reguliarias iğraiğkas R ir S atitinkanèiø kalbø
-# sàjunga. Pavyzdşiui, jeigu R = {"ab", "c"}, o S = {"c", "bd"}, tai sàjunga R|S
-# aprağo kalbà {"ab", "c", "bd"}.
+# Taip R|S apraÅ¡o aibÄ™, kuri yra reguliarias iÅ¡raiÅ¡kas R ir S atitinkanÄiÅ³ kalbÅ³
+# sÄ…junga. PavyzdÅ¾iui, jeigu R = {"ab", "c"}, o S = {"c", "bd"}, tai sÄ…junga R|S
+# apraÅ¡o kalbÄ… {"ab", "c", "bd"}.
 
-# Liko dar viena operacija -- Klini şvaigşdë. Iğraiğka R* aprağo aibæ visø tokiø
-# şodşiø, kuriuos galima gauti apjungiant bet koká baigtiná skaièiø kalbos, kuri
-# aprağoma iğraiğka R, şodşiø. Arba kitaip - R* aprağo kalbà, kurios şodşiø aibë
-# yra kalbos, kuria aprağo R, uşdarinys. Pvz., jeigu R aprağo kalbà {"ab", "c"},
-# tai R* aprağo kalbà {e, "ab", "c", "abab", "abc", "cab", "cc", "ababab", ...}.
-# Galima dar kartà atkreipti dëmesá, kad tokiu bûdu gautoje şodşiø aibëje yra ir
-# tuğèias şodis e.
+# Liko dar viena operacija -- Klini Å¾vaigÅ¾dÄ—. IÅ¡raiÅ¡ka R* apraÅ¡o aibÄ™ visÅ³ tokiÅ³
+# Å¾odÅ¾iÅ³, kuriuos galima gauti apjungiant bet kokÄ¯ baigtinÄ¯ skaiÄiÅ³ kalbos, kuri
+# apraÅ¡oma iÅ¡raiÅ¡ka R, Å¾odÅ¾iÅ³. Arba kitaip - R* apraÅ¡o kalbÄ…, kurios Å¾odÅ¾iÅ³ aibÄ—
+# yra kalbos, kuria apraÅ¡o R, uÅ¾darinys. Pvz., jeigu R apraÅ¡o kalbÄ… {"ab", "c"},
+# tai R* apraÅ¡o kalbÄ… {e, "ab", "c", "abab", "abc", "cab", "cc", "ababab", ...}.
+# Galima dar kartÄ… atkreipti dÄ—mesÄ¯, kad tokiu bÅ«du gautoje Å¾odÅ¾iÅ³ aibÄ—je yra ir
+# tuÅ¡Äias Å¾odis e.
 
-# Iğ ğiø operacijø didşiausià prioritetà turi Klini şvaigşdë, tada konkatenacija,
-# o şemiausià prioritetà turi sàjunga. Kaip áprasta matematikoje, skliausteliais
-# gali pakeisti veiksmø tvarkà. Pvz., vietoje (ab)c galima rağyti abc, o vietoje  
-# a|(b(c*)) galima rağyti a|bc*. Norint iğraiğkoje iğvengti skliausteliø, galima 
-# iğnaudoti operatoriø savybes. Konkatenacija ir sàjunga yra asociatyvios, todël
-# (ab)c = a(bc) = abc. Be to, sàjunga yra komutatyvi: a|b = b|a. O konkatenacija
-# nekomutatyvi, kadangi şodşio prijungimas iğ kairës ir iğ değinës bendru atveju 
-# duoda skirtingus rezultatus, todël ab != ba. Klini şvaigşdë --- idempotentinis 
-# operatorius, todël R** = R*. Konkatenacijai ir sàjungai galioja distributyvumo
-# dësnis: (a|b)c = ac|bc.
-
-
-# Dar kartà kitais şodşiais uşrağysime taisykles, kurios nusako, kas tai yra reg. 
-# iğraiğkos. Bet kuris atskirai paimtas alfabeto A elementas a yra reg. iğraiğka 
-# a, apibrëşianti kalbà {a} --- aibæ, kuri turi vienintelá elementà a. Konstanta 
-# e (tuğèias şodis "") yra reguliarioji iğraiğka, apibrëşianti kalbà {e}. Tuğèià 
-# aibæ {} apibrëğime reguliaria iğraiğka 0. Jei R ir S yra reguliarios iğraiğkos, 
-# tada RS taip pat yra reguliari iğraiğka, şyminti R ir S apibrëşiamø kalbø L(R) 
-# ir L(S) sàjungà: L(R|S) = L(E) U L(F). Jeigu R ir S yra reguliarios iğraiğkos, 
-# tada RS taip pat yra reguliari iğraiğka, şyminti R ir S apibrëşiamø kalbø L(E) 
-# ir L(F) konkatenacijà: L(EF) = L(E)L(F). Jei R yra reguliarioji iğraiğka, tada 
-# R* taip pat yra reg. iğraiğka, kuri şymi kalbos L(R) uşdariná: L(R*) = (L(E))*. 
-# Jeigu R yra reguliarioji iğraiğka, tada (R) taip pat yra reguliarioji iğraiğka, 
-# şyminti tà paèià kalbà, kurià apibrëşia ir E: L((E)) = L(E).
+# IÅ¡ Å¡iÅ³ operacijÅ³ didÅ¾iausiÄ… prioritetÄ… turi Klini Å¾vaigÅ¾dÄ—, tada konkatenacija,
+# o Å¾emiausiÄ… prioritetÄ… turi sÄ…junga. Kaip Ä¯prasta matematikoje, skliausteliais
+# gali pakeisti veiksmÅ³ tvarkÄ…. Pvz., vietoje (ab)c galima raÅ¡yti abc, o vietoje  
+# a|(b(c*)) galima raÅ¡yti a|bc*. Norint iÅ¡raiÅ¡koje iÅ¡vengti skliausteliÅ³, galima 
+# iÅ¡naudoti operatoriÅ³ savybes. Konkatenacija ir sÄ…junga yra asociatyvios, todÄ—l
+# (ab)c = a(bc) = abc. Be to, sÄ…junga yra komutatyvi: a|b = b|a. O konkatenacija
+# nekomutatyvi, kadangi Å¾odÅ¾io prijungimas iÅ¡ kairÄ—s ir iÅ¡ deÅ¡inÄ—s bendru atveju 
+# duoda skirtingus rezultatus, todÄ—l ab != ba. Klini Å¾vaigÅ¾dÄ— --- idempotentinis 
+# operatorius, todÄ—l R** = R*. Konkatenacijai ir sÄ…jungai galioja distributyvumo
+# dÄ—snis: (a|b)c = ac|bc.
 
 
-# Pavyzdşiui, iğnagrinësime, kokià şodşiø aibæ aprağo reguliari iğraiğka (a|b)c.
-# Pagal apibrëşimà ği reguliari iğraiğka aprağo simboliø sekà rs, kur r yra arba 
-# raidë "a", arba raidë "b", o simbolis s yra raidë "c". Ğià aibæ uşrağome taip:
+# Dar kartÄ… kitais Å¾odÅ¾iais uÅ¾raÅ¡ysime taisykles, kurios nusako, kas tai yra reg. 
+# iÅ¡raiÅ¡kos. Bet kuris atskirai paimtas alfabeto A elementas a yra reg. iÅ¡raiÅ¡ka 
+# a, apibrÄ—Å¾ianti kalbÄ… {a} --- aibÄ™, kuri turi vienintelÄ¯ elementÄ… a. Konstanta 
+# e (tuÅ¡Äias Å¾odis "") yra reguliarioji iÅ¡raiÅ¡ka, apibrÄ—Å¾ianti kalbÄ… {e}. TuÅ¡ÄiÄ… 
+# aibÄ™ {} apibrÄ—Å¡ime reguliaria iÅ¡raiÅ¡ka 0. Jei R ir S yra reguliarios iÅ¡raiÅ¡kos, 
+# tada RS taip pat yra reguliari iÅ¡raiÅ¡ka, Å¾yminti R ir S apibrÄ—Å¾iamÅ³ kalbÅ³ L(R) 
+# ir L(S) sÄ…jungÄ…: L(R|S) = L(E) U L(F). Jeigu R ir S yra reguliarios iÅ¡raiÅ¡kos, 
+# tada RS taip pat yra reguliari iÅ¡raiÅ¡ka, Å¾yminti R ir S apibrÄ—Å¾iamÅ³ kalbÅ³ L(E) 
+# ir L(F) konkatenacijÄ…: L(EF) = L(E)L(F). Jei R yra reguliarioji iÅ¡raiÅ¡ka, tada 
+# R* taip pat yra reg. iÅ¡raiÅ¡ka, kuri Å¾ymi kalbos L(R) uÅ¾darinÄ¯: L(R*) = (L(E))*. 
+# Jeigu R yra reguliarioji iÅ¡raiÅ¡ka, tada (R) taip pat yra reguliarioji iÅ¡raiÅ¡ka, 
+# Å¾yminti tÄ… paÄiÄ… kalbÄ…, kuriÄ… apibrÄ—Å¾ia ir E: L((E)) = L(E).
+
+
+# PavyzdÅ¾iui, iÅ¡nagrinÄ—sime, kokiÄ… Å¾odÅ¾iÅ³ aibÄ™ apraÅ¡o reguliari iÅ¡raiÅ¡ka (a|b)c.
+# Pagal apibrÄ—Å¾imÄ… Å¡i reguliari iÅ¡raiÅ¡ka apraÅ¡o simboliÅ³ sekÄ… rs, kur r yra arba 
+# raidÄ— "a", arba raidÄ— "b", o simbolis s yra raidÄ— "c". Å iÄ… aibÄ™ uÅ¾raÅ¡ome taip:
 #
-#                    {rs | r iğ ({"a"} U {"b"}), s iğ {"c"}}
+#                    {rs | r iÅ¡ ({"a"} U {"b"}), s iÅ¡ {"c"}}
 #
-# Taigi, reguliari iğraiğka (a|b)c aprağo kalbà, kurios şodşiø aibë {"ac", "bc"}.
-# Uşrağysime keletà paprasèiausiø reguliariø iğraiğkø bei jas atitinkanèiø kalbø 
-# şodşiø aibes:
+# Taigi, reguliari iÅ¡raiÅ¡ka (a|b)c apraÅ¡o kalbÄ…, kurios Å¾odÅ¾iÅ³ aibÄ— {"ac", "bc"}.
+# UÅ¾raÅ¡ysime keletÄ… paprasÄiausiÅ³ reguliariÅ³ iÅ¡raiÅ¡kÅ³ bei jas atitinkanÄiÅ³ kalbÅ³ 
+# Å¾odÅ¾iÅ³ aibes:
 #
 #          a -- {"a"}
 #         ab -- {"ab"}
 #      ac|bc -- {"ac", "bc"}
 #      a|b|c -- {"a", "b", "c"}
 
-# Uşrağysime keletà reguliariø iğraiğkø su Klini şvaigşde bei atitinkanèiø kalbø 
-# şodşiø aibes:
+# UÅ¾raÅ¡ysime keletÄ… reguliariÅ³ iÅ¡raiÅ¡kÅ³ su Klini Å¾vaigÅ¾de bei atitinkanÄiÅ³ kalbÅ³ 
+# Å¾odÅ¾iÅ³ aibes:
 #
 #       a|b* -- {e, "a", "b", "bb", "bbb", ... }
 #       ab*c -- {"ac", "abc", "abbc", "abbbc", ... }
@@ -298,20 +298,20 @@ rm(list = ls())
 #     (a*b)* -- {e, "b", "bb", ..., "ab", "abab", ..., "aab", "aabaab", ...}
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite tokià reguliarià iğraiğkà, kuri aprağo sekas, sudarytas iğ nuliø 
-#    ir vienetø, kuriose iğ pradşiø yra bet kokio ilgio nuliø serija, o uşbaigia
-#    tokià sekà vienas vienetas. Pvz., 1, 01, 0000001 ir t.t.
-# 2. Uşrağykite reguliarià iğraiğkà, kuri aprağo bet kokio ilgio sekas sudarytas
-#    vien tik iğ nuliø arba vien tik iğ vienetø.
-# 3. Nustatykite, kokiø şodşiø aibæ aprağo reguliari iğraiğka a) ab*c, b) a*|b*,
+# 1. UÅ¾raÅ¡ykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri apraÅ¡o sekas, sudarytas iÅ¡ nuliÅ³ 
+#    ir vienetÅ³, kuriose iÅ¡ pradÅ¾iÅ³ yra bet kokio ilgio nuliÅ³ serija, o uÅ¾baigia
+#    tokiÄ… sekÄ… vienas vienetas. Pvz., 1, 01, 0000001 ir t.t.
+# 2. UÅ¾raÅ¡ykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri apraÅ¡o bet kokio ilgio sekas sudarytas
+#    vien tik iÅ¡ nuliÅ³ arba vien tik iÅ¡ vienetÅ³.
+# 3. Nustatykite, kokiÅ³ Å¾odÅ¾iÅ³ aibÄ™ apraÅ¡o reguliari iÅ¡raiÅ¡ka a) ab*c, b) a*|b*,
 #    c) ab*|ac*, d) (a|b|c)*.
-# 4. Pasakykite, kuo reguliaria iğraiğka ab*c aprağomi şodşiai skiriasi nuo reg.
-#    iğraiğka abb*cd aprağomø şodşiø?
-# 5. Nustatykite, ar galima kitu bûdu uşrağyti reg. iğraiğkà ab*|ac*. Jei galima,
+# 4. Pasakykite, kuo reguliaria iÅ¡raiÅ¡ka ab*c apraÅ¡omi Å¾odÅ¾iai skiriasi nuo reg.
+#    iÅ¡raiÅ¡ka abb*cd apraÅ¡omÅ³ Å¾odÅ¾iÅ³?
+# 5. Nustatykite, ar galima kitu bÅ«du uÅ¾raÅ¡yti reg. iÅ¡raiÅ¡kÄ… ab*|ac*. Jei galima,
 #    tada kaip?
-# 6. Sudarykite reguliarià iğraiğkà, kuri aprağo kalbà, kurioje şodşiai baigiasi
-#    galûne "as".
-# 7. Sudarykite tokià reguliarià iğraiğkà, kuri aprağo kalbà su tokiais şodşiais, 
-#    kurie prasideda raide "n", o baigiasi galûne "as".
+# 6. Sudarykite reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri apraÅ¡o kalbÄ…, kurioje Å¾odÅ¾iai baigiasi
+#    galÅ«ne "as".
+# 7. Sudarykite tokiÄ… reguliariÄ… iÅ¡raiÅ¡kÄ…, kuri apraÅ¡o kalbÄ… su tokiais Å¾odÅ¾iais, 
+#    kurie prasideda raide "n", o baigiasi galÅ«ne "as".

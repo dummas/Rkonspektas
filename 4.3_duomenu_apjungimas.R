@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Vektoriø, matricø ir duomenø lenteliø apjungimas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            VektoriÅ³, matricÅ³ ir duomenÅ³ lenteliÅ³ apjungimas.
 #
-#  Autorius: Tomas Rekaðius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-09-09 | 2013-09-23
 #
@@ -12,12 +12,12 @@
 # TURINYS -------------------------------
 
 #
-#   1. Vektoriø, matricø ir lenteliø sujungimas:
+#   1. VektoriÅ³, matricÅ³ ir lenteliÅ³ sujungimas:
 #      * funkcija cbind
 #      * funkcija rbind
 #      * funkcija data.frame
 #
-#   2. Duomenø lenteliø apjungimas:
+#   2. DuomenÅ³ lenteliÅ³ apjungimas:
 #      * funkcija merge
 #
 
@@ -25,66 +25,66 @@
 # PASTABOS ------------------------------
 
 #
-# Pastabø nëra.
+# PastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviðka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iðtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# DUOMENØ APJUNGIMAS                      #
+# DUOMENÅ² APJUNGIMAS                      #
 # --------------------------------------- #
 
-# Atliekant duomenø analizæ ar analizuojant gautus rezultatus labai daþnai tenka 
-# juos apjungti á vienà vektoriø, matricà arba duomenø lentelæ. Tam naudojamos 
-# kelios standartinës funkcijos. 
+# Atliekant duomenÅ³ analizÄ™ ar analizuojant gautus rezultatus labai daÅ¾nai tenka 
+# juos apjungti Ä¯ vienÄ… vektoriÅ³, matricÄ… arba duomenÅ³ lentelÄ™. Tam naudojamos 
+# kelios standartinÄ—s funkcijos. 
 
-# Vektoriø apjungimui á matricà naudojamos funkcijos cbind ir rbind. Ðiuo atveju
-# apjungiamø vektoriø elementai turi bûti vienodo tipo.
+# VektoriÅ³ apjungimui Ä¯ matricÄ… naudojamos funkcijos cbind ir rbind. Å iuo atveju
+# apjungiamÅ³ vektoriÅ³ elementai turi bÅ«ti vienodo tipo.
 
 a <- c(1, 5, 8, 4, 6, 10, 9, 7, 2, 3)
 b <- c(2.97, 6.93, 4.06, 6.83, 4.21, 6.28, 6.2, 3.7, 7.32, 6.21)
 
-# Pavyzdþiui, sudarysime matricà, kurios vienas stulpelis yra skaièiø vektorius 
-# a, o kitas stulpelis -- taip pat skaièiø vektorius b.
+# PavyzdÅ¾iui, sudarysime matricÄ…, kurios vienas stulpelis yra skaiÄiÅ³ vektorius 
+# a, o kitas stulpelis -- taip pat skaiÄiÅ³ vektorius b.
 
 cbind(a, b)
 
-# Tuos paèius vektorius galima apjungti eilutëmis.
+# Tuos paÄius vektorius galima apjungti eilutÄ—mis.
 
 rbind(a, b)
 
-# Matricos stulpeliams ar duomenø lentelës kintamiesiems galima suteikti vardus.
+# Matricos stulpeliams ar duomenÅ³ lentelÄ—s kintamiesiems galima suteikti vardus.
 
 cbind(pirmas = a, antras = b)
 
-# Jei apjungiami nevienodà elementø skaièiø turintys vektoriai, tai trumpesnio 
-# vektoriaus elementai cikliðkai pakartojami. Pvz., sukursime kintamàjá, kurio 
+# Jei apjungiami nevienodÄ… elementÅ³ skaiÄiÅ³ turintys vektoriai, tai trumpesnio 
+# vektoriaus elementai cikliÅ¡kai pakartojami. Pvz., sukursime kintamÄ…jÄ¯, kurio 
 # visi elementai vienodi ir lygus 1.
 
-cbind(pirmas = a, antras = b, treèias = 1)
+cbind(pirmas = a, antras = b, treÄias = 1)
 
 
-# Jei á vienà lentelæ reikia apjungti skirtingo tipo vektorius, naudojama f-ja
+# Jei Ä¯ vienÄ… lentelÄ™ reikia apjungti skirtingo tipo vektorius, naudojama f-ja
 # data.frame. Jos parametrai:
 #
-#              ... -- vienas arba keli vektoriai, lentelës kintamieji,
-#        row.names -- eiluèiø pavadinimø vektorius, pagal nutylëjimà NULL, 
-#       check.rows -- pagal nutylëjimà FALSE, patikrinami eiluèiø vardai,
-#      check.names -- TRUE, patikrinama ar nesikartoja kintamøjø vardai,
-# stringsAsFactors -- TRUE, kategoriniai kintamieji paverèiami faktoriais,
+#              ... -- vienas arba keli vektoriai, lentelÄ—s kintamieji,
+#        row.names -- eiluÄiÅ³ pavadinimÅ³ vektorius, pagal nutylÄ—jimÄ… NULL, 
+#       check.rows -- pagal nutylÄ—jimÄ… FALSE, patikrinami eiluÄiÅ³ vardai,
+#      check.names -- TRUE, patikrinama ar nesikartoja kintamÅ³jÅ³ vardai,
+# stringsAsFactors -- TRUE, kategoriniai kintamieji paverÄiami faktoriais,
 
-# Pavyzdþiui, á duomenø lentelæ apjungsime skaièiø vektorius a ir b.
+# PavyzdÅ¾iui, Ä¯ duomenÅ³ lentelÄ™ apjungsime skaiÄiÅ³ vektorius a ir b.
 
 data.frame(a, b)
 
@@ -92,65 +92,65 @@ data.frame(a, b)
 
 data.frame(X = a, Y = b)
 
-# Kadangi parametro check.names reikðmë pagal nutylëjimà TRUE, netyèia nurodþius 
-# du vienodus kintamøjø vardus, vienas ið jø automatiðkai bus pakeistas.
+# Kadangi parametro check.names reikÅ¡mÄ— pagal nutylÄ—jimÄ… TRUE, netyÄia nurodÅ¾ius 
+# du vienodus kintamÅ³jÅ³ vardus, vienas iÅ¡ jÅ³ automatiÅ¡kai bus pakeistas.
 
 data.frame(X = a, X = b)
 
-# Pagal nutylëjimà duomenø lentelës eilutës sunumeruojamos, bet jø vardus galima 
-# ir pakeisti. Tam reikia parametrui row.names nurodyti nesikartojanèiø reikðmiø
-# vektoriø. Pavyzdþiui, sukursime lentelæ, kurios eiluèiø pavadinimai yra raidës.
+# Pagal nutylÄ—jimÄ… duomenÅ³ lentelÄ—s eilutÄ—s sunumeruojamos, bet jÅ³ vardus galima 
+# ir pakeisti. Tam reikia parametrui row.names nurodyti nesikartojanÄiÅ³ reikÅ¡miÅ³
+# vektoriÅ³. PavyzdÅ¾iui, sukursime lentelÄ™, kurios eiluÄiÅ³ pavadinimai yra raidÄ—s.
 
 data.frame(X = a, Y = b, row.names = letters[1:10])
 
-# Kategoriniai kintamieji duomenø lentelëje tampa faktoriais. Pvz., prijungsime 
-# vektoriø, kurio elementai yra didþiosios raidës.
+# Kategoriniai kintamieji duomenÅ³ lentelÄ—je tampa faktoriais. Pvz., prijungsime 
+# vektoriÅ³, kurio elementai yra didÅ¾iosios raidÄ—s.
 
 c <- c("A", "A", "B", "B", "A", "A", "B", "B", "B", "B")
 
 d <- data.frame(X = a, Y = b, Z = c)
 d
 
-# Galima nesunkiai parodyti, kad character tipo vektorius pavirto á factor tipo
-# lentelës kintamàjá.
+# Galima nesunkiai parodyti, kad character tipo vektorius pavirto Ä¯ factor tipo
+# lentelÄ—s kintamÄ…jÄ¯.
 
 sapply(d, class)
 
-# Tam, kad character tipo vektorius ir lentelëje liktø character tipo kintamuoju, 
-# parametro stringsAsFactors reikðmæ reikia pakeisti á FALSE.
+# Tam, kad character tipo vektorius ir lentelÄ—je liktÅ³ character tipo kintamuoju, 
+# parametro stringsAsFactors reikÅ¡mÄ™ reikia pakeisti Ä¯ FALSE.
 
 d <- data.frame(X = a, Y = b, Z = c, stringsAsFactors = FALSE)
 d
 
 sapply(d, class)
 
-# Kintamojo tipo iðlaikymui naudojama funkcija I, todël ji irgi tinka character
-# tipo vektoriaus átraukimui á lentelæ.
+# Kintamojo tipo iÅ¡laikymui naudojama funkcija I, todÄ—l ji irgi tinka character
+# tipo vektoriaus Ä¯traukimui Ä¯ lentelÄ™.
 
 d <- data.frame(X = a, Y = b, Z = I(c))
 d
 
-# Vektoriø prie jau sukurtos lentelës galima prijungti ir naudojant f-jà cbind. 
-# Pvz., prie lentelës d prijungsime loginá vektoriø, kurio visø elementø reikðmë
-# yra TRUE. Nurodysime tik vienà reikðmæ, likusios bus pakartotos.
+# VektoriÅ³ prie jau sukurtos lentelÄ—s galima prijungti ir naudojant f-jÄ… cbind. 
+# Pvz., prie lentelÄ—s d prijungsime loginÄ¯ vektoriÅ³, kurio visÅ³ elementÅ³ reikÅ¡mÄ—
+# yra TRUE. Nurodysime tik vienÄ… reikÅ¡mÄ™, likusios bus pakartotos.
 
 cbind(d, L = TRUE)
 
 
 # NAUDINGA ------------------------------
 
-# Duomenø analizëje pasitaiko situacija, kai á vienà lentelæ reikia sujungti ne
-# dvi, o daug maþø duomenø lenteliø.
+# DuomenÅ³ analizÄ—je pasitaiko situacija, kai Ä¯ vienÄ… lentelÄ™ reikia sujungti ne
+# dvi, o daug maÅ¾Å³ duomenÅ³ lenteliÅ³.
 
 d.1 <- data.frame(x = 1:2, y = 11:12)
 d.2 <- data.frame(x = 4:5, y = 14:15)
 d.3 <- data.frame(x = 7:8, y = 17:18)
 
-# Tokias lenteles paprastai galima apjungti naudojant funkcijà rbind.
+# Tokias lenteles paprastai galima apjungti naudojant funkcijÄ… rbind.
 rbind(d.1, d.2, d.3)
 
-# Galima sukurti tokiø duomenø lenteliø sàraðà ir kaip parametrà já perduoti tai
-# paèiai funkcijai rbind. Tam naudojama speciali funkcija do.call. 
+# Galima sukurti tokiÅ³ duomenÅ³ lenteliÅ³ sÄ…raÅ¡Ä… ir kaip parametrÄ… jÄ¯ perduoti tai
+# paÄiai funkcijai rbind. Tam naudojama speciali funkcija do.call. 
 
 d.list <- list(d.1, d.2, d.3)
 d.list
@@ -158,93 +158,93 @@ d.list
 do.call(rbind, d.list)
 
 
-# Toks lenteliø sujungimo bûdas labai efektyvus tais atvejais, kai, analizuojant 
-# duomenis, kaip rezultatas gaunamas list tipo sàraðas, kurio elementai yra tuos 
-# paèius kintamuosius (kitaip nebûtø galima sujungti) turinèios duomenø lentelës. 
+# Toks lenteliÅ³ sujungimo bÅ«das labai efektyvus tais atvejais, kai, analizuojant 
+# duomenis, kaip rezultatas gaunamas list tipo sÄ…raÅ¡as, kurio elementai yra tuos 
+# paÄius kintamuosius (kitaip nebÅ«tÅ³ galima sujungti) turinÄios duomenÅ³ lentelÄ—s. 
 
-# Tokiu atveju pradiniai duomenys daþniausiai taip pat yra sàraðo pavidalo. Pvz.,
-# tai gali bûti sàraðas, kurio elementai yra nevienodà elementø skaièiø turintys
-# to paties tipo vektoriai, arba sàraðas, kurio elementai yra kokio nors teksto 
+# Tokiu atveju pradiniai duomenys daÅ¾niausiai taip pat yra sÄ…raÅ¡o pavidalo. Pvz.,
+# tai gali bÅ«ti sÄ…raÅ¡as, kurio elementai yra nevienodÄ… elementÅ³ skaiÄiÅ³ turintys
+# to paties tipo vektoriai, arba sÄ…raÅ¡as, kurio elementai yra kokio nors teksto 
 # sakiniai arba kokio nors organizmo DNR sekos. Pradinius duomenis gali sudaryti
-# duomenø lentelës apie tà patá objektà skirtingais laiko momentais ir t.t.
+# duomenÅ³ lentelÄ—s apie tÄ… patÄ¯ objektÄ… skirtingais laiko momentais ir t.t.
 
-# Sàraðo pavidalo duomenis labai patogu analizuoti naudojant funkcijas lapply ir
-# sapply, kuriø rezultatas taip pat yra sàraðas. Jei ðiø funkcijø rezultatas yra
-# duomenø lentelës, tai jas galima nesunkiai apjungti naudojant do.call funkcijà.
+# SÄ…raÅ¡o pavidalo duomenis labai patogu analizuoti naudojant funkcijas lapply ir
+# sapply, kuriÅ³ rezultatas taip pat yra sÄ…raÅ¡as. Jei Å¡iÅ³ funkcijÅ³ rezultatas yra
+# duomenÅ³ lentelÄ—s, tai jas galima nesunkiai apjungti naudojant do.call funkcijÄ….
 
-# Tarkime, kad atliekama DNR sekø analizë. Sekà sudaro nukleotidai A, C, G ir T. 
-# Tarkime, kad turime 50 skirtingo ilgio DNR sekø, kurios apjungtos á list tipo 
-# sàraðà. Vienas sàraðo elementas yra vienas nukleotidø vektorius. Sugeneruosime
+# Tarkime, kad atliekama DNR sekÅ³ analizÄ—. SekÄ… sudaro nukleotidai A, C, G ir T. 
+# Tarkime, kad turime 50 skirtingo ilgio DNR sekÅ³, kurios apjungtos Ä¯ list tipo 
+# sÄ…raÅ¡Ä…. Vienas sÄ…raÅ¡o elementas yra vienas nukleotidÅ³ vektorius. Sugeneruosime
 # tokius duomenis.
 
-dnr <- replicate(50, sample(factor(c("A", "C", "G", "T")), sample(20:50, 1), T))
+dnr <- replicate(50, sample(factor(c("A",Â "C", "G", "T")), sample(20:50, 1), T))
 dnr
 
-# Pirma uþduotis -- apskaièiuoti kiekvienos sekos nukleoditø daþniø lentelæ. Tam
-# panaudojame funkcijà table, kurià pritaikome kiekvienai sàraðo sekai. Gauname
-# sàraðà, kurio elementai yra daþniø lentelës.
+# Pirma uÅ¾duotis -- apskaiÄiuoti kiekvienos sekos nukleoditÅ³ daÅ¾niÅ³ lentelÄ™. Tam
+# panaudojame funkcijÄ… table, kuriÄ… pritaikome kiekvienai sÄ…raÅ¡o sekai. Gauname
+# sÄ…raÅ¡Ä…, kurio elementai yra daÅ¾niÅ³ lentelÄ—s.
 
 freq.list <- lapply(dnr, table)
 freq.list
 
-# Kadangi visos daþniø lentelës yra tokio paties pavidalo, jas galima nesunkiai
-# apjungti á vienà didelæ lentelæ, kurios eilutëse bus sekø nukleotidø daþniai.
+# Kadangi visos daÅ¾niÅ³ lentelÄ—s yra tokio paties pavidalo, jas galima nesunkiai
+# apjungti Ä¯ vienÄ… didelÄ™ lentelÄ™, kurios eilutÄ—se bus sekÅ³ nukleotidÅ³ daÅ¾niai.
 
 do.call(rbind, freq.list)
 
 
-# Antra uþduotis -- kiekvienai DNR sekai sudaryti lentelæ, kurioje bûtø áraðytas
+# Antra uÅ¾duotis -- kiekvienai DNR sekai sudaryti lentelÄ™, kurioje bÅ«tÅ³ Ä¯raÅ¡ytas
 # sekos ilgis, pirmas ir paskutinis jos nukleotidai.
 
-# Kadangi tokios standartinës funkcijos nëra, jà tenka pasiraðyti. 
+# Kadangi tokios standartinÄ—s funkcijos nÄ—ra, jÄ… tenka pasiraÅ¡yti. 
 
 dnr.info <- function(s) {
 
   ilgis   <- length(s)
-  pradþia <- s[1]
+  pradÅ¾ia <- s[1]
   pabaiga <- s[ilgis]
   
-  info <- data.frame(pradþia, pabaiga, ilgis)
+  info <- data.frame(pradÅ¾ia, pabaiga, ilgis)
   return(info)
 }
 
-# Funkcijà dnr.info, kuri suformuoja vienos sekos analizës lentelæ, ádedame á 
-# ciklo funkcijà lapply ir perbëgame per sekø sàraðà.
+# FunkcijÄ… dnr.info, kuri suformuoja vienos sekos analizÄ—s lentelÄ™, Ä¯dedame Ä¯ 
+# ciklo funkcijÄ… lapply ir perbÄ—game per sekÅ³ sÄ…raÅ¡Ä….
 
 stat.list <- lapply(dnr, dnr.info)
 stat.list
 
-# Gauname lenteliø sàraðà, kuri apjungiame naudojant do.call funkcijà.
+# Gauname lenteliÅ³ sÄ…raÅ¡Ä…, kuri apjungiame naudojant do.call funkcijÄ….
 
 do.call(rbind, stat.list)
 
 
-# UÞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sudarykite data.frame tipo lentelæ, kurios vienas stulpelis yra didþiøjø, o
-#    kitas -- maþøjø raidþiø vektorius, atitinkamai LETTERS ir letters. Lentelës
-#    kintamieji turi iðlikti character tipo.
-# 2. Atlikite duomenø rinkinio dnr analizæ. Kiekvienai sekai sudarykite lentelæ,
-#    kuri turi du kintamuosius. Vieno kintamojo reikðmë yra pirmi trys dnr sekos
-#    nukleotidai, kito kintamojo reikðmë -- nukleotidø C ir G dalis DNR sekoje.
-#    Naudojant funkcijà do.call gautà lenteliø sàraðà apjunkite á vienà lentelæ.
+# 1. Sudarykite data.frame tipo lentelÄ™, kurios vienas stulpelis yra didÅ¾iÅ³jÅ³, o
+#    kitas -- maÅ¾Å³jÅ³ raidÅ¾iÅ³ vektorius, atitinkamai LETTERS ir letters. LentelÄ—s
+#    kintamieji turi iÅ¡likti character tipo.
+# 2. Atlikite duomenÅ³ rinkinio dnr analizÄ™. Kiekvienai sekai sudarykite lentelÄ™,
+#    kuri turi du kintamuosius. Vieno kintamojo reikÅ¡mÄ— yra pirmi trys dnr sekos
+#    nukleotidai, kito kintamojo reikÅ¡mÄ— -- nukleotidÅ³ C ir G dalis DNR sekoje.
+#    Naudojant funkcijÄ… do.call gautÄ… lenteliÅ³ sÄ…raÅ¡Ä… apjunkite Ä¯ vienÄ… lentelÄ™.
 
 
 # --------------------------------------- #
-# DUOMENØ APJUNGIMAS                      #
+# DUOMENÅ² APJUNGIMAS                      #
 # --------------------------------------- #
 
-# Kartais tenka apjungti duomenø lenteles, kurios turi bendrø kintamøjø. Tokiais
-# atvejais rezultatas yra dviejø lenteliø sankirta, kuri gaunama naudojant f-jà
+# Kartais tenka apjungti duomenÅ³ lenteles, kurios turi bendrÅ³ kintamÅ³jÅ³. Tokiais
+# atvejais rezultatas yra dviejÅ³ lenteliÅ³ sankirta, kuri gaunama naudojant f-jÄ…
 # merge. Pagrindiniai jos parametrai:
 #
-#        x -- pirmos lentelës vardas,
-#        y -- antros lentelës vardas,
-#       by -- bendras abiejø lenteliø kintamasis arba jø vektorius,
-#      all -- FALSE, nurodo, kad á lentelæ átraukiamos tik bendros eilutës.
+#        x -- pirmos lentelÄ—s vardas,
+#        y -- antros lentelÄ—s vardas,
+#       by -- bendras abiejÅ³ lenteliÅ³ kintamasis arba jÅ³ vektorius,
+#      all -- FALSE, nurodo, kad Ä¯ lentelÄ™ Ä¯traukiamos tik bendros eilutÄ—s.
 
-# Turime dvi lenteles: pirmoje suraðyti didþiausi Lietuvos miestai ir gyventojø
-# skaièius juose 2001 ir 2011 metais, kitoje lentelëje yra miestai ir atstumas
+# Turime dvi lenteles: pirmoje suraÅ¡yti didÅ¾iausi Lietuvos miestai ir gyventojÅ³
+# skaiÄius juose 2001 ir 2011 metais, kitoje lentelÄ—je yra miestai ir atstumas
 # iki Vilniaus.
 
 miestai <- read.table(header = TRUE, text = "
@@ -252,11 +252,11 @@ miestas       m2011  m2001
 Alytus        63642  71491
 Jonava        33172  34954
 Kaunas       336912 378650
-Klaipëda     177812 192954
-Marijampolë   44885  48675
-Maþeikiai     38819  42675
-Panevëþys    109028 119749
-Ðiauliai     120969 133883
+KlaipÄ—da     177812 192954
+MarijampolÄ—   44885  48675
+MaÅ¾eikiai     38819  42675
+PanevÄ—Å¾ys    109028 119749
+Å iauliai     120969 133883
 Utena         31139  33860
 Vilnius      542932 542287
 ")
@@ -268,41 +268,41 @@ Utena          96
 Alytus        101
 Jonava        102
 Kaunas        102
-Panevëþys     136
-Marijampolë   138
-Ðiauliai      213
-Maþeikiai     291
-Klaipëda      311
+PanevÄ—Å¾ys     136
+MarijampolÄ—   138
+Å iauliai      213
+MaÅ¾eikiai     291
+KlaipÄ—da      311
 ")
 
-# Apjungsime ðias lenteles. Jos turi bendrà kintamàjá miestas, kurá nurodysime 
+# Apjungsime Å¡ias lenteles. Jos turi bendrÄ… kintamÄ…jÄ¯ miestas, kurÄ¯ nurodysime 
 # parametrui by.
 
 merge(miestai, atstumas, by = "miestas")
 
-# Pagal nutylëjimà parametrui by priskiriamas abiejø lenteliø bendrø kintamøjø
-# vardø vektorius. Kadangi ðiuo atveju toks kintamasis tik vienas, parametro by
-# buvo galima ir nenurodyti -- jam reikðmë priskiriama vienareikðmiðkai.
+# Pagal nutylÄ—jimÄ… parametrui by priskiriamas abiejÅ³ lenteliÅ³ bendrÅ³ kintamÅ³jÅ³
+# vardÅ³ vektorius. Kadangi Å¡iuo atveju toks kintamasis tik vienas, parametro by
+# buvo galima ir nenurodyti -- jam reikÅ¡mÄ— priskiriama vienareikÅ¡miÅ¡kai.
 
 merge(miestai, atstumas)
 
 
-# Gali bûti, kad bendras abiejø lenteliø kintamasis, pagal kurá jos apjungiamos, 
-# vienoje lentelëje turi vienas reikðmes, o kitoje -- kitas. Tokiu atveju galimi
-# keli lenteliø apjungimo variantai.
+# Gali bÅ«ti, kad bendras abiejÅ³ lenteliÅ³ kintamasis, pagal kurÄ¯ jos apjungiamos, 
+# vienoje lentelÄ—je turi vienas reikÅ¡mes, o kitoje -- kitas. Tokiu atveju galimi
+# keli lenteliÅ³ apjungimo variantai.
 
-# Tarkime, kad miestø ir atstumø lentelës turi vienodà áraðø (eiluèiø) skaièiø,
-# bet miestø sàraðas vienoje lentelëje skiriasi nuo miestø sàraðo kitoje. Pvz.,
-# miestø lentelëje áraðytas Vilnius, bet jo nëra atstumø iki sostinës lentelëje.
+# Tarkime, kad miestÅ³ ir atstumÅ³ lentelÄ—s turi vienodÄ… Ä¯raÅ¡Å³ (eiluÄiÅ³) skaiÄiÅ³,
+# bet miestÅ³ sÄ…raÅ¡as vienoje lentelÄ—je skiriasi nuo miestÅ³ sÄ…raÅ¡o kitoje. Pvz.,
+# miestÅ³ lentelÄ—je Ä¯raÅ¡ytas Vilnius, bet jo nÄ—ra atstumÅ³ iki sostinÄ—s lentelÄ—je.
 
 miestai <- read.table(header = TRUE, text = "
 miestas       m2011  m2001
 Jonava        33172  34954
 Kaunas       336912 378650
-Klaipëda     177812 192954
-Marijampolë   44885  48675
-Maþeikiai     38819  42675
-Panevëþys    109028 119749
+KlaipÄ—da     177812 192954
+MarijampolÄ—   44885  48675
+MaÅ¾eikiai     38819  42675
+PanevÄ—Å¾ys    109028 119749
 Utena         31139  33860
 Vilnius      542932 542287
 ")
@@ -312,37 +312,37 @@ miestas   atstumas
 Utena          96
 Alytus        101
 Kaunas        102
-Panevëþys     136
-Marijampolë   138
-Ðiauliai      213
-Maþeikiai     291
-Klaipëda      311
+PanevÄ—Å¾ys     136
+MarijampolÄ—   138
+Å iauliai      213
+MaÅ¾eikiai     291
+KlaipÄ—da      311
 ")
 
-# Apjungiant lenteles pagal bendrà, taèiau nevienodas reikðmes turintá kintamàjá, 
-# rezultatas yra lentelë, kurioje yra tik bendros abiem lentelëms eilutës. Ðiuo
-# atveju kiekvienoje lentelëje yra po 8 miestus, taèiau bendri abiem lentelëms 
+# Apjungiant lenteles pagal bendrÄ…, taÄiau nevienodas reikÅ¡mes turintÄ¯ kintamÄ…jÄ¯, 
+# rezultatas yra lentelÄ—, kurioje yra tik bendros abiem lentelÄ—ms eilutÄ—s. Å iuo
+# atveju kiekvienoje lentelÄ—je yra po 8 miestus, taÄiau bendri abiem lentelÄ—ms 
 # yra tik 6 miestai.
 
 merge(miestai, atstumas)
 
-# Tam, kad bûtø átraukiamos visos abiejø lenteliø eilutës, pakeièiama parametro
-# all reikðmë. Tada gaunama lentelë, kurioje kai kurie kintamieji turi praleistø
-# reikðmiø.
+# Tam, kad bÅ«tÅ³ Ä¯traukiamos visos abiejÅ³ lenteliÅ³ eilutÄ—s, pakeiÄiama parametro
+# all reikÅ¡mÄ—. Tada gaunama lentelÄ—, kurioje kai kurie kintamieji turi praleistÅ³
+# reikÅ¡miÅ³.
 
 merge(miestai, atstumas, all = TRUE)
 
-# Pagal nutylëjimà á bendrà lentelæ átraukiamos bendros abiem lentelëms eilutës.
-# Jei nurodomas parametras all = TRUE, tada átraukiamos visos abiejø lenteliø
-# eilutës. Galima átraukti tik pirmos ar tik antros lentelës eilutes, kuriø nëra 
-# kitoje lentelëje. Tam nurodomi parametrai atitinkamai all.x arba all.y.
+# Pagal nutylÄ—jimÄ… Ä¯ bendrÄ… lentelÄ™ Ä¯traukiamos bendros abiem lentelÄ—ms eilutÄ—s.
+# Jei nurodomas parametras all = TRUE, tada Ä¯traukiamos visos abiejÅ³ lenteliÅ³
+# eilutÄ—s. Galima Ä¯traukti tik pirmos ar tik antros lentelÄ—s eilutes, kuriÅ³ nÄ—ra 
+# kitoje lentelÄ—je. Tam nurodomi parametrai atitinkamai all.x arba all.y.
 
 merge(miestai, atstumas, all.x = TRUE)
 merge(miestai, atstumas, all.y = TRUE)
 
 
-# UÞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sugalvokite bûdà, kaip pradines miestø ir atstumø lenteles, kurios abi turi
-#    po 10 eiluèiø, apjungti nenaudojant funkcijos merge. Kada toká bûdà galima
-#    taikyti lenteliø apjungimui?
+# 1. Sugalvokite bÅ«dÄ…, kaip pradines miestÅ³ ir atstumÅ³ lenteles, kurios abi turi
+#    po 10 eiluÄiÅ³, apjungti nenaudojant funkcijos merge. Kada tokÄ¯ bÅ«dÄ… galima
+#    taikyti lenteliÅ³ apjungimui?

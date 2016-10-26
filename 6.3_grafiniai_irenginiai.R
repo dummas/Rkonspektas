@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Grafiniai árenginiai. Vektorinë ir rastrinë grafika.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Grafiniai Ä¯renginiai. VektorinÄ— ir rastrinÄ— grafika.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-03-07 | 2015-04-09
 #
@@ -12,10 +12,10 @@
 # TURINYS -------------------------------
 
 #
-#   1. Trumpai apie grafinius árenginius:
+#   1. Trumpai apie grafinius Ä¯renginius:
 #      * Devices
 #
-#   2. Grafiko braişymas kompiuterio ekrane:
+#   2. Grafiko braiÅ¾ymas kompiuterio ekrane:
 #      * windows
 #      * x11
 #      * X11
@@ -23,13 +23,13 @@
 #      * win.metafile
 #      * win.print
 #
-#   3. Grafiko iğsaugojimas á vektorinës grafikos failà:
+#   3. Grafiko iÅ¡saugojimas Ä¯ vektorinÄ—s grafikos failÄ…:
 #      * pdf
 #      * pdfFonts
 #      * pdf.options
 #      * postscript
 #
-#   4. Grafiko iğsaugojimas á rastrinës grafikos failà:
+#   4. Grafiko iÅ¡saugojimas Ä¯ rastrinÄ—s grafikos failÄ…:
 #      * png
 #      * bmp
 #      * jpeg
@@ -40,42 +40,42 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti uşdaviniø.
+# Sugalvoti uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# TRUMPAI APIE GRAFINIUS ÁRENGINIUS       #
+# TRUMPAI APIE GRAFINIUS Ä®RENGINIUS       #
 # --------------------------------------- #
 
-# Grafiko atvaizdavimui naudojamas grafinis árenginys. Tai gali bûti kompiuterio 
+# Grafiko atvaizdavimui naudojamas grafinis Ä¯renginys. Tai gali bÅ«ti kompiuterio 
 # ekranas, spausdintuvas arba kokio nors tipo grafinis failas, pvz., pdf, png ir 
-# dar keletas kitø. Visø R kalboje naudojamø grafiniø árenginiø sàrağas:
+# dar keletas kitÅ³. VisÅ³ R kalboje naudojamÅ³ grafiniÅ³ Ä¯renginiÅ³ sÄ…raÅ¡as:
 
 ?Devices
 
-# Jei nenurodyta kitaip, aukğto lygio grafinës f-jos grafikà atvaizduoja ekrane,
-# o já atitinkanèio árenginio pavadinimas priklauso nuo operacinës sistemos:
+# Jei nenurodyta kitaip, aukÅ¡to lygio grafinÄ—s f-jos grafikÄ… atvaizduoja ekrane,
+# o jÄ¯ atitinkanÄio Ä¯renginio pavadinimas priklauso nuo operacinÄ—s sistemos:
 # 
 #    windows -- MS Windows
 #        X11 -- Unix arba Linux
 #     quartz -- OS X
 
 
-# Naudojant kitokius grafinius árenginius, grafikà galima iğsaugoti á failà. Tai 
-# gali bûti rastrinës arba vektorinës grafikos tipo failai:
+# Naudojant kitokius grafinius Ä¯renginius, grafikÄ… galima iÅ¡saugoti Ä¯ failÄ…. Tai 
+# gali bÅ«ti rastrinÄ—s arba vektorinÄ—s grafikos tipo failai:
 #           ---------      ----------
 #           bmp            pdf   
 #           gif            postscript
@@ -85,119 +85,119 @@ rm(list = ls())
 
 
 # --------------------------------------- #
-# GRAFIKO BRAIŞYMAS KOMPIUTERIO EKRANE    #
+# GRAFIKO BRAIÅ½YMAS KOMPIUTERIO EKRANE    #
 # --------------------------------------- #
 
-# MS Windows operacinëje sistemoje grafiná langà kompiuterio ekrane atidaro f-ja
+# MS Windows operacinÄ—je sistemoje grafinÄ¯ langÄ… kompiuterio ekrane atidaro f-ja
 # windows. Pagrindiniai jos parametrai yra tokie:
 #
 #      width -- grafinio lango plotis coliais,
-#     height -- grafinio lango aukğtis coliais,
-#    rescale -- taisyklë, pagal kurià nustatomas grafiko mastelis,
-#  pointsize -- tağko dydis, 
+#     height -- grafinio lango aukÅ¡tis coliais,
+#    rescale -- taisyklÄ—, pagal kuriÄ… nustatomas grafiko mastelis,
+#  pointsize -- taÅ¡ko dydis, 
 #         bg -- grafiko fono spalva,
 #     canvas -- grafinio lango pagrindo spalva,
-#       xpos -- pradinës lango pozicijos ekrane koordinatë x,
-#       ypos -- pradinës lango pozicijos ekrane koordinatë y,
+#       xpos -- pradinÄ—s lango pozicijos ekrane koordinatÄ— x,
+#       ypos -- pradinÄ—s lango pozicijos ekrane koordinatÄ— y,
 #      title -- grafinio lango pavadinimas,
-#     family -- ğrifto ğeima,
-#  antialias -- ğrifto glodinimo metodas.
+#     family -- Å¡rifto Å¡eima,
+#  antialias -- Å¡rifto glodinimo metodas.
 
 
-# Jeigu nenurodomas joks parametras, funkcija windows atidaro 7 x 7 coliø dydşio
-# standartiná grafiná langà. Tuo galima ásitikinti patikrinus grafinio parametro
-# din reikğmæ.
+# Jeigu nenurodomas joks parametras, funkcija windows atidaro 7 x 7 coliÅ³ dydÅ¾io
+# standartinÄ¯ grafinÄ¯ langÄ…. Tuo galima Ä¯sitikinti patikrinus grafinio parametro
+# din reikÅ¡mÄ™.
 
 windows()
 par("din")
 
 # Grafinio lango dydis nustatomas per parametrus width ir height. Pvz, sukursime
-# 8 x 4 coliø dydşio grafiná langà ir jame nubraişysime f-jos y = sin(x) grafikà
+# 8 x 4 coliÅ³ dydÅ¾io grafinÄ¯ langÄ… ir jame nubraiÅ¾ysime f-jos y = sin(x) grafikÄ…
 # intervale [-3pi, 3pi].
 
 windows(8, 4)
 plot(sin, -3*pi, 3*pi)
 
 
-# Parametras rescale nurodo, kaip turi bûti atnaujinamas grafikas, kai keièiamas
-# lango, kuriame jis nubraişytas, dydis. Galimos parametro reikğmës:
+# Parametras rescale nurodo, kaip turi bÅ«ti atnaujinamas grafikas, kai keiÄiamas
+# lango, kuriame jis nubraiÅ¾ytas, dydis. Galimos parametro reikÅ¡mÄ—s:
 #
-#        "R" -- nurodo, kad grafiko dydis sutampa su lango dydşiu,
-#      "fit" -- grafikas perbraişomas iğlaikant krağtiniø santyká,
+#        "R" -- nurodo, kad grafiko dydis sutampa su lango dydÅ¾iu,
+#      "fit" -- grafikas perbraiÅ¾omas iÅ¡laikant kraÅ¡tiniÅ³ santykÄ¯,
 #     fixed" -- nurodo, kad grafiko dydis yra fiksuotas.
 
-# Standartinë parametro reikğmë - "R", todël, keièiant grafinio lango dydá (pvz., 
-# su pele), jame nubraişyto grafiko dydis taip pat keièiasi, grafikas uşima visà
-# langà. Jei parametrui priskiriama reikğmë "fit", tada grafikas iğlaiko pradiná 
-# krağtiniø santyká, taèiau, priklausomai nuo grafinio lango dydşio, keièiasi jo
-# ğrifto dydis.
+# StandartinÄ— parametro reikÅ¡mÄ— - "R", todÄ—l, keiÄiant grafinio lango dydÄ¯ (pvz., 
+# su pele), jame nubraiÅ¾yto grafiko dydis taip pat keiÄiasi, grafikas uÅ¾ima visÄ…
+# langÄ…. Jei parametrui priskiriama reikÅ¡mÄ— "fit", tada grafikas iÅ¡laiko pradinÄ¯ 
+# kraÅ¡tiniÅ³ santykÄ¯, taÄiau, priklausomai nuo grafinio lango dydÅ¾io, keiÄiasi jo
+# Å¡rifto dydis.
 
 windows(rescale = "fit")
-plot(sin, -pi, pi, main = "Grafinis langas su fiksuotu grafiko krağtiniø santykiu")
+plot(sin, -pi, pi, main = "Grafinis langas su fiksuotu grafiko kraÅ¡tiniÅ³ santykiu")
 
 
-# Parametras pointsize nustato tağko dydá. Nuo jo priklauso teksto ğrifto dydis.
-# Standartinë parametro reikğmë 12. Pavyzdşiui, nubraişysime grafikà su 8 dydşio 
-# ğriftu.
+# Parametras pointsize nustato taÅ¡ko dydÄ¯. Nuo jo priklauso teksto Å¡rifto dydis.
+# StandartinÄ— parametro reikÅ¡mÄ— 12. PavyzdÅ¾iui, nubraiÅ¾ysime grafikÄ… su 8 dydÅ¾io 
+# Å¡riftu.
 
 windows(pointsize = 8)
-plot(sin, -pi, pi, main = "Parametro pointsize reikğmë lygi 8")
+plot(sin, -pi, pi, main = "Parametro pointsize reikÅ¡mÄ— lygi 8")
 
 
-# Ğrifto, kuriuo rağomos grafiko ir ağiø antrağtës bei padalø pavadinimai, ğeimà 
-# nusako parametras family. Standartinë parametro reikğmë yra "", kiti variantai 
+# Å rifto, kuriuo raÅ¡omos grafiko ir aÅ¡iÅ³ antraÅ¡tÄ—s bei padalÅ³ pavadinimai, Å¡eimÄ… 
+# nusako parametras family. StandartinÄ— parametro reikÅ¡mÄ— yra "", kiti variantai 
 # tokie:
 # 
-#    "serif" -- lotyniğkas ğriftas, pvz., Times,
-#     "sans" -- groteskinis ğriftas, pvz., Aria, Helvetica,
-#     "mono" -- pastovaus ploèio ğriftas, pvz., Courier.
+#    "serif" -- lotyniÅ¡kas Å¡riftas, pvz., Times,
+#     "sans" -- groteskinis Å¡riftas, pvz., Aria, Helvetica,
+#     "mono" -- pastovaus ploÄio Å¡riftas, pvz., Courier.
 
 # Pvz., nustatysime, kad naujai atidarytame grafiniame lange pagrindinis grafiko
-# ğriftas bûtø iğ "mono" ğeimos.
+# Å¡riftas bÅ«tÅ³ iÅ¡ "mono" Å¡eimos.
 
 windows(family = "mono")
 plot(sin, -pi, pi)
 
-# Galima priminti, kad grafike naudojamo ğrifto ğeima gali bûti nustatoma ir per 
-# grafiná parametrà family.
+# Galima priminti, kad grafike naudojamo Å¡rifto Å¡eima gali bÅ«ti nustatoma ir per 
+# grafinÄ¯ parametrÄ… family.
 
 par(family = "mono")
 plot(sin, -pi, pi)
 
 
-# Parametras antialias nustato ğriftø glodinimo metodà, nuo kurio priklauso kaip 
-# jie atrodys ekrane. Pavyzdşiui, nubraişysime grafikà, kuriame surağyti mënesiø
+# Parametras antialias nustato Å¡riftÅ³ glodinimo metodÄ…, nuo kurio priklauso kaip 
+# jie atrodys ekrane. PavyzdÅ¾iui, nubraiÅ¾ysime grafikÄ…, kuriame suraÅ¡yti mÄ—nesiÅ³
 # pavadinimai. Vienu atveju glodinimas nenaudojamas, kitu -- naudojamas.
 
 windows(antialias = "none")
-plot(0, 0, type = "n", main = "Ğriftas nesuglodintas")
+plot(0, 0, type = "n", main = "Å riftas nesuglodintas")
 text(0, 0, paste(month.name, collapse = "\n"), cex = 2)
 
 windows(antialias = "cleartype")
-plot(0, 0, type = "n", main = "Ğriftas suglodintas")
+plot(0, 0, type = "n", main = "Å riftas suglodintas")
 text(0, 0, paste(month.name, collapse = "\n"), cex = 2)
 
 
-# Naujai atidarytam grafinim langui automatiğkai priskiriamas eilës numeris, bet, 
-# naudojant parametrà title, jam galima suteikti bet koká pavadinimà. 
+# Naujai atidarytam grafinim langui automatiÅ¡kai priskiriamas eilÄ—s numeris, bet, 
+# naudojant parametrÄ… title, jam galima suteikti bet kokÄ¯ pavadinimÄ…. 
 
-windows(title = "Trigonometrinës funkcijos grafikas")
+windows(title = "TrigonometrinÄ—s funkcijos grafikas")
 plot(sin, -pi, pi)
 
-# Parametrai xpos, ypos nustato naujo grafinio lango vietà ekrane. Tağkas (0, 0) 
-# atitinka virğutiná kairës pusës kampà. Standartinë lango pozicija - virğutinis 
-# değinës pusës kampas, kurá atitinka tağkas (-25, 0). Neigiamos reikğmës nurodo, 
-# kad langas atitraukiamas nuo değinio ir apatinio ekrano krağto. 
+# Parametrai xpos, ypos nustato naujo grafinio lango vietÄ… ekrane. TaÅ¡kas (0, 0) 
+# atitinka virÅ¡utinÄ¯ kairÄ—s pusÄ—s kampÄ…. StandartinÄ— lango pozicija - virÅ¡utinis 
+# deÅ¡inÄ—s pusÄ—s kampas, kurÄ¯ atitinka taÅ¡kas (-25, 0). Neigiamos reikÅ¡mÄ—s nurodo, 
+# kad langas atitraukiamas nuo deÅ¡inio ir apatinio ekrano kraÅ¡to. 
 
 windows(xpos = -10, ypos = -25)
 
 
-# Parametrai bg ir canvas nustato grafiko fono ir grafinio lango pagrindo spalvà.
-# Pagrindas matomas tik tada, jei fono spalva yra permatoma. Kadangi standartinë 
-# parametro bg reikğmë yra "transparent", grafikuose matome baltà grafinio lango
-# pagrindo spalvà. 
+# Parametrai bg ir canvas nustato grafiko fono ir grafinio lango pagrindo spalvÄ….
+# Pagrindas matomas tik tada, jei fono spalva yra permatoma. Kadangi standartinÄ— 
+# parametro bg reikÅ¡mÄ— yra "transparent", grafikuose matome baltÄ… grafinio lango
+# pagrindo spalvÄ…. 
 
-# Pavyzdşiui, nubraişysime grafikus su skirtingomis fono bei pagrindo spalvomis.
+# PavyzdÅ¾iui, nubraiÅ¾ysime grafikus su skirtingomis fono bei pagrindo spalvomis.
 
 windows(bg = "skyblue")
 plot(sin, -pi, pi)
@@ -206,7 +206,7 @@ windows(canvas = "red")
 plot(sin, -pi, pi)
 
 # Jeigu pagrindo ir fono spalvas nurodome kartu, grafike bus matoma fono spalva.
-# Èia fono spalvà "skyblue" nurodome RGB kodu.
+# ÄŒia fono spalvÄ… "skyblue" nurodome RGB kodu.
 
 windows(canvas = "red", bg = rgb(0.53, 0.81, 0.92))
 plot(sin, -pi, pi)
@@ -218,34 +218,34 @@ windows(canvas = "red", bg = rgb(0.53, 0.81, 0.92, alpha = 0.5))
 plot(sin, -pi, pi)
 
 
-# Funkcijos windows, win.graph, x11 ir X11 yra tos paèios funkcijos realizacijos.
-# Jos reikalingos dël suderinamumo su kitomis operacinëmis sistemomis, nes Linux
-# bei Unix sistemoje tas pats árenginys vadinasi X11. Funkcijos x11 bei X11 turi 
-# maşiau parametrø, taèiau jie, galima sakyti, yra esminiai:
+# Funkcijos windows, win.graph, x11 ir X11 yra tos paÄios funkcijos realizacijos.
+# Jos reikalingos dÄ—l suderinamumo su kitomis operacinÄ—mis sistemomis, nes Linux
+# bei Unix sistemoje tas pats Ä¯renginys vadinasi X11. Funkcijos x11 bei X11 turi 
+# maÅ¾iau parametrÅ³, taÄiau jie, galima sakyti, yra esminiai:
 #
 #      width -- grafinio lango plotis coliais,
-#     height -- grafinio lango aukğtis coliais,
-#  pointsize -- tağko dydis, 
+#     height -- grafinio lango aukÅ¡tis coliais,
+#  pointsize -- taÅ¡ko dydis, 
 #         bg -- grafiko fono spalva,
-#       xpos -- pradinës lango pozicijos ekrane koordinatë x,
-#       ypos -- pradinës lango pozicijos ekrane koordinatë y,
+#       xpos -- pradinÄ—s lango pozicijos ekrane koordinatÄ— x,
+#       ypos -- pradinÄ—s lango pozicijos ekrane koordinatÄ— y,
 #      title -- grafinio lango pavadinimas.
 
 x11(8, 6, pointsize = 11, bg = "skyblue", title = "x11 langas")
 plot(sin, -pi, pi)
 
 
-# MS Windows operacinëje sistemoje uş grafiniø objektø atvaizdavimà skirtinguose 
-# grafiniuose árenginiuose, tokiuose kaip monitorius ar spausdintuvas, atsakinga 
-# GDI (Graphics Device Interface). Tai leidşia gauti praktiğkai toká patá vaizdà 
-# monitoriuje, faile arba spausdintuve. Tam R gali bûti naudojamos ğios f-jos:
+# MS Windows operacinÄ—je sistemoje uÅ¾ grafiniÅ³ objektÅ³ atvaizdavimÄ… skirtinguose 
+# grafiniuose Ä¯renginiuose, tokiuose kaip monitorius ar spausdintuvas, atsakinga 
+# GDI (Graphics Device Interface). Tai leidÅ¾ia gauti praktiÅ¡kai tokÄ¯ patÄ¯ vaizdÄ… 
+# monitoriuje, faile arba spausdintuve. Tam R gali bÅ«ti naudojamos Å¡ios f-jos:
 #
 #        win.graph
 #        win.metafile 
 #        win.print
 
-# Pavyzdşiui, naudodami ğias funkcijas, tà patá grafikà atvaizduosime ekrane, já
-# iğsaugosime á Windows Metafile (wmf) tipo failà ir nukreipsime á spausdintuvà.
+# PavyzdÅ¾iui, naudodami Å¡ias funkcijas, tÄ… patÄ¯ grafikÄ… atvaizduosime ekrane, jÄ¯
+# iÅ¡saugosime Ä¯ Windows Metafile (wmf) tipo failÄ… ir nukreipsime Ä¯ spausdintuvÄ….
 
 win.graph()
 plot(sin, -pi, pi, main = "Grafikas ekrane")
@@ -262,36 +262,36 @@ dev.off()
 
 # NAUDINGA ------------------------------
 
-# Tağkø tanká colyje (pixels per inch, PPI) nustato parametrai xpinch ir ypinch. 
-# Standartinës ğiø parametrø reikğmës priklauso nuo ekrano skiriamosios gebos ir 
-# apskaièiuojamos automatiğkai. Pavyzdşiui, jei PPI = 96, tai 7 x 7 dydşio lange
-# nubraişytas grafikas yra 672 x 672 tağkø dydşio. Spaudoje naudojamas PPI = 300.
+# TaÅ¡kÅ³ tankÄ¯ colyje (pixels per inch, PPI) nustato parametrai xpinch ir ypinch. 
+# StandartinÄ—s Å¡iÅ³ parametrÅ³ reikÅ¡mÄ—s priklauso nuo ekrano skiriamosios gebos ir 
+# apskaiÄiuojamos automatiÅ¡kai. PavyzdÅ¾iui, jei PPI = 96, tai 7 x 7 dydÅ¾io lange
+# nubraiÅ¾ytas grafikas yra 672 x 672 taÅ¡kÅ³ dydÅ¾io. Spaudoje naudojamas PPI = 300.
 
-# Jeigu parametrø xpinch ir ypinch reikğmës skiriasi, grafinis langas ekrane yra
-# iğtempiamas. Pavyzdşiui, tegu parametro xpinch reikğmë bus dvigubai didesnë uş
-# ypinch reikğmæ. Ekrane toks grafikas iğtemptas horizontaliai, taèiau formaliai
-# jis iğliko kvadratinis. Jeigu spausdinant bûtø atsişvelgiama á skirtingà tağkø 
-# tanká, grafikas ant popieriaus taip pat bûtø kvadratinis. Tai rodo ir grafinio 
-# parametro din reikğmë. 
+# Jeigu parametrÅ³ xpinch ir ypinch reikÅ¡mÄ—s skiriasi, grafinis langas ekrane yra
+# iÅ¡tempiamas. PavyzdÅ¾iui, tegu parametro xpinch reikÅ¡mÄ— bus dvigubai didesnÄ— uÅ¾
+# ypinch reikÅ¡mÄ™. Ekrane toks grafikas iÅ¡temptas horizontaliai, taÄiau formaliai
+# jis iÅ¡liko kvadratinis. Jeigu spausdinant bÅ«tÅ³ atsiÅ¾velgiama Ä¯ skirtingÄ… taÅ¡kÅ³ 
+# tankÄ¯, grafikas ant popieriaus taip pat bÅ«tÅ³ kvadratinis. Tai rodo ir grafinio 
+# parametro din reikÅ¡mÄ—. 
 
 windows(7, 7, xpinch = 160, ypinch = 80)
 plot(sin, -pi, pi, main = "Kvadratinis grafikas")
 par("din")
 
-# Pavyzdşiui, jei grafikas turi bûti 900 x 600 dydşio, tai, şinant, kad PPI = 96,
-# grafinio lango dydis turi bûti 900/96 = 9.375 ploèio ir 6.25 aukğèio (coliais).
+# PavyzdÅ¾iui, jei grafikas turi bÅ«ti 900 x 600 dydÅ¾io, tai, Å¾inant, kad PPI = 96,
+# grafinio lango dydis turi bÅ«ti 900/96 = 9.375 ploÄio ir 6.25 aukÅ¡Äio (coliais).
 
 windows(width = 9.38, height = 6.25, xpinch = 96, ypinch = 96)
-plot(sin, -pi, pi, main = "900 x 600 tağkø dydşio grafikas")
+plot(sin, -pi, pi, main = "900 x 600 taÅ¡kÅ³ dydÅ¾io grafikas")
 
-# Jei standartiniame 7 x 7 coliø grafiniame lange nubraişytas grafikas turi bûti
-# 700 x 700 tağkø dydşio, tai PPI turi bûti 100.
+# Jei standartiniame 7 x 7 coliÅ³ grafiniame lange nubraiÅ¾ytas grafikas turi bÅ«ti
+# 700 x 700 taÅ¡kÅ³ dydÅ¾io, tai PPI turi bÅ«ti 100.
 
 windows(7, 7, xpinch = 100, ypinch = 100)
-plot(sin, -pi, pi, main = "700 x 700 tağkø dydşio grafikas")
+plot(sin, -pi, pi, main = "700 x 700 taÅ¡kÅ³ dydÅ¾io grafikas")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -300,94 +300,94 @@ plot(sin, -pi, pi, main = "700 x 700 tağkø dydşio grafikas")
 
 
 # --------------------------------------- #
-# VEKTORINË GRAFIKA                       #
+# VEKTORINÄ– GRAFIKA                       #
 # --------------------------------------- #
 
-# Ğiuo metu labiausiai paplitæ du nuo operacinës sistemos ir programinës árangos
-# nepriklausantys elektroniniø dokumentø formatai:
+# Å iuo metu labiausiai paplitÄ™ du nuo operacinÄ—s sistemos ir programinÄ—s Ä¯rangos
+# nepriklausantys elektroniniÅ³ dokumentÅ³ formatai:
 #
 #         ps -- PostScript,
 #        pdf -- Portable Document Format.
 #
-# PostScript ir PDF tipo dokumentai plaèiai naudojami elektroninëje leidyboje ir
-# spaudoje, kur reikalinga aukğta poligrafinë teksto ir grafikos kokybë.
+# PostScript ir PDF tipo dokumentai plaÄiai naudojami elektroninÄ—je leidyboje ir
+# spaudoje, kur reikalinga aukÅ¡ta poligrafinÄ— teksto ir grafikos kokybÄ—.
 
-# PostScript yra aukğto lygio programavimo kalba, kuri skirta teksto ir grafikos
-# tuğèiame puslapyje aprağymui. Galima sakyti, kad PostScript dokumentas tai yra 
-# tokia programa, kuri spausdintuvui nurodo, kaip atvaizduoti dokumente aprağytà
-# puslapá. Paprastai dokumentà su PostScript programa generuoja kitos programos. 
-# Norint paşiûrëti, kaip atrodys PostScript dokumentas, reikia turëti PostScript
-# kalbos interpretatoriø. Pvz., tam galima naudoti programà Ghostscript.
+# PostScript yra aukÅ¡to lygio programavimo kalba, kuri skirta teksto ir grafikos
+# tuÅ¡Äiame puslapyje apraÅ¡ymui. Galima sakyti, kad PostScript dokumentas tai yra 
+# tokia programa, kuri spausdintuvui nurodo, kaip atvaizduoti dokumente apraÅ¡ytÄ…
+# puslapÄ¯. Paprastai dokumentÄ… su PostScript programa generuoja kitos programos. 
+# Norint paÅ¾iÅ«rÄ—ti, kaip atrodys PostScript dokumentas, reikia turÄ—ti PostScript
+# kalbos interpretatoriÅ³. Pvz., tam galima naudoti programÄ… Ghostscript.
 
-# PDF yra PostScript kalbos pagrindu sukurtas elektroninio dokumento formatas. Á
-# toká failà galima átraukti tekstà kartu su jam reikalingais ğriftais, rastrinæ
-# ir vektorinæ grafikà. Dokumentà PDF formatu gali iğsaugoti grafiniai ar teksto
-# redaktoriai. PDF dokumentui perşiûrëti reikia specialios programos, pavyzdşiui, 
+# PDF yra PostScript kalbos pagrindu sukurtas elektroninio dokumento formatas. Ä®
+# tokÄ¯ failÄ… galima Ä¯traukti tekstÄ… kartu su jam reikalingais Å¡riftais, rastrinÄ™
+# ir vektorinÄ™ grafikÄ…. DokumentÄ… PDF formatu gali iÅ¡saugoti grafiniai ar teksto
+# redaktoriai. PDF dokumentui perÅ¾iÅ«rÄ—ti reikia specialios programos, pavyzdÅ¾iui, 
 # SumatraPDF.
 
 
-# Grafikø iğsaugojimui PostScript ar PDF formatu naudojamos f-jos postscript bei 
-# pdf. Èia plaèiau aptarsime tik funkcijà pdf, kurios pagrindiniai parametrai ir
-# jø standartinës reikğmës yra tokie patys kaip ir funkcijos windows, taèiau kai 
-# kurie iğ jø yra specifiniai PDF dokumentams:
+# GrafikÅ³ iÅ¡saugojimui PostScript ar PDF formatu naudojamos f-jos postscript bei 
+# pdf. ÄŒia plaÄiau aptarsime tik funkcijÄ… pdf, kurios pagrindiniai parametrai ir
+# jÅ³ standartinÄ—s reikÅ¡mÄ—s yra tokie patys kaip ir funkcijos windows, taÄiau kai 
+# kurie iÅ¡ jÅ³ yra specifiniai PDF dokumentams:
 #
 #       file -- pdf failo pavadinimas,
 #      width -- grafinio lango plotis coliais,
-#     height -- grafinio lango aukğtis coliais,
-#  pointsize -- tağko dydis,
+#     height -- grafinio lango aukÅ¡tis coliais,
+#  pointsize -- taÅ¡ko dydis,
 #         bg -- grafiko fono spalva,
-#         fg -- grafiko tağkø ir linijø spalva,
-#      title -- á pdf failà árağomas grafiko pavadinimas,
-#     family -- grafike naudojamo ğrifto ğeima,
-#   encoding -- ğrifto koduotë,
-#    onefile -- nurodo, ar faile galima braişyti kelis grafikus,
+#         fg -- grafiko taÅ¡kÅ³ ir linijÅ³ spalva,
+#      title -- Ä¯ pdf failÄ… Ä¯raÅ¡omas grafiko pavadinimas,
+#     family -- grafike naudojamo Å¡rifto Å¡eima,
+#   encoding -- Å¡rifto koduotÄ—,
+#    onefile -- nurodo, ar faile galima braiÅ¾yti kelis grafikus,
 #      paper -- popieriaus lapo dydis,
-# pagecentre -- nurodo, ar grafikà atvaizduoti puslapio centre.
+# pagecentre -- nurodo, ar grafikÄ… atvaizduoti puslapio centre.
 
 
-# Paprasèiausiu atveju uştenka nurodyti pdf dokumento, á kurá bus atvaizduojamas 
-# grafikas, vardà. Jeigu prieğ tai, naudojant funkcijà setwd, nurodomas darbinis 
-# katalogas, failo vardas gali bûti trumpas, prieğingu atveju -- reikia nurodyti 
-# pilnà kelià iki failo. Nubraişius grafikà, rağymas á pdf failà nutraukiamas, o
-# grafinis árenginys uşdaromas. Tam naudojama speciali funkcija dev.off().
+# PaprasÄiausiu atveju uÅ¾tenka nurodyti pdf dokumento, Ä¯ kurÄ¯ bus atvaizduojamas 
+# grafikas, vardÄ…. Jeigu prieÅ¡ tai, naudojant funkcijÄ… setwd, nurodomas darbinis 
+# katalogas, failo vardas gali bÅ«ti trumpas, prieÅ¡ingu atveju -- reikia nurodyti 
+# pilnÄ… keliÄ… iki failo. NubraiÅ¾ius grafikÄ…, raÅ¡ymas Ä¯ pdf failÄ… nutraukiamas, o
+# grafinis Ä¯renginys uÅ¾daromas. Tam naudojama speciali funkcija dev.off().
 
-# Pavyzdşiui, nubraişysime paprastà funkcijos y = sin(x) grafikà ir árağysime já 
-# á failà "grafikas.pdf", kuris bus sukurtas darbiniame kataloge. Pasitikslinti,
-# kuris katalogas yra darbinis, galima naudojant funkcijà getwd().
+# PavyzdÅ¾iui, nubraiÅ¾ysime paprastÄ… funkcijos y = sin(x) grafikÄ… ir Ä¯raÅ¡ysime jÄ¯ 
+# Ä¯ failÄ… "grafikas.pdf", kuris bus sukurtas darbiniame kataloge. Pasitikslinti,
+# kuris katalogas yra darbinis, galima naudojant funkcijÄ… getwd().
 
 pdf(file = "grafikas.pdf")
   plot(sin, -pi, pi, main = "Funkcijos y = sin(x) grafikas")
 dev.off()
 
 
-# Labai daşnai grafikui nubraişyti reikia keletos grafiniø funkcijø ir papildomø
-# skaièiavimø. Tokiu atveju visos grafinës f-jos rağomos tarp pdf() ir dev.off().
+# Labai daÅ¾nai grafikui nubraiÅ¾yti reikia keletos grafiniÅ³ funkcijÅ³ ir papildomÅ³
+# skaiÄiavimÅ³. Tokiu atveju visos grafinÄ—s f-jos raÅ¡omos tarp pdf() ir dev.off().
 
 pdf(file = "grafikas.pdf")
 
-  # nubraişome funkcijos grafikà be Ox ağies ir rëmelio
+  # nubraiÅ¾ome funkcijos grafikÄ… be Ox aÅ¡ies ir rÄ—melio
   plot(sin, -pi, pi, las = 1, xaxt = "n", frame = FALSE)
 
-  # apskaièiuojame Ox ağies padalas ir sudarome jø pavadinimus
+  # apskaiÄiuojame Ox aÅ¡ies padalas ir sudarome jÅ³ pavadinimus
   Ox <- seq(-pi, pi, by = pi/2)
   Lx <- expression(-pi, -pi/2, 0, pi/2, pi)
 
-  # ant grafiko uşdedame Ox ağá
+  # ant grafiko uÅ¾dedame Ox aÅ¡Ä¯
   axis(1, at = Ox, labels = Lx)
 
-  # uşdedame prie Ox ağies padalø priderintà tinklelá
+  # uÅ¾dedame prie Ox aÅ¡ies padalÅ³ priderintÄ… tinklelÄ¯
   abline(v = Ox, h = -2:2/2, lty = "dotted", col = "gray80")
 
-  # uşrağome pagrindinæ grafiko antrağtæ
+  # uÅ¾raÅ¡ome pagrindinÄ™ grafiko antraÅ¡tÄ™
   title(main = "Funkcijos y = sin(x) grafikas")
 
 dev.off()
 
 
-# Grafiko dydá nustato parametrai width ir height. Jeigu nenurodyta kitaip, tada
-# standartinio grafiko dydis yra 7 x 7 colio. Parametras pointsize nustato tağko 
-# dydá, nuo kurio priklauso teksto ğrifto dydis. Pvz., nubraişysime 6 x 4 dydşio
-# grafikà su 8 dydşio ğriftu.
+# Grafiko dydÄ¯ nustato parametrai width ir height. Jeigu nenurodyta kitaip, tada
+# standartinio grafiko dydis yra 7 x 7 colio. Parametras pointsize nustato taÅ¡ko 
+# dydÄ¯, nuo kurio priklauso teksto Å¡rifto dydis. Pvz., nubraiÅ¾ysime 6 x 4 dydÅ¾io
+# grafikÄ… su 8 dydÅ¾io Å¡riftu.
 
 pdf(file = "grafikas.pdf", width = 6, height = 4, pointsize = 8)
   plot(Nile)
@@ -395,8 +395,8 @@ dev.off()
 
 
 # Puslapio, kuriame atvaizduojamas grafikas, dydis priklauso nuo parametro paper. 
-# Standartinë jo reikğmë "special" nurodo, kad puslapio dydis sutampa su grafiko
-# dydşiu, taèiau puslapis gali turëti savo formatà. Kitos parametro reikğmës yra 
+# StandartinÄ— jo reikÅ¡mÄ— "special" nurodo, kad puslapio dydis sutampa su grafiko
+# dydÅ¾iu, taÄiau puslapis gali turÄ—ti savo formatÄ…. Kitos parametro reikÅ¡mÄ—s yra 
 # tokios:
 # 
 #       "a4" -- 8.27 x 11.7 in (210.0 x 297.0 mm),
@@ -406,12 +406,12 @@ dev.off()
 #      "a4r" -- pasuktas A4 formatas,
 #      "USr" -- pasuktas Legal formatas.
 
-# Standartiğkai grafikas vaizduojamas puslapio centre. Tai priklauso nuo loginio 
-# parametro pagecentre. Jam priskyrus reikğmæ FALSE, grafikas bus atvaizduojamas
+# StandartiÅ¡kai grafikas vaizduojamas puslapio centre. Tai priklauso nuo loginio 
+# parametro pagecentre. Jam priskyrus reikÅ¡mÄ™ FALSE, grafikas bus atvaizduojamas
 # viename puslapio kampe.
 
-# Pavyzdşiui, ant pasukto A4 formato puslapio nubraişysime iğ karto du grafikus.
-# Kadangi standartinë parametro pagecenter reikğmë lygi TRUE, grafikas braişomas 
+# PavyzdÅ¾iui, ant pasukto A4 formato puslapio nubraiÅ¾ysime iÅ¡ karto du grafikus.
+# Kadangi standartinÄ— parametro pagecenter reikÅ¡mÄ— lygi TRUE, grafikas braiÅ¾omas 
 # puslapio centre.
 
 pdf(file = "grafikas.pdf", width = 11, height = 6, paper = "a4r")
@@ -421,43 +421,43 @@ pdf(file = "grafikas.pdf", width = 11, height = 6, paper = "a4r")
 dev.off()
 
 
-# PDF dokumente naudojamo ğrifto ğeimà nustato parametras family. Problema tame,
-# kad standartinës reikğmës "serif", "sans" arba "mono" PDF dokumentuose reiğkia
-# tam tikrà konkretø ğriftà, pavyzdşiui:
+# PDF dokumente naudojamo Å¡rifto Å¡eimÄ… nustato parametras family. Problema tame,
+# kad standartinÄ—s reikÅ¡mÄ—s "serif", "sans" arba "mono" PDF dokumentuose reiÅ¡kia
+# tam tikrÄ… konkretÅ³ Å¡riftÄ…, pavyzdÅ¾iui:
 #
 #    "serif" -- "Times"
 #     "sans" -- "Helvetica"
 #     "mono" -- "Courier"
 
-# Ryğá tarp standartinëje R grafikoje naudojamos ğriftø ğeimos ir konkretaus PDF 
-# dokumento ğrifto nusako funkcija pdfFonts.
+# RyÅ¡Ä¯ tarp standartinÄ—je R grafikoje naudojamos Å¡riftÅ³ Å¡eimos ir konkretaus PDF 
+# dokumento Å¡rifto nusako funkcija pdfFonts.
 
 pdfFonts("serif")
 pdfFonts("sans")
 pdfFonts("mono")
 
-# Be to, PDF dokumente galima naudoti ir kitus ğriftus. Pavyzdşiui, gausime visà 
-# jø sàrağà.
+# Be to, PDF dokumente galima naudoti ir kitus Å¡riftus. PavyzdÅ¾iui, gausime visÄ… 
+# jÅ³ sÄ…raÅ¡Ä….
 
 names(pdfFonts())
 
 
-# Tai, kokiu şenklu bus atvaizduota raidë (tiksliau - raidæ atitinkantis kodas), 
-# priklauso nuo koduotës. Lotyniğkos abëcëlës pagrindu sudaryta ASCII koduotë iğ
-# viso koduoja 256 simbolius. Kodai nuo 0 iki 127 koduoja skaitmenis, didşiàsias 
-# ir maşàsias lotyniğkos abëcëlës raides, skyrybos şenklus ir specialius valdymo 
-# simbolius. Likæ 128 kodai naudojami papildomiems simboliams, tarp jø gali bûti 
-# ir nacionaliniø abëcëliø simboliai. Priklausomai nuo to, kokiais simboliais ği
-# lentelë papildoma, gaunama viena ar kita koduotë.
+# Tai, kokiu Å¾enklu bus atvaizduota raidÄ— (tiksliau - raidÄ™ atitinkantis kodas), 
+# priklauso nuo koduotÄ—s. LotyniÅ¡kos abÄ—cÄ—lÄ—s pagrindu sudaryta ASCII koduotÄ— iÅ¡
+# viso koduoja 256 simbolius. Kodai nuo 0 iki 127 koduoja skaitmenis, didÅ¾iÄ…sias 
+# ir maÅ¾Ä…sias lotyniÅ¡kos abÄ—cÄ—lÄ—s raides, skyrybos Å¾enklus ir specialius valdymo 
+# simbolius. LikÄ™ 128 kodai naudojami papildomiems simboliams, tarp jÅ³ gali bÅ«ti 
+# ir nacionaliniÅ³ abÄ—cÄ—liÅ³ simboliai. Priklausomai nuo to, kokiais simboliais Å¡i
+# lentelÄ— papildoma, gaunama viena ar kita koduotÄ—.
 
-# Vakarø Europos kalboms, kurios naudoja lotyniğkà abëcëlæ, naudojama ISO 8859-1 
-# koduotë, kuri dar vadinama Latin-1. MS Windows operacinëje sistemoje jà beveik 
-# visiğkai atitinka Windows-1252 (CP-1252) koduotë. Savo koduotes turi Centrinës
-# ir Rytø Europos kalbos, baltø kalbos, taip pat graikø kalba bei kalbos, kurios 
-# savo rağtui naudoja kirilicà.
+# VakarÅ³ Europos kalboms, kurios naudoja lotyniÅ¡kÄ… abÄ—cÄ—lÄ™, naudojama ISO 8859-1 
+# koduotÄ—, kuri dar vadinama Latin-1. MS Windows operacinÄ—je sistemoje jÄ… beveik 
+# visiÅ¡kai atitinka Windows-1252 (CP-1252) koduotÄ—. Savo koduotes turi CentrinÄ—s
+# ir RytÅ³ Europos kalbos, baltÅ³ kalbos, taip pat graikÅ³ kalba bei kalbos, kurios 
+# savo raÅ¡tui naudoja kirilicÄ….
 
-# PDF dokumento koduotë priklauso nuo parametro encoding reikğmës. Paprastai yra
-# naudojamos tokios koduotës:
+# PDF dokumento koduotÄ— priklauso nuo parametro encoding reikÅ¡mÄ—s. Paprastai yra
+# naudojamos tokios koduotÄ—s:
 #
 #  "WinAnsi" -- Western European,
 #   "CP1250" -- Central European,
@@ -465,34 +465,34 @@ names(pdfFonts())
 #   "CP1253" -- Greek,
 #   "CP1257" -- Baltic.
 
-# Standartinë parametro reikğmë "default" gali reikğti bet kurià iğ ğiø koduoèiø.
-# Tai priklauso nuo to, kokia koduotë naudojama R aplinkoje, bet daşniausiai tai
-# yra "WinAnsi" (kuri iğ tikro turi bûti vadinama Windows-1252).
+# StandartinÄ— parametro reikÅ¡mÄ— "default" gali reikÅ¡ti bet kuriÄ… iÅ¡ Å¡iÅ³ koduoÄiÅ³.
+# Tai priklauso nuo to, kokia koduotÄ— naudojama R aplinkoje, bet daÅ¾niausiai tai
+# yra "WinAnsi" (kuri iÅ¡ tikro turi bÅ«ti vadinama Windows-1252).
 
-# Pavyzdşiui, tà patá grafikà atvaizduosime á PDF failà naudodami dvi skirtingas 
-# koduotes. Galima pastebëti, kad á Windows-1252 koduotæ iğ 9 lietuviğkø raidşiø
-# patenka tik ğ ir ş, o likusios atvaizduojamos nekorektiğkai.
+# PavyzdÅ¾iui, tÄ… patÄ¯ grafikÄ… atvaizduosime Ä¯ PDF failÄ… naudodami dvi skirtingas 
+# koduotes. Galima pastebÄ—ti, kad Ä¯ Windows-1252 koduotÄ™ iÅ¡ 9 lietuviÅ¡kÅ³ raidÅ¾iÅ³
+# patenka tik Å¡ ir Å¾, o likusios atvaizduojamos nekorektiÅ¡kai.
 
 pdf(file = "grafikas.pdf", encoding = "WinAnsi")
   plot(0, 0, type = "n", frame = FALSE, main = "WinAnsi, Western European")
-  text(0, 0, "Lietuviğkos raidës\n àæëáøûèğş\n arba matosi, arba ne.", cex = 3)
+  text(0, 0, "LietuviÅ¡kos raidÄ—s\n Ä…Ä™Ä—Ä¯Å³Å«ÄÅ¡Å¾\n arba matosi, arba ne.", cex = 3)
 dev.off()
 
 pdf(file = "grafikas.pdf", encoding = "CP1257")
   plot(0, 0, type = "n", frame = FALSE, main = "CP-1257, Baltic")
-  text(0, 0, "Lietuviğkos raidës\n àæëáøûèğş\n arba matosi, arba ne.", cex = 3)
+  text(0, 0, "LietuviÅ¡kos raidÄ—s\n Ä…Ä™Ä—Ä¯Å³Å«ÄÅ¡Å¾\n arba matosi, arba ne.", cex = 3)
 dev.off()
 
 
 # NAUDINGA ------------------------------
 
-# Perşiûrëti PDF dokumento parametrø reikğmes galima naudojant f-jà pdf.options.
+# PerÅ¾iÅ«rÄ—ti PDF dokumento parametrÅ³ reikÅ¡mes galima naudojant f-jÄ… pdf.options.
 
 pdf.options()
 
-# Ğià funkcijà galima panaudoti tuo atveju, kai reikia nubraişyti iğ karto kelis 
-# grafikus su vienodomis PDF parametrø reikğmëmis. Nustaèius visiems dokumentams
-# bendrø parametrø reikğmes, funkcijai pdf uştenka nurodyti tik failo vardà.
+# Å iÄ… funkcijÄ… galima panaudoti tuo atveju, kai reikia nubraiÅ¾yti iÅ¡ karto kelis 
+# grafikus su vienodomis PDF parametrÅ³ reikÅ¡mÄ—mis. NustaÄius visiems dokumentams
+# bendrÅ³ parametrÅ³ reikÅ¡mes, funkcijai pdf uÅ¾tenka nurodyti tik failo vardÄ….
 
 pdf.options(width = 6, height = 4, pointsize = 8, encoding = "CP1257")
 
@@ -509,12 +509,12 @@ pdf(file = "grafikas-3.pdf")
 dev.off()
 
 
-# Naudojant ğià funkcijà, galima atstatyti standartines visø parametrø reikğmes.
+# Naudojant Å¡iÄ… funkcijÄ…, galima atstatyti standartines visÅ³ parametrÅ³ reikÅ¡mes.
 
 pdf.options(reset = TRUE)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -523,77 +523,77 @@ pdf.options(reset = TRUE)
 
 
 # --------------------------------------- #
-# RASTRINË GRAFIKA                        #
+# RASTRINÄ– GRAFIKA                        #
 # --------------------------------------- #
 
-# Rastrinës grafikos paveiksle vaizdas sudarytas iğ daug tağkø, kuriø kiekvienas 
-# yra tam tikros spalvos ir uşima tam tikrà vietà. Svarbiausios charakteristikos
-# tai paveikslo dydis tağkais ir spalvø skaièius. Dydis daşniausiai iğreiğkiamas
-# pikseliø skaièiumi á plotá ir aukğtá, spalvø skaièius nusakomas bitø skaièiumi.
+# RastrinÄ—s grafikos paveiksle vaizdas sudarytas iÅ¡ daug taÅ¡kÅ³, kuriÅ³ kiekvienas 
+# yra tam tikros spalvos ir uÅ¾ima tam tikrÄ… vietÄ…. Svarbiausios charakteristikos
+# tai paveikslo dydis taÅ¡kais ir spalvÅ³ skaiÄius. Dydis daÅ¾niausiai iÅ¡reiÅ¡kiamas
+# pikseliÅ³ skaiÄiumi Ä¯ plotÄ¯ ir aukÅ¡tÄ¯, spalvÅ³ skaiÄius nusakomas bitÅ³ skaiÄiumi.
 # Pvz., jei spalvoms koduoti skiriami 8 bitai, tada tokiame paveiksle naudojamos
 # 256 spalvos. 
 
-# Kadangi kiekvienas tağkas gali bûti skirtingos spalvos, rastrinë grafika labai
-# gerai tinka fotografijai bei kitiems sudëtingiems vaizdams fiksuoti ir saugoti, 
-# taèiau rastriniu formatu saugomas vaizdas uşima daugiau vietos negu vektoriniu.
-# Be to, keièiant mastelá arba atliekant kitas geometrines transformacijas, pvz., 
-# pasukant, prarandama vaizdo kokybë.
+# Kadangi kiekvienas taÅ¡kas gali bÅ«ti skirtingos spalvos, rastrinÄ— grafika labai
+# gerai tinka fotografijai bei kitiems sudÄ—tingiems vaizdams fiksuoti ir saugoti, 
+# taÄiau rastriniu formatu saugomas vaizdas uÅ¾ima daugiau vietos negu vektoriniu.
+# Be to, keiÄiant mastelÄ¯ arba atliekant kitas geometrines transformacijas, pvz., 
+# pasukant, prarandama vaizdo kokybÄ—.
 
-# Daugeliui árenginiø rastrinë grafika yra natûralus bûdas atvaizduoti tam tikrà
-# vaizdà: tai skaitmeninë fotokamera, kompiuterio ekranas, spausdintuvas ir t.t. 
-# Labiausiai paplitæ ğie rastrinës grafikos failø formatai:
+# Daugeliui Ä¯renginiÅ³ rastrinÄ— grafika yra natÅ«ralus bÅ«das atvaizduoti tam tikrÄ…
+# vaizdÄ…: tai skaitmeninÄ— fotokamera, kompiuterio ekranas, spausdintuvas ir t.t. 
+# Labiausiai paplitÄ™ Å¡ie rastrinÄ—s grafikos failÅ³ formatai:
 #
 #        png -- Portable Network Graphics,
 #        bmp -- Bitmap Image File,
 #       jpeg -- Joint Photographic Experts Group,
 #       tiff -- Tagged Image File Format.
 
-# Kiekvienas failo formatas turi savo pritaikymo sritá. Pavyzdşiui, BMP formatas 
-# naudojamas nesuspaustiems rastriniams vaizdams saugoti ir yra natûtali Windows
-# OS grafinës sistemos dalis. JPEG tai rastriniø vaizdø saugojimo bei suspaudimo 
-# metodas. Jis daşniausiai naudojamas skaitmetinëje fotografijoje ir şemëlapiams
-# atvaizduoti. Vaizdo suspaudimo laipsná galima nustatyti, taèiau èia prarandama
-# informacija, todël nukenèia paveikslo kokybë. Dël tos prieşasties JPEG netinka 
-# brëşiniams bei diagramoms vaizduoti. PNG formate vaizdo suspaudimas atliekamas 
-# be informacijos praradimo. PGN formatas naudojat tik RGB spalvø sistemà, todël
-# netinka spaudai, bet grafikams, diagramoms ir brëşiniams tinka geriau nei JPEG.
-# Spaudoje plaèiai naudojamas TIFF formatas, kuriame suspaudimas gali bûti ir be 
+# Kiekvienas failo formatas turi savo pritaikymo sritÄ¯. PavyzdÅ¾iui, BMP formatas 
+# naudojamas nesuspaustiems rastriniams vaizdams saugoti ir yra natÅ«tali Windows
+# OS grafinÄ—s sistemos dalis. JPEG tai rastriniÅ³ vaizdÅ³ saugojimo bei suspaudimo 
+# metodas. Jis daÅ¾niausiai naudojamas skaitmetinÄ—je fotografijoje ir Å¾emÄ—lapiams
+# atvaizduoti. Vaizdo suspaudimo laipsnÄ¯ galima nustatyti, taÄiau Äia prarandama
+# informacija, todÄ—l nukenÄia paveikslo kokybÄ—. DÄ—l tos prieÅ¾asties JPEG netinka 
+# brÄ—Å¾iniams bei diagramoms vaizduoti. PNG formate vaizdo suspaudimas atliekamas 
+# be informacijos praradimo. PGN formatas naudojat tik RGB spalvÅ³ sistemÄ…, todÄ—l
+# netinka spaudai, bet grafikams, diagramoms ir brÄ—Å¾iniams tinka geriau nei JPEG.
+# Spaudoje plaÄiai naudojamas TIFF formatas, kuriame suspaudimas gali bÅ«ti ir be 
 # informacijos praradimo, ir su praradimu, o spalvoms naudojamos ir RGB, ir CMYK
 # sistemos.
 
-# Grafikams iğsaugoti rastriniu formatu R turi funkcijas bmp, jpeg, png ir tiff. 
-# Beveik visi ğiø funkcijø parametrai yra tie patys, svarbiausi iğ jø yra tokie:
+# Grafikams iÅ¡saugoti rastriniu formatu R turi funkcijas bmp, jpeg, png ir tiff. 
+# Beveik visi Å¡iÅ³ funkcijÅ³ parametrai yra tie patys, svarbiausi iÅ¡ jÅ³ yra tokie:
 #
 #       file -- failo pavadinimas,
 #      width -- grafiko plotis,
-#     height -- grafiko aukğtis,
-#      units -- grafiko iğmatavimo vienetai, px, in,
-#        res -- tağkø tankis, 
-#  pointsize -- tağko dydis,
+#     height -- grafiko aukÅ¡tis,
+#      units -- grafiko iÅ¡matavimo vienetai, px, in,
+#        res -- taÅ¡kÅ³ tankis, 
+#  pointsize -- taÅ¡ko dydis,
 #         bg -- grafiko fono spalva,
-#     family -- grafike naudojamo ğrifto ğeima,
+#     family -- grafike naudojamo Å¡rifto Å¡eima,
 #       type -- grafikos tipas, standartinis Windows GDI arba Cairo,
 #  antialias -- glodinimo metodas.
 
-# Jei grafikas iğsaugomas JPEG formatu, vaizdo suspaudimo laipnis yra nustatomas 
-# naudojant parametrà quality, jei TIFF formatu, naudojant parametrà compression
-# nustatomas vaizdo suspaudimo algoritmas, kuriø yra keletas.
+# Jei grafikas iÅ¡saugomas JPEG formatu, vaizdo suspaudimo laipnis yra nustatomas 
+# naudojant parametrÄ… quality, jei TIFF formatu, naudojant parametrÄ… compression
+# nustatomas vaizdo suspaudimo algoritmas, kuriÅ³ yra keletas.
 
 
-# Jeigu grafikas bus perşiûrimas kompiuterio ekrane arba naudojamas publikavimui
-# internete, tai jam iğsaugoti geriausiai tinka PNG formatas. Pvz., nubraişysime 
-# paprastà 800 x 600 px dydşio grafikà ir iğsaugosime já PNG formatu.
+# Jeigu grafikas bus perÅ¾iÅ«rimas kompiuterio ekrane arba naudojamas publikavimui
+# internete, tai jam iÅ¡saugoti geriausiai tinka PNG formatas. Pvz., nubraiÅ¾ysime 
+# paprastÄ… 800 x 600 px dydÅ¾io grafikÄ… ir iÅ¡saugosime jÄ¯ PNG formatu.
 
 png(file = "grafikas-800x600.png", 800, 600)
   plot(sin, -3*pi, 3*pi)
 dev.off()
 
 
-# JPEG formatu saugomo vaizdo kokybë labai priklauso nuo jo suspaudimo laipsnio.
-# Pavyzdşiui, nubraişysime tam tikros vietovës şemëlapá su aukğèio izolinijomis, 
-# kurá pradşioje iğsaugosime JPEG formatu su dideliu suspaudimo laipsniu, o tada
-# dar kartà iğsaugosime iğlaikant beveik maksimalià vaizdo kokybæ. Jai nustatyti
-# naudojamas funkcijos jpeg parametras quality. Galima pastebëti, kad 
+# JPEG formatu saugomo vaizdo kokybÄ— labai priklauso nuo jo suspaudimo laipsnio.
+# PavyzdÅ¾iui, nubraiÅ¾ysime tam tikros vietovÄ—s Å¾emÄ—lapÄ¯ su aukÅ¡Äio izolinijomis, 
+# kurÄ¯ pradÅ¾ioje iÅ¡saugosime JPEG formatu su dideliu suspaudimo laipsniu, o tada
+# dar kartÄ… iÅ¡saugosime iÅ¡laikant beveik maksimaliÄ… vaizdo kokybÄ™. Jai nustatyti
+# naudojamas funkcijos jpeg parametras quality. Galima pastebÄ—ti, kad 
 
 jpeg(file = "zemelapis-jpg-15proc.jpg", 800, 600, quality = 15)
   filled.contour(volcano, color = terrain.colors, nlevels = 20, 
@@ -605,11 +605,11 @@ jpeg(file = "zemelapis-jpg-95proc.jpg", 800, 600, quality = 95)
   	                  plot.axes = contour(volcano, n = 20, add = TRUE))
 dev.off()
 
-# Nesunkiai galima pastebëti spalvos netolygumus, neryğkias linijas ir kitus dël 
-# didelio vaizdo suspaudimo atsiradusius artefaktus. Didelës kokybës faile tokie
-# artefaktai vizualiai nematomi, taèiau toks failas uşima şymiai daugiau vietos.
-# Palyginimui tà patá grafikà iğssaugosime PNG formatu. Galima pastebëti, kad to
-# paties dydşio ir vizualiai tos paèios vaizdo kokybës JPEG failas uşima daugiau 
+# Nesunkiai galima pastebÄ—ti spalvos netolygumus, neryÅ¡kias linijas ir kitus dÄ—l 
+# didelio vaizdo suspaudimo atsiradusius artefaktus. DidelÄ—s kokybÄ—s faile tokie
+# artefaktai vizualiai nematomi, taÄiau toks failas uÅ¾ima Å¾ymiai daugiau vietos.
+# Palyginimui tÄ… patÄ¯ grafikÄ… iÅ¡ssaugosime PNG formatu. Galima pastebÄ—ti, kad to
+# paties dydÅ¾io ir vizualiai tos paÄios vaizdo kokybÄ—s JPEG failas uÅ¾ima daugiau 
 # vietos diske negu PNG formato failas.
 
 png(file = "zemelapis-png.png", 800, 600)
@@ -618,18 +618,18 @@ png(file = "zemelapis-png.png", 800, 600)
 dev.off()
 
 
-# Rastrinës grafikos paveiksliuko dydis iğreiğkiamas tağkø skaièiumi - paprastai
-# nurodomas plotis ir aukğtis. Realus paveikslo dydis ekrane arba ant popieriaus 
-# priklauso nuo tağkø tankio; kuo tağkø tankis didesnis, tuo paveikslas maşesnis. 
-# Tağkø tankis ekrane nurodomas PPI (points per inch), o spausdinto paveiksliuko 
-# tağkø tankis nurodomas DPI (dots per inch) vienetais. Kompiuterio ekrane tağkø 
-# tankis standartiğkai yra 72 ppi. Spaudoje, kur reikalinga aukğta vaizdo kokybë, 
-# paveiksliukas gali bûti 300 arba net ir 600 dpi.
+# RastrinÄ—s grafikos paveiksliuko dydis iÅ¡reiÅ¡kiamas taÅ¡kÅ³ skaiÄiumi - paprastai
+# nurodomas plotis ir aukÅ¡tis. Realus paveikslo dydis ekrane arba ant popieriaus 
+# priklauso nuo taÅ¡kÅ³ tankio; kuo taÅ¡kÅ³ tankis didesnis, tuo paveikslas maÅ¾esnis. 
+# TaÅ¡kÅ³ tankis ekrane nurodomas PPI (points per inch), o spausdinto paveiksliuko 
+# taÅ¡kÅ³ tankis nurodomas DPI (dots per inch) vienetais. Kompiuterio ekrane taÅ¡kÅ³ 
+# tankis standartiÅ¡kai yra 72 ppi. Spaudoje, kur reikalinga aukÅ¡ta vaizdo kokybÄ—, 
+# paveiksliukas gali bÅ«ti 300 arba net ir 600 dpi.
 
-# Rastrinës grafikos funkcijose tağkø tankis nustatomas naudojant parametrà res. 
-# Tarkime, kad atspausdintas 200 ppi paveiksliukas turi bûti 8 x 6 coliø dydşio. 
-# Toká grafikà iğsaugosime PNG formatu. Nesunku apskaièiuoti, kad paveikslas bus 
-# 1600 x 1200 pikseliø dydşio.
+# RastrinÄ—s grafikos funkcijose taÅ¡kÅ³ tankis nustatomas naudojant parametrÄ… res. 
+# Tarkime, kad atspausdintas 200 ppi paveiksliukas turi bÅ«ti 8 x 6 coliÅ³ dydÅ¾io. 
+# TokÄ¯ grafikÄ… iÅ¡saugosime PNG formatu. Nesunku apskaiÄiuoti, kad paveikslas bus 
+# 1600 x 1200 pikseliÅ³ dydÅ¾io.
 
 png(file = "zemelapis-8x6-200ppi.png", 8, 6, units = "in", res = 200)
   filled.contour(volcano, color = terrain.colors, nlevels = 20, 
@@ -639,20 +639,20 @@ dev.off()
 
 # NAUDINGA ------------------------------
 
-# Gana daşnai pasitaiko situacija, kada reikia nubraişyti ir iğsaugoti keletà to 
-# paties tipo grafikø. Tipinë situacija -- analogiğkø skaièiavimø su skirtingais
-# duomenimis rezultatø atvaizdavimas ir jø palyginimas. 
+# Gana daÅ¾nai pasitaiko situacija, kada reikia nubraiÅ¾yti ir iÅ¡saugoti keletÄ… to 
+# paties tipo grafikÅ³. TipinÄ— situacija -- analogiÅ¡kÅ³ skaiÄiavimÅ³ su skirtingais
+# duomenimis rezultatÅ³ atvaizdavimas ir jÅ³ palyginimas. 
 
-# Pavyzdşiui, turime matricà su 25 stulpeliais. Reikia nubraişyti visø kintamøjø
-# histogramas ir iğsaugoti jas PNG formato failuose su skirtingais pavadinimais.
-# Èia panaudosime modeliuotus duomenis.
+# PavyzdÅ¾iui, turime matricÄ… su 25 stulpeliais. Reikia nubraiÅ¾yti visÅ³ kintamÅ³jÅ³
+# histogramas ir iÅ¡saugoti jas PNG formato failuose su skirtingais pavadinimais.
+# ÄŒia panaudosime modeliuotus duomenis.
 
 duomenys <- replicate(25, rnorm(200, sample(20, 1)))
 
-# Paprasèiausias bûdas atlikti ğià uşduotá -- histogramos braişymo funkcijà hist 
-# ádëti á ciklà, kurio indeksas perbëga per matricos stulpelius. Kadangi grafikà
-# reikia iğsaugoti vis kitame faile, failo vardus sudarome kiekvienos iteracijos 
-# metu. Paprasèiausia prie failo vardo pridëti numerá, tam naudojame f-jà paste.
+# PaprasÄiausias bÅ«das atlikti Å¡iÄ… uÅ¾duotÄ¯ -- histogramos braiÅ¾ymo funkcijÄ… hist 
+# Ä¯dÄ—ti Ä¯ ciklÄ…, kurio indeksas perbÄ—ga per matricos stulpelius. Kadangi grafikÄ…
+# reikia iÅ¡saugoti vis kitame faile, failo vardus sudarome kiekvienos iteracijos 
+# metu. PaprasÄiausia prie failo vardo pridÄ—ti numerÄ¯, tam naudojame f-jÄ… paste.
 
 for (i in 1:25) {
 
@@ -663,22 +663,22 @@ for (i in 1:25) {
   dev.off()
 }
 
-# Perşiûrint gautas histogramas, iğ karto iğryğkëja keletas trûkumø. Pvz., failø 
-# numeracija teisinga, bet jø iğdëstymo tvarka 1, 10, 11, ..., 19, 2, 20 ir t.t.
-# yra nepatogi. Visø histogramø antrağtës yra vienodos. Histogramos iğ skirtingø
-# failø tarpusavyje nepalyginamos, kadangi visø jø ağiø ribos yra skirtingos. Ğá 
-# grafikø braişymo algoritmà galima patobulinti ir iğtaisyti pastebëtus trûkumus:
+# PerÅ¾iÅ«rint gautas histogramas, iÅ¡ karto iÅ¡ryÅ¡kÄ—ja keletas trÅ«kumÅ³. Pvz., failÅ³ 
+# numeracija teisinga, bet jÅ³ iÅ¡dÄ—stymo tvarka 1, 10, 11, ..., 19, 2, 20 ir t.t.
+# yra nepatogi. VisÅ³ histogramÅ³ antraÅ¡tÄ—s yra vienodos. Histogramos iÅ¡ skirtingÅ³
+# failÅ³ tarpusavyje nepalyginamos, kadangi visÅ³ jÅ³ aÅ¡iÅ³ ribos yra skirtingos. Å Ä¯ 
+# grafikÅ³ braiÅ¾ymo algoritmÄ… galima patobulinti ir iÅ¡taisyti pastebÄ—tus trÅ«kumus:
 #
 #   1. failo vardus numeruoti pradedant nuo 01, 02 ir t.t.;
-#   2. kiekvienam grafikui uşdëti individualià antrağtæ;
-#   3. nustatyti bendras visiems grafikams ağiø kitimo ribas;
-#   4. visoms histogramoms nustatyti vienodà stulpeliø skaièiø;
-#   5. automatiğkai nustatyti iteracijø skaièiø.
+#   2. kiekvienam grafikui uÅ¾dÄ—ti individualiÄ… antraÅ¡tÄ™;
+#   3. nustatyti bendras visiems grafikams aÅ¡iÅ³ kitimo ribas;
+#   4. visoms histogramoms nustatyti vienodÄ… stulpeliÅ³ skaiÄiÅ³;
+#   5. automatiÅ¡kai nustatyti iteracijÅ³ skaiÄiÅ³.
 
 
-# Pirmiausia nustatome, kokiose ribose kinta visø lentelës kintamøjø reikğmës, o
-# tada jas ğiek tiek iğpleèiame ir suapvaliname iki sveikø reikğmiø. Histogramos
-# stulpeliø maksimalus aukğtis parenkamas bandymø keliu.
+# Pirmiausia nustatome, kokiose ribose kinta visÅ³ lentelÄ—s kintamÅ³jÅ³ reikÅ¡mÄ—s, o
+# tada jas Å¡iek tiek iÅ¡pleÄiame ir suapvaliname iki sveikÅ³ reikÅ¡miÅ³. Histogramos
+# stulpeliÅ³ maksimalus aukÅ¡tis parenkamas bandymÅ³ keliu.
 
 xx <- round(range(duomenys) + c(-0.5, 0.5)) 
 yy <- c(0, 60)
@@ -688,16 +688,16 @@ for (i in 1:ncol(duomenys)) {
 
   nr <- sprintf("%02d", i)
   failas   <- paste("histograma-", nr, ".png", sep = "")
-  antrağtë <- paste("Histogramos numeris", nr)    
+  antraÅ¡tÄ— <- paste("Histogramos numeris", nr)    
 
   png(file = failas, 800, 600)
     hist(duomenys[, i], breaks = 10, xlim = xx, ylim = yy, ann = FALSE)
-    title(main = antrağtë, xlab = "x")
+    title(main = antraÅ¡tÄ—, xlab = "x")
   dev.off()
 }
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    

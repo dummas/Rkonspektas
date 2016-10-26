@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Keliø grafikø viename grafiniame lange braişymas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            KeliÅ³ grafikÅ³ viename grafiniame lange braiÅ¾ymas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-02-26 | 2016-03-19
 #
@@ -12,12 +12,12 @@
 # TURINYS -------------------------------
 
 #
-#   1. Grafinio lango padalinimas á kelias dalis:
+#   1. Grafinio lango padalinimas Ä¯ kelias dalis:
 #      * funkcija par su parametrais mfcol ir mfrow
 #      * funkcija layout
 #      * funkcija layout.show
 #
-#   2. Braişymo srities apribojimas:
+#   2. BraiÅ¾ymo srities apribojimas:
 #      * funkcija clip
 #      * parametras add
 #
@@ -26,19 +26,19 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti daugiau uşdaviniø.
+# Sugalvoti daugiau uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -46,33 +46,33 @@ rm(list = ls())
 # GRAFINIAI PARAMETRAI mfrow IR mfcol     #
 # --------------------------------------- #
 
-# Naudojant aukğto lygio grafinæ funkcijà, pavyzdşiui, plot, hist, barplot, arba 
-# atidaromas naujas grafinis langas, arba iğvalomas jau atidarytas langas ir tik
-# tada braişomas naujas grafikas. Uş tai atsakinga pagalbinë funkcija plot.new().
-# Naujà grafiná langà galima atidaryti naudojant funkcijà windows(). 
+# Naudojant aukÅ¡to lygio grafinÄ™ funkcijÄ…, pavyzdÅ¾iui, plot, hist, barplot, arba 
+# atidaromas naujas grafinis langas, arba iÅ¡valomas jau atidarytas langas ir tik
+# tada braiÅ¾omas naujas grafikas. UÅ¾ tai atsakinga pagalbinÄ— funkcija plot.new().
+# NaujÄ… grafinÄ¯ langÄ… galima atidaryti naudojant funkcijÄ… windows(). 
 
 windows()
 plot.new()
 
-# Tokiu bûdu galima atidaryti daug grafiniø langø, taèiau vis tiek viename lange 
-# galima nubraişyti tik vienà grafikà. 
+# Tokiu bÅ«du galima atidaryti daug grafiniÅ³ langÅ³, taÄiau vis tiek viename lange 
+# galima nubraiÅ¾yti tik vienÄ… grafikÄ…. 
 
-# Tuo atveju, kai grafiniame lange reikia braişyti keletà grafikø, grafiná langà 
-# reikia padalinti á keletà daliø. Tam yra keletas bûdø. Vienas iğ jø -- naudoti
-# grafinius parametrus mfrow arba mfcol. Parametras mfrow parodo, á kiek eiluèiø 
-# ir kiek stulpeliø padalintas grafinis langas.
+# Tuo atveju, kai grafiniame lange reikia braiÅ¾yti keletÄ… grafikÅ³, grafinÄ¯ langÄ… 
+# reikia padalinti Ä¯ keletÄ… daliÅ³. Tam yra keletas bÅ«dÅ³. Vienas iÅ¡ jÅ³ -- naudoti
+# grafinius parametrus mfrow arba mfcol. Parametras mfrow parodo, Ä¯ kiek eiluÄiÅ³ 
+# ir kiek stulpeliÅ³ padalintas grafinis langas.
 
 par("mfrow")
 par("mfcol")
 
-# Jeigu nenurodyta kitaip, grafiniame lange yra viena eilutë ir vienas stulpelis.
-# Parametro reikğmë yra du elementus turintis sveikøjø skaièiø vektorius. Pirmas
-# skaièius nurodo eiluèiø, antras - stulpeliø skaièiø. Jeigu grafinis langas yra
-# padalinamas á dalis keièiant parametro mfrow reikğmæ, tai tos dalys uşpildomos 
-# grafikais pagal eilutes iğ kairës á değinæ. Jeigu keièiama mfcol reikğmë, tada
-# grafikai braişomi stulpeliais iğ virğaus á apaèià. 
+# Jeigu nenurodyta kitaip, grafiniame lange yra viena eilutÄ— ir vienas stulpelis.
+# Parametro reikÅ¡mÄ— yra du elementus turintis sveikÅ³jÅ³ skaiÄiÅ³ vektorius. Pirmas
+# skaiÄius nurodo eiluÄiÅ³, antras - stulpeliÅ³ skaiÄiÅ³. Jeigu grafinis langas yra
+# padalinamas Ä¯ dalis keiÄiant parametro mfrow reikÅ¡mÄ™, tai tos dalys uÅ¾pildomos 
+# grafikais pagal eilutes iÅ¡ kairÄ—s Ä¯ deÅ¡inÄ™. Jeigu keiÄiama mfcol reikÅ¡mÄ—, tada
+# grafikai braiÅ¾omi stulpeliais iÅ¡ virÅ¡aus Ä¯ apaÄiÄ…. 
 
-# Pavyzdşiui, grafiná langà padalinsime vertikaliai á dvi dalis, nubraişysime du
+# PavyzdÅ¾iui, grafinÄ¯ langÄ… padalinsime vertikaliai Ä¯ dvi dalis, nubraiÅ¾ysime du
 # skirtingus grafikus.
 
 par(mfrow = c(1, 2))
@@ -83,29 +83,29 @@ boxplot(Temp ~ Month, data = airquality, frame = FALSE)
 
 # NAUDINGA ------------------------------
 
-# Daşnai tenka nagrinëti ir tarpusavyje palyginti daug tokio paties tipo grafikø. 
-# Tam, kad visi grafikai bûtø matomi vienu metu, juos galima nubraişyti á keletà
-# daliø sudalintame grafiniame lange. Tarkime, kad eksperimentas pakartojamas 25 
-# kartus. Reikia nubraişyti kiekvieno bandymo matavimø histogramas. Èia duomenys 
+# DaÅ¾nai tenka nagrinÄ—ti ir tarpusavyje palyginti daug tokio paties tipo grafikÅ³. 
+# Tam, kad visi grafikai bÅ«tÅ³ matomi vienu metu, juos galima nubraiÅ¾yti Ä¯ keletÄ…
+# daliÅ³ sudalintame grafiniame lange. Tarkime, kad eksperimentas pakartojamas 25 
+# kartus. Reikia nubraiÅ¾yti kiekvieno bandymo matavimÅ³ histogramas. ÄŒia duomenys 
 # duoti matricos pavidalu.
 
 duomenys <- replicate(25, rnorm(200, sample(20, 1)))
 
 
-# Naujà grafiná langà padaliname á 25 maşesnius langus. Papildomai nurodome visø
-# langø parağèiø ploèius.
+# NaujÄ… grafinÄ¯ langÄ… padaliname Ä¯ 25 maÅ¾esnius langus. Papildomai nurodome visÅ³
+# langÅ³ paraÅ¡ÄiÅ³ ploÄius.
 
 windows(10, 8)
 par(mfrow = c(5, 5), mar = c(2, 2, 1, 1))
 
-# Apskaièiuojame grafikø ağiø ribas.
+# ApskaiÄiuojame grafikÅ³ aÅ¡iÅ³ ribas.
 
 xx <- round(range(duomenys) + c(-0.5, 0.5))
 yy <- c(0, 60)
 
 
-# Funkcijà hist ástatome á ciklà. Ant kiekvienos histogramos papildomai uşdedame
-# duomenø matricos stulpelio numerá.
+# FunkcijÄ… hist Ä¯statome Ä¯ ciklÄ…. Ant kiekvienos histogramos papildomai uÅ¾dedame
+# duomenÅ³ matricos stulpelio numerÄ¯.
 
 for (i in 1:ncol(duomenys)) {
 
@@ -118,9 +118,9 @@ for (i in 1:ncol(duomenys)) {
 
 # NAUDINGA ------------------------------
 
-# Vokieèiø dailininko Albrechto Diurerio paveikslas Melencolia I garsus tuo, kad
-# jame pavaizduotas magiğkas kvadratas. Tai toks kvadratas, kuriame skaièiø suma
-# eilutëse, stulpeliuose ir ástrişainëse yra vienoda. Nubraişysime toká kvadratà.
+# VokieÄiÅ³ dailininko Albrechto Diurerio paveikslas Melencolia I garsus tuo, kad
+# jame pavaizduotas magiÅ¡kas kvadratas. Tai toks kvadratas, kuriame skaiÄiÅ³ suma
+# eilutÄ—se, stulpeliuose ir Ä¯striÅ¾ainÄ—se yra vienoda. NubraiÅ¾ysime tokÄ¯ kvadratÄ….
 #
 #    +----+----+----+----+
 #    | 16 | 3  | 2  | 13 |
@@ -134,21 +134,21 @@ for (i in 1:ncol(duomenys)) {
 
 kvadratas <- c(16, 5, 9, 4, 3, 10, 6, 15, 2, 11, 7, 14, 13, 8, 12, 1)
 
-# Grafiná langà padaliname á 4 stulpelius ir 4 eilutes. Tokiu bûdu gauname 4 x 4 
-# vienodø langeliø, kurie visi yra savarankiğki grafikai. Visi kartu jie sudarys
-# magiğkà kvadratà. Kadangi kvadrato skaièiai surağyti pagal stulpelius, grafiná 
-# langà sudalinsime naudojant parametrà mfcol.
+# GrafinÄ¯ langÄ… padaliname Ä¯ 4 stulpelius ir 4 eilutes. Tokiu bÅ«du gauname 4 x 4 
+# vienodÅ³ langeliÅ³, kurie visi yra savarankiÅ¡ki grafikai. Visi kartu jie sudarys
+# magiÅ¡kÄ… kvadratÄ…. Kadangi kvadrato skaiÄiai suraÅ¡yti pagal stulpelius, grafinÄ¯ 
+# langÄ… sudalinsime naudojant parametrÄ… mfcol.
 
 par(mfcol = c(4, 4))
 
-# Kiekvieno tokio grafiko centre uşrağysime po vienà skaièiø iğ magiğko kvadrato.
-# Sudarome funkcijà, kuri skaièiø x uşrağo grafiko centre. Nurodome, kad grafiko
-# parağtës bûtø nulinës, uşdraudşiame braişyti koordinaèiø ağis ir nurodome, kad
-# bûtø rëmelis uşdedamas ant viso grafinio langelio.
+# Kiekvieno tokio grafiko centre uÅ¾raÅ¡ysime po vienÄ… skaiÄiÅ³ iÅ¡ magiÅ¡ko kvadrato.
+# Sudarome funkcijÄ…, kuri skaiÄiÅ³ x uÅ¾raÅ¡o grafiko centre. Nurodome, kad grafiko
+# paraÅ¡tÄ—s bÅ«tÅ³ nulinÄ—s, uÅ¾draudÅ¾iame braiÅ¾yti koordinaÄiÅ³ aÅ¡is ir nurodome, kad
+# bÅ«tÅ³ rÄ—melis uÅ¾dedamas ant viso grafinio langelio.
 
 centras <- function(x) {
 
-  # Nurodome grafinio lango parağèiø plotá.
+  # Nurodome grafinio lango paraÅ¡ÄiÅ³ plotÄ¯.
   par(mar = rep(0, 4))
 
   plot(0, 0, type = "n", axes = FALSE, ann = FALSE, frame = FALSE)
@@ -156,13 +156,13 @@ centras <- function(x) {
   box(which = "figure")
 }
 
-# Ğià funkcijà ástatome á ciklà ir taip skaièiais uşpildome visas grafinio lango
+# Å iÄ… funkcijÄ… Ä¯statome Ä¯ ciklÄ… ir taip skaiÄiais uÅ¾pildome visas grafinio lango
 # dalis.
 
 for (x in kvadratas) centras(x)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    
@@ -174,24 +174,24 @@ for (x in kvadratas) centras(x)
 # FUNKCIJA LAYOUT                         #
 # --------------------------------------- #
 
-# Jeigu grafinis langas padalinamas á dalis naudojant grafinius parametrus mfrow
-# arba mfcol, tada visos tos dalys yra vienodo dydşio. Be to, negalima nustatyti
-# tø daliø uşpildymo tvarkos. Tokie apribojimai kartais gali sukelti nepatogumø.
-# Jø galima iğvengti naudojant funkcijà layout. Ği f-ja leidşia sukurti grafinio
-# lango padalijimo á dalis plano matricà ir nustatyti stulpeliø ir eiluèiø plotá.
-# Pagrindiniai jos parametrai ğie:
+# Jeigu grafinis langas padalinamas Ä¯ dalis naudojant grafinius parametrus mfrow
+# arba mfcol, tada visos tos dalys yra vienodo dydÅ¾io. Be to, negalima nustatyti
+# tÅ³ daliÅ³ uÅ¾pildymo tvarkos. Tokie apribojimai kartais gali sukelti nepatogumÅ³.
+# JÅ³ galima iÅ¡vengti naudojant funkcijÄ… layout. Å i f-ja leidÅ¾ia sukurti grafinio
+# lango padalijimo Ä¯ dalis plano matricÄ… ir nustatyti stulpeliÅ³ ir eiluÄiÅ³ plotÄ¯.
+# Pagrindiniai jos parametrai Å¡ie:
 #
-#        mat -- matrica, kurios elementai nurodo lango daliø uşpildymo tvarkà,
-#     widths -- grafinio lango stulpeliø ploèiø vektorius,
-#    heights -- grafinio lango eiluèiø aukğèiø vektorius.
+#        mat -- matrica, kurios elementai nurodo lango daliÅ³ uÅ¾pildymo tvarkÄ…,
+#     widths -- grafinio lango stulpeliÅ³ ploÄiÅ³ vektorius,
+#    heights -- grafinio lango eiluÄiÅ³ aukÅ¡ÄiÅ³ vektorius.
 
-# Plano matricos elementø reikğmës gali bûti 0 arba sveikieji teigiami skaièiai. 
-# Matricoje gali bûti pasikartojanèiø reikğmiø. Tà paèià reikğmæ turinèios lango
-# dalys yra apjungiamos á vienà. Reikğmë 0 nurodo, kad atitinkama grafinio lango
+# Plano matricos elementÅ³ reikÅ¡mÄ—s gali bÅ«ti 0 arba sveikieji teigiami skaiÄiai. 
+# Matricoje gali bÅ«ti pasikartojanÄiÅ³ reikÅ¡miÅ³. TÄ… paÄiÄ… reikÅ¡mÄ™ turinÄios lango
+# dalys yra apjungiamos Ä¯ vienÄ…. ReikÅ¡mÄ— 0 nurodo, kad atitinkama grafinio lango
 # dalis nenaudojama.
 
-# Pavyzdşiui, tarkime, kad grafiná langà reikia padalinti á dvi eilutes bei tris 
-# stulpelius, o jø uşpildymo tvarkà nusako tokia matrica:
+# PavyzdÅ¾iui, tarkime, kad grafinÄ¯ langÄ… reikia padalinti Ä¯ dvi eilutes bei tris 
+# stulpelius, o jÅ³ uÅ¾pildymo tvarkÄ… nusako tokia matrica:
 #
 #    +----+----+----+
 #    | 1  | 2  | 5  |
@@ -199,23 +199,23 @@ for (x in kvadratas) centras(x)
 #    | 3  | 4  | 6  |
 #    +----+----+----+
 
-# Uşrağome grafikø braişymo tvarkos vektoriø.
+# UÅ¾raÅ¡ome grafikÅ³ braiÅ¾ymo tvarkos vektoriÅ³.
 i <- c(1, 2, 5, 3, 4, 6)
 
-# Sudarome 2 x 3 dydşio grafikø iğdëstymo plano matricà.
+# Sudarome 2 x 3 dydÅ¾io grafikÅ³ iÅ¡dÄ—stymo plano matricÄ….
 m <- matrix(i, nrow = 2, ncol = 3, byrow = TRUE)
 m 
 
 layout(m)
 
-# Naudojant funkcijà layout.show, grafiniame lange galima parodyti atskirø langø
-# numerius. Ğios funkcijos argumentas yra tokiø langø skaièius. Nurodysime visus
-# ğeğis langus.
+# Naudojant funkcijÄ… layout.show, grafiniame lange galima parodyti atskirÅ³ langÅ³
+# numerius. Å ios funkcijos argumentas yra tokiÅ³ langÅ³ skaiÄius. Nurodysime visus
+# Å¡eÅ¡is langus.
 
 layout.show(6)
 
-# Nubraişome keturis statistinius grafikus. Jie grafiniame lange iğdëstomi pagal 
-# duodà plano matricà.
+# NubraiÅ¾ome keturis statistinius grafikus. Jie grafiniame lange iÅ¡dÄ—stomi pagal 
+# duodÄ… plano matricÄ….
 
 plot(Nile)
 boxplot(Nile)
@@ -223,8 +223,8 @@ hist(Nile)
 qqnorm(Nile)
 
 
-# Sudarysime tokià grafinio lango padalijimo plano matricà, kad tie patys keturi 
-# grafikai bûtø iğdëstyti taip:
+# Sudarysime tokiÄ… grafinio lango padalijimo plano matricÄ…, kad tie patys keturi 
+# grafikai bÅ«tÅ³ iÅ¡dÄ—styti taip:
 #
 #    +----+----+----+
 #    |      1       |
@@ -232,7 +232,7 @@ qqnorm(Nile)
 #    | 2  | 3  | 4  |
 #    +----+----+----+
 
-# Nors plano matrica yra tokio paties dydşio 2 x 3, taèiau ğiuo atveju ji aprağo 
+# Nors plano matrica yra tokio paties dydÅ¾io 2 x 3, taÄiau Å¡iuo atveju ji apraÅ¡o 
 # keturias grafinio lango dalis.
 
 i <- c(1, 1, 1, 2, 3, 4)
@@ -247,14 +247,14 @@ hist(Nile)
 qqnorm(Nile)
 
 
-# Jeigu parametrø widths ir heights reikğmës nenurodomos, tai santykinis eiluèiø 
-# ir stulpeliø plotis pagal nutylëjimà yra vienodas ir lygus 1. Keièiant santyká,
-# galima reguliuoti eiluèiø ir stulpeliø plotá. Pvz., jei viena eilutë turi bûti 
-# du kartus platesnë uş kità, tada jos ploèio koeficientas taip pat turi bûti du 
-# kartus didesnis uş kitos eilutës ploèio koeficientà. 
+# Jeigu parametrÅ³ widths ir heights reikÅ¡mÄ—s nenurodomos, tai santykinis eiluÄiÅ³ 
+# ir stulpeliÅ³ plotis pagal nutylÄ—jimÄ… yra vienodas ir lygus 1. KeiÄiant santykÄ¯,
+# galima reguliuoti eiluÄiÅ³ ir stulpeliÅ³ plotÄ¯. Pvz., jei viena eilutÄ— turi bÅ«ti 
+# du kartus platesnÄ— uÅ¾ kitÄ…, tada jos ploÄio koeficientas taip pat turi bÅ«ti du 
+# kartus didesnis uÅ¾ kitos eilutÄ—s ploÄio koeficientÄ…. 
 
-# Pavyzdşiui, grafiná langà padalinsime á dvi eilutes ir tris stulpelius, taèiau
-# ğá kartà antros eilutës plotá padarysime dvigubai maşesná, o stulpeliø ploèiai 
+# PavyzdÅ¾iui, grafinÄ¯ langÄ… padalinsime Ä¯ dvi eilutes ir tris stulpelius, taÄiau
+# Å¡Ä¯ kartÄ… antros eilutÄ—s plotÄ¯ padarysime dvigubai maÅ¾esnÄ¯, o stulpeliÅ³ ploÄiai 
 # tegul lieka vienodi.
 
 layout(m, heights = c(2, 1))
@@ -268,14 +268,14 @@ qqnorm(Nile)
 
 # NAUDINGA ------------------------------
 
-# Grafiná langà suskirstant á keletà ávairaus dydşio daliø, galima sudaryti gana
-# sudëtingà diagramà. Pavyzdşiui, nubraişysime dviejø kintamøjø sklaidos grafikà
-# ir ğalia nubraişysime atskirai vieno ir kito kintamojo staèiakampes diagramas.
+# GrafinÄ¯ langÄ… suskirstant Ä¯ keletÄ… Ä¯vairaus dydÅ¾io daliÅ³, galima sudaryti gana
+# sudÄ—tingÄ… diagramÄ…. PavyzdÅ¾iui, nubraiÅ¾ysime dviejÅ³ kintamÅ³jÅ³ sklaidos grafikÄ…
+# ir Å¡alia nubraiÅ¾ysime atskirai vieno ir kito kintamojo staÄiakampes diagramas.
 
-# Grafiná langà suskirstysime á 4 dalis: pagrindinëje dalyje braişomas kintamøjø 
-# x ir y sklaidos grafikas, antroje ir treèioje staèiakampës diagramos, ketvirta
-# dalis nenaudojama. Kadangi staèiakampës diagramos siauros, tai antra eilutë ir
-# antras stulpelis bus 4 kartus siauresni nei pirma eilutë ir pirmas stulpelis.
+# GrafinÄ¯ langÄ… suskirstysime Ä¯ 4 dalis: pagrindinÄ—je dalyje braiÅ¾omas kintamÅ³jÅ³ 
+# x ir y sklaidos grafikas, antroje ir treÄioje staÄiakampÄ—s diagramos, ketvirta
+# dalis nenaudojama. Kadangi staÄiakampÄ—s diagramos siauros, tai antra eilutÄ— ir
+# antras stulpelis bus 4 kartus siauresni nei pirma eilutÄ— ir pirmas stulpelis.
 
 layout(matrix(c(1, 2, 3, 0), 2, 2), widths = c(4, 1), heights = c(4, 1))
 layout.show(3)
@@ -283,48 +283,48 @@ layout.show(3)
 x <- airquality$Temp
 y <- airquality$Ozone
 
-# Pirmiausia nubraişome pagrindinæ sklaidos diagramà. Nustatome parağèiø ploèius.
+# Pirmiausia nubraiÅ¾ome pagrindinÄ™ sklaidos diagramÄ…. Nustatome paraÅ¡ÄiÅ³ ploÄius.
 
 par(mar = c(2, 3, 1, 1))
 plot(x, y, pch = 19, frame = FALSE, las = 1)
 
-# PASTABA. Atskiros grafinio lango dalys yra nesusijusios. Kad iğ keleto grafikø 
-# sudaryta diagrama bûtø teisinga, turi sutapti atskirø grafikø koordinaèiø ağys.
-# Pvz., apaèioje braişomos diagramos Ox ağis turi sutapti su pagrindinio grafiko
-# Ox ağimi. Ğiuo atveju uştenka nustatyti vienodas parağtes iğ kairës ir değinës.
-# Kadangi ağys sutapatintos, nurodome, kad naujame grafike ağys nebûtø braişomos.
+# PASTABA. Atskiros grafinio lango dalys yra nesusijusios. Kad iÅ¡ keleto grafikÅ³ 
+# sudaryta diagrama bÅ«tÅ³ teisinga, turi sutapti atskirÅ³ grafikÅ³ koordinaÄiÅ³ aÅ¡ys.
+# Pvz., apaÄioje braiÅ¾omos diagramos Ox aÅ¡is turi sutapti su pagrindinio grafiko
+# Ox aÅ¡imi. Å iuo atveju uÅ¾tenka nustatyti vienodas paraÅ¡tes iÅ¡ kairÄ—s ir deÅ¡inÄ—s.
+# Kadangi aÅ¡ys sutapatintos, nurodome, kad naujame grafike aÅ¡ys nebÅ«tÅ³ braiÅ¾omos.
 
 par(mar = c(0, 3, 0, 1))
 boxplot(x, frame = FALSE, axes = FALSE, horizontal = TRUE)
 
-# Kad sutaptø pagrindinio ir ğoninio grafiko Oy ağys, nustatome vienodà parağèiø
-# plotá iğ apaèios ir virğaus. Kaip ir ankstesniu atveju, ağiø nebraişome.
+# Kad sutaptÅ³ pagrindinio ir Å¡oninio grafiko Oy aÅ¡ys, nustatome vienodÄ… paraÅ¡ÄiÅ³
+# plotÄ¯ iÅ¡ apaÄios ir virÅ¡aus. Kaip ir ankstesniu atveju, aÅ¡iÅ³ nebraiÅ¾ome.
 
 par(mar = c(2, 0, 1, 0))
 boxplot(y, frame = FALSE, axes = FALSE)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant funkcijà layout, nubraişykite 8 x 8 dydşio ğachmatiğkai iğdëstytø 
-#    juodø ir baltø kvadratø diagramà.
+# 1. Naudojant funkcijÄ… layout, nubraiÅ¾ykite 8 x 8 dydÅ¾io Å¡achmatiÅ¡kai iÅ¡dÄ—stytÅ³ 
+#    juodÅ³ ir baltÅ³ kvadratÅ³ diagramÄ….
 # 2. 
 #    
 
 
 # --------------------------------------- #
-# BRAIŞYMO SRITIES APRIBOJIMAS            #
+# BRAIÅ½YMO SRITIES APRIBOJIMAS            #
 # --------------------------------------- #
 
-# Kaip şinoma, visos aukğto lygio grafinës funkcijos atidaro naujà grafiná langà
-# arba prieğ braişant grafikà iğvalo jau atidarytà langà. Papildomus tağkus arba
-# linijas ant grafiko galima nubraişyti naudojant şemo lygio grafines funkcijas. 
-# Kai kurios aukğto lygio grafinës funkcijos turi parametrà add. Jeigu priskirta
-# reikğmë TRUE, tai naujas grafikas uşdedamas ant jau nubraişyto grafiko virğaus.
+# Kaip Å¾inoma, visos aukÅ¡to lygio grafinÄ—s funkcijos atidaro naujÄ… grafinÄ¯ langÄ…
+# arba prieÅ¡ braiÅ¾ant grafikÄ… iÅ¡valo jau atidarytÄ… langÄ…. Papildomus taÅ¡kus arba
+# linijas ant grafiko galima nubraiÅ¾yti naudojant Å¾emo lygio grafines funkcijas. 
+# Kai kurios aukÅ¡to lygio grafinÄ—s funkcijos turi parametrÄ… add. Jeigu priskirta
+# reikÅ¡mÄ— TRUE, tai naujas grafikas uÅ¾dedamas ant jau nubraiÅ¾yto grafiko virÅ¡aus.
 
-# Pavyzdşiui, nubraişysime vandens lygio reikğmiø histogramà ir ant jos uşdësime
-# normaliojo atsitiktinio dydşio teorinës tankio funkcijos grafikà. Toká grafikà
-# grafikà nubraişysime naudojant funkcijà curve su parametru add.
+# PavyzdÅ¾iui, nubraiÅ¾ysime vandens lygio reikÅ¡miÅ³ histogramÄ… ir ant jos uÅ¾dÄ—sime
+# normaliojo atsitiktinio dydÅ¾io teorinÄ—s tankio funkcijos grafikÄ…. TokÄ¯ grafikÄ…
+# grafikÄ… nubraiÅ¾ysime naudojant funkcijÄ… curve su parametru add.
 
 hist(Nile, freq = FALSE)
 
@@ -334,57 +334,57 @@ std <- sd(Nile)
 curve(dnorm(x, vid, std), add = TRUE)
 
 
-# Ğiuo atveju funkcijos grafikas uşdedamas ant visos histogramos. Taèiau grafiko
-# sritá, kurioje bus matomas ant virğaus uşdedamas kitas grafikas, galima keisti.
-# Tam naudojama funkcija clip, kuri sukuria savotiğkà staèiakampá trafaretà. Jos
-# parametrai nurodo to staèiakampio ribas:
+# Å iuo atveju funkcijos grafikas uÅ¾dedamas ant visos histogramos. TaÄiau grafiko
+# sritÄ¯, kurioje bus matomas ant virÅ¡aus uÅ¾dedamas kitas grafikas, galima keisti.
+# Tam naudojama funkcija clip, kuri sukuria savotiÅ¡kÄ… staÄiakampÄ¯ trafaretÄ…. Jos
+# parametrai nurodo to staÄiakampio ribas:
 #
-#         x1 -- kairysis krağtas,
-#         x2 -- değinysis krağtas,
-#         y1 -- apatinis krağtas,
-#         y2 -- virğutinis krağtas.
+#         x1 -- kairysis kraÅ¡tas,
+#         x2 -- deÅ¡inysis kraÅ¡tas,
+#         y1 -- apatinis kraÅ¡tas,
+#         y2 -- virÅ¡utinis kraÅ¡tas.
 
-# Tarkim, kad reikia nubraişyti funkcijos y = sin(x) grafikà intervale [-pi, pi], 
-# taèiau intervale [-2, 1] grafiko linija turi bûti raudonos spalvos. Iğ pradşiø
-# nubraişysime paprastà grafikà intervale [-pi, pi], o tada ant virğaus uşdësime 
-# antrà kreivæ -- trafaretu apribotà raudonos spalvos sinusoidæ.
+# Tarkim, kad reikia nubraiÅ¾yti funkcijos y = sin(x) grafikÄ… intervale [-pi, pi], 
+# taÄiau intervale [-2, 1] grafiko linija turi bÅ«ti raudonos spalvos. IÅ¡ pradÅ¾iÅ³
+# nubraiÅ¾ysime paprastÄ… grafikÄ… intervale [-pi, pi], o tada ant virÅ¡aus uÅ¾dÄ—sime 
+# antrÄ… kreivÄ™ -- trafaretu apribotÄ… raudonos spalvos sinusoidÄ™.
 
 curve(sin, -pi, pi, xlab = "x", ylab = "y", las = 1, frame = FALSE)
 
-# Trafareto ribos iğ kairës ir değinës şinomos, o apatinë ir virğutinë riba gali 
-# sutapti su pradinio grafiko apatine ir virğutine riba. Bet kokio grafiko ribas 
-# nurodo grafinis parametras usr. Pirmosios dvi reikğmës nurodo grafiko ribas iğ 
-# kairës ir değinës, o kitos kitos dvi -- ribas iğ apaèios ir virğaus. 
+# Trafareto ribos iÅ¡ kairÄ—s ir deÅ¡inÄ—s Å¾inomos, o apatinÄ— ir virÅ¡utinÄ— riba gali 
+# sutapti su pradinio grafiko apatine ir virÅ¡utine riba. Bet kokio grafiko ribas 
+# nurodo grafinis parametras usr. Pirmosios dvi reikÅ¡mÄ—s nurodo grafiko ribas iÅ¡ 
+# kairÄ—s ir deÅ¡inÄ—s, o kitos kitos dvi -- ribas iÅ¡ apaÄios ir virÅ¡aus. 
 
 usr <- par("usr")
 usr
 
-# Nurodome trafareto ribas. Apatinæ ir virğutinæ ribas paimame iğ parametro usr.
+# Nurodome trafareto ribas. ApatinÄ™ ir virÅ¡utinÄ™ ribas paimame iÅ¡ parametro usr.
 
 clip(-2, 1, usr[3], usr[4])
 
-# Ant virğaus raudona linija braişome antrà sinusoidæ. Funkcija curve yra aukğto 
-# lygio grafinë funkcija, todël tam, kad antra kreivë bûtø braişoma ant virğaus, 
-# parametrui add priskiriame reikğmæ TRUE. Atkreipkite dëmesá á tai, kad grafiko
+# Ant virÅ¡aus raudona linija braiÅ¾ome antrÄ… sinusoidÄ™. Funkcija curve yra aukÅ¡to 
+# lygio grafinÄ— funkcija, todÄ—l tam, kad antra kreivÄ— bÅ«tÅ³ braiÅ¾oma ant virÅ¡aus, 
+# parametrui add priskiriame reikÅ¡mÄ™ TRUE. Atkreipkite dÄ—mesÄ¯ Ä¯ tai, kad grafiko
 # ribos nurodytos [-pi, pi], bet raudona linija bus matoma tik intervale [-2, 1].
 
 curve(sin, -pi, pi, add = TRUE, col = "red", lwd = 2)
 
-# Kartà nustatytos trafareto ribos tokios ir iğlieka. Pvz., ant grafiko uşdësime 
-# tinklelá, taèiau jis vis tiek bus matomas tik intervale [-2, 1].
+# KartÄ… nustatytos trafareto ribos tokios ir iÅ¡lieka. Pvz., ant grafiko uÅ¾dÄ—sime 
+# tinklelÄ¯, taÄiau jis vis tiek bus matomas tik intervale [-2, 1].
 
 grid()
 
-# Norint sugràşinti pradinæ braişymo sritá, trafareto ribas reikëtø iğplësti iki
-# pradinio grafiko ribø. Tam galima panaudoti prieğ tai iğsaugotas parametro usr
-# reikğmes ir perduoti jas funkcijai clip per tokià konstrukcijà:
+# Norint sugrÄ…Å¾inti pradinÄ™ braiÅ¾ymo sritÄ¯, trafareto ribas reikÄ—tÅ³ iÅ¡plÄ—sti iki
+# pradinio grafiko ribÅ³. Tam galima panaudoti prieÅ¡ tai iÅ¡saugotas parametro usr
+# reikÅ¡mes ir perduoti jas funkcijai clip per tokiÄ… konstrukcijÄ…:
 
 do.call(clip, as.list(usr))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite kintamojo Nile reikğmiø histogramà, kurioje stulpeliai á kairæ 
-#    nuo pirmojo ir á değinæ nuo treèiojo kvartilio bûtø nuspalvinti raudonai.
+# 1. NubraiÅ¾ykite kintamojo Nile reikÅ¡miÅ³ histogramÄ…, kurioje stulpeliai Ä¯ kairÄ™ 
+#    nuo pirmojo ir Ä¯ deÅ¡inÄ™ nuo treÄiojo kvartilio bÅ«tÅ³ nuspalvinti raudonai.
 # 2. 
 #    

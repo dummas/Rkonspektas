@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Sàraðø sudarymas ir pagrindiniai veiksmai su jais.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            SÄ…raÅ¡Å³ sudarymas ir pagrindiniai veiksmai su jais.
 #
-#  Autorius: Tomas Rekaðius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2012-09-03 | 2013-05-06
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 # 
-#   1. Sàraðø sudarymas ir jø sàvybës:
+#   1. SÄ…raÅ¡Å³ sudarymas ir jÅ³ sÄ…vybÄ—s:
 #      * komanda list
 #      * komanda class
 #      * komanda length 
@@ -23,7 +23,7 @@
 #      * operatorius [[
 #      * operatorius $
 #
-#   2. Sàraðø apjungimas:
+#   2. SÄ…raÅ¡Å³ apjungimas:
 #      * komanda c
 #      * komanda unlist 
 #
@@ -32,93 +32,93 @@
 # PASTABOS ------------------------------
 
 #
-# Kol kas pastabø nëra.
+# Kol kas pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviðka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iðtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# SÀRAÐØ SUDARYMAS                        #
+# SÄ„RAÅ Å² SUDARYMAS                        #
 # --------------------------------------- #
 
-# Sàraðas -- tokia duomenø struktûra, kuri nuo vektoriaus skiriasi tuo, kad sàraðo 
-# elementai gali bûti skirtingo tipo.
+# SÄ…raÅ¡as -- tokia duomenÅ³ struktÅ«ra, kuri nuo vektoriaus skiriasi tuo, kad sÄ…raÅ¡o 
+# elementai gali bÅ«ti skirtingo tipo.
 
 s <- list(0, NA, "a", TRUE, NULL)
 s
 
-# Be to, sàraðo elementai gali bûti net ir skirtingos duomenø struktûros. Pvz., 
-# vienas elementas gali bûti skaièius, kitas -- loginiø reikðmiø vektorius, treèias 
-# elementas ið skaièiø sudaryta matrica, ketvirtas -- kaþkoks kitas sàraðas, kurio 
-# elementai yra kiti sàraðai. Tokiu bûdu galima sukurti sudëtingas, hierarchines 
-# duomenø struktûras.
+# Be to, sÄ…raÅ¡o elementai gali bÅ«ti net ir skirtingos duomenÅ³ struktÅ«ros. Pvz., 
+# vienas elementas gali bÅ«ti skaiÄius, kitas -- loginiÅ³ reikÅ¡miÅ³ vektorius, treÄias 
+# elementas iÅ¡ skaiÄiÅ³ sudaryta matrica, ketvirtas -- kaÅ¾koks kitas sÄ…raÅ¡as, kurio 
+# elementai yra kiti sÄ…raÅ¡ai. Tokiu bÅ«du galima sukurti sudÄ—tingas, hierarchines 
+# duomenÅ³ struktÅ«ras.
 
 s <- list(1:9, c(FALSE, FALSE, TRUE), matrix(1:4, 2, 2))
 s
 
 
-# Tokia duomenø struktûra yra specialaus list tipo.
+# Tokia duomenÅ³ struktÅ«ra yra specialaus list tipo.
 class(s)
 
-# Kaip ir vektoriaus, sàraðo elementø skaièius randamas su funkcija length.
+# Kaip ir vektoriaus, sÄ…raÅ¡o elementÅ³ skaiÄius randamas su funkcija length.
 length(s)
 
-# Kaip ir vektoriaus, sàraðo elementams galima suteikti vardus. Tam naudojama
+# Kaip ir vektoriaus, sÄ…raÅ¡o elementams galima suteikti vardus. Tam naudojama
 # komanda names.
 
 names(s) <- c("skaitmenys", "logika", "matrica")
 s
 
-# Vardus elementams galima suteikti sàraðo sudarymo metu.
+# Vardus elementams galima suteikti sÄ…raÅ¡o sudarymo metu.
 s <- list(skaitmenys = 1:9, logika = c(F, F, T), matrica = matrix(1:4, 2, 2))
 s
 
-# Kaip ir kitø R objektø, sàraðo atributus galima paþiûrëti su komanda attributes.
+# Kaip ir kitÅ³ R objektÅ³, sÄ…raÅ¡o atributus galima paÅ¾iÅ«rÄ—ti su komanda attributes.
 attributes(s)
 
-# Sudëtingo objekto struktûrà galima pamatyti naudojant funkcijà str. Pvz., matome,
-# kad sàraðas s yra sudarytas ið trijø elementø, kurio pirmasis vadinasi „skaitmenys“ 
-# ir yra sveikøjø skaièiø vektorius, antras yra pavadintas „logika“ ir yra vektorius
-# ið trijø loginiø reikðmiø, o treèias elementas vadinasi „matrica“, kurio elementai 
-# yra skaièiai 1, 2, 3, 4 ir sudaro 2*2 matricà.
+# SudÄ—tingo objekto struktÅ«rÄ… galima pamatyti naudojant funkcijÄ… str. Pvz., matome,
+# kad sÄ…raÅ¡as s yra sudarytas iÅ¡ trijÅ³ elementÅ³, kurio pirmasis vadinasi â€žskaitmenysâ€œ 
+# ir yra sveikÅ³jÅ³ skaiÄiÅ³ vektorius, antras yra pavadintas â€žlogikaâ€œ ir yra vektorius
+# iÅ¡ trijÅ³ loginiÅ³ reikÅ¡miÅ³, o treÄias elementas vadinasi â€žmatricaâ€œ, kurio elementai 
+# yra skaiÄiai 1, 2, 3, 4 ir sudaro 2*2 matricÄ….
 
 str(s)
 
 
-# UÞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sukurkite sàraðà, kuris turi du elementus: pirmas elementas yra vektorius ið
-#    maþøjø lotyniðkø raidþiø, o antras -- ið to vektoriaus padaryta matrica su 
-#    dviem stulpeliais. Sàraðo elementams suteikite vardus „vektorius“ ir „matrica“.
+# 1. Sukurkite sÄ…raÅ¡Ä…, kuris turi du elementus: pirmas elementas yra vektorius iÅ¡
+#    maÅ¾Å³jÅ³ lotyniÅ¡kÅ³ raidÅ¾iÅ³, o antras -- iÅ¡ to vektoriaus padaryta matrica su 
+#    dviem stulpeliais. SÄ…raÅ¡o elementams suteikite vardus â€žvektoriusâ€œ ir â€žmatricaâ€œ.
 
 
-# Sàraðo elementus pagal jø eilës numerá galima iðskirti dviem bûdais: naudojant 
-# operatoriø [ ir naudojant operatoriø [[. Pvz., iðskirsime pirmà elementà.
+# SÄ…raÅ¡o elementus pagal jÅ³ eilÄ—s numerÄ¯ galima iÅ¡skirti dviem bÅ«dais: naudojant 
+# operatoriÅ³ [ ir naudojant operatoriÅ³ [[. Pvz., iÅ¡skirsime pirmÄ… elementÄ….
 a <- s[1]
 a
 
 b <- s[[1]]
 b
 
-# Kadangi operatoriø [ naudojant iðskirtas vektoriaus elementas taip pat yra 
-# vektorius, tai analogiðkai iðskirtas sàraðo elementas taip pat bus sàraðas. 
-# Operatoriø [[ naudojant iðskirtas sàraðo elementas turës savo pradiná tipà 
-# ir struktûrà.
+# Kadangi operatoriÅ³ [ naudojant iÅ¡skirtas vektoriaus elementas taip pat yra 
+# vektorius, tai analogiÅ¡kai iÅ¡skirtas sÄ…raÅ¡o elementas taip pat bus sÄ…raÅ¡as. 
+# OperatoriÅ³ [[ naudojant iÅ¡skirtas sÄ…raÅ¡o elementas turÄ—s savo pradinÄ¯ tipÄ… 
+# ir struktÅ«rÄ….
 
-# Palyginus dviem bûdais iðskirtø sàraðo elementø klasæ -- objekto tipà matome,
-# kad pirmasis yra sàraðas ið vieno elemento -- vektoriaus, o antrasis ir yra
-# tas sveikøjø skaièiø vektorius.
+# Palyginus dviem bÅ«dais iÅ¡skirtÅ³ sÄ…raÅ¡o elementÅ³ klasÄ™ -- objekto tipÄ… matome,
+# kad pirmasis yra sÄ…raÅ¡as iÅ¡ vieno elemento -- vektoriaus, o antrasis ir yra
+# tas sveikÅ³jÅ³ skaiÄiÅ³ vektorius.
 
 class(a)
 class(b)
@@ -132,9 +132,9 @@ length(b)
 str(a)
 str(b)
 
-# Jei sàraðo elementai turi vardus, juos galima panaudoti elementø iðskyrimui.
-# Ðiuo atveju operatoriø [ ir [[ naudojimas nesiskiria nuo jø naudojimo nurodant 
-# elementø numerius.
+# Jei sÄ…raÅ¡o elementai turi vardus, juos galima panaudoti elementÅ³ iÅ¡skyrimui.
+# Å iuo atveju operatoriÅ³ [ ir [[ naudojimas nesiskiria nuo jÅ³ naudojimo nurodant 
+# elementÅ³ numerius.
 
 x <- s["skaitmenys"]
 x
@@ -142,14 +142,14 @@ x
 y <- s[["skaitmenys"]]
 y
 
-# Operatorius $ naudojamas vieno sàraðo elemento iðskyrimui nurodant jo vardà.
-# Elemento vardas daþniausiai raðomas be kabuèiø.
+# Operatorius $ naudojamas vieno sÄ…raÅ¡o elemento iÅ¡skyrimui nurodant jo vardÄ….
+# Elemento vardas daÅ¾niausiai raÅ¡omas be kabuÄiÅ³.
 
 s$skaitmenys
 
 
-# Kaip ir vektoriams, naudojant operatoriø [ galima iðskirti keletà elementø ið 
-# karto. Naudojant operatoriø [[ galima iðskirti tik vienà sàraðo elementà.
+# Kaip ir vektoriams, naudojant operatoriÅ³ [ galima iÅ¡skirti keletÄ… elementÅ³ iÅ¡ 
+# karto. Naudojant operatoriÅ³ [[ galima iÅ¡skirti tik vienÄ… sÄ…raÅ¡o elementÄ….
 
 i <- c(1, 3)
 s[i]
@@ -160,41 +160,41 @@ s[i]
 
 # NAUDINGA ------------------------------
 
-# Vienoje iðraiðkoje galima naudoti skirtingus operatorius [, [[ ar $. Kartais tas
-# yra bûtina, ypaè tais atvejais, kai sàraðas yra sudëtingos struktûros ir reikia
-# pasiekti giliai esantá elementà. Statistiniø procedûrø rezultatai daþniausiai
-# yra sàraðai, kurie gali bûti sudaryti ið kitø sàraðø, kuriø elementai daþnai yra 
-# vektoriai, matricos ir t.t. Pvz., ið sàraðo s iðskirsime pirmojo elemento, kuris 
-# yra vektorius, ketvirtà nará.
+# Vienoje iÅ¡raiÅ¡koje galima naudoti skirtingus operatorius [, [[ ar $. Kartais tas
+# yra bÅ«tina, ypaÄ tais atvejais, kai sÄ…raÅ¡as yra sudÄ—tingos struktÅ«ros ir reikia
+# pasiekti giliai esantÄ¯ elementÄ…. StatistiniÅ³ procedÅ«rÅ³ rezultatai daÅ¾niausiai
+# yra sÄ…raÅ¡ai, kurie gali bÅ«ti sudaryti iÅ¡ kitÅ³ sÄ…raÅ¡Å³, kuriÅ³ elementai daÅ¾nai yra 
+# vektoriai, matricos ir t.t. Pvz., iÅ¡ sÄ…raÅ¡o s iÅ¡skirsime pirmojo elemento, kuris 
+# yra vektorius, ketvirtÄ… narÄ¯.
 
-# Èia sàraðo elementas iðskiriamas su [[ ir jo numeriu, o vektoriaus su [ ir numeriu.
+# ÄŒia sÄ…raÅ¡o elementas iÅ¡skiriamas su [[ ir jo numeriu, o vektoriaus su [ ir numeriu.
 s[[1]][4]            
 
-# Èia sàraðo elementas iðskiriamas su [[ ir jo vardu, o vektoriaus su [ ir numeriu.
+# ÄŒia sÄ…raÅ¡o elementas iÅ¡skiriamas su [[ ir jo vardu, o vektoriaus su [ ir numeriu.
 s[["skaitmenys"]][4] 
 
-# Èia sàraðo elementas iðskiriamas su $ nurodant vardà, o vektoriaus su [ ir numeriu.
+# ÄŒia sÄ…raÅ¡o elementas iÅ¡skiriamas su $ nurodant vardÄ…, o vektoriaus su [ ir numeriu.
 s$skaitmenys[4]      
 
 
-# UÞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Paraðykite komandà, kuri, nepriklausomai nuo sàraðo elementø skaièiaus, 
-#    iðskirtø  pirmà ir paskutiná jo elementus.
-# 2. Trimis aukðèiau apraðytais bûdais iðskirkite ið sàraðo s paskutinio elemento 
-#    (matricos) paskutiná elementà. Paraðykite tokià komandà, kuri nepriklausytø 
-#    nuo sàraðo ilgio.
+# 1. ParaÅ¡ykite komandÄ…, kuri, nepriklausomai nuo sÄ…raÅ¡o elementÅ³ skaiÄiaus, 
+#    iÅ¡skirtÅ³  pirmÄ… ir paskutinÄ¯ jo elementus.
+# 2. Trimis aukÅ¡Äiau apraÅ¡ytais bÅ«dais iÅ¡skirkite iÅ¡ sÄ…raÅ¡o s paskutinio elemento 
+#    (matricos) paskutinÄ¯ elementÄ…. ParaÅ¡ykite tokiÄ… komandÄ…, kuri nepriklausytÅ³ 
+#    nuo sÄ…raÅ¡o ilgio.
 
 
 # --------------------------------------- #
-# SÀRAÐØ APJUNGIMAS                       #
+# SÄ„RAÅ Å² APJUNGIMAS                       #
 # --------------------------------------- #
 
-# Praktikoje daþnai tenka analizuoti to paties tipo, bet skirtingo ilgio vektorius, 
-# kuriø negalima apjungti á matricà, nes eilutës ar stulpeliai negali bûti skirtingo
-# ilgio. Tokiais atvejais vektorius patogu apjungti á sàraðà.
+# Praktikoje daÅ¾nai tenka analizuoti to paties tipo, bet skirtingo ilgio vektorius, 
+# kuriÅ³ negalima apjungti Ä¯ matricÄ…, nes eilutÄ—s ar stulpeliai negali bÅ«ti skirtingo
+# ilgio. Tokiais atvejais vektorius patogu apjungti Ä¯ sÄ…raÅ¡Ä….
 
-# Sukurkime tuðèià sàraðà, prie kurio prijungsime naujus elementus -- vektorius.
+# Sukurkime tuÅ¡ÄiÄ… sÄ…raÅ¡Ä…, prie kurio prijungsime naujus elementus -- vektorius.
 u <- list()
 v <- list()
 
@@ -206,14 +206,14 @@ u[[4]] <- c(21, 35, 97, 88, 77, 62, 91, 58, 23, 56, 5, 2, 34, 82, 16)
 v[[1]] <- c(3, 66, 43, 55, 97, 81, 96, 5, 98, 52, 15, 68, 11, 50, 87, 17)
 
 
-# Viename sàraðe yra keturi vektoriai, kitame -- vienas. Visi jie to paties tipo, 
-# taèiau skirtingø ilgiø.
+# Viename sÄ…raÅ¡e yra keturi vektoriai, kitame -- vienas. Visi jie to paties tipo, 
+# taÄiau skirtingÅ³ ilgiÅ³.
 u 
 v
 
-# Naudojant funkcijà c, sàraðus, kaip ir vektorius, galima prijungti vienà prie 
-# kito. Tokiu atveju gaunamas sàraðas, kurio ilgis lygus apjungiamø sàraðø elementø 
-# skaièiui.
+# Naudojant funkcijÄ… c, sÄ…raÅ¡us, kaip ir vektorius, galima prijungti vienÄ… prie 
+# kito. Tokiu atveju gaunamas sÄ…raÅ¡as, kurio ilgis lygus apjungiamÅ³ sÄ…raÅ¡Å³ elementÅ³ 
+# skaiÄiui.
 l <- c(u, v)
 l
 
@@ -222,9 +222,9 @@ class(l)
 str(l)
 
 
-# Naudojant funkcijà list, sàraðus u ir v galima apjungti á vienà bendrà sàraðà. 
-# Tokiu atveju gaunamas sàraðas ið dviejø elementø, kuriø kiekvienas atskirai yra 
-# sàraðas.
+# Naudojant funkcijÄ… list, sÄ…raÅ¡us u ir v galima apjungti Ä¯ vienÄ… bendrÄ… sÄ…raÅ¡Ä…. 
+# Tokiu atveju gaunamas sÄ…raÅ¡as iÅ¡ dviejÅ³ elementÅ³, kuriÅ³ kiekvienas atskirai yra 
+# sÄ…raÅ¡as.
 z <- list(Pirmas = u, Antras = v)
 z
 
@@ -232,46 +232,46 @@ length(z)
 class(z)
 str(z)
 
-# Tokio sàraðo pirmo elemento pirmo vektoriaus pirmas narys iðskiriamas taip:
+# Tokio sÄ…raÅ¡o pirmo elemento pirmo vektoriaus pirmas narys iÅ¡skiriamas taip:
 z$Pirmas[[1]][1]
 
 
-# Sàraðo struktûrà galima supaprastinti apjungiant já sudaranèius elementus á 
-# vektoriø. Tam naudojama funkcija unlist. Jos parametrai:
+# SÄ…raÅ¡o struktÅ«rÄ… galima supaprastinti apjungiant jÄ¯ sudaranÄius elementus Ä¯ 
+# vektoriÅ³. Tam naudojama funkcija unlist. Jos parametrai:
 #
-#         x -- sàraðas, kurio struktûrà ketiname supaprastinti,
-# recursive -- pagal nutylëjimà TRUE, nurodo sàraðo elementus apjungti rekursiðkai,
-# use.names -- pagal nutylëjimà TRUE, nurodo sàraðo elementams iðlaikyti vardus.
+#         x -- sÄ…raÅ¡as, kurio struktÅ«rÄ… ketiname supaprastinti,
+# recursive -- pagal nutylÄ—jimÄ… TRUE, nurodo sÄ…raÅ¡o elementus apjungti rekursiÅ¡kai,
+# use.names -- pagal nutylÄ—jimÄ… TRUE, nurodo sÄ…raÅ¡o elementams iÅ¡laikyti vardus.
 
-# Pritaikius ðià funkcijà sàraðui l, kuris turëjo 5 elementus-vektorius, gaunamas 
+# Pritaikius Å¡iÄ… funkcijÄ… sÄ…raÅ¡ui l, kuris turÄ—jo 5 elementus-vektorius, gaunamas 
 # vienas ilgas vektorius.
 unlist(l)
 
-# Pritaikius ðià funkcijà dviejø lygiø sàraðui z taip pat gauname vienà ilgà vektoriø.
-# Kadangi sàraðo elementai turëjo vardus, tai gauto vektoriaus elementai su vardais.
+# Pritaikius Å¡iÄ… funkcijÄ… dviejÅ³ lygiÅ³ sÄ…raÅ¡ui z taip pat gauname vienÄ… ilgÄ… vektoriÅ³.
+# Kadangi sÄ…raÅ¡o elementai turÄ—jo vardus, tai gauto vektoriaus elementai su vardais.
 unlist(z)
 
-# Galima nurodyti, kad naujai gautas vektorius neturëtø senojo sàraðo vardø.
+# Galima nurodyti, kad naujai gautas vektorius neturÄ—tÅ³ senojo sÄ…raÅ¡o vardÅ³.
 unlist(z, use.names = FALSE)
 
-# Pagal nutylëjimà sàraðo, kurá sudaro kiti sàraðai, elementai apjungiami rekursiðkai.
-# Pakeitus parametro recursive reikðmæ á FALSE, gauname sàraðà, kurá sudaro giliau 
-# esanèiø sàraðø elementai, ðiuo atveju -- vektoriai.
+# Pagal nutylÄ—jimÄ… sÄ…raÅ¡o, kurÄ¯ sudaro kiti sÄ…raÅ¡ai, elementai apjungiami rekursiÅ¡kai.
+# Pakeitus parametro recursive reikÅ¡mÄ™ Ä¯ FALSE, gauname sÄ…raÅ¡Ä…, kurÄ¯ sudaro giliau 
+# esanÄiÅ³ sÄ…raÅ¡Å³ elementai, Å¡iuo atveju -- vektoriai.
 
 unlist(z, recursive = FALSE)
 
 unlist(z, recursive = FALSE, use.names = FALSE)
 
-# Panaikinus tokio sàraðo elementø vardus, gauname toká pat sàraðà, koks buvo 
-# gautas su funkcija c apjungus sàraðus u ir v. Tokiu bûdu galima supaprastinti 
-# hierarchinæ struktûrà turinèius sàraðus.
+# Panaikinus tokio sÄ…raÅ¡o elementÅ³ vardus, gauname tokÄ¯ pat sÄ…raÅ¡Ä…, koks buvo 
+# gautas su funkcija c apjungus sÄ…raÅ¡us u ir v. Tokiu bÅ«du galima supaprastinti 
+# hierarchinÄ™ struktÅ«rÄ… turinÄius sÄ…raÅ¡us.
 
 
-# UÞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uþraðykite kaip galima trumpesnæ komandà, kuri sukurtø sàraðà, sudarytà ið 10
-#    2*2 dydþio matricø, kurios pirmo stulpelio elementai lygûs 1, o antro -- 2. 
-# 2. Duotas sàraðas w <- list(list(list(1:2), list(3:4)), list(list(5:6), list(7:8))).
-#    Iðnagrinëkite jo struktûrà. Kiek elementø sudaro taip uþraðytà sàraðà? 
-#    Funkcija unlist(w) ið ðio sàraðo padaro vektoriø (1, 2, 3, 4, 5, 6, 7, 8).
-#    Gaukite toká pat vektoriø su funkcija unlist, taèiau su parametru recursive = F.
+# 1. UÅ¾raÅ¡ykite kaip galima trumpesnÄ™ komandÄ…, kuri sukurtÅ³ sÄ…raÅ¡Ä…, sudarytÄ… iÅ¡ 10
+#    2*2 dydÅ¾io matricÅ³, kurios pirmo stulpelio elementai lygÅ«s 1, o antro -- 2. 
+# 2. Duotas sÄ…raÅ¡as w <- list(list(list(1:2), list(3:4)), list(list(5:6), list(7:8))).
+#    IÅ¡nagrinÄ—kite jo struktÅ«rÄ…. Kiek elementÅ³ sudaro taip uÅ¾raÅ¡ytÄ… sÄ…raÅ¡Ä…? 
+#    Funkcija unlist(w) iÅ¡ Å¡io sÄ…raÅ¡o padaro vektoriÅ³ (1, 2, 3, 4, 5, 6, 7, 8).
+#    Gaukite tokÄ¯ pat vektoriÅ³ su funkcija unlist, taÄiau su parametru recursive = F.

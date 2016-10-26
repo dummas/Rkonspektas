@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Funkcijø uşrağymas.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            FunkcijÅ³ uÅ¾raÅ¡ymas.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-08-16 | 2013-09-01
 #
@@ -12,16 +12,16 @@
 # TURINYS -------------------------------
 
 #
-#   1. Iğraiğkos ir iğraiğkø blokai:
+#   1. IÅ¡raiÅ¡kos ir iÅ¡raiÅ¡kÅ³ blokai:
 #      * skliaustai {}
 #
-#   2. Naujø funkcijø uşrağymas:
+#   2. NaujÅ³ funkcijÅ³ uÅ¾raÅ¡ymas:
 #      * komanda function
 #      * komanda return
 #      * funkcija source
 #      * funkcija body 
 #
-#   3. Sàlygø funkcijose tikrinimas:
+#   3. SÄ…lygÅ³ funkcijose tikrinimas:
 #      * komanda stop
 #      * komanda stopifnot
 #      * komanda message
@@ -32,30 +32,30 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti uşdaviniø apie atskirus duomenø analizës etapus.
+# Sugalvoti uÅ¾daviniÅ³ apie atskirus duomenÅ³ analizÄ—s etapus.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# IĞRAIĞKOS IR IĞRAIĞKØ BLOKAI            #
+# IÅ RAIÅ KOS IR IÅ RAIÅ KÅ² BLOKAI            #
 # --------------------------------------- #
 
-# R programavimo kalboje objektui sukurti naudojami veiksmai vadinami iğraiğka.
-# Iğraiğkos susideda iğ aritmetiniø (+, *, ^) arba loginiø (!, &, |) operatoriø
-# ir kitø objektø: konstantø, kintamøjø, funkcijø ir jø rezultatø. Pateiksime 
-# keletà iğraiğkø su standartinëmis R konstantomis ir funkcijomis:
+# R programavimo kalboje objektui sukurti naudojami veiksmai vadinami iÅ¡raiÅ¡ka.
+# IÅ¡raiÅ¡kos susideda iÅ¡ aritmetiniÅ³ (+, *, ^) arba loginiÅ³ (!, &, |) operatoriÅ³
+# ir kitÅ³ objektÅ³: konstantÅ³, kintamÅ³jÅ³, funkcijÅ³ ir jÅ³ rezultatÅ³. Pateiksime 
+# keletÄ… iÅ¡raiÅ¡kÅ³ su standartinÄ—mis R konstantomis ir funkcijomis:
 
 !TRUE
 
@@ -65,38 +65,38 @@ sin(3*pi/2)
 
 exp(pi * 1i)
 
-cat("Skaièius pi:", pi, "\n")
+cat("SkaiÄius pi:", pi, "\n")
 
-# Sudëtingi skaièiavimai paprastai iğskaidomi á keletà etapø -- vienos iğraiğkos 
-# rezultatas priskiriamas kintamajam, kuris vëliau naudojamas kitoje iğraiğkoje.
-# Pvz., sukursime sveikøjø skaièiø vektoriø ir apskaièiuosime jo elementø sumà.
+# SudÄ—tingi skaiÄiavimai paprastai iÅ¡skaidomi Ä¯ keletÄ… etapÅ³ -- vienos iÅ¡raiÅ¡kos 
+# rezultatas priskiriamas kintamajam, kuris vÄ—liau naudojamas kitoje iÅ¡raiÅ¡koje.
+# Pvz., sukursime sveikÅ³jÅ³ skaiÄiÅ³ vektoriÅ³ ir apskaiÄiuosime jo elementÅ³ sumÄ….
 
 v <- 1:10
 s <- sum(v)
 s
 
-# Keletà iğ eilës einanèiø iğraiğkø riestiniais skliaustais {} galima apjungti á 
-# blokà. Toká blokà galima interpretuoti kaip dar vienà iğraiğkà, kurios reikğmë
-# yra paskutinës bloko viduje esanèios iğraiğkos rezultatas.
+# KeletÄ… iÅ¡ eilÄ—s einanÄiÅ³ iÅ¡raiÅ¡kÅ³ riestiniais skliaustais {} galima apjungti Ä¯ 
+# blokÄ…. TokÄ¯ blokÄ… galima interpretuoti kaip dar vienÄ… iÅ¡raiÅ¡kÄ…, kurios reikÅ¡mÄ—
+# yra paskutinÄ—s bloko viduje esanÄios iÅ¡raiÅ¡kos rezultatas.
 
-# Pavyzdşiui, uşrağysime iğraiğkø blokà, kuriame sukuriamas sveikøjø skaièiø nuo
-# 1 iki 10 vektorius, o tada suskaièiuojama to vektoriaus elementø suma. Kadangi
-# gauta reikğmë niekam nepriskiriama, ji kaip bloko reikğmë iğvedama á konsolæ.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime iÅ¡raiÅ¡kÅ³ blokÄ…, kuriame sukuriamas sveikÅ³jÅ³ skaiÄiÅ³ nuo
+# 1 iki 10 vektorius, o tada suskaiÄiuojama to vektoriaus elementÅ³ suma. Kadangi
+# gauta reikÅ¡mÄ— niekam nepriskiriama, ji kaip bloko reikÅ¡mÄ— iÅ¡vedama Ä¯ konsolÄ™.
 
 {
   v <- 1:10
   sum(v)
 }
 
-# Kintamajam priskirta paskutinës iğraiğkos reikğmë tuo paèiu yra ir viso bloko
-# reikğmë. Á konsolæ ji neiğvedama, taèiau jà galima naudoti kitose iğraiğkose. 
+# Kintamajam priskirta paskutinÄ—s iÅ¡raiÅ¡kos reikÅ¡mÄ— tuo paÄiu yra ir viso bloko
+# reikÅ¡mÄ—. Ä® konsolÄ™ ji neiÅ¡vedama, taÄiau jÄ… galima naudoti kitose iÅ¡raiÅ¡kose. 
 
 {
   v <- 1:10
   s <- sum(v)
 }
 
-# Kaip ir bet kurios iğraiğkos reikğmæ, bloko gràşinamà reikğmæ galima priskirti 
+# Kaip ir bet kurios iÅ¡raiÅ¡kos reikÅ¡mÄ™, bloko grÄ…Å¾inamÄ… reikÅ¡mÄ™ galima priskirti 
 # kintamajam.
 
 b <- {
@@ -104,80 +104,80 @@ b <- {
   s <- sum(v)
 }
 
-# Matome, kad bloko reikğmë sutampa su paskutinës iğraiğkos reikğme.
+# Matome, kad bloko reikÅ¡mÄ— sutampa su paskutinÄ—s iÅ¡raiÅ¡kos reikÅ¡me.
 b
 
-# Bloko viduje sukuriami tarpiniai kintamieji yra savarankiğki objektai, kuriuos
-# galima naudoti kituose skaièiavimuose. Pavyzdşiui, iğvesime á konsolæ tarpiná 
-# bloko kintamàjá v.
+# Bloko viduje sukuriami tarpiniai kintamieji yra savarankiÅ¡ki objektai, kuriuos
+# galima naudoti kituose skaiÄiavimuose. PavyzdÅ¾iui, iÅ¡vesime Ä¯ konsolÄ™ tarpinÄ¯ 
+# bloko kintamÄ…jÄ¯ v.
 
-v     # pirmos iğraiğkos rezultatas 
-s     # antros iğraiğkos rezultatas
+v     # pirmos iÅ¡raiÅ¡kos rezultatas 
+s     # antros iÅ¡raiÅ¡kos rezultatas
 
 
 # NAUDINGA ------------------------------
 
-# R programavimo kalboje naudojami dviejø rûğiø skliaustai: ( ) ir { }. Grieştai
-# kalbant, R skliaustai traktuojami kaip funkcijos. Iğraiğka (x) yra ekvivalenti 
-# funkcijai f(x) = x. Kadangi funkcijos reikğmë automatiğkai iğvedama á konsolæ,
-# tai skliaustuose árağytos iğraiğkos reikğmë taip pat iğvedama á konsolæ.
+# R programavimo kalboje naudojami dviejÅ³ rÅ«Å¡iÅ³ skliaustai: ( ) ir { }. GrieÅ¾tai
+# kalbant, R skliaustai traktuojami kaip funkcijos. IÅ¡raiÅ¡ka (x) yra ekvivalenti 
+# funkcijai f(x) = x. Kadangi funkcijos reikÅ¡mÄ— automatiÅ¡kai iÅ¡vedama Ä¯ konsolÄ™,
+# tai skliaustuose Ä¯raÅ¡ytos iÅ¡raiÅ¡kos reikÅ¡mÄ— taip pat iÅ¡vedama Ä¯ konsolÄ™.
 
-# Ğià savybæ galima iğnaudoti. Pvz., priskyrimo operacijà árağius á skliaustus, 
-# gauta reikğmë iğvedama á konsolæ net nenurodşius kintamojo, kuriam ği reikğmë 
+# Å iÄ… savybÄ™ galima iÅ¡naudoti. Pvz., priskyrimo operacijÄ… Ä¯raÅ¡ius Ä¯ skliaustus, 
+# gauta reikÅ¡mÄ— iÅ¡vedama Ä¯ konsolÄ™ net nenurodÅ¾ius kintamojo, kuriam Å¡i reikÅ¡mÄ— 
 # priskiriama, vardo.
 
 (a <- 2 + 2)
 
-# Paprasti skliaustai naudojami aritmetinëms ar loginëms operacijoms apskliausti, 
-# juose nurodomi visø funkcijø argumentai. Taèiau () skliaustuose galima árağyti 
-# tik vienà iğraiğkà.
+# Paprasti skliaustai naudojami aritmetinÄ—ms ar loginÄ—ms operacijoms apskliausti, 
+# juose nurodomi visÅ³ funkcijÅ³ argumentai. TaÄiau () skliaustuose galima Ä¯raÅ¡yti 
+# tik vienÄ… iÅ¡raiÅ¡kÄ….
 
-# Riestiniai {} skliaustai naudojami keletos iğraiğkø apjungimui. Paprastai tai 
+# Riestiniai {} skliaustai naudojami keletos iÅ¡raiÅ¡kÅ³ apjungimui. Paprastai tai 
 # reikalinga konstrukcijoje if-else, ciklo funkcijose for, while arba repeat ir 
-# uşrağant funkcijas. Skliaustuose {} árağytos iğraiğkos rezultatas iğvedamas á
-# konsolæ tik tada, jei jis nepriskiriamas kintamajam. 
+# uÅ¾raÅ¡ant funkcijas. Skliaustuose {} Ä¯raÅ¡ytos iÅ¡raiÅ¡kos rezultatas iÅ¡vedamas Ä¯
+# konsolÄ™ tik tada, jei jis nepriskiriamas kintamajam. 
 
-# Tuğti riestiniai skliaustai prilygsta NULL objektui.
+# TuÅ¡ti riestiniai skliaustai prilygsta NULL objektui.
 
 a <- {}
 a
 
-# Lauştiniai skliaustai [ ar [[ naudojami kaip operatoriai vektoriaus, matricos 
-# arba sàrağo elementø indeksams uşrağyti. Pvz., iğ didşiøjø raidşiø vektoriaus 
-# iğskirsime 18-tà jo elementà.
+# LauÅ¾tiniai skliaustai [ ar [[ naudojami kaip operatoriai vektoriaus, matricos 
+# arba sÄ…raÅ¡o elementÅ³ indeksams uÅ¾raÅ¡yti. Pvz., iÅ¡ didÅ¾iÅ³jÅ³ raidÅ¾iÅ³ vektoriaus 
+# iÅ¡skirsime 18-tÄ… jo elementÄ….
 
 LETTERS[18]
 
 
 # --------------------------------------- #
-# FUNKCIJOS UŞRAĞYMAS                     #
+# FUNKCIJOS UÅ½RAÅ YMAS                     #
 # --------------------------------------- #
 
-# R turi visas pagrindines matematines funkcijas bei daug standartiniø funkcijø 
-# skirtø statistinei duomenø analizei ir kitiems skaièiavimams. Daşnai duomenis
-# tenka pertvarkyti, vienà po kito atlikti kelis veiksmus arba pritaikyti kelias
-# skirtingas funkcijas. Tokiais atvejais kelias iğraiğkas galima uşrağyti kaip  
-# funkcijà. Bendras funkcijos pavidalas yra toks:
+# R turi visas pagrindines matematines funkcijas bei daug standartiniÅ³ funkcijÅ³ 
+# skirtÅ³ statistinei duomenÅ³ analizei ir kitiems skaiÄiavimams. DaÅ¾nai duomenis
+# tenka pertvarkyti, vienÄ… po kito atlikti kelis veiksmus arba pritaikyti kelias
+# skirtingas funkcijas. Tokiais atvejais kelias iÅ¡raiÅ¡kas galima uÅ¾raÅ¡yti kaip  
+# funkcijÄ…. Bendras funkcijos pavidalas yra toks:
 #
 #   funkcijos.vardas <- function(arg1, arg2, ...) {
 #     
 #   }
 
 # Funkcijos vardas yra kintamasis, kuriam priskirta pati funkcija. Bet kuri R 
-# funkcija yra "function" tipo objektas. Tai reiğkia, kad kintamajam priskirta 
-# reikğmë gali bûti funkcija, o funkcijos reikğmë kaip argumentas gali bûti 
-# perduota kitai funkcijai. Taip galima iğvengti tarpiniø kintamøjø ir uşrağyti 
-# labai kompaktiğkas komandas. R yra funkcinio programavimo kalba, ir todël toks
-# programavimo stilius yra labai natûralus.
+# funkcija yra "function" tipo objektas. Tai reiÅ¡kia, kad kintamajam priskirta 
+# reikÅ¡mÄ— gali bÅ«ti funkcija, o funkcijos reikÅ¡mÄ— kaip argumentas gali bÅ«ti 
+# perduota kitai funkcijai. Taip galima iÅ¡vengti tarpiniÅ³ kintamÅ³jÅ³ ir uÅ¾raÅ¡yti 
+# labai kompaktiÅ¡kas komandas. R yra funkcinio programavimo kalba, ir todÄ—l toks
+# programavimo stilius yra labai natÅ«ralus.
 
-# Funkcija gali turëti vienà ar daugiau argumentø, arba neturëti visai. Reikğmës 
-# argumentams priskiriamos naudojant = şenklà. Pagrindinæ funkcijos dalá sudaro 
-# viena arba kelios riestiniuose skliaustuose á blokà apjungtos iğraiğkos.
+# Funkcija gali turÄ—ti vienÄ… ar daugiau argumentÅ³, arba neturÄ—ti visai. ReikÅ¡mÄ—s 
+# argumentams priskiriamos naudojant = Å¾enklÄ…. PagrindinÄ™ funkcijos dalÄ¯ sudaro 
+# viena arba kelios riestiniuose skliaustuose Ä¯ blokÄ… apjungtos iÅ¡raiÅ¡kos.
 
-# Pavyzdşiui, uşrağysime paprastà funkcijà, kuri apskaièiuotø sveikøjø skaièiø 
-# nuo m iki n suma. Skaièiai m ir n bus ğios funkcijos argumentai. Funkcija turi 
-# dvi iğraiğkas: pirmoji sukuria sveikøjø skaièiø vektoriø, antroji suranda ğio 
-# vektoriaus elementø sumà.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime paprastÄ… funkcijÄ…, kuri apskaiÄiuotÅ³ sveikÅ³jÅ³ skaiÄiÅ³ 
+# nuo m iki n suma. SkaiÄiai m ir n bus Å¡ios funkcijos argumentai. Funkcija turi 
+# dvi iÅ¡raiÅ¡kas: pirmoji sukuria sveikÅ³jÅ³ skaiÄiÅ³ vektoriÅ³, antroji suranda Å¡io 
+# vektoriaus elementÅ³ sumÄ….
 
 seq.suma <- function(m, n) {
 
@@ -185,20 +185,20 @@ seq.suma <- function(m, n) {
     sum(v)
 }
 
-# Galima ásitikinti, kad nauja funkcija yra "function" tipo objektas. 
+# Galima Ä¯sitikinti, kad nauja funkcija yra "function" tipo objektas. 
 class(seq.suma)
 
-# Jei nurodomi funkcijos argumentø pavadinimai, reikğmes jiems priskirti galima 
+# Jei nurodomi funkcijos argumentÅ³ pavadinimai, reikÅ¡mes jiems priskirti galima 
 # bet kokia tvarka.
 seq.suma(m = 1, n = 10)
 seq.suma(n = 10, m = 1)
 
-# Jei argumentai surağomi nustatyta tvarka, jø pavadinimus galima praleisti.
+# Jei argumentai suraÅ¡omi nustatyta tvarka, jÅ³ pavadinimus galima praleisti.
 seq.suma(1, 10)
 
-# Funkcijos argumentai gali turëti numatytas reikğmes. Pvz., sumavimo funkcijà 
-# pakeisime taip, kad, nurodşius tik vienà argumentà, bûtø sumuojami sveikieji 
-# skaièiai nuo 1 iki n. Èia argumentas m turës numatytà reikğmæ lygià 1.
+# Funkcijos argumentai gali turÄ—ti numatytas reikÅ¡mes. Pvz., sumavimo funkcijÄ… 
+# pakeisime taip, kad, nurodÅ¾ius tik vienÄ… argumentÄ…, bÅ«tÅ³ sumuojami sveikieji 
+# skaiÄiai nuo 1 iki n. ÄŒia argumentas m turÄ—s numatytÄ… reikÅ¡mÄ™ lygiÄ… 1.
 
 seq.suma <- function(n, m = 1) {
 
@@ -206,16 +206,16 @@ seq.suma <- function(n, m = 1) {
     sum(v)
 }
 
-# Dabar uştenka nurodyti tik vienà argumentà n, kurio vardo galima ir nerağyti.
+# Dabar uÅ¾tenka nurodyti tik vienÄ… argumentÄ… n, kurio vardo galima ir neraÅ¡yti.
 seq.suma(10)
 
-# Jei reikia, numatytà argumento reikğmæ galima pakeisti.
+# Jei reikia, numatytÄ… argumento reikÅ¡mÄ™ galima pakeisti.
 seq.suma(n = 10, m = 5) 
 
-# Funkcija gràşina paskutinës jos iğraiğkos reikğmæ. Jei ği reikğmë priskiriama
-# kintamajam, papildomai reikia nurodyti, kurio kintamojo reikğmæ gràşinti. Tam 
-# naudojama komanda return. Pvz., vektoriaus elementø sumà priskyrus kintamajam 
-# s, reikia nurodyti, kad funkcija gràşina tà kintamàjá.
+# Funkcija grÄ…Å¾ina paskutinÄ—s jos iÅ¡raiÅ¡kos reikÅ¡mÄ™. Jei Å¡i reikÅ¡mÄ— priskiriama
+# kintamajam, papildomai reikia nurodyti, kurio kintamojo reikÅ¡mÄ™ grÄ…Å¾inti. Tam 
+# naudojama komanda return. Pvz., vektoriaus elementÅ³ sumÄ… priskyrus kintamajam 
+# s, reikia nurodyti, kad funkcija grÄ…Å¾ina tÄ… kintamÄ…jÄ¯.
 
 seq.suma <- function(m, n) {
 
@@ -225,8 +225,8 @@ seq.suma <- function(m, n) {
     return(s)
 }
 
-# Funkcija gali gràşinti bet koká objektà. Pavyzdşiui, pakeisime funkcijà taip,
-# kad jos rezultatas bûtø sàrağas iğ trijø elementø: pirmas ir paskutinis sekos
+# Funkcija gali grÄ…Å¾inti bet kokÄ¯ objektÄ…. PavyzdÅ¾iui, pakeisime funkcijÄ… taip,
+# kad jos rezultatas bÅ«tÅ³ sÄ…raÅ¡as iÅ¡ trijÅ³ elementÅ³: pirmas ir paskutinis sekos
 # nariai ir sekos suma.
 
 seq.suma <- function(m, n) {
@@ -239,85 +239,85 @@ seq.suma <- function(m, n) {
 
 seq.suma(1, 10)
 
-# Atsisakius tarpiniø kintamøjø, funkcijos viduje lieka tik viena iğraiğka, tad
-# riestiniø skliaustø galima ir neberağyti. Tokiu bûdu funkcijà uşrağome labai 
-# kompaktiğkai.
+# Atsisakius tarpiniÅ³ kintamÅ³jÅ³, funkcijos viduje lieka tik viena iÅ¡raiÅ¡ka, tad
+# riestiniÅ³ skliaustÅ³ galima ir neberaÅ¡yti. Tokiu bÅ«du funkcijÄ… uÅ¾raÅ¡ome labai 
+# kompaktiÅ¡kai.
 
 seq.suma <- function(m, n) sum(m:n)
 
-# Kaip ir kiti R objektai, funkcijos reikğmë gali bûti priskirta kintamajam arba 
-# kaip argumentas perduota dar kitai funkcijai. Pvz., sumavimo funkcijà ádësime 
-# á procedûrà cat, kuri iğ funkcijos argumentø ir jos rezultato suformuos sakiná 
-# ir iğves já á konsolæ.
+# Kaip ir kiti R objektai, funkcijos reikÅ¡mÄ— gali bÅ«ti priskirta kintamajam arba 
+# kaip argumentas perduota dar kitai funkcijai. Pvz., sumavimo funkcijÄ… Ä¯dÄ—sime 
+# Ä¯ procedÅ«rÄ… cat, kuri iÅ¡ funkcijos argumentÅ³ ir jos rezultato suformuos sakinÄ¯ 
+# ir iÅ¡ves jÄ¯ Ä¯ konsolÄ™.
 m = 10
 n = 99
 
-cat("Skaièiø nuo", m, "iki", n, "suma lygi", seq.suma(m, n), "\n")
+cat("SkaiÄiÅ³ nuo", m, "iki", n, "suma lygi", seq.suma(m, n), "\n")
 
 
 # NAUDINGA ------------------------------
 
-# Didelës apimties, ávairias pagalbines ar keliose skirtingose programose daşnai 
-# naudojamas funkcijas galima árağyti á atskirà tekstiná failà. Dël to programos 
-# tekstas pasidaro kompaktiğkesnis, lengviau skaitomas. Labai svarbu ir tai, kad 
-# pakoregavus funkcijà, visose jà naudojanèiose programose bus naudojama ta pati
-# jos versija. Funkcijos ar visos programos kodo nuskaitymui iğ tekstinio failo 
-# naudojama procedûra source.
+# DidelÄ—s apimties, Ä¯vairias pagalbines ar keliose skirtingose programose daÅ¾nai 
+# naudojamas funkcijas galima Ä¯raÅ¡yti Ä¯ atskirÄ… tekstinÄ¯ failÄ…. DÄ—l to programos 
+# tekstas pasidaro kompaktiÅ¡kesnis, lengviau skaitomas. Labai svarbu ir tai, kad 
+# pakoregavus funkcijÄ…, visose jÄ… naudojanÄiose programose bus naudojama ta pati
+# jos versija. Funkcijos ar visos programos kodo nuskaitymui iÅ¡ tekstinio failo 
+# naudojama procedÅ«ra source.
 
-# Pavyzdşiui, iğ internete patalpinto failo importuosime funkcijà visi.dalikliai, 
-# kuri suranda visus natûrinio skaièiaus daliklius.
+# PavyzdÅ¾iui, iÅ¡ internete patalpinto failo importuosime funkcijÄ… visi.dalikliai, 
+# kuri suranda visus natÅ«rinio skaiÄiaus daliklius.
 
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/funkcijos/divisors.R"
 source(file = adresas)
 
-# Funkcijos vardas be argumentø iğveda visà funkcijos kodà á konsolæ. Tokiu bûdu 
-# galima pamatyti neşinomos funkcijos argumentus ir viduje esanèias iğraiğkas.
+# Funkcijos vardas be argumentÅ³ iÅ¡veda visÄ… funkcijos kodÄ… Ä¯ konsolÄ™. Tokiu bÅ«du 
+# galima pamatyti neÅ¾inomos funkcijos argumentus ir viduje esanÄias iÅ¡raiÅ¡kas.
 visi.dalikliai
 
-# Neşinomos funkcijos viduje esanèias iğraiğkas á konsolæ iğveda funkcija body.
+# NeÅ¾inomos funkcijos viduje esanÄias iÅ¡raiÅ¡kas Ä¯ konsolÄ™ iÅ¡veda funkcija body.
 body(visi.dalikliai)
 
-# Vienintelis ğios funkcijos argumentas yra natûrinis skaièius, o jos rezultatas 
-# yra visø to skaièiaus dalikliø vektorius.
+# Vienintelis Å¡ios funkcijos argumentas yra natÅ«rinis skaiÄius, o jos rezultatas 
+# yra visÅ³ to skaiÄiaus dalikliÅ³ vektorius.
 visi.dalikliai(666)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite funkcijà Fibonaèio skaièiø sekos sudarymui. Pirmas ir antras jos 
-#    nariai lygûs 1, o kiekvienas sekantis narys lygus dviejø paskutiniø sumai. 
-#    Ğios funkcijos argumentas yra sekos nariø skaièius n, n > 0, o rezultatas
-#    yra n elementø turintis vektorius.
-# 2. Uşrağykite funkcijà sveikojo skaièiaus iğ dvejetainës skaièiavimo sistemos 
-#    pervedimui á değimtainæ. Funkcijos argumentas -- vektorius, kurio elementø
-#    reikğmës 0 arba 1. Pavyzdşiui, jei argumentas yra vektorius c(1, 1, 0, 1),
-#    rezultatas yra 13, jeigu argumentas c(1, 1, 1), tai rezultatas turi bûti 7.
-# 3. Tegu s yra n elementø turintis simboliø arba skaièiø vektorius. Uşrağykite 
-#    funkcijà, kuri surastø visas slenkanèias k elementø dydşio sekas. Pvz., jei
+# 1. UÅ¾raÅ¡ykite funkcijÄ… FibonaÄio skaiÄiÅ³ sekos sudarymui. Pirmas ir antras jos 
+#    nariai lygÅ«s 1, o kiekvienas sekantis narys lygus dviejÅ³ paskutiniÅ³ sumai. 
+#    Å ios funkcijos argumentas yra sekos nariÅ³ skaiÄius n, n > 0, o rezultatas
+#    yra n elementÅ³ turintis vektorius.
+# 2. UÅ¾raÅ¡ykite funkcijÄ… sveikojo skaiÄiaus iÅ¡ dvejetainÄ—s skaiÄiavimo sistemos 
+#    pervedimui Ä¯ deÅ¡imtainÄ™. Funkcijos argumentas -- vektorius, kurio elementÅ³
+#    reikÅ¡mÄ—s 0 arba 1. PavyzdÅ¾iui, jei argumentas yra vektorius c(1, 1, 0, 1),
+#    rezultatas yra 13, jeigu argumentas c(1, 1, 1), tai rezultatas turi bÅ«ti 7.
+# 3. Tegu s yra n elementÅ³ turintis simboliÅ³ arba skaiÄiÅ³ vektorius. UÅ¾raÅ¡ykite 
+#    funkcijÄ…, kuri surastÅ³ visas slenkanÄias k elementÅ³ dydÅ¾io sekas. Pvz., jei
 #    s = c("A", "B", "C", "D"), o k = 3, tai funkcijos rezultatas yra vektoriai
 #    c("A", "B", "C") ir c("B", "C", "D"). Gautas i-asis vektorius priskiriamas
-#    i-ajam sàrağo elementui ir galutinis rezultatas yra tokiø vektoriø sàrağas.
+#    i-ajam sÄ…raÅ¡o elementui ir galutinis rezultatas yra tokiÅ³ vektoriÅ³ sÄ…raÅ¡as.
  
 
 # --------------------------------------- #
-# KOREKTIĞKØ FUNKCIJØ RAĞYMAS             #
+# KOREKTIÅ KÅ² FUNKCIJÅ² RAÅ YMAS             #
 # --------------------------------------- #
 
-# Funkcijos turi bûti uşrağytos taip, kad suveiktø korektiğkai ir nekorektiğkose
+# Funkcijos turi bÅ«ti uÅ¾raÅ¡ytos taip, kad suveiktÅ³ korektiÅ¡kai ir nekorektiÅ¡kose
 # situacijose. Tas labai svarbu dirbant su realiais duomenimis, kuriuose kartais
-# bûna praleistø reikğmiø. Kadangi veiksmø su NA reikğmëmis rezultatas taip pat 
-# yra NA reikğmë, negalima atlikti tam tikrø skaièiavimø. Kartais skaièiavimus
-# tenka nutraukti nes duomenys netenkina tam tikrø specifiniø sàlygø, pvz., per
-# maşa imtis, per daug iğsiskirianèiø stebiniø ir t.t. 
+# bÅ«na praleistÅ³ reikÅ¡miÅ³. Kadangi veiksmÅ³ su NA reikÅ¡mÄ—mis rezultatas taip pat 
+# yra NA reikÅ¡mÄ—, negalima atlikti tam tikrÅ³ skaiÄiavimÅ³. Kartais skaiÄiavimus
+# tenka nutraukti nes duomenys netenkina tam tikrÅ³ specifiniÅ³ sÄ…lygÅ³, pvz., per
+# maÅ¾a imtis, per daug iÅ¡siskirianÄiÅ³ stebiniÅ³ ir t.t. 
 
-# Nekorektiğkos situacijos atveju iğraiğkos vykdymas nutraukiamas naudojant f-jà
-# stop. Paprastai ği funkcija naudojama kartu su sàlygos konstrukcija if-else.
+# NekorektiÅ¡kos situacijos atveju iÅ¡raiÅ¡kos vykdymas nutraukiamas naudojant f-jÄ…
+# stop. Paprastai Å¡i funkcija naudojama kartu su sÄ…lygos konstrukcija if-else.
 
-# Pavyzdşiui, uşrağysime funkcijà f(x) = 1/x. Prieğ atliekant skaièiavimus, bus
-# patikrinama, ar x nelygus 0. Jei taip, skaièiavimai nutraukiami.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime funkcijÄ… f(x) = 1/x. PrieÅ¡ atliekant skaiÄiavimus, bus
+# patikrinama, ar x nelygus 0. Jei taip, skaiÄiavimai nutraukiami.
 
 fx.a <- function (x) {
-  if (x == 0) stop("x negali bûti lygus 0.")
+  if (x == 0) stop("x negali bÅ«ti lygus 0.")
 
   y <- 1/x
   return(y)
@@ -327,15 +327,15 @@ fx.a(5)
 fx.a(0)
 
 
-# Prieğ atliekant skaièiavimus kartais tenka patikrinti, ar f-jos argumentai yra 
-# tam tikro tipo. Pavyzdşiui, uşrağysime funkcijà, kurios argumentas gali bûti 
-# tik vektorius (bet kokio tipo), prieğingu atveju skaièiavimai neatliekami.
+# PrieÅ¡ atliekant skaiÄiavimus kartais tenka patikrinti, ar f-jos argumentai yra 
+# tam tikro tipo. PavyzdÅ¾iui, uÅ¾raÅ¡ysime funkcijÄ…, kurios argumentas gali bÅ«ti 
+# tik vektorius (bet kokio tipo), prieÅ¡ingu atveju skaiÄiavimai neatliekami.
 
 fx.b <- function (x) {
-  if (!is.vector(x)) stop("x nëra vektorius.")
+  if (!is.vector(x)) stop("x nÄ—ra vektorius.")
 
   y <- length(x)
-  names(y) <- "Elementø skaièius"
+  names(y) <- "ElementÅ³ skaiÄius"
   return(y)
 }
 
@@ -343,19 +343,19 @@ fx.b(100:150)
 fx.b(letters)
 
 
-# Kartais funkcijos darbas turi bûti nutraukiamas jei netenkinama bent viena iğ
-# keletos loginiø sàlygø. Ğiø sàlygø patikrinimui galima naudoti keletà funkcijø 
-# if, taèiau paprasèiau naudoti tam skirtà funkcijà stopifnot. Jos parametrai:
+# Kartais funkcijos darbas turi bÅ«ti nutraukiamas jei netenkinama bent viena iÅ¡
+# keletos loginiÅ³ sÄ…lygÅ³. Å iÅ³ sÄ…lygÅ³ patikrinimui galima naudoti keletÄ… funkcijÅ³ 
+# if, taÄiau paprasÄiau naudoti tam skirtÄ… funkcijÄ… stopifnot. Jos parametrai:
 #
-#    stopifnot(sàlyga1, sàlyga2, ...)
+#    stopifnot(sÄ…lyga1, sÄ…lyga2, ...)
 
-# Jei visø loginiø sàlygø reikğmë yra TRUE, funkcija gràşina NULL reikğmæ. Jeigu
-# bent vienos sàlygos reikğmë nëra TRUE, suvykdoma funkcija stop, ir á konsolæ 
-# iğvedamas praneğimas apie pirmà ne TRUE reikğmæ turinèià sàlygà (jei tokiø yra
+# Jei visÅ³ loginiÅ³ sÄ…lygÅ³ reikÅ¡mÄ— yra TRUE, funkcija grÄ…Å¾ina NULL reikÅ¡mÄ™. Jeigu
+# bent vienos sÄ…lygos reikÅ¡mÄ— nÄ—ra TRUE, suvykdoma funkcija stop, ir Ä¯ konsolÄ™ 
+# iÅ¡vedamas praneÅ¡imas apie pirmÄ… ne TRUE reikÅ¡mÄ™ turinÄiÄ… sÄ…lygÄ… (jei tokiÅ³ yra
 # ne viena).
 
-# Pavyzdşiui, uşrağysime funkcijà, kurios argumentas turi bûti ne maşiau kaip 10
-# reikğmiø turintis skaitinis vektorius be praleistø reikğmiø.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime funkcijÄ…, kurios argumentas turi bÅ«ti ne maÅ¾iau kaip 10
+# reikÅ¡miÅ³ turintis skaitinis vektorius be praleistÅ³ reikÅ¡miÅ³.
 
 fx.s <- function(x) {
 
@@ -374,22 +374,22 @@ fx.s(x)
 fx.s(y)
 fx.s(z)
 
-# Kartais reikia, kad funkcija tam tikrais skaièiavimo etapais iğvestø praneğimà
+# Kartais reikia, kad funkcija tam tikrais skaiÄiavimo etapais iÅ¡vestÅ³ praneÅ¡imÄ…
 # apie atliekamus veiksmus. Tam naudojama funkcija message. Jos parametrai:
 #
-#        ... -- vienas ar keli kintamieji, kuriø reikğmë yra tekstas,
-#   appendLF -- TRUE, nurodo, kad kitas praneğimas bus naujoje eilutëje.
+#        ... -- vienas ar keli kintamieji, kuriÅ³ reikÅ¡mÄ— yra tekstas,
+#   appendLF -- TRUE, nurodo, kad kitas praneÅ¡imas bus naujoje eilutÄ—je.
 
-# Pavyzdşiui, anksèiau uşrağytà funkcijà papildysime informaciniais praneğimais 
-# apie sàlygø duomenims tikrinimà ir skaièiavimø etapo pradşià.
+# PavyzdÅ¾iui, anksÄiau uÅ¾raÅ¡ytÄ… funkcijÄ… papildysime informaciniais praneÅ¡imais 
+# apie sÄ…lygÅ³ duomenims tikrinimÄ… ir skaiÄiavimÅ³ etapo pradÅ¾iÄ….
 
 fx.m <- function(x) {
 
-  message("Tikrinamos sàlygos ... ", appendLF = FALSE)
+  message("Tikrinamos sÄ…lygos ... ", appendLF = FALSE)
   stopifnot(is.vector(x), is.numeric(x), length(x) >= 10, all(!is.na(x)))
   message("atlikta.")
 
-  message("Atliekami skaièiavimai.")
+  message("Atliekami skaiÄiavimai.")
   y <- mean(x)
   names(y) <- "Vidurkis"
 
@@ -400,21 +400,21 @@ fx.m(x)
 fx.m(y)
 fx.m(z)
 
-# Ne visi praneğimai turi vienodà svarbà. Ávairiems perspëjimams naudojama f-jà
+# Ne visi praneÅ¡imai turi vienodÄ… svarbÄ…. Ä®vairiems perspÄ—jimams naudojama f-jÄ…
 # warning. Jos parametrai:
 #
-#        ... -- vienas ar keli kintamieji, kuriø reikğmë yra tekstas,
-#      call. -- TRUE, praneğime nurodoma iğraiğka, kurioje ávyko klaida,
-# immediate. -- FALSE, nurodo, kad praneğimas bûtø iğvedamas iğ karto.
+#        ... -- vienas ar keli kintamieji, kuriÅ³ reikÅ¡mÄ— yra tekstas,
+#      call. -- TRUE, praneÅ¡ime nurodoma iÅ¡raiÅ¡ka, kurioje Ä¯vyko klaida,
+# immediate. -- FALSE, nurodo, kad praneÅ¡imas bÅ«tÅ³ iÅ¡vedamas iÅ¡ karto.
 
-# Pavyzdşiui, funkcijà perrağysime taip, kad skaièiavimai dël praleistø reikğmiø 
-# duomenyse nebus nutraukiami. Sàlyga dël praleistø reikğmiø tikrinama atskirai,
-# ir, jei tokiø reikğmiø yra, skaièiavimai atliekami, bet iğvedamas perspëjimas.
+# PavyzdÅ¾iui, funkcijÄ… perraÅ¡ysime taip, kad skaiÄiavimai dÄ—l praleistÅ³ reikÅ¡miÅ³ 
+# duomenyse nebus nutraukiami. SÄ…lyga dÄ—l praleistÅ³ reikÅ¡miÅ³ tikrinama atskirai,
+# ir, jei tokiÅ³ reikÅ¡miÅ³ yra, skaiÄiavimai atliekami, bet iÅ¡vedamas perspÄ—jimas.
 
 fx.w <- function(x) {
 
   stopifnot(is.vector(x), is.numeric(x), length(x) >= 10)
-  if (any(is.na(x))) warning("Duomenyse yra praleistø reikğmiø.", call. = FALSE)
+  if (any(is.na(x))) warning("Duomenyse yra praleistÅ³ reikÅ¡miÅ³.", call. = FALSE)
 
   y <- mean(x, na.rm = TRUE)
   names(y) <- "Vidurkis"
@@ -429,8 +429,8 @@ fx.w(z)
 
 # NAUDINGA ------------------------------
 
-# Tarkime, kad kintamasis n turi bûti sveikøjø skaièiø 1, 2, 3, 4 ir 5 vektorius. 
-# Toká vektoriø galima uşrağyti keliais skirtingais bûdais, taèiau ne visi iğ jø
+# Tarkime, kad kintamasis n turi bÅ«ti sveikÅ³jÅ³ skaiÄiÅ³ 1, 2, 3, 4 ir 5 vektorius. 
+# TokÄ¯ vektoriÅ³ galima uÅ¾raÅ¡yti keliais skirtingais bÅ«dais, taÄiau ne visi iÅ¡ jÅ³
 # yra tinkami.
 
 n.1 <- c(1.0, 2.0, 3.0, 4.0, 5.0)
@@ -451,8 +451,8 @@ is.integer(n.5)
 n.6 <- 1:5
 is.integer(n.6)
 
-# Galima parodyti, kad funkcijai, kurios argumentas turi bûti sveikasis skaièius,
-# tinka ne visi iğ ğiø vektoriø.
+# Galima parodyti, kad funkcijai, kurios argumentas turi bÅ«ti sveikasis skaiÄius,
+# tinka ne visi iÅ¡ Å¡iÅ³ vektoriÅ³.
 
 fx.n <- function(x) {
   stopifnot(is.integer(x))
@@ -463,9 +463,9 @@ fx.n <- function(x) {
 fx.n(n.2)
 fx.n(n.6)
 
-# Iğ ğiø pavyzdşiø aiğku, kad iğ esmës geri duomenys gali bûti atmesti vien tik 
-# dël netinkamo kintamojo tipo. Norint uştikrinti, kad skaièiavimuose naudojami
-# reikiamo tipo kintamieji, kartais funkcijos argumentai iğ anksto konvertuojami.
+# IÅ¡ Å¡iÅ³ pavyzdÅ¾iÅ³ aiÅ¡ku, kad iÅ¡ esmÄ—s geri duomenys gali bÅ«ti atmesti vien tik 
+# dÄ—l netinkamo kintamojo tipo. Norint uÅ¾tikrinti, kad skaiÄiavimuose naudojami
+# reikiamo tipo kintamieji, kartais funkcijos argumentai iÅ¡ anksto konvertuojami.
 # Tam naudojamos funkcijos as.numeric, as.character, as.vector, as.matrix ir t.t.
 
 fx.k <- function(x) {
@@ -478,12 +478,12 @@ fx.k(n.2)
 fx.k(n.6)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite funkcijà, kuri apskaièiuoja skaièiø vektoriaus elementø sandaugà. 
-#    Naudojant funkcijà stop, nutraukite skaièiavimus, jei bent vienas elementas
+# 1. UÅ¾raÅ¡ykite funkcijÄ…, kuri apskaiÄiuoja skaiÄiÅ³ vektoriaus elementÅ³ sandaugÄ…. 
+#    Naudojant funkcijÄ… stop, nutraukite skaiÄiavimus, jei bent vienas elementas
 #    lygus nuliui.
-# 2. Naudodami f-jà stopifnot, uşrağykite iğraiğkà, kuri patikrina ar kintamasis 
-#    x yra neneigiamø skaièiø vektorius.
-# 3. Naudodami funkcijà stopifnot, patikrinkite, ar funkcijos argumentas yra 3x3
-#    dydşio skaièiø matrica be praleistø reikğmiø.
+# 2. Naudodami f-jÄ… stopifnot, uÅ¾raÅ¡ykite iÅ¡raiÅ¡kÄ…, kuri patikrina ar kintamasis 
+#    x yra neneigiamÅ³ skaiÄiÅ³ vektorius.
+# 3. Naudodami funkcijÄ… stopifnot, patikrinkite, ar funkcijos argumentas yra 3x3
+#    dydÅ¾io skaiÄiÅ³ matrica be praleistÅ³ reikÅ¡miÅ³.

@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Pagrindiniai grafiko braişymo etapai.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Pagrindiniai grafiko braiÅ¾ymo etapai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-03-05 | 2015-03-06
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. Pagrindiniai sklaidos diagramos braişymo etapai:
+#   1. Pagrindiniai sklaidos diagramos braiÅ¾ymo etapai:
 #      * plot.new,
 #      * plot.window
 #      * xy.coords
@@ -24,45 +24,45 @@
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti uşdaviniø.
+# Sugalvoti uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# PAGRINDINIAI GRAFIKO BRAIŞYMO ETAPAI    #
+# PAGRINDINIAI GRAFIKO BRAIÅ½YMO ETAPAI    #
 # --------------------------------------- #
 
-# Bet kokio sudëtingumo grafiko braişymas susideda iğ keletos pagrindiniø etapø: 
-# grafinio árenginio atidarymo, koordinaèiø sistemos sudarymo, tağkø arba linijø 
-# koordinaèiø skaièiavimo ir jø atidëjimo grafiniame lange. Visus ğiuos veiksmus 
+# Bet kokio sudÄ—tingumo grafiko braiÅ¾ymas susideda iÅ¡ keletos pagrindiniÅ³ etapÅ³: 
+# grafinio Ä¯renginio atidarymo, koordinaÄiÅ³ sistemos sudarymo, taÅ¡kÅ³ arba linijÅ³ 
+# koordinaÄiÅ³ skaiÄiavimo ir jÅ³ atidÄ—jimo grafiniame lange. Visus Å¡iuos veiksmus 
 # atlieka tokios funkcijos:
 #
-#     plot.new -- sustabdo grafiko braişymà viename lange ir sukuria naujà,
-#  plot.window -- grafiniame lange sukuria koordinaèiø sistemà,
-#    xy.coords -- apskaièiuoja tağkø grafiniame lange koordinates,
-#      plot.xy -- grafiniame lange atideda tağkus,
-# plot.default -- bazinë aukğto lygio grafinë funkcija.
+#     plot.new -- sustabdo grafiko braiÅ¾ymÄ… viename lange ir sukuria naujÄ…,
+#  plot.window -- grafiniame lange sukuria koordinaÄiÅ³ sistemÄ…,
+#    xy.coords -- apskaiÄiuoja taÅ¡kÅ³ grafiniame lange koordinates,
+#      plot.xy -- grafiniame lange atideda taÅ¡kus,
+# plot.default -- bazinÄ— aukÅ¡to lygio grafinÄ— funkcija.
 
 
-# Pagrindinë aukğto lygio grafinë funkcija -- plot, kuri turi keletà metodø. Jos
-# rezultatas priklauso nuo argumento. Jei argumentas yra tağkai su koordinatëmis 
-# (x, y), tai grafiko braişymas perduodamas funkcijai plot.default, kuri tağkams
-# grafike atidëti naudoja funkcijà plot.xy. Ğios funkcijos argumentas -- sàrağas
-# iğ keturiø elementø: tağkø koordinatës x ir y ir koordinaèiø ağiø pavadinimai.
-# Tada tağkai atidedami grafiniame lange su nustatyta koordinaèiø sistema. Tokiu 
-# bûdu susidaro tam tikra funkcijø seka, kuri atspindi grafiko braişymo etapus:
+# PagrindinÄ— aukÅ¡to lygio grafinÄ— funkcija -- plot, kuri turi keletÄ… metodÅ³. Jos
+# rezultatas priklauso nuo argumento. Jei argumentas yra taÅ¡kai su koordinatÄ—mis 
+# (x, y), tai grafiko braiÅ¾ymas perduodamas funkcijai plot.default, kuri taÅ¡kams
+# grafike atidÄ—ti naudoja funkcijÄ… plot.xy. Å ios funkcijos argumentas -- sÄ…raÅ¡as
+# iÅ¡ keturiÅ³ elementÅ³: taÅ¡kÅ³ koordinatÄ—s x ir y ir koordinaÄiÅ³ aÅ¡iÅ³ pavadinimai.
+# Tada taÅ¡kai atidedami grafiniame lange su nustatyta koordinaÄiÅ³ sistema. Tokiu 
+# bÅ«du susidaro tam tikra funkcijÅ³ seka, kuri atspindi grafiko braiÅ¾ymo etapus:
 #
 # plot(x, y)
 #         |
@@ -75,36 +75,36 @@ rm(list = ls())
 #                                                      plot.new()
 
 
-# Visos aukğto lygio grafinës funkcijos, tokios kaip plot, curve, hist ir kitos,
-# grafikà braişo arba naujame grafiniame lange, arba anksèiau atidarytame lange,
-# kuris prieğ tai iğvalomas. Ğiuos veiksmus, prieğ grafiko braişymà aukğto lygio
-# grafine f-ja, automatiğkai atlieka funkcija plot.new. 
+# Visos aukÅ¡to lygio grafinÄ—s funkcijos, tokios kaip plot, curve, hist ir kitos,
+# grafikÄ… braiÅ¾o arba naujame grafiniame lange, arba anksÄiau atidarytame lange,
+# kuris prieÅ¡ tai iÅ¡valomas. Å iuos veiksmus, prieÅ¡ grafiko braiÅ¾ymÄ… aukÅ¡to lygio
+# grafine f-ja, automatiÅ¡kai atlieka funkcija plot.new. 
 
-# Pavyzdşiui, jeigu nëra nei vieno grafinio lango, funkcija plot.new já atidaro. 
+# PavyzdÅ¾iui, jeigu nÄ—ra nei vieno grafinio lango, funkcija plot.new jÄ¯ atidaro. 
 
 plot.new()
 
 # Jeigu grafinis langas atidarytas, nepriklausomai nuo to, kas jame pavaizduota,
-# funkcija plot.new já iğvalo.
+# funkcija plot.new jÄ¯ iÅ¡valo.
 
 curve(sin, -pi, pi)
 plot.new()
 
-# Funkcijos plot.new sukurtame grafiniame lange koordinaèiø ağiø ribos yra nuo 0 
-# iki 1. Tuo nesunku ásitikinti naujame grafiniame lange nubraişius ağis.
+# Funkcijos plot.new sukurtame grafiniame lange koordinaÄiÅ³ aÅ¡iÅ³ ribos yra nuo 0 
+# iki 1. Tuo nesunku Ä¯sitikinti naujame grafiniame lange nubraiÅ¾ius aÅ¡is.
 
 plot.new()
 axis(1)
 axis(2)
 
 
-# Koordinaèiø sistemos sudarymui naudojama funkcija plot.window. Jos parametrai:
+# KoordinaÄiÅ³ sistemos sudarymui naudojama funkcija plot.window. Jos parametrai:
 #
-#       xlim -- ağies Ox ribos,
-#       ylim -- ağies Oy ribos,
-#        asp -- koordinaèiø santykis y/x.
+#       xlim -- aÅ¡ies Ox ribos,
+#       ylim -- aÅ¡ies Oy ribos,
+#        asp -- koordinaÄiÅ³ santykis y/x.
 
-# Pavyzdşiui, atidarysime naujà grafiná langà ir jame nustatysime reikiamas ağiø
+# PavyzdÅ¾iui, atidarysime naujÄ… grafinÄ¯ langÄ… ir jame nustatysime reikiamas aÅ¡iÅ³
 # ribas: Ox intervalas [10, 20] ir Oy intervalas [0, 5].
 
 plot.new()
@@ -112,10 +112,10 @@ plot.window(xlim = c(10, 20), ylim = c(0, 5))
 axis(1)
 axis(2)
 
-# Taip galima pakeisti ir jau nubraişyto grafiko koordinaèiø sistemà. Pavyzdşiui,
-# nubraişysime funkcijos y = sin(x) grafikà áprastoje koordinaèiø sistemoje, kur
-# ağies Oy intervalas [-1, 1]. Pakeitus koordinaèiø sistemà tos paèios funkcijos 
-# grafikas atrodo visiğkai kitaip.
+# Taip galima pakeisti ir jau nubraiÅ¾yto grafiko koordinaÄiÅ³ sistemÄ…. PavyzdÅ¾iui,
+# nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ… Ä¯prastoje koordinaÄiÅ³ sistemoje, kur
+# aÅ¡ies Oy intervalas [-1, 1]. Pakeitus koordinaÄiÅ³ sistemÄ… tos paÄios funkcijos 
+# grafikas atrodo visiÅ¡kai kitaip.
 
 par(mar = c(4, 4, 4, 4), las = 1)
 plot.new()
@@ -131,50 +131,50 @@ axis(4)
 curve(sin, add = TRUE)
 
 
-# Funkcija xy.coords sudaro sàrağà su tağkø koordinatëmis (x, y) bei koordinaèiø
-# ağiø pavadinimais: x, y, xlab ir ylab. Ğis sàrağas naudojamas tağkø atidëjimui
-# grafike, kurá atlieka bazinë tağkø ir linijø braişymo funkcija plot.xy, taèiau
-# prieğ tai aptarsime f-jos xy.coords parametrus:
+# Funkcija xy.coords sudaro sÄ…raÅ¡Ä… su taÅ¡kÅ³ koordinatÄ—mis (x, y) bei koordinaÄiÅ³
+# aÅ¡iÅ³ pavadinimais: x, y, xlab ir ylab. Å is sÄ…raÅ¡as naudojamas taÅ¡kÅ³ atidÄ—jimui
+# grafike, kurÄ¯ atlieka bazinÄ— taÅ¡kÅ³ ir linijÅ³ braiÅ¾ymo funkcija plot.xy, taÄiau
+# prieÅ¡ tai aptarsime f-jos xy.coords parametrus:
 #
-#          x -- tağkø x koordinaèiø vektorius,
-#          y -- tağkø y koordinaèiø vektorius,
-#       xlab -- Ox ağies pavadinimas,
-#       ylab -- Oy ağies pavadinimas,
-#        log -- nurodo, kuri ağis logaritminëje skalëje,
-#    recycle -- nurodo, ar trumpesná koordinaèiø vektoriø cikliğkai pratæsti.
+#          x -- taÅ¡kÅ³ x koordinaÄiÅ³ vektorius,
+#          y -- taÅ¡kÅ³ y koordinaÄiÅ³ vektorius,
+#       xlab -- Ox aÅ¡ies pavadinimas,
+#       ylab -- Oy aÅ¡ies pavadinimas,
+#        log -- nurodo, kuri aÅ¡is logaritminÄ—je skalÄ—je,
+#    recycle -- nurodo, ar trumpesnÄ¯ koordinaÄiÅ³ vektoriÅ³ cikliÅ¡kai pratÄ™sti.
 
-# Pavyzdşiui, turëdami tağkø koordinaèiø vektorius, sukursime tø tağkø braişymui
-# reikalinga sàrağà su tağkø koordinatëmis ir koordinaèiø ağiø pavadinimais.
+# PavyzdÅ¾iui, turÄ—dami taÅ¡kÅ³ koordinaÄiÅ³ vektorius, sukursime tÅ³ taÅ¡kÅ³ braiÅ¾ymui
+# reikalinga sÄ…raÅ¡Ä… su taÅ¡kÅ³ koordinatÄ—mis ir koordinaÄiÅ³ aÅ¡iÅ³ pavadinimais.
 
 x <- seq(-pi, pi, length = 100)
 y <- sin(x)
 
 xy.coords(x, y, xlab = "x", ylab = "sin(x)")
 
-# Koordinaèiø vektorius galima susieti per formulæ y ~ x.
+# KoordinaÄiÅ³ vektorius galima susieti per formulÄ™ y ~ x.
 
 xy.coords(y ~ x, xlab = "x", ylab = "sin(x)")
 
-# Loginiam parametrui recycle priskiriant reikğmæ TRUE, nustatome, kad trumpesná
-# koordinaèiø vektoriø galima cikliğkai pratæsti ir tokiu bûdu juos suvienodinti.
+# Loginiam parametrui recycle priskiriant reikÅ¡mÄ™ TRUE, nustatome, kad trumpesnÄ¯
+# koordinaÄiÅ³ vektoriÅ³ galima cikliÅ¡kai pratÄ™sti ir tokiu bÅ«du juos suvienodinti.
 
 xy.coords(1:10, 1:2, xlab = "x", ylab = "y", recycle = TRUE)
 
 
-# Naudojant funkcijos xy.coords sudarytà sàrağà, funkcija plot.xy atideda tağkus
-# grafiniame lange su nustatyta koordinaèiø sistema. Pagrindiniai jos parametrai:
+# Naudojant funkcijos xy.coords sudarytÄ… sÄ…raÅ¡Ä…, funkcija plot.xy atideda taÅ¡kus
+# grafiniame lange su nustatyta koordinaÄiÅ³ sistema. Pagrindiniai jos parametrai:
 #
-#         xy -- sàrağas su tağkø koordinatëmis ir ağiø pavadinimais,
+#         xy -- sÄ…raÅ¡as su taÅ¡kÅ³ koordinatÄ—mis ir aÅ¡iÅ³ pavadinimais,
 #       type -- diagramos tipas,
-#        pch -- tağko simbolis arba jo numeris,
+#        pch -- taÅ¡ko simbolis arba jo numeris,
 #        lty -- linijos tipas,
 #        lwd -- linijos storis,
-#        col -- linijos arba tağko spalva,
-#        cex -- tağko mastelio koeficientas.
+#        col -- linijos arba taÅ¡ko spalva,
+#        cex -- taÅ¡ko mastelio koeficientas.
 
-# Pavyzdşiui, sudarysime tağkø koordinaèiø sàrağà ir, naudojant funkcijà plot.xy 
-# nubraişysime tağkø sklaidos diagramà iğ anksto atidarytame grafiniame lange su 
-# nustatyta koordinaèiø sistema.
+# PavyzdÅ¾iui, sudarysime taÅ¡kÅ³ koordinaÄiÅ³ sÄ…raÅ¡Ä… ir, naudojant funkcijÄ… plot.xy 
+# nubraiÅ¾ysime taÅ¡kÅ³ sklaidos diagramÄ… iÅ¡ anksto atidarytame grafiniame lange su 
+# nustatyta koordinaÄiÅ³ sistema.
 
 x <- c(2.0, 1.6, 1.2, 0.9, 1.0, 1.3, 1.6, 2.0, 2.3, 2.8, 2.9, 3.0, 2.8, 2.4, 2.1)
 y <- c(0.8, 1.1, 1.3, 1.6, 2.2, 2.5, 2.9, 3.1, 3.0, 2.8, 2.4, 1.8, 1.4, 1.0, 0.9)
@@ -186,29 +186,29 @@ plot.new()
 plot.window(xlim = c(0.8, 3.2), ylim = c(0.8, 3.2))
 plot.xy(xy, type = "p")
 
-# Funkcija plot.xy nëra aukğto lygio grafinë funkcija, todël tağkus ant anksèiau
-# nubraişyto grafiko atideda jo neiğtrynusi. Pvz., tuos paèius tağkus sujungsime
-# tiesës atkarpomis, tam uştenka pakeisti parametro type reikğmæ.
+# Funkcija plot.xy nÄ—ra aukÅ¡to lygio grafinÄ— funkcija, todÄ—l taÅ¡kus ant anksÄiau
+# nubraiÅ¾yto grafiko atideda jo neiÅ¡trynusi. Pvz., tuos paÄius taÅ¡kus sujungsime
+# tiesÄ—s atkarpomis, tam uÅ¾tenka pakeisti parametro type reikÅ¡mÄ™.
 
 plot.xy(xy, type = "b", pch = 20, col = "red")
 plot.xy(xy, type = "S")
 plot.xy(xy, type = "s")
 
 
-# Visà tokiam grafikui nubraişyti reikalingà funkcijø sekà pakeièia viena aukğto
-# lygio grafinë funkcija. Ğiuo atveju tai funkcija plot. Ji turi metodà sklaidos 
-# diagramoms braişyti ir tam naudoja funkcijà plot.default. Pavyzdşiui, tà paèià
-# tağkø (x, y) sklaidos diagramà gausime naudojant tam skirtà f-jà plot.default.
+# VisÄ… tokiam grafikui nubraiÅ¾yti reikalingÄ… funkcijÅ³ sekÄ… pakeiÄia viena aukÅ¡to
+# lygio grafinÄ— funkcija. Å iuo atveju tai funkcija plot. Ji turi metodÄ… sklaidos 
+# diagramoms braiÅ¾yti ir tam naudoja funkcijÄ… plot.default. PavyzdÅ¾iui, tÄ… paÄiÄ…
+# taÅ¡kÅ³ (x, y) sklaidos diagramÄ… gausime naudojant tam skirtÄ… f-jÄ… plot.default.
 
 plot.default(x, y, type = "b")
 
-# Şinoma, toks pat rezultatas gaunamas diagramà braişant su aukğto lygio grafine 
-# funkcija plot, kuri tağkø atvaizdavimui ir naudoja f-jà plot.default.
+# Å½inoma, toks pat rezultatas gaunamas diagramÄ… braiÅ¾ant su aukÅ¡to lygio grafine 
+# funkcija plot, kuri taÅ¡kÅ³ atvaizdavimui ir naudoja f-jÄ… plot.default.
 
 plot(x, y, type = "b")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. 
 #    

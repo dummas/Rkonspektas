@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Duomenø importavimo iğ tekstinio ar binarinio failo bûdai.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            DuomenÅ³ importavimo iÅ¡ tekstinio ar binarinio failo bÅ«dai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-07-08 | 2013-07-12
 #
@@ -12,74 +12,74 @@
 # TURINYS -------------------------------
 
 #
-#   1. Duomenø nuskaitymas iğ tekstinio failo:
-#      * procedûra scan
-#      * procedûra readLines
-#      * procedûra read.table
-#      * procedûra read.csv
-#      * procedûra read.delim
+#   1. DuomenÅ³ nuskaitymas iÅ¡ tekstinio failo:
+#      * procedÅ«ra scan
+#      * procedÅ«ra readLines
+#      * procedÅ«ra read.table
+#      * procedÅ«ra read.csv
+#      * procedÅ«ra read.delim
 #
-#   2. Duomenø nuskaitymas iğ binarinio failo:
-#      * procedûra save
-#      * procedûra load
+#   2. DuomenÅ³ nuskaitymas iÅ¡ binarinio failo:
+#      * procedÅ«ra save
+#      * procedÅ«ra load
 #
 
 
 # PASTABOS ------------------------------
 
 #
-# Parağyti apie funkcijà count.fields.
-# Parağyti apie funkcijà read.fwf.
+# ParaÅ¡yti apie funkcijÄ… count.fields.
+# ParaÅ¡yti apie funkcijÄ… read.fwf.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# DUOMENØ NUSKAITYMAS IĞ TEKSTINIO FAILO  #
+# DUOMENÅ² NUSKAITYMAS IÅ  TEKSTINIO FAILO  #
 # --------------------------------------- #
 
-# Daug elementø turintys vektoriai, didelës matricos, duomenø lentelës arba kiti 
-# dideli duomenø masyvai paprastai laikomos failuose, kuriø nuskaitymui R turi 
-# keletà procedûrø. Aptarsime daşniausiai pasitaikanèias situacijas.
+# Daug elementÅ³ turintys vektoriai, didelÄ—s matricos, duomenÅ³ lentelÄ—s arba kiti 
+# dideli duomenÅ³ masyvai paprastai laikomos failuose, kuriÅ³ nuskaitymui R turi 
+# keletÄ… procedÅ«rÅ³. Aptarsime daÅ¾niausiai pasitaikanÄias situacijas.
 
-# Vieno vektoriaus elementø nuskaitymui iğ failo naudojama procedûrà scan. Galima 
-# iğrağyti pagrindinius jos parametrus:
+# Vieno vektoriaus elementÅ³ nuskaitymui iÅ¡ failo naudojama procedÅ«rÄ… scan. Galima 
+# iÅ¡raÅ¡yti pagrindinius jos parametrus:
 #
-#    file -- kabutëse uşrağomas duomenø failo vardas arba kelias iki failo,
-#    what -- vektoriaus reikğmiø tipas: numeric(), character() ir pan.,
-#     sep -- vektoriaus elementus skiriantis simbolis, pagal nutylëjimà tarpas,
-#     dec -- değimtainio kablelio simbolis, pagal nutylëjimà tai tağkas ".",
-#    skip -- pirmøjø nenuskaitomø eiluèiø faile skaièius,
-#  nlines -- nuskaitomø failo eiluèiø skaièius,
-#       n -- maksimalus vektoriaus elementø skaièius.
+#    file -- kabutÄ—se uÅ¾raÅ¡omas duomenÅ³ failo vardas arba kelias iki failo,
+#    what -- vektoriaus reikÅ¡miÅ³ tipas: numeric(), character() ir pan.,
+#     sep -- vektoriaus elementus skiriantis simbolis, pagal nutylÄ—jimÄ… tarpas,
+#     dec -- deÅ¡imtainio kablelio simbolis, pagal nutylÄ—jimÄ… tai taÅ¡kas ".",
+#    skip -- pirmÅ³jÅ³ nenuskaitomÅ³ eiluÄiÅ³ faile skaiÄius,
+#  nlines -- nuskaitomÅ³ failo eiluÄiÅ³ skaiÄius,
+#       n -- maksimalus vektoriaus elementÅ³ skaiÄius.
 
-# Jei parametro file reikğmë nenurodoma, pagal nutylëjimà laikoma, jog jo reikğmë
-# yra "" ir vektoriaus reikğmës bus ávedamos iğ klaviatûros.
+# Jei parametro file reikÅ¡mÄ— nenurodoma, pagal nutylÄ—jimÄ… laikoma, jog jo reikÅ¡mÄ—
+# yra "" ir vektoriaus reikÅ¡mÄ—s bus Ä¯vedamos iÅ¡ klaviatÅ«ros.
 
-# Vektoriaus elementai nuskaitomi eilutëmis. Elementai faile gali bûti surağyti 
-# viename stulpelyje arba keliose eilutëse po kelis elementus vienoje eilutëje. 
-# Elementø skaièius eilutëse nebûtinai turi sutapti ir gali skirtis.
+# Vektoriaus elementai nuskaitomi eilutÄ—mis. Elementai faile gali bÅ«ti suraÅ¡yti 
+# viename stulpelyje arba keliose eilutÄ—se po kelis elementus vienoje eilutÄ—je. 
+# ElementÅ³ skaiÄius eilutÄ—se nebÅ«tinai turi sutapti ir gali skirtis.
 
 
-# Sukursime tekstiná failà su keliomis skaitinëmis reikğmëmis. Reikğmës viena nuo
-# kitos atskiriamos naujos eilutës simboliu \n, todël faile visos jos surağomos 
-# po vienà kiekvienoje eilutëje.
+# Sukursime tekstinÄ¯ failÄ… su keliomis skaitinÄ—mis reikÅ¡mÄ—mis. ReikÅ¡mÄ—s viena nuo
+# kitos atskiriamos naujos eilutÄ—s simboliu \n, todÄ—l faile visos jos suraÅ¡omos 
+# po vienÄ… kiekvienoje eilutÄ—je.
 
 v <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 cat(v, file = "test.dat", sep = "\n")
 
-# Iğ sukurto tekstinio failo nuskaitome reikğmes ir iğ jø sudarome vektoriø x.
+# IÅ¡ sukurto tekstinio failo nuskaitome reikÅ¡mes ir iÅ¡ jÅ³ sudarome vektoriÅ³ x.
 x <- scan(file = "test.dat")
 x
 
@@ -87,38 +87,38 @@ x
 identical(v, x)
 
 
-# Sukursime simboliniø reikğmiø vektoriø ir árağysime á failà. Reikğmes atskirsime 
-# tarpo şenklu, todël visos raidës faile bus vienoje eilutëje.
+# Sukursime simboliniÅ³ reikÅ¡miÅ³ vektoriÅ³ ir Ä¯raÅ¡ysime Ä¯ failÄ…. ReikÅ¡mes atskirsime 
+# tarpo Å¾enklu, todÄ—l visos raidÄ—s faile bus vienoje eilutÄ—je.
 
 v <- c("a", "b", "c", "x", "y", "z")
 cat(v, file = "test.dat", sep = " ")
 
-# Kadangi dabar vektoriaus elementai yra simboliai, tai reikia nurodyti jø tipà.
+# Kadangi dabar vektoriaus elementai yra simboliai, tai reikia nurodyti jÅ³ tipÄ….
 x <- scan(file = "test.dat", what = character())
 x
 
 
-# Lietuviø kalboje değimtainës trupmenos sveikoji ir trupmeninë dalys skiriamos
-# kableliu, todël nuskaitant toká vektoriø reikia pakeisti parametro dec reikğmæ
-# á ",". Sukursime failà, kuriame realieji skaièiai uşrağyti su kableliu.
+# LietuviÅ³ kalboje deÅ¡imtainÄ—s trupmenos sveikoji ir trupmeninÄ— dalys skiriamos
+# kableliu, todÄ—l nuskaitant tokÄ¯ vektoriÅ³ reikia pakeisti parametro dec reikÅ¡mÄ™
+# Ä¯ ",". Sukursime failÄ…, kuriame realieji skaiÄiai uÅ¾raÅ¡yti su kableliu.
 
 v <- c("1,5", "2,1", "3,1", "4,9")
 cat(v, file = "test.dat", sep = "\n")
 
-# Norint korektiğkai nuskaityti toká failà, reikia nurodyti, kad trupmeninæ dalá
-# skiria kablelis, o ne tağkas, kaip nurodyta pagal nutylëjimà.
+# Norint korektiÅ¡kai nuskaityti tokÄ¯ failÄ…, reikia nurodyti, kad trupmeninÄ™ dalÄ¯
+# skiria kablelis, o ne taÅ¡kas, kaip nurodyta pagal nutylÄ—jimÄ….
 x <- scan(file = "test.dat", dec = ",")
 x
 
 
-# Failo pradşioje gali bûti kelios tuğèios eilutës arba eilutës, kuriose surağyta 
-# papildoma informacija. Tada procedûrai reikia nurodyti ir praleidşiamø eiluèiø 
-# skaièiø.
+# Failo pradÅ¾ioje gali bÅ«ti kelios tuÅ¡Äios eilutÄ—s arba eilutÄ—s, kuriose suraÅ¡yta 
+# papildoma informacija. Tada procedÅ«rai reikia nurodyti ir praleidÅ¾iamÅ³ eiluÄiÅ³ 
+# skaiÄiÅ³.
 
 v <- c("praleisti", "praleisti", " ", "a", "b", "c")
 cat(v, file = "test.dat", sep = "\n")
 
-# Gautame faile pirmos trys eilutës neturi jokios informacijos, todël jas reikia
+# Gautame faile pirmos trys eilutÄ—s neturi jokios informacijos, todÄ—l jas reikia
 # praleisti. 
 
 x <- scan(file = "test.dat", what = character(), skip = 3)
@@ -127,116 +127,116 @@ x
 
 # NAUDINGA ------------------------------
 
-# Daşnai duomenø failas yra internete. Tokiu atveju procedûros parametrui file 
-# reikia nurodyti pilnà jo adresà.
+# DaÅ¾nai duomenÅ³ failas yra internete. Tokiu atveju procedÅ«ros parametrui file 
+# reikia nurodyti pilnÄ… jo adresÄ….
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_1a.dat"
 
 x <- scan(file = adresas)
 x
 
 
-# Teksto eilutëms iğ failo nuskaityti naudojama specialiai tam skirta procedûra 
+# Teksto eilutÄ—ms iÅ¡ failo nuskaityti naudojama specialiai tam skirta procedÅ«ra 
 # readLines. Pagrindiniai jos parametrai:
 #
-#     con -- duomenø failas arba simboliø eilutë,
-#       n -- nuskaitomø eiluèiø skaièius.
+#     con -- duomenÅ³ failas arba simboliÅ³ eilutÄ—,
+#       n -- nuskaitomÅ³ eiluÄiÅ³ skaiÄius.
 
-# Procedûros rezultatas yra character tipo vektorius, kurio vienas elementas yra 
-# viena teksto eilutë.
+# ProcedÅ«ros rezultatas yra character tipo vektorius, kurio vienas elementas yra 
+# viena teksto eilutÄ—.
 
-# Pavyzdşiui, nuskaitysime tekstiná failà, kuris turi penkias eilutes, po vienà
-# sakiná kiekvienoje eilutëje.
+# PavyzdÅ¾iui, nuskaitysime tekstinÄ¯ failÄ…, kuris turi penkias eilutes, po vienÄ…
+# sakinÄ¯ kiekvienoje eilutÄ—je.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_3a.dat"
 
 x <- readLines(adresas)
 x
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_1b.dat" 
-#    nuskaitykite pirmus 20 vektoriaus elementø. 
-# 2. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_2a.dat" 
-#    nuskaitykite kabliatağkiais atskirtus şodşius. Turite gauti character tipo
-#    vektoriø iğ 10 elementø.
-# 3. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_3a.dat" 
+# 1. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_1b.dat" 
+#    nuskaitykite pirmus 20 vektoriaus elementÅ³. 
+# 2. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_2a.dat" 
+#    nuskaitykite kabliataÅ¡kiais atskirtus Å¾odÅ¾ius. Turite gauti character tipo
+#    vektoriÅ³ iÅ¡ 10 elementÅ³.
+# 3. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/vekt_3a.dat" 
 #    nuskaitykite tik pirmas 3 eilutes. 
 
 
-# Duomenø lentelës iğ failo nuskaitomos naudojant procedûrà read.table. Baziniai
+# DuomenÅ³ lentelÄ—s iÅ¡ failo nuskaitomos naudojant procedÅ«rÄ… read.table. Baziniai
 # jos parametrai tokie:
 #
-#       file -- kabutëse uşrağomas duomenø failo vardas arba kelias iki failo,
-#     header -- TRUE nurodo, kad pirmoje eilutëje surağyti kintamøjø vardai,
-#        sep -- stulpelius atskiriantis simbolis, pagal nutylëjimà tarpas,
-#        dec -- değimtainio kablelio simbolis, pagal nutylëjimà tai tağkas ".",
-#       skip -- skaièius pirmøjø eiluèiø, kurias reikia praleisti,
-#      nrows -- skaièius eiluèiø, kurias reikia nuskaityti,
-#  row.names -- eiluèiø vardø vektorius, jø stulpelio numeris arba pavadinimas,
-#  col.names -- stulpeliø pavadinimø vektorius,
-# na.strings -- praleistos reikğmës simbolis, pagal nutylëjimà "NA",
+#       file -- kabutÄ—se uÅ¾raÅ¡omas duomenÅ³ failo vardas arba kelias iki failo,
+#     header -- TRUE nurodo, kad pirmoje eilutÄ—je suraÅ¡yti kintamÅ³jÅ³ vardai,
+#        sep -- stulpelius atskiriantis simbolis, pagal nutylÄ—jimÄ… tarpas,
+#        dec -- deÅ¡imtainio kablelio simbolis, pagal nutylÄ—jimÄ… tai taÅ¡kas ".",
+#       skip -- skaiÄius pirmÅ³jÅ³ eiluÄiÅ³, kurias reikia praleisti,
+#      nrows -- skaiÄius eiluÄiÅ³, kurias reikia nuskaityti,
+#  row.names -- eiluÄiÅ³ vardÅ³ vektorius, jÅ³ stulpelio numeris arba pavadinimas,
+#  col.names -- stulpeliÅ³ pavadinimÅ³ vektorius,
+# na.strings -- praleistos reikÅ¡mÄ—s simbolis, pagal nutylÄ—jimÄ… "NA",
 #      as.is -- jei TRUE, tai kategoriniai kintamieji nuskaitomi kaip faktoriai.
 
 
-# Kaip ir procedûrai scan, èia galima nurodyti, kad duomenø failas yra internete.
+# Kaip ir procedÅ«rai scan, Äia galima nurodyti, kad duomenÅ³ failas yra internete.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1a.dat" 
 
-# Paèiu paprasèiausiu atveju stulpeliai faile gali bûti surağyti be pavadinimø.
-# Tada procedûrai uştenka nurodyti tik duomenø failo adresà, o kintamøjø vardai
-# sudaromi automatiğkai.
+# PaÄiu paprasÄiausiu atveju stulpeliai faile gali bÅ«ti suraÅ¡yti be pavadinimÅ³.
+# Tada procedÅ«rai uÅ¾tenka nurodyti tik duomenÅ³ failo adresÄ…, o kintamÅ³jÅ³ vardai
+# sudaromi automatiÅ¡kai.
 
 d <- read.table(file = adresas)
 d
 
-# Jei duomenø faile stulpeliai pavadinimø neturi, kintamiesiems vardus suteikti 
-# galima nuskaitymo metu. Tam reikia sukurti jø vardø vektoriø. Vardø vektorius 
-# turi turëti tiek elementø, kiek duomenø faile yra stulpeliø.
+# Jei duomenÅ³ faile stulpeliai pavadinimÅ³ neturi, kintamiesiems vardus suteikti 
+# galima nuskaitymo metu. Tam reikia sukurti jÅ³ vardÅ³ vektoriÅ³. VardÅ³ vektorius 
+# turi turÄ—ti tiek elementÅ³, kiek duomenÅ³ faile yra stulpeliÅ³.
 k.vardas <- c("x", "y", "z")
 
 d <- read.table(file = adresas, col.names = k.vardas)
 d
 
-# Jei kintamieji vardus turi, jie bûna surağyti pirmoje duomenø failo eilutëje.
+# Jei kintamieji vardus turi, jie bÅ«na suraÅ¡yti pirmoje duomenÅ³ failo eilutÄ—je.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1b.dat"
 
-# Tokiu atveju parametro header reikğmæ pakeièiame á TRUE.
+# Tokiu atveju parametro header reikÅ¡mÄ™ pakeiÄiame Ä¯ TRUE.
 d <- read.table(file = adresas, header = TRUE)
 d
 
 
-# Paprastai duomenø lentelës eiluèiø pavadinimai sutampa su jø eilës numeriais.
-# Nuskaitymo iğ failo metu eilutës sunumeruojamos automatiğkai. Taèiau naudojant
-# parametrà row.names galima eilutëms suteikti kitus vardus, taèiau jie bûtinai 
-# turi bûti unikalûs.
+# Paprastai duomenÅ³ lentelÄ—s eiluÄiÅ³ pavadinimai sutampa su jÅ³ eilÄ—s numeriais.
+# Nuskaitymo iÅ¡ failo metu eilutÄ—s sunumeruojamos automatiÅ¡kai. TaÄiau naudojant
+# parametrÄ… row.names galima eilutÄ—ms suteikti kitus vardus, taÄiau jie bÅ«tinai 
+# turi bÅ«ti unikalÅ«s.
 
-# Jei pirmoje failo eilutëje kintamøjø vardø yra vienu maşiau nei stulpeliø, tai 
-# laikoma, kad pirmame stulpelyje yra eiluèiø vardai.
+# Jei pirmoje failo eilutÄ—je kintamÅ³jÅ³ vardÅ³ yra vienu maÅ¾iau nei stulpeliÅ³, tai 
+# laikoma, kad pirmame stulpelyje yra eiluÄiÅ³ vardai.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_2a.dat"
 
-# Iğ failo nuskaitome duomenø lentelæ, kurios eilutës turi savo raidinius kodus.
+# IÅ¡ failo nuskaitome duomenÅ³ lentelÄ™, kurios eilutÄ—s turi savo raidinius kodus.
 d <- read.table(file = adresas, header = TRUE)
 d
 
-# Eiluèiø pavadinimai gali bûti bet kuriame kitame duomenø lentelës stulpelyje.
+# EiluÄiÅ³ pavadinimai gali bÅ«ti bet kuriame kitame duomenÅ³ lentelÄ—s stulpelyje.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_2b.dat" 
 
-# Èia nurodome, kad eiluèiø kodai yra treèiame duomenø lentelës stulpelyje "E".
+# ÄŒia nurodome, kad eiluÄiÅ³ kodai yra treÄiame duomenÅ³ lentelÄ—s stulpelyje "E".
 d <- read.table(file = adresas, header = TRUE, row.names = "E")
 d
 
 
-# Kartais duomenø failo pradşioje bûna árağoma tam tikra papildoma informacija. 
-# Jei duomenø failo eilutë prasideda komentaro simboliu #, tai nuskaitymo metu
-# tokia eilutë automatiğkai praleidşiama. 
+# Kartais duomenÅ³ failo pradÅ¾ioje bÅ«na Ä¯raÅ¡oma tam tikra papildoma informacija. 
+# Jei duomenÅ³ failo eilutÄ— prasideda komentaro simboliu #, tai nuskaitymo metu
+# tokia eilutÄ— automatiÅ¡kai praleidÅ¾iama. 
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_3a.dat" 
 
-# Ğio failo pradşioje parağyta, kad trupmeninë skaièiaus dalis skiriama kableliu,
-# todël pakeièiame parametro dec reikğmæ.
+# Å io failo pradÅ¾ioje paraÅ¡yta, kad trupmeninÄ— skaiÄiaus dalis skiriama kableliu,
+# todÄ—l pakeiÄiame parametro dec reikÅ¡mÄ™.
 d <- read.table(file = adresas, header = TRUE, dec = ",")
 d
 
-# Jei failo pradşioje yra kelios neuşkomentuotos eilutës, kurias reikia praleisti, 
-# tokiu atveju per parametrà skip nurodome tokiø eiluèiø skaièiø.
+# Jei failo pradÅ¾ioje yra kelios neuÅ¾komentuotos eilutÄ—s, kurias reikia praleisti, 
+# tokiu atveju per parametrÄ… skip nurodome tokiÅ³ eiluÄiÅ³ skaiÄiÅ³.
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_3b.dat" 
 
 d <- read.table(file = adresas, header = TRUE, dec = ",", skip = 6)
@@ -245,107 +245,107 @@ d
 
 # NAUDINGA ------------------------------
 
-# Jei kelias iki failo yra ilgas, o duomenø nuskaitymas atliekamas vienà kartà,
-# kartais paprasèiau ir greièiau duomenø failà pasirinkti interaktyviai naudojant 
-# komandà file.choose().
+# Jei kelias iki failo yra ilgas, o duomenÅ³ nuskaitymas atliekamas vienÄ… kartÄ…,
+# kartais paprasÄiau ir greiÄiau duomenÅ³ failÄ… pasirinkti interaktyviai naudojant 
+# komandÄ… file.choose().
 
-# Pvz., sukursime paprastà duomenø failà "test.dat", kuriame á vienà stulpelá 
-# surağytos visos didşiosios abëcëlës raidës. 
+# Pvz., sukursime paprastÄ… duomenÅ³ failÄ… "test.dat", kuriame Ä¯ vienÄ… stulpelÄ¯ 
+# suraÅ¡ytos visos didÅ¾iosios abÄ—cÄ—lÄ—s raidÄ—s. 
 cat(LETTERS, file = "test.dat", sep = "\n")
 
-# Nuskaitysime failà ne nurodydami jo pilnà vardà, o pasirinkdami interaktyviai. 
-# Visø kitø procedûros read.table parametrø reikğmës paliktos pagal nutylëjimà.
+# Nuskaitysime failÄ… ne nurodydami jo pilnÄ… vardÄ…, o pasirinkdami interaktyviai. 
+# VisÅ³ kitÅ³ procedÅ«ros read.table parametrÅ³ reikÅ¡mÄ—s paliktos pagal nutylÄ—jimÄ….
 
 d <- read.table(file = file.choose())
 d
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1b.dat" 
-#    duomenø lentelæ nuskaitykite be kintamøjø vardø eilutës. 
-# 2. Pakeiskite duomenø failo "lent_1b.dat" nuskaitymo komandà, kad duomenø
-#    lentelës kintamieji gautø vardus "a", "b" ir "c".
-# 3. Duomenø failo "test.dat" nuskaitymo komandà pakeiskite taip, kad kintamajam
-#    bûtø priskirtas vardas "Raidës".
+# 1. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1b.dat" 
+#    duomenÅ³ lentelÄ™ nuskaitykite be kintamÅ³jÅ³ vardÅ³ eilutÄ—s. 
+# 2. Pakeiskite duomenÅ³ failo "lent_1b.dat" nuskaitymo komandÄ…, kad duomenÅ³
+#    lentelÄ—s kintamieji gautÅ³ vardus "a", "b" ir "c".
+# 3. DuomenÅ³ failo "test.dat" nuskaitymo komandÄ… pakeiskite taip, kad kintamajam
+#    bÅ«tÅ³ priskirtas vardas "RaidÄ—s".
 
 
-# Kad duomenis bûtø galima nesunkiai perkelti iğ vienos programos á kità, jie á 
-# failus rağomi tam tikru standartiniu formatu. Vienas tekstinio duomenø failo 
+# Kad duomenis bÅ«tÅ³ galima nesunkiai perkelti iÅ¡ vienos programos Ä¯ kitÄ…, jie Ä¯ 
+# failus raÅ¡omi tam tikru standartiniu formatu. Vienas tekstinio duomenÅ³ failo 
 # formatas yra taip vadinamas "comma separated value" arba sutrumpintai CSV. Jis
-# skirtas lentelës pavidalo duomenims uşrağyti, kur stulpeliuose yra kintamieji,
-# o eilutëse yra stebiniai.
+# skirtas lentelÄ—s pavidalo duomenims uÅ¾raÅ¡yti, kur stulpeliuose yra kintamieji,
+# o eilutÄ—se yra stebiniai.
 
-# Toks failas pirmoje eilutëje turi stulpeliø pavadinimus. Jei stulpeliai vienas
-# nuo kito atskiriami kableliu, tai trupmeninë skaièiaus dalis skiriama tağku.
-# Tokio formato duomenø failui nuskaityti naudojama read.csv procedûra.
+# Toks failas pirmoje eilutÄ—je turi stulpeliÅ³ pavadinimus. Jei stulpeliai vienas
+# nuo kito atskiriami kableliu, tai trupmeninÄ— skaiÄiaus dalis skiriama taÅ¡ku.
+# Tokio formato duomenÅ³ failui nuskaityti naudojama read.csv procedÅ«ra.
 
-# Jei stulpeliai vienas nuo kito atskiriami kabliatağkiu, tai trupmeninë skaièiaus 
-# dalis skiriama mums áprastu kableliu. Tokio formato duomenø failui nuskaityti 
-# naudojama procedûra read.csv2.
+# Jei stulpeliai vienas nuo kito atskiriami kabliataÅ¡kiu, tai trupmeninÄ— skaiÄiaus 
+# dalis skiriama mums Ä¯prastu kableliu. Tokio formato duomenÅ³ failui nuskaityti 
+# naudojama procedÅ«ra read.csv2.
 
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1c.csv" 
 
 d <- read.csv2(file = adresas)
 d
 
-# Şinoma, CSV formato failà galima nuskaityti ir naudojant procedûrà read.table,
-# taèiau ğiuo atveju nuskaitymo komanda yra paprastesnë. Jei stulpeliai duomenø
-# faile atskiriami tabuliacijos şenklu "\t", tada tokiems duomenims nuskaityti 
-# gali bûti taikoma procedûra read.delim arba read.delim2.
+# Å½inoma, CSV formato failÄ… galima nuskaityti ir naudojant procedÅ«rÄ… read.table,
+# taÄiau Å¡iuo atveju nuskaitymo komanda yra paprastesnÄ—. Jei stulpeliai duomenÅ³
+# faile atskiriami tabuliacijos Å¾enklu "\t", tada tokiems duomenims nuskaityti 
+# gali bÅ«ti taikoma procedÅ«ra read.delim arba read.delim2.
 
 
 # NAUDINGA ------------------------------
 
-# Kartais pasitaiko situacija, kai iğ duomenø failo reikia nuskaityti tik dalá
-# kintamøjø, pvz., pirmus penkis kintamuosius arba kas antrà. Vienas sprendimas 
-# akivaizdus: iğ pradşiø nuskaityti visus stulpelius, o tada ávairiais bûdais iğ 
-# lentelës galima iğmesti nereikalingus kintamuosius. 
+# Kartais pasitaiko situacija, kai iÅ¡ duomenÅ³ failo reikia nuskaityti tik dalÄ¯
+# kintamÅ³jÅ³, pvz., pirmus penkis kintamuosius arba kas antrÄ…. Vienas sprendimas 
+# akivaizdus: iÅ¡ pradÅ¾iÅ³ nuskaityti visus stulpelius, o tada Ä¯vairiais bÅ«dais iÅ¡ 
+# lentelÄ—s galima iÅ¡mesti nereikalingus kintamuosius. 
 
-# Kitas bûdas nuskaityti tam tikrus stulpelius -- panaudoti procedûros parametrà 
-# colClasses, kuriam nurodomas visø nuskaitomø stulpeliø tipø vektorius. Vietoje
-# áprasto reikğmës tipo numeric, character ar pan., galima nurodyti NULL tipà.
-# Tada kintamasis, kuriam priskirtas NULL tipas á duomenø lentelæ neátraukiamas.
+# Kitas bÅ«das nuskaityti tam tikrus stulpelius -- panaudoti procedÅ«ros parametrÄ… 
+# colClasses, kuriam nurodomas visÅ³ nuskaitomÅ³ stulpeliÅ³ tipÅ³ vektorius. Vietoje
+# Ä¯prasto reikÅ¡mÄ—s tipo numeric, character ar pan., galima nurodyti NULL tipÄ….
+# Tada kintamasis, kuriam priskirtas NULL tipas Ä¯ duomenÅ³ lentelÄ™ neÄ¯traukiamas.
 
-# Pavyzdşiui, iğ failo "lent_1b.dat" nuskaitysime tik pirmus du kintamuosius. 
+# PavyzdÅ¾iui, iÅ¡ failo "lent_1b.dat" nuskaitysime tik pirmus du kintamuosius. 
 adresas <- "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1b.dat"
 
-# Tam iğ pradşiø sukursime pagalbiná duomenø lentelës kintamøjø tipø vektoriø.
+# Tam iÅ¡ pradÅ¾iÅ³ sukursime pagalbinÄ¯ duomenÅ³ lentelÄ—s kintamÅ³jÅ³ tipÅ³ vektoriÅ³.
 k.tipas <- c("numeric", "numeric", "NULL")
 
 d <- read.table(file = adresas, header = TRUE, colClasses = k.tipas)
 d
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_4a.dat" 
-#    nuskaitykite kas antrà stulpelá. 
-# 2. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_4b.dat" 
-#    nuskaitykite tik paskutinius 2 iğ 20 duomenyse esanèiø stulpeliø. Nuskaitymo 
+# 1. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_4a.dat" 
+#    nuskaitykite kas antrÄ… stulpelÄ¯. 
+# 2. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_4b.dat" 
+#    nuskaitykite tik paskutinius 2 iÅ¡ 20 duomenyse esanÄiÅ³ stulpeliÅ³. Nuskaitymo 
 #    metu jiems priskirkite vardus "X" ir "Y".
 
 
 # --------------------------------------- #
-# DUOMENØ NUSKAITYMAS IĞ BINARINIO FAILO  #
+# DUOMENÅ² NUSKAITYMAS IÅ  BINARINIO FAILO  #
 # --------------------------------------- #
 
-# Jei duomenys sudëtingos struktûros, juos ne visada patogu laikyti tekstiniame 
-# faile. Pavyzdşiui, tokie gali bûti sudëtingi sàrağai, R statistiniø procedûrø 
-# rezultatø lentelës ir t.t. Tokiais atvejais kintamuosius ar duomenø rinkinius 
-# patogiau uşsaugoti kaip binariná R duomenø failà su standartiniu tokio tipo
-# failui iğplëtimu .RData (iğplëtimas gali bûti ir kitoks). Vienà ar kelis R 
-# kintamuosius tokiu formatu eksportuojame naudojant funkcijà save.
+# Jei duomenys sudÄ—tingos struktÅ«ros, juos ne visada patogu laikyti tekstiniame 
+# faile. PavyzdÅ¾iui, tokie gali bÅ«ti sudÄ—tingi sÄ…raÅ¡ai, R statistiniÅ³ procedÅ«rÅ³ 
+# rezultatÅ³ lentelÄ—s ir t.t. Tokiais atvejais kintamuosius ar duomenÅ³ rinkinius 
+# patogiau uÅ¾saugoti kaip binarinÄ¯ R duomenÅ³ failÄ… su standartiniu tokio tipo
+# failui iÅ¡plÄ—timu .RData (iÅ¡plÄ—timas gali bÅ«ti ir kitoks). VienÄ… ar kelis R 
+# kintamuosius tokiu formatu eksportuojame naudojant funkcijÄ… save.
 
-# Pavyzdşiui, binariniu formatu iğsaugosime standartiná didşiøjø raidşiø vektoriø.
+# PavyzdÅ¾iui, binariniu formatu iÅ¡saugosime standartinÄ¯ didÅ¾iÅ³jÅ³ raidÅ¾iÅ³ vektoriÅ³.
 save(LETTERS, file = "test.RData")
 
-# Tokio tipo failas importuojamas naudojant procedûrà load. Şinoma, kaip ir kitus 
-# duomenis, binariná failà taip pat galima nuskaityti ir iğ interneto.
+# Tokio tipo failas importuojamas naudojant procedÅ«rÄ… load. Å½inoma, kaip ir kitus 
+# duomenis, binarinÄ¯ failÄ… taip pat galima nuskaityti ir iÅ¡ interneto.
 load(file = "test.RData")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
 # 1. Faile "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/rdat_1a.RData"
-#    iğsaugotas kintamasis m su duomenø lentele. Importuokite ğá failà.
+#    iÅ¡saugotas kintamasis m su duomenÅ³ lentele. Importuokite Å¡Ä¯ failÄ….

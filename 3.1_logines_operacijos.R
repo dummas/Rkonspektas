@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Loginiø sàlygø uşrağymas ir specialios loginës funkcijos.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            LoginiÅ³ sÄ…lygÅ³ uÅ¾raÅ¡ymas ir specialios loginÄ—s funkcijos.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-07-27 | 2013-08-20
 #
@@ -12,12 +12,12 @@
 # TURINYS -------------------------------
 
 #
-#   1. Loginiø sàlygø uşrağymas:
+#   1. LoginiÅ³ sÄ…lygÅ³ uÅ¾raÅ¡ymas:
 #      * palyginimo operatoriai
 #      * funkcija all
 #      * funkcija any
 #
-#   2. Specialios loginës funkcijos:
+#   2. Specialios loginÄ—s funkcijos:
 #      * funkcija exists
 #      * funkcija is.vector
 #      * funkcija is.numeric
@@ -36,93 +36,93 @@
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# LOGINIØ SÀLYGØ UŞRAĞYMAS                #
+# LOGINIÅ² SÄ„LYGÅ² UÅ½RAÅ YMAS                #
 # --------------------------------------- #
 
-# Skaièiø arba simboliø vektoriaus elementams tikrinant koká nors loginá testà, 
-# gaunamas to paties ilgio loginiø reikğmiø vektorius. Jo elementas lygus TRUE, 
-# jei sàlyga buvo tenkinama, ir lygus FALSE, jei sàlyga netenkinama.
+# SkaiÄiÅ³ arba simboliÅ³ vektoriaus elementams tikrinant kokÄ¯ nors loginÄ¯ testÄ…, 
+# gaunamas to paties ilgio loginiÅ³ reikÅ¡miÅ³ vektorius. Jo elementas lygus TRUE, 
+# jei sÄ…lyga buvo tenkinama, ir lygus FALSE, jei sÄ…lyga netenkinama.
 
 # Palyginimo operatoriai:
 #
 #    == -- lygu
 #    != -- nelygu
 #     > -- daugiau
-#     < -- maşiau
+#     < -- maÅ¾iau
 #    >= -- daugiau arba lygu
-#    <= -- maşiau arba lygu
+#    <= -- maÅ¾iau arba lygu
 
 
 x <- c(4, 8, 6, 2, 3, 7, 0, 4, 2, 8)
 y <- c(3, 9, 0, 1, 4, 5, 2, 7, 6, 8)
 
-# Pavyzdşiui, patikrinsime, ar vektoriaus x reikğmës yra teigiamos. Tam sudarome
-# loginá testà. Gauname tokio pat ilgio loginiø reikğmiø vektoriø.
+# PavyzdÅ¾iui, patikrinsime, ar vektoriaus x reikÅ¡mÄ—s yra teigiamos. Tam sudarome
+# loginÄ¯ testÄ…. Gauname tokio pat ilgio loginiÅ³ reikÅ¡miÅ³ vektoriÅ³.
 x > 0
 
-# Patikrinsime, ar vektoriaus x elementas didesnis uş atitinkamà  vektoriaus y 
-# elementà.
+# Patikrinsime, ar vektoriaus x elementas didesnis uÅ¾ atitinkamÄ…  vektoriaus y 
+# elementÄ….
 x > y
 
-# Turint toká loginá vektoriø, galima iğrinkti tam tikrus vektoriaus elementus,
-# nustatyti reikiamø elementø eilës numerius, patikrinti kitas logines sàlygas.
+# Turint tokÄ¯ loginÄ¯ vektoriÅ³, galima iÅ¡rinkti tam tikrus vektoriaus elementus,
+# nustatyti reikiamÅ³ elementÅ³ eilÄ—s numerius, patikrinti kitas logines sÄ…lygas.
 
-# Pagrindiniai loginiai operatoriai yra ğie:
+# Pagrindiniai loginiai operatoriai yra Å¡ie:
 #
 #     | -- loginis ARBA
 #     & -- loginis IR
 #     ! -- loginis NE
 
 
-# Veiksmus galima atlikti ir su atskiromis loginëmis konstantomis TRUE ir FALSE.
+# Veiksmus galima atlikti ir su atskiromis loginÄ—mis konstantomis TRUE ir FALSE.
 TRUE | FALSE
 
 !TRUE
 
-# Konstantas TRUE ir FALSE galima rağyti sutrumpinta forma, atitinkamai T ir F.
+# Konstantas TRUE ir FALSE galima raÅ¡yti sutrumpinta forma, atitinkamai T ir F.
 a <- c(T, T, F, F)
 b <- c(T, F, T, F)
 
-# Kai operandai yra loginiø reikğmiø vektoriai, tai loginës operacijos atliekamos 
-# su atitinkamais tø vektoriø elementais.
+# Kai operandai yra loginiÅ³ reikÅ¡miÅ³ vektoriai, tai loginÄ—s operacijos atliekamos 
+# su atitinkamais tÅ³ vektoriÅ³ elementais.
 
 a | b   # loginis ARBA
 a & b   # loginis IR
 !a      # loginis NE
 
-# Operatoriai ARBA ir IR turi ilgàjà formà, || ir &&. Nuo trumposios ji skiriasi
-# tuo, kad loginë operacija atliekama tik su pirmàjà loginio vektoriaus reikğme.
-# Ğiuos operatorius galima naudoti tokiose situacijose, kur reikia, kad loginës 
-# operacijos rezultatas bûtø viena reikğmë: arba TRUE, arba FALSE.
+# Operatoriai ARBA ir IR turi ilgÄ…jÄ… formÄ…, || ir &&. Nuo trumposios ji skiriasi
+# tuo, kad loginÄ— operacija atliekama tik su pirmÄ…jÄ… loginio vektoriaus reikÅ¡me.
+# Å iuos operatorius galima naudoti tokiose situacijose, kur reikia, kad loginÄ—s 
+# operacijos rezultatas bÅ«tÅ³ viena reikÅ¡mÄ—: arba TRUE, arba FALSE.
 
 a || b
 a && b
 
 
-# Naudojant loginius operatorius atskiros loginës sàlygos gali bûti apjungiamos
-# ir taip uşrağomos sudëtingesnës sàlygos. Pavyzdşiui, patikrinsime ar vektoriaus 
-# x elementø reikğmës patenka á intervalà [2, 7].
+# Naudojant loginius operatorius atskiros loginÄ—s sÄ…lygos gali bÅ«ti apjungiamos
+# ir taip uÅ¾raÅ¡omos sudÄ—tingesnÄ—s sÄ…lygos. PavyzdÅ¾iui, patikrinsime ar vektoriaus 
+# x elementÅ³ reikÅ¡mÄ—s patenka Ä¯ intervalÄ… [2, 7].
 
 x >= 2 & x <= 7 
 
 
-# Norint patikrinti, ar bent viena loginio vektoriaus elemento reikğmë yra TRUE, 
+# Norint patikrinti, ar bent viena loginio vektoriaus elemento reikÅ¡mÄ— yra TRUE, 
 # naudojama funkcija any.
 
 any(a)
 
-# Norint patikrinti, ar visi loginio vektoriaus elementai lygûs TRUE, naudojama
+# Norint patikrinti, ar visi loginio vektoriaus elementai lygÅ«s TRUE, naudojama
 # funkcija all.
 
 all(a)
@@ -130,83 +130,83 @@ all(a)
 
 # NAUDINGA ------------------------------
 
-# Atliekant statistinæ duomenø analizæ, kartais reikia patikrinti, ar vektoriaus 
-# elementai tenkina tam tikras sàlygas. Naudojant palyginimo operatorius >=, <=,
-# >, < ir == sudaromas loginis testas ir gaunamas loginiø reikğmiø vektorius. Jo
-# reikğmiø patikrinimui galima panaudoti funkcijas any ir all.
+# Atliekant statistinÄ™ duomenÅ³ analizÄ™, kartais reikia patikrinti, ar vektoriaus 
+# elementai tenkina tam tikras sÄ…lygas. Naudojant palyginimo operatorius >=, <=,
+# >, < ir == sudaromas loginis testas ir gaunamas loginiÅ³ reikÅ¡miÅ³ vektorius. Jo
+# reikÅ¡miÅ³ patikrinimui galima panaudoti funkcijas any ir all.
 
-# Pavyzdşiui, patikrinsime, ar visos vektoriaus x reikğmës yra teigiamos. 
-# Kadangi loginë sàlyga nesudëtinga, jà galima ákelti tiesiai á funkcijà all.
+# PavyzdÅ¾iui, patikrinsime, ar visos vektoriaus x reikÅ¡mÄ—s yra teigiamos. 
+# Kadangi loginÄ— sÄ…lyga nesudÄ—tinga, jÄ… galima Ä¯kelti tiesiai Ä¯ funkcijÄ… all.
 all(x > 0)
 
-# Pavyzdşiui, patikrinsime, ar bent vienas vektoriaus x elementas lygus 0.
+# PavyzdÅ¾iui, patikrinsime, ar bent vienas vektoriaus x elementas lygus 0.
 any(x == 0)
 
-# Patikrinsime, ar bent vienas vektoriaus x elementas didesnis uş atitinkamà 
-# vektoriaus y elementà.
+# Patikrinsime, ar bent vienas vektoriaus x elementas didesnis uÅ¾ atitinkamÄ… 
+# vektoriaus y elementÄ….
 any(x > y)
 
-# Konstantos FALSE ir TRUE atitinka skaièius 0 ir 1, ir todël loginius vektorius 
-# galima sumuoti. Tokiu bûdu surandame TRUE reikğmæ turinèiø elementø skaièiø.
-# Pavyzdşiui, apskaièiuosime, kiek vektoriaus x elementø didesni uş atitinkamus
+# Konstantos FALSE ir TRUE atitinka skaiÄius 0 ir 1, ir todÄ—l loginius vektorius 
+# galima sumuoti. Tokiu bÅ«du surandame TRUE reikÅ¡mÄ™ turinÄiÅ³ elementÅ³ skaiÄiÅ³.
+# PavyzdÅ¾iui, apskaiÄiuosime, kiek vektoriaus x elementÅ³ didesni uÅ¾ atitinkamus
 # vektoriaus y elementus.
 
 sum(x > y)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite komandà, kuri patikrintø, ar visø loginio vektoriaus a elementø 
-#    reikğmës yra FALSE.
-# 2. Uşrağykite komandà, kuri patikrintø, ar bent vienas vektoriaus x elementas
+# 1. UÅ¾raÅ¡ykite komandÄ…, kuri patikrintÅ³, ar visÅ³ loginio vektoriaus a elementÅ³ 
+#    reikÅ¡mÄ—s yra FALSE.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri patikrintÅ³, ar bent vienas vektoriaus x elementas
 #    nelygus nuliui.
-# 3. Patikrinkite, ar visi vektoriaus x elementai yra iğ vektoriaus y elementø
-#    aibës. Komandà galima uşrağyti dviem bûdais: su f-ja is.element ir su %in%.
+# 3. Patikrinkite, ar visi vektoriaus x elementai yra iÅ¡ vektoriaus y elementÅ³
+#    aibÄ—s. KomandÄ… galima uÅ¾raÅ¡yti dviem bÅ«dais: su f-ja is.element ir su %in%.
 
 
 # --------------------------------------- #
-# SPECIALIOS LOGINËS FUNKCIJOS            #
+# SPECIALIOS LOGINÄ–S FUNKCIJOS            #
 # --------------------------------------- #
 
-# R turi keletà specialiø funkcijø, kurios skirtos tam tikroms ávairiø objektø 
-# sàvybëms patikrinti. Tokio tipo funkcijø rezultatas yra reikğmë TRUE ar FALSE.
+# R turi keletÄ… specialiÅ³ funkcijÅ³, kurios skirtos tam tikroms Ä¯vairiÅ³ objektÅ³ 
+# sÄ…vybÄ—ms patikrinti. Tokio tipo funkcijÅ³ rezultatas yra reikÅ¡mÄ— TRUE ar FALSE.
 
 # Kartais reikia patikrinti, ar egzistuoja konkretus kintamasis arba funkcija.
 # Tam naudojama funkcija exists. Jos parametrai:
 #
-#              x -- ieğkomo objekto vardas,
+#              x -- ieÅ¡komo objekto vardas,
 #           mode -- kintamojo tipas: "numeric", "function" ir pan.
 
-# Ieğkomo objekto vardas rağomas kabutëse. Pagal nutylëjimà parametro mode 
-# reikğmë yra "any", todël ieğkomi bet kokie toká vardà turintys objektai.
+# IeÅ¡komo objekto vardas raÅ¡omas kabutÄ—se. Pagal nutylÄ—jimÄ… parametro mode 
+# reikÅ¡mÄ— yra "any", todÄ—l ieÅ¡komi bet kokie tokÄ¯ vardÄ… turintys objektai.
 
 exists("x")
 exists("x", mode = "function")
 
 
-# Viena grupë funkcijø patikrina, kokio tipo yra pats objektas:
+# Viena grupÄ— funkcijÅ³ patikrina, kokio tipo yra pats objektas:
 #
 #      is.vector -- ar vektorius,
 #      is.matrix -- ar matrica,
-#        is.list -- ar sàrağas,
-#  is.data.frame -- ar duomenø lentelë.
+#        is.list -- ar sÄ…raÅ¡as,
+#  is.data.frame -- ar duomenÅ³ lentelÄ—.
 
 is.vector(x)
 is.matrix(x)
 
 
-# Vektoriaus arba matricos elementai paprastai yra sveikieji, realieji skaièiai, 
-# simboliai ar loginës reikğmës. Konkreèiam vektoriaus elementø tipui nustatyti 
-# naudojamos ğios funkcijos:
+# Vektoriaus arba matricos elementai paprastai yra sveikieji, realieji skaiÄiai, 
+# simboliai ar loginÄ—s reikÅ¡mÄ—s. KonkreÄiam vektoriaus elementÅ³ tipui nustatyti 
+# naudojamos Å¡ios funkcijos:
 #
-#     is.numeric -- ar elementai yra skaièiai,
-#      is.double -- ar realieji skaièiai,
-#     is.integer -- ar sveikieji skaièiai,
+#     is.numeric -- ar elementai yra skaiÄiai,
+#      is.double -- ar realieji skaiÄiai,
+#     is.integer -- ar sveikieji skaiÄiai,
 #   is.character -- ar simboliai,
-#     is.logical -- ar loginës reikğmës.
+#     is.logical -- ar loginÄ—s reikÅ¡mÄ—s.
 
-# Vektoriaus x elementai yra skaièiai, o vektoriaus a - loginës reikğmës, todël 
-# atitinkamos funkcijos gràşina reikğmæ TRUE.
+# Vektoriaus x elementai yra skaiÄiai, o vektoriaus a - loginÄ—s reikÅ¡mÄ—s, todÄ—l 
+# atitinkamos funkcijos grÄ…Å¾ina reikÅ¡mÄ™ TRUE.
 
 is.numeric(x)
 is.logical(a)
@@ -218,87 +218,87 @@ is.integer(1)
 is.integer(1L)
 
 
-# Atliekant skaièiavimus, rezultatas ne visada yra apibrëştas. Tipinë situacija 
-# - skaièiaus dalyba iğ nulio. Tokiems atvejams paşymëti naudojamos specialios 
-# konstantos: Inf - begalybë (Infinity) ir NaN - ne skaièius (Not a Number).
+# Atliekant skaiÄiavimus, rezultatas ne visada yra apibrÄ—Å¾tas. TipinÄ— situacija 
+# - skaiÄiaus dalyba iÅ¡ nulio. Tokiems atvejams paÅ¾ymÄ—ti naudojamos specialios 
+# konstantos: Inf - begalybÄ— (Infinity) ir NaN - ne skaiÄius (Not a Number).
 
-1/0           # neapibrëştumas, skaièiaus dalyba iğ nulio
-Inf - Inf     # neapibrëştumas, begalybë minus begalybë
+1/0           # neapibrÄ—Å¾tumas, skaiÄiaus dalyba iÅ¡ nulio
+Inf - Inf     # neapibrÄ—Å¾tumas, begalybÄ— minus begalybÄ—
 
-# Neapibrëştumams nustatyti naudojamos ğios funkcijos:
+# NeapibrÄ—Å¾tumams nustatyti naudojamos Å¡ios funkcijos:
 #
-#      is.finite -- ar reikğmë baigtinë,
-#    is.infinite -- ar reikğmë begalybë,
-#         is.nan -- ar reikğmë yra NaN.
+#      is.finite -- ar reikÅ¡mÄ— baigtinÄ—,
+#    is.infinite -- ar reikÅ¡mÄ— begalybÄ—,
+#         is.nan -- ar reikÅ¡mÄ— yra NaN.
 
-# Jei funkcijos argumentas yra vektorius arba matrica, tai patikrinami visi tà 
-# objektà sudarantys elementai. Kadangi vektoriaus x elementai yra baigtiniai, 
-# funkcijos is.finite rezultatas vektorius, kurio visos reikğmës yra TRUE.
+# Jei funkcijos argumentas yra vektorius arba matrica, tai patikrinami visi tÄ… 
+# objektÄ… sudarantys elementai. Kadangi vektoriaus x elementai yra baigtiniai, 
+# funkcijos is.finite rezultatas vektorius, kurio visos reikÅ¡mÄ—s yra TRUE.
 
 is.finite(x)
 
-# Sudarysime naujà vektoriø d, kurio elementai gaunami skaièiø 1 padalinus iğ 
-# vektoriaus x elementø reikğmiø.
+# Sudarysime naujÄ… vektoriÅ³ d, kurio elementai gaunami skaiÄiÅ³ 1 padalinus iÅ¡ 
+# vektoriaus x elementÅ³ reikÅ¡miÅ³.
 
 d <- 1/x
 
-# Patikrinsime, ar gauto vektoriaus d elementai turi apibrëştas reikğmes.
+# Patikrinsime, ar gauto vektoriaus d elementai turi apibrÄ—Å¾tas reikÅ¡mes.
 
 is.infinite(d)
 is.nan(d)
 
-# Naudojant anksèiau paminëtà loginæ funkcijà all, galima nesunkiai patikrinti, 
-# ar visi vektoriaus elementai yra apibrëşti.
+# Naudojant anksÄiau paminÄ—tÄ… loginÄ™ funkcijÄ… all, galima nesunkiai patikrinti, 
+# ar visi vektoriaus elementai yra apibrÄ—Å¾ti.
 
 all(is.finite(d))
 
 
-# Dël ávairiø prieşasèiø realiuose duomenyse kartais bûna praleistø reikğmiø. 
-# Joms şymëti naudojama speciali konstanta NA. 
+# DÄ—l Ä¯vairiÅ³ prieÅ¾asÄiÅ³ realiuose duomenyse kartais bÅ«na praleistÅ³ reikÅ¡miÅ³. 
+# Joms Å¾ymÄ—ti naudojama speciali konstanta NA. 
 
 z <- c(19, 16, NA, 14, 16, 11, 17, NA, 13, 15)
 z
 
 # Atitinkamai yra funkcija, kuri patikrina, kurie vektoriaus arba kito objekto 
-# elementai yra praleistos reikğmës:
+# elementai yra praleistos reikÅ¡mÄ—s:
 # 
-#          is.na -- ar praleista reikğmë.
+#          is.na -- ar praleista reikÅ¡mÄ—.
 
-# Funkcijos reikğmë lygi TRUE, kai vektoriaus ar kito objekto elemento reikğmë 
-# lygi NA. Praleista reikğme laikoma ir konstanta NaN, taèiau begalybë - ne.
+# Funkcijos reikÅ¡mÄ— lygi TRUE, kai vektoriaus ar kito objekto elemento reikÅ¡mÄ— 
+# lygi NA. Praleista reikÅ¡me laikoma ir konstanta NaN, taÄiau begalybÄ— - ne.
 
 is.na(NA)
 is.na(NaN)
 is.na(Inf)
 
-# Jei funkcijos is.na argumentas yra vektorius, matrica ar duomenø lentelë, tai
-# patikrinamas kiekvienas elementas. Rezultatas yra tokio pat dydşio objektas,
-# kurio elementø reikğmës yra TRUE, jei tikrinamo elemento reikğmë NA arba NaN, 
+# Jei funkcijos is.na argumentas yra vektorius, matrica ar duomenÅ³ lentelÄ—, tai
+# patikrinamas kiekvienas elementas. Rezultatas yra tokio pat dydÅ¾io objektas,
+# kurio elementÅ³ reikÅ¡mÄ—s yra TRUE, jei tikrinamo elemento reikÅ¡mÄ— NA arba NaN, 
 # ir FALSE - kitais atvejais.
 
-# Kadangi vektorius x praleistø reikğmiø neturi, funkcijos is.na rezultatas yra 
-# tokio pat ilgio vektorius, kurio visos reikğmës yra FALSE.
+# Kadangi vektorius x praleistÅ³ reikÅ¡miÅ³ neturi, funkcijos is.na rezultatas yra 
+# tokio pat ilgio vektorius, kurio visos reikÅ¡mÄ—s yra FALSE.
 is.na(x)
 
-# Vektorius z turi dvi praleistas reikğmes, tà rodo gautos f-jos reikğmës TRUE.
+# Vektorius z turi dvi praleistas reikÅ¡mes, tÄ… rodo gautos f-jos reikÅ¡mÄ—s TRUE.
 is.na(z)
 
-# Kadangi konstantos FALSE ir TRUE atitinka skaièius 0 ir 1, loginius vektorius 
-# galima sumuoti. Tokiu bûdu surandame TRUE reikğmæ turinèiø elementø skaièiø.
-# Pavyzdşiui, apskaièiuosime, kiek praleistø reikğmiø turi vektorius z.
+# Kadangi konstantos FALSE ir TRUE atitinka skaiÄius 0 ir 1, loginius vektorius 
+# galima sumuoti. Tokiu bÅ«du surandame TRUE reikÅ¡mÄ™ turinÄiÅ³ elementÅ³ skaiÄiÅ³.
+# PavyzdÅ¾iui, apskaiÄiuosime, kiek praleistÅ³ reikÅ¡miÅ³ turi vektorius z.
 sum(is.na(z))
 
-# Naudojant anksèiau paminëtas logines funkcijas any arba all, galima nesunkiai 
-# patikrinti, ar vektorius turi bent vienà praleistà reikğmæ. Pvz., vektorius x 
-# praleistø reikğmiø neturi, todël funkcijos any reikğmë yra FALSE.
+# Naudojant anksÄiau paminÄ—tas logines funkcijas any arba all, galima nesunkiai 
+# patikrinti, ar vektorius turi bent vienÄ… praleistÄ… reikÅ¡mÄ™. Pvz., vektorius x 
+# praleistÅ³ reikÅ¡miÅ³ neturi, todÄ—l funkcijos any reikÅ¡mÄ— yra FALSE.
 
 any(is.na(x))
 any(is.na(z))
 
 
-# Jei funkcijos is.na argumentas yra sàrağas, tai reikğmë TRUE gràşinama tiems
-# sàrağo elementams, kuriø reikğmë yra NA. Jei sàrağo elementas yra vien iğ NA
-# reikğmiø sudarytas vektorius, funkcija is.na gràşins reikğmæ TRUE.
+# Jei funkcijos is.na argumentas yra sÄ…raÅ¡as, tai reikÅ¡mÄ— TRUE grÄ…Å¾inama tiems
+# sÄ…raÅ¡o elementams, kuriÅ³ reikÅ¡mÄ— yra NA. Jei sÄ…raÅ¡o elementas yra vien iÅ¡ NA
+# reikÅ¡miÅ³ sudarytas vektorius, funkcija is.na grÄ…Å¾ins reikÅ¡mÄ™ TRUE.
 
 l <- list(a = c(1, 2), b = c(1, NA), c = c(NA, NA), d = NA)
 l
@@ -306,77 +306,77 @@ l
 is.na(l)
 
 
-# R turi tuğèià objektà şyminèià konstantà NULL. Jà kaip reikğmæ priskyrus bet
+# R turi tuÅ¡ÄiÄ… objektÄ… Å¾yminÄiÄ… konstantÄ… NULL. JÄ… kaip reikÅ¡mÄ™ priskyrus bet
 # kokiam vektoriui, matricai ar kitam objektui, tas objektas tampa NULL objektu.
 
-# Pavyzdşiui, vektoriaus elementai gali turëti praleistà reikğmæ NA, bet negali 
-# ágyti NULL reikğmës.
+# PavyzdÅ¾iui, vektoriaus elementai gali turÄ—ti praleistÄ… reikÅ¡mÄ™ NA, bet negali 
+# Ä¯gyti NULL reikÅ¡mÄ—s.
 
 c(1, 2, NULL, 4)
 
-# Pavyzdşiui, priskirdami reikğmæ NULL, panaikinsime paskutiná sàrağo l elementà.
+# PavyzdÅ¾iui, priskirdami reikÅ¡mÄ™ NULL, panaikinsime paskutinÄ¯ sÄ…raÅ¡o l elementÄ….
 l[4] <- NULL
 l
 
-# NULL objektui nustatyti naudojama speciali loginë funkcija:
+# NULL objektui nustatyti naudojama speciali loginÄ— funkcija:
 #
 #        is.null -- ar objektas yra NULL.
 
 
-# Në vieno elemento neturintis vektorius nëra NULL objektas! Pvz., toká vektoriø 
-# pagal nutylëjimà sukuria funkcija vector arba f-jos numeric, character ir t.t.
+# NÄ— vieno elemento neturintis vektorius nÄ—ra NULL objektas! Pvz., tokÄ¯ vektoriÅ³ 
+# pagal nutylÄ—jimÄ… sukuria funkcija vector arba f-jos numeric, character ir t.t.
 v <- vector()
 v
 
-# Galima ásitikinti, kad gauto vektoriaus ilgis lygus nuliui.
+# Galima Ä¯sitikinti, kad gauto vektoriaus ilgis lygus nuliui.
 length(v)
 
-# Toks vektorius neturi jokiø atributø (pavyzdşiui, elementø vardø, eiluèiø ar 
-# stulpeliø pavadinimø, dimensijos ir t.t.), todël funkcija attributes gràşina 
-# tuğèià objektà NULL.
+# Toks vektorius neturi jokiÅ³ atributÅ³ (pavyzdÅ¾iui, elementÅ³ vardÅ³, eiluÄiÅ³ ar 
+# stulpeliÅ³ pavadinimÅ³, dimensijos ir t.t.), todÄ—l funkcija attributes grÄ…Å¾ina 
+# tuÅ¡ÄiÄ… objektÄ… NULL.
 attributes(v)
 
-# Taèiau pats vektorius nëra NULL objektas.
+# TaÄiau pats vektorius nÄ—ra NULL objektas.
 is.null(v)
 
 
 # NAUDINGA ------------------------------
 
-# Loginiø operacijø su praleistomis reikğmëmis rezultatas taip pat yra praleista
-# reikğmë. Pavyzdşiui, palyginsime ar vektoriaus z elementø reikğmës didesnës uş 
-# atitinkamø vektoriaus x elementø reikğmes.
+# LoginiÅ³ operacijÅ³ su praleistomis reikÅ¡mÄ—mis rezultatas taip pat yra praleista
+# reikÅ¡mÄ—. PavyzdÅ¾iui, palyginsime ar vektoriaus z elementÅ³ reikÅ¡mÄ—s didesnÄ—s uÅ¾ 
+# atitinkamÅ³ vektoriaus x elementÅ³ reikÅ¡mes.
 
 z > x
 
-# Matome, kad visi z elementai didesni uş x elementus, bet dël keletos praleistø 
-# reikğmiø funkcijos all rezultatas taip pat yra praleista reikğmë.
+# Matome, kad visi z elementai didesni uÅ¾ x elementus, bet dÄ—l keletos praleistÅ³ 
+# reikÅ¡miÅ³ funkcijos all rezultatas taip pat yra praleista reikÅ¡mÄ—.
 
 all(z > x)
 
-# Dël praleistø reikğmiø neveikia ir kitos daşnai naudojamos funkcijos! Pvz., 
-# negalima rasti vektoriaus elementø sumos, maşiausios ar didşiausios reikğmës.
+# DÄ—l praleistÅ³ reikÅ¡miÅ³ neveikia ir kitos daÅ¾nai naudojamos funkcijos! Pvz., 
+# negalima rasti vektoriaus elementÅ³ sumos, maÅ¾iausios ar didÅ¾iausios reikÅ¡mÄ—s.
 
 sum(z)
 min(z)
 max(z)
 
 # Tokios funkcijos turi papildomus parametrus, kurie nustato, kaip interpretuoti 
-# praleistas reikğmes ir kà su jomis daryti atliekant veiksmus. Pavyzdşiui, f-ja 
-# sum turi parametrà na.rm, kuriam priskyrus reikğmæ TRUE, sumuojant praleistos 
-# reikğmës bus ignoruojamos.
+# praleistas reikÅ¡mes ir kÄ… su jomis daryti atliekant veiksmus. PavyzdÅ¾iui, f-ja 
+# sum turi parametrÄ… na.rm, kuriam priskyrus reikÅ¡mÄ™ TRUE, sumuojant praleistos 
+# reikÅ¡mÄ—s bus ignoruojamos.
 
 sum(z, na.rm = TRUE)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite loginæ sàlygà, kuri patikrintø, kurie vektoriaus x elementai
-#    nepatenka á intervalà [2, 7].
-# 2. Uşrağykite komandà, kuri iğ vektoriaus z iğrinktø tik tuos elementus, kurie
-#    nëra praleistos reikğmës.
-# 3. Uşrağykite komandà, kuri vektoriaus z elementams su praleistomis reikğmëmis
-#    priskirtø reikğmæ 0.
-# 4. Uşrağykite komandà, kuri patikrintø, ar vektorius d turi bent vienà begaliná
-#    elementà.
-# 5. Sugalvokite bûdà kaip vektoriui v priskirti elementø vardus, kad jo atributø
-#    vektorius jau nebûtø NULL objektas.
+# 1. UÅ¾raÅ¡ykite loginÄ™ sÄ…lygÄ…, kuri patikrintÅ³, kurie vektoriaus x elementai
+#    nepatenka Ä¯ intervalÄ… [2, 7].
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri iÅ¡ vektoriaus z iÅ¡rinktÅ³ tik tuos elementus, kurie
+#    nÄ—ra praleistos reikÅ¡mÄ—s.
+# 3. UÅ¾raÅ¡ykite komandÄ…, kuri vektoriaus z elementams su praleistomis reikÅ¡mÄ—mis
+#    priskirtÅ³ reikÅ¡mÄ™ 0.
+# 4. UÅ¾raÅ¡ykite komandÄ…, kuri patikrintÅ³, ar vektorius d turi bent vienÄ… begalinÄ¯
+#    elementÄ….
+# 5. Sugalvokite bÅ«dÄ… kaip vektoriui v priskirti elementÅ³ vardus, kad jo atributÅ³
+#    vektorius jau nebÅ«tÅ³ NULL objektas.

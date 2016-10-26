@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Atsitiktinës imties sudarymas naudojant procedûrà sample.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            AtsitiktinÄ—s imties sudarymas naudojant procedÅ«rÄ… sample.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-03-25 | 2013-04-17 | 2015-09-20
 #
@@ -12,91 +12,91 @@
 # TURINYS -------------------------------
 
 #
-#   1. Atsitiktinës imties iğ vektoriaus elementø iğrinkimas:
+#   1. AtsitiktinÄ—s imties iÅ¡ vektoriaus elementÅ³ iÅ¡rinkimas:
 #      * funkcija sample
 #      * funkcija set.seed
 #
-#   2. Tikimybiniø eksperimentø modeliavimas:
-#      * Bernulio bandymø schema
+#   2. TikimybiniÅ³ eksperimentÅ³ modeliavimas:
+#      * Bernulio bandymÅ³ schema
 #
 
 
 # PASTABOS ------------------------------
 
 #
-# Kol kas pastabø nëra.
+# Kol kas pastabÅ³ nÄ—ra.
 #
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# ATSITIKTINËS IMTIES IĞRINKIMAS          #
+# ATSITIKTINÄ–S IMTIES IÅ RINKIMAS          #
 # --------------------------------------- #
 
-# Atsitiktinës imties iğ vektoriaus elementø sudarymui naudojama komanda sample.
+# AtsitiktinÄ—s imties iÅ¡ vektoriaus elementÅ³ sudarymui naudojama komanda sample.
 # Jos parametrai:
 #
-#          x -- vektorius, iğ kurio renkamos imties reikğmës,
-#       size -- iğ vektoriaus x iğrenkamø elementø skaièius, 
-#    replace -- loginis kintamasis, nurodo, ar iğrinkimas su pasikartojimais,
-#       prob -- iğrenkamø elementø tikimybës, pagal nutylëjimà jos vienodos.
+#          x -- vektorius, iÅ¡ kurio renkamos imties reikÅ¡mÄ—s,
+#       size -- iÅ¡ vektoriaus x iÅ¡renkamÅ³ elementÅ³ skaiÄius, 
+#    replace -- loginis kintamasis, nurodo, ar iÅ¡rinkimas su pasikartojimais,
+#       prob -- iÅ¡renkamÅ³ elementÅ³ tikimybÄ—s, pagal nutylÄ—jimÄ… jos vienodos.
 
 
-# Pvz., iğ 5 elementus turinèios aibës x = {1, 2, 3, 4, 5} atsitiktine tvarka su 
-# vienodomis tikimybëmis reikia iğrinkti 3 elementus. Sudarysime toká vektoriø x, 
-# kurio elementø reikğmes sutapatinsime su aibës elementø numeriais.
+# Pvz., iÅ¡ 5 elementus turinÄios aibÄ—s x = {1, 2, 3, 4, 5} atsitiktine tvarka su 
+# vienodomis tikimybÄ—mis reikia iÅ¡rinkti 3 elementus. Sudarysime tokÄ¯ vektoriÅ³ x, 
+# kurio elementÅ³ reikÅ¡mes sutapatinsime su aibÄ—s elementÅ³ numeriais.
 
 x <- 1:5
 n <- 3
 sample(x, size = n)
 
-# Kaip visada, jei procedûros parametrai uşrağomi numatyta tvarka, jø pavadinimø 
-# galima nerağyti -- komanda bus ğiek tiek trumpesnë ir kompaktiğkesnë.
+# Kaip visada, jei procedÅ«ros parametrai uÅ¾raÅ¡omi numatyta tvarka, jÅ³ pavadinimÅ³ 
+# galima neraÅ¡yti -- komanda bus Å¡iek tiek trumpesnÄ— ir kompaktiÅ¡kesnÄ—.
 
 sample(x, n)
 
 
-# Funkcijai sample nurodşius tik reikğmiø vektoriø x, imtis bus sudaryta iğ visø
-# atsitiktine tvarka iğdëstytø vektoriaus elementø -- gaunamas jo perstatinys.
+# Funkcijai sample nurodÅ¾ius tik reikÅ¡miÅ³ vektoriÅ³ x, imtis bus sudaryta iÅ¡ visÅ³
+# atsitiktine tvarka iÅ¡dÄ—stytÅ³ vektoriaus elementÅ³ -- gaunamas jo perstatinys.
 
 x <- 1:5
 sample(x)
 
-# Jei parametro x reikğmë yra ne vektorius, bet vienas natûrinis skaièius m, tai 
-# imtis bus renkama iğ vektoriaus (1, 2, ..., m) elementø.
+# Jei parametro x reikÅ¡mÄ— yra ne vektorius, bet vienas natÅ«rinis skaiÄius m, tai 
+# imtis bus renkama iÅ¡ vektoriaus (1, 2, ..., m) elementÅ³.
 
 m <- 5
 n <- 3
 sample(m, n)
 
 
-# Naudojant R procedûrà sample, pagal nutylëjimà sudaroma paprastoji atsitiktinë 
-# negràşintinë imtis, todël imties elementai nesikartoja. Jeigu imties elementai 
-# gali kartotis arba iğrenkamø elementø skaièius didesnis uş vektoriaus elementø 
-# skaièiø, loginio parametro replace reikğmë pakeièiama á TRUE.
+# Naudojant R procedÅ«rÄ… sample, pagal nutylÄ—jimÄ… sudaroma paprastoji atsitiktinÄ— 
+# negrÄ…Å¾intinÄ— imtis, todÄ—l imties elementai nesikartoja. Jeigu imties elementai 
+# gali kartotis arba iÅ¡renkamÅ³ elementÅ³ skaiÄius didesnis uÅ¾ vektoriaus elementÅ³ 
+# skaiÄiÅ³, loginio parametro replace reikÅ¡mÄ— pakeiÄiama Ä¯ TRUE.
 
 sample(x, n, replace = TRUE)
 
 
-# Pagal nutylëjimà visø vektoriaus elementø iğrinkimo tikimybës vienodos, taèiau 
-# jas galima pakeisti; parametrui prob priskiriamas elementø iğrinkimo tikimybiø 
-# vektorius. Tikimybiø vektoriaus elementø skaièius turi sutapti su vektoriaus x 
-# elementø skaièiumi, o tikimybiø suma turi bûti lygi vienetui. 
+# Pagal nutylÄ—jimÄ… visÅ³ vektoriaus elementÅ³ iÅ¡rinkimo tikimybÄ—s vienodos, taÄiau 
+# jas galima pakeisti; parametrui prob priskiriamas elementÅ³ iÅ¡rinkimo tikimybiÅ³ 
+# vektorius. TikimybiÅ³ vektoriaus elementÅ³ skaiÄius turi sutapti su vektoriaus x 
+# elementÅ³ skaiÄiumi, o tikimybiÅ³ suma turi bÅ«ti lygi vienetui. 
 
-# Pvz., sudarysime imtá iğ aibës x = {1, 2, 3, 4, 5} rinkdami k = 1000 elementø. 
-# Kadangi visø aibës elementø iğrinkimo á imtá tikimybës vienodos ir lygios 1/5, 
-# tokiu bûdu sudarytoje imtyje jø skaièius turëtø bûti maşdaug vienodas ir lygus
+# Pvz., sudarysime imtÄ¯ iÅ¡ aibÄ—s x = {1, 2, 3, 4, 5} rinkdami k = 1000 elementÅ³. 
+# Kadangi visÅ³ aibÄ—s elementÅ³ iÅ¡rinkimo Ä¯ imtÄ¯ tikimybÄ—s vienodos ir lygios 1/5, 
+# tokiu bÅ«du sudarytoje imtyje jÅ³ skaiÄius turÄ—tÅ³ bÅ«ti maÅ¾daug vienodas ir lygus
 # apie 200.
 
 n <- 1000
@@ -105,10 +105,10 @@ imtis <- sample(x, n, replace = TRUE)
 table(imtis)
 barplot(table(imtis))
 
-# Pavyzdşiui, iğrinkimo tikimybes pakeisime taip, kad pirmas ir paskutinis aibës
-# elementai bûtø iğrenkami su tikimybe 0.1, antras ir ketvirtas su tikimybe 0.2, 
-# o treèias --- su tikimybe 0.4. Tai reiğkia, kad gautoje imtyje treèio elemento 
-# turëtø bûti apie 400, antro ir ketvirto apie 200, o pirmo ir paskutinio po 100.
+# PavyzdÅ¾iui, iÅ¡rinkimo tikimybes pakeisime taip, kad pirmas ir paskutinis aibÄ—s
+# elementai bÅ«tÅ³ iÅ¡renkami su tikimybe 0.1, antras ir ketvirtas su tikimybe 0.2, 
+# o treÄias --- su tikimybe 0.4. Tai reiÅ¡kia, kad gautoje imtyje treÄio elemento 
+# turÄ—tÅ³ bÅ«ti apie 400, antro ir ketvirto apie 200, o pirmo ir paskutinio po 100.
 
 n <- 1000
 p <- c(0.1, 0.2, 0.4, 0.2, 0.1)
@@ -119,21 +119,21 @@ table(imtis)
 
 # NAUDINGA ------------------------------
 
-# Visiems atsitiktiniø dydşiø generatoriams galima nurodyti pradinæ generuojamos
-# sekos reikğmæ, kuri vadinama seed. Su ta paèia seed reikğme gaunama tokia pati 
-# skaièiø seka. Suprantama, kad atsitiktiniø dydşiø seka, kurià galima atkartoti,
-# nëra atsitiktinë, todël tokiu bûdu gauti dydşiai vadinami pseudoatsitiktiniais.
-# Ğià generatoriø savybæ galima naudoti tuo atveju, kai reikia visiğkai tiksliai 
-# atkartoti tikimybinio modeliavimo eksperimentà: generuoti identiğkus duomenis,
-# patikrinti, ar korektiğkai veikia nuo atsitiktinumo priklausantis algoritmas.
+# Visiems atsitiktiniÅ³ dydÅ¾iÅ³ generatoriams galima nurodyti pradinÄ™ generuojamos
+# sekos reikÅ¡mÄ™, kuri vadinama seed. Su ta paÄia seed reikÅ¡me gaunama tokia pati 
+# skaiÄiÅ³ seka. Suprantama, kad atsitiktiniÅ³ dydÅ¾iÅ³ seka, kuriÄ… galima atkartoti,
+# nÄ—ra atsitiktinÄ—, todÄ—l tokiu bÅ«du gauti dydÅ¾iai vadinami pseudoatsitiktiniais.
+# Å iÄ… generatoriÅ³ savybÄ™ galima naudoti tuo atveju, kai reikia visiÅ¡kai tiksliai 
+# atkartoti tikimybinio modeliavimo eksperimentÄ…: generuoti identiÅ¡kus duomenis,
+# patikrinti, ar korektiÅ¡kai veikia nuo atsitiktinumo priklausantis algoritmas.
 
-# Generatoriui seed reikğmë nustatoma per funkcijà set.seed, kuriai priskiriamas 
-# sveikasis skaièius, kuris ir yra seed reikğmë.
+# Generatoriui seed reikÅ¡mÄ— nustatoma per funkcijÄ… set.seed, kuriai priskiriamas 
+# sveikasis skaiÄius, kuris ir yra seed reikÅ¡mÄ—.
 
 set.seed(666)
 sample(5)
 
-# Norint gauti tà paèià ats. dydşiø sekà, seed reikğmæ reikia nurodyti iğ naujo.
+# Norint gauti tÄ… paÄiÄ… ats. dydÅ¾iÅ³ sekÄ…, seed reikÅ¡mÄ™ reikia nurodyti iÅ¡ naujo.
 
 sample(5)
 sample(5)
@@ -149,66 +149,66 @@ sample(5)
 
 # NAUDINGA ------------------------------
 
-# Funkcijà sample galima naudoti ne tik imties iğ vektoriaus reikğmiø iğrinkimui, 
-# bet ir imties sudarymui iğ kitø duomenø struktûrø. Gana daşnai pasitaiko tokia
-# situacija, kada iğ didelës duomenø lentelës atsitiktine tvarka reikia iğrinkti 
-# tik dalá jos eiluèiø. Pvz., iğ duomenø lentelës iris iğrinksime 10 jos eiluèiø. 
+# FunkcijÄ… sample galima naudoti ne tik imties iÅ¡ vektoriaus reikÅ¡miÅ³ iÅ¡rinkimui, 
+# bet ir imties sudarymui iÅ¡ kitÅ³ duomenÅ³ struktÅ«rÅ³. Gana daÅ¾nai pasitaiko tokia
+# situacija, kada iÅ¡ didelÄ—s duomenÅ³ lentelÄ—s atsitiktine tvarka reikia iÅ¡rinkti 
+# tik dalÄ¯ jos eiluÄiÅ³. Pvz., iÅ¡ duomenÅ³ lentelÄ—s iris iÅ¡rinksime 10 jos eiluÄiÅ³. 
 
-m <- nrow(iris)  # duomenø lentelës eiluèiø skaièius
-n <- 10          # iğrenkamø eiluèiø skaièius
+m <- nrow(iris)  # duomenÅ³ lentelÄ—s eiluÄiÅ³ skaiÄius
+n <- 10          # iÅ¡renkamÅ³ eiluÄiÅ³ skaiÄius
 
-# Sudarome atsitiktinai su vienodomis tikimybëmis iğrenkamø eiluèiø numeriø sekà.
+# Sudarome atsitiktinai su vienodomis tikimybÄ—mis iÅ¡renkamÅ³ eiluÄiÅ³ numeriÅ³ sekÄ….
 i <- sample(m, n)
 i
 
-# Iğ duomenø lentelës pasirenkame tik tas eilutes, kuriø numeriai pateko á imtá.
+# IÅ¡ duomenÅ³ lentelÄ—s pasirenkame tik tas eilutes, kuriÅ³ numeriai pateko Ä¯ imtÄ¯.
 d <- iris[i, ]
 d
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami procedûrà sample, parağykite loterijos skaièiø generavimo komandà,
-#    kuri iğ 30 sunumeruotø kamuoliukø be pasikartojimø iğtrauktø 6.
-# 2. Parağykite antrà loterijos programos pusæ, kuri tokiu paèiu bûdu parinktø 6
-#    şaidëjo skaièius ir apskaièiuotø, kiek iğ jø sutampa su loterijos skaièiais.
-# 3. Uşrağykite komandà, kuri vektoriaus LETTERS elementus iğdëliotø atsitiktine 
+# 1. Naudodami procedÅ«rÄ… sample, paraÅ¡ykite loterijos skaiÄiÅ³ generavimo komandÄ…,
+#    kuri iÅ¡ 30 sunumeruotÅ³ kamuoliukÅ³ be pasikartojimÅ³ iÅ¡trauktÅ³ 6.
+# 2. ParaÅ¡ykite antrÄ… loterijos programos pusÄ™, kuri tokiu paÄiu bÅ«du parinktÅ³ 6
+#    Å¾aidÄ—jo skaiÄius ir apskaiÄiuotÅ³, kiek iÅ¡ jÅ³ sutampa su loterijos skaiÄiais.
+# 3. UÅ¾raÅ¡ykite komandÄ…, kuri vektoriaus LETTERS elementus iÅ¡dÄ—liotÅ³ atsitiktine 
 #    tvarka.
-# 4. Uşrağykite komandà, kuri atsitiktine tvarka sudëliotø duomenø lentelës iris
+# 4. UÅ¾raÅ¡ykite komandÄ…, kuri atsitiktine tvarka sudÄ—liotÅ³ duomenÅ³ lentelÄ—s iris
 #    eilutes.
 
 
 # --------------------------------------- #
-# BERNULIO BANDYMØ MODELIAVIMAS           #
+# BERNULIO BANDYMÅ² MODELIAVIMAS           #
 # --------------------------------------- #
 
-# Kadangi procedûra sample gali generuoti nepriklausomø atsitiktiniø dydşiø sekà,
-# jà galima panaudoti nesudëtingø tikimybiniø eksperimentø modeliavimui. Plaèiai 
-# taikoma nepriklausomø bandymø schema ir atskiras jos atvejis Bernulio bandymai.
+# Kadangi procedÅ«ra sample gali generuoti nepriklausomÅ³ atsitiktiniÅ³ dydÅ¾iÅ³ sekÄ…,
+# jÄ… galima panaudoti nesudÄ—tingÅ³ tikimybiniÅ³ eksperimentÅ³ modeliavimui. PlaÄiai 
+# taikoma nepriklausomÅ³ bandymÅ³ schema ir atskiras jos atvejis Bernulio bandymai.
 
-# Tarkime, kad vykdome n nepriklausomø bandymø, kuriø metu atsitiktinis ávykis A
-# pasirodo su tam tikra pastovia tikimybe p. Jei ávykis A pasirodo, toká bandymà 
-# paşymime vienetu, jei ávykis nepasirodo --- bandymà paşymime nuliu. Tokiu bûdu 
-# gautas atsitiktinis dydis vadinamas Bernulio dydşiu su parametru p. Sudarysime 
-# komandà, kuri generuoja n Bernulio dydşiø sekà.
+# Tarkime, kad vykdome n nepriklausomÅ³ bandymÅ³, kuriÅ³ metu atsitiktinis Ä¯vykis A
+# pasirodo su tam tikra pastovia tikimybe p. Jei Ä¯vykis A pasirodo, tokÄ¯ bandymÄ… 
+# paÅ¾ymime vienetu, jei Ä¯vykis nepasirodo --- bandymÄ… paÅ¾ymime nuliu. Tokiu bÅ«du 
+# gautas atsitiktinis dydis vadinamas Bernulio dydÅ¾iu su parametru p. Sudarysime 
+# komandÄ…, kuri generuoja n Bernulio dydÅ¾iÅ³ sekÄ….
 
-x <- 0:1          # sudarome eksperimento baigèiø vektoriø
-p <- c(0.4, 0.6)  # nurodome eksperimento baigèiø tikimybes
-n <- 10           # nurodome bandymø skaièiø
+x <- 0:1          # sudarome eksperimento baigÄiÅ³ vektoriÅ³
+p <- c(0.4, 0.6)  # nurodome eksperimento baigÄiÅ³ tikimybes
+n <- 10           # nurodome bandymÅ³ skaiÄiÅ³
 
 b <- sample(x, n, replace = TRUE, prob = p)
 b
 
-# Sëkmingø bandymø skaièius, atlikus n Bernulio bandymø serijà, yra atsitiktinis
-# dydis. Toká dydá vadiname binominiu atsitiktiniu dydşiu su parametrais n ir p. 
+# SÄ—kmingÅ³ bandymÅ³ skaiÄius, atlikus n Bernulio bandymÅ³ serijÄ…, yra atsitiktinis
+# dydis. TokÄ¯ dydÄ¯ vadiname binominiu atsitiktiniu dydÅ¾iu su parametrais n ir p. 
 
 sum(b)
 
 
-# Klasikinis Bernulio bandymø schemos pavyzdys --- monetos mëtymo eksperimentas. 
-# Pvz., sumodeliuosime eksperimentà, kuriame 100 kartø metama simetriğka moneta.
-# Kad bûtø paprasèiau, monetos puses paşymësime raidëmis H ir S, iğ jø sudarome
-# vieno metimo baigèiø vektoriø, iğ kurio renkane n reikğmiø su pasikartojimais.
+# Klasikinis Bernulio bandymÅ³ schemos pavyzdys --- monetos mÄ—tymo eksperimentas. 
+# Pvz., sumodeliuosime eksperimentÄ…, kuriame 100 kartÅ³ metama simetriÅ¡ka moneta.
+# Kad bÅ«tÅ³ paprasÄiau, monetos puses paÅ¾ymÄ—sime raidÄ—mis H ir S, iÅ¡ jÅ³ sudarome
+# vieno metimo baigÄiÅ³ vektoriÅ³, iÅ¡ kurio renkane n reikÅ¡miÅ³ su pasikartojimais.
 
 moneta <- c("H", "S")
 n <- 100
@@ -216,9 +216,9 @@ n <- 100
 b <- sample(moneta, n, replace = TRUE)
 b
 
-# Modeliavimo rezultatus galima atvaizduoti daşniø lentele arba daşniø diagrama.
-# Kadangi abi monetos pusës iğrenkamos su vienodomis tikimybëmis, jø pasirodymø 
-# daşnis turi bûti apytiksliai lygus. Tà ir parodo daşniø lentelë.
+# Modeliavimo rezultatus galima atvaizduoti daÅ¾niÅ³ lentele arba daÅ¾niÅ³ diagrama.
+# Kadangi abi monetos pusÄ—s iÅ¡renkamos su vienodomis tikimybÄ—mis, jÅ³ pasirodymÅ³ 
+# daÅ¾nis turi bÅ«ti apytiksliai lygus. TÄ… ir parodo daÅ¾niÅ³ lentelÄ—.
 
 l <- table(b)
 l
@@ -226,15 +226,15 @@ l
 barplot(l)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sumodeliuokite simetriğko loğimo kauliuko mëtymà. Sugalvokite komandà, kuri
-#    modeliuotø iğ karto 100 loğimo kauliukø metimà.
-# 2. Kaip mëtant loğimo kauliukà galima imituoti monetos mëtymà? Uşrağykite toká 
-#    procesà modeliuojantá algoritmà.
-# 3. Sumodeliuokite dviejø simetriğkø monetø n = 100 metimø serijà ir sudarykite 
-#    visø kombinacijø atsivertimø daşniø lentelæ. Ar visos kombinacijos pasirodo 
-#    vienodai daşnai?
-# 4. Tarkime, kad X yra bendra tağkø suma metant du simetriğkus loğimo kauliukus. 
-#    Modeliavimo bûdu nustatykite, kokia suma pasitaiko daşniau, X = 9 ar X = 10.
-#    Kaip keièiasi situacija, kai metami iğ karto trys loğimo kauliukai?
+# 1. Sumodeliuokite simetriÅ¡ko loÅ¡imo kauliuko mÄ—tymÄ…. Sugalvokite komandÄ…, kuri
+#    modeliuotÅ³ iÅ¡ karto 100 loÅ¡imo kauliukÅ³ metimÄ….
+# 2. Kaip mÄ—tant loÅ¡imo kauliukÄ… galima imituoti monetos mÄ—tymÄ…? UÅ¾raÅ¡ykite tokÄ¯ 
+#    procesÄ… modeliuojantÄ¯ algoritmÄ….
+# 3. Sumodeliuokite dviejÅ³ simetriÅ¡kÅ³ monetÅ³ n = 100 metimÅ³ serijÄ… ir sudarykite 
+#    visÅ³ kombinacijÅ³ atsivertimÅ³ daÅ¾niÅ³ lentelÄ™. Ar visos kombinacijos pasirodo 
+#    vienodai daÅ¾nai?
+# 4. Tarkime, kad X yra bendra taÅ¡kÅ³ suma metant du simetriÅ¡kus loÅ¡imo kauliukus. 
+#    Modeliavimo bÅ«du nustatykite, kokia suma pasitaiko daÅ¾niau, X = 9 ar X = 10.
+#    Kaip keiÄiasi situacija, kai metami iÅ¡ karto trys loÅ¡imo kauliukai?

@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
 #            Pagrindiniai funkcijos plot metodai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-03-07 | 2014-03-24
 #
@@ -17,10 +17,10 @@
 #      * plot.data.frame
 #      * plot.formula
 #
-#   2. Metodas vieno kintamojo funkcijø grafikams:
+#   2. Metodas vieno kintamojo funkcijÅ³ grafikams:
 #      * plot.function
 #
-#   3. Metodai daşniø lentelëms atvaizduoti:
+#   3. Metodai daÅ¾niÅ³ lentelÄ—ms atvaizduoti:
 #      * plot.table
 #      * plot.factor
 #
@@ -29,19 +29,19 @@
 # PASTABOS ------------------------------
 
 #
-# Jokiø pastabø nëra.
+# JokiÅ³ pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -49,33 +49,33 @@ rm(list = ls())
 # FUNKCIJA PLOT IR JOS METODAI            #
 # --------------------------------------- #
 
-# Pagrindinë grafikø ir ávairiø diagramø braişymo funkcija yra plot. Tai bendro 
-# pobûdşio (generic) funkcija, kuri skirtingo tipo duomenims atvaizduoti naudoja 
-# skirtingus metodus. Pavyzdşiui, kaip argumentà nurodşius du skaièiø vektorius 
-# x ir y, nubraişoma tağkø su koordinatëmis (x, y) sklaidos diagrama, nurodşius 
-# daşniø lentelæ, nubraişoma stulpelinë diagrama, nurodşius bet kokios skaitinës
-# R funkcijos pavadinimà arba uşrağius jos iğraiğkà, nubraişomas tos funkcijos 
-# grafikas. Funkcija plot atpaşásta daşniausiai naudojamø statistiniø procedûrø 
-# rezultatø objektus ir jø atvaizdavimui naudoja specifinius metodus. Pavyzdşiui, 
-# kaip argumentà nurodşius tiesiniø modeliø procedûros lm rezultatø objektà, bus 
-# braişoma paklaidø sklaidos diagrama ir kiti diagnostiniai to modelio grafikai, 
-# o nurodşius hierarchinio klasterizavimo procedûros hclust rezultatà, braişoma 
-# dendrograma. Galima paminëti keletà daşniausiai naudojamø metodø:
+# PagrindinÄ— grafikÅ³ ir Ä¯vairiÅ³ diagramÅ³ braiÅ¾ymo funkcija yra plot. Tai bendro 
+# pobÅ«dÅ¾io (generic) funkcija, kuri skirtingo tipo duomenims atvaizduoti naudoja 
+# skirtingus metodus. PavyzdÅ¾iui, kaip argumentÄ… nurodÅ¾ius du skaiÄiÅ³ vektorius 
+# x ir y, nubraiÅ¾oma taÅ¡kÅ³ su koordinatÄ—mis (x, y) sklaidos diagrama, nurodÅ¾ius 
+# daÅ¾niÅ³ lentelÄ™, nubraiÅ¾oma stulpelinÄ— diagrama, nurodÅ¾ius bet kokios skaitinÄ—s
+# R funkcijos pavadinimÄ… arba uÅ¾raÅ¡ius jos iÅ¡raiÅ¡kÄ…, nubraiÅ¾omas tos funkcijos 
+# grafikas. Funkcija plot atpaÅ¾Ä¯sta daÅ¾niausiai naudojamÅ³ statistiniÅ³ procedÅ«rÅ³ 
+# rezultatÅ³ objektus ir jÅ³ atvaizdavimui naudoja specifinius metodus. PavyzdÅ¾iui, 
+# kaip argumentÄ… nurodÅ¾ius tiesiniÅ³ modeliÅ³ procedÅ«ros lm rezultatÅ³ objektÄ…, bus 
+# braiÅ¾oma paklaidÅ³ sklaidos diagrama ir kiti diagnostiniai to modelio grafikai, 
+# o nurodÅ¾ius hierarchinio klasterizavimo procedÅ«ros hclust rezultatÄ…, braiÅ¾oma 
+# dendrograma. Galima paminÄ—ti keletÄ… daÅ¾niausiai naudojamÅ³ metodÅ³:
 # 
-#   plot.default    --  skaitiniø kintamøjø x ir y sklaidos diagramos braişymui,
-#   plot.data.frame --  skaitiniø duomenø lenteliø atvaizdavimui,
-#   plot.formula    --  duomenø pagal jø priklausomybës modelá atvaizdavimui,
-#   plot.function   --  ávairiø funkcijø grafikø braşymui,
-#   plot.table      --  daşniø ir kryşminiø daşniø lenteliø atvaizdavimui,
-#   plot.factor     --  kategoriniø kintamøjø (faktoriø) atvaizdavimui,
-#   plot.histogram  --  histogramos braişymui,
-#   plot.density    --  tankio funkcijos áverèio braişymui,
-#   plot.ecdf       --  empirinës pasiskirstymo funkcijos braişymui,
-#   plot.ts         --  laiko eilutës grafiko braişymui,
+#   plot.default    --  skaitiniÅ³ kintamÅ³jÅ³ x ir y sklaidos diagramos braiÅ¾ymui,
+#   plot.data.frame --  skaitiniÅ³ duomenÅ³ lenteliÅ³ atvaizdavimui,
+#   plot.formula    --  duomenÅ³ pagal jÅ³ priklausomybÄ—s modelÄ¯ atvaizdavimui,
+#   plot.function   --  Ä¯vairiÅ³ funkcijÅ³ grafikÅ³ braÅ¾ymui,
+#   plot.table      --  daÅ¾niÅ³ ir kryÅ¾miniÅ³ daÅ¾niÅ³ lenteliÅ³ atvaizdavimui,
+#   plot.factor     --  kategoriniÅ³ kintamÅ³jÅ³ (faktoriÅ³) atvaizdavimui,
+#   plot.histogram  --  histogramos braiÅ¾ymui,
+#   plot.density    --  tankio funkcijos Ä¯verÄio braiÅ¾ymui,
+#   plot.ecdf       --  empirinÄ—s pasiskirstymo funkcijos braiÅ¾ymui,
+#   plot.ts         --  laiko eilutÄ—s grafiko braiÅ¾ymui,
 #   plot.dendrogram --  dendrogramos atvaizdavimui,
-#   plot.lm         --  tiesinio modelio diagnostiniø grafikø braişymui.
+#   plot.lm         --  tiesinio modelio diagnostiniÅ³ grafikÅ³ braiÅ¾ymui.
 
-# Visus funkcijos plot metodus galima suşinoti naudojant funkcijà methods.
+# Visus funkcijos plot metodus galima suÅ¾inoti naudojant funkcijÄ… methods.
 methods(plot)
 
 
@@ -83,8 +83,8 @@ methods(plot)
 # METODAI SKLAIDOS DIAGRAMOMS SUDARYTI    #
 # --------------------------------------- #
 
-# Pats paprasèiausias grafikas - tağkø su koordinatëmis (x, y) sklaidos diagrama.
-# Tokiu atveju funkcijai plot perduodami ğiø tağkø koordinaèiø vektoriai x ir y.
+# Pats paprasÄiausias grafikas - taÅ¡kÅ³ su koordinatÄ—mis (x, y) sklaidos diagrama.
+# Tokiu atveju funkcijai plot perduodami Å¡iÅ³ taÅ¡kÅ³ koordinaÄiÅ³ vektoriai x ir y.
 
 x <- c(2.0, 1.6, 1.2, 1.0, 1.0, 1.3, 1.6, 2.0, 2.3, 2.8, 2.8, 3.0, 2.8, 2.4, 2.1)
 y <- c(0.8, 1.1, 1.3, 1.6, 2.2, 2.5, 2.9, 3.1, 3.0, 2.8, 2.4, 1.8, 1.4, 1.0, 0.9)
@@ -93,25 +93,25 @@ z <- c(2.8, 6.1, 4.5, 8.0, 6.7, 9.0, 9.2, 9.3, 7.2, 9.6, 8.6, 8.4, 7.3, 6.1, 3.9
 d <- data.frame(x, y, z)
 l <- list(x, y, z)
 
-# Nubraişysime tris skirtingas ğiø kintamøjø sklaidos diagramas.
+# NubraiÅ¾ysime tris skirtingas Å¡iÅ³ kintamÅ³jÅ³ sklaidos diagramas.
 
 plot(x, y)
 plot(x, z)
 plot(y, z)
 
-# Diagramoje pavaizduotø tağkø koordinatës (x, y) gali bûti apskaièiuotos. Tokiu 
-# bûdu galima nubraişyti ávairias kreives. Pavyzdşiui, nubraişysime gerai şinomà
-# Lisaşu kreivæ, kuri uşrağyta parametriniu pavidalu.
+# Diagramoje pavaizduotÅ³ taÅ¡kÅ³ koordinatÄ—s (x, y) gali bÅ«ti apskaiÄiuotos. Tokiu 
+# bÅ«du galima nubraiÅ¾yti Ä¯vairias kreives. PavyzdÅ¾iui, nubraiÅ¾ysime gerai Å¾inomÄ…
+# LisaÅ¾u kreivÄ™, kuri uÅ¾raÅ¡yta parametriniu pavidalu.
 
 t <- seq(0, 2*pi, length = 1000)
 x.i <- sin(3*t + pi/8)
 y.i <- cos(4*t)
 
-plot(x.i, y.i, pch = ".", main = "Lissajous kreivë")
+plot(x.i, y.i, pch = ".", main = "Lissajous kreivÄ—")
 
 
-# Tokiu paèiu bûdu galima braişyti ávairiø funkcijø grafikus. Pvz., nubraişysime 
-# racionalios trupmenos y = P(x)/Q(x) grafikà intervale [-5, 5].
+# Tokiu paÄiu bÅ«du galima braiÅ¾yti Ä¯vairiÅ³ funkcijÅ³ grafikus. Pvz., nubraiÅ¾ysime 
+# racionalios trupmenos y = P(x)/Q(x) grafikÄ… intervale [-5, 5].
 
 x <- seq(-5, 5, length = 100)
 y <- x/(x^2 + x + 1)
@@ -119,71 +119,71 @@ y <- x/(x^2 + x + 1)
 plot(x, y, type = "l")
 
 
-# Jei funkcijai plot kaip argumentas nurodoma data.frame tipo lentelë, sudaromas
-# grafikas, kuriame atvaizduojamos visø tokios lentelës skaitiniø kintamøjø porø 
-# sklaidos diagramos. Pavyzdşiui, atvaizduosime anksèiau sudarytos lentelës visø 
-# trijø kintamøjø porø sklaidos diagramas.
+# Jei funkcijai plot kaip argumentas nurodoma data.frame tipo lentelÄ—, sudaromas
+# grafikas, kuriame atvaizduojamos visÅ³ tokios lentelÄ—s skaitiniÅ³ kintamÅ³jÅ³ porÅ³ 
+# sklaidos diagramos. PavyzdÅ¾iui, atvaizduosime anksÄiau sudarytos lentelÄ—s visÅ³ 
+# trijÅ³ kintamÅ³jÅ³ porÅ³ sklaidos diagramas.
 
 plot(d)
 
-# Lentelëje iris yra 3 rûğiø gëliø şiedlapiø matavimai. Pirmi keturi kintamieji 
-# yra skaitiniai, paskutinis yra kategorinis ir nurodo, kuriai rûğiai priklauso 
-# stebiniai. Nubraişysime ğiø kintamøjø sklaidos diagramas.
+# LentelÄ—je iris yra 3 rÅ«Å¡iÅ³ gÄ—liÅ³ Å¾iedlapiÅ³ matavimai. Pirmi keturi kintamieji 
+# yra skaitiniai, paskutinis yra kategorinis ir nurodo, kuriai rÅ«Å¡iai priklauso 
+# stebiniai. NubraiÅ¾ysime Å¡iÅ³ kintamÅ³jÅ³ sklaidos diagramas.
 
 plot(iris)
 
-# Kategoriná lentelës kintamàjá galima panaudoti sklaidos diagramos tağkø spalvai 
-# nustatyti. Tokiu bûdu tuos paèius duomenis galima nagrinëti ávairiais pjûviais.
+# KategorinÄ¯ lentelÄ—s kintamÄ…jÄ¯ galima panaudoti sklaidos diagramos taÅ¡kÅ³ spalvai 
+# nustatyti. Tokiu bÅ«du tuos paÄius duomenis galima nagrinÄ—ti Ä¯vairiais pjÅ«viais.
 
 plot(iris[, 1:4], col = iris[, 5])
 
 
 # NAUDINGA ------------------------------
 
-# Dviejø kintamøjø sklaidos diagrama yra vienas iğ bûdø pastebëti statistinæ ğiø
-# kintamøjø priklausomybæ. Ği priklausomybë yra akivaizdi, kai tağkø koordinates
-# (x, y) sieja ryğys y = f(x). Nagrinëjant atsitiktiniø dydşiø priklausomybæ yra
-# rağomas statistinis modelis, kuris R kalboje iğreiğkiamas per formulæ. Kairëje
-# jos pusëje rağomas kintamasis, kuris atitinka koordinatæ y, o değinëje pusëje
-# uşrağomas kintamasis x. Funkcija plot, naudodama metodà plot.formula, pagal ğá
-# modelá sudaro dviejø kintamøjø sklaidos diagramà.
+# DviejÅ³ kintamÅ³jÅ³ sklaidos diagrama yra vienas iÅ¡ bÅ«dÅ³ pastebÄ—ti statistinÄ™ Å¡iÅ³
+# kintamÅ³jÅ³ priklausomybÄ™. Å i priklausomybÄ— yra akivaizdi, kai taÅ¡kÅ³ koordinates
+# (x, y) sieja ryÅ¡ys y = f(x). NagrinÄ—jant atsitiktiniÅ³ dydÅ¾iÅ³ priklausomybÄ™ yra
+# raÅ¡omas statistinis modelis, kuris R kalboje iÅ¡reiÅ¡kiamas per formulÄ™. KairÄ—je
+# jos pusÄ—je raÅ¡omas kintamasis, kuris atitinka koordinatÄ™ y, o deÅ¡inÄ—je pusÄ—je
+# uÅ¾raÅ¡omas kintamasis x. Funkcija plot, naudodama metodÄ… plot.formula, pagal Å¡Ä¯
+# modelÄ¯ sudaro dviejÅ³ kintamÅ³jÅ³ sklaidos diagramÄ….
 
 modelis <- y ~ x
 modelis
 
-# Pavyzdşiui, sudarysime duomenø lentelës d kintamøjø x ir y sklaidos diagramà.
-# Funkcijai plot kaip parametrà perduodame kintamøjø sàryğio modelá ir nurodome 
-# duomenø lentelæ, iğ kurios ir paimami modelyje árağyti kintamieji x ir y.
+# PavyzdÅ¾iui, sudarysime duomenÅ³ lentelÄ—s d kintamÅ³jÅ³ x ir y sklaidos diagramÄ….
+# Funkcijai plot kaip parametrÄ… perduodame kintamÅ³jÅ³ sÄ…ryÅ¡io modelÄ¯ ir nurodome 
+# duomenÅ³ lentelÄ™, iÅ¡ kurios ir paimami modelyje Ä¯raÅ¡yti kintamieji x ir y.
 
 plot(modelis, data = d)
 
-# Jeigu modelis, pagal kurá braişoma sklaidos diagrama, nesikeièia, jo iğraiğkà 
-# galima árağyti tiesiai á funkcijà plot.
+# Jeigu modelis, pagal kurÄ¯ braiÅ¾oma sklaidos diagrama, nesikeiÄia, jo iÅ¡raiÅ¡kÄ… 
+# galima Ä¯raÅ¡yti tiesiai Ä¯ funkcijÄ… plot.
 
 plot(y ~ x, data = d)
 
-# Formulëje árağyti kintamieji nebûtinai turi bûti duomenø lentelëje. Pavyzdşiui,
-# nubraişysime sàrağo l kintamøjø x ir y sklaidos diagramà.
+# FormulÄ—je Ä¯raÅ¡yti kintamieji nebÅ«tinai turi bÅ«ti duomenÅ³ lentelÄ—je. PavyzdÅ¾iui,
+# nubraiÅ¾ysime sÄ…raÅ¡o l kintamÅ³jÅ³ x ir y sklaidos diagramÄ….
 
 plot(y ~ x, data = l)
 
-# Pastaba. Nenurodşius nei duomenø lentelës, nei sàrağo pavadinimo, bus braişoma 
-# tokius pat pavadinimus turinèiø kintamøjø (jei tokie yra) sklaidos diagrama.
-# Ğiuo atveju kintamieji x ir y aprağo aukğèiau paminëtos rac. trumpenos tağkus.
+# Pastaba. NenurodÅ¾ius nei duomenÅ³ lentelÄ—s, nei sÄ…raÅ¡o pavadinimo, bus braiÅ¾oma 
+# tokius pat pavadinimus turinÄiÅ³ kintamÅ³jÅ³ (jei tokie yra) sklaidos diagrama.
+# Å iuo atveju kintamieji x ir y apraÅ¡o aukÅ¡Äiau paminÄ—tos rac. trumpenos taÅ¡kus.
 
 plot(y ~ x)
 
-# Naudojant modelá, galima uşrağyti labai ávairias tø paèiø kintamøjø tarpusavio
-# priklausomybes. Uşrağysime keletà daşniausiai pasitaikanèiø modeliø:
+# Naudojant modelÄ¯, galima uÅ¾raÅ¡yti labai Ä¯vairias tÅ³ paÄiÅ³ kintamÅ³jÅ³ tarpusavio
+# priklausomybes. UÅ¾raÅ¡ysime keletÄ… daÅ¾niausiai pasitaikanÄiÅ³ modeliÅ³:
 # 
-#   y ~ x         -- tağkø su koordinatëmis (x, y) sklaidos diagrama,
-#   y ~ 1         -- tağkø (i, y.i) diagrama, kai i -- y elementø eilës numeris, 
-#     ~ x         -- tağkø su koordinatëmis (x, 1) iğsidëstymo tiesëje diagrama,
-#     ~ x + y     -- ta pati tağkø (x, y) sklaidos diagrama,
-#     ~ x + y + z -- trijø kintamøjø x, y ir z porø sklaidos diagramos.
+#   y ~ x         -- taÅ¡kÅ³ su koordinatÄ—mis (x, y) sklaidos diagrama,
+#   y ~ 1         -- taÅ¡kÅ³ (i, y.i) diagrama, kai i -- y elementÅ³ eilÄ—s numeris, 
+#     ~ x         -- taÅ¡kÅ³ su koordinatÄ—mis (x, 1) iÅ¡sidÄ—stymo tiesÄ—je diagrama,
+#     ~ x + y     -- ta pati taÅ¡kÅ³ (x, y) sklaidos diagrama,
+#     ~ x + y + z -- trijÅ³ kintamÅ³jÅ³ x, y ir z porÅ³ sklaidos diagramos.
 
-# Naudodami duomenø lentelës d kintamuosius, pagal ğiuos modelius nubraişysime 
-# visas ğias sklaidos diagramas.
+# Naudodami duomenÅ³ lentelÄ—s d kintamuosius, pagal Å¡iuos modelius nubraiÅ¾ysime 
+# visas Å¡ias sklaidos diagramas.
 
 plot(y ~ x, data = d)
 
@@ -198,41 +198,41 @@ plot( ~ x + y,     data = d)
 plot( ~ x + y + z, data = d)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant funkcijà plot, nubraişykite brëşiná, kur 10 x 10 dydşio kvadrate
-#    bûtø paşymëti visi tağkai, kuriø koordinatës yra natûriniai skaièiai.
-# 2. Nubraişykite apskritimà su centru tağke (2, 2) ir spinduliu R=2. Apskritimo
-#    tağkai turi bûti sujungti iğtisine raudona linija. Kad apskritimo grafikas
-#    vizualiai nepavirstø á elipsës grafikà, naudojant parametrà asp nurodykite 
-#    fiksuotà 1:1 krağtiniø santyká.
-# 3. Nubraişykite elipsës su centru koordinaèiø pradşioje grafikà. Tegul ilgoji
-#    elipsës pusağë lygi 5, o trumpoji -- 3.
-# 4. Apskaièiuokite Archimedo spiralës 1000 tağkø koordinates, nubraişykite jos
-#    grafikà. Braişant grafikà, reikia nurodyti fiksuotà 1:1 krağtiniø santyká.
-# 5. Lentelëje cars yra automobilio greièio ir stabdymo kelio matavimø duomenys.
-#    Sudarykite stabdymo kelio ir automobilio greièio tarpusavio priklausomybës 
-#    modelá ir nubraişykite já atitinkantá kintamøjø sklaidos diagramà.
+# 1. Naudojant funkcijÄ… plot, nubraiÅ¾ykite brÄ—Å¾inÄ¯, kur 10 x 10 dydÅ¾io kvadrate
+#    bÅ«tÅ³ paÅ¾ymÄ—ti visi taÅ¡kai, kuriÅ³ koordinatÄ—s yra natÅ«riniai skaiÄiai.
+# 2. NubraiÅ¾ykite apskritimÄ… su centru taÅ¡ke (2, 2) ir spinduliu R=2. Apskritimo
+#    taÅ¡kai turi bÅ«ti sujungti iÅ¡tisine raudona linija. Kad apskritimo grafikas
+#    vizualiai nepavirstÅ³ Ä¯ elipsÄ—s grafikÄ…, naudojant parametrÄ… asp nurodykite 
+#    fiksuotÄ… 1:1 kraÅ¡tiniÅ³ santykÄ¯.
+# 3. NubraiÅ¾ykite elipsÄ—s su centru koordinaÄiÅ³ pradÅ¾ioje grafikÄ…. Tegul ilgoji
+#    elipsÄ—s pusaÅ¡Ä— lygi 5, o trumpoji -- 3.
+# 4. ApskaiÄiuokite Archimedo spiralÄ—s 1000 taÅ¡kÅ³ koordinates, nubraiÅ¾ykite jos
+#    grafikÄ…. BraiÅ¾ant grafikÄ…, reikia nurodyti fiksuotÄ… 1:1 kraÅ¡tiniÅ³ santykÄ¯.
+# 5. LentelÄ—je cars yra automobilio greiÄio ir stabdymo kelio matavimÅ³ duomenys.
+#    Sudarykite stabdymo kelio ir automobilio greiÄio tarpusavio priklausomybÄ—s 
+#    modelÄ¯ ir nubraiÅ¾ykite jÄ¯ atitinkantÄ¯ kintamÅ³jÅ³ sklaidos diagramÄ….
 
 
 # --------------------------------------- #
-# METODAS FUNKCIJOS GRAFIKUI NUBRAIŞYTI   #
+# METODAS FUNKCIJOS GRAFIKUI NUBRAIÅ½YTI   #
 # --------------------------------------- #
 
-# Funkcija plot turi metodà vieno kintamojo funkcijø y = f(x) grafikams braişyti.
+# Funkcija plot turi metodÄ… vieno kintamojo funkcijÅ³ y = f(x) grafikams braiÅ¾yti.
 # Pagrindiniai parametrai:
 #
-#       x -- funkcijos f(x) pavadinimas arba jos iğraiğka,
-#    from -- intervalo [a, b] reikğmë a,
-#      to -- intervalo [a, b] reikğmë b,
-#       n -- tağkø skaièius intervale [a, b].
+#       x -- funkcijos f(x) pavadinimas arba jos iÅ¡raiÅ¡ka,
+#    from -- intervalo [a, b] reikÅ¡mÄ— a,
+#      to -- intervalo [a, b] reikÅ¡mÄ— b,
+#       n -- taÅ¡kÅ³ skaiÄius intervale [a, b].
 #
-# Sudarant funkcijos f(x) intervale [a, b] grafikà, ğis intervalas padalinamas á 
-# 100 lygiø daliø, kurias viena nuo kitos atskiria n = 101 tağkø. Tuose tağkuose
-# skaièiuojamos funkcijos y = f(x) reikğmës ir gaunamos tağkø (x, y) koordinatës.
+# Sudarant funkcijos f(x) intervale [a, b] grafikÄ…, Å¡is intervalas padalinamas Ä¯ 
+# 100 lygiÅ³ daliÅ³, kurias viena nuo kitos atskiria n = 101 taÅ¡kÅ³. Tuose taÅ¡kuose
+# skaiÄiuojamos funkcijos y = f(x) reikÅ¡mÄ—s ir gaunamos taÅ¡kÅ³ (x, y) koordinatÄ—s.
 
-# Pavyzdşiui, sudarysime tos paèios racionalios trupmenos y = P(x)/Q(x) grafikà. 
-# Pirmiausia jos iğraiğkà uşrağysime kaip R funkcijà.
+# PavyzdÅ¾iui, sudarysime tos paÄios racionalios trupmenos y = P(x)/Q(x) grafikÄ…. 
+# Pirmiausia jos iÅ¡raiÅ¡kÄ… uÅ¾raÅ¡ysime kaip R funkcijÄ….
 
 fx <- function(x) {
   y <- x/(x^2 + x + 1)
@@ -242,23 +242,23 @@ fx <- function(x) {
 plot(fx)
 
 
-# Be papildomø nustatymø nubraişomas funkcijos intervale [0, 1] grafikas, taèiau 
+# Be papildomÅ³ nustatymÅ³ nubraiÅ¾omas funkcijos intervale [0, 1] grafikas, taÄiau 
 # intervalo ribas galima pakeisti.
 
 plot(fx, from = -5, to = 5)
 
-# Jei parametrø reikğmës priskiriamos nustatyta tvarka, tai parametrø pavadinimø 
-# galima ir nerağyti.
+# Jei parametrÅ³ reikÅ¡mÄ—s priskiriamos nustatyta tvarka, tai parametrÅ³ pavadinimÅ³ 
+# galima ir neraÅ¡yti.
 
 plot(fx, -5, 5)
 
-# Tağkø (x, y), iğ kuriø sudaromas funkcijos grafikas, skaièiø galima pakeisti.
+# TaÅ¡kÅ³ (x, y), iÅ¡ kuriÅ³ sudaromas funkcijos grafikas, skaiÄiÅ³ galima pakeisti.
 
 plot(fx, -5, 5, n = 10)
 plot(fx, -5, 5, n = 1000)
 
 
-# Kartais gali bûti naudinga galimybë iğsaugoti tağkø (x, y), iğ kuriø sudarytas 
+# Kartais gali bÅ«ti naudinga galimybÄ— iÅ¡saugoti taÅ¡kÅ³ (x, y), iÅ¡ kuriÅ³ sudarytas 
 # funkcijos y = f(x) grafikas, koordinates. 
 
 xy.list <- plot(fx, -5, 5)
@@ -267,12 +267,12 @@ xy.list
 plot(xy.list)
 
 
-# Gana daşnai reikalingas kokios nors standartinës funkcijos grafikas. Já galimà
-# nubraişyti net keliais bûdais. Pavyzdşiui, nubraişysime standartinio normaliojo
-# pasiskirstymo tankio funkcijos grafikà.
+# Gana daÅ¾nai reikalingas kokios nors standartinÄ—s funkcijos grafikas. JÄ¯ galimÄ…
+# nubraiÅ¾yti net keliais bÅ«dais. PavyzdÅ¾iui, nubraiÅ¾ysime standartinio normaliojo
+# pasiskirstymo tankio funkcijos grafikÄ….
 
-# Pirmas bûdas. Galima apskaièiuoti tankio funkcijos y = p(x) reikğmes tağkuose 
-# x ir tağkus (x, y) atidëti plokğtumoje.
+# Pirmas bÅ«das. Galima apskaiÄiuoti tankio funkcijos y = p(x) reikÅ¡mes taÅ¡kuose 
+# x ir taÅ¡kus (x, y) atidÄ—ti plokÅ¡tumoje.
 
 x <- seq(-3, 3, len = 100)
 y <- 1/sqrt(2*pi)*exp(-x^2/2)
@@ -280,8 +280,8 @@ y <- 1/sqrt(2*pi)*exp(-x^2/2)
 plot(x, y, type = "l")
 
 
-# Antras bûdas. Reikiamos funkcijos iğraiğkà galima uşrağyti kaip R funkcijà ir 
-# nubrëşti jos grafikà.
+# Antras bÅ«das. Reikiamos funkcijos iÅ¡raiÅ¡kÄ… galima uÅ¾raÅ¡yti kaip R funkcijÄ… ir 
+# nubrÄ—Å¾ti jos grafikÄ….
 
 norm.tankis <- function(x) {
   y <- 1/sqrt(2*pi)*exp(-x^2/2)
@@ -292,9 +292,9 @@ plot(norm.tankis)
 plot(norm.tankis, -3, 3)
 
 
-# R turi daug praktikoje reikalingø ir daşnai naudojamø funkcijø ir atskirai jø 
-# uşrağinëti nereikia -- uştenka şinoti jø pavadinimus. Standartinio normalinio 
-# dydşio tankio funkcija yra dnorm, o tikimybiø pasiskirstymo funkcija -- pnorm.
+# R turi daug praktikoje reikalingÅ³ ir daÅ¾nai naudojamÅ³ funkcijÅ³ ir atskirai jÅ³ 
+# uÅ¾raÅ¡inÄ—ti nereikia -- uÅ¾tenka Å¾inoti jÅ³ pavadinimus. Standartinio normalinio 
+# dydÅ¾io tankio funkcija yra dnorm, o tikimybiÅ³ pasiskirstymo funkcija -- pnorm.
 
 plot(dnorm, -3, 3)
 plot(pnorm, -3, 3)
@@ -305,37 +305,37 @@ plot(exp)
 
 plot(sin, -pi/2, pi/2)
 
-# Standartines R funkcijas galima panaudoti kitø funkcijø sudarymui. Pavyzdşiui,
-# R turi funkcijà y = sin(x), taèiau neturi funkcijos y = sin(2x). Jos iğraiğkà 
-# kaip argumentà galima árağyti tiesiai á funkcijà plot.
+# Standartines R funkcijas galima panaudoti kitÅ³ funkcijÅ³ sudarymui. PavyzdÅ¾iui,
+# R turi funkcijÄ… y = sin(x), taÄiau neturi funkcijos y = sin(2x). Jos iÅ¡raiÅ¡kÄ… 
+# kaip argumentÄ… galima Ä¯raÅ¡yti tiesiai Ä¯ funkcijÄ… plot.
 
 plot(function(x) sin(2*x), -pi/2, pi/2)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Panaudojant standartinæ R funkcijà, nubraişykite funkcijos y = |x| grafikà 
+# 1. Panaudojant standartinÄ™ R funkcijÄ…, nubraiÅ¾ykite funkcijos y = |x| grafikÄ… 
 #    intervale [-1, 1].
-# 2. Naudodami standartines trigonometrines R funkcijas, nubraişykite funkcijos
-#    y = arcsin(sin(x)) grafikà intervale [-2pi, 2pi].
-# 3. Nubraişykite normaliojo skirstinio su vidurkiu 10 ir standartiniu nuokrypiu 
-#    lygiu 3 tankio funkcijos grafikà. Intervalà parinkite taip, kad funkcijos
-#    reikğmës galuose bûtø labai artimos nuliui.
-# 4. Panaudojant funkcijà plot, nubraişykite chi-kvadrat skirstinio su 5 laisvës 
-#    laipsniais tankio funkcijos grafikà intervale [0, 20]. Chi-kvadrat tankio
+# 2. Naudodami standartines trigonometrines R funkcijas, nubraiÅ¾ykite funkcijos
+#    y = arcsin(sin(x)) grafikÄ… intervale [-2pi, 2pi].
+# 3. NubraiÅ¾ykite normaliojo skirstinio su vidurkiu 10 ir standartiniu nuokrypiu 
+#    lygiu 3 tankio funkcijos grafikÄ…. IntervalÄ… parinkite taip, kad funkcijos
+#    reikÅ¡mÄ—s galuose bÅ«tÅ³ labai artimos nuliui.
+# 4. Panaudojant funkcijÄ… plot, nubraiÅ¾ykite chi-kvadrat skirstinio su 5 laisvÄ—s 
+#    laipsniais tankio funkcijos grafikÄ… intervale [0, 20]. Chi-kvadrat tankio
 #    funkcijos pavadinimas dchisq.
 
 
 # --------------------------------------- #
-# METODAI DAŞNIØ LENTELËMS IR FAKTORIAMS  #
+# METODAI DAÅ½NIÅ² LENTELÄ–MS IR FAKTORIAMS  #
 # --------------------------------------- #
 
-# Funkcija plot gali atvaizduoti daşniø lenteles. Vieno kintamojo daşniø lentelë
-# atvaizduojama kaip stulpelinë diagrama, kurioje kintamojo reikğmæ atitinkanèio 
-# stulpelio aukğtis lygus tos reikğmës pasikartojimø skaièiui -- daşniui.
+# Funkcija plot gali atvaizduoti daÅ¾niÅ³ lenteles. Vieno kintamojo daÅ¾niÅ³ lentelÄ—
+# atvaizduojama kaip stulpelinÄ— diagrama, kurioje kintamojo reikÅ¡mÄ™ atitinkanÄio 
+# stulpelio aukÅ¡tis lygus tos reikÅ¡mÄ—s pasikartojimÅ³ skaiÄiui -- daÅ¾niui.
 
-# Pavyzdşiui, turime vektoriø, kurio elementai yra didşiosios raidës. Sudarysime 
-# ğio vektoriaus raidşiø daşniø lentelæ ir jà atvaizduosime.
+# PavyzdÅ¾iui, turime vektoriÅ³, kurio elementai yra didÅ¾iosios raidÄ—s. Sudarysime 
+# Å¡io vektoriaus raidÅ¾iÅ³ daÅ¾niÅ³ lentelÄ™ ir jÄ… atvaizduosime.
 
 g <- c("A", "B", "D", "A", "C", "C", "C", "C", "C", "C", "A", "A", "D", "B", "B")
 
@@ -343,25 +343,25 @@ t <- table(g)
 t
 
 plot(t)
-plot(t, main = "Daşniø pasiskirstymas grupëse", xlab = "Grupë", ylab = "")
+plot(t, main = "DaÅ¾niÅ³ pasiskirstymas grupÄ—se", xlab = "GrupÄ—", ylab = "")
 
 
 # Jei funkcijos plot argumentas yra kategorinis kintamasis (faktorius), sudaroma
-# to kintamojo daşniø lentelæ atitinkanti stulpelinë diagrama.
+# to kintamojo daÅ¾niÅ³ lentelÄ™ atitinkanti stulpelinÄ— diagrama.
 
-# Pavyzdşiui, kintamàjá g paversime á faktoriø ir sudarysime tà paèià stulpelinæ 
-# diagramà neskaièiuodami tarpinës daşniø lentelës.
+# PavyzdÅ¾iui, kintamÄ…jÄ¯ g paversime Ä¯ faktoriÅ³ ir sudarysime tÄ… paÄiÄ… stulpelinÄ™ 
+# diagramÄ… neskaiÄiuodami tarpinÄ—s daÅ¾niÅ³ lentelÄ—s.
  
 g <- factor(g)
 g
 
 plot(g)
 
-# Vienas iğ funkcijos plot argumentø gali bûti kategorinis, o kitas -- skaitinis.
+# Vienas iÅ¡ funkcijos plot argumentÅ³ gali bÅ«ti kategorinis, o kitas -- skaitinis.
 # Priklausomai nuo to, kokio tipo kintamasis bus priskirtas parametrui x, o koks
 # parametrui y, funkcija plot sudarys du skirtingus grafikus. Abiem atvejais tai
-# bus skaitinio kintamojo sklaidos diagramos atskirose grupëse pagal kategorinio
-# kintamojo reikğmes. Skiriasi tik atvaizdavimo bûdas.
+# bus skaitinio kintamojo sklaidos diagramos atskirose grupÄ—se pagal kategorinio
+# kintamojo reikÅ¡mes. Skiriasi tik atvaizdavimo bÅ«das.
 
 s <- c(0.6, 3.4, 6.1, 0.7, 5.2, 1.4, 2.3, 3.4, 2.5, 9.4, 2.7, 4.1, 2.9, 0.1, 7.5)
 k <- c("T", "N", "N", "T", "T", "T", "N", "T", "T", "N", "T", "N", "T", "T", "N")
@@ -371,25 +371,25 @@ k <- factor(k, levels = c("T", "N"), labels = c("Taip", "Ne"))
 plot(k)
 
 # Jei funkcijos plot parametrui x priskiriamas skaitinis vektorius, o parametrui 
-# y -- kategorinis (faktorius), tai skirtingoms grupëms priklausanèios skaitinio 
-# kintamojo reikğmës iğdëstomos ant tas grupes atitinkanèiø horizontaliø tiesiø. 
-# Tokiu bûdu gaunamos vienmatës sklaidos diagramos.
+# y -- kategorinis (faktorius), tai skirtingoms grupÄ—ms priklausanÄios skaitinio 
+# kintamojo reikÅ¡mÄ—s iÅ¡dÄ—stomos ant tas grupes atitinkanÄiÅ³ horizontaliÅ³ tiesiÅ³. 
+# Tokiu bÅ«du gaunamos vienmatÄ—s sklaidos diagramos.
 
 plot(s, k)
 
 # Jei parametrui x priskiriamas kategorinis kintamasis (faktorius), o parametrui 
-# y --- skaitinis, tada iğ skirtingoms grupëms priklausanèiø skaitinio kintamojo 
-# reikğmiø sudaromos atskiros tø kategorijø boxplot diagramos, kurios iğdëstomos 
-# ant x ağies.
+# y --- skaitinis, tada iÅ¡ skirtingoms grupÄ—ms priklausanÄiÅ³ skaitinio kintamojo 
+# reikÅ¡miÅ³ sudaromos atskiros tÅ³ kategorijÅ³ boxplot diagramos, kurios iÅ¡dÄ—stomos 
+# ant x aÅ¡ies.
 
 plot(k, s)
 
-# Jei iğ karto abiems funkcijos plot parametrams x ir y priskiriami kategoriniai 
-# kintamieji, nubraişoma specifinë stulpelinë diagrama, kuri vadinama spineplot. 
-# Ğioje diagramoje ant Ox ağies iğdëstomi skirtingas pirmojo kintamojo reikğmes 
-# atitinkantys vienetinio aukğèio stulpeliai. Kiekvienas stulpelis padalinamas á
-# tiek daliø, kiek skirtingø antrojo kintamojo reikğmiø yra atitinkamoje pirmojo
-# kintamojo grupëje, o kiekvienos dalies dydis proporcingas tø reikğmiø daşniui.
+# Jei iÅ¡ karto abiems funkcijos plot parametrams x ir y priskiriami kategoriniai 
+# kintamieji, nubraiÅ¾oma specifinÄ— stulpelinÄ— diagrama, kuri vadinama spineplot. 
+# Å ioje diagramoje ant Ox aÅ¡ies iÅ¡dÄ—stomi skirtingas pirmojo kintamojo reikÅ¡mes 
+# atitinkantys vienetinio aukÅ¡Äio stulpeliai. Kiekvienas stulpelis padalinamas Ä¯
+# tiek daliÅ³, kiek skirtingÅ³ antrojo kintamojo reikÅ¡miÅ³ yra atitinkamoje pirmojo
+# kintamojo grupÄ—je, o kiekvienos dalies dydis proporcingas tÅ³ reikÅ¡miÅ³ daÅ¾niui.
 
 plot(k, g)
 plot(g, k)
@@ -397,49 +397,49 @@ plot(g, k)
 
 # NAUDINGA ------------------------------
 
-# Á kintamøjø ryğius aprağantá modelá galima átraukti kategorinius kintamuosius.
-# Tokiu atveju değinëje modelio pusëje árağytas kategorinis kintamasis grupuoja
-# kairës pusës kintamojo stebinius. Diagramos pavidalas priklauso nuo to, kokio
-# tipo kintamieji yra vienoje ir kitoje modelio pusëje. Tarkime, kad kintamasis 
+# Ä® kintamÅ³jÅ³ ryÅ¡ius apraÅ¡antÄ¯ modelÄ¯ galima Ä¯traukti kategorinius kintamuosius.
+# Tokiu atveju deÅ¡inÄ—je modelio pusÄ—je Ä¯raÅ¡ytas kategorinis kintamasis grupuoja
+# kairÄ—s pusÄ—s kintamojo stebinius. Diagramos pavidalas priklauso nuo to, kokio
+# tipo kintamieji yra vienoje ir kitoje modelio pusÄ—je. Tarkime, kad kintamasis 
 # x yra skaitinis, o kintamieji k ir g -- kategoriniai (faktoriai). Tokiu atveju
-# galima uşrağyti daşniausiai naudojamus modelius:
+# galima uÅ¾raÅ¡yti daÅ¾niausiai naudojamus modelius:
 # 
-#     ~ k     -- kategorinio kintamojo k stulpelinë daşniø diagrama,
-#   x ~ k     -- skaitinio kintamojo x boxplot diagrama kintamojo k grupëse,
-#     ~ k + x -- skaitinio kintamojo x boxplot diagrama kintamojo k grupëse,
-#   g ~ k     -- kategorinio kintamojo g spineplot diagrama grupëse pagal k,
-#     ~ k + g -- kategorinio kintamojo g spineplot diagrama grupëse pagal k.
+#     ~ k     -- kategorinio kintamojo k stulpelinÄ— daÅ¾niÅ³ diagrama,
+#   x ~ k     -- skaitinio kintamojo x boxplot diagrama kintamojo k grupÄ—se,
+#     ~ k + x -- skaitinio kintamojo x boxplot diagrama kintamojo k grupÄ—se,
+#   g ~ k     -- kategorinio kintamojo g spineplot diagrama grupÄ—se pagal k,
+#     ~ k + g -- kategorinio kintamojo g spineplot diagrama grupÄ—se pagal k.
 
-# Nubraişysime skaitinio kintamojo s boxplot diagramas grupëse suformuotas pagal 
-# skirtingas kintamojo k reikğmes.
+# NubraiÅ¾ysime skaitinio kintamojo s boxplot diagramas grupÄ—se suformuotas pagal 
+# skirtingas kintamojo k reikÅ¡mes.
 
 plot(s ~ k)
 
-# Naudojant modelá, nubraişysime kategorinio kintamojo g daşniø diagramà.
+# Naudojant modelÄ¯, nubraiÅ¾ysime kategorinio kintamojo g daÅ¾niÅ³ diagramÄ….
 
 plot( ~ g)
 
-# Dviejø kategoriniø kintamøjø spineplot diagramà galima nubraişyti uşrağant du 
-# ekvivalenèius jø priklausomybës modelius. Galima atkreipti dëmesá, kad pirmas
-# kintamasis değinëje visada yra grupuojantis. Ğiuo atveju tai yra kintamasis g.
+# DviejÅ³ kategoriniÅ³ kintamÅ³jÅ³ spineplot diagramÄ… galima nubraiÅ¾yti uÅ¾raÅ¡ant du 
+# ekvivalenÄius jÅ³ priklausomybÄ—s modelius. Galima atkreipti dÄ—mesÄ¯, kad pirmas
+# kintamasis deÅ¡inÄ—je visada yra grupuojantis. Å iuo atveju tai yra kintamasis g.
 
 plot(k ~ g)
 plot(  ~ g + k)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sudarykite vektoriø iğ ğios uşduoties pirmojo sakinio raidşiø. Visos raidës
-#    vektoriuje turi bûti vienodos: arba maşosios, arba didşiosios. Sudarykite
-#    raidşiø daşniø lentelæ ir atvaizduokite jà kaip stulpelinæ diagramà.
-# 2. Pirmoje uşduotyje sudarytà raidşiø vektoriø paverskite á faktoriø. Gaukite
-#    tokià paèià raidşiø pasikartojimo daşniø stulpelinæ diagramà a) nenaudojant
-#    kategorinio kintamojo sklaidos modelio, b) naudojant modelá.
-# 3. Naudojant pirmoje uşduotyje sudarytà raidşiø vektoriø, sudarykite papildomà
-#    vektoriø, kurio elementams priskiriama reikğmë "B", jei raidë yra balsë, ir
-#    reikğmë "P", jei raidë yra priebalsë. Paverskite ğá vektoriø á kategoriná 
-#    kintamàjá. Atvaizduokite balsiø ir priebalsiø daşniø diagramà ir atsakykite,
-#    kokiø raidşiø yra daugiau?
-# 4. Uşrağykite toká kintamøjø sàryğio modelá, kad pagal já bûtø galima nubrëşti
-#    duomenø lentelës iris kintamojo Sepal.Length boxplot diagramas atskirai 
+# 1. Sudarykite vektoriÅ³ iÅ¡ Å¡ios uÅ¾duoties pirmojo sakinio raidÅ¾iÅ³. Visos raidÄ—s
+#    vektoriuje turi bÅ«ti vienodos: arba maÅ¾osios, arba didÅ¾iosios. Sudarykite
+#    raidÅ¾iÅ³ daÅ¾niÅ³ lentelÄ™ ir atvaizduokite jÄ… kaip stulpelinÄ™ diagramÄ….
+# 2. Pirmoje uÅ¾duotyje sudarytÄ… raidÅ¾iÅ³ vektoriÅ³ paverskite Ä¯ faktoriÅ³. Gaukite
+#    tokiÄ… paÄiÄ… raidÅ¾iÅ³ pasikartojimo daÅ¾niÅ³ stulpelinÄ™ diagramÄ… a) nenaudojant
+#    kategorinio kintamojo sklaidos modelio, b) naudojant modelÄ¯.
+# 3. Naudojant pirmoje uÅ¾duotyje sudarytÄ… raidÅ¾iÅ³ vektoriÅ³, sudarykite papildomÄ…
+#    vektoriÅ³, kurio elementams priskiriama reikÅ¡mÄ— "B", jei raidÄ— yra balsÄ—, ir
+#    reikÅ¡mÄ— "P", jei raidÄ— yra priebalsÄ—. Paverskite Å¡Ä¯ vektoriÅ³ Ä¯ kategorinÄ¯ 
+#    kintamÄ…jÄ¯. Atvaizduokite balsiÅ³ ir priebalsiÅ³ daÅ¾niÅ³ diagramÄ… ir atsakykite,
+#    kokiÅ³ raidÅ¾iÅ³ yra daugiau?
+# 4. UÅ¾raÅ¡ykite tokÄ¯ kintamÅ³jÅ³ sÄ…ryÅ¡io modelÄ¯, kad pagal jÄ¯ bÅ«tÅ³ galima nubrÄ—Å¾ti
+#    duomenÅ³ lentelÄ—s iris kintamojo Sepal.Length boxplot diagramas atskirai 
 #    kiekvienai kategorinio kintamojo Species grupei.

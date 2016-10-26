@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Veiksmai su duomenø lentelëmis naudojant paketà dplyr.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Veiksmai su duomenÅ³ lentelÄ—mis naudojant paketÄ… dplyr.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-08-22 | 2015-08-27
 #
@@ -12,18 +12,18 @@
 # TURINYS -------------------------------
 
 #
-#   1. Trumpai apie paketà dplyr:
+#   1. Trumpai apie paketÄ… dplyr:
 #      * operatorius %>% 
 #      * funkcija tbl_df
 #      * funkcija glimpse
 #
-#   2. Stulpeliø iğrinkimas, pervadinimas ir perskaièiavimas:
+#   2. StulpeliÅ³ iÅ¡rinkimas, pervadinimas ir perskaiÄiavimas:
 #      * funkcija select
 #      * funkcija rename
 #      * funkcija mutate
 #      * funkcija transmute
 #
-#   3. Eiluèiø iğrinkimas ir iğrikiavimas:
+#   3. EiluÄiÅ³ iÅ¡rinkimas ir iÅ¡rikiavimas:
 #      * funkcija slice
 #      * funkcija top_n
 #      * funkcija sample_n
@@ -33,7 +33,7 @@
 #      * funkcija arrange 
 #      * funkcija desc 
 #
-#   4. Sàlyginiø charakteristikø skaièiavimas:
+#   4. SÄ…lyginiÅ³ charakteristikÅ³ skaiÄiavimas:
 #      * funkcija count
 #      * funkcija summarise
 #      * funkcija summarise_each
@@ -43,7 +43,7 @@
 #      * funkcija group_size 
 #      * funkcija rowwise
 #
-#   5. Kai kurie tipiniai duomenø pertvarkymo atvejai:
+#   5. Kai kurie tipiniai duomenÅ³ pertvarkymo atvejai:
 #      * funkcija bind_rows 
 #      * funkcija bind_cols 
 #      * funkcija do 
@@ -53,518 +53,518 @@
 # PASTABOS ------------------------------
 
 #
-# Jokiø pastabø nëra.
+# JokiÅ³ pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# TRUMPAI APIE PAKETÀ DPLYR               #
+# TRUMPAI APIE PAKETÄ„ DPLYR               #
 # --------------------------------------- #
 
-# Paketas dplyr naudojamas veiksmams su data.frame tipo duomenø lentelëmis ir jø
+# Paketas dplyr naudojamas veiksmams su data.frame tipo duomenÅ³ lentelÄ—mis ir jÅ³
 # pertvarkymui.
 
 library(dplyr)
 
-# Paprastai iğ duomenø lentelës reikia iğrinkti tam tikrus stulpelius ir eilutes,
-# sugrupuoti jas bei apskaièiuoti ávairias statistines charakteristikas. Paketas
-# dplyr kiekvienam iğ ğiø veiksmø turi specializuotà funkcijà. Pagrindinës iğ jø:
+# Paprastai iÅ¡ duomenÅ³ lentelÄ—s reikia iÅ¡rinkti tam tikrus stulpelius ir eilutes,
+# sugrupuoti jas bei apskaiÄiuoti Ä¯vairias statistines charakteristikas. Paketas
+# dplyr kiekvienam iÅ¡ Å¡iÅ³ veiksmÅ³ turi specializuotÄ… funkcijÄ…. PagrindinÄ—s iÅ¡ jÅ³:
 #
-#     select -- stulpeliø iğrinkimui,
-#     mutate -- stulpeliø reikğmiø perskaièiavimui,
-#     filter -- eiluèiø iğrinkimui,
-#    arrange -- eiluèiø iğrikiavimui,
-#  summarise -- stulpeliø charakteristikø skaièiavimui.
+#     select -- stulpeliÅ³ iÅ¡rinkimui,
+#     mutate -- stulpeliÅ³ reikÅ¡miÅ³ perskaiÄiavimui,
+#     filter -- eiluÄiÅ³ iÅ¡rinkimui,
+#    arrange -- eiluÄiÅ³ iÅ¡rikiavimui,
+#  summarise -- stulpeliÅ³ charakteristikÅ³ skaiÄiavimui.
 
-# Visø ğiø funkcijø sintaksë praktiğkai vienoda: pirmasis argumentas yra duomenø 
-# lentelë, kiti argumentai -- nurodo eilutes ar stulpelius, su kuriais atliekami 
+# VisÅ³ Å¡iÅ³ funkcijÅ³ sintaksÄ— praktiÅ¡kai vienoda: pirmasis argumentas yra duomenÅ³ 
+# lentelÄ—, kiti argumentai -- nurodo eilutes ar stulpelius, su kuriais atliekami 
 # atitinkami veiksmai. 
 
-# Kadangi visø ğiø funkcijø rezultatas yra nauja duomenø lentelë, vienà po kitos 
-# einanèias duomenø pertvarkymo operacijas galima apjungti, nesukuriant tarpiniø 
-# lenteliø - vienos funkcijos rezultatas yra kitos funkcijos argumentas. Veiksmø 
-# apjungimas gali bûti atliekamas dviem bûdais: a) nesting, b) chaiting. 
+# Kadangi visÅ³ Å¡iÅ³ funkcijÅ³ rezultatas yra nauja duomenÅ³ lentelÄ—, vienÄ… po kitos 
+# einanÄias duomenÅ³ pertvarkymo operacijas galima apjungti, nesukuriant tarpiniÅ³ 
+# lenteliÅ³ - vienos funkcijos rezultatas yra kitos funkcijos argumentas. VeiksmÅ³ 
+# apjungimas gali bÅ«ti atliekamas dviem bÅ«dais: a) nesting, b) chaiting. 
 
-# Pirmuoju atveju atliekama áprasta keletos funkcijø superpozicija, kai funkcija 
-# ádedama viena á kità, o antruoju -- argumentai nuo vienos funkcijos prie kitos
+# Pirmuoju atveju atliekama Ä¯prasta keletos funkcijÅ³ superpozicija, kai funkcija 
+# Ä¯dedama viena Ä¯ kitÄ…, o antruoju -- argumentai nuo vienos funkcijos prie kitos
 # perduodami konvejeriu. Galima pasakyti, kad konvejeris -- tai Unix ir Linux OS
-# naudojama tam tikra funkcijos argumentø perdavimo forma, kada vienos funkcijos 
-# reikğmë kaip argumentas perduodama kitai funkcijai. 
+# naudojama tam tikra funkcijos argumentÅ³ perdavimo forma, kada vienos funkcijos 
+# reikÅ¡mÄ— kaip argumentas perduodama kitai funkcijai. 
 
-# R funkcijø konvejeriui uşrağyti naudojamas operatorius %>% iğ paketo magrittr, 
-# kuris uşkraunamas kartu su paketu dplyr. Reikia şinoti operatoriaus pritaikymo 
+# R funkcijÅ³ konvejeriui uÅ¾raÅ¡yti naudojamas operatorius %>% iÅ¡ paketo magrittr, 
+# kuris uÅ¾kraunamas kartu su paketu dplyr. Reikia Å¾inoti operatoriaus pritaikymo 
 # taisykles. Tarkime, kad f yra tam tikra funkcija, x, y ir z yra jos argumentai. 
 # Tada:
 #                   x %>% f(y)       atitinka f(x, y)
 #                   x %>% f(z, ., y) atitinka f(z, x, y)
 
-# Pavyzdşiui, jeigu iğ duomenø lentelës iğrenkame eilutes, o iğ gautos rezultatø
-# lentelës vëliau iğrenkame tam tikrus stulpelius, tai tokià veiksmø sekà galima
-# uşrağyti taip:
+# PavyzdÅ¾iui, jeigu iÅ¡ duomenÅ³ lentelÄ—s iÅ¡renkame eilutes, o iÅ¡ gautos rezultatÅ³
+# lentelÄ—s vÄ—liau iÅ¡renkame tam tikrus stulpelius, tai tokiÄ… veiksmÅ³ sekÄ… galima
+# uÅ¾raÅ¡yti taip:
 #                      select(filter(duomenys, ...), ...)
 #
-# Naudojant konvejerá, ta pati veiksmø seka uşrağoma tokiu pavidalu:
+# Naudojant konvejerÄ¯, ta pati veiksmÅ³ seka uÅ¾raÅ¡oma tokiu pavidalu:
 # 
 #                   duomenys %>% filter(...) %>% selec(...)
 
 
-# Daugelio paketo dplyr funkcijø argumentas yra data.frame tipo duomenø lentelë.
-# Taèiau, analizuojant labai daug eiluèiø turinèias lenteles, geriau konvertuoti
-# jas á tbl_df formatà. Galima sakyti, kad tai savotiğkas data.frame apvalkalas,
-# kuris apsaugo nuo didelio kiekio duomenø iğvedimo á ekranà.
+# Daugelio paketo dplyr funkcijÅ³ argumentas yra data.frame tipo duomenÅ³ lentelÄ—.
+# TaÄiau, analizuojant labai daug eiluÄiÅ³ turinÄias lenteles, geriau konvertuoti
+# jas Ä¯ tbl_df formatÄ…. Galima sakyti, kad tai savotiÅ¡kas data.frame apvalkalas,
+# kuris apsaugo nuo didelio kiekio duomenÅ³ iÅ¡vedimo Ä¯ ekranÄ….
 
 airquality. <- tbl_df(airquality)
 airquality.
 
-# Á ekranà iğvedamø eiluèiø skaièiø galima koreguoti.
+# Ä® ekranÄ… iÅ¡vedamÅ³ eiluÄiÅ³ skaiÄiÅ³ galima koreguoti.
 
 print(tbl_df(airquality.), n = 20)
 
-# Jei duomenø lentelë turi labai daug stulpeliø, jiems apşvelgti galima naudoti
-# funkcijà glimpse, kuri transponuoja lentelæ, stulpeliai vaizduojami eilutëse.
+# Jei duomenÅ³ lentelÄ— turi labai daug stulpeliÅ³, jiems apÅ¾velgti galima naudoti
+# funkcijÄ… glimpse, kuri transponuoja lentelÄ™, stulpeliai vaizduojami eilutÄ—se.
 
 glimpse(airquality.)
 
-# tbl_df tipo lentelë tuo paèiu yra ir data.frame tipo lentelë.
+# tbl_df tipo lentelÄ— tuo paÄiu yra ir data.frame tipo lentelÄ—.
 
 class(airquality.)
 
-# Funkcija tbl_df nedaro pradinës lentelës stulpeliø kopijø. Taip pat elgiasi ir 
-# funkcijos select bei mutate, todël stulpeliø iğrinkimas bei jø perskaièiavimas
-# atliekamas labai greitai -- tai svarbu dirbant su didelës apimties duomenimis.
+# Funkcija tbl_df nedaro pradinÄ—s lentelÄ—s stulpeliÅ³ kopijÅ³. Taip pat elgiasi ir 
+# funkcijos select bei mutate, todÄ—l stulpeliÅ³ iÅ¡rinkimas bei jÅ³ perskaiÄiavimas
+# atliekamas labai greitai -- tai svarbu dirbant su didelÄ—s apimties duomenimis.
 
 
 # --------------------------------------- #
-# STULPELIØ IĞRINKIMAS IR PERVADINIMAS    #
+# STULPELIÅ² IÅ RINKIMAS IR PERVADINIMAS    #
 # --------------------------------------- #
 
-# Stulpeliø iğrinkimui naudojama funkcija select, o jos sintaksë labai paprasta:
+# StulpeliÅ³ iÅ¡rinkimui naudojama funkcija select, o jos sintaksÄ— labai paprasta:
 # 
 #                           select(duomenys, ...)
 #
-# Èia ... nurodo vienà arba kelis kableliu atskirtus stulpeliø pavadinimus. Tam,
-# kad stulpelius bûtø galima iğrinkti pagal tam tikrà taisyklæ, naudojamos kitos
+# ÄŒia ... nurodo vienÄ… arba kelis kableliu atskirtus stulpeliÅ³ pavadinimus. Tam,
+# kad stulpelius bÅ«tÅ³ galima iÅ¡rinkti pagal tam tikrÄ… taisyklÄ™, naudojamos kitos
 # papildomos funkcijos:
 #
-#       one_of -- kintamøjø iğ sàrağo iğrinkimui,
-#  starts_with -- iğrinkimui pagal pavadinimo pradşià,
-#    ends_with -- iğrinkimui pagal pavadinimo pabaigà,
-#     contains -- iğrinkimui pagal sutampantá şodá,
-#      matches -- iğrinkimui pagal reguliarià iğraiğkà,
-#    num_range -- iğrinkimui pagal kintamøjø numerius,
-#   everything -- visø kintamøjø iğrinkimui.
+#       one_of -- kintamÅ³jÅ³ iÅ¡ sÄ…raÅ¡o iÅ¡rinkimui,
+#  starts_with -- iÅ¡rinkimui pagal pavadinimo pradÅ¾iÄ…,
+#    ends_with -- iÅ¡rinkimui pagal pavadinimo pabaigÄ…,
+#     contains -- iÅ¡rinkimui pagal sutampantÄ¯ Å¾odÄ¯,
+#      matches -- iÅ¡rinkimui pagal reguliariÄ… iÅ¡raiÅ¡kÄ…,
+#    num_range -- iÅ¡rinkimui pagal kintamÅ³jÅ³ numerius,
+#   everything -- visÅ³ kintamÅ³jÅ³ iÅ¡rinkimui.
 
 
-# Pavyzdşiui, iğ duomenø lentelës airquality iğrinksime kintamuosius su vardais 
-# "Temp", "Month", "Day". Funkcijos viduje stulpeliø vardai interpetuojami kaip 
-# lentelës aplinkos kintamieji, todël rağomi be kabuèiø.
+# PavyzdÅ¾iui, iÅ¡ duomenÅ³ lentelÄ—s airquality iÅ¡rinksime kintamuosius su vardais 
+# "Temp", "Month", "Day". Funkcijos viduje stulpeliÅ³ vardai interpetuojami kaip 
+# lentelÄ—s aplinkos kintamieji, todÄ—l raÅ¡omi be kabuÄiÅ³.
 
 select(airquality, Temp, Month, Day)
 
-# Tuo atveju, kada iğrenkami stulpeliai eina iğ eilës, jø vardus galima nurodyti
-# per dvitağká -- lyg generuojant skaièiø sekà.
+# Tuo atveju, kada iÅ¡renkami stulpeliai eina iÅ¡ eilÄ—s, jÅ³ vardus galima nurodyti
+# per dvitaÅ¡kÄ¯ -- lyg generuojant skaiÄiÅ³ sekÄ….
 
 select(airquality, Temp:Day)
 
-# Toká stulpeliø vardø vektoriø kaip parametrà galima perduoti funkcijai one_of.
+# TokÄ¯ stulpeliÅ³ vardÅ³ vektoriÅ³ kaip parametrÄ… galima perduoti funkcijai one_of.
 
 kintamieji <- c("Temp", "Month", "Day")
 select(airquality, one_of(kintamieji))
 
 
-# Tuo atveju, kai yra şinoma, kokiu simboliu arba şodşiu prasideda arba baigiasi 
-# stulpeliø pavadinimai, patogu naudoti funkcijà starts_with ir ends_with. Pvz.,
-# iğrinksime stulpelius su pradşia "Oz" ir pabaiga "th".
+# Tuo atveju, kai yra Å¾inoma, kokiu simboliu arba Å¾odÅ¾iu prasideda arba baigiasi 
+# stulpeliÅ³ pavadinimai, patogu naudoti funkcijÄ… starts_with ir ends_with. Pvz.,
+# iÅ¡rinksime stulpelius su pradÅ¾ia "Oz" ir pabaiga "th".
 
 select(airquality, starts_with("Oz"))
 select(airquality, ends_with("th"))
 
-# Jei şinomas stulpelio pavadinimo fragmentas, galima naudoti funkcijà contains.
-# Pavyzdşiui, iğrinksime stulpelius, kuriø pavadinime yra raidşiø junginys "on".
+# Jei Å¾inomas stulpelio pavadinimo fragmentas, galima naudoti funkcijÄ… contains.
+# PavyzdÅ¾iui, iÅ¡rinksime stulpelius, kuriÅ³ pavadinime yra raidÅ¾iÅ³ junginys "on".
 
 select(airquality, contains("on"))
 
 
-# Stulpelius galima iğrinkti ir pagal abstraktesnæ taisyklæ. Kartais tai bûtina,
-# kadangi stulpeliø pavadinimø gali bûti labai daug arba jie iğ anksto neşinomi. 
-# Tais atvejais, kai visiems vardams bûdingas tam tikras ğablonas, jø iğrinkimui 
-# galima naudoti reguliarias iğraiğkas. Pavyzdşiui, taip galima iğrinkti vardus,
-# kurie turi raidës ir trijø skaitmenø kodà, arba vardus iğ dviejø daliø, kurios
-# atskirtos brûkğneliu, arba vardus, kuriuose nëra tam tikros raidës ir panağiai.
+# Stulpelius galima iÅ¡rinkti ir pagal abstraktesnÄ™ taisyklÄ™. Kartais tai bÅ«tina,
+# kadangi stulpeliÅ³ pavadinimÅ³ gali bÅ«ti labai daug arba jie iÅ¡ anksto neÅ¾inomi. 
+# Tais atvejais, kai visiems vardams bÅ«dingas tam tikras Å¡ablonas, jÅ³ iÅ¡rinkimui 
+# galima naudoti reguliarias iÅ¡raiÅ¡kas. PavyzdÅ¾iui, taip galima iÅ¡rinkti vardus,
+# kurie turi raidÄ—s ir trijÅ³ skaitmenÅ³ kodÄ…, arba vardus iÅ¡ dviejÅ³ daliÅ³, kurios
+# atskirtos brÅ«kÅ¡neliu, arba vardus, kuriuose nÄ—ra tam tikros raidÄ—s ir panaÅ¡iai.
 
-# Pavyzdşiui, lentelëje airquality iğrinksime tuos stulpelius, kuriø pavadinime
-# yra tağkas. Èia problema tame, kad tağko simbolis "." reguliariose iğraiğkose
-# nurodo bet koká simbolá, todël ğiuo atveju reikia rağyti "\\." -- bus randami
-# visi vardai, kuriuose bet kurioje pavadinimo vietoje yra tağkas.
+# PavyzdÅ¾iui, lentelÄ—je airquality iÅ¡rinksime tuos stulpelius, kuriÅ³ pavadinime
+# yra taÅ¡kas. ÄŒia problema tame, kad taÅ¡ko simbolis "." reguliariose iÅ¡raiÅ¡kose
+# nurodo bet kokÄ¯ simbolÄ¯, todÄ—l Å¡iuo atveju reikia raÅ¡yti "\\." -- bus randami
+# visi vardai, kuriuose bet kurioje pavadinimo vietoje yra taÅ¡kas.
 
 select(airquality, matches("\\."))
 
-# Jei tağkas stulpelio pavadinime atskiria du bet kokio ilgio şodşius, reguliari 
-# iğraiğka rağoma ğiek tiek kitaip. Ğiuo atveju rezultatas sutampa.
+# Jei taÅ¡kas stulpelio pavadinime atskiria du bet kokio ilgio Å¾odÅ¾ius, reguliari 
+# iÅ¡raiÅ¡ka raÅ¡oma Å¡iek tiek kitaip. Å iuo atveju rezultatas sutampa.
 
 select(airquality, matches("^[a-z,A-Z]+\\.[a-z,A-Z]+$"))
 
-# Pavyzdşiui, iğrinksime stulpelius, kuriø pavadinime yra raidşiø junginys "on"
-# arba "ol". Atskirai vienam ir kitam atvejui tinka f-ja contains, taèiau abiem
-# kartu uşrağyti naudojama nesudëtinga reguliari iğraiğka.
+# PavyzdÅ¾iui, iÅ¡rinksime stulpelius, kuriÅ³ pavadinime yra raidÅ¾iÅ³ junginys "on"
+# arba "ol". Atskirai vienam ir kitam atvejui tinka f-ja contains, taÄiau abiem
+# kartu uÅ¾raÅ¡yti naudojama nesudÄ—tinga reguliari iÅ¡raiÅ¡ka.
 
 select(airquality, matches("o[n,l]"))
 
 
-# Jeigu stulpeliai turi bûti pağalinti, prieğ jø vardø vektoriø rağomas minusas.
-# Gali bûti naudojamos tos paèios pagalbinës f-jos one_of, starts_with ir kitos.
-# Pvz., èia pateikti keli lygiaverèiai trijø stulpeliø pağalinimo variantai.
+# Jeigu stulpeliai turi bÅ«ti paÅ¡alinti, prieÅ¡ jÅ³ vardÅ³ vektoriÅ³ raÅ¡omas minusas.
+# Gali bÅ«ti naudojamos tos paÄios pagalbinÄ—s f-jos one_of, starts_with ir kitos.
+# Pvz., Äia pateikti keli lygiaverÄiai trijÅ³ stulpeliÅ³ paÅ¡alinimo variantai.
 
 select(airquality, -c(Ozone, Wind, Solar.R))
 select(airquality, -Ozone, -Wind, -Solar.R)
 select(airquality, -one_of(c("Ozone", "Wind", "Solar.R")))
 
 
-# Jei iğrinktam stulpeliui reikia pakeisti pavadinimà, tai rağoma lygybë, kurios
-# kairëje pusëje yra naujas vardas, o değinëje -- senasis. Pavyzdşiui, pakeisime
-# vieno pasirinkto kintamojo vardà.
+# Jei iÅ¡rinktam stulpeliui reikia pakeisti pavadinimÄ…, tai raÅ¡oma lygybÄ—, kurios
+# kairÄ—je pusÄ—je yra naujas vardas, o deÅ¡inÄ—je -- senasis. PavyzdÅ¾iui, pakeisime
+# vieno pasirinkto kintamojo vardÄ….
 
 select(airquality, Solar = Solar.R)
 
-# Kintamøjø vardus galima pervadinti pagal ğablonà. Pavyzdşiui, iğrinksime visus
-# lentelës airquality stulpelius ir jø vardus pakeisime á "x1", "x2", ..., "x6".
+# KintamÅ³jÅ³ vardus galima pervadinti pagal Å¡ablonÄ…. PavyzdÅ¾iui, iÅ¡rinksime visus
+# lentelÄ—s airquality stulpelius ir jÅ³ vardus pakeisime Ä¯ "x1", "x2", ..., "x6".
 
 select(airquality, x = everything())
 
 
-# Funkcija rename naudojama atskirø duomenø lentelës stulpeliø vardø pakeitimui.
-# Visø kitø stulpeliø vardai iğlieka tokie patys. Pavyzdşiui, pakeisime lentelës
-# airquality stulpelio "Solar.R" pavadinimà á paprastesná.
+# Funkcija rename naudojama atskirÅ³ duomenÅ³ lentelÄ—s stulpeliÅ³ vardÅ³ pakeitimui.
+# VisÅ³ kitÅ³ stulpeliÅ³ vardai iÅ¡lieka tokie patys. PavyzdÅ¾iui, pakeisime lentelÄ—s
+# airquality stulpelio "Solar.R" pavadinimÄ… Ä¯ paprastesnÄ¯.
 
 rename(airquality, Solar = Solar.R)
 
-# Stulpeliø perskaièiavimui naudojama funkcija mutate. Pvz., lentelës airquality
-# kintamojo Temp reikğmes perskaièiuosime iğ Farenheito á Celcijaus skalæ. 
+# StulpeliÅ³ perskaiÄiavimui naudojama funkcija mutate. Pvz., lentelÄ—s airquality
+# kintamojo Temp reikÅ¡mes perskaiÄiuosime iÅ¡ Farenheito Ä¯ Celcijaus skalÄ™. 
 
 mutate(airquality, Temp = 5*(Temp - 32)/9)
 
-# Naudojant ğià funkcijà, lentelëje galima sukurti naujus stulpelius. Pavyzdşiui,
-# lentelëje airquality sukursime naujà stulpelá su eiluèiø numeriais.
+# Naudojant Å¡iÄ… funkcijÄ…, lentelÄ—je galima sukurti naujus stulpelius. PavyzdÅ¾iui,
+# lentelÄ—je airquality sukursime naujÄ… stulpelÄ¯ su eiluÄiÅ³ numeriais.
 
 mutate(airquality, Nr = 1:153)
 
-# Bendras eiluèiø skaièius duomenø lentelëje yra fiksuotas, bet, iğskaidşius jas
-# á tam tikras grupes, eiluèiø skaièius grupëse iğ anksto daşniausiai neşinomas. 
-# Paketo dplyr funkcija n() gràşina eiluèiø skaièiø duomenø lentelës grupëje. Ğá 
-# kartà eilutës negrupuojamos, todël rezultatas yra bendras eiluèiø skaièius.
+# Bendras eiluÄiÅ³ skaiÄius duomenÅ³ lentelÄ—je yra fiksuotas, bet, iÅ¡skaidÅ¾ius jas
+# Ä¯ tam tikras grupes, eiluÄiÅ³ skaiÄius grupÄ—se iÅ¡ anksto daÅ¾niausiai neÅ¾inomas. 
+# Paketo dplyr funkcija n() grÄ…Å¾ina eiluÄiÅ³ skaiÄiÅ³ duomenÅ³ lentelÄ—s grupÄ—je. Å Ä¯ 
+# kartÄ… eilutÄ—s negrupuojamos, todÄ—l rezultatas yra bendras eiluÄiÅ³ skaiÄius.
 
 mutate(airquality, Nr = 1:n())
 
-# Funkcija transmute skiriasi tuo, kad stulpeliai su perskaièiuotomis reikğmëmis
-# iğskiriami á atskirà lentelæ.
+# Funkcija transmute skiriasi tuo, kad stulpeliai su perskaiÄiuotomis reikÅ¡mÄ—mis
+# iÅ¡skiriami Ä¯ atskirÄ… lentelÄ™.
 
 transmute(airquality, Temp = 5*(Temp - 32)/9)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ duomenø lentelës airquality iğrinkite stulpelius su eilës numeriais 1, 5
-#    ir 6. Uşduoèiai atlikti naudokite paketo dplyr funkcijà select.
-# 2. Uşrağykite komandà, kuri iğ duomenø lentelës iris iğrenka stulpelius, kuriø
-#    pavadinimas prasideda şodşiu "Petal" ir juos pervadina pagal naujà ğablonà.
+# 1. IÅ¡ duomenÅ³ lentelÄ—s airquality iÅ¡rinkite stulpelius su eilÄ—s numeriais 1, 5
+#    ir 6. UÅ¾duoÄiai atlikti naudokite paketo dplyr funkcijÄ… select.
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri iÅ¡ duomenÅ³ lentelÄ—s iris iÅ¡renka stulpelius, kuriÅ³
+#    pavadinimas prasideda Å¾odÅ¾iu "Petal" ir juos pervadina pagal naujÄ… Å¡ablonÄ….
 
 
 # --------------------------------------- #
-# EILUÈIØ IĞRINKIMAS IR IĞRIKIAVIMAS      #
+# EILUÄŒIÅ² IÅ RINKIMAS IR IÅ RIKIAVIMAS      #
 # --------------------------------------- #
 
-# Lengviausias bûdas iğrinkti duomenø lentelës eilutes - pagal jø numerius. Ğiuo 
-# atveju galima naudoti paketo dplyr funkcijà slice. Jos argumentas yra lentelës
-# pavadinimas ir kitas argumentas - eiluèiø numeriø vektorius. Pvz., iğ lentelës 
-# airquality iğskirsime pirmà eilutæ.
+# Lengviausias bÅ«das iÅ¡rinkti duomenÅ³ lentelÄ—s eilutes - pagal jÅ³ numerius. Å iuo 
+# atveju galima naudoti paketo dplyr funkcijÄ… slice. Jos argumentas yra lentelÄ—s
+# pavadinimas ir kitas argumentas - eiluÄiÅ³ numeriÅ³ vektorius. Pvz., iÅ¡ lentelÄ—s 
+# airquality iÅ¡skirsime pirmÄ… eilutÄ™.
 
 slice(airquality, 1)
 
-# Galima nurodyti keliø eiluèiø numeriø vektoriø. Pavyzdşiui, iğskirsime 5, 6 ir 
-# 20-à eilutes.
+# Galima nurodyti keliÅ³ eiluÄiÅ³ numeriÅ³ vektoriÅ³. PavyzdÅ¾iui, iÅ¡skirsime 5, 6 ir 
+# 20-Ä… eilutes.
 
 slice(airquality, c(5, 6, 20))
 
-# Jeigu reikalingas bendras lentelës eiluèiø skaièius, galima panaudoti funkcijà
-# n(). Pavyzdşiui, iğskirsime paskutines eilutes pradedant nuo ğimtosios.
+# Jeigu reikalingas bendras lentelÄ—s eiluÄiÅ³ skaiÄius, galima panaudoti funkcijÄ…
+# n(). PavyzdÅ¾iui, iÅ¡skirsime paskutines eilutes pradedant nuo Å¡imtosios.
 
 slice(airquality, 100:n())
 
 
-# Norint iğ kiekvienos lentelës grupës iğskirti kelias pirmàsias eilutes, galima
-# naudoti funkcijà top_n. Pavyzdşiui, iğ lentelës airquality iğrinksime pirmas 3 
+# Norint iÅ¡ kiekvienos lentelÄ—s grupÄ—s iÅ¡skirti kelias pirmÄ…sias eilutes, galima
+# naudoti funkcijÄ… top_n. PavyzdÅ¾iui, iÅ¡ lentelÄ—s airquality iÅ¡rinksime pirmas 3 
 # eilutes.
 
 top_n(airquality, 3)
 
 
-# Paprastoji atsitiktinë imtis iğ lentelës eiluèiø iğrenkama naudojant funkcijas
-# sample_n bei sample_frac. Pirmuoju atveju nurodomas konkretus eiluèiø skaièius,
-# antruoju -- dalis nuo lentelës eiluèiø skaièiaus. Pvz., iğ lentelës airquality
-# atsitiktine tvarka be pasikartojimø iğrinksime 10 eiluèiø.
+# Paprastoji atsitiktinÄ— imtis iÅ¡ lentelÄ—s eiluÄiÅ³ iÅ¡renkama naudojant funkcijas
+# sample_n bei sample_frac. Pirmuoju atveju nurodomas konkretus eiluÄiÅ³ skaiÄius,
+# antruoju -- dalis nuo lentelÄ—s eiluÄiÅ³ skaiÄiaus. Pvz., iÅ¡ lentelÄ—s airquality
+# atsitiktine tvarka be pasikartojimÅ³ iÅ¡rinksime 10 eiluÄiÅ³.
 
 sample_n(airquality, 10)
 
-# Jeigu iğrenkamos eilutës gali kartotis, tai parametro replace reikğmæ keièiame
-# á TRUE.
+# Jeigu iÅ¡renkamos eilutÄ—s gali kartotis, tai parametro replace reikÅ¡mÄ™ keiÄiame
+# Ä¯ TRUE.
 
 sample_n(airquality, 10, replace = TRUE)
 
 
-# Duomenø analizës praktikoje daşnai reikia iğrinkti eilutes, kurios tenkina tam
-# tikrà loginæ sàlygà. Tokiu atveju galima naudoti paketo dplyr funkcijà filter.
-# Pavyzdşiui, iğ lentelës airquality iğskirsime tas eilutes, kur kintamojo Temp 
-# reikğmë didesnë uş 90.
+# DuomenÅ³ analizÄ—s praktikoje daÅ¾nai reikia iÅ¡rinkti eilutes, kurios tenkina tam
+# tikrÄ… loginÄ™ sÄ…lygÄ…. Tokiu atveju galima naudoti paketo dplyr funkcijÄ… filter.
+# PavyzdÅ¾iui, iÅ¡ lentelÄ—s airquality iÅ¡skirsime tas eilutes, kur kintamojo Temp 
+# reikÅ¡mÄ— didesnÄ— uÅ¾ 90.
 
 filter(airquality, Temp > 90)
 
 
-# Jei reikia iğskirti duomenø lentelës eilutes, kuriose vieno stulpelio reikğmës 
-# patenka á tam tikrà intervalà, galima panaudoti paketo dplyr funkcijà between. 
-# Jos sintaksë:
+# Jei reikia iÅ¡skirti duomenÅ³ lentelÄ—s eilutes, kuriose vieno stulpelio reikÅ¡mÄ—s 
+# patenka Ä¯ tam tikrÄ… intervalÄ…, galima panaudoti paketo dplyr funkcijÄ… between. 
+# Jos sintaksÄ—:
 #                         between(x, left, right)
 # 
-# Èia x yra skaitinis vektorius, o left ir right reikğmiø intervalo galai. Pvz.,
-# iğskirsime eilutes, kuriø stulpelio Temp reikğmës patenka á intervalà [50, 60].
+# ÄŒia x yra skaitinis vektorius, o left ir right reikÅ¡miÅ³ intervalo galai. Pvz.,
+# iÅ¡skirsime eilutes, kuriÅ³ stulpelio Temp reikÅ¡mÄ—s patenka Ä¯ intervalÄ… [50, 60].
 
 filter(airquality, between(Temp, 50, 60))
 
-# Kitas pavyzdys, surasime tas eilutes, kurios stulpelyje Ozone turi NA reikğmæ.
+# Kitas pavyzdys, surasime tas eilutes, kurios stulpelyje Ozone turi NA reikÅ¡mÄ™.
 
 filter(airquality, is.na(Ozone))
 
 
-# Gana daşnas uşdavinys -- pağalinti iğ lentelës pasikartojanèias eilutes. Tokiu
-# atveju galima naudoti naudoti standartinæ R funkcijà unique ar analogiğkà f-jà 
-# distinct iğ paketo dplyr. Pvz., lentelëje airquality paliksime tik tas eilutes, 
-# kurios turi unikalias reikğmes stulpelyje Temp.
+# Gana daÅ¾nas uÅ¾davinys -- paÅ¡alinti iÅ¡ lentelÄ—s pasikartojanÄias eilutes. Tokiu
+# atveju galima naudoti naudoti standartinÄ™ R funkcijÄ… unique ar analogiÅ¡kÄ… f-jÄ… 
+# distinct iÅ¡ paketo dplyr. Pvz., lentelÄ—je airquality paliksime tik tas eilutes, 
+# kurios turi unikalias reikÅ¡mes stulpelyje Temp.
 
 distinct(airquality, Temp)
 
 
-# Kartais duomenø lentelës eilutes reikia iğrikiuoti kintamojo reikğmiø didëjimo 
-# ar maşëjimo tvarka. Tokiø kintamøjø gali bûti vienas, bet gali bûti ir daugiau.
-# Eiluèiø iğrikiavimui galima naudoti paketo dplyr funkcijà arrange. Pavyzdşiui, 
-# lentelës mtcars eilutes iğrikiuosime kintamojo cyl (variklio cilindrø skaièius)
-# reikğmiø didëjimo tvarka.
+# Kartais duomenÅ³ lentelÄ—s eilutes reikia iÅ¡rikiuoti kintamojo reikÅ¡miÅ³ didÄ—jimo 
+# ar maÅ¾Ä—jimo tvarka. TokiÅ³ kintamÅ³jÅ³ gali bÅ«ti vienas, bet gali bÅ«ti ir daugiau.
+# EiluÄiÅ³ iÅ¡rikiavimui galima naudoti paketo dplyr funkcijÄ… arrange. PavyzdÅ¾iui, 
+# lentelÄ—s mtcars eilutes iÅ¡rikiuosime kintamojo cyl (variklio cilindrÅ³ skaiÄius)
+# reikÅ¡miÅ³ didÄ—jimo tvarka.
 
 arrange(mtcars, cyl)
 
-# Standartiğkai kintamojo reikğmës iğrikiuojamos didëjimo tvarka. Naudojant f-jà
-# desc, kintamojo reikğmës transformuojamos taip, kad funkcija arrange iğrikiuos 
-# eilutes to kintamojo reikğmiø maşëjimo tvarka. Pavyzdşiui, pagal kintamàjá cyl
-# jau iğrikiuotà lentelæ dar kartà iğrikiuosime kintamojo disp reikğmiø maşëjimo 
+# StandartiÅ¡kai kintamojo reikÅ¡mÄ—s iÅ¡rikiuojamos didÄ—jimo tvarka. Naudojant f-jÄ…
+# desc, kintamojo reikÅ¡mÄ—s transformuojamos taip, kad funkcija arrange iÅ¡rikiuos 
+# eilutes to kintamojo reikÅ¡miÅ³ maÅ¾Ä—jimo tvarka. PavyzdÅ¾iui, pagal kintamÄ…jÄ¯ cyl
+# jau iÅ¡rikiuotÄ… lentelÄ™ dar kartÄ… iÅ¡rikiuosime kintamojo disp reikÅ¡miÅ³ maÅ¾Ä—jimo 
 # tvarka.
 
 arrange(mtcars, cyl, desc(disp))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ duomenø lentelës iris iğrinkite tik tas eilutes, kurios priklauso rûğiai
+# 1. IÅ¡ duomenÅ³ lentelÄ—s iris iÅ¡rinkite tik tas eilutes, kurios priklauso rÅ«Å¡iai
 #    "versicolor".
-# 2. Iğ duomenø lentelës airquality iğrinkite tik tas eilutes, kuriose stulpelio 
-#    Temp reikğmë didesnë uş 90, o stulpelio Wind reikğmë didesnë uş 5. Komandas
-#    uşrağykite dviem variantais: naudojant paketo dplyr ir standartines R f-jas.
-# 3. Iğ duomenø lentelës airquality iğrinkite eilutes, kurios atitinka maşiausià
-#    temperatûrà turinèias tris birşelio mënesio dienas.
-# 4. Nustatykite, kokias reikğmes ágijo lentelës airquality kintamasis "Solar.R"
-#    eilutëse, kuriose kintamojo "Temp" reikğmës didesnës uş 90.
-# 5. Iğ lentelës iris atsitiktine tvarka be pasikartojimø iğrinkite 25 % eiluèiø.
-#    Gautà lentelæ iğrikiuokite kintamojo Sepal.Length reikğmiø maşëjimo tvarka.
+# 2. IÅ¡ duomenÅ³ lentelÄ—s airquality iÅ¡rinkite tik tas eilutes, kuriose stulpelio 
+#    Temp reikÅ¡mÄ— didesnÄ— uÅ¾ 90, o stulpelio Wind reikÅ¡mÄ— didesnÄ— uÅ¾ 5. Komandas
+#    uÅ¾raÅ¡ykite dviem variantais: naudojant paketo dplyr ir standartines R f-jas.
+# 3. IÅ¡ duomenÅ³ lentelÄ—s airquality iÅ¡rinkite eilutes, kurios atitinka maÅ¾iausiÄ…
+#    temperatÅ«rÄ… turinÄias tris birÅ¾elio mÄ—nesio dienas.
+# 4. Nustatykite, kokias reikÅ¡mes Ä¯gijo lentelÄ—s airquality kintamasis "Solar.R"
+#    eilutÄ—se, kuriose kintamojo "Temp" reikÅ¡mÄ—s didesnÄ—s uÅ¾ 90.
+# 5. IÅ¡ lentelÄ—s iris atsitiktine tvarka be pasikartojimÅ³ iÅ¡rinkite 25 % eiluÄiÅ³.
+#    GautÄ… lentelÄ™ iÅ¡rikiuokite kintamojo Sepal.Length reikÅ¡miÅ³ maÅ¾Ä—jimo tvarka.
 
 
 # --------------------------------------- #
-# SÀLYGINIØ CHARAKTERISTIKØ SKAIÈIAVIMAS  #
+# SÄ„LYGINIÅ² CHARAKTERISTIKÅ² SKAIÄŒIAVIMAS  #
 # --------------------------------------- #
 
-# Imties elementø daşnis gali bûti nustatytas naudojant paketo dplyr f-jà count.
-# Jos sintaksë:
+# Imties elementÅ³ daÅ¾nis gali bÅ«ti nustatytas naudojant paketo dplyr f-jÄ… count.
+# Jos sintaksÄ—:
 #                               count(x, ...)
 #
-# Èia x yra duomenø lentelë, vietoje ... rağome vienà ar keli kableliu atskirtus
-# stulpeliø pavadinimus, kuriø reikğmiø daşniai ir bus apskaièiuoti. Pavyzdşiui,
-# apskaièiuosime lentelës airquality stebiniø skaièiø atskirai kiekvienà mënesá.
+# ÄŒia x yra duomenÅ³ lentelÄ—, vietoje ... raÅ¡ome vienÄ… ar keli kableliu atskirtus
+# stulpeliÅ³ pavadinimus, kuriÅ³ reikÅ¡miÅ³ daÅ¾niai ir bus apskaiÄiuoti. PavyzdÅ¾iui,
+# apskaiÄiuosime lentelÄ—s airquality stebiniÅ³ skaiÄiÅ³ atskirai kiekvienÄ… mÄ—nesÄ¯.
 
 count(airquality, Month)
 
-# Jei nurodomas daugiau nei vienas kintamasis, sudaroma kryşminë daşniø lentelë.
-# Vietoje lentelës stulpelio vardo galima árağyti tam tikrà loginæ sàlygà. Pvz.,
-# nustatysime, kiek buvo atvejø, kai kintamojo Temp reikğmë virğijo 70 laipsniø, 
-# o Wind reikğmë didesnë uş 10 m/s.
+# Jei nurodomas daugiau nei vienas kintamasis, sudaroma kryÅ¾minÄ— daÅ¾niÅ³ lentelÄ—.
+# Vietoje lentelÄ—s stulpelio vardo galima Ä¯raÅ¡yti tam tikrÄ… loginÄ™ sÄ…lygÄ…. Pvz.,
+# nustatysime, kiek buvo atvejÅ³, kai kintamojo Temp reikÅ¡mÄ— virÅ¡ijo 70 laipsniÅ³, 
+# o Wind reikÅ¡mÄ— didesnÄ— uÅ¾ 10 m/s.
 
 count(airquality, T = Temp > 70, W = Wind > 10)
 
 
-# Vienas iğ tipiniø veiksmø -- vieno ar keliø lentelës stulpeliø charakteristikø
-# skaièiavimas. Tai gali bûti kintamøjø vidurkiai, elementø skaièius ir panağios
-# charakteristikos. Ğiam tikslui galima naudoti paketo dplyr funkcijà summarize.
-# Jos sintaksë:
+# Vienas iÅ¡ tipiniÅ³ veiksmÅ³ -- vieno ar keliÅ³ lentelÄ—s stulpeliÅ³ charakteristikÅ³
+# skaiÄiavimas. Tai gali bÅ«ti kintamÅ³jÅ³ vidurkiai, elementÅ³ skaiÄius ir panaÅ¡ios
+# charakteristikos. Å iam tikslui galima naudoti paketo dplyr funkcijÄ… summarize.
+# Jos sintaksÄ—:
 #                             summarise(x, ...)
 #
-# Èia x yra duomenø lentelë, o vietoj ... rağoma viena ar kelios lygybës, kurios 
-# değinëje pusëje rağoma tam tikrà stulpelio charakteristikà skaièiuojanti f-ja,
-# o kairëje rağomas tos charakteristikos pavadinimas. Pavyzdşiui, apskaièiuosime
-# lentelës airquality stulpelio Temp vidurká ir dispersijà.
+# ÄŒia x yra duomenÅ³ lentelÄ—, o vietoj ... raÅ¡oma viena ar kelios lygybÄ—s, kurios 
+# deÅ¡inÄ—je pusÄ—je raÅ¡oma tam tikrÄ… stulpelio charakteristikÄ… skaiÄiuojanti f-ja,
+# o kairÄ—je raÅ¡omas tos charakteristikos pavadinimas. PavyzdÅ¾iui, apskaiÄiuosime
+# lentelÄ—s airquality stulpelio Temp vidurkÄ¯ ir dispersijÄ….
 
-summarise(airquality, Temperatûra = mean(Temp), Dispersija = var(Temp))
+summarise(airquality, TemperatÅ«ra = mean(Temp), Dispersija = var(Temp))
 
 
-# Labai daşnai reikia apskaièiuoti tam tikras stulpeliø charakteristikas grupëse
-# pagal kito kintamojo reikğmes. Lentelës eiluèiø grupavimui galima naudoti f-jà
-# group_by. Jos argumentais yra duomenø lentelë ir grupavimo kintamojo vardas, o
-# rezultatas yra á grupes suskaidyta lentelë, kurià jà galima perduoti funkcijai 
+# Labai daÅ¾nai reikia apskaiÄiuoti tam tikras stulpeliÅ³ charakteristikas grupÄ—se
+# pagal kito kintamojo reikÅ¡mes. LentelÄ—s eiluÄiÅ³ grupavimui galima naudoti f-jÄ…
+# group_by. Jos argumentais yra duomenÅ³ lentelÄ— ir grupavimo kintamojo vardas, o
+# rezultatas yra Ä¯ grupes suskaidyta lentelÄ—, kuriÄ… jÄ… galima perduoti funkcijai 
 # summarize.
 
 G <- group_by(airquality, Month)
 G
 
-# Funkcija groups parodo, pagal koká kintamàjá yra sugrupuotos lentelës eilutës,
-# o funkcija group_size parodo, kokio dydşio yra grupës.
+# Funkcija groups parodo, pagal kokÄ¯ kintamÄ…jÄ¯ yra sugrupuotos lentelÄ—s eilutÄ—s,
+# o funkcija group_size parodo, kokio dydÅ¾io yra grupÄ—s.
 
 groups(G)
 group_size(G)
 
-# Pavyzdşiui, apskaièiuosime stulpelio Temp vidurká ir dispersijà atskirai pagal
-# mënesius.
+# PavyzdÅ¾iui, apskaiÄiuosime stulpelio Temp vidurkÄ¯ ir dispersijÄ… atskirai pagal
+# mÄ—nesius.
 
-summarise(G, Temperatûra = mean(Temp), Dispersija = var(Temp))
+summarise(G, TemperatÅ«ra = mean(Temp), Dispersija = var(Temp))
 
-# Grupavimo kintamasis gali bûti sudarytas dirbtinai. Pavyzdşiui, apskaièiuosime
-# temperatûros vidurká ir dispersijà grupëse pagal vëjo greitá. Èia jø sudarymui
+# Grupavimo kintamasis gali bÅ«ti sudarytas dirbtinai. PavyzdÅ¾iui, apskaiÄiuosime
+# temperatÅ«ros vidurkÄ¯ ir dispersijÄ… grupÄ—se pagal vÄ—jo greitÄ¯. ÄŒia jÅ³ sudarymui
 # panaudosime standartines R funkcijas cut ir pretty.
 
 G <- group_by(airquality, Wind = cut(Wind, pretty(Wind)))
-summarise(G, Temperatûra = mean(Temp), Dispersija = var(Temp))
+summarise(G, TemperatÅ«ra = mean(Temp), Dispersija = var(Temp))
 
-# Eiluèiø grupavimas gali bûti atliekamas ir pagal tam tikrà loginæ sàlygà. Pvz.,
-# suformuosime dvi grupes pagal tai, ar vëjo greitis didesnis uş savo vidurká ar 
-# ne. Ğiose grupëse apskaièiuosime temperatûros vidurká ir dispersijà.
+# EiluÄiÅ³ grupavimas gali bÅ«ti atliekamas ir pagal tam tikrÄ… loginÄ™ sÄ…lygÄ…. Pvz.,
+# suformuosime dvi grupes pagal tai, ar vÄ—jo greitis didesnis uÅ¾ savo vidurkÄ¯ ar 
+# ne. Å iose grupÄ—se apskaiÄiuosime temperatÅ«ros vidurkÄ¯ ir dispersijÄ….
 
 G <- group_by(airquality, Wind = Wind > mean(Wind))
-summarise(G, Temperatûra = mean(Temp), Dispersija = var(Temp))
+summarise(G, TemperatÅ«ra = mean(Temp), Dispersija = var(Temp))
 
 
-# Kadangi paketo dplyr funkcija n() gràşina eiluèiø skaièiø lentelëje, naudojant 
-# jà kartu su funkcijomis group_by ir summarize, galima sudaryti daşniø lentelæ. 
-# Pavyzdşiui, apskaièiuosime, kiek praleistø reikğmiø turi airquality kintamasis 
+# Kadangi paketo dplyr funkcija n() grÄ…Å¾ina eiluÄiÅ³ skaiÄiÅ³ lentelÄ—je, naudojant 
+# jÄ… kartu su funkcijomis group_by ir summarize, galima sudaryti daÅ¾niÅ³ lentelÄ™. 
+# PavyzdÅ¾iui, apskaiÄiuosime, kiek praleistÅ³ reikÅ¡miÅ³ turi airquality kintamasis 
 # Ozone.
 
 summarise(group_by(airquality, is.na(Ozone)), Freq = n())
 
 
-# Daşnai tà paèià skaitinæ charakteristikà reikia apskaièiuoti iğ karto keliems 
-# stulpeliams. Tokiu atveju patogiau naudoti funkcijà summarise_each. Sintaksë:
+# DaÅ¾nai tÄ… paÄiÄ… skaitinÄ™ charakteristikÄ… reikia apskaiÄiuoti iÅ¡ karto keliems 
+# stulpeliams. Tokiu atveju patogiau naudoti funkcijÄ… summarise_each. SintaksÄ—:
 #
 #                     summarise_each(x, funs(), ...)
 #
-# Èia x yra duomenø lentelë, kuri gali bûti ir grupuota, funs yra speciali f-ja,
-# kuri leidşia suformuoti funkcijø sàrağà, o vietoje ... rağomi stulpeliø vardai.
-# Jei kintamieji nenurodomi, tai charakteristikos skaièiuojamos visiems iğskyrus
-# grupavimo kintamàjá. Pavyzdşiui, apskaièiuosime kintamøjø Temp, Wind vidurkius 
-# kiekvienam mënesiui atskirai.
+# ÄŒia x yra duomenÅ³ lentelÄ—, kuri gali bÅ«ti ir grupuota, funs yra speciali f-ja,
+# kuri leidÅ¾ia suformuoti funkcijÅ³ sÄ…raÅ¡Ä…, o vietoje ... raÅ¡omi stulpeliÅ³ vardai.
+# Jei kintamieji nenurodomi, tai charakteristikos skaiÄiuojamos visiems iÅ¡skyrus
+# grupavimo kintamÄ…jÄ¯. PavyzdÅ¾iui, apskaiÄiuosime kintamÅ³jÅ³ Temp, Wind vidurkius 
+# kiekvienam mÄ—nesiui atskirai.
 
 summarise_each(group_by(airquality, Month), funs(mean), Temp, Wind)
 
-# Funkcijø, kuriø reikğmes reikia apskaièiuoti, sàrağe gali bûti ne viena. Pvz., 
-# apskaièiuosime tø paèiø stulpeliø reikğmiø vidurká ir dispersijà.
+# FunkcijÅ³, kuriÅ³ reikÅ¡mes reikia apskaiÄiuoti, sÄ…raÅ¡e gali bÅ«ti ne viena. Pvz., 
+# apskaiÄiuosime tÅ³ paÄiÅ³ stulpeliÅ³ reikÅ¡miÅ³ vidurkÄ¯ ir dispersijÄ….
 
 summarise_each(group_by(airquality, Month), funs(mean, var), Temp, Wind)
 
-# Apskaièiuotoms stulpeliø charakteristikoms galima suteikti vardus. Pavyzdşiui,
-# rezultatø stulpeliai su vidurkio reikğmëmis turës priesagà E, o dispersijos D.
+# ApskaiÄiuotoms stulpeliÅ³ charakteristikoms galima suteikti vardus. PavyzdÅ¾iui,
+# rezultatÅ³ stulpeliai su vidurkio reikÅ¡mÄ—mis turÄ—s priesagÄ… E, o dispersijos D.
 
 summarise_each(group_by(airquality, Month), funs(E = mean, D = var), Temp, Wind)
 
-# Tuo atveju, kai stulpelio charakteristikà skaièiuojanti funkcija pati dar turi
-# kokiø nors parametrø, stulpelá atitinkantis parametrus joje şymimas tağku. Ğià
-# situacijà galima pailiustruoti tokiu pavyzdşiu: reikia apskaièiuoti airquality
-# lentelës stulpelio Ozone vidurká. Ğiame stulpelyje yra NA reikğmiø, todël tam, 
-# kad bûtø galima apskaièiuoti vidurká, reikia pakeisti funkcijos mean parametro 
-# na.rm reikğmæ iğ FALSE á TRUE.
+# Tuo atveju, kai stulpelio charakteristikÄ… skaiÄiuojanti funkcija pati dar turi
+# kokiÅ³ nors parametrÅ³, stulpelÄ¯ atitinkantis parametrus joje Å¾ymimas taÅ¡ku. Å iÄ…
+# situacijÄ… galima pailiustruoti tokiu pavyzdÅ¾iu: reikia apskaiÄiuoti airquality
+# lentelÄ—s stulpelio Ozone vidurkÄ¯. Å iame stulpelyje yra NA reikÅ¡miÅ³, todÄ—l tam, 
+# kad bÅ«tÅ³ galima apskaiÄiuoti vidurkÄ¯, reikia pakeisti funkcijos mean parametro 
+# na.rm reikÅ¡mÄ™ iÅ¡ FALSE Ä¯ TRUE.
 
 summarise_each(group_by(airquality, Month), funs(mean(., na.rm=T)), Ozone, Wind)
 
 
 # NAUDINGA ------------------------------
 
-# Galima pastebëti, kad visi veiksmai duomenø lentelëje atliekami su stulpeliais. 
-# Funkcijø mutate ir summarise argumentas yra visos lentelës stulpelis arba, jei 
-# lentelë yra grupuota, - tam tikrai eiluèiø grupei priklausanti stulpelio dalis.
+# Galima pastebÄ—ti, kad visi veiksmai duomenÅ³ lentelÄ—je atliekami su stulpeliais. 
+# FunkcijÅ³ mutate ir summarise argumentas yra visos lentelÄ—s stulpelis arba, jei 
+# lentelÄ— yra grupuota, - tam tikrai eiluÄiÅ³ grupei priklausanti stulpelio dalis.
 
-# Kartais tuos paèius veiksmus reikia atlikti su visomis lentelës eilutëmis. Tai
-# gali bûti, pavyzdşiui, maksimalios reikğmës suradimas eilutëje. Pvz., surasime
-# maksimumà iğ kintamøjø Sepal.Length, Petal.Length reikğmiø kiekvienai lentelës
+# Kartais tuos paÄius veiksmus reikia atlikti su visomis lentelÄ—s eilutÄ—mis. Tai
+# gali bÅ«ti, pavyzdÅ¾iui, maksimalios reikÅ¡mÄ—s suradimas eilutÄ—je. Pvz., surasime
+# maksimumÄ… iÅ¡ kintamÅ³jÅ³ Sepal.Length, Petal.Length reikÅ¡miÅ³ kiekvienai lentelÄ—s
 # iris eilutei.
 
-# Vienas galimas bûdas -- kiekvienà lentelës eilutæ sutapatinti su atskira grupe.
-# Grupavimas atliekamas naudojant funkcijà group_by, o grupës sutampa su eiluèiø
+# Vienas galimas bÅ«das -- kiekvienÄ… lentelÄ—s eilutÄ™ sutapatinti su atskira grupe.
+# Grupavimas atliekamas naudojant funkcijÄ… group_by, o grupÄ—s sutampa su eiluÄiÅ³
 # numeriais.
 
 summarise(group_by(iris, Nr. = 1:n()), max = max(Sepal.Length, Petal.Length))
 
-# Kitas bûdas -- naudoti specialiai tokiam atvejui skirtà dplyr funkcijà rowwise.
+# Kitas bÅ«das -- naudoti specialiai tokiam atvejui skirtÄ… dplyr funkcijÄ… rowwise.
 
 summarise(rowwise(iris), max = max(Sepal.Length, Petal.Length))
 
-# Tà paèià komandà uşrağysime naudojant operatoriø %>%.
+# TÄ… paÄiÄ… komandÄ… uÅ¾raÅ¡ysime naudojant operatoriÅ³ %>%.
 
 iris %>% rowwise() %>% summarise(max = max(Sepal.Length, Petal.Length))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Apskaièiuoti lentelës airquality kintamojo Ozone praleistø reikğmiø skaièiø 
-#    atskirai kiekvienam mënesiui. Uşrağykite komandà naudojant ğià paketo dplyr
-#    funkcijà: a) count, b) n().
-# 2. Naudodami lentelæ airquality, nustatykite kiekvieno mënesio kintamojo Ozone 
-#    vidurká, kai temperatûra svyruoja intervale [70, 80].
-# 3. Lentelëje airquality iğ kiekvieno mënesio iğskirkite po pirmas dvi eilutes.
-#    Uşrağykite 2 komandos versijas: a) su funkcija top_n, b) su funkcija slice.
-# 4. Iğ lentelës airquality iğskirkite po dvi kiekvieno mënesio eilutes, kuriose
-#    didşiausios to mënesio stulpelio Temp reikğmës iğrikiuotos maşëjimo tvarka.
+# 1. ApskaiÄiuoti lentelÄ—s airquality kintamojo Ozone praleistÅ³ reikÅ¡miÅ³ skaiÄiÅ³ 
+#    atskirai kiekvienam mÄ—nesiui. UÅ¾raÅ¡ykite komandÄ… naudojant Å¡iÄ… paketo dplyr
+#    funkcijÄ…: a) count, b) n().
+# 2. Naudodami lentelÄ™ airquality, nustatykite kiekvieno mÄ—nesio kintamojo Ozone 
+#    vidurkÄ¯, kai temperatÅ«ra svyruoja intervale [70, 80].
+# 3. LentelÄ—je airquality iÅ¡ kiekvieno mÄ—nesio iÅ¡skirkite po pirmas dvi eilutes.
+#    UÅ¾raÅ¡ykite 2 komandos versijas: a) su funkcija top_n, b) su funkcija slice.
+# 4. IÅ¡ lentelÄ—s airquality iÅ¡skirkite po dvi kiekvieno mÄ—nesio eilutes, kuriose
+#    didÅ¾iausios to mÄ—nesio stulpelio Temp reikÅ¡mÄ—s iÅ¡rikiuotos maÅ¾Ä—jimo tvarka.
 
 
 # --------------------------------------- #
-# KELI TIPINIAI DUOMENØ ANALIZËS ATVEJAI  #
+# KELI TIPINIAI DUOMENÅ² ANALIZÄ–S ATVEJAI  #
 # --------------------------------------- #
 
-# Paprastai duomenø lentelës pertvarkymas susideda iğ keliø şingsniø: eiluèiø ir
-# stulpeliø iğrinkimo, grupiø atskyrimo, tam tikrø charakteristikø ğiose grupëse
-# skaièiavimo ir rezultatø apjungimo. Labai daşnai ğiuos etapus tenka pakartoti,
-# priklausomai nuo situacijos atsisakyti kai kuriø etapø, keisti jø eiliğkumà ir
-# panağiai. Uşrağysime keletà tipiniø duomenø pertvarkymo pavyzdşiø. 
+# Paprastai duomenÅ³ lentelÄ—s pertvarkymas susideda iÅ¡ keliÅ³ Å¾ingsniÅ³: eiluÄiÅ³ ir
+# stulpeliÅ³ iÅ¡rinkimo, grupiÅ³ atskyrimo, tam tikrÅ³ charakteristikÅ³ Å¡iose grupÄ—se
+# skaiÄiavimo ir rezultatÅ³ apjungimo. Labai daÅ¾nai Å¡iuos etapus tenka pakartoti,
+# priklausomai nuo situacijos atsisakyti kai kuriÅ³ etapÅ³, keisti jÅ³ eiliÅ¡kumÄ… ir
+# panaÅ¡iai. UÅ¾raÅ¡ysime keletÄ… tipiniÅ³ duomenÅ³ pertvarkymo pavyzdÅ¾iÅ³. 
 
-# Lentelëje airquality surağyti keliø mënesiø meteorologiniø stebëjimø duomenys.
-# Apskaièiuosime kiekvieno mënesio temperatûros vidurká.
+# LentelÄ—je airquality suraÅ¡yti keliÅ³ mÄ—nesiÅ³ meteorologiniÅ³ stebÄ—jimÅ³ duomenys.
+# ApskaiÄiuosime kiekvieno mÄ—nesio temperatÅ«ros vidurkÄ¯.
 
 summarise(group_by(airquality, Month), vidurkis = mean(Temp))
 
-# Naudojant operatoriø %>%, tà pati komanda uşrağoma tokiu bûdu:
+# Naudojant operatoriÅ³ %>%, tÄ… pati komanda uÅ¾raÅ¡oma tokiu bÅ«du:
 
 airquality %>% group_by(Month) %>% summarise(vidurkis = mean(Temp))
 
-# Iğ esmës toká pat rezultatà galime gauti ir naudojant standartines R funkcijas
-# tapply, by ir aggregate -- skiriasi tik rezultatø iğvedimo forma.
+# IÅ¡ esmÄ—s tokÄ¯ pat rezultatÄ… galime gauti ir naudojant standartines R funkcijas
+# tapply, by ir aggregate -- skiriasi tik rezultatÅ³ iÅ¡vedimo forma.
 
 with(airquality, tapply(Temp, Month, mean))
 with(airquality, by(Temp, Month, mean))
-with(airquality, aggregate(Temp, list(rûğis = Month), mean))
+with(airquality, aggregate(Temp, list(rÅ«Å¡is = Month), mean))
 
 
-# Ği split-apply-combine schema nesunkiai realizuojama naudojant standartines R
+# Å i split-apply-combine schema nesunkiai realizuojama naudojant standartines R
 # funkcijas:
 #                                      split 
 #                                      |   |
@@ -575,7 +575,7 @@ with(airquality, aggregate(Temp, list(rûğis = Month), mean))
       sapply(with(airquality, split(Temp, Month)), mean) 
 stack(lapply(with(airquality, split(Temp, Month)), mean))
 
-# Tos paèios komandos uşrağytos naudojant %>% operatoriø:
+# Tos paÄios komandos uÅ¾raÅ¡ytos naudojant %>% operatoriÅ³:
 
 airquality %>% with(split(Temp, Month)) %>% sapply(mean)
 airquality %>% with(split(Temp, Month)) %>% lapply(mean) %>% stack
@@ -583,18 +583,18 @@ airquality %>% with(split(Temp, Month)) %>% lapply(mean) %>% stack
 
 # --------------------------------------- #
 
-# Pavyzdşiui, naudojant lentelës airquality duomenis, nustatysime kiekvieno mën.
-# dienà su maşiausia to mënesio temperatûra.
+# PavyzdÅ¾iui, naudojant lentelÄ—s airquality duomenis, nustatysime kiekvieno mÄ—n.
+# dienÄ… su maÅ¾iausia to mÄ—nesio temperatÅ«ra.
 
 select(filter(group_by(airquality, Month), Temp == min(Temp)), Month, Day, Temp)
 
 # Vietoje funkcijos filter galima naudoti f-jas slice ir which.min. Tokiu atveju
-# vietoje loginës sàlygos f-jai slice nurodomas konkretus eilutës numeris, todël
-# gaunama trumpesnë ir aiğkesnë komanda.
+# vietoje loginÄ—s sÄ…lygos f-jai slice nurodomas konkretus eilutÄ—s numeris, todÄ—l
+# gaunama trumpesnÄ— ir aiÅ¡kesnÄ— komanda.
 
 select(slice(group_by(airquality, Month), which.min(Temp)), Month, Day, Temp)
 
-# Naudojant operatoriø %>%, ğios dvi komandos uşrağomos taip:
+# Naudojant operatoriÅ³ %>%, Å¡ios dvi komandos uÅ¾raÅ¡omos taip:
 
 airquality %>% 
            group_by(Month) %>% 
@@ -605,131 +605,131 @@ airquality %>%
                            slice(which.min(Temp)) %>% 
                                                   select(Month, Day, Temp)
 
-# Naudojant standartines R funkcijas split ir lapply, duomenø lentelë iğ pradşiø
-# padalinama á grupes, vëliau iğ kiekvienos grupës iğrenkami reikiami stulpeliai
-# ir reikiamos eilutës. Kadangi galutinëje lentelëje lieka datos ir temperatûros
-# kintamieji, nereikalingø stulpeliø galima atsisakyti lentelës grupavimo etape.
-# Ğiuo atveju funkcijos lapply rezultatas yra data.table tipo duomenø lentelë su 
-# viena eilute. Á galutinæ lentelæ jas apjungiame naudojant do.call konstrukcijà
+# Naudojant standartines R funkcijas split ir lapply, duomenÅ³ lentelÄ— iÅ¡ pradÅ¾iÅ³
+# padalinama Ä¯ grupes, vÄ—liau iÅ¡ kiekvienos grupÄ—s iÅ¡renkami reikiami stulpeliai
+# ir reikiamos eilutÄ—s. Kadangi galutinÄ—je lentelÄ—je lieka datos ir temperatÅ«ros
+# kintamieji, nereikalingÅ³ stulpeliÅ³ galima atsisakyti lentelÄ—s grupavimo etape.
+# Å iuo atveju funkcijos lapply rezultatas yra data.table tipo duomenÅ³ lentelÄ— su 
+# viena eilute. Ä® galutinÄ™ lentelÄ™ jas apjungiame naudojant do.call konstrukcijÄ…
 #
 #                              do.call(f, x)
 #
-# Èia x yra list tipo sàrağas, o f yra funkcija, kurios argumentai ir yra sàrağe.
-# Atskiros eilutës á vienà data.frame lentelæ apjungiamos naudojant R f-jà rbind.
+# ÄŒia x yra list tipo sÄ…raÅ¡as, o f yra funkcija, kurios argumentai ir yra sÄ…raÅ¡e.
+# Atskiros eilutÄ—s Ä¯ vienÄ… data.frame lentelÄ™ apjungiamos naudojant R f-jÄ… rbind.
 
 G <- with(airquality, split(airquality[, c("Month", "Day", "Temp")], Month))
 do.call(rbind, lapply(G, subset, subset = Temp == min(Temp)))
 
-# Vietoje konstrukcijos do.call(rbind, ... ) eiluèiø iğ sàrağo apjungimui galima
-# naudoti paketo dplyr funkcijà bind_rows.
+# Vietoje konstrukcijos do.call(rbind, ... ) eiluÄiÅ³ iÅ¡ sÄ…raÅ¡o apjungimui galima
+# naudoti paketo dplyr funkcijÄ… bind_rows.
 
 bind_rows(lapply(G, subset, subset = Temp == min(Temp)))
 
 
 # NAUDINGA ------------------------------
 
-# Tarkim, kad reikia apskaièiuoti kiekvieno mënesio santykiná praleistø reikğmiø
-# daşná lentelës airquality stulpelyje Ozone. Tokiu atveju paprasèiausia naudoti 
-# standartinæ R funkcijà tapply ir skaièiuoti reikğmiø NA indikatoriaus vidurká.  
+# Tarkim, kad reikia apskaiÄiuoti kiekvieno mÄ—nesio santykinÄ¯ praleistÅ³ reikÅ¡miÅ³
+# daÅ¾nÄ¯ lentelÄ—s airquality stulpelyje Ozone. Tokiu atveju paprasÄiausia naudoti 
+# standartinÄ™ R funkcijÄ… tapply ir skaiÄiuoti reikÅ¡miÅ³ NA indikatoriaus vidurkÄ¯.  
 
 with(airquality, tapply(Ozone, Month, function(x) mean(is.na(x), na.rm = TRUE)))
 
-# Kitas bûdas -- naudojant f-jà split, iğskaidyti kintamàjá Ozone á grupes, tada,
-# turint grupiø sàrağà, naudojant f-jà sapply, apskaièiuoti jose santykiná daşná.
+# Kitas bÅ«das -- naudojant f-jÄ… split, iÅ¡skaidyti kintamÄ…jÄ¯ Ozone Ä¯ grupes, tada,
+# turint grupiÅ³ sÄ…raÅ¡Ä…, naudojant f-jÄ… sapply, apskaiÄiuoti jose santykinÄ¯ daÅ¾nÄ¯.
 
 G <- with(airquality, split(Ozone, Month))
 sapply(G, function(x) mean(is.na(x), na.rm = TRUE))
 
-# Abiem atvejais santykinio daşnio apskaièiavimui reikia uşrağyti anoniminæ f-jà.
-# Naudojant operatoriø %>% galima sutrumpinti jos uşrağymà, kadangi tağkas prieğ
-# operatoriø %>% sukuria tokià funkcijà. Uşrağysim naujà komandos su f-ja tapply 
-# variantà:
+# Abiem atvejais santykinio daÅ¾nio apskaiÄiavimui reikia uÅ¾raÅ¡yti anoniminÄ™ f-jÄ….
+# Naudojant operatoriÅ³ %>% galima sutrumpinti jos uÅ¾raÅ¡ymÄ…, kadangi taÅ¡kas prieÅ¡
+# operatoriÅ³ %>% sukuria tokiÄ… funkcijÄ…. UÅ¾raÅ¡ysim naujÄ… komandos su f-ja tapply 
+# variantÄ…:
 
 with(airquality, tapply(Ozone, Month, . %>% is.na %>% mean(na.rm = TRUE)))
 
 
-# PASTABA! Ğià komandà galima uşrağyti visai be anoniminës funkcijos. Tam reikia
-# á grupes skaidyti ne pradiná kintamàjá Ozone, o iğ karto funkcijà is.na(Ozone), 
-# kurios reikğmës perduodamos standartinei funkcijai mean su parametru na.rm.
+# PASTABA! Å iÄ… komandÄ… galima uÅ¾raÅ¡yti visai be anoniminÄ—s funkcijos. Tam reikia
+# Ä¯ grupes skaidyti ne pradinÄ¯ kintamÄ…jÄ¯ Ozone, o iÅ¡ karto funkcijÄ… is.na(Ozone), 
+# kurios reikÅ¡mÄ—s perduodamos standartinei funkcijai mean su parametru na.rm.
 
 with(airquality, tapply(is.na(Ozone), Month, mean, na.rm = TRUE))
 
 
 # NAUDINGA ------------------------------
 
-# Pagrindines duomenø pertvarkymo funkcijas papildo bendro pobûdşio funkcija do, 
-# kuri leidşia pritaikyti bet kokià funkcijà atskiroms duomenø lentelës grupëms.
+# Pagrindines duomenÅ³ pertvarkymo funkcijas papildo bendro pobÅ«dÅ¾io funkcija do, 
+# kuri leidÅ¾ia pritaikyti bet kokiÄ… funkcijÄ… atskiroms duomenÅ³ lentelÄ—s grupÄ—ms.
 
-# Pavyzdşiui, iğ kiekvienos lentelës iris kintamojo Species grupës iğskirsime po
-# tris pirmas eilutes. Pirmuosius n vektoriaus elementø ar lentelës eiluèiø rodo
-# standartinë R funkcija head. Uşrağysime tokià komandà naudojant operatoriø %>%.
+# PavyzdÅ¾iui, iÅ¡ kiekvienos lentelÄ—s iris kintamojo Species grupÄ—s iÅ¡skirsime po
+# tris pirmas eilutes. Pirmuosius n vektoriaus elementÅ³ ar lentelÄ—s eiluÄiÅ³ rodo
+# standartinÄ— R funkcija head. UÅ¾raÅ¡ysime tokiÄ… komandÄ… naudojant operatoriÅ³ %>%.
 
 iris %>% group_by(Species) %>% do(head(., 3))
 
-# Viena iğ f-jos do pritaikymo srièiø -- statistiniø modeliø sudarymas atskiroms 
-# duomenø grupëms. Pvz., ávertinsime paprastosios tiesinës regresijos modelio
+# Viena iÅ¡ f-jos do pritaikymo sriÄiÅ³ -- statistiniÅ³ modeliÅ³ sudarymas atskiroms 
+# duomenÅ³ grupÄ—ms. Pvz., Ä¯vertinsime paprastosios tiesinÄ—s regresijos modelio
 #
 #                               y = a + b*x + e
 #
-# parametrus a ir b, atskirai kiekvienai lentelës iris kintamojo Species grupei.
-# Tarkime, kad èia y yra kintamasis Sepal.Length, o x --- kintamais Sepal.Width.
-# Uşrağysime tokià komandà naudojant operatoriø %>%. Trumpas komentaras - tağkas 
-# iğraiğkoje data = . nurodo, kad modelio duomenys bus viena lentelës iris grupë.
-# Kadangi kintamasis Species turi tris skirtingas reikğmes, grupiø irgi bus trys 
-# ir todël gausime tris to paties modelio parametrø rinkinius.
+# parametrus a ir b, atskirai kiekvienai lentelÄ—s iris kintamojo Species grupei.
+# Tarkime, kad Äia y yra kintamasis Sepal.Length, o x --- kintamais Sepal.Width.
+# UÅ¾raÅ¡ysime tokiÄ… komandÄ… naudojant operatoriÅ³ %>%. Trumpas komentaras - taÅ¡kas 
+# iÅ¡raiÅ¡koje data = . nurodo, kad modelio duomenys bus viena lentelÄ—s iris grupÄ—.
+# Kadangi kintamasis Species turi tris skirtingas reikÅ¡mes, grupiÅ³ irgi bus trys 
+# ir todÄ—l gausime tris to paties modelio parametrÅ³ rinkinius.
 
 M <- iris %>% 
           group_by(Species) %>% 
                             do(reg = lm(Sepal.Length ~ Sepal.Width, data = .))
 
-# Gautos duomenø lentelës M elementai yra tiesinës regresijos modeliai. Tai gana
-# neáprasta, kadangi áprasta, jog duomenø lentelës stulpeliai yra to paties tipo 
-# reikğmes turintys vektoriai. Taèiau èia prieğtaravimo nëra, kadangi stulpeliai
-# duomenø lentelëje yra list tipo sàrağai, o sàrağai tuo paèiu yra ir vektoriai.
+# Gautos duomenÅ³ lentelÄ—s M elementai yra tiesinÄ—s regresijos modeliai. Tai gana
+# neÄ¯prasta, kadangi Ä¯prasta, jog duomenÅ³ lentelÄ—s stulpeliai yra to paties tipo 
+# reikÅ¡mes turintys vektoriai. TaÄiau Äia prieÅ¡taravimo nÄ—ra, kadangi stulpeliai
+# duomenÅ³ lentelÄ—je yra list tipo sÄ…raÅ¡ai, o sÄ…raÅ¡ai tuo paÄiu yra ir vektoriai.
 
 M
 
-# Norint iğ gautos lentelës iğtraukti modeliø parametrus, naudosime standartines
-# funkcijas. Pavyzdşiui, modelio koeficientus gràşina funkcija coef. Ğiuo atveju
-# pirmas koeficientas atitinka parametrà a, antras - parametrà b. Ğios funkcijos
-# argumentas bus statistinis modelis, kuris yra lentelës M stulpelio reg reikğmë.
+# Norint iÅ¡ gautos lentelÄ—s iÅ¡traukti modeliÅ³ parametrus, naudosime standartines
+# funkcijas. PavyzdÅ¾iui, modelio koeficientus grÄ…Å¾ina funkcija coef. Å iuo atveju
+# pirmas koeficientas atitinka parametrÄ… a, antras - parametrÄ… b. Å ios funkcijos
+# argumentas bus statistinis modelis, kuris yra lentelÄ—s M stulpelio reg reikÅ¡mÄ—.
 
-summarise(M, grupë = Species, a = coef(reg)[1], b = coef(reg)[2])
+summarise(M, grupÄ— = Species, a = coef(reg)[1], b = coef(reg)[2])
 
-# Gautø modeliø parametrus galima apjungti á vienà data.frame lentelës stulpelá. 
-# Ğiuo atveju funkcijà data.frame ádësime á funkcijà do. Èia galima pakomentuoti:
-# tağkas iğraiğkoje coef(.$reg) nurodo lentelës M eilutæ, o .$reg nurodo eilutës
-# elementà stulpelyje reg, o tai jau yra tiesinës regresijos modelis. Já ádedame
-# á funkcijà coef ir gauname modelio parametrø vektoriø, ğiuo atveju tai a ir b.
-# Kadangi tokiø eiluèiø lentelëje M yra trys, tai galutinëje lentelëje jø bus 6.
+# GautÅ³ modeliÅ³ parametrus galima apjungti Ä¯ vienÄ… data.frame lentelÄ—s stulpelÄ¯. 
+# Å iuo atveju funkcijÄ… data.frame Ä¯dÄ—sime Ä¯ funkcijÄ… do. ÄŒia galima pakomentuoti:
+# taÅ¡kas iÅ¡raiÅ¡koje coef(.$reg) nurodo lentelÄ—s M eilutÄ™, o .$reg nurodo eilutÄ—s
+# elementÄ… stulpelyje reg, o tai jau yra tiesinÄ—s regresijos modelis. JÄ¯ Ä¯dedame
+# Ä¯ funkcijÄ… coef ir gauname modelio parametrÅ³ vektoriÅ³, Å¡iuo atveju tai a ir b.
+# Kadangi tokiÅ³ eiluÄiÅ³ lentelÄ—je M yra trys, tai galutinÄ—je lentelÄ—je jÅ³ bus 6.
 
-do(M, data.frame(rûğis = .$Species, param = c("a", "b"), reikğmë = coef(.$reg)))
+do(M, data.frame(rÅ«Å¡is = .$Species, param = c("a", "b"), reikÅ¡mÄ— = coef(.$reg)))
 
 
-# Turint statistiná modelá, ávairios jo charakteristikos gaunamos naudojant f-jà
-# summary. Pvz., nustatysime visø 3 modeliø determinacijos koeficiento reikğmes.
+# Turint statistinÄ¯ modelÄ¯, Ä¯vairios jo charakteristikos gaunamos naudojant f-jÄ…
+# summary. Pvz., nustatysime visÅ³ 3 modeliÅ³ determinacijos koeficiento reikÅ¡mes.
 
 summarise(M, R = summary(reg)$r.squared)
 
-# Funkcija summary suformuoja lentelæ su modelio parametrais, jø std. nuokrypiu,
-# hipotezës apie jø lygybës nuliui statistika ir tos hipotezës p-reikğme. Tokias
-# lenteles apjungsime á vienà bendrà data.frame tipo lentelæ.
+# Funkcija summary suformuoja lentelÄ™ su modelio parametrais, jÅ³ std. nuokrypiu,
+# hipotezÄ—s apie jÅ³ lygybÄ—s nuliui statistika ir tos hipotezÄ—s p-reikÅ¡me. Tokias
+# lenteles apjungsime Ä¯ vienÄ… bendrÄ… data.frame tipo lentelÄ™.
 
-do(M, data.frame(rûğis = .$Species, param = c("a", "b"), coef(summary(.$reg))))
+do(M, data.frame(rÅ«Å¡is = .$Species, param = c("a", "b"), coef(summary(.$reg))))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Iğ lentelës airquality iğskirkite po pirmas tris kiekvieno mënesio eilutes.
-#    Uşrağykite ğià komandà naudojant paketo dplyr funkcijas bei operatoriø %>%.
-#    Sugalvokite, kaip iğspræsti ğià uşduoti naudojant standartines R funkcijas.
-# 2. Naudojant lentelës airquality duomenis, nustatykite, kurio mënesio pirmø 15
-#    dienø temperatûros vidurkis didşiausias. Uşrağykite komandà naudojant dplyr
-#    funkcijas ir perrağykite jà naudojant %>% operatoriø.
-# 3. Uşrağykite funkcijà, kuri nustatytø, kokios trys daşniausiai pasitaikanèios
-#    kintamojo Petal.Length reikğmës bûdingos kiekvienai lentelës iris kintamojo
-#    Species reikğmei.
-# 4. Naudojant duomenø lentelæ iris, nustatykite, kuriai augalø rûğiai vidutinis
-#    kintamøjø Sepal.Length ir Sepal.Width santykis yra didşiausias. Sudarykite
-#    ğio santykio didëjimo tvarka iğrikiuotà rezultatø lentelæ, kurioje dar bûtø
+# 1. IÅ¡ lentelÄ—s airquality iÅ¡skirkite po pirmas tris kiekvieno mÄ—nesio eilutes.
+#    UÅ¾raÅ¡ykite Å¡iÄ… komandÄ… naudojant paketo dplyr funkcijas bei operatoriÅ³ %>%.
+#    Sugalvokite, kaip iÅ¡sprÄ™sti Å¡iÄ… uÅ¾duoti naudojant standartines R funkcijas.
+# 2. Naudojant lentelÄ—s airquality duomenis, nustatykite, kurio mÄ—nesio pirmÅ³ 15
+#    dienÅ³ temperatÅ«ros vidurkis didÅ¾iausias. UÅ¾raÅ¡ykite komandÄ… naudojant dplyr
+#    funkcijas ir perraÅ¡ykite jÄ… naudojant %>% operatoriÅ³.
+# 3. UÅ¾raÅ¡ykite funkcijÄ…, kuri nustatytÅ³, kokios trys daÅ¾niausiai pasitaikanÄios
+#    kintamojo Petal.Length reikÅ¡mÄ—s bÅ«dingos kiekvienai lentelÄ—s iris kintamojo
+#    Species reikÅ¡mei.
+# 4. Naudojant duomenÅ³ lentelÄ™ iris, nustatykite, kuriai augalÅ³ rÅ«Å¡iai vidutinis
+#    kintamÅ³jÅ³ Sepal.Length ir Sepal.Width santykis yra didÅ¾iausias. Sudarykite
+#    Å¡io santykio didÄ—jimo tvarka iÅ¡rikiuotÄ… rezultatÅ³ lentelÄ™, kurioje dar bÅ«tÅ³
 #    ir kintamasis Species.

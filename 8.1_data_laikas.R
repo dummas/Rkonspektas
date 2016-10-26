@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
 #            Datos ir laiko formatas POSIX.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-11-05 | 2015-12-12
 #
@@ -24,11 +24,11 @@
 #      * funkcija as.POSIXlt
 #      * funkcija as.POSIXct
 #
-#   3. Datos ir laiko sudarymas iğ teksto:
+#   3. Datos ir laiko sudarymas iÅ¡ teksto:
 #      * funkcija strptime
 #      * funkcija strftime
 #
-#   4. Datos ir laiko sudarymas iğ skaièiø:
+#   4. Datos ir laiko sudarymas iÅ¡ skaiÄiÅ³:
 #      * funkcija ISOdatetime
 #      * funkcija ISOdate
 #
@@ -40,30 +40,30 @@
 # PASTABOS ------------------------------
 
 #
-# Galima sugalvoti daugiau uşduoèiø.
+# Galima sugalvoti daugiau uÅ¾duoÄiÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# STANDARTINËS DATOS IR LAIKO FUNKCIJOS   #
+# STANDARTINÄ–S DATOS IR LAIKO FUNKCIJOS   #
 # --------------------------------------- #
 
-# R turi keletà standartiniø datos ir laiko nustatymo funkcijø: kai kurios iğ jø
-# parodo tik datà, kitos parodo ir datà, ir laikà. Kadangi data arba laikas gali 
-# bûti uşrağomi kaip paprastas tekstas arba uşrağomi naudojant tam skirtus datos
-# ir laiko formatus, ğiø funkcijø reikğmë yra vis kitokio tipo.
+# R turi keletÄ… standartiniÅ³ datos ir laiko nustatymo funkcijÅ³: kai kurios iÅ¡ jÅ³
+# parodo tik datÄ…, kitos parodo ir datÄ…, ir laikÄ…. Kadangi data arba laikas gali 
+# bÅ«ti uÅ¾raÅ¡omi kaip paprastas tekstas arba uÅ¾raÅ¡omi naudojant tam skirtus datos
+# ir laiko formatus, Å¡iÅ³ funkcijÅ³ reikÅ¡mÄ— yra vis kitokio tipo.
 
 date()
 Sys.Date()
@@ -71,38 +71,38 @@ Sys.time()
 Sys.timezone()
 
 
-# Datos ir laiko uşrağymui naudojami tam tikri standartiniai paşymëjimai. Keletà
-# iğ jø galima paminëti:
+# Datos ir laiko uÅ¾raÅ¡ymui naudojami tam tikri standartiniai paÅ¾ymÄ—jimai. KeletÄ…
+# iÅ¡ jÅ³ galima paminÄ—ti:
 #
 #         %Y -- metai,
-#         %y -- metai (be pirmøjø dviejø skaièiø),
-#         %m -- mënesio numeris,
+#         %y -- metai (be pirmÅ³jÅ³ dviejÅ³ skaiÄiÅ³),
+#         %m -- mÄ—nesio numeris,
 #         %d -- dienos numeris,
 #         %e -- dienos numeris (be nulio priekyje),
 #
-#         %H -- valandos (00–23),
-#         %M -- minutës (00–59),
-#         %S -- sekundës (00–61),
+#         %H -- valandos (00â€“23),
+#         %M -- minutÄ—s (00â€“59),
+#         %S -- sekundÄ—s (00â€“61),
 #
-#         %A -- savaitës dienos pavadinimas,
-#         %a -- sutrumpintas savaitës dienos pavadinimas,
-#         %B -- mënesio pavadinimas,
-#         %b -- sutrumpintas mënesio pavadinimas,
-#         %C -- amşius, ğimtmetis,
-#         %W -- metø savaitës numeris,
-#         %w -- savaitës dienos numeris (sekmadienis 0),
+#         %A -- savaitÄ—s dienos pavadinimas,
+#         %a -- sutrumpintas savaitÄ—s dienos pavadinimas,
+#         %B -- mÄ—nesio pavadinimas,
+#         %b -- sutrumpintas mÄ—nesio pavadinimas,
+#         %C -- amÅ¾ius, Å¡imtmetis,
+#         %W -- metÅ³ savaitÄ—s numeris,
+#         %w -- savaitÄ—s dienos numeris (sekmadienis 0),
 #         %Z -- laiko zona,
 #         %z -- laiko pokytis nuo GMT.
 
-# Kai kurios ğalys turi savo datos ir laiko uşrağymo formatà. Laikantis ISO 8601
-# standarto, metai, mënuo ir dienos atskiriami brûkğneliu, taèiau Lietuvoje gali
-# bûti atskiriami ir tağku. Dël tos prieşasties data bei laikas gali bûti rodomi
-# prisitaikant prie lokalës:
+# Kai kurios Å¡alys turi savo datos ir laiko uÅ¾raÅ¡ymo formatÄ…. Laikantis ISO 8601
+# standarto, metai, mÄ—nuo ir dienos atskiriami brÅ«kÅ¡neliu, taÄiau Lietuvoje gali
+# bÅ«ti atskiriami ir taÅ¡ku. DÄ—l tos prieÅ¾asties data bei laikas gali bÅ«ti rodomi
+# prisitaikant prie lokalÄ—s:
 #
-#         %X -- laikas pagal vietinio laiko uşrağymo taisykles,
-#         %x -- data pagal vietinio laiko uşrağymo taisykles.
+#         %X -- laikas pagal vietinio laiko uÅ¾raÅ¡ymo taisykles,
+#         %x -- data pagal vietinio laiko uÅ¾raÅ¡ymo taisykles.
 
-# Daşniausiai pasitaikanèios laiko elementø kombinacijos turi savus paşymëjimus:
+# DaÅ¾niausiai pasitaikanÄios laiko elementÅ³ kombinacijos turi savus paÅ¾ymÄ—jimus:
 #
 #         %T == %H:%M:%S
 #         %R == %H:%M
@@ -111,36 +111,36 @@ Sys.timezone()
 #         %c == %a %b %e %H:%M:%S %Y
 
 
-# Kiekviena sisteminio laiko ir datos funkcija datà rodo tam tikru savo formatu, 
-# taèiau tà paèià datà galima uşrağyti keliais skirtingais bûdais. Tam naudojama 
+# Kiekviena sisteminio laiko ir datos funkcija datÄ… rodo tam tikru savo formatu, 
+# taÄiau tÄ… paÄiÄ… datÄ… galima uÅ¾raÅ¡yti keliais skirtingais bÅ«dais. Tam naudojama 
 # funkcija format. Jos parametrai:
 #
 #          x -- data,
 #     format -- datos formatas,
 #         tz -- laiko zona,
-#      usetz -- loginis, ar rodyti laiko zonà.
+#      usetz -- loginis, ar rodyti laiko zonÄ….
 
-# Pavyzdşiui, ğios dienos datà galima uşrağyti taip: mënuo-diena, savaitës diena.
-# Toks datos uşrağymo pavidalas atitinka "%m-%d, %A" formatà.
+# PavyzdÅ¾iui, Å¡ios dienos datÄ… galima uÅ¾raÅ¡yti taip: mÄ—nuo-diena, savaitÄ—s diena.
+# Toks datos uÅ¾raÅ¡ymo pavidalas atitinka "%m-%d, %A" formatÄ….
 
 format(Sys.Date(), format = "%m-%d, %A")
 
-# Pavyzdşiui, laiko momentà galima nurodyti tûkstantøjø sekundşiø tikslumu. Toks
-# laiko uşrağymas atitinka "%H:%M:%OS3" formatà.
+# PavyzdÅ¾iui, laiko momentÄ… galima nurodyti tÅ«kstantÅ³jÅ³ sekundÅ¾iÅ³ tikslumu. Toks
+# laiko uÅ¾raÅ¡ymas atitinka "%H:%M:%OS3" formatÄ….
 
 format(Sys.time(), format = "%H:%M:%OS3")
 
-# Turint laiko momentà, galima parodyti, koks vietinio laiko skirtumas nuo laiko 
-# pagal Grinvièà. Papildomai nurodome, kad bûtø parodomas ir laiko zonos kodas.
+# Turint laiko momentÄ…, galima parodyti, koks vietinio laiko skirtumas nuo laiko 
+# pagal GrinviÄÄ…. Papildomai nurodome, kad bÅ«tÅ³ parodomas ir laiko zonos kodas.
 
 format(Sys.time(), format = "%z", usetz = TRUE)
 
-# Naudojant funkcijà format, tà patá laikà galima "pervesti" á kità laiko juostà.
-# R kalboje naudojama taip vadinama Olson laiko zonø duomenø bazë (TZ database). 
+# Naudojant funkcijÄ… format, tÄ… patÄ¯ laikÄ… galima "pervesti" Ä¯ kitÄ… laiko juostÄ….
+# R kalboje naudojama taip vadinama Olson laiko zonÅ³ duomenÅ³ bazÄ— (TZ database). 
 
 OlsonNames()
 
-# Pavyzdşiui, uşfiksuosime laiko momentà ir atvaizduosime já Vilniaus, Tokijo ir 
+# PavyzdÅ¾iui, uÅ¾fiksuosime laiko momentÄ… ir atvaizduosime jÄ¯ Vilniaus, Tokijo ir 
 # Londono laiku.
 
 t <- Sys.time()
@@ -151,82 +151,82 @@ format(t, "%T", usetz = TRUE, tz = "Asia/Tokyo")
 format(t, "%T", usetz = TRUE, tz = "Europe/London")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Ğios dienos datà uşrağykite tokiais formatais: a) tik metai, b) tik mënesio 
-#    pavadinimas, c) tik diena, d) savaitës diena, mënesio pavadinimas ir dienos 
-#    numeris, d) metai, mënuo ir diena atskirti tağku.
-# 2. Sisteminá laikà uşrağykite tokiu formatu: a) tik data, b) tik laikas c) tik
-#    metai, d) valandos ir minutës, e) savaitës numeris, dienos numeris metuose,
-#    f) valandos, minutës ir sekundës atskirtos simboliu |.
-# 3. Didşioji dalis Lietuvos teritorijos yra UTC+2 laiko juostoje. Olson duomenø
-#    bazëje tokios laiko zonos pavadinimo nëra, taèiau vietoje UTC yra naudojama 
-#    Etc/GMT laiko zonø sistema, kur teigiamas laiko postûmis atitinka toká patá 
-#    postûmá á prieğingà pusæ UTC sistemoje. Sisteminá laikà uşrağykite Etc/GMT
+# 1. Å ios dienos datÄ… uÅ¾raÅ¡ykite tokiais formatais: a) tik metai, b) tik mÄ—nesio 
+#    pavadinimas, c) tik diena, d) savaitÄ—s diena, mÄ—nesio pavadinimas ir dienos 
+#    numeris, d) metai, mÄ—nuo ir diena atskirti taÅ¡ku.
+# 2. SisteminÄ¯ laikÄ… uÅ¾raÅ¡ykite tokiu formatu: a) tik data, b) tik laikas c) tik
+#    metai, d) valandos ir minutÄ—s, e) savaitÄ—s numeris, dienos numeris metuose,
+#    f) valandos, minutÄ—s ir sekundÄ—s atskirtos simboliu |.
+# 3. DidÅ¾ioji dalis Lietuvos teritorijos yra UTC+2 laiko juostoje. Olson duomenÅ³
+#    bazÄ—je tokios laiko zonos pavadinimo nÄ—ra, taÄiau vietoje UTC yra naudojama 
+#    Etc/GMT laiko zonÅ³ sistema, kur teigiamas laiko postÅ«mis atitinka tokÄ¯ patÄ¯ 
+#    postÅ«mÄ¯ Ä¯ prieÅ¡ingÄ… pusÄ™ UTC sistemoje. SisteminÄ¯ laikÄ… uÅ¾raÅ¡ykite Etc/GMT
 #    sistemoje.
-# 4. JAV ir kai kuriø kitø valstybiø kariuomenës savo tikslams naudoja specifinæ 
-#    laiko sistemà, kur laiko zonø pavadinimai susieti su NATO fonetine abëcële. 
-#    Pvz., raidë A şymi "Alpha" laiko zonà, kuri atitinka UTC+1, raidë B "Bravo",
-#    kuri atitinka UTC+2 ir t. t. Sisteminá laikà uşrağykite "Zulu" laiko zonoje.
-#    Nustatykite, koká UTC laikà ji atitinka.
+# 4. JAV ir kai kuriÅ³ kitÅ³ valstybiÅ³ kariuomenÄ—s savo tikslams naudoja specifinÄ™ 
+#    laiko sistemÄ…, kur laiko zonÅ³ pavadinimai susieti su NATO fonetine abÄ—cÄ—le. 
+#    Pvz., raidÄ— A Å¾ymi "Alpha" laiko zonÄ…, kuri atitinka UTC+1, raidÄ— B "Bravo",
+#    kuri atitinka UTC+2 ir t. t. SisteminÄ¯ laikÄ… uÅ¾raÅ¡ykite "Zulu" laiko zonoje.
+#    Nustatykite, kokÄ¯ UTC laikÄ… ji atitinka.
 
 
 # --------------------------------------- #
 # POSIX DATOS IR LAIKO FORMATAS           #
 # --------------------------------------- #
 
-# UNIX ir kai kuriose kitose operacinëse sistemose naudojama POSIX laiko sistema. 
-# Ğioje sistemoje laiko momentas nurodomas sekundşiø skaièiumi nuo 1970 sausio 1 
-# dienos 00:00:00 val. Tokiu bûdu POSIX laikas yra sveikasis skaièius, kuris kas 
-# sekundæ padidëja vienu vienetu. Ğia prasme POSIX suderinta su pasaulinio laiko 
-# sistema UTC, kurioje laiko vienetas yra sekundë. Paprastai viena para sudaryta
-# iğ 86400 sekundşiø. Dël Şemës sukimosi lëtëjimo pasaulinis laikas nesutampa su 
-# astronominiu laiku, todël, atliekant sinchronizacijà, prie UTC laiko pridedama 
-# papildoma sekundë. Tokios papildomos sekundës POSIX sistemoje neskaièiuojamos, 
-# todël POSIX laikas nëra nei tikrasis astronominis, nei tikrasis pasaulinis UTC 
-# laikas. Galima suşinoti, kada buvo pridëtos papildomos sekundës:
+# UNIX ir kai kuriose kitose operacinÄ—se sistemose naudojama POSIX laiko sistema. 
+# Å ioje sistemoje laiko momentas nurodomas sekundÅ¾iÅ³ skaiÄiumi nuo 1970 sausio 1 
+# dienos 00:00:00 val. Tokiu bÅ«du POSIX laikas yra sveikasis skaiÄius, kuris kas 
+# sekundÄ™ padidÄ—ja vienu vienetu. Å ia prasme POSIX suderinta su pasaulinio laiko 
+# sistema UTC, kurioje laiko vienetas yra sekundÄ—. Paprastai viena para sudaryta
+# iÅ¡ 86400 sekundÅ¾iÅ³. DÄ—l Å½emÄ—s sukimosi lÄ—tÄ—jimo pasaulinis laikas nesutampa su 
+# astronominiu laiku, todÄ—l, atliekant sinchronizacijÄ…, prie UTC laiko pridedama 
+# papildoma sekundÄ—. Tokios papildomos sekundÄ—s POSIX sistemoje neskaiÄiuojamos, 
+# todÄ—l POSIX laikas nÄ—ra nei tikrasis astronominis, nei tikrasis pasaulinis UTC 
+# laikas. Galima suÅ¾inoti, kada buvo pridÄ—tos papildomos sekundÄ—s:
 
 .leap.seconds
 
-# R kalboje naudojami du datos ir laiko formatai: POSIXct ir POSIXlt. Abi klasës
-# atitinka POSIX laiko apibrëşimà - tai teigiamas arba neigiamas skaièius, kuris 
-# lygus sekundşiø skaièiui nuo 1970-01-01 00:00:00. Viena nuo kitos jos skiriasi 
-# tuo, kad POSIXct objektas iğ tikro yra skaièius, o POSIXlt objektas - tai toks 
-# sàrağas, kurio elementai nurodo atskiras datos ir laiko komponentes:
+# R kalboje naudojami du datos ir laiko formatai: POSIXct ir POSIXlt. Abi klasÄ—s
+# atitinka POSIX laiko apibrÄ—Å¾imÄ… - tai teigiamas arba neigiamas skaiÄius, kuris 
+# lygus sekundÅ¾iÅ³ skaiÄiui nuo 1970-01-01 00:00:00. Viena nuo kitos jos skiriasi 
+# tuo, kad POSIXct objektas iÅ¡ tikro yra skaiÄius, o POSIXlt objektas - tai toks 
+# sÄ…raÅ¡as, kurio elementai nurodo atskiras datos ir laiko komponentes:
 # 
-#        sec -- 0–61: sekundës;
-#        min -- 0–59: minutës;
-#       hour -- 0–23: valandos;
-#       mday -- 1–31: mënesio diena;
-#        mon -- 0–11: mënesio numeris metuose;
-#       year -- metø nuo 1900 skaièius;
-#       wday -- 0–6: savaitës dienos numeris pradedant sekmadieniu;
-#       yday -- 0–365: metø dienos numeris;
+#        sec -- 0â€“61: sekundÄ—s;
+#        min -- 0â€“59: minutÄ—s;
+#       hour -- 0â€“23: valandos;
+#       mday -- 1â€“31: mÄ—nesio diena;
+#        mon -- 0â€“11: mÄ—nesio numeris metuose;
+#       year -- metÅ³ nuo 1900 skaiÄius;
+#       wday -- 0â€“6: savaitÄ—s dienos numeris pradedant sekmadieniu;
+#       yday -- 0â€“365: metÅ³ dienos numeris;
 #      isdst -- vasaros laiko indikatorius;
-#       zone -- laiko zonos identifikatorius (nebûtinas);
-#     gmtoff -- laiko postûmis sekundëmis nuo GTM (nebûtinas).
+#       zone -- laiko zonos identifikatorius (nebÅ«tinas);
+#     gmtoff -- laiko postÅ«mis sekundÄ—mis nuo GTM (nebÅ«tinas).
 #
-# Kadangi POSIXct formatu uşrağytas laikas yra vienas skaièius, jis uşima maşiau 
-# vietos ir todël labiau tinka ávairiems veiksmams su datomis arba jø saugojimui
-# duomenø lentelëse. POSIXlt formatas naudojamas tada, kai iğ datos reikia gauti
-# kokià nors vienà atskirà dalá, pvz., savaitës dienà arba dienos numerá metuose.
+# Kadangi POSIXct formatu uÅ¾raÅ¡ytas laikas yra vienas skaiÄius, jis uÅ¾ima maÅ¾iau 
+# vietos ir todÄ—l labiau tinka Ä¯vairiems veiksmams su datomis arba jÅ³ saugojimui
+# duomenÅ³ lentelÄ—se. POSIXlt formatas naudojamas tada, kai iÅ¡ datos reikia gauti
+# kokiÄ… nors vienÄ… atskirÄ… dalÄ¯, pvz., savaitÄ—s dienÄ… arba dienos numerÄ¯ metuose.
 
 
-# POSIX objekto klasë keièiama naudojant funkcijas as.POSIXct ir as.POSIXlt. Tos
-# funkcijos naudojamos ir POSIX objekto sudarymui iğ tekstiniu formatu uşrağytos
+# POSIX objekto klasÄ— keiÄiama naudojant funkcijas as.POSIXct ir as.POSIXlt. Tos
+# funkcijos naudojamos ir POSIX objekto sudarymui iÅ¡ tekstiniu formatu uÅ¾raÅ¡ytos
 # datos. Pagrindiniai argumentai:
 #
 #          x -- datos objektas, POSIXct arba POSIXlt tipo objektas,
 #         tz -- laiko zona.
 #
-# Funkcija as.POSIXlt, priklausomai nuo to, koks yra datos objektas, gali turëti
+# Funkcija as.POSIXlt, priklausomai nuo to, koks yra datos objektas, gali turÄ—ti
 # dar du parametrus:
 #
 #     format -- datos formatas, kai x yra "character" tipo,
-#     origin -- datos atskaitos tağkas, kai x yra "numeric" tipo.
+#     origin -- datos atskaitos taÅ¡kas, kai x yra "numeric" tipo.
 
 
-# Pvz., sudarysime POSIXct klasës vektoriø iğ %Y-%m-%d %H:%M:%S formatu uşrağyto
+# Pvz., sudarysime POSIXct klasÄ—s vektoriÅ³ iÅ¡ %Y-%m-%d %H:%M:%S formatu uÅ¾raÅ¡yto
 # laiko momento. Tarkime, kad laiko zona bus Lietuvos.
 
 laikas <- "2015-11-08 14:31:17"
@@ -235,9 +235,9 @@ laikas
 t <- as.POSIXct(laikas, tz = "Europe/Vilnius")
 t
 
-# Matome, kad POSIXct klasës objektas yra double tipo skaièius, kuris ir reiğkia 
-# sekundşiø skaièiø nuo 1970-01-01 00:00:00. Galima pastebëti, kad toks objektas
-# turi atributà tzone, kuriam priskirtas laiko zonos pavadinimas.
+# Matome, kad POSIXct klasÄ—s objektas yra double tipo skaiÄius, kuris ir reiÅ¡kia 
+# sekundÅ¾iÅ³ skaiÄiÅ³ nuo 1970-01-01 00:00:00. Galima pastebÄ—ti, kad toks objektas
+# turi atributÄ… tzone, kuriam priskirtas laiko zonos pavadinimas.
 
 class(t)
 mode(t)
@@ -245,35 +245,35 @@ typeof(t)
 attributes(t)
 
 
-# Sudarysime to paties laiko momento POSIXlt klasës objektà.
+# Sudarysime to paties laiko momento POSIXlt klasÄ—s objektÄ….
 
 t <- as.POSIXlt(laikas, tz = "Europe/Vilnius")
 t
 
-# Nesunkiai galima patikrinti, kad POSIXlt klasës objektas yra laiko komponenèiø
-# sàrağas. 
+# Nesunkiai galima patikrinti, kad POSIXlt klasÄ—s objektas yra laiko komponenÄiÅ³
+# sÄ…raÅ¡as. 
 
 class(t)
 mode(t)
 typeof(t)
 attributes(t)
 
-# Iğ tokio sàrağo galima gauti atskiras datos arba laiko komponentes. Pavyzdşiui,
-# valandas, minutes ir sekundes, savaitës dienos ar metø dienos numerá.
+# IÅ¡ tokio sÄ…raÅ¡o galima gauti atskiras datos arba laiko komponentes. PavyzdÅ¾iui,
+# valandas, minutes ir sekundes, savaitÄ—s dienos ar metÅ³ dienos numerÄ¯.
 
-t[["sec"]]      # sekundşiø skaièius
-t[["year"]]     # metø skaièius nuo 1900 metø
-t[["yday"]]     # dienos metuose numeris (skaièiuojant nuo 0)
+t[["sec"]]      # sekundÅ¾iÅ³ skaiÄius
+t[["year"]]     # metÅ³ skaiÄius nuo 1900 metÅ³
+t[["yday"]]     # dienos metuose numeris (skaiÄiuojant nuo 0)
 t[["zone"]]     # laiko zonos kodas
 
-# Panaikinant objekto klasæ, galima pamatyti iğ karto visus ğio sàrağo elementus.
+# Panaikinant objekto klasÄ™, galima pamatyti iÅ¡ karto visus Å¡io sÄ…raÅ¡o elementus.
 
 unlist(t)
 unclass(t)
 
 
-# Jei laikas uşrağytas nestandartiniu pavidalu, sukuriant POSIXlt klasës objektà,
-# reikia nurodyti jo uşrağymo formatà.
+# Jei laikas uÅ¾raÅ¡ytas nestandartiniu pavidalu, sukuriant POSIXlt klasÄ—s objektÄ…,
+# reikia nurodyti jo uÅ¾raÅ¡ymo formatÄ….
 
 laikas <- "14:31:17 08/11/2015"
 laikas
@@ -281,9 +281,9 @@ laikas
 t <- as.POSIXlt(laikas, format = "%H:%M:%S %d/%m/%Y")
 t
 
-# Laiko momentà galima nurodyti sekundşiu skaièiumi nuo tam tikro momento. Pvz.,
-# 12 valandø yra 43200 sekundşiø. Tegul atskaitos tağkas yra 2015-01-01 00:00:00 
-# pagal UTC. Sukursime atitinkamà laiko momentà.
+# Laiko momentÄ… galima nurodyti sekundÅ¾iu skaiÄiumi nuo tam tikro momento. Pvz.,
+# 12 valandÅ³ yra 43200 sekundÅ¾iÅ³. Tegul atskaitos taÅ¡kas yra 2015-01-01 00:00:00 
+# pagal UTC. Sukursime atitinkamÄ… laiko momentÄ….
 
 laikas <- 43200
 laikas
@@ -294,24 +294,24 @@ t
 
 # NAUDINGA ------------------------------
 
-# Laiko momentas paprastai susietas su laiko zona, bet kartais laiko zonà reikia 
-# pakeisti. Keièiant laiko zonà galimi du laiko momento perskaièiavimo variantai:
+# Laiko momentas paprastai susietas su laiko zona, bet kartais laiko zonÄ… reikia 
+# pakeisti. KeiÄiant laiko zonÄ… galimi du laiko momento perskaiÄiavimo variantai:
 #
-#  a) palikti tà patá laikà,
-#  b) perskaièiuoti laikà.
+#  a) palikti tÄ… patÄ¯ laikÄ…,
+#  b) perskaiÄiuoti laikÄ….
 
-# Pavyzdşiui, turime POSIXlt objektà su laiko momentu pagal pasauliná UTC laikà.
-# Galima pastebëti, kad laiko zonà nurodantis kodas yra laiko objekto atributas.
+# PavyzdÅ¾iui, turime POSIXlt objektÄ… su laiko momentu pagal pasaulinÄ¯ UTC laikÄ….
+# Galima pastebÄ—ti, kad laiko zonÄ… nurodantis kodas yra laiko objekto atributas.
 
 t <- as.POSIXlt("2015-11-07 00:00:25", format = "%F %T", tz = "UTC")
 t
 
 attributes(t)
 
-# Tam, kad laikà bûtø galima perskaièiuoti, jis turi bûti saugomas kaip skaièius
-# ir todël turi bûti uşrağytas POSIXct formatu. Jei, konvertuojant POSIX objektà 
-# nurodoma nauja laiko zona, tai keièiasi tik laiko zona, bet ne laiko momentas. 
-# Pavyzdşiui, konvertuojant datà á POSIXct klasæ, nurodysime kità laiko zonà --
+# Tam, kad laikÄ… bÅ«tÅ³ galima perskaiÄiuoti, jis turi bÅ«ti saugomas kaip skaiÄius
+# ir todÄ—l turi bÅ«ti uÅ¾raÅ¡ytas POSIXct formatu. Jei, konvertuojant POSIX objektÄ… 
+# nurodoma nauja laiko zona, tai keiÄiasi tik laiko zona, bet ne laiko momentas. 
+# PavyzdÅ¾iui, konvertuojant datÄ… Ä¯ POSIXct klasÄ™, nurodysime kitÄ… laiko zonÄ… --
 # "Europe/Vilnius".
 
 a <- as.POSIXct(t, tz = "Europe/Vilnius")
@@ -319,9 +319,9 @@ a
 
 attributes(a)
 
-# Galima pastebëti, kad laiko zona pasikeitë, taèiau laiko momentas nepasikeitë.
-# Tuo atveju, kai keièiant laiko zonà laiko momentas turi bûti perskaièiuojamas, 
-# laikas iğ pradşiø konvertuojamas á POSIXct klasæ, o tada pakeièiamas atributas.
+# Galima pastebÄ—ti, kad laiko zona pasikeitÄ—, taÄiau laiko momentas nepasikeitÄ—.
+# Tuo atveju, kai keiÄiant laiko zonÄ… laiko momentas turi bÅ«ti perskaiÄiuojamas, 
+# laikas iÅ¡ pradÅ¾iÅ³ konvertuojamas Ä¯ POSIXct klasÄ™, o tada pakeiÄiamas atributas.
 
 b <- as.POSIXct(t)
 b
@@ -332,38 +332,38 @@ attributes(b)
 
 b
 
-# Jeigu laikas yra POSIXct klasës objektas, pakeisti laiko zonà ir perskaièiuoti
-# laikà galima naudojant funkcijà format -- taip gauname tekstinæ laiko iğraiğkà.
-# Pavyzdşiui, uşrağysime tà patá laikà Tokijo laiku.
+# Jeigu laikas yra POSIXct klasÄ—s objektas, pakeisti laiko zonÄ… ir perskaiÄiuoti
+# laikÄ… galima naudojant funkcijÄ… format -- taip gauname tekstinÄ™ laiko iÅ¡raiÅ¡kÄ….
+# PavyzdÅ¾iui, uÅ¾raÅ¡ysime tÄ… patÄ¯ laikÄ… Tokijo laiku.
 
 format(b, "%T", usetz = TRUE, tz = "Asia/Tokyo")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Tarkime, kad laiko momentas pagal UTC uşrağytas taip: "2015.12.12 07|54|25".
+# 1. Tarkime, kad laiko momentas pagal UTC uÅ¾raÅ¡ytas taip: "2015.12.12 07|54|25".
 #    Sudarykite POSIXct ir POSIXlt formato laiko objektus.
-# 2. Sudarykite POSIXct laiko objektà, kuris reiğkia laiko momentà praëjus 1 mln. 
-#    sekundşiø nuo dabar. Kokia tai bus mënesio ir savaitës diena?
-# 3. Perskaièiuokite ir nustatykite, koká laiko momentà pagal UTC atitinka laiko
+# 2. Sudarykite POSIXct laiko objektÄ…, kuris reiÅ¡kia laiko momentÄ… praÄ—jus 1 mln. 
+#    sekundÅ¾iÅ³ nuo dabar. Kokia tai bus mÄ—nesio ir savaitÄ—s diena?
+# 3. PerskaiÄiuokite ir nustatykite, kokÄ¯ laiko momentÄ… pagal UTC atitinka laiko
 #    momentas "2015-12-12 10:07:26" EET laiko zonoje, kurioje yra ir Lietuva.
 
 
 # --------------------------------------- #
-# POSIXlt OBJEKTO SUDARYMAS IĞ TEKSTO     #
+# POSIXlt OBJEKTO SUDARYMAS IÅ  TEKSTO     #
 # --------------------------------------- #
 
-# Ávairiuose duomenø failuose data ir laikas paprastai uşrağyti kaip tekstas. Jo
-# konvertavimui á POSIXlt formatà naudojama funkcija strptime. F-jos parametrai:
+# Ä®vairiuose duomenÅ³ failuose data ir laikas paprastai uÅ¾raÅ¡yti kaip tekstas. Jo
+# konvertavimui Ä¯ POSIXlt formatÄ… naudojama funkcija strptime. F-jos parametrai:
 #
-#          x -- character tipo laiko reikğmiø vektorius,
-#     format -- formatas, kuriuo uşrağytas laikas,
+#          x -- character tipo laiko reikÅ¡miÅ³ vektorius,
+#     format -- formatas, kuriuo uÅ¾raÅ¡ytas laikas,
 #         tz -- laiko zonos kodas.
 
 
-# Laikantis ISO 8601 standarto, metai, mënuo ir diena vienas nuo kito atskiriami 
-# brûkğneliu, todël data nurodoma YYYY-MM-DD formatu, kuris uşrağomas "%Y-%m-%d"
-# arba sutrumpintai "%F". Pavyzdşiui, nuskaitysime tokiu formatu uşrağytas datas.
+# Laikantis ISO 8601 standarto, metai, mÄ—nuo ir diena vienas nuo kito atskiriami 
+# brÅ«kÅ¡neliu, todÄ—l data nurodoma YYYY-MM-DD formatu, kuris uÅ¾raÅ¡omas "%Y-%m-%d"
+# arba sutrumpintai "%F". PavyzdÅ¾iui, nuskaitysime tokiu formatu uÅ¾raÅ¡ytas datas.
 
 x <- c("1961-04-12", "1965-03-18", "1969-07-24")
 x
@@ -371,8 +371,8 @@ x
 t <- strptime(x, format = "%Y-%m-%d")
 t
 
-# Tos paèios datos gali bûti uşrağytos kitokiu formatu. Pavyzdşiui, labai daşnai
-# metai, mënuo ir diena atskiriami pasviru brûkğneliu.
+# Tos paÄios datos gali bÅ«ti uÅ¾raÅ¡ytos kitokiu formatu. PavyzdÅ¾iui, labai daÅ¾nai
+# metai, mÄ—nuo ir diena atskiriami pasviru brÅ«kÅ¡neliu.
 
 x <- c("1961/04/12", "1965/03/18", "1969/07/24")
 x
@@ -380,20 +380,20 @@ x
 t <- strptime(x, format = "%Y/%m/%d")
 t
 
-# Kai kurie laiko momentai nëra susieti su jokia konkreèia vietove ar laiko zona. 
-# Pvz., toks universalus laikas reikalingas orø prognozei, lëktuvø, traukiniø ir
-# kitø transporto priemoniø tvarkarağèiams sudaryti, jis naudojamas internete ir
-# astronomijoje, tarptautinëje kosminëje stotyje. Iki 1972 metø pasaulyje laikas 
-# buvo matuojamas pagal astronominá Grinvièo laikà. Nuo 1972 naudojama pasaulinë 
-# UTC laiko sistema ir laikas sinchronizuojamas pagal atominá laikrodá.
+# Kai kurie laiko momentai nÄ—ra susieti su jokia konkreÄia vietove ar laiko zona. 
+# Pvz., toks universalus laikas reikalingas orÅ³ prognozei, lÄ—ktuvÅ³, traukiniÅ³ ir
+# kitÅ³ transporto priemoniÅ³ tvarkaraÅ¡Äiams sudaryti, jis naudojamas internete ir
+# astronomijoje, tarptautinÄ—je kosminÄ—je stotyje. Iki 1972 metÅ³ pasaulyje laikas 
+# buvo matuojamas pagal astronominÄ¯ GrinviÄo laikÄ…. Nuo 1972 naudojama pasaulinÄ— 
+# UTC laiko sistema ir laikas sinchronizuojamas pagal atominÄ¯ laikrodÄ¯.
 #
 #        UTC -- Coordinated Universal Time,
 #        GMT -- Greenwich Mean Time.
 
-# Pavyzdşiui, sudarysime tris laiko momentus pagal UTC laikà. Formatà nurodysime
-# naudodami pilnà ir sutrumpintà datos ir laiko kodà.
+# PavyzdÅ¾iui, sudarysime tris laiko momentus pagal UTC laikÄ…. FormatÄ… nurodysime
+# naudodami pilnÄ… ir sutrumpintÄ… datos ir laiko kodÄ….
 
-#       Skrydis á kosmosà      Iğëjimas á kosmosà     Nusileidimas Mënulyje
+#       Skrydis Ä¯ kosmosÄ…      IÅ¡Ä—jimas Ä¯ kosmosÄ…     Nusileidimas MÄ—nulyje
 #      ---------------------  ---------------------  ---------------------
 x <- c("1961-04-12 06:07:00", "1965-03-18 08:34:51", "1969-07-24 16:50:35")
 x
@@ -402,11 +402,11 @@ t <- strptime(x, format = "%Y-%m-%d %H:%M:%S", tz = "UTC")
 t <- strptime(x, format = "%F %T", tz = "UTC")
 t
 
-# Jeigu laiko momentas susietas su konkreèia vietove, reikia nurodyti laiko zonà.
-# Laiko zonos turi vardus, kurie paprastai susideda iğ dviejø daliø. Pavyzdşiui,
+# Jeigu laiko momentas susietas su konkreÄia vietove, reikia nurodyti laiko zonÄ….
+# Laiko zonos turi vardus, kurie paprastai susideda iÅ¡ dviejÅ³ daliÅ³. PavyzdÅ¾iui,
 # "Europe/Vilnius", "Europe/London", "America/Toronto", "Asia/Hong_Kong" ir pan.
-# Pavyzdşiui, uşrağant Japonijos miestø Hiroshima ir Nagasaki bombardavimo laikà, 
-# reikia nurodyti Japonijos laiko zonà.
+# PavyzdÅ¾iui, uÅ¾raÅ¡ant Japonijos miestÅ³ Hiroshima ir Nagasaki bombardavimo laikÄ…, 
+# reikia nurodyti Japonijos laiko zonÄ….
 
 #       Hiroshima              Nagasaki
 #      ---------------------  ---------------------
@@ -417,44 +417,44 @@ t <- strptime(x, format = "%Y-%m-%d %H:%M:%S", tz = "Asia/Tokyo")
 t <- strptime(x, format = "%Y-%m-%d %H:%M:%S", tz = "Japan")
 t
 
-# Á tà paèià laiko juostà patenkanèios ğalys gali bûti apjungiamos á vienà laiko 
-# zonà. Pvz., Suomija, Estija, Latvija, Lietuva, Ukraina ir dar kelios UTC +2:00
-# juostoje esanèios ğalys sudaro Rytø Europos laiko zonà. Beveik viso ğios laiko
-# zonos ğalys pereina á vasaros laikà, kuris turi atskirà pavadinimà:
+# Ä® tÄ… paÄiÄ… laiko juostÄ… patenkanÄios Å¡alys gali bÅ«ti apjungiamos Ä¯ vienÄ… laiko 
+# zonÄ…. Pvz., Suomija, Estija, Latvija, Lietuva, Ukraina ir dar kelios UTC +2:00
+# juostoje esanÄios Å¡alys sudaro RytÅ³ Europos laiko zonÄ…. Beveik viso Å¡ios laiko
+# zonos Å¡alys pereina Ä¯ vasaros laikÄ…, kuris turi atskirÄ… pavadinimÄ…:
 #
 #        EET -- Eastern European Time (EET),
 #        EST -- Eastern European Summer Time (EEST).
 
-# Vietinis laikas pagal ISO 8601 standartà nustatomas per skirtumà nuo UTC laiko. 
-# Pavyzdşiui, EET laiko zona atitinka UTC +2:00 laikà, "Europe/Vilnius" taip pat 
-# atitinka UTC +2:00 laikà. 
+# Vietinis laikas pagal ISO 8601 standartÄ… nustatomas per skirtumÄ… nuo UTC laiko. 
+# PavyzdÅ¾iui, EET laiko zona atitinka UTC +2:00 laikÄ…, "Europe/Vilnius" taip pat 
+# atitinka UTC +2:00 laikÄ…. 
 
-# Etc yra speciali sritis, kuri naudojama nekonkreèioms laiko zonoms. Pavyzdşiui, 
-# Etc/UTC atitinka universalø pasauliná laikà. Pridedant laiko skirtumà, gauname
-# tà skirtumà atitinkanèios laiko juostos laikà. POSIX sistemoje vietoje Etc/UTC 
-# naudojamos Etc/GMT laiko juostos, taèiau -- su prieğingu laiko skirtumo şenklu!
-# O tai reiğkia, kad, pvz., EET laiko zona atitinka Etc/GMT -2:00, bet ne +2:00, 
-# kaip áprasta.
+# Etc yra speciali sritis, kuri naudojama nekonkreÄioms laiko zonoms. PavyzdÅ¾iui, 
+# Etc/UTC atitinka universalÅ³ pasaulinÄ¯ laikÄ…. Pridedant laiko skirtumÄ…, gauname
+# tÄ… skirtumÄ… atitinkanÄios laiko juostos laikÄ…. POSIX sistemoje vietoje Etc/UTC 
+# naudojamos Etc/GMT laiko juostos, taÄiau -- su prieÅ¡ingu laiko skirtumo Å¾enklu!
+# O tai reiÅ¡kia, kad, pvz., EET laiko zona atitinka Etc/GMT -2:00, bet ne +2:00, 
+# kaip Ä¯prasta.
 
 
-# Jei laiko reikğmes reikia árağyti á tekstiná failà, tai POSIX formatu uşrağytà 
-# laikà pirmiausia reikia konvertuoti á tekstà. Tam galima naudoti f-jà strftime. 
-# Ğios funkcijos parametrai tokie:
+# Jei laiko reikÅ¡mes reikia Ä¯raÅ¡yti Ä¯ tekstinÄ¯ failÄ…, tai POSIX formatu uÅ¾raÅ¡ytÄ… 
+# laikÄ… pirmiausia reikia konvertuoti Ä¯ tekstÄ…. Tam galima naudoti f-jÄ… strftime. 
+# Å ios funkcijos parametrai tokie:
 #
-#          x -- data, kuri gali bûti uşrağoma POSIXlt formatu,
-#     format -- datos iğvedimo formatas,
+#          x -- data, kuri gali bÅ«ti uÅ¾raÅ¡oma POSIXlt formatu,
+#     format -- datos iÅ¡vedimo formatas,
 #         tz -- laiko zona,
-#      usetz -- loginis, nustato ar rodyti laiko zonà.
+#      usetz -- loginis, nustato ar rodyti laiko zonÄ….
 
 
-# Pavyzdşiui, tekstiniu formatu uşrağysime Japonijos miestø bombardavimo datas.
+# PavyzdÅ¾iui, tekstiniu formatu uÅ¾raÅ¡ysime Japonijos miestÅ³ bombardavimo datas.
 
 datos <- strftime(t, format = "%F %T", usetz = TRUE)
 datos
 
-# Árağysime gautà datø vektoriø á tekstiná failà. Tam panaudosime dvi skirtingas
-# funkcijas: writeLines ir write. Norint ásitikinti, kad datos árağytos á failà,
-# já galima atidaryti. Kadangi gautas failas ğiaip nereikalingas, já iğtrinsime.
+# Ä®raÅ¡ysime gautÄ… datÅ³ vektoriÅ³ Ä¯ tekstinÄ¯ failÄ…. Tam panaudosime dvi skirtingas
+# funkcijas: writeLines ir write. Norint Ä¯sitikinti, kad datos Ä¯raÅ¡ytos Ä¯ failÄ…,
+# jÄ¯ galima atidaryti. Kadangi gautas failas Å¡iaip nereikalingas, jÄ¯ iÅ¡trinsime.
 
 writeLines(datos, con = "datos.txt")
 file.show("datos.txt")
@@ -465,113 +465,113 @@ file.show("datos.txt")
 file.remove("datos.txt")
 
 
-# Laiko ir datos uşrağymui tekstiniu formatu galima panaudoti ir funkcijà format. 
+# Laiko ir datos uÅ¾raÅ¡ymui tekstiniu formatu galima panaudoti ir funkcijÄ… format. 
 
 format(t, format = "%F %T", usetz = TRUE)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Tarkime, kad laiko momentas uşrağytas tokiu pavidalu: "2015 12 12 10 40 15".
-#    Matome, kad metai, mënuo, diena ir t. t. vienas nuo kito atskirti tik tarpo
-#    simboliu. Funkcijai strptime nurodykite datos ir laiko uşrağymà atitinkantá 
-#    formatà ir sudarykite POSIX laiko objektà.
-# 2. Duotas toks datø vektorius: c("1918 2 mën. 16 d.", "1990 3 mën. 11 d."). Ğá
-#    datø vektoriø paverskite á POSIX laiko objektà.
-# 3. Prieğ tai gautà POSIX datø vektoriø árağykite á tekstiná failà: a) be laiko
-#    zonos, b) tik metus, c) savaitës dienà, mënuo ir diena.
+# 1. Tarkime, kad laiko momentas uÅ¾raÅ¡ytas tokiu pavidalu: "2015 12 12 10 40 15".
+#    Matome, kad metai, mÄ—nuo, diena ir t. t. vienas nuo kito atskirti tik tarpo
+#    simboliu. Funkcijai strptime nurodykite datos ir laiko uÅ¾raÅ¡ymÄ… atitinkantÄ¯ 
+#    formatÄ… ir sudarykite POSIX laiko objektÄ….
+# 2. Duotas toks datÅ³ vektorius: c("1918 2 mÄ—n. 16 d.", "1990 3 mÄ—n. 11 d."). Å Ä¯
+#    datÅ³ vektoriÅ³ paverskite Ä¯ POSIX laiko objektÄ….
+# 3. PrieÅ¡ tai gautÄ… POSIX datÅ³ vektoriÅ³ Ä¯raÅ¡ykite Ä¯ tekstinÄ¯ failÄ…: a) be laiko
+#    zonos, b) tik metus, c) savaitÄ—s dienÄ…, mÄ—nuo ir diena.
 
 
 # --------------------------------------- #
-# POSIXlt OBJEKTO SUDARYMAS IĞ SKAIÈIØ    #
+# POSIXlt OBJEKTO SUDARYMAS IÅ  SKAIÄŒIÅ²    #
 # --------------------------------------- #
 
-# Jeigu data arba laikas uşrağyti kaip tekstas, naudojant pilnus ar sutrumpintus 
-# mënesiø pavadinimus, tada konvertavimui á POSIXlt laiko formatà naudojama f-ja 
-# strptime. Jei visos laiko komponentës -- metai, mënuo diena, valandos, minutës 
-# ir sekundës -- uşrağomos skaièiais, tada POSIXlt klasës laiko momentà sudaryti 
-# patogu naudojant funkcijà ISOdatetime arba analogiğkà jai funkcijà ISOdate. Jø
+# Jeigu data arba laikas uÅ¾raÅ¡yti kaip tekstas, naudojant pilnus ar sutrumpintus 
+# mÄ—nesiÅ³ pavadinimus, tada konvertavimui Ä¯ POSIXlt laiko formatÄ… naudojama f-ja 
+# strptime. Jei visos laiko komponentÄ—s -- metai, mÄ—nuo diena, valandos, minutÄ—s 
+# ir sekundÄ—s -- uÅ¾raÅ¡omos skaiÄiais, tada POSIXlt klasÄ—s laiko momentÄ… sudaryti 
+# patogu naudojant funkcijÄ… ISOdatetime arba analogiÅ¡kÄ… jai funkcijÄ… ISOdate. JÅ³
 # parametrai visi vienodi:
 #
 #       year -- metai,
-#      month -- mënuo,
+#      month -- mÄ—nuo,
 #        day -- diena,
 #       hour -- valanda,
-#        min -- minutës,
-#        sec -- sekundës,
+#        min -- minutÄ—s,
+#        sec -- sekundÄ—s,
 #         tz -- laiko zona.
 
-# Iğ esmës ğios funkcijos yra vienodos ir skiriasi tik pradinëmis savo parametrø 
-# reikğmëmis:
+# IÅ¡ esmÄ—s Å¡ios funkcijos yra vienodos ir skiriasi tik pradinÄ—mis savo parametrÅ³ 
+# reikÅ¡mÄ—mis:
 #
 #   ISOdatetime(year, month, day, hour, min, sec, tz = "")
 #   ISOdate    (year, month, day, hour = 12, min = 0, sec = 0, tz = "GMT")
 #
-# Matosi, kad pagal nutylëjimà f-jos ISOdatetime parametrui tz priskirta reikğmë 
-# "", o f-jos ISOdate -- "GMT". Pirmuoju atveju laiko momentui nustatoma vietinë 
-# laiko zona, o antruoju gaunamas laiko momentas pagal pasauliná UTC laikà.
+# Matosi, kad pagal nutylÄ—jimÄ… f-jos ISOdatetime parametrui tz priskirta reikÅ¡mÄ— 
+# "", o f-jos ISOdate -- "GMT". Pirmuoju atveju laiko momentui nustatoma vietinÄ— 
+# laiko zona, o antruoju gaunamas laiko momentas pagal pasaulinÄ¯ UTC laikÄ….
 
-# Kurià funkcijà naudoti, priklauso nuo situacijos. Jei reikia uşrağyti tikslaus 
-# laiko momentà, tada labiau tinka ISOdatetime. 
+# KuriÄ… funkcijÄ… naudoti, priklauso nuo situacijos. Jei reikia uÅ¾raÅ¡yti tikslaus 
+# laiko momentÄ…, tada labiau tinka ISOdatetime. 
 
 ISOdatetime(year = 2015, month = 11, day = 15, hour = 17, min = 48, sec = 18)
 
-# Kaip visada - jeigu reikğmës parametrams priskiriamos eilës tvarka, pavadinimø 
-# galima ir nerağyti.
+# Kaip visada - jeigu reikÅ¡mÄ—s parametrams priskiriamos eilÄ—s tvarka, pavadinimÅ³ 
+# galima ir neraÅ¡yti.
 
 ISOdatetime(2015, 11, 15, 17, 48, 18)
 
-# Jeigu nurodome ne tik datà, bet ir laikà, tada galima naudoti ir f-jà ISOdate.
-# Papildomai nurodysime laiko zonà, nes ğiai funkcijai pagal nutylëjimà yra UTC.
+# Jeigu nurodome ne tik datÄ…, bet ir laikÄ…, tada galima naudoti ir f-jÄ… ISOdate.
+# Papildomai nurodysime laiko zonÄ…, nes Å¡iai funkcijai pagal nutylÄ—jimÄ… yra UTC.
 
 ISOdate(2015, 11, 15, 17, 48, 18, tz = "Europe/Vilnius")
 
 # Jei reikalinga tik data be tikslaus laiko, tada labiau tinka funkcija ISOdate.
-# Pavyzdşiui, nurodşius tik metus, mënesá ir dienà, sudaromas tos dienos 12 val.
-# atitinkantis laiko momentas pagal UTC laikà.
+# PavyzdÅ¾iui, nurodÅ¾ius tik metus, mÄ—nesÄ¯ ir dienÄ…, sudaromas tos dienos 12 val.
+# atitinkantis laiko momentas pagal UTC laikÄ….
 
 ISOdate(2015, 11, 15)
 
-# Jeigu kuriam nors parametrui priskiriame skaièiø sekà, galime sugeneruoti datø
-# sekà. Pavyzdşiui, sudarysime 2015 metø visø 12-os mënesiø pirmøjø dienø sekà.
+# Jeigu kuriam nors parametrui priskiriame skaiÄiÅ³ sekÄ…, galime sugeneruoti datÅ³
+# sekÄ…. PavyzdÅ¾iui, sudarysime 2015 metÅ³ visÅ³ 12-os mÄ—nesiÅ³ pirmÅ³jÅ³ dienÅ³ sekÄ….
 
 ISOdate(2015, 1:12, 1)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudodami f-jà ISOdatetime, sudarykite 24 laiko momentø vektoriø, iğdëstytø
-#    tolygiai kas valandà ir pradedant nuo 00:00.
+# 1. Naudodami f-jÄ… ISOdatetime, sudarykite 24 laiko momentÅ³ vektoriÅ³, iÅ¡dÄ—stytÅ³
+#    tolygiai kas valandÄ… ir pradedant nuo 00:00.
 
 
 # --------------------------------------- #
 # DATOS FORMATAS                          #
 # --------------------------------------- #
 
-# Vien datà nurodanèio objekto sudarymui naudojama f-ja as.Date. Gaunamas "Date"
-# klasës vektorius, kurio elementas yra data. Prie tokiu formatu uşrağytos datos
-# galima pridëti ar atimti tam tikrà dienø skaièiø, galima apskaièiuoti skirtumà 
-# tarp dviejø datø. Jei data uşrağyta kaip tekstas, tada f-jos parametrai tokie:
+# Vien datÄ… nurodanÄio objekto sudarymui naudojama f-ja as.Date. Gaunamas "Date"
+# klasÄ—s vektorius, kurio elementas yra data. Prie tokiu formatu uÅ¾raÅ¡ytos datos
+# galima pridÄ—ti ar atimti tam tikrÄ… dienÅ³ skaiÄiÅ³, galima apskaiÄiuoti skirtumÄ… 
+# tarp dviejÅ³ datÅ³. Jei data uÅ¾raÅ¡yta kaip tekstas, tada f-jos parametrai tokie:
 #
 #          x -- data kaip "character",
 #     format -- datos formatas.
 #
-# Data, kaip ir POSIX laikas, gali bûti uşrağyta kaip skaièius, kuris èia nurodo
-# dienø skaièiø nuo tam tikros datos. Tokiu atveju funkcijos parametrai tokie:
+# Data, kaip ir POSIX laikas, gali bÅ«ti uÅ¾raÅ¡yta kaip skaiÄius, kuris Äia nurodo
+# dienÅ³ skaiÄiÅ³ nuo tam tikros datos. Tokiu atveju funkcijos parametrai tokie:
 #
 #          x -- data kaip "numeric",
-#     origin -- atskaitos tağkas.
+#     origin -- atskaitos taÅ¡kas.
 #
-# Tà paèià funkcijà galima naudoti "POSIXct" formato laiko konvertavimui á datà.
+# TÄ… paÄiÄ… funkcijÄ… galima naudoti "POSIXct" formato laiko konvertavimui Ä¯ datÄ….
 # Tada parametrai tokie:
 #
 #          x -- "POSIXct" formato laikas,
 #         tz -- laiko zonos kodas.
 
-# Pvz., tekstiná datø vektoriø konvertuosime á "Date" klasës vektoriø. Èia visos
-# datos uşrağytos standartiniu "%Y-%m-%d" formatu, kuris ir nurodomas funkcijai.
+# Pvz., tekstinÄ¯ datÅ³ vektoriÅ³ konvertuosime Ä¯ "Date" klasÄ—s vektoriÅ³. ÄŒia visos
+# datos uÅ¾raÅ¡ytos standartiniu "%Y-%m-%d" formatu, kuris ir nurodomas funkcijai.
 
-#          Saulës        Durbës        Şalgirio      Orğos         Salaspilio
+#          SaulÄ—s        DurbÄ—s        Å½algirio      OrÅ¡os         Salaspilio
 #         ------------  ------------  ------------  ------------  ------------ 
 data <- c("1236-09-22", "1260-07-13", "1410-07-15", "1514-09-08", "1605-09-27")
 data
@@ -582,8 +582,8 @@ d
 class(d)
 
 
-# Naudojant funkcijà format, tà paèià datà galima pavaizduoti daugeliu skirtingø 
-# bûdø, pavyzdşiui:
+# Naudojant funkcijÄ… format, tÄ… paÄiÄ… datÄ… galima pavaizduoti daugeliu skirtingÅ³ 
+# bÅ«dÅ³, pavyzdÅ¾iui:
 
 format(d, format = "%Y")
 format(d, format = "%m")
@@ -596,8 +596,8 @@ format(d, format = "%m-%d")
 format(d, format = "%Y %B")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Tarkime, kad 1965 metø geguşës 14 diena uşrağyta sutrumpintai -- "65-05-14". 
-#    Komanda as.Date("65-05-14", "%y-%m-%d") ğià datà supranta kaip "2065-05-14". 
-#    Sugalvokite, kaip korektiğkai konvertuoti taip sutrumpintai uşrağytas datas.
+# 1. Tarkime, kad 1965 metÅ³ geguÅ¾Ä—s 14 diena uÅ¾raÅ¡yta sutrumpintai -- "65-05-14". 
+#    Komanda as.Date("65-05-14", "%y-%m-%d") Å¡iÄ… datÄ… supranta kaip "2065-05-14". 
+#    Sugalvokite, kaip korektiÅ¡kai konvertuoti taip sutrumpintai uÅ¾raÅ¡ytas datas.

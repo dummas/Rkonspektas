@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Pagrindinës aukğto lygio grafinës funkcijos.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            PagrindinÄ—s aukÅ¡to lygio grafinÄ—s funkcijos.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-03-29 | 2014-04-24
 #
@@ -12,7 +12,7 @@
 # TURINYS -------------------------------
 
 #
-#   1. Aukğto lygio grafinës funkcijos:
+#   1. AukÅ¡to lygio grafinÄ—s funkcijos:
 #      * funkcija curve
 #      * funkcija barplot
 #      * funkcija boxplot
@@ -23,46 +23,46 @@
 # PASTABOS ------------------------------
 
 #
-# Parağyti apie curve parametrà xname.
-# Sugalvoti uşdaviniø funkcijai boxplot.
-# Parağyti apie barplot parametrà axis.lty.
+# ParaÅ¡yti apie curve parametrÄ… xname.
+# Sugalvoti uÅ¾daviniÅ³ funkcijai boxplot.
+# ParaÅ¡yti apie barplot parametrÄ… axis.lty.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
 # --------------------------------------- #
-# AUKĞTO IR ŞEMO LYGIO GRAFINËS FUNKCIJOS #
+# AUKÅ TO IR Å½EMO LYGIO GRAFINÄ–S FUNKCIJOS #
 # --------------------------------------- #
 
-# Visas R grafines funkcijas sàlyginai galima padalinti á dvi dideles grupes:
+# Visas R grafines funkcijas sÄ…lyginai galima padalinti Ä¯ dvi dideles grupes:
 #
-#   1) aukğto lygio grafinës funkcijos,
-#   2) şemo lygio grafinës funkcijos.
+#   1) aukÅ¡to lygio grafinÄ—s funkcijos,
+#   2) Å¾emo lygio grafinÄ—s funkcijos.
 #
-# Aukğto lygio grafinës funkcijos yra skirtos baziniam tam tikro tipo grafiko ar
-# diagramos braişymui. Toks grafikas turi suformuotà koordinaèiø sistemà, ağis,
-# antrağtes ir visus kitus tokio tipo grafikui reikalingus elementus. Şemo lygio
-# grafinës funkcijos yra skirtos jau suformuotø grafikø papildymu tam tikrais jo
-# elementais: papildomais tağkais, linijomis, kitokiomis nei standartinës ağimis,
+# AukÅ¡to lygio grafinÄ—s funkcijos yra skirtos baziniam tam tikro tipo grafiko ar
+# diagramos braiÅ¾ymui. Toks grafikas turi suformuotÄ… koordinaÄiÅ³ sistemÄ…, aÅ¡is,
+# antraÅ¡tes ir visus kitus tokio tipo grafikui reikalingus elementus. Å½emo lygio
+# grafinÄ—s funkcijos yra skirtos jau suformuotÅ³ grafikÅ³ papildymu tam tikrais jo
+# elementais: papildomais taÅ¡kais, linijomis, kitokiomis nei standartinÄ—s aÅ¡imis,
 # tekstu ir kitais elementais.
 
-# Aukğto lygio grafinës funkcijos visada suformuoja ir nubraişo naujà grafikà, o
-# şemo lygio funkcijos tağkus, linijas arba kitus grafinius elementus uşdeda ant 
+# AukÅ¡to lygio grafinÄ—s funkcijos visada suformuoja ir nubraiÅ¾o naujÄ… grafikÄ…, o
+# Å¾emo lygio funkcijos taÅ¡kus, linijas arba kitus grafinius elementus uÅ¾deda ant 
 # jau sudaryto grafiko.
 
-# Didelæ dalá daşniausiai naudojamø grafikø galima nubraişyti naudojant funkcijà
-# plot, taèiau kai kuriuos grafikus ir diagramas patogiau braişyti naudojant tam
+# DidelÄ™ dalÄ¯ daÅ¾niausiai naudojamÅ³ grafikÅ³ galima nubraiÅ¾yti naudojant funkcijÄ…
+# plot, taÄiau kai kuriuos grafikus ir diagramas patogiau braiÅ¾yti naudojant tam
 # skirtas specializuotas funkcijas. 
 
 
@@ -70,39 +70,39 @@ rm(list = ls())
 # FUNKCIJA CURVE                          #
 # --------------------------------------- #
 
-# Funkcija curve naudojama vieno kintamojo funkcijos y = f(x) grafiko braişymui. 
+# Funkcija curve naudojama vieno kintamojo funkcijos y = f(x) grafiko braiÅ¾ymui. 
 # Pagrindiniai jos parametrai:
 #
 #       expr -- funkcijos f(x) pavadinimas,
-#       from -- intervalo [a, b] reikğmë a,
-#         to -- intervalo [a, b] reikğmë b,
-#          n -- tağkø skaièius intervale [a, b],
-#        add -- FALSE, nurodo ar grafikà uşdëti ant jau sudaryto grafiko.
+#       from -- intervalo [a, b] reikÅ¡mÄ— a,
+#         to -- intervalo [a, b] reikÅ¡mÄ— b,
+#          n -- taÅ¡kÅ³ skaiÄius intervale [a, b],
+#        add -- FALSE, nurodo ar grafikÄ… uÅ¾dÄ—ti ant jau sudaryto grafiko.
 
-# Sudarant funkcijos f(x) intervale [a, b] grafikà, ğis intervalas padalinamas á 
-# 100 lygiø daliø, kurias viena nuo kitos atskiria n = 101 tağkø. Tuose tağkuose
-# skaièiuojamos funkcijos y = f(x) reikğmës ir gaunamos tağkø (x, y) koordinatës.
+# Sudarant funkcijos f(x) intervale [a, b] grafikÄ…, Å¡is intervalas padalinamas Ä¯ 
+# 100 lygiÅ³ daliÅ³, kurias viena nuo kitos atskiria n = 101 taÅ¡kÅ³. Tuose taÅ¡kuose
+# skaiÄiuojamos funkcijos y = f(x) reikÅ¡mÄ—s ir gaunamos taÅ¡kÅ³ (x, y) koordinatÄ—s.
 
-# Paprasèiausiu atveju funkcijai curve galima nurodyti bet kokios standartinës R 
-# funkcijos pavadinimà ir intervalo, kuriame nubraişomas ğios funkcijos grafikas, 
-# ribas. Pvz., nubraişysime funkcijos y = sin(x) grafikà intervale [-pi, pi].
+# PaprasÄiausiu atveju funkcijai curve galima nurodyti bet kokios standartinÄ—s R 
+# funkcijos pavadinimÄ… ir intervalo, kuriame nubraiÅ¾omas Å¡ios funkcijos grafikas, 
+# ribas. Pvz., nubraiÅ¾ysime funkcijos y = sin(x) grafikÄ… intervale [-pi, pi].
 
 curve(sin, from = -pi, to = pi)
 
-# Kaip visada, jei parametrai uşrağomi nustatyta tvarka, jø pavadinimø galima ir
-# nerağyti. Taip gaunama paprastesnës ir lengviau perskaitoma iğraiğka.
+# Kaip visada, jei parametrai uÅ¾raÅ¡omi nustatyta tvarka, jÅ³ pavadinimÅ³ galima ir
+# neraÅ¡yti. Taip gaunama paprastesnÄ—s ir lengviau perskaitoma iÅ¡raiÅ¡ka.
 
 curve(sin, -pi, pi)
 
-# Standartines R funkcijas galima panaudoti kitø funkcijø sudarymui. Pavyzdşiui,
-# R turi funkcijà y = sin(x), taèiau neturi funkcijos y = sin(2x). Jos iğraiğkà 
-# kaip argumentà galima árağyti tiesiai á funkcijà plot.
+# Standartines R funkcijas galima panaudoti kitÅ³ funkcijÅ³ sudarymui. PavyzdÅ¾iui,
+# R turi funkcijÄ… y = sin(x), taÄiau neturi funkcijos y = sin(2x). Jos iÅ¡raiÅ¡kÄ… 
+# kaip argumentÄ… galima Ä¯raÅ¡yti tiesiai Ä¯ funkcijÄ… plot.
 
 curve(sin(2*x), -pi, pi)
 
-# Sudëtingø funkcijø iğraiğkà geriau uşrağyti kaip R funkcija ir duoti jai vardà.
-# Pvz., nubraişysime racionalios trupmenos y = x/(x^2 + x + 1) intervale [-5, 5] 
-# grafikà. Pirmiausia jos iğraiğkà uşrağysime kaip R funkcijà.
+# SudÄ—tingÅ³ funkcijÅ³ iÅ¡raiÅ¡kÄ… geriau uÅ¾raÅ¡yti kaip R funkcija ir duoti jai vardÄ….
+# Pvz., nubraiÅ¾ysime racionalios trupmenos y = x/(x^2 + x + 1) intervale [-5, 5] 
+# grafikÄ…. Pirmiausia jos iÅ¡raiÅ¡kÄ… uÅ¾raÅ¡ysime kaip R funkcijÄ….
 
 fun.rt <- function(x) {
   y <- x/(x^2 + x + 1)
@@ -112,25 +112,25 @@ fun.rt <- function(x) {
 curve(fun.rt, -5, 5)
 
 
-# Funkcija curve yra aukğto lygio grafinë funkcija, todël kiekvienà kartà braişo 
-# naujà grafikà, taèiau jos parametrui add priskyrus reikğmæ TRUE, naujà grafikà 
-# galima uşdëti ant jau nubraişyto grafiko virğaus. Pvz., nubraişysime funkcijos 
-# y = sin(kx)/k intervale [-pi, pi] grafikus, kai parametro k reikğmë kinta nuo 
-# 1 iki 4. Iğ pradşiø uşrağysime tokios funkcijos iğraiğkà.
+# Funkcija curve yra aukÅ¡to lygio grafinÄ— funkcija, todÄ—l kiekvienÄ… kartÄ… braiÅ¾o 
+# naujÄ… grafikÄ…, taÄiau jos parametrui add priskyrus reikÅ¡mÄ™ TRUE, naujÄ… grafikÄ… 
+# galima uÅ¾dÄ—ti ant jau nubraiÅ¾yto grafiko virÅ¡aus. Pvz., nubraiÅ¾ysime funkcijos 
+# y = sin(kx)/k intervale [-pi, pi] grafikus, kai parametro k reikÅ¡mÄ— kinta nuo 
+# 1 iki 4. IÅ¡ pradÅ¾iÅ³ uÅ¾raÅ¡ysime tokios funkcijos iÅ¡raiÅ¡kÄ….
 
 fun.si <- function(x, k) {
   y <- sin(k*x)/k
   return(y)
 }
 
-# Ği funkcija yra dviejø kintamøjø funkcija. Tam, kad funkcija curve jà parodytø
-# teisingai, vienà parametrà fiksuosime -- priskirsime jam reikğmæ. Tokiu bûdu
-# funkcija tampa vieno kintamojo funkcija, kurios grafikà curve gali nubraişyti.
+# Å i funkcija yra dviejÅ³ kintamÅ³jÅ³ funkcija. Tam, kad funkcija curve jÄ… parodytÅ³
+# teisingai, vienÄ… parametrÄ… fiksuosime -- priskirsime jam reikÅ¡mÄ™. Tokiu bÅ«du
+# funkcija tampa vieno kintamojo funkcija, kurios grafikÄ… curve gali nubraiÅ¾yti.
 
 curve(fun.si(x, k = 1), -pi, pi)
 
-# Grafikus su kitomis parametro k reikğmëmis uşdësime ant jau nubraişyto grafiko
-# virğaus.
+# Grafikus su kitomis parametro k reikÅ¡mÄ—mis uÅ¾dÄ—sime ant jau nubraiÅ¾yto grafiko
+# virÅ¡aus.
 
 curve(fun.si(x, k = 2), -pi, pi, add = TRUE)
 curve(fun.si(x, k = 3), -pi, pi, add = TRUE)
@@ -139,109 +139,109 @@ curve(fun.si(x, k = 4), -pi, pi, add = TRUE)
 
 # NAUDINGA ------------------------------
 
-# Pasikartojanèià iğraiğkà galima ádëti á ciklà ir tokiu bûdu keisti parametro k 
-# reikğmæ. Funkcinio programavimo apologetai gali naudoti konstrukcijà su sapply 
-# ir viskà uşrağyti viena eilute. Pastaba, parametro add reikğmæ nustatome pagal
-# loginæ sàlygà -- tikrinama ar parametro k reikğmë didesnë uş vienetà. Jei taip, 
-# tai add ágyja reikğmæ TRUE, prieğingu atveju priskiriama reikğmë FALSE.
+# PasikartojanÄiÄ… iÅ¡raiÅ¡kÄ… galima Ä¯dÄ—ti Ä¯ ciklÄ… ir tokiu bÅ«du keisti parametro k 
+# reikÅ¡mÄ™. Funkcinio programavimo apologetai gali naudoti konstrukcijÄ… su sapply 
+# ir viskÄ… uÅ¾raÅ¡yti viena eilute. Pastaba, parametro add reikÅ¡mÄ™ nustatome pagal
+# loginÄ™ sÄ…lygÄ… -- tikrinama ar parametro k reikÅ¡mÄ— didesnÄ— uÅ¾ vienetÄ…. Jei taip, 
+# tai add Ä¯gyja reikÅ¡mÄ™ TRUE, prieÅ¡ingu atveju priskiriama reikÅ¡mÄ— FALSE.
 
 sapply(1:16, function(k) curve(fun.si(x, k), -pi, pi, add = k > 1))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Naudojant funkcijà curve nubraişykite funkcijos y = ln(x) grafikà intervale 
-#    (0, 1]. Pakeiskite komandà taip, kad grafike ağies Oy ribos bûtø [-5, 5].
-# 2. Nubraişykite standartinio normaliojo skirstinio tankio funkcijos grafikà
+# 1. Naudojant funkcijÄ… curve nubraiÅ¾ykite funkcijos y = ln(x) grafikÄ… intervale 
+#    (0, 1]. Pakeiskite komandÄ… taip, kad grafike aÅ¡ies Oy ribos bÅ«tÅ³ [-5, 5].
+# 2. NubraiÅ¾ykite standartinio normaliojo skirstinio tankio funkcijos grafikÄ…
 #    intervale [-4, 4]. 
-# 3. Nubraişykite atsiktinio dydşio, pasiskirsèiusio tolygiai intervale [2, 5],
-#    tankio funkcijos grafikà. Ağies Ox ribos tegul bus [0, 7].
-# 4. Ant vieno grafiko nubraişykite funkcijø y = sin(x) ir y = cos(x) grafikus
+# 3. NubraiÅ¾ykite atsiktinio dydÅ¾io, pasiskirsÄiusio tolygiai intervale [2, 5],
+#    tankio funkcijos grafikÄ…. AÅ¡ies Ox ribos tegul bus [0, 7].
+# 4. Ant vieno grafiko nubraiÅ¾ykite funkcijÅ³ y = sin(x) ir y = cos(x) grafikus
 #    intervale [-pi, pi]. Tegul vienos funkcijos grafikas bus raudonos spalvos.
-# 5. Ant vieno grafiko nubraişykite tris normaliojo skirstinio tankio funkcijos 
+# 5. Ant vieno grafiko nubraiÅ¾ykite tris normaliojo skirstinio tankio funkcijos 
 #    variantus: su vidurkiu 0, su vidurkiu 1 ir su vidurkiu 3. Visais atvejais
-#    standartinis nuokrypis tegul bûna vienodas ir lygus 1.
+#    standartinis nuokrypis tegul bÅ«na vienodas ir lygus 1.
 
 
 # --------------------------------------- #
 # FUNKCIJA BARPLOT                        #
 # --------------------------------------- #
 
-# Funkcija barplot naudojama stulpeliniø diagramø braişymui. Paprastai naudojami
-# ğie parametrai:
+# Funkcija barplot naudojama stulpeliniÅ³ diagramÅ³ braiÅ¾ymui. Paprastai naudojami
+# Å¡ie parametrai:
 #
-#     height -- stulpeliø aukğèiø vektorius arba matrica,
-#      width -- stulpeliø ploèiø vektorius,
-#      space -- tarpo tarp stulpeliø reikğmë,
-#      horiz -- FALSE, nurodo ar stulpeliai bus braişomi horizontaliai,
-#     beside -- FALSE, nurodo ar tos paèios grupës stulpelius braişyti greta,
-#        add -- FALSE, nurodo ar diagramà uşdëti ant jau sudaryto grafiko.
+#     height -- stulpeliÅ³ aukÅ¡ÄiÅ³ vektorius arba matrica,
+#      width -- stulpeliÅ³ ploÄiÅ³ vektorius,
+#      space -- tarpo tarp stulpeliÅ³ reikÅ¡mÄ—,
+#      horiz -- FALSE, nurodo ar stulpeliai bus braiÅ¾omi horizontaliai,
+#     beside -- FALSE, nurodo ar tos paÄios grupÄ—s stulpelius braiÅ¾yti greta,
+#        add -- FALSE, nurodo ar diagramÄ… uÅ¾dÄ—ti ant jau sudaryto grafiko.
 
-# Paèiu paprasèiausiu atveju funkcijai barplot galima nurodyti sveikøjø skaièiø
-# vektoriø. Kiekvienas vektoriaus elementas atitinka vienà diagramos stulpelá, o 
-# jo aukğtis lygus atitinkamo vektoriaus elemento reikğmei.
+# PaÄiu paprasÄiausiu atveju funkcijai barplot galima nurodyti sveikÅ³jÅ³ skaiÄiÅ³
+# vektoriÅ³. Kiekvienas vektoriaus elementas atitinka vienÄ… diagramos stulpelÄ¯, o 
+# jo aukÅ¡tis lygus atitinkamo vektoriaus elemento reikÅ¡mei.
 
 h <- c(3, 2, 5, 3, 1)
 
 barplot(height = h)
 
-# Jei parametrai surağomi nustatyta tvarka, tai jø pavadinimø galima ir nerağyti. 
+# Jei parametrai suraÅ¡omi nustatyta tvarka, tai jÅ³ pavadinimÅ³ galima ir neraÅ¡yti. 
 
 barplot(h)
 
-# Paèiu bendriausiu atveju, vektoriaus, pagal kurá braişoma diagrama, elementai 
-# gali bûti bet kokie realûs skaièiai. Neigiamus vektoriaus elementus diagramoje 
-# atitinka "neigiamo" aukğèio stulpeliai.
+# PaÄiu bendriausiu atveju, vektoriaus, pagal kurÄ¯ braiÅ¾oma diagrama, elementai 
+# gali bÅ«ti bet kokie realÅ«s skaiÄiai. Neigiamus vektoriaus elementus diagramoje 
+# atitinka "neigiamo" aukÅ¡Äio stulpeliai.
 
 h <- c(-2, 2.5, 5, 3, -0.5)
 
 barplot(h)
 
-# Stulpeliø plotis nustatomas keièiant parametro width reikğmæ. Stulpeliai gali
-# bûti ir nevienodo ploèio. Tokiu atveju parametrui width perduodamas stulpeliø 
-# ploèiø reikğmiø vektorius.
+# StulpeliÅ³ plotis nustatomas keiÄiant parametro width reikÅ¡mÄ™. Stulpeliai gali
+# bÅ«ti ir nevienodo ploÄio. Tokiu atveju parametrui width perduodamas stulpeliÅ³ 
+# ploÄiÅ³ reikÅ¡miÅ³ vektorius.
 
 barplot(h, width = 1:5)
 
 # Stulpeliai vienas nuo kito atskirti tarpu, kurio plotis proporcingas stulpelio
-# ploèiui. Pagal nutylëjimà proporcingumo koef. lygus 0.2 ir gali bûti pakeistas 
-# nustatant kità parametro space reikğmæ. Jeigu parametras space = 1, tai tarpai 
-# tarp stulpeliø bus tokio paties ploèio kaip ir stulpeliai.
+# ploÄiui. Pagal nutylÄ—jimÄ… proporcingumo koef. lygus 0.2 ir gali bÅ«ti pakeistas 
+# nustatant kitÄ… parametro space reikÅ¡mÄ™. Jeigu parametras space = 1, tai tarpai 
+# tarp stulpeliÅ³ bus tokio paties ploÄio kaip ir stulpeliai.
 
 barplot(h, space = 0)
 barplot(h, space = 1)
 
-# Tam, kad stulpeliai diagramoje bûtø braişomi horizontaliai, naudojamas loginis 
-# parametras horiz. Pagal nutylëjimà jo reikğmë yra FALSE.
+# Tam, kad stulpeliai diagramoje bÅ«tÅ³ braiÅ¾omi horizontaliai, naudojamas loginis 
+# parametras horiz. Pagal nutylÄ—jimÄ… jo reikÅ¡mÄ— yra FALSE.
 
 barplot(h, horiz = TRUE)
 
 # Suprantama, galima keisti standartinius grafinius parametrus. Pvz., papildomai 
-# nustatysime ağies Oy ribas, stulpeliø spalvà ir pagrindinæ diagramos antrağtæ.
+# nustatysime aÅ¡ies Oy ribas, stulpeliÅ³ spalvÄ… ir pagrindinÄ™ diagramos antraÅ¡tÄ™.
 
-barplot(h, ylim = c(-5, 8), col = "red", main = "Stulpelinë diagrama")
+barplot(h, ylim = c(-5, 8), col = "red", main = "StulpelinÄ— diagrama")
 
 
-# Labai daşnai funkcija barplot naudojama ávairioms daşniø lentelëms atvaizduoti.
-# Kaip pavyzdá panaudosime laivo "Titanic" ávairiø kategorijø keleiviø skaièiaus
-# duomenø lentelæ Titanic.
+# Labai daÅ¾nai funkcija barplot naudojama Ä¯vairioms daÅ¾niÅ³ lentelÄ—ms atvaizduoti.
+# Kaip pavyzdÄ¯ panaudosime laivo "Titanic" Ä¯vairiÅ³ kategorijÅ³ keleiviÅ³ skaiÄiaus
+# duomenÅ³ lentelÄ™ Titanic.
 
 Titanic
 
 dimnames(Titanic)
 
-# Titanic yra keturiø kintamøjø kryşminë daşniø lentelë. Sumuodami tokià lentelæ 
-# pagal vienà kurá nors kintamàjá, gauname to kintamojo reikğmiø daşniø lentelæ. 
-# Pavyzdşiui, sudarysim skirtinga klase keliavusiø keleiviø skaièiaus lentelæ ir
-# nubraişysime jà atitinkanèià stulpelinæ diagramà.
+# Titanic yra keturiÅ³ kintamÅ³jÅ³ kryÅ¾minÄ— daÅ¾niÅ³ lentelÄ—. Sumuodami tokiÄ… lentelÄ™ 
+# pagal vienÄ… kurÄ¯ nors kintamÄ…jÄ¯, gauname to kintamojo reikÅ¡miÅ³ daÅ¾niÅ³ lentelÄ™. 
+# PavyzdÅ¾iui, sudarysim skirtinga klase keliavusiÅ³ keleiviÅ³ skaiÄiaus lentelÄ™ ir
+# nubraiÅ¾ysime jÄ… atitinkanÄiÄ… stulpelinÄ™ diagramÄ….
 
 d <- margin.table(Titanic, 1)
 d
 
 barplot(d)
 
-# Analogiğkai iğ pradinës lentelës galima gauti dviejø kintamøjø kryşminæ daşniø 
-# lentelæ. Pavyzdşiui, sudarysime keleivio klasës ir lyties daşniø lentelæ ir jà
+# AnalogiÅ¡kai iÅ¡ pradinÄ—s lentelÄ—s galima gauti dviejÅ³ kintamÅ³jÅ³ kryÅ¾minÄ™ daÅ¾niÅ³ 
+# lentelÄ™. PavyzdÅ¾iui, sudarysime keleivio klasÄ—s ir lyties daÅ¾niÅ³ lentelÄ™ ir jÄ…
 # atvaizduosime diagramos pavidalu.
 
 d <- margin.table(Titanic, c(2, 1))
@@ -249,313 +249,313 @@ d
 
 barplot(d)
 
-# Matome, kad daşniai atskirai paimtoje kategorijoje vaizduojami vienu stulpeliu.
-# Naudojant parametrà beside, juos galima iğskaidyti á atskirus stulpelius.
+# Matome, kad daÅ¾niai atskirai paimtoje kategorijoje vaizduojami vienu stulpeliu.
+# Naudojant parametrÄ… beside, juos galima iÅ¡skaidyti Ä¯ atskirus stulpelius.
 
 barplot(d, beside = TRUE)
 
-# Keièiant atstumà tarp stulpeliø, parametrui space reikia perduoti vektoriø su
-# dviem reikğmëmis: antroji nurodo tarpà tarp skirtingø grupiø, o pirmoji nurodo
-# tarpà tarp stulpeliø grupës viduje.
+# KeiÄiant atstumÄ… tarp stulpeliÅ³, parametrui space reikia perduoti vektoriÅ³ su
+# dviem reikÅ¡mÄ—mis: antroji nurodo tarpÄ… tarp skirtingÅ³ grupiÅ³, o pirmoji nurodo
+# tarpÄ… tarp stulpeliÅ³ grupÄ—s viduje.
 
 barplot(d, beside = TRUE, space = c(0.1, 0.8))
 
 
 # NAUDINGA ------------------------------
 
-# Funkcija barplot turi nemaşai kitø parametrø, kuriais galima keisti diagramos
-# iğvaizdà: stulpeliø ir atskirø jø daliø spalvà, leisti arba uşdrausti braişyti 
-# ağis ir rağyti jø pavadinimus. Keletas iğ jø:
+# Funkcija barplot turi nemaÅ¾ai kitÅ³ parametrÅ³, kuriais galima keisti diagramos
+# iÅ¡vaizdÄ…: stulpeliÅ³ ir atskirÅ³ jÅ³ daliÅ³ spalvÄ…, leisti arba uÅ¾drausti braiÅ¾yti 
+# aÅ¡is ir raÅ¡yti jÅ³ pavadinimus. Keletas iÅ¡ jÅ³:
 #
-#        col -- stulpeliø spalvø numeriø ar pavadinimø vektorius,
-#     border -- stulpeliø rëmelio spalva,
-#  names.arg -- stulpeliø pavadinimø vektorius,
-#  axisnames -- TRUE, nurodo ar rodyti ağiø pavadinimus,
-#       axes -- TRUE, nurodo ar rodyti ağis,
-#       plot -- TRUE, nurodo ar braişyti diagramà.
+#        col -- stulpeliÅ³ spalvÅ³ numeriÅ³ ar pavadinimÅ³ vektorius,
+#     border -- stulpeliÅ³ rÄ—melio spalva,
+#  names.arg -- stulpeliÅ³ pavadinimÅ³ vektorius,
+#  axisnames -- TRUE, nurodo ar rodyti aÅ¡iÅ³ pavadinimus,
+#       axes -- TRUE, nurodo ar rodyti aÅ¡is,
+#       plot -- TRUE, nurodo ar braiÅ¾yti diagramÄ….
 
-# Naudojant parametrà col, galima keisti stulpeliø spalvà. Kadangi kiekvienoje
-# grupëje yra po du stulpelius, parametrui priskiriame vektoriø su dviem spalvø
+# Naudojant parametrÄ… col, galima keisti stulpeliÅ³ spalvÄ…. Kadangi kiekvienoje
+# grupÄ—je yra po du stulpelius, parametrui priskiriame vektoriÅ³ su dviem spalvÅ³
 # pavadinimais.
 
 barplot(d, beside = TRUE, col = c("lightblue", "cornsilk"))
 
-# Vietoje konkreèiø spalvø galima nurodyti kokià nors spalvø paletæ. Pavyzdşiui,
-# parametrui col nurodysime trijø pilkos spalvos atspalviø paletæ.
+# Vietoje konkreÄiÅ³ spalvÅ³ galima nurodyti kokiÄ… nors spalvÅ³ paletÄ™. PavyzdÅ¾iui,
+# parametrui col nurodysime trijÅ³ pilkos spalvos atspalviÅ³ paletÄ™.
 
 barplot(d, col = gray.colors(3))
 
-# Naudojant parametrà border, galima pakeisti stulpelio rëmelio spalvà.
+# Naudojant parametrÄ… border, galima pakeisti stulpelio rÄ—melio spalvÄ….
 
 barplot(d, border = 3)
 
-# Parametrui border priskyrus reikğmæ NA, rëmelis apie stulpelá nebraişomas.
+# Parametrui border priskyrus reikÅ¡mÄ™ NA, rÄ—melis apie stulpelÄ¯ nebraiÅ¾omas.
 
 barplot(d, border = NA)
 
 
-# Jei daşniø lentelë turi vardus, funkcija barplot juos naudoja grupëms paşymëti. 
-# Naudojant parametrà names.arg ğiuos grupiø uşrağus galima pakeisti. Pavyzdşiui,
-# pakeisime daşniø lentelës d keleiviø klasës pavadinimus.
+# Jei daÅ¾niÅ³ lentelÄ— turi vardus, funkcija barplot juos naudoja grupÄ—ms paÅ¾ymÄ—ti. 
+# Naudojant parametrÄ… names.arg Å¡iuos grupiÅ³ uÅ¾raÅ¡us galima pakeisti. PavyzdÅ¾iui,
+# pakeisime daÅ¾niÅ³ lentelÄ—s d keleiviÅ³ klasÄ—s pavadinimus.
 
-barplot(d, names.arg = c("Pirma", "Antra", "Treèia", "Águla"))
+barplot(d, names.arg = c("Pirma", "Antra", "TreÄia", "Ä®gula"))
 
-# Uşrağus ant ağiø galima uşdrausti naudojant parametrà axisnames.
+# UÅ¾raÅ¡us ant aÅ¡iÅ³ galima uÅ¾drausti naudojant parametrÄ… axisnames.
 
 barplot(d, axisnames = FALSE)
 
-# Naudojant parametrà axes, galima uşdrausti ağiø rodymà.
+# Naudojant parametrÄ… axes, galima uÅ¾drausti aÅ¡iÅ³ rodymÄ….
 
 barplot(d, axes = FALSE)
 
-# Naudojant parametrà plot, galima uşdrausti braişyti ir paèià diagramà. Tokiu
-# atveju funkcijos rezultatas yra matrica su stulpeliø aukğèiais.
+# Naudojant parametrÄ… plot, galima uÅ¾drausti braiÅ¾yti ir paÄiÄ… diagramÄ…. Tokiu
+# atveju funkcijos rezultatas yra matrica su stulpeliÅ³ aukÅ¡Äiais.
 
 barplot(d, plot = FALSE)
 
 
-# Funkcija barplot ne tik nubraişo stulpelinæ diagramà, bet jos rezultatà galima
-# priskirti kintamajam. Taip gauname diagramos stulpeliø vidurio tağkø vektoriø. 
-# Jei sudaroma grupuota stulpelinë diagrama, tai rezultatas yra gaunama matrica, 
-# kurios stulpeliuose yra diagramos vienos grupës stulpeliø vidurio tağkai. 
+# Funkcija barplot ne tik nubraiÅ¾o stulpelinÄ™ diagramÄ…, bet jos rezultatÄ… galima
+# priskirti kintamajam. Taip gauname diagramos stulpeliÅ³ vidurio taÅ¡kÅ³ vektoriÅ³. 
+# Jei sudaroma grupuota stulpelinÄ— diagrama, tai rezultatas yra gaunama matrica, 
+# kurios stulpeliuose yra diagramos vienos grupÄ—s stulpeliÅ³ vidurio taÅ¡kai. 
 
 barstat <- barplot(d)
 barstat
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Sukurkite vektoriø n = (1, 3, 2, 5, 4). Nubraişykite tokià ğio vektoriaus n 
-#    stulpelinæ diagramà, kurioje visø stulpeliø spalva bûtø skirtinga.
-# 2. Nubraişykite vektoriaus n stulpelinæ diagramà ir kiekvienam jos stulpeliui 
-#    suteikite vardà.
-# 3. Nubraişykite vektoriaus n stulpelinæ diagramà, kurioje kiekvieno stulpelio 
-#    plotas bûtø lygus vienetui.
-# 4. Naudodami duomenø lentelæ HairEyeColor, sudarykite kryşminæ akiø ir plaukø 
-#    spalvos daşniø lentelæ. Parametrui legend priskirkite reikğmæ TRUE ir taip
-#    ant diagramos uşdëkite legendà. Kokia akiø spalva reèiausia tarp blondinø?
+# 1. Sukurkite vektoriÅ³ n = (1, 3, 2, 5, 4). NubraiÅ¾ykite tokiÄ… Å¡io vektoriaus n 
+#    stulpelinÄ™ diagramÄ…, kurioje visÅ³ stulpeliÅ³ spalva bÅ«tÅ³ skirtinga.
+# 2. NubraiÅ¾ykite vektoriaus n stulpelinÄ™ diagramÄ… ir kiekvienam jos stulpeliui 
+#    suteikite vardÄ….
+# 3. NubraiÅ¾ykite vektoriaus n stulpelinÄ™ diagramÄ…, kurioje kiekvieno stulpelio 
+#    plotas bÅ«tÅ³ lygus vienetui.
+# 4. Naudodami duomenÅ³ lentelÄ™ HairEyeColor, sudarykite kryÅ¾minÄ™ akiÅ³ ir plaukÅ³ 
+#    spalvos daÅ¾niÅ³ lentelÄ™. Parametrui legend priskirkite reikÅ¡mÄ™ TRUE ir taip
+#    ant diagramos uÅ¾dÄ—kite legendÄ…. Kokia akiÅ³ spalva reÄiausia tarp blondinÅ³?
 
 
 # --------------------------------------- #
 # FUNKCIJA BOXPLOT                        #
 # --------------------------------------- #
 
-# Vieno arba keliø kintamøjø staèiakampei diagramai braişyti naudojama funkcija 
+# Vieno arba keliÅ³ kintamÅ³jÅ³ staÄiakampei diagramai braiÅ¾yti naudojama funkcija 
 # boxplot. Pagrindiniai jos parametrai:
 #
-#          x -- kiekybinio kintamojo reikğmiø vektorius,
-#       data -- duomenø lentelës pavadinimas,
-#     subset -- loginë sàlyga, kuri iğskiria dalá duomenø lentelës stebiniø,
-#         at -- vektorius su reikğmëmis, kuriose atidedama staèiakampë diagrama,
-# horizontal -- FALSE, nurodo ar diagrama bus braişoma horizontaliai,
-#        add -- FALSE, nurodo ar diagramà uşdëti ant jau sudaryto grafiko.
+#          x -- kiekybinio kintamojo reikÅ¡miÅ³ vektorius,
+#       data -- duomenÅ³ lentelÄ—s pavadinimas,
+#     subset -- loginÄ— sÄ…lyga, kuri iÅ¡skiria dalÄ¯ duomenÅ³ lentelÄ—s stebiniÅ³,
+#         at -- vektorius su reikÅ¡mÄ—mis, kuriose atidedama staÄiakampÄ— diagrama,
+# horizontal -- FALSE, nurodo ar diagrama bus braiÅ¾oma horizontaliai,
+#        add -- FALSE, nurodo ar diagramÄ… uÅ¾dÄ—ti ant jau sudaryto grafiko.
 
-# Pavyzdşiui, nubraişysime kiekybinio kintamojo s staèiakampæ diagramà.
+# PavyzdÅ¾iui, nubraiÅ¾ysime kiekybinio kintamojo s staÄiakampÄ™ diagramÄ….
 
 s <- c(0.6, 3.4, 6.1, 0.7, 5.2, 1.4, 2.3, 3.4, 2.5, 9.4, 2.7, 4.1, 2.9, 0.1, 7.5)
 k <- c("T", "N", "N", "T", "T", "T", "N", "T", "T", "N", "T", "N", "T", "T", "N")
 
 boxplot(s)
 
-# Diagramoje matome, kokiose ribose kinta kintamojo reikğmës, kam lygi kintamojo
-# mediana, atskirai paşymimos labai maşos arba labai didelës kintamojo reikğmës.
-# Jei kiekybinio kintamojo s reikğmës yra iğ skirtingø grupiø, galima nubraişyti
-# staèiakampes diagramas kiekvienoje grupëje atskirai.
+# Diagramoje matome, kokiose ribose kinta kintamojo reikÅ¡mÄ—s, kam lygi kintamojo
+# mediana, atskirai paÅ¾ymimos labai maÅ¾os arba labai didelÄ—s kintamojo reikÅ¡mÄ—s.
+# Jei kiekybinio kintamojo s reikÅ¡mÄ—s yra iÅ¡ skirtingÅ³ grupiÅ³, galima nubraiÅ¾yti
+# staÄiakampes diagramas kiekvienoje grupÄ—je atskirai.
 
 boxplot(s ~ k)
 
-# Jei vienas ar keli staèiakampei diagramai nubraişyti reikalingi kintamieji yra 
-# data.frame tipo duomenø lentelëje, funkcijai boxplot galima nurodyti jos vardà. 
-# Pavyzdşiui, nubraişysime lentelës airquality temperatûros kiekvienam stebëjimø
-# mënesiui diagramas.
+# Jei vienas ar keli staÄiakampei diagramai nubraiÅ¾yti reikalingi kintamieji yra 
+# data.frame tipo duomenÅ³ lentelÄ—je, funkcijai boxplot galima nurodyti jos vardÄ…. 
+# PavyzdÅ¾iui, nubraiÅ¾ysime lentelÄ—s airquality temperatÅ«ros kiekvienam stebÄ—jimÅ³
+# mÄ—nesiui diagramas.
 
 boxplot(Temp ~ Month, data = airquality)
 
-# Jei diagrama braişoma ne iğ visø duomenø lentelëje esanèiø duomenø, parametrui
-# subset galima nurodyti loginæ sàlygà ir taip iğrinkti tik tam tikrus stebinius.
-# Pavyzdşiui, naudojant tà paèià duomenø lentelæ, nubraişysime temperatûros iki
-# rugpjûèio mënesio staèiakampes diagramas.
+# Jei diagrama braiÅ¾oma ne iÅ¡ visÅ³ duomenÅ³ lentelÄ—je esanÄiÅ³ duomenÅ³, parametrui
+# subset galima nurodyti loginÄ™ sÄ…lygÄ… ir taip iÅ¡rinkti tik tam tikrus stebinius.
+# PavyzdÅ¾iui, naudojant tÄ… paÄiÄ… duomenÅ³ lentelÄ™, nubraiÅ¾ysime temperatÅ«ros iki
+# rugpjÅ«Äio mÄ—nesio staÄiakampes diagramas.
 
 boxplot(Temp ~ Month, data = airquality, subset = Month < 8)
 
 
 # NAUDINGA ------------------------------
 
-# Yra keletas kitø parametrø, kuriais galima keisti boxplot diagramos iğvaizdà:
+# Yra keletas kitÅ³ parametrÅ³, kuriais galima keisti boxplot diagramos iÅ¡vaizdÄ…:
 # 
-#        col -- diagramos dëşutës spalva,
-#      names -- kintamojo x grupiø vardø vektorius,
-#    outline -- TRUE, nurodo ar diagramoje bus paşymimos iğskirtys,
-#   varwidth -- FALSE, nurodo ar stulpelio plotis proporcingas imties tûriui,
-#      width -- vektorius su santykiniø diagramos stulpeliø ploèiø reikğmëmis.
+#        col -- diagramos dÄ—Å¾utÄ—s spalva,
+#      names -- kintamojo x grupiÅ³ vardÅ³ vektorius,
+#    outline -- TRUE, nurodo ar diagramoje bus paÅ¾ymimos iÅ¡skirtys,
+#   varwidth -- FALSE, nurodo ar stulpelio plotis proporcingas imties tÅ«riui,
+#      width -- vektorius su santykiniÅ³ diagramos stulpeliÅ³ ploÄiÅ³ reikÅ¡mÄ—mis.
 
-# Pavyzdşiui, sudarysime grupuoto kintamojo s diagramà ir ant to paties grafiko
-# palyginimui uşdësime bendrà kintamojo s diagramà.
+# PavyzdÅ¾iui, sudarysime grupuoto kintamojo s diagramÄ… ir ant to paties grafiko
+# palyginimui uÅ¾dÄ—sime bendrÄ… kintamojo s diagramÄ….
 
-# Iğ pradşiø nubraişysime grupuotà kintamojo s diagramà. Kad vëliau ant jos bûtø
-# galima uşdëti bendrà diagramà, iğplësime ağies Ox ribas ir nurodysime, kad tos
-# dëşutës bûtø atidedamos ties x = 3 ir x = 4. Tada ant jau sudarytos diagramos 
-# uşdësime bendrà kintamojo s staèiakampæ diagramà. 
+# IÅ¡ pradÅ¾iÅ³ nubraiÅ¾ysime grupuotÄ… kintamojo s diagramÄ…. Kad vÄ—liau ant jos bÅ«tÅ³
+# galima uÅ¾dÄ—ti bendrÄ… diagramÄ…, iÅ¡plÄ—sime aÅ¡ies Ox ribas ir nurodysime, kad tos
+# dÄ—Å¾utÄ—s bÅ«tÅ³ atidedamos ties x = 3 ir x = 4. Tada ant jau sudarytos diagramos 
+# uÅ¾dÄ—sime bendrÄ… kintamojo s staÄiakampÄ™ diagramÄ…. 
 
 boxplot(s ~ k, xlim = c(0, 5), at = 3:4, names = c("Taip", "Ne"))
 boxplot(s, add = TRUE, width = 1, col = "red")
 
 
-# Nubraişysime dar vienà tokià kombinuotà diagramà. Ant kintamøjø Temp ir Month 
-# sklaidos diagramos uşdësime grupuotà staèiakampæ diagramà.
+# NubraiÅ¾ysime dar vienÄ… tokiÄ… kombinuotÄ… diagramÄ…. Ant kintamÅ³jÅ³ Temp ir Month 
+# sklaidos diagramos uÅ¾dÄ—sime grupuotÄ… staÄiakampÄ™ diagramÄ….
 
 plot(Temp ~ Month, data = airquality, pch = 20, xlim = c(4, 10), col = 3)
 boxplot(Temp ~ Month, data = airquality, add = TRUE, at = 5:9)
 
 
-# Tam, kad staèiakampës dëşutës ant diagramos bûtø nubraişytos tam tikra tvarka,
-# reikia, kad tokia paèia tvarka bûtø iğrikiuotos kategorinio kintamojo reikğmës. 
-# Tam naudojama funkcija reorder. Pvz., nubraişysime vidurkio didëjimo tvarka
-# iğdëstytas atskirø mënesiø temperatûros staèiakampes diagramas.
+# Tam, kad staÄiakampÄ—s dÄ—Å¾utÄ—s ant diagramos bÅ«tÅ³ nubraiÅ¾ytos tam tikra tvarka,
+# reikia, kad tokia paÄia tvarka bÅ«tÅ³ iÅ¡rikiuotos kategorinio kintamojo reikÅ¡mÄ—s. 
+# Tam naudojama funkcija reorder. Pvz., nubraiÅ¾ysime vidurkio didÄ—jimo tvarka
+# iÅ¡dÄ—stytas atskirÅ³ mÄ—nesiÅ³ temperatÅ«ros staÄiakampes diagramas.
 
 M <- with(airquality, reorder(Month, Temp, mean))
 boxplot(Temp ~ M, data = airquality)
 
 
-# Funkcija boxplot ne tik nubraişo staèiakampæ diagramà, bet ir gali sukurti jai 
-# nubraişyti reikalingà duomenø rinkiná - boxplot objektà. Jame surağytos grupës,
-# ir jø vardai, reikğmiø ir iğsiskirianèiø elementø kiekvienoje grupëje skaièius, 
-# dëşutei nubraişyti reikalingos statistikos: mediana, kvartiliai ir "ûsø" galai.
+# Funkcija boxplot ne tik nubraiÅ¾o staÄiakampÄ™ diagramÄ…, bet ir gali sukurti jai 
+# nubraiÅ¾yti reikalingÄ… duomenÅ³ rinkinÄ¯ - boxplot objektÄ…. Jame suraÅ¡ytos grupÄ—s,
+# ir jÅ³ vardai, reikÅ¡miÅ³ ir iÅ¡siskirianÄiÅ³ elementÅ³ kiekvienoje grupÄ—je skaiÄius, 
+# dÄ—Å¾utei nubraiÅ¾yti reikalingos statistikos: mediana, kvartiliai ir "Å«sÅ³" galai.
 
 boxstat <- boxplot(Temp ~ Month, data = airquality)
 boxstat
 
 names(boxstat)
 
-boxstat$stats     # visø grupiø dëşuèiø statistikos: galai, kvartiliai, mediana
-boxstat$n         # reikğmiø grupëse skaièius
+boxstat$stats     # visÅ³ grupiÅ³ dÄ—Å¾uÄiÅ³ statistikos: galai, kvartiliai, mediana
+boxstat$n         # reikÅ¡miÅ³ grupÄ—se skaiÄius
 boxstat$conf      # medianos pasikliautinasis intervalas
-boxstat$out       # iğsiskirianèiø stebiniø reikğmës
-boxstat$group     # iğsiskirianèiø stebiniø grupës numeriai
-boxstat$names     # grupiø vardai
+boxstat$out       # iÅ¡siskirianÄiÅ³ stebiniÅ³ reikÅ¡mÄ—s
+boxstat$group     # iÅ¡siskirianÄiÅ³ stebiniÅ³ grupÄ—s numeriai
+boxstat$names     # grupiÅ³ vardai
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite duomenø lentelës iris kintamojo Sepal.Length boxplot diagramà
-#    grupëse pagal kintamojo Species reikğmes. Kurioje grupëje mediana didesnë?
-# 2. Uşrağykite komandà, kuri, naudojant diagramos objektà boxstat, automatiğkai
-#    nustatytø, kurioje duomenø grupëje yra iğsiskirianèiø reikğmiø.
+# 1. NubraiÅ¾ykite duomenÅ³ lentelÄ—s iris kintamojo Sepal.Length boxplot diagramÄ…
+#    grupÄ—se pagal kintamojo Species reikÅ¡mes. Kurioje grupÄ—je mediana didesnÄ—?
+# 2. UÅ¾raÅ¡ykite komandÄ…, kuri, naudojant diagramos objektÄ… boxstat, automatiÅ¡kai
+#    nustatytÅ³, kurioje duomenÅ³ grupÄ—je yra iÅ¡siskirianÄiÅ³ reikÅ¡miÅ³.
 
 
 # --------------------------------------- #
 # FUNKCIJA HIST                           #
 # --------------------------------------- #
 
-# Histogramos sudarymui ir jos braişymui naudojama standartinë R funkcija hist. 
+# Histogramos sudarymui ir jos braiÅ¾ymui naudojama standartinÄ— R funkcija hist. 
 # Pagrindiniai jos parametrai:
 # 
-#          x -- kiekybinio kintamojo reikğmiø vektorius,
-#     breaks -- kintamojo x padalinimo á intervalus tağkø vektorius,
-#       freq -- TRUE, nurodo ar bus braişoma daşniø histograma,
+#          x -- kiekybinio kintamojo reikÅ¡miÅ³ vektorius,
+#     breaks -- kintamojo x padalinimo Ä¯ intervalus taÅ¡kÅ³ vektorius,
+#       freq -- TRUE, nurodo ar bus braiÅ¾oma daÅ¾niÅ³ histograma,
 #      right -- TRUE, nurodo, kad histogramos intervalai yra (a, b] pavidalo,
-#     labels -- FALSE, daşniai arba uşrağø ant histogramos stulpeliø vektorius,
-#       plot -- TRUE, nurodo ar braişyti histogramà,
-#        add -- FALSE, nurodo ar histogramà uşdëti ant jau sudaryto grafiko.
+#     labels -- FALSE, daÅ¾niai arba uÅ¾raÅ¡Å³ ant histogramos stulpeliÅ³ vektorius,
+#       plot -- TRUE, nurodo ar braiÅ¾yti histogramÄ…,
+#        add -- FALSE, nurodo ar histogramÄ… uÅ¾dÄ—ti ant jau sudaryto grafiko.
 
 
-# Kaip pavyzdá panaudosime Nilo vandens lygio stebëjimo duomenis. Patogumo dëlei 
-# sukursime atskirà kintamàjá x ir nubraişysime jo histogramà.
+# Kaip pavyzdÄ¯ panaudosime Nilo vandens lygio stebÄ—jimo duomenis. Patogumo dÄ—lei 
+# sukursime atskirÄ… kintamÄ…jÄ¯ x ir nubraiÅ¾ysime jo histogramÄ….
 
 x <- as.numeric(Nile)
 x
   
 hist(x)
 
-# Be papildomø nustatymø histogramos stulpeliø skaièius parenkamas automatiğkai. 
-# Naudojant parametrà breaks, kintamojo reikğmiø sritá galima padalinti á kelis 
-# intervalus, pagal kuriuos ir sudaroma histograma. Pats paprasèiausias bûdas --
-# nurodyti intervalø padalijimo tağkø vektoriø. Reikia priminti, kad histogramos
-# stulpeliø bus vienu maşiau nei tağkø skaièius.
+# Be papildomÅ³ nustatymÅ³ histogramos stulpeliÅ³ skaiÄius parenkamas automatiÅ¡kai. 
+# Naudojant parametrÄ… breaks, kintamojo reikÅ¡miÅ³ sritÄ¯ galima padalinti Ä¯ kelis 
+# intervalus, pagal kuriuos ir sudaroma histograma. Pats paprasÄiausias bÅ«das --
+# nurodyti intervalÅ³ padalijimo taÅ¡kÅ³ vektoriÅ³. Reikia priminti, kad histogramos
+# stulpeliÅ³ bus vienu maÅ¾iau nei taÅ¡kÅ³ skaiÄius.
 
 hist(x, breaks = c(400, 600, 800, 1000, 1200, 1400))
 
-# Toká pat padalinimo tağkø vektoriø galima sudaryti naudojant aritmetinës sekos 
-# generavimo funkcijà seq. Tarkime, kad intervalo plotis bus lygus 200.
+# TokÄ¯ pat padalinimo taÅ¡kÅ³ vektoriÅ³ galima sudaryti naudojant aritmetinÄ—s sekos 
+# generavimo funkcijÄ… seq. Tarkime, kad intervalo plotis bus lygus 200.
 
 hist(x, breaks = seq(400, 1400, by = 200))
 
-# Intervalø sudarymo komandà galima visiğkai automatizuoti. Paprastai histograma 
-# braişoma intervale nuo minimalios iki maksimalios kintamojo reikğmës. Tada jas
-# galima apskaièiuoti naudojant funkcijas min ir max. Intervalø skaièiø nurodome
-# per funkcijos seq parametrà length.out. PASTABA! Intervalai yra (a, b] formos,
-# ir formaliai minimalià reikğmæ turintis imties elementas á pirmàjá intervalà
-# turëtø nepatekti, taèiau parametras include.lowest nurodo, kad reikia átraukti.
+# IntervalÅ³ sudarymo komandÄ… galima visiÅ¡kai automatizuoti. Paprastai histograma 
+# braiÅ¾oma intervale nuo minimalios iki maksimalios kintamojo reikÅ¡mÄ—s. Tada jas
+# galima apskaiÄiuoti naudojant funkcijas min ir max. IntervalÅ³ skaiÄiÅ³ nurodome
+# per funkcijos seq parametrÄ… length.out. PASTABA! Intervalai yra (a, b] formos,
+# ir formaliai minimaliÄ… reikÅ¡mÄ™ turintis imties elementas Ä¯ pirmÄ…jÄ¯ intervalÄ…
+# turÄ—tÅ³ nepatekti, taÄiau parametras include.lowest nurodo, kad reikia Ä¯traukti.
 
 hist(x, breaks = seq(min(x), max(x), length = 6))
 
-# Kintamojo reikğmes padalinti á intervalus galima ir naudojant funkcijà pretty.
-# Ği funkcija padalinimo tağkus parenka taip, kad visi intervalai bûtø "graşûs".
+# Kintamojo reikÅ¡mes padalinti Ä¯ intervalus galima ir naudojant funkcijÄ… pretty.
+# Å i funkcija padalinimo taÅ¡kus parenka taip, kad visi intervalai bÅ«tÅ³ "graÅ¾Å«s".
 
 hist(x, breaks = pretty(x))
 
 
-# Ant histogramos stulpeliø galima uşrağyti atitinkamø intervalø daşnius. Tam
-# naudojama funkcija labels. Vietoj loginës parametro reikğmës galima nurodyti 
-# reikğmiø, kurias reikia uşrağyti ant stulpeliø, vektoriø.
+# Ant histogramos stulpeliÅ³ galima uÅ¾raÅ¡yti atitinkamÅ³ intervalÅ³ daÅ¾nius. Tam
+# naudojama funkcija labels. Vietoj loginÄ—s parametro reikÅ¡mÄ—s galima nurodyti 
+# reikÅ¡miÅ³, kurias reikia uÅ¾raÅ¡yti ant stulpeliÅ³, vektoriÅ³.
 
 hist(x, breaks = pretty(x), labels = TRUE)
 
 
 # NAUDINGA ------------------------------
 
-# Kaip ir kitos grafinës funkcijos, funkcija hist priima standartinius grafinius
-# parametrus, kuriais galima keisti histogramos iğvaizdà.
+# Kaip ir kitos grafinÄ—s funkcijos, funkcija hist priima standartinius grafinius
+# parametrus, kuriais galima keisti histogramos iÅ¡vaizdÄ….
 
-# Kartais ant histogramos reikia uşdëti kokio nors skirstinio tankio funkcijos
-# grafikà. Nubraişysime temperatûros histogramà ir ant jos uşdësime normaliojo
-# skirstinio tankio funkcijos grafikà, o kadangi skirstinio parametrai neşinomi,
-# juos ávertinsime iğ imties.
+# Kartais ant histogramos reikia uÅ¾dÄ—ti kokio nors skirstinio tankio funkcijos
+# grafikÄ…. NubraiÅ¾ysime temperatÅ«ros histogramÄ… ir ant jos uÅ¾dÄ—sime normaliojo
+# skirstinio tankio funkcijos grafikÄ…, o kadangi skirstinio parametrai neÅ¾inomi,
+# juos Ä¯vertinsime iÅ¡ imties.
 
 t <- as.numeric(nhtemp)
 
 vid <- mean(t)
 std <- sd(t)
 
-# Pirma nubraişome histogramà. Kadangi ant jos virğaus braişysime tankio f-jos
-# grafikà, èia reikalinga ne daşniø, o santykiniø daşniø histograma. Jà gauname
-# parametrui freq priskirdami reikğmæ FALSE.
+# Pirma nubraiÅ¾ome histogramÄ…. Kadangi ant jos virÅ¡aus braiÅ¾ysime tankio f-jos
+# grafikÄ…, Äia reikalinga ne daÅ¾niÅ³, o santykiniÅ³ daÅ¾niÅ³ histograma. JÄ… gauname
+# parametrui freq priskirdami reikÅ¡mÄ™ FALSE.
 
-hist(t, freq = FALSE, xlim = c(46, 56), main = "Temperatûros pasiskirstymas")
+hist(t, freq = FALSE, xlim = c(46, 56), main = "TemperatÅ«ros pasiskirstymas")
 curve(dnorm(x, mean = vid, sd = std), col = "red", add = TRUE)
 
 
-# Funkcija hist ne tik nubraişo histogramà, bet ir gali sukurti ğiai histogramai 
-# nubraişyti reikalingà duomenø rinkiná - histogramos objektà. Jei pats grafikas 
-# nereikalingas, jo braişymà galima uşdrausti naudojant parametrà plot.
+# Funkcija hist ne tik nubraiÅ¾o histogramÄ…, bet ir gali sukurti Å¡iai histogramai 
+# nubraiÅ¾yti reikalingÄ… duomenÅ³ rinkinÄ¯ - histogramos objektÄ…. Jei pats grafikas 
+# nereikalingas, jo braiÅ¾ymÄ… galima uÅ¾drausti naudojant parametrÄ… plot.
 
 histat <- hist(x, breaks = pretty(x), plot = FALSE)
 histat
 
-# Iğ jo galima suşinoti, kokie yra kintamojo daşniai intervaluose, ğiø intervalø
-# padalinimo tağkus, intervalø vidurio tağkus ir pan.
+# IÅ¡ jo galima suÅ¾inoti, kokie yra kintamojo daÅ¾niai intervaluose, Å¡iÅ³ intervalÅ³
+# padalinimo taÅ¡kus, intervalÅ³ vidurio taÅ¡kus ir pan.
 
 names(histat)
 
-histat$breaks  # intervalø padalinimo tağkai
-histat$mids    # intervalø vidurio tağkai
-histat$counts  # daşniai intervaluose
+histat$breaks  # intervalÅ³ padalinimo taÅ¡kai
+histat$mids    # intervalÅ³ vidurio taÅ¡kai
+histat$counts  # daÅ¾niai intervaluose
 
-# Funkcija plot turi metodà histogramos objektui atvaizduoti.
+# Funkcija plot turi metodÄ… histogramos objektui atvaizduoti.
 
 plot(histat)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite duomenø lentelës airquality birşelio mën. temperatûros daşniø 
-#    histogramà. Nurodykite ağiø pavadinimus ir visos histogramos pavadinimà.
-# 2. Nubraişykite tokià kintamojo y histogramà, kad ant stulpeliø bûtø uşrağyti
-#    ne daşniai, bet didşiosios abëcëlës raidës. Tokie vardai stulpeliams turi 
-#    bûti priskiriami automatiğkai ir nepriklausomai nuo stulpeliø skaièiaus.
-# 3. Uşrağykite komandà, kuri naudodama histogramos objektà, surastø aukğèiausià 
-#    histogramos stulpelá atitinkanèio intervalo vidurá.
-# 4. Sugalvokite bûdà, kaip nubraişyti Nilo vandens lygio histogramà panaudojant 
-#    daşnius intervaluose iğ anksèiau jau sukurto histogramos objekto -- histo.
-# 5. Sugalvokite bûdà, kaip nubraişyti bet kokio kintamojo x histogramà visiğkai 
+# 1. NubraiÅ¾ykite duomenÅ³ lentelÄ—s airquality birÅ¾elio mÄ—n. temperatÅ«ros daÅ¾niÅ³ 
+#    histogramÄ…. Nurodykite aÅ¡iÅ³ pavadinimus ir visos histogramos pavadinimÄ….
+# 2. NubraiÅ¾ykite tokiÄ… kintamojo y histogramÄ…, kad ant stulpeliÅ³ bÅ«tÅ³ uÅ¾raÅ¡yti
+#    ne daÅ¾niai, bet didÅ¾iosios abÄ—cÄ—lÄ—s raidÄ—s. Tokie vardai stulpeliams turi 
+#    bÅ«ti priskiriami automatiÅ¡kai ir nepriklausomai nuo stulpeliÅ³ skaiÄiaus.
+# 3. UÅ¾raÅ¡ykite komandÄ…, kuri naudodama histogramos objektÄ…, surastÅ³ aukÅ¡ÄiausiÄ… 
+#    histogramos stulpelÄ¯ atitinkanÄio intervalo vidurÄ¯.
+# 4. Sugalvokite bÅ«dÄ…, kaip nubraiÅ¾yti Nilo vandens lygio histogramÄ… panaudojant 
+#    daÅ¾nius intervaluose iÅ¡ anksÄiau jau sukurto histogramos objekto -- histo.
+# 5. Sugalvokite bÅ«dÄ…, kaip nubraiÅ¾yti bet kokio kintamojo x histogramÄ… visiÅ¡kai 
 #    nenaudojant funkcijos hist.

@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
-#            Keletas klasikiniø algoritmø su ciklais.
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
+#            Keletas klasikiniÅ³ algoritmÅ³ su ciklais.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2013-08-23 | 2013-08-25 | 2014-02-23
 #
@@ -12,30 +12,30 @@
 # TURINYS -------------------------------
 
 #
-#   1. Keletas klasikiniø algoritmø su ciklais:
-#      * Newton-Raphson metodas kvadratinei ğakniai surasti
-#      * vektoriaus elementø iğrikiavimas "burbuliuko" metodu
-#      * Euklido algoritmas didşiausiam bendram dalikliui
-#      * pseudoatsitiktiniø dydşiø generavimo algoritmas
+#   1. Keletas klasikiniÅ³ algoritmÅ³ su ciklais:
+#      * Newton-Raphson metodas kvadratinei Å¡akniai surasti
+#      * vektoriaus elementÅ³ iÅ¡rikiavimas "burbuliuko" metodu
+#      * Euklido algoritmas didÅ¾iausiam bendram dalikliui
+#      * pseudoatsitiktiniÅ³ dydÅ¾iÅ³ generavimo algoritmas
 #
 
 
 # PASTABOS ------------------------------
 
 #
-# Sugalvoti daugiau uşdaviniø.
+# Sugalvoti daugiau uÅ¾daviniÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -43,56 +43,56 @@ rm(list = ls())
 # NEWTON-RAPHSON METODAS                  #
 # --------------------------------------- #
 
-# Newton-Raphson metodas taikomas lygties f(x) = 0 ğaknø radimui. Èia naudojama
-# tokia iteracinë iğraiğka:
+# Newton-Raphson metodas taikomas lygties f(x) = 0 Å¡aknÅ³ radimui. ÄŒia naudojama
+# tokia iteracinÄ— iÅ¡raiÅ¡ka:
 #
 #   x := x - f(x)/f'(x)
 #
-# Pritaikysime ğá metodà apytiksliam ğaknies iğ skaièiaus traukimui. Nagrinëkime
-# funkcijà f(x) = x^2 - a. Jos iğvestinë f'(x) = 2x. Atlikæ pertvarkymus gauname 
-# tokià iteracinæ iğraiğkà:
+# Pritaikysime Å¡Ä¯ metodÄ… apytiksliam Å¡aknies iÅ¡ skaiÄiaus traukimui. NagrinÄ—kime
+# funkcijÄ… f(x) = x^2 - a. Jos iÅ¡vestinÄ— f'(x) = 2x. AtlikÄ™ pertvarkymus gauname 
+# tokiÄ… iteracinÄ™ iÅ¡raiÅ¡kÄ…:
 #
 #   x := (x + a/x)/2
 
-# Èia dydis a yra skaièius, iğ kurio traukiama ğaknis, o kairëje lygties pusëje 
-# esantis dydis x yra apytikslë tos ğaknies reikğmë. Algoritmui reikia nurodyti
-# pradinæ x reikğmæ ir iteracijø skaièiø. 
+# ÄŒia dydis a yra skaiÄius, iÅ¡ kurio traukiama Å¡aknis, o kairÄ—je lygties pusÄ—je 
+# esantis dydis x yra apytikslÄ— tos Å¡aknies reikÅ¡mÄ—. Algoritmui reikia nurodyti
+# pradinÄ™ x reikÅ¡mÄ™ ir iteracijÅ³ skaiÄiÅ³. 
 
-# Tegu iteracijø skaièius fiksuotas ir lygus n, todël naudosime konstrukcijà for.
-# Kadangi tarpiniø reikğmiø vektorius nesudaromas, ciklo kintamasis nenaudojamas. 
+# Tegu iteracijÅ³ skaiÄius fiksuotas ir lygus n, todÄ—l naudosime konstrukcijÄ… for.
+# Kadangi tarpiniÅ³ reikÅ¡miÅ³ vektorius nesudaromas, ciklo kintamasis nenaudojamas. 
 
-a <- 25   # skaièius, iğ kurio traukiama kvadratinë ğaknis
+a <- 25   # skaiÄius, iÅ¡ kurio traukiama kvadratinÄ— Å¡aknis
 
-n <- 10   # iteracijø skaièius
-x <- 1    # pradinë reikğmë
+n <- 10   # iteracijÅ³ skaiÄius
+x <- 1    # pradinÄ— reikÅ¡mÄ—
 
 for (i in 1:n) {
   x <- (x + a/x)/2
   print(x)
 }
 
-# Galima pastebëti, kad kuo pradinë reikğmë arèiau tikrosios ğaknies reikğmës, 
-# tuo maşiau iteracijø reikia.
+# Galima pastebÄ—ti, kad kuo pradinÄ— reikÅ¡mÄ— arÄiau tikrosios Å¡aknies reikÅ¡mÄ—s, 
+# tuo maÅ¾iau iteracijÅ³ reikia.
 x
 
-# Kvadratinës ğaknies traukimui naudojama standartinë funkcija sqrt.
+# KvadratinÄ—s Å¡aknies traukimui naudojama standartinÄ— funkcija sqrt.
 sqrt(a)
 
 
 # --------------------------------------- #
-# VEKTORIAUS ELEMENTØ IĞRIKIAVIMAS        #
+# VEKTORIAUS ELEMENTÅ² IÅ RIKIAVIMAS        #
 # --------------------------------------- #
 
-# Aprağysime vienà paprastà vektoriaus elementø iğrikiavimo algoritmà. Pirmasis
-# vektoriaus elementas lyginamas su antruoju, tada su treèiuoju ir taip toliau 
-# iki paskutinio. Jei jo reikğmë didesnë, elementø reikğmes sukeièiame vietomis. 
-# Tà patá pakartojame pradedant antruoju, treèiuoju ir likusiais elementais iki 
-# prieğpaskutinio. Kadangi didelæ reikğmæ turintis elementas "kyla á virğø", ğis 
+# ApraÅ¡ysime vienÄ… paprastÄ… vektoriaus elementÅ³ iÅ¡rikiavimo algoritmÄ…. Pirmasis
+# vektoriaus elementas lyginamas su antruoju, tada su treÄiuoju ir taip toliau 
+# iki paskutinio. Jei jo reikÅ¡mÄ— didesnÄ—, elementÅ³ reikÅ¡mes sukeiÄiame vietomis. 
+# TÄ… patÄ¯ pakartojame pradedant antruoju, treÄiuoju ir likusiais elementais iki 
+# prieÅ¡paskutinio. Kadangi didelÄ™ reikÅ¡mÄ™ turintis elementas "kyla Ä¯ virÅ¡Å³", Å¡is 
 # metodas vadinamas "burbuliuko" metodu.
 
-# Ğio algoritmo iteracijø skaièius şinomas, taèiau jis priklauso nuo vektoriaus 
-# elementø skaièiaus, kuris iğ anksto gali bûti neşinomas, todël jam nustatyti
-# naudojame standartinæ funkcijà length.
+# Å io algoritmo iteracijÅ³ skaiÄius Å¾inomas, taÄiau jis priklauso nuo vektoriaus 
+# elementÅ³ skaiÄiaus, kuris iÅ¡ anksto gali bÅ«ti neÅ¾inomas, todÄ—l jam nustatyti
+# naudojame standartinÄ™ funkcijÄ… length.
 
 v <- c(1, 6, 4, 3, 2, 8, 5, 10, 9, 0, 7)
 
@@ -108,37 +108,37 @@ for (i in 1:(length(v) - 1)) {
 
 v
 
-# Vektoriaus elementø rikiavimui R turi standartinæ funkcijà sort.
+# Vektoriaus elementÅ³ rikiavimui R turi standartinÄ™ funkcijÄ… sort.
 sort(v)
 
 
 # --------------------------------------- #
-# BENDRAS DIDŞIAUSIAS DALIKLIS            #
+# BENDRAS DIDÅ½IAUSIAS DALIKLIS            #
 # --------------------------------------- #
 
-# Aprağysime Euklido algoritmà dviejø sveikø skaièiø a ir b didşiausiam bendram
-# dalikliui surasti. Tarkime, a > b > 0. Skaièiø a iğreiğkiame tokiu pavidalu:
+# ApraÅ¡ysime Euklido algoritmÄ… dviejÅ³ sveikÅ³ skaiÄiÅ³ a ir b didÅ¾iausiam bendram
+# dalikliui surasti. Tarkime, a > b > 0. SkaiÄiÅ³ a iÅ¡reiÅ¡kiame tokiu pavidalu:
 #
 #   a = bq + r.
 #
-# Èia q yra sveikasis skaièius, dydis r vadinamas liekana, r < b. Tada dydşiams 
-# a ir b priskiriamos naujos reikğmës:
+# ÄŒia q yra sveikasis skaiÄius, dydis r vadinamas liekana, r < b. Tada dydÅ¾iams 
+# a ir b priskiriamos naujos reikÅ¡mÄ—s:
 #
 #   a := b,
 #   b := r.
 # 
-# Vël surandama liekana, priskiriamos naujos reikğmës ir veiksmai kartojami tol, 
-# kol liekana r nepasidarys lygi nuliui. Paskutinë nelygi nuliui liekana ir yra
-# didşiausias bendras daliklis.
+# VÄ—l surandama liekana, priskiriamos naujos reikÅ¡mÄ—s ir veiksmai kartojami tol, 
+# kol liekana r nepasidarys lygi nuliui. PaskutinÄ— nelygi nuliui liekana ir yra
+# didÅ¾iausias bendras daliklis.
 
 a <- 776
 b <- 544
 
-# Kadangi iteracijø skaièius iğ anksto neşinomas ir priklauso nuo sàlygos, èia 
-# naudojame ciklà while. Veiksmus kartojame tol, kol liekana didesnë uş nulá.
+# Kadangi iteracijÅ³ skaiÄius iÅ¡ anksto neÅ¾inomas ir priklauso nuo sÄ…lygos, Äia 
+# naudojame ciklÄ… while. Veiksmus kartojame tol, kol liekana didesnÄ— uÅ¾ nulÄ¯.
 
-# Pirmà iteracijà taip pat ákeliame á ciklà, todël liekanai suteikiame pradinæ
-# reikğmæ.
+# PirmÄ… iteracijÄ… taip pat Ä¯keliame Ä¯ ciklÄ…, todÄ—l liekanai suteikiame pradinÄ™
+# reikÅ¡mÄ™.
 
 r <- b
 
@@ -149,21 +149,21 @@ while (r > 0) {
   b <- r
 }
 
-# Pirmos iteracijos liekanos reikğmë antroje iteracijoje perduodama dydşiui b, o 
-# treèioje -- dydşiui a. Tuo paèiu principu perduodamos visø iteracijø liekanos.
-# Ciklo viduje liekanos reikğmë iğvedama á konsolæ. Kadangi reikğmiø priskyrimas 
-# atliekamas ciklo pabaigoje, paskutinës nelygios nuliui liekanos reikğmæ ágyja 
+# Pirmos iteracijos liekanos reikÅ¡mÄ— antroje iteracijoje perduodama dydÅ¾iui b, o 
+# treÄioje -- dydÅ¾iui a. Tuo paÄiu principu perduodamos visÅ³ iteracijÅ³ liekanos.
+# Ciklo viduje liekanos reikÅ¡mÄ— iÅ¡vedama Ä¯ konsolÄ™. Kadangi reikÅ¡miÅ³ priskyrimas 
+# atliekamas ciklo pabaigoje, paskutinÄ—s nelygios nuliui liekanos reikÅ¡mÄ™ Ä¯gyja 
 # dydis a. 
 a
 
 
 # --------------------------------------- #
-# ATSITIKTINIØ DYDŞIØ GENERAVIMAS         #
+# ATSITIKTINIÅ² DYDÅ½IÅ² GENERAVIMAS         #
 # --------------------------------------- #
 
-# Èia aprağysime pseudoatsitiktiniø dydşiø generavimo algoritmà, kuris vadinamas
-# tiesiniu kongruentiniu generatoriumi. Pagal ğá algoritmà atsitiktiniai dydşiai
-# generuojami iteraciniu bûdu:
+# ÄŒia apraÅ¡ysime pseudoatsitiktiniÅ³ dydÅ¾iÅ³ generavimo algoritmÄ…, kuris vadinamas
+# tiesiniu kongruentiniu generatoriumi. Pagal Å¡Ä¯ algoritmÄ… atsitiktiniai dydÅ¾iai
+# generuojami iteraciniu bÅ«du:
 # 
 #   X := a*X + c mod m, kur
 #
@@ -171,22 +171,22 @@ a
 #  prieauglis c >= 0,
 #     modulis m > a, m > c.
 
-# Parametras m daşniausiai yra didelis pirminis skaièius. Istoriğkai pirmas buvo
-# naudojamas toks parametrø rinkinys:
+# Parametras m daÅ¾niausiai yra didelis pirminis skaiÄius. IstoriÅ¡kai pirmas buvo
+# naudojamas toks parametrÅ³ rinkinys:
 
 a <- 7^5
 c <- 0
 m <- 2^31 - 1
 
 
-# Nustatome atsitiktiniø dydşiø sekos ilgá, kuris sutampa su iteracijø skaièiumi.
+# Nustatome atsitiktiniÅ³ dydÅ¾iÅ³ sekos ilgÄ¯, kuris sutampa su iteracijÅ³ skaiÄiumi.
 n <- 100
 
-# Sukuriame tuğèià vektoriø, kurio elementams priskirsime atsitiktines reikğmes.
+# Sukuriame tuÅ¡ÄiÄ… vektoriÅ³, kurio elementams priskirsime atsitiktines reikÅ¡mes.
 X <- vector(length = n)
 
-# Visi pseudoatsitiktiniø dydşiø generatoriai turi pradinæ sekos reikğmæ, seed.
-# Su ta paèia seed reikğme visada gaunama ta pati dydşiø seka.
+# Visi pseudoatsitiktiniÅ³ dydÅ¾iÅ³ generatoriai turi pradinÄ™ sekos reikÅ¡mÄ™, seed.
+# Su ta paÄia seed reikÅ¡me visada gaunama ta pati dydÅ¾iÅ³ seka.
 
 seed <- 1234
 X[1] <- seed
@@ -195,18 +195,18 @@ for (i in 2:n) {
   X[i] <- (a*X[i-1] + c) %% m
 }
 
-# Vektoriaus elementus padalinus iğ m, gaunamas dydis, kurio reikğmës tolygiai
-# pasiskirsèiusios intervale (0, 1]. 
+# Vektoriaus elementus padalinus iÅ¡ m, gaunamas dydis, kurio reikÅ¡mÄ—s tolygiai
+# pasiskirsÄiusios intervale (0, 1]. 
 X <- round(X/m, 9)
 X
 
-# Tokio dydşio generavimui naudojama standartinë funkcija runif.
+# Tokio dydÅ¾io generavimui naudojama standartinÄ— funkcija runif.
 runif(100)
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Pataisykite Newton-Raphson algoritmo pavyzdá taip, kad skaièiavimai bûtø 
-#    nutraukiami, kai skirtumas tarp dviejø paskutiniø ğaknies aproksimacijø yra 
-#    maşesnis uş tam tikrà iğ anksto nustatytà dydá epsilon. Vietoje ciklo for 
-#    panaudokite ciklà while.
+# 1. Pataisykite Newton-Raphson algoritmo pavyzdÄ¯ taip, kad skaiÄiavimai bÅ«tÅ³ 
+#    nutraukiami, kai skirtumas tarp dviejÅ³ paskutiniÅ³ Å¡aknies aproksimacijÅ³ yra 
+#    maÅ¾esnis uÅ¾ tam tikrÄ… iÅ¡ anksto nustatytÄ… dydÄ¯ epsilon. Vietoje ciklo for 
+#    panaudokite ciklÄ… while.

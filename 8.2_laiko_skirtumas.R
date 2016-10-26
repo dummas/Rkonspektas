@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
 #            Veiksmai su datos ir laiko duomenimis.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2015-11-05 | 2015-12-12
 #
@@ -21,7 +21,7 @@
 #      * funkcija seq
 #      * funkcija cut
 #
-#   2. Skirtumas tarp dviejø laiko momentø:
+#   2. Skirtumas tarp dviejÅ³ laiko momentÅ³:
 #      * funkcija as.difftime
 #      * funkcija difftime
 #      * funkcija diff
@@ -34,19 +34,19 @@
 # PASTABOS ------------------------------
 
 #
-# Galima sugalvoti daugiau uşduoèiø.
+# Galima sugalvoti daugiau uÅ¾duoÄiÅ³.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -56,17 +56,17 @@ rm(list = ls())
 
 # Dirbant su datos ir laiko duomenimis, paprastai reikia atlikti tokius veiksmus:
 # 
-#  -- iğ datos arba laiko iğskirti tam tikrà jo elementà;
-#  -- prie datos ar laiko pridëti tam tikrà laiko intervalà;
-#  -- apskaièiuoti skirtumà tarp dviejø laiko momentø;
-#  -- suskirstyti laiko momentus á tam tikrus intervalus;
-#  -- generuoti laiko momentø sekà.
+#  -- iÅ¡ datos arba laiko iÅ¡skirti tam tikrÄ… jo elementÄ…;
+#  -- prie datos ar laiko pridÄ—ti tam tikrÄ… laiko intervalÄ…;
+#  -- apskaiÄiuoti skirtumÄ… tarp dviejÅ³ laiko momentÅ³;
+#  -- suskirstyti laiko momentus Ä¯ tam tikrus intervalus;
+#  -- generuoti laiko momentÅ³ sekÄ….
 
 
-# Jei laiko momentas uşrağytas kaip POSIXlt klasës objektas, kai kurias datos ir 
-# laiko komponentes galima gauti be jokiø papildomø funkcijø, kadangi tokiu bûdu
-# uşrağytas laiko momentas yra ávairiø laiko ir datos komponenèiø sàrağas. Pvz.,
-# nustatysime, kelinta savaitës, mënesio ir metø diena yra ği diena.
+# Jei laiko momentas uÅ¾raÅ¡ytas kaip POSIXlt klasÄ—s objektas, kai kurias datos ir 
+# laiko komponentes galima gauti be jokiÅ³ papildomÅ³ funkcijÅ³, kadangi tokiu bÅ«du
+# uÅ¾raÅ¡ytas laiko momentas yra Ä¯vairiÅ³ laiko ir datos komponenÄiÅ³ sÄ…raÅ¡as. Pvz.,
+# nustatysime, kelinta savaitÄ—s, mÄ—nesio ir metÅ³ diena yra Å¡i diena.
 
 t <- as.POSIXlt(Sys.time())
 t
@@ -76,15 +76,15 @@ t$mday
 t$yday
 
 
-# Savaitës dienos, mënesio pavadinimo ir metø ketvirèio nustatymui bendru atveju 
-# gali bûti naudojamos ğios funkcijos: weekdays, months, quarters. Visø funkcijø 
+# SavaitÄ—s dienos, mÄ—nesio pavadinimo ir metÅ³ ketvirÄio nustatymui bendru atveju 
+# gali bÅ«ti naudojamos Å¡ios funkcijos: weekdays, months, quarters. VisÅ³ funkcijÅ³ 
 # argumentai vienodi:
 #
 #          x -- data arba laikas,
-# abbreviate -- loginis, nurodo, pavadinimas turi bûti sutrumpintas.
+# abbreviate -- loginis, nurodo, pavadinimas turi bÅ«ti sutrumpintas.
 
-# Pavyzdşiui, şinomos keliø artimiausiø pilnø Saulës uştemimø datos. Nustatysime, 
-# kurià savaitës dienà vyks ğitie uştemimai.
+# PavyzdÅ¾iui, Å¾inomos keliÅ³ artimiausiÅ³ pilnÅ³ SaulÄ—s uÅ¾temimÅ³ datos. Nustatysime, 
+# kuriÄ… savaitÄ—s dienÄ… vyks Å¡itie uÅ¾temimai.
 
 data <- c("2016-03-08", "2017-08-21", "2019-07-02", "2020-12-14", "2021-12-04")
 
@@ -94,8 +94,8 @@ d
 weekdays(d)
 
 
-# Kadangi datos ir laiko kintamieji, nepriklausomai nuo jø formato, saugomi kaip 
-# skaièiai, keletas standartiniø funkcijø turi metodus datos ir laiko objektams:
+# Kadangi datos ir laiko kintamieji, nepriklausomai nuo jÅ³ formato, saugomi kaip 
+# skaiÄiai, keletas standartiniÅ³ funkcijÅ³ turi metodus datos ir laiko objektams:
 #
 #                 datoms                         laikui
 #              ------------                  --------------
@@ -106,23 +106,23 @@ weekdays(d)
 #                hist.Date                     hist.POSIXt
 #                axis.Date                     axis.POSIXt
 #
-# Tai reiğkia, kad su datomis ir laiku galima elgtis kaip su áprastais skaièiais: 
-# juos apvalinti iki norimo tikslumo, generuoti laiko momentø sekas arba turimus 
-# laiko momentus grupuoti á intervalus.
+# Tai reiÅ¡kia, kad su datomis ir laiku galima elgtis kaip su Ä¯prastais skaiÄiais: 
+# juos apvalinti iki norimo tikslumo, generuoti laiko momentÅ³ sekas arba turimus 
+# laiko momentus grupuoti Ä¯ intervalus.
 
 
-# Jeigu duotà laiko momentà reikia uşrağyti dienø, valandø, minuèiø ar sekundşiø 
-# tikslumu, naudojama funkcija trunc. Jeigu laiko momentà reikia suapvalinti iki 
-# artimiausio laiko momento dienø, valandø, minuèiø arba sekundşiø tikslumu, tai 
-# naudojama funkcija round. Abiejø funkcijø parametrai vienodi:
+# Jeigu duotÄ… laiko momentÄ… reikia uÅ¾raÅ¡yti dienÅ³, valandÅ³, minuÄiÅ³ ar sekundÅ¾iÅ³ 
+# tikslumu, naudojama funkcija trunc. Jeigu laiko momentÄ… reikia suapvalinti iki 
+# artimiausio laiko momento dienÅ³, valandÅ³, minuÄiÅ³ arba sekundÅ¾iÅ³ tikslumu, tai 
+# naudojama funkcija round. AbiejÅ³ funkcijÅ³ parametrai vienodi:
 #
 #          x -- laiko momentas,
 #      units -- laiko apvalinimo vienetai, "secs", "mins", "hours" arba "days".
 
 
-# Pavyzdşiui, duotas laiko momentas sekundës tûkstantøjø tikslumu. Uşrağysime já
-# dienø, valandø, minuèiø ir sekundşiø tikslumu. Vienu atveju naudosime funkcijà 
-# trunc, kitu -- funkcijà round.
+# PavyzdÅ¾iui, duotas laiko momentas sekundÄ—s tÅ«kstantÅ³jÅ³ tikslumu. UÅ¾raÅ¡ysime jÄ¯
+# dienÅ³, valandÅ³, minuÄiÅ³ ir sekundÅ¾iÅ³ tikslumu. Vienu atveju naudosime funkcijÄ… 
+# trunc, kitu -- funkcijÄ… round.
 
 t <- as.POSIXct("2015-11-22 18:39:12.683", format = "%Y-%m-%d %H:%M:%OS")
 t
@@ -142,83 +142,83 @@ trunc(t, "secs")
 round(t, "secs")
 
 
-# Datø ar laiko momentø sekos generavimui naudojama funkcija seq. Ği standartinë
-# funkcija turi atskirus metodus "Date" ir "POSIXt" klasës objektams. Parametrai:
+# DatÅ³ ar laiko momentÅ³ sekos generavimui naudojama funkcija seq. Å i standartinÄ—
+# funkcija turi atskirus metodus "Date" ir "POSIXt" klasÄ—s objektams. Parametrai:
 #
-#       from -- pradinë data,
-#         to -- galutinë data,
-#         by -- datos kitimo şingsnis,
-# length.out -- sekos elementø skaièius,
-# along.with -- sekos elementø skaièius pagal kità vektoriø.
+#       from -- pradinÄ— data,
+#         to -- galutinÄ— data,
+#         by -- datos kitimo Å¾ingsnis,
+# length.out -- sekos elementÅ³ skaiÄius,
+# along.with -- sekos elementÅ³ skaiÄius pagal kitÄ… vektoriÅ³.
 #
-# Parametrui from priskiriame "Date" klasës reikğmæ. Parametras to neprivalomas,
-# jeigu per parametrus length.out arba along.with nurodome bendrà sekos elementø 
-# skaièiø. Parametrui by reikğmæ galima priskirti net keliais skirtingais bûdais,
-# kadangi sekos kitimo şingsnis, intervalas tarp dviejø sekos elementø gali bûti:
+# Parametrui from priskiriame "Date" klasÄ—s reikÅ¡mÄ™. Parametras to neprivalomas,
+# jeigu per parametrus length.out arba along.with nurodome bendrÄ… sekos elementÅ³ 
+# skaiÄiÅ³. Parametrui by reikÅ¡mÄ™ galima priskirti net keliais skirtingais bÅ«dais,
+# kadangi sekos kitimo Å¾ingsnis, intervalas tarp dviejÅ³ sekos elementÅ³ gali bÅ«ti:
 # 
-#  -- skaièius, kuris nurodo dienø skaièiø;
-#  -- difftime klasës objektas;
-#  -- şodinis laiko intervalas: "day", "week", "month", "quarter", "year";
+#  -- skaiÄius, kuris nurodo dienÅ³ skaiÄiÅ³;
+#  -- difftime klasÄ—s objektas;
+#  -- Å¾odinis laiko intervalas: "day", "week", "month", "quarter", "year";
 #  -- kartotinis laiko intervalas: "7 days", "2 months", "-1 years" ir pan.
 
-# Tarkime, kad sekos pradşia ir pabaiga yra pirma ir paskutinë 2015 metø dienos.
-# Sudarysime keletà skirtingø sekø su ávairaus dydşio tarpais tarp gretimø datø.
+# Tarkime, kad sekos pradÅ¾ia ir pabaiga yra pirma ir paskutinÄ— 2015 metÅ³ dienos.
+# Sudarysime keletÄ… skirtingÅ³ sekÅ³ su Ä¯vairaus dydÅ¾io tarpais tarp gretimÅ³ datÅ³.
 
 pr <- as.Date("2015-01-01")
 pb <- as.Date("2015-12-31")
 
-# Sugeneruosime sekà, kurià sudaro visos sausio mënesio dienos.
+# Sugeneruosime sekÄ…, kuriÄ… sudaro visos sausio mÄ—nesio dienos.
 seq(pr, by = "day", length.out = 31)      
 
-# Sudarome sekà, kurioje á praeitá atidedame penkias datas kas du metus.
+# Sudarome sekÄ…, kurioje Ä¯ praeitÄ¯ atidedame penkias datas kas du metus.
 seq(pr, by = "-2 years", length.out = 5)
 
-# Vieneriø metø intervalà suskirstome 4 savaièiø ilgio laiko intervalais. 
+# VieneriÅ³ metÅ³ intervalÄ… suskirstome 4 savaiÄiÅ³ ilgio laiko intervalais. 
 seq(pr, pb, by = "4 weeks")
 
 
 # Jeigu funkcija seq naudojama laiko sekoms generuoti, tada parametrams from, to
-# nurodome "POSIXt" laiko momentà, o parametrui by galima nurodyti ğias reikğmes:
+# nurodome "POSIXt" laiko momentÄ…, o parametrui by galima nurodyti Å¡ias reikÅ¡mes:
 # 
-#  -- skaièiø, kuris reiğkia sekundşiø skaièiø;
-#  -- difftime klasës objektà;
-#  -- intervalà: "sec", "min", "hour", "day", "week", "month", "quarter", "year";
-#  -- kartotiná laiko intervalà: "15 secs", "2 hour", "-1 years" ir pan.
+#  -- skaiÄiÅ³, kuris reiÅ¡kia sekundÅ¾iÅ³ skaiÄiÅ³;
+#  -- difftime klasÄ—s objektÄ…;
+#  -- intervalÄ…: "sec", "min", "hour", "day", "week", "month", "quarter", "year";
+#  -- kartotinÄ¯ laiko intervalÄ…: "15 secs", "2 hour", "-1 years" ir pan.
 
-# Pavyzdşiui, vienos valandos ilgio intervalà reikia padalinti á maşesnius laiko 
-# intervalus po 90 sekundşiø. Pradinis momentas 08:00:00, galutinis -- 09:00:00.
+# PavyzdÅ¾iui, vienos valandos ilgio intervalÄ… reikia padalinti Ä¯ maÅ¾esnius laiko 
+# intervalus po 90 sekundÅ¾iÅ³. Pradinis momentas 08:00:00, galutinis -- 09:00:00.
 
 pr <- as.POSIXlt("2015-01-01 08:00:00")
 pb <- as.POSIXlt("2015-01-01 09:00:00")
 
 seq(pr, pb, by = "90 secs")
 
-# Tarkime, kad reikalinga seka iğ 10 laiko momentø kas 45 minutes. Sugeneruosime
-# tokià sekà.
+# Tarkime, kad reikalinga seka iÅ¡ 10 laiko momentÅ³ kas 45 minutes. Sugeneruosime
+# tokiÄ… sekÄ….
 
 seq(pr, by = "45 mins", length.out = 10)
 
 # Jei laiko intervalai didesni, pradiniam ir galutiniam laiko momentams nurodyti 
-# patogiau gali bûti naudoti funkcijà ISOdate arba ISOdatetime. Pvz., sudarysime
-# kas vienà dienà iğdëstytø 30 laiko momentø sekà, pradedant nuo 2015-11-23.
+# patogiau gali bÅ«ti naudoti funkcijÄ… ISOdate arba ISOdatetime. Pvz., sudarysime
+# kas vienÄ… dienÄ… iÅ¡dÄ—stytÅ³ 30 laiko momentÅ³ sekÄ…, pradedant nuo 2015-11-23.
 
 seq(ISOdate(2015, 11, 23), by = "day", length.out = 30)
 
 
-# Datø ir laiko momentø grupavimui naudojama funkcija cut; ji turi metodus "Date"
-# ir "POSIXt" klasës objektams. Pagrindiniai ğios funkcijos parametrai yra tokie:
+# DatÅ³ ir laiko momentÅ³ grupavimui naudojama funkcija cut; ji turi metodus "Date"
+# ir "POSIXt" klasÄ—s objektams. Pagrindiniai Å¡ios funkcijos parametrai yra tokie:
 #
-#          x -- datø arba laiko momentø vektorius,
-#     breaks -- padalijimo tağkø vektorius arba norimas intervalø skaièius,
-#     labels -- NULL, intervalø pavadinimø vektorius,
-#      right -- FALSE, nurodo ar intervalo galas uşdaras iğ değinës.
+#          x -- datÅ³ arba laiko momentÅ³ vektorius,
+#     breaks -- padalijimo taÅ¡kÅ³ vektorius arba norimas intervalÅ³ skaiÄius,
+#     labels -- NULL, intervalÅ³ pavadinimÅ³ vektorius,
+#      right -- FALSE, nurodo ar intervalo galas uÅ¾daras iÅ¡ deÅ¡inÄ—s.
 
-# Grupuojant laiko intervalus parametrui breaks galima nurodyti tokias reikğmes:
+# Grupuojant laiko intervalus parametrui breaks galima nurodyti tokias reikÅ¡mes:
 # "sec", "min", "hour", "day", "DSTday", "week", "month", "quarter" arba "year".
 
-# Pavyzdşiui, vienos paros bëgyje atidësime 100 atsitiktiniø laiko momentø, tada
-# juos suskirstysime á intervalus po 6 valandas bei apskaièiuosime laiko momentø
-# daşnius kiekviename tokiame intervale.
+# PavyzdÅ¾iui, vienos paros bÄ—gyje atidÄ—sime 100 atsitiktiniÅ³ laiko momentÅ³, tada
+# juos suskirstysime Ä¯ intervalus po 6 valandas bei apskaiÄiuosime laiko momentÅ³
+# daÅ¾nius kiekviename tokiame intervale.
 
 t <- ISOdatetime(2015, 11, 23, 0, 0, 0) + 24*3600*runif(100)
 t
@@ -233,7 +233,7 @@ intervalai
 table(intervalai)
 
 
-# Pavyzdşiui, visà parà suskirstysime á du nevienodo ilgio intervalus: nuo 00:00
+# PavyzdÅ¾iui, visÄ… parÄ… suskirstysime Ä¯ du nevienodo ilgio intervalus: nuo 00:00
 # iki 05:59 ir nuo 06:00 iki 23:59. Tokiu atveju parametrui breaks nurodome tris
 # laiko momentus POSIX formatu.
 
@@ -247,9 +247,9 @@ intervalai
 table(intervalai)
 
 
-# Analogiğkai á intervalus suskirstomos ir datos. Pvz., dviejø mënesiø intervale
-# (pradedant nuo 2015-11-23) sugeneruosime 20 atsitiktiniø datø ir suskirstysime
-# jas á dviejø savaièiø ilgio intervalus.
+# AnalogiÅ¡kai Ä¯ intervalus suskirstomos ir datos. Pvz., dviejÅ³ mÄ—nesiÅ³ intervale
+# (pradedant nuo 2015-11-23) sugeneruosime 20 atsitiktiniÅ³ datÅ³ ir suskirstysime
+# jas Ä¯ dviejÅ³ savaiÄiÅ³ ilgio intervalus.
 
 d <- as.Date("2015-11-23") + 2*30*runif(20)
 d
@@ -262,9 +262,9 @@ table(intervalai)
 
 # NAUDINGA ------------------------------
 
-# Funkcija axis turi metodà POSIX klasës objektams, todël laiko momentus galima
-# pavaizduoti grafike. Pavyzdşiui, paros bëgyje atvaizduosime 100 laiko momentø.
-# Paprasèiausiu atveju tam galima naudoti funkcijà plot.
+# Funkcija axis turi metodÄ… POSIX klasÄ—s objektams, todÄ—l laiko momentus galima
+# pavaizduoti grafike. PavyzdÅ¾iui, paros bÄ—gyje atvaizduosime 100 laiko momentÅ³.
+# PaprasÄiausiu atveju tam galima naudoti funkcijÄ… plot.
 
 t <- ISOdatetime(2015, 12, 12, 0, 0, 0) + 24*3600*runif(100)
 
@@ -272,10 +272,10 @@ y <- rep(0, length(t))
 plot(t, y, type = "n", ylab = "", yaxt = "n")
 rug(t)
 
-# Laiko ağá galima suformuoti tokià, kokia reikalinga. Pavyzdşiui, laiko momentø
-# atidëjimui galima panaudosime funkcijà stripchart, kuri tağkus atvaizduoja ant
-# tiesës. Taèiau ji netinkama POSIX klasës objektui, todël laikà konvertuojame á 
-# skaièiø vektoriø. Ox ağá suformuojame iğ naujo.
+# Laiko aÅ¡Ä¯ galima suformuoti tokiÄ…, kokia reikalinga. PavyzdÅ¾iui, laiko momentÅ³
+# atidÄ—jimui galima panaudosime funkcijÄ… stripchart, kuri taÅ¡kus atvaizduoja ant
+# tiesÄ—s. TaÄiau ji netinkama POSIX klasÄ—s objektui, todÄ—l laikÄ… konvertuojame Ä¯ 
+# skaiÄiÅ³ vektoriÅ³. Ox aÅ¡Ä¯ suformuojame iÅ¡ naujo.
 
 s <- as.numeric(t)
 
@@ -286,48 +286,48 @@ i <- pretty(extendrange(t), 6)
 axis(1, at = i, labels = format(i, "%H:%M"))
 
 
-# Tai, kad funkcija plot gali atvaizduoti POSIX klasës objektà, galima iğnaudoti 
-# laiko eiluèiø braişymui. Pavyzdşiui, pavaizduosime kaip per pastaràjá ğimtmetá 
-# keitësi Lietuvos gyventojø skaièius.
+# Tai, kad funkcija plot gali atvaizduoti POSIX klasÄ—s objektÄ…, galima iÅ¡naudoti 
+# laiko eiluÄiÅ³ braiÅ¾ymui. PavyzdÅ¾iui, pavaizduosime kaip per pastarÄ…jÄ¯ Å¡imtmetÄ¯ 
+# keitÄ—si Lietuvos gyventojÅ³ skaiÄius.
 
 g <- c(2.75, 2.146, 2.711, 3.1, 3.398, 3.69, 3.46, 3.054)
 d <- ISOdate(c(1897, 1923, 1959, 1970, 1979, 1989, 2001, 2011), 12, 31)
 
-plot(d, g, type = "b", xlab = "",  ylab = "gyventojø skaièius", ylim = c(0, 4))
+plot(d, g, type = "b", xlab = "",  ylab = "gyventojÅ³ skaiÄius", ylim = c(0, 4))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Apskaièiuokite, kiek iğ viso penktadieniø per 2015 metus buvo 13-ta mënesio 
+# 1. ApskaiÄiuokite, kiek iÅ¡ viso penktadieniÅ³ per 2015 metus buvo 13-ta mÄ—nesio 
 #    diena.
-# 2. Şinoma, kad Mënulio fazë kartojasi vidutiniğkai kas 29 paras 12 val. 44 min.
-#    ir 2,9 sekundes (sinodinis mënuo). Paskutinë 2015-øjø pilnatis prasidës nuo
-#    gruodşio 25 d. 13:11 val. Nustatykite visø pilnaèiø datas 2016 metais.
-# 3. Nubraişykite grafikà, kuriame ant laiko ağies bûtø paşymëti Saulës uştemimø 
-#    momentai 2016--2021 metø laikotarpyje.
+# 2. Å½inoma, kad MÄ—nulio fazÄ— kartojasi vidutiniÅ¡kai kas 29 paras 12 val. 44 min.
+#    ir 2,9 sekundes (sinodinis mÄ—nuo). PaskutinÄ— 2015-Å³jÅ³ pilnatis prasidÄ—s nuo
+#    gruodÅ¾io 25 d. 13:11 val. Nustatykite visÅ³ pilnaÄiÅ³ datas 2016 metais.
+# 3. NubraiÅ¾ykite grafikÄ…, kuriame ant laiko aÅ¡ies bÅ«tÅ³ paÅ¾ymÄ—ti SaulÄ—s uÅ¾temimÅ³ 
+#    momentai 2016--2021 metÅ³ laikotarpyje.
 
 
 # --------------------------------------- #
-# SKIRTUMAS TARP DVIEJØ LAIKO MOMENTØ     #
+# SKIRTUMAS TARP DVIEJÅ² LAIKO MOMENTÅ²     #
 # --------------------------------------- #
 
-# Turint datà ar laiko momentà, prie jo galima pridëti tam tikrà laiko intervalà. 
-# Prie datos pridedamas skaièius nurodo dienø skaièiø, prie POSIX laiko - nurodo 
-# sekundşiø skaièiø. Pavyzdşiui, prie ğios dienos datos pridësime ğimtà dienø ir
-# gausime naujà datà.
+# Turint datÄ… ar laiko momentÄ…, prie jo galima pridÄ—ti tam tikrÄ… laiko intervalÄ…. 
+# Prie datos pridedamas skaiÄius nurodo dienÅ³ skaiÄiÅ³, prie POSIX laiko - nurodo 
+# sekundÅ¾iÅ³ skaiÄiÅ³. PavyzdÅ¾iui, prie Å¡ios dienos datos pridÄ—sime Å¡imtÄ… dienÅ³ ir
+# gausime naujÄ… datÄ….
 
 Sys.Date() + 100
 
-# Pavyzdşiui, prie laiko momento pridësime 120 sekundşiø ir tokiu bûdu gausime 2
-# minutëmis vëlesná laiko momentà. 
+# PavyzdÅ¾iui, prie laiko momento pridÄ—sime 120 sekundÅ¾iÅ³ ir tokiu bÅ«du gausime 2
+# minutÄ—mis vÄ—lesnÄ¯ laiko momentÄ…. 
 
 ISOdatetime(2015, 11, 25, 21, 14, 00) + 120
 
 as.POSIXlt("2015-11-25 21:14:00")     + 120
 
 
-# Turint dvi datas arba du laiko momentus, galima apskaièiuoti skirtumà tarp jø.
-# Pvz., nustatysime koks laiko skirtumas tarp atominës bombos sprogimø Japonijos
+# Turint dvi datas arba du laiko momentus, galima apskaiÄiuoti skirtumÄ… tarp jÅ³.
+# Pvz., nustatysime koks laiko skirtumas tarp atominÄ—s bombos sprogimÅ³ Japonijos
 # miestuose Hiroshima ir Nagasaki.
 
 Hiroshima <- as.POSIXlt("1945-08-06 08:15:00", tz = "Japan")
@@ -335,13 +335,13 @@ Nagasakis <- as.POSIXlt("1945-08-09 11:02:00", tz = "Japan")
 
 Nagasakis - Hiroshima
 
-# Pvz., apskaièiuosime, kiek laiko praëjo nuo Hiroshima atominës bombos sprogimo. 
+# Pvz., apskaiÄiuosime, kiek laiko praÄ—jo nuo Hiroshima atominÄ—s bombos sprogimo. 
 
 Sys.time() - Hiroshima
 
 
-# Gautas laiko skirtumas yra "difftime" klasës objektas. Skirtumà galima pridëti 
-# arba atimti iğ datos arba laiko momento.
+# Gautas laiko skirtumas yra "difftime" klasÄ—s objektas. SkirtumÄ… galima pridÄ—ti 
+# arba atimti iÅ¡ datos arba laiko momento.
 
 d <- Nagasakis - Hiroshima
 d
@@ -350,28 +350,28 @@ Hiroshima + d
 Hiroshima + d == Nagasakis
 
 
-# Jeigu reikia apskaièiuoti skirtumà tarp dviejø datø arba dviejø laiko momentø, 
-# galima naudoti funkcijà difftime. Tada galima nurodyti, kokiais vienetais turi 
-# bûti iğreikğtas gautas laiko skirtumas. Funkcijos parametrai:
+# Jeigu reikia apskaiÄiuoti skirtumÄ… tarp dviejÅ³ datÅ³ arba dviejÅ³ laiko momentÅ³, 
+# galima naudoti funkcijÄ… difftime. Tada galima nurodyti, kokiais vienetais turi 
+# bÅ«ti iÅ¡reikÅ¡tas gautas laiko skirtumas. Funkcijos parametrai:
 #
 #      time1 -- pradinis laiko momentas,
 #      time2 -- galutinis laiko momentas,
 #         tz -- laiko zona,
 #      units -- laiko vienetai: "auto", "secs", "mins", "hours", "days", "weeks".
 
-# Jeigu parametrui units priskiriama reikğmë "auto", tai laiko skirtumas rodomas
-# didşiausiais laiko vienetais. Galima pastebëti, kad tarp laiko vienetø mënesiø
-# nëra. Taip yra todël, kad skirtingus mënesius sudaro skirtingas dienø skaièius.
+# Jeigu parametrui units priskiriama reikÅ¡mÄ— "auto", tai laiko skirtumas rodomas
+# didÅ¾iausiais laiko vienetais. Galima pastebÄ—ti, kad tarp laiko vienetÅ³ mÄ—nesiÅ³
+# nÄ—ra. Taip yra todÄ—l, kad skirtingus mÄ—nesius sudaro skirtingas dienÅ³ skaiÄius.
 
 difftime(Nagasakis, Hiroshima, units = "days")
 difftime(Nagasakis, Hiroshima, units = "hours")
 
 
-# Jeigu turime datø arba laiko momentø vektoriø, skirtumus tarp gretimø reikğmiø
-# galime nustatyti naudojant standartinæ funkcijà diff. Pavyzdşiui, taip gausime 
-# dienomis iğreikğtus laiko skirtumus tarp didşiausiø LDK mûğiø datø.
+# Jeigu turime datÅ³ arba laiko momentÅ³ vektoriÅ³, skirtumus tarp gretimÅ³ reikÅ¡miÅ³
+# galime nustatyti naudojant standartinÄ™ funkcijÄ… diff. PavyzdÅ¾iui, taip gausime 
+# dienomis iÅ¡reikÅ¡tus laiko skirtumus tarp didÅ¾iausiÅ³ LDK mÅ«Å¡iÅ³ datÅ³.
 
-#          Saulës        Durbës        Şalgirio      Orğos         "Salaspilio"
+#          SaulÄ—s        DurbÄ—s        Å½algirio      OrÅ¡os         "Salaspilio"
 #         ------------  ------------  ------------  ------------  ------------ 
 data <- c("1236-09-22", "1260-07-13", "1410-07-15", "1514-09-08", "1605-09-27")
 data
@@ -382,23 +382,23 @@ t
 diff(t)
 
 
-# Jei duotas laiko skirtumø vektorius, tada á "difftime" formatà jis paverèiamas 
-# naudojant funkcijà as.difftime. Jos parametrai tokie:
+# Jei duotas laiko skirtumÅ³ vektorius, tada Ä¯ "difftime" formatÄ… jis paverÄiamas 
+# naudojant funkcijÄ… as.difftime. Jos parametrai tokie:
 #
-#        tim -- laiko skirtumø vektorius, "character" arba "numeric",
-#     format -- formatas, kuriuo uşrağytas laiko skirtumas,
-#      units -- laiko matavimo vienetai, standartiğkai "auto".
+#        tim -- laiko skirtumÅ³ vektorius, "character" arba "numeric",
+#     format -- formatas, kuriuo uÅ¾raÅ¡ytas laiko skirtumas,
+#      units -- laiko matavimo vienetai, standartiÅ¡kai "auto".
 
-# Pavyzdşiui, şinomas tam tikrø ávykiø laiko trukmës vektorius. Sudarysime laiko
-# skirtumø vektoriø.
+# PavyzdÅ¾iui, Å¾inomas tam tikrÅ³ Ä¯vykiÅ³ laiko trukmÄ—s vektorius. Sudarysime laiko
+# skirtumÅ³ vektoriÅ³.
 
 s <- c("01:54:02", "02:11:32", "02:26:45", "02:44:49", "02:57:09", "03:11:08")
 
 d <- as.difftime(s, format = "%H:%M:%S", units = "hours")
 d
 
-# "difftime" klasës laiko skirtumus galima apvalinti, sumuoti ir vidurkinti arba 
-# skaièiuoti ávairias kitas statistines charakteristikas.
+# "difftime" klasÄ—s laiko skirtumus galima apvalinti, sumuoti ir vidurkinti arba 
+# skaiÄiuoti Ä¯vairias kitas statistines charakteristikas.
 
 min(d)
 max(d)
@@ -408,8 +408,8 @@ quantile(d)
 mean(d)
 sum(d)
 
-# Laiko skirtumai gali bûti duoti kaip skaitiniø reikğmiø vektorius. Pavyzdşiui, 
-# tie patys laiko skirtumai galëjo bûti iğreikğti sekundëmis.
+# Laiko skirtumai gali bÅ«ti duoti kaip skaitiniÅ³ reikÅ¡miÅ³ vektorius. PavyzdÅ¾iui, 
+# tie patys laiko skirtumai galÄ—jo bÅ«ti iÅ¡reikÅ¡ti sekundÄ—mis.
 
 s <- c(6842, 7892, 8805, 9889, 10629, 11468)
 
@@ -417,15 +417,15 @@ d <- as.difftime(s, units = "secs")
 d
 
 
-# Laiko skirtumas iğmatuotas tam tikrais vienetais, taèiau juos galima pakeisti.
-# Tam yra keli skirtingi bûdai. Vienas iğ jø - naudoti specialià funkcijà units.
-# Pavyzdşiui, laiko skirtumà tarp ğitø dviejø ávykiø perskaièiuosime á valandas.
+# Laiko skirtumas iÅ¡matuotas tam tikrais vienetais, taÄiau juos galima pakeisti.
+# Tam yra keli skirtingi bÅ«dai. Vienas iÅ¡ jÅ³ - naudoti specialiÄ… funkcijÄ… units.
+# PavyzdÅ¾iui, laiko skirtumÄ… tarp Å¡itÅ³ dviejÅ³ Ä¯vykiÅ³ perskaiÄiuosime Ä¯ valandas.
 
 units(d) <- "hours"
 d
 
-# Kitas bûdas -- laiko skirtumà galima konvertuoti á "numeric" klasës skaièiø ir 
-# nurodyti, kokiais laiko matavimo vienetais jis turi bûti iğreikğtas.
+# Kitas bÅ«das -- laiko skirtumÄ… galima konvertuoti Ä¯ "numeric" klasÄ—s skaiÄiÅ³ ir 
+# nurodyti, kokiais laiko matavimo vienetais jis turi bÅ«ti iÅ¡reikÅ¡tas.
 
 as.numeric(d, units = "days")
 as.numeric(d, units = "secs")
@@ -433,24 +433,24 @@ as.numeric(d, units = "secs")
 
 # NAUDINGA ------------------------------
 
-# Funkcija sum turi metodà "difftime" klasës objektui. Tai leidşia sumuoti laiko 
-# skirtumus. Taèiau funkcija cumsum tokio metodo (kaşkodël) neturi. Tad sukauptà 
-# laiko skirtumø sumà tenka skaièiuoti naudojant standartinæ funkcijà sum. Pvz.,
-# uşrağysime tokià funkcijà naudojant sapply konstrukcijà.
+# Funkcija sum turi metodÄ… "difftime" klasÄ—s objektui. Tai leidÅ¾ia sumuoti laiko 
+# skirtumus. TaÄiau funkcija cumsum tokio metodo (kaÅ¾kodÄ—l) neturi. Tad sukauptÄ… 
+# laiko skirtumÅ³ sumÄ… tenka skaiÄiuoti naudojant standartinÄ™ funkcijÄ… sum. Pvz.,
+# uÅ¾raÅ¡ysime tokiÄ… funkcijÄ… naudojant sapply konstrukcijÄ….
 
 sapply(seq_along(d), function(n) sum(d[1:n]))
 
 
 # NAUDINGA ------------------------------
 
-# Kartais reikia şinoti, kiek laiko uştrunka tam tikri skaièiavimai. Pavyzdşiui,
-# gali dominti, kiek laiko uştrunka viena ciklo iteracija arba reikia nustatyti,
-# kuri iğ dviejø alternatyviø komandø ávykdoma greièiau.
+# Kartais reikia Å¾inoti, kiek laiko uÅ¾trunka tam tikri skaiÄiavimai. PavyzdÅ¾iui,
+# gali dominti, kiek laiko uÅ¾trunka viena ciklo iteracija arba reikia nustatyti,
+# kuri iÅ¡ dviejÅ³ alternatyviÅ³ komandÅ³ Ä¯vykdoma greiÄiau.
 
-# Norint suşinoti skaièiavimø trukmæ, reikia uşfiksuoti laikà, kada prasideda ir
-# kada baigiasi skaièiavimai. Tam galima naudoti standartinæ funkcijà Sys.time(). 
-# Pavyzdşiui, apskaièiuosime, kiek laiko uştrunka 100 vektoriø su normaliosiomis
-# atsitiktinëmis reikğmëmis generavimas ir vidurkinimas.
+# Norint suÅ¾inoti skaiÄiavimÅ³ trukmÄ™, reikia uÅ¾fiksuoti laikÄ…, kada prasideda ir
+# kada baigiasi skaiÄiavimai. Tam galima naudoti standartinÄ™ funkcijÄ… Sys.time(). 
+# PavyzdÅ¾iui, apskaiÄiuosime, kiek laiko uÅ¾trunka 100 vektoriÅ³ su normaliosiomis
+# atsitiktinÄ—mis reikÅ¡mÄ—mis generavimas ir vidurkinimas.
 
 start <- Sys.time()
 
@@ -464,7 +464,7 @@ stop <- Sys.time()
 difftime(stop, start, units = "secs")
 
 
-# Tam paèiam tikslui galima panaudoti ir funkcijà proc.time(), kuri parodo, kiek 
+# Tam paÄiam tikslui galima panaudoti ir funkcijÄ… proc.time(), kuri parodo, kiek 
 # laiko veikia R.
 
 start <- proc.time()
@@ -479,9 +479,9 @@ stop <- proc.time()
 stop - start
 
 
-# Jeigu iğraiğka uşrağoma kompaktiğkai, tada jos vykdymo trukmæ galima nustatyti
-# ádëjus jà á funkcijà system.time(). Pvz., nustatysime, kuri iğ dviejø funkcijø 
-# greièiau apskaièiuoja matricos stulpeliø vidurkius.
+# Jeigu iÅ¡raiÅ¡ka uÅ¾raÅ¡oma kompaktiÅ¡kai, tada jos vykdymo trukmÄ™ galima nustatyti
+# Ä¯dÄ—jus jÄ… Ä¯ funkcijÄ… system.time(). Pvz., nustatysime, kuri iÅ¡ dviejÅ³ funkcijÅ³ 
+# greiÄiau apskaiÄiuoja matricos stulpeliÅ³ vidurkius.
 
 n <- 1000
 m <- matrix(rnorm(n*n), ncol = n, nrow = n)
@@ -490,11 +490,11 @@ system.time(apply(m, 2, mean))
 system.time(colMeans(m))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nustatykite laiko tarpus tarp gretimø pilnø Saulës uştemimø 2016--2021 metø 
+# 1. Nustatykite laiko tarpus tarp gretimÅ³ pilnÅ³ SaulÄ—s uÅ¾temimÅ³ 2016--2021 metÅ³ 
 #    laikotarpyje.
-# 2. Garsioji Halio kometa paskutiná kartà buvo matoma 1986 metais, o perihelyje
-#    buvo tø paèiø metø vasario 9 d. Jos periodas kintantis, vidutiniğkai sudaro 
-#    75,3 metus. Nustatykite, sekanèio perihelio datà. Kokia gauta paklaida, jei
-#    tiksliai şinoma, kad sekantis perihelis bus 2061 liepos 28 dienà?
+# 2. Garsioji Halio kometa paskutinÄ¯ kartÄ… buvo matoma 1986 metais, o perihelyje
+#    buvo tÅ³ paÄiÅ³ metÅ³ vasario 9 d. Jos periodas kintantis, vidutiniÅ¡kai sudaro 
+#    75,3 metus. Nustatykite, sekanÄio perihelio datÄ…. Kokia gauta paklaida, jei
+#    tiksliai Å¾inoma, kad sekantis perihelis bus 2061 liepos 28 dienÄ…?

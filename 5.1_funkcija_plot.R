@@ -1,9 +1,9 @@
 
 #
-#   Dalykas: STATISTINËS DUOMENØ ANALIZËS SISTEMA IR PROGRAMAVIMO KALBA R
+#   Dalykas: STATISTINÄ–S DUOMENÅ² ANALIZÄ–S SISTEMA IR PROGRAMAVIMO KALBA R
 #            Funkcija plot ir pagrindiniai jos parametrai.
 #
-#  Autorius: Tomas Rekağius
+#  Autorius: Tomas RekaÅ¡ius
 #
 #   Sukurta: 2014-02-26 | 2014-03-09 | 2014-06-18
 #
@@ -36,19 +36,19 @@
 # PASTABOS ------------------------------
 
 #
-# Jokiø pastabø nëra.
+# JokiÅ³ pastabÅ³ nÄ—ra.
 # 
 
 
 # NUSTATYMAI ----------------------------
 
-# Nustatoma lietuviğka lokalë. 
+# Nustatoma lietuviÅ¡ka lokalÄ—. 
 Sys.setlocale(locale = "Lithuanian")
 
 # Nustatomas darbinis katalogas.
 setwd("C:/Downloads")
 
-# Iğtrinami visi seni kintamieji.
+# IÅ¡trinami visi seni kintamieji.
 rm(list = ls())
 
 
@@ -56,105 +56,105 @@ rm(list = ls())
 # FUNKCIJA PLOT IR JOS PARAMETRAI         #
 # --------------------------------------- #
 
-# Pagrindinë grafikø ir ávairiø diagramø braişymo funkcija yra plot. Tai bendro 
-# pobûdşio (generic) funkcija, kuri skirtingo tipo duomenims atvaizduoti naudoja 
-# skirtingus metodus. Susipaşinsime su plot.default medodu, kuris naudojamas tuo 
-# atveju, kai sudaroma tağkø su koordinatëmis x ir y sklaidos diagrama. Esminiai 
+# PagrindinÄ— grafikÅ³ ir Ä¯vairiÅ³ diagramÅ³ braiÅ¾ymo funkcija yra plot. Tai bendro 
+# pobÅ«dÅ¾io (generic) funkcija, kuri skirtingo tipo duomenims atvaizduoti naudoja 
+# skirtingus metodus. SusipaÅ¾insime su plot.default medodu, kuris naudojamas tuo 
+# atveju, kai sudaroma taÅ¡kÅ³ su koordinatÄ—mis x ir y sklaidos diagrama. Esminiai 
 # funkcijos plot parametrai:
 # 
-#      x -- x reikğmiø vektorius (abscisë),
-#      y -- y reikğmiø vektorius (ordinatë).
+#      x -- x reikÅ¡miÅ³ vektorius (abscisÄ—),
+#      y -- y reikÅ¡miÅ³ vektorius (ordinatÄ—).
 #
-# Diagramos iğvaizdà galima pakeisti nurodant kitas grafiniø parametrø reikğmes. 
-# Daşniausiai naudojami ğie parametrai:
+# Diagramos iÅ¡vaizdÄ… galima pakeisti nurodant kitas grafiniÅ³ parametrÅ³ reikÅ¡mes. 
+# DaÅ¾niausiai naudojami Å¡ie parametrai:
 #
 #   type -- sklaidos diagramos tipas,
-#    pch -- tağko simbolis,
-#    cex -- tağko simbolio dydis,
+#    pch -- taÅ¡ko simbolis,
+#    cex -- taÅ¡ko simbolio dydis,
 #    lty -- linijos tipas,
 #    lwd -- linijos storis,
-#    col -- tağko arba linijos spalva.
+#    col -- taÅ¡ko arba linijos spalva.
 
 
-# Nubraişysime paprastà tağkø (x, y) sklaidos diagramà. Ğiuo atveju vektoriaus y 
-# elementai yra tam tikros funkcijos y = f(x) reikğmës tağkuose x.
+# NubraiÅ¾ysime paprastÄ… taÅ¡kÅ³ (x, y) sklaidos diagramÄ…. Å iuo atveju vektoriaus y 
+# elementai yra tam tikros funkcijos y = f(x) reikÅ¡mÄ—s taÅ¡kuose x.
 
 x <- -5:15
 y <- x^3 - 10*x^2 - 10*x + 3
 
-# Parametrams x ir y priskirsime kintamuosius x ir y. Jei parametrø pavadinimai
-# nurodomi, reikğmes jiems galima priskirti bet kokiu eiliğkumu.
+# Parametrams x ir y priskirsime kintamuosius x ir y. Jei parametrÅ³ pavadinimai
+# nurodomi, reikÅ¡mes jiems galima priskirti bet kokiu eiliÅ¡kumu.
 
 plot(x = x, y = y)
 plot(y = y, x = x)
 
-# Jei parametrai surağomi nustatyta tvarka, tai jø pavadinimø galima ir nerağyti. 
+# Jei parametrai suraÅ¡omi nustatyta tvarka, tai jÅ³ pavadinimÅ³ galima ir neraÅ¡yti. 
 
 plot(x, y)
 
 
-# Pademonstruosime, kaip, keièiant parametro type reikğmæ, gaunami kiti sklaidos
-# diagramos variantai. Vienas nuo kito jie skiriasi tağkø (x, y) atvaizdavimo ir 
-# jø sujungimo bûdais.
+# Pademonstruosime, kaip, keiÄiant parametro type reikÅ¡mÄ™, gaunami kiti sklaidos
+# diagramos variantai. Vienas nuo kito jie skiriasi taÅ¡kÅ³ (x, y) atvaizdavimo ir 
+# jÅ³ sujungimo bÅ«dais.
 
-plot(x, y, type = "p")       # diagramoje atidedami nesujungti tağkai
-plot(x, y, type = "l")       # nubraişoma tağkus jungianti lauştë
-plot(x, y, type = "b")       # tağkai sujungiami tiesës atkarpomis
-plot(x, y, type = "o")       # braişomi ir tağkai, ir juos jungianti lauştë
-plot(x, y, type = "s")       # braişoma laiptuota lauştë I
-plot(x, y, type = "S")       # braişoma laiptuota lauştë II
-plot(x, y, type = "h")       # tağkuose x atidedami y aukğèio stulpeliai
+plot(x, y, type = "p")       # diagramoje atidedami nesujungti taÅ¡kai
+plot(x, y, type = "l")       # nubraiÅ¾oma taÅ¡kus jungianti lauÅ¾tÄ—
+plot(x, y, type = "b")       # taÅ¡kai sujungiami tiesÄ—s atkarpomis
+plot(x, y, type = "o")       # braiÅ¾omi ir taÅ¡kai, ir juos jungianti lauÅ¾tÄ—
+plot(x, y, type = "s")       # braiÅ¾oma laiptuota lauÅ¾tÄ— I
+plot(x, y, type = "S")       # braiÅ¾oma laiptuota lauÅ¾tÄ— II
+plot(x, y, type = "h")       # taÅ¡kuose x atidedami y aukÅ¡Äio stulpeliai
 
-plot(x, y, type = "n")       # suformuojamas grafikas be tağkø
+plot(x, y, type = "n")       # suformuojamas grafikas be taÅ¡kÅ³
 
 
-# Keièiant parametro pch reikğmæ, galima nurodyti, kokiu simboliu ğioje sklaidos 
-# diagramoje bus vaizduojamas tağkas. Sveikieji skaièiai nuo 0 iki 25 şymi spec.
-# daugiausiai naudojamus simbolius, skaièiai nuo 32 iki 127 şymi ASCII simbolius.
-# Be to, parametro pch reikğmë gali bûti ir bet koks kabutëse árağytas tekstinis 
+# KeiÄiant parametro pch reikÅ¡mÄ™, galima nurodyti, kokiu simboliu Å¡ioje sklaidos 
+# diagramoje bus vaizduojamas taÅ¡kas. Sveikieji skaiÄiai nuo 0 iki 25 Å¾ymi spec.
+# daugiausiai naudojamus simbolius, skaiÄiai nuo 32 iki 127 Å¾ymi ASCII simbolius.
+# Be to, parametro pch reikÅ¡mÄ— gali bÅ«ti ir bet koks kabutÄ—se Ä¯raÅ¡ytas tekstinis 
 # simbolis.
 
 plot(x, y)
 
-plot(x, y, pch = 1)          # pagal nutylëjimà naudojamas tuğèias tağkas
-plot(x, y, pch = 19)         # tokio pat dydşio, taèiau uşpildytas tağkas
-plot(x, y, pch = "*")        # tağko simbolis gali bûti nurodomas kabutëse
-plot(x, y, pch = ".")        # tağko simbolis gali bûti ir paprastas tağkas
+plot(x, y, pch = 1)          # pagal nutylÄ—jimÄ… naudojamas tuÅ¡Äias taÅ¡kas
+plot(x, y, pch = 19)         # tokio pat dydÅ¾io, taÄiau uÅ¾pildytas taÅ¡kas
+plot(x, y, pch = "*")        # taÅ¡ko simbolis gali bÅ«ti nurodomas kabutÄ—se
+plot(x, y, pch = ".")        # taÅ¡ko simbolis gali bÅ«ti ir paprastas taÅ¡kas
 
 
-# Diagramos tağko simbolio dydis priklauso nuo mastelio parametro cex reikğmës. 
-# Pagal nutylëjimà ği reikğmë lygi 1 ir tai atitinka standartiná simbolio dydá.
+# Diagramos taÅ¡ko simbolio dydis priklauso nuo mastelio parametro cex reikÅ¡mÄ—s. 
+# Pagal nutylÄ—jimÄ… Å¡i reikÅ¡mÄ— lygi 1 ir tai atitinka standartinÄ¯ simbolio dydÄ¯.
 
-plot(x, y, cex = 1)          # standartinis bet kokio tağko simbolio dydis
-plot(x, y, cex = 2)          # du kartus padidintas tağkas
-plot(x, y, cex = 0.5)        # du kartus sumaşintas tağkas
-
-
-# Keièiant parametro lty reikğmæ, galima keisti tağkus jungianèios linijos tipà:
-# "blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash". Ğiuos
-# linijos tipus atitinka sveikieji skaièiai nuo 0 iki 6.
-
-plot(x, y, type = "l", lty = 1)   # tağkai jungiami iğtisine linija
-plot(x, y, type = "l", lty = 2)   # tağkai jungiami punktyrine linija
-plot(x, y, type = "l", lty = 3)   # tağkai sujungiami tağkine linija
+plot(x, y, cex = 1)          # standartinis bet kokio taÅ¡ko simbolio dydis
+plot(x, y, cex = 2)          # du kartus padidintas taÅ¡kas
+plot(x, y, cex = 0.5)        # du kartus sumaÅ¾intas taÅ¡kas
 
 
-# Keièiant parametro lwd reikğmæ, keièiamas diagramos tağkus jungianèios linijos 
-# storis. Pagal nutylëjimà ğio parametro reikğmë lygi 1.
+# KeiÄiant parametro lty reikÅ¡mÄ™, galima keisti taÅ¡kus jungianÄios linijos tipÄ…:
+# "blank", "solid", "dashed", "dotted", "dotdash", "longdash", "twodash". Å iuos
+# linijos tipus atitinka sveikieji skaiÄiai nuo 0 iki 6.
+
+plot(x, y, type = "l", lty = 1)   # taÅ¡kai jungiami iÅ¡tisine linija
+plot(x, y, type = "l", lty = 2)   # taÅ¡kai jungiami punktyrine linija
+plot(x, y, type = "l", lty = 3)   # taÅ¡kai sujungiami taÅ¡kine linija
+
+
+# KeiÄiant parametro lwd reikÅ¡mÄ™, keiÄiamas diagramos taÅ¡kus jungianÄios linijos 
+# storis. Pagal nutylÄ—jimÄ… Å¡io parametro reikÅ¡mÄ— lygi 1.
 
 plot(x, y, type = "l", lwd = 1)   # standartinis linijos storis
 plot(x, y, type = "l", lwd = 2)   # dvigubas linijos storis
 
 
-# Diagramos tağkø ir juos jungianèiø linijø spalva nustatoma naudojant parametrà
-# col, kurio reikğmë yra spalvos pavadinimas. Standartiniø R spalvø sàrağas toks: 
+# Diagramos taÅ¡kÅ³ ir juos jungianÄiÅ³ linijÅ³ spalva nustatoma naudojant parametrÄ…
+# col, kurio reikÅ¡mÄ— yra spalvos pavadinimas. StandartiniÅ³ R spalvÅ³ sÄ…raÅ¡as toks: 
 
 colors()
 
-# Vietoje spalvø pavadinimø galima naudoti spalvø numerius tam tikroje paletëje. 
-# Pagal nutylëjimà naudojama paletë turi 8 pagrindines spalvas, todël parametro
-# col reikğmë 1 ğioje paletëje atitinka spalvà "black", reikğmë 2 - spalvà "red" 
-# ir t.t. Kitoje spalvø paletëje tie patys numeriai gali reikğti kitas spalvas!
+# Vietoje spalvÅ³ pavadinimÅ³ galima naudoti spalvÅ³ numerius tam tikroje paletÄ—je. 
+# Pagal nutylÄ—jimÄ… naudojama paletÄ— turi 8 pagrindines spalvas, todÄ—l parametro
+# col reikÅ¡mÄ— 1 Å¡ioje paletÄ—je atitinka spalvÄ… "black", reikÅ¡mÄ— 2 - spalvÄ… "red" 
+# ir t.t. Kitoje spalvÅ³ paletÄ—je tie patys numeriai gali reikÅ¡ti kitas spalvas!
 
 palette()
 
@@ -165,197 +165,197 @@ plot(x, y, col = 1)
 plot(x, y, col = 2)
 
 
-# Naudojant parametrà bg, simboliams su numeriais nuo 21 iki 25 galima nurodyti 
-# uşpildymo spalvà. Kaip ir anksèiau, tam galima naudoti spalvos numerá paletëje.
+# Naudojant parametrÄ… bg, simboliams su numeriais nuo 21 iki 25 galima nurodyti 
+# uÅ¾pildymo spalvÄ…. Kaip ir anksÄiau, tam galima naudoti spalvos numerÄ¯ paletÄ—je.
 
-plot(x, y, pch = 21, col = 2)     # simbolio kontûro spalva
-plot(x, y, pch = 21,  bg = 2)     # simbolio uşpildymo spalva
+plot(x, y, pch = 21, col = 2)     # simbolio kontÅ«ro spalva
+plot(x, y, pch = 21,  bg = 2)     # simbolio uÅ¾pildymo spalva
 
 
 # NAUDINGA ------------------------------
 
-# Sklaidos diagramoje kiekvienas tağkas gali bûti vaizduojamas vis kitu simboliu.
-# Tam parametrui pch reikia nurodyti simboliø vektoriø. Jei jo elementø skaièius
-# maşesnis negu diagramos tağkø skaièius, tağko simboliai cikliğkai pakartojami. 
-# Pavyzdşiui, nubraişysime sklaidos diagramà naudojant du pasikartojanèius tağko 
+# Sklaidos diagramoje kiekvienas taÅ¡kas gali bÅ«ti vaizduojamas vis kitu simboliu.
+# Tam parametrui pch reikia nurodyti simboliÅ³ vektoriÅ³. Jei jo elementÅ³ skaiÄius
+# maÅ¾esnis negu diagramos taÅ¡kÅ³ skaiÄius, taÅ¡ko simboliai cikliÅ¡kai pakartojami. 
+# PavyzdÅ¾iui, nubraiÅ¾ysime sklaidos diagramÄ… naudojant du pasikartojanÄius taÅ¡ko 
 # simbolius.
 
 plot(x, y, pch = 1:2)
 
-# Tağko simbolius nurodantys numeriai nebûtinai turi eiti iğ eilës, todël galima
-# sudaryti bet koká parametro reikğmiø vektoriø.
+# TaÅ¡ko simbolius nurodantys numeriai nebÅ«tinai turi eiti iÅ¡ eilÄ—s, todÄ—l galima
+# sudaryti bet kokÄ¯ parametro reikÅ¡miÅ³ vektoriÅ³.
 
 plot(x, y, pch = c(1, 13))
 
-# Tağkus sklaidos diagramoje galima pavaizduoti net ir raidëmis.
+# TaÅ¡kus sklaidos diagramoje galima pavaizduoti net ir raidÄ—mis.
 
 plot(x, y, pch = letters)
 
 
-# Keletos reikğmiø vektoriø galima nurodyti ir kitiems parametrams. Pavyzdşiui,
-# visi diagramos tağkai gali bûti skirtingø dydşiø ir spalvø. Vienu metu galima 
-# keisti iğ karto keliø parametrø reikğmes.
+# Keletos reikÅ¡miÅ³ vektoriÅ³ galima nurodyti ir kitiems parametrams. PavyzdÅ¾iui,
+# visi diagramos taÅ¡kai gali bÅ«ti skirtingÅ³ dydÅ¾iÅ³ ir spalvÅ³. Vienu metu galima 
+# keisti iÅ¡ karto keliÅ³ parametrÅ³ reikÅ¡mes.
 
 plot(x, y, pch = 22, cex = 1:3, col = 1:3)
 plot(x, y, pch = 22, cex = 1:3,  bg = 1:3)
 
 
-# Grafinius diagramos tağko parametrus galima kontroliuoti panaudojant papildomà
-# kintamàjá. Tokiu bûdu kiekvieno tağko dydis arba spalva keisis proporcingai to
-# kintamojo reikğmëms. Jei tas papildomas kintamasis yra kategorinis, tai galima 
-# vizualiai atskirti skirtingas to kintamojo reikğmes atitinkanèius tağkus.
+# Grafinius diagramos taÅ¡ko parametrus galima kontroliuoti panaudojant papildomÄ…
+# kintamÄ…jÄ¯. Tokiu bÅ«du kiekvieno taÅ¡ko dydis arba spalva keisis proporcingai to
+# kintamojo reikÅ¡mÄ—ms. Jei tas papildomas kintamasis yra kategorinis, tai galima 
+# vizualiai atskirti skirtingas to kintamojo reikÅ¡mes atitinkanÄius taÅ¡kus.
 
-# Pavyzdşiui, nubraişysime diagramà, kur neigiamà y koordinatæ turintys tağkai
-# bus atvaizduojami kita spalva. Tam sukursime papildomà kategoriná kintamàjá ir
-# já priskirsime spalvos parametrui col.
+# PavyzdÅ¾iui, nubraiÅ¾ysime diagramÄ…, kur neigiamÄ… y koordinatÄ™ turintys taÅ¡kai
+# bus atvaizduojami kita spalva. Tam sukursime papildomÄ… kategorinÄ¯ kintamÄ…jÄ¯ ir
+# jÄ¯ priskirsime spalvos parametrui col.
 
 plot(x, y, pch = 20, col = factor(y < 0))
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Nubraişykite funkcijos v = sin(u) grafikà intervale [-pi, pi]. Grafike turi
-#    bûti pavaizduoti: a) nesujungti tağkai (u, v), b) iğtisinë linija be tağkø, 
-#    c) tağkai ir juos jungianti mëlyna punktyrinë linija.
-# 2. Nubraişykite tağkø su koordinatëmis (x, y) sklaidos diagramà, kurioje tağko 
-#    simbolio dydis bûtø proporcingas koordinatës x reikğmei. Proporcingumo koef.
+# 1. NubraiÅ¾ykite funkcijos v = sin(u) grafikÄ… intervale [-pi, pi]. Grafike turi
+#    bÅ«ti pavaizduoti: a) nesujungti taÅ¡kai (u, v), b) iÅ¡tisinÄ— linija be taÅ¡kÅ³, 
+#    c) taÅ¡kai ir juos jungianti mÄ—lyna punktyrinÄ— linija.
+# 2. NubraiÅ¾ykite taÅ¡kÅ³ su koordinatÄ—mis (x, y) sklaidos diagramÄ…, kurioje taÅ¡ko 
+#    simbolio dydis bÅ«tÅ³ proporcingas koordinatÄ—s x reikÅ¡mei. Proporcingumo koef.
 #    galima pasirinkti laisvai.
-# 3. Nubraişykite tokià tağkø su koordinatëmis (x, y) sklaidos diagramà, kurioje
-#    ant visus tağkus jungianèios kreivës bûtø pavaizduoti tik tie tağkai, kuriø  
-#    koordinatë y < 0.
-# 4. Iğ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1b.dat" 
-#    nuskaitykite duomenø lentelæ. Nubraişykite: a) ğios lentelës kintamøjø x ir 
-#    y sklaidos diagramà, b) diagramà, kurioje tağkø (x, y) spalva priklauso nuo
-#    tos paèios lentelës kintamojo z reikğmës.
+# 3. NubraiÅ¾ykite tokiÄ… taÅ¡kÅ³ su koordinatÄ—mis (x, y) sklaidos diagramÄ…, kurioje
+#    ant visus taÅ¡kus jungianÄios kreivÄ—s bÅ«tÅ³ pavaizduoti tik tie taÅ¡kai, kuriÅ³  
+#    koordinatÄ— y < 0.
+# 4. IÅ¡ failo "http://fmf.vgtu.lt/~trekasius/Rkonspektas/duomenys/lent_1b.dat" 
+#    nuskaitykite duomenÅ³ lentelÄ™. NubraiÅ¾ykite: a) Å¡ios lentelÄ—s kintamÅ³jÅ³ x ir 
+#    y sklaidos diagramÄ…, b) diagramÄ…, kurioje taÅ¡kÅ³ (x, y) spalva priklauso nuo
+#    tos paÄios lentelÄ—s kintamojo z reikÅ¡mÄ—s.
 
 
 # --------------------------------------- #
 # PAPILDOMI FUNKCIJOS PLOT PARAMETRAI     #
 # --------------------------------------- #
 
-# Funkcija plot turi papildomø parametrø, kurie nustato diagramos ağiø ir bendrà
-# grafiko antrağtæ, nustato atskirø ağiø atrağtes, keièia ağiø ribas arba kitaip
-# formuoja grafiko iğvaizdà. Èia daşniausiai naudojami tokie parametrai:
+# Funkcija plot turi papildomÅ³ parametrÅ³, kurie nustato diagramos aÅ¡iÅ³ ir bendrÄ…
+# grafiko antraÅ¡tÄ™, nustato atskirÅ³ aÅ¡iÅ³ atraÅ¡tes, keiÄia aÅ¡iÅ³ ribas arba kitaip
+# formuoja grafiko iÅ¡vaizdÄ…. ÄŒia daÅ¾niausiai naudojami tokie parametrai:
 #
-#   main -- bendra diagramos antrağtë, 
-#    sub -- papildoma antrağtë,
-#   xlab -- ağies Ox antrağtë,
-#   ylab -- ağies Oy antrağtë,
-#   xlim -- ağies Ox reikğmiø kitimo ribos, vektorius c(x1, x2),
-#   ylim -- ağies Oy reikğmiø kitimo ribos, vektorius c(y1, y2),
-#    asp -- nustatomas grafiko y/x krağtiniø santykis,
-#  frame -- jei FALSE, grafikas braişomas be rëmelio,
-#   axes -- jei FALSE, grafikas braişomas be ağiø,
-#    ann -- jei FALSE, grafikas rodomas be antrağèiø,
-#   xaxt -- jei "n", Ox ağis nebraişoma,
-#   yaxt -- jei "n", Oy ağis nebraişoma.
+#   main -- bendra diagramos antraÅ¡tÄ—, 
+#    sub -- papildoma antraÅ¡tÄ—,
+#   xlab -- aÅ¡ies Ox antraÅ¡tÄ—,
+#   ylab -- aÅ¡ies Oy antraÅ¡tÄ—,
+#   xlim -- aÅ¡ies Ox reikÅ¡miÅ³ kitimo ribos, vektorius c(x1, x2),
+#   ylim -- aÅ¡ies Oy reikÅ¡miÅ³ kitimo ribos, vektorius c(y1, y2),
+#    asp -- nustatomas grafiko y/x kraÅ¡tiniÅ³ santykis,
+#  frame -- jei FALSE, grafikas braiÅ¾omas be rÄ—melio,
+#   axes -- jei FALSE, grafikas braiÅ¾omas be aÅ¡iÅ³,
+#    ann -- jei FALSE, grafikas rodomas be antraÅ¡ÄiÅ³,
+#   xaxt -- jei "n", Ox aÅ¡is nebraiÅ¾oma,
+#   yaxt -- jei "n", Oy aÅ¡is nebraiÅ¾oma.
 
 
-# Pagrindinë grafiko antrağtë suformuojama naudojant parametrà main. Jo reikğmë
-# yra á kabutes árağytas antrağtës tekstas, kuris uşrağomas virğutinëje grafiko 
-# dalyje. Parametrui galima priskirti ir kintamàjá su antrağtës tekstu.
+# PagrindinÄ— grafiko antraÅ¡tÄ— suformuojama naudojant parametrÄ… main. Jo reikÅ¡mÄ—
+# yra Ä¯ kabutes Ä¯raÅ¡ytas antraÅ¡tÄ—s tekstas, kuris uÅ¾raÅ¡omas virÅ¡utinÄ—je grafiko 
+# dalyje. Parametrui galima priskirti ir kintamÄ…jÄ¯ su antraÅ¡tÄ—s tekstu.
 
-plot(x, y, main = "Kintamøjø x ir y sklaidos diagrama")
+plot(x, y, main = "KintamÅ³jÅ³ x ir y sklaidos diagrama")
 
-# Naudojant naujos eilutës simbolá \n, labai ilgà antrağtæ galima uşrağyti per
-# kelias eilutes. Ğiuo atveju antrağtës tekstas priskirtas atskiram kintamajam.
+# Naudojant naujos eilutÄ—s simbolÄ¯ \n, labai ilgÄ… antraÅ¡tÄ™ galima uÅ¾raÅ¡yti per
+# kelias eilutes. Å iuo atveju antraÅ¡tÄ—s tekstas priskirtas atskiram kintamajam.
 
-antrağtë <- "Per dvi eilutes uşrağytas\n labai ilgas grafiko pavadinimas"
-plot(x, y, main = antrağtë)
+antraÅ¡tÄ— <- "Per dvi eilutes uÅ¾raÅ¡ytas\n labai ilgas grafiko pavadinimas"
+plot(x, y, main = antraÅ¡tÄ—)
 
-# Parametras sub naudojamas papildomai antrağtei, kuri rağoma grafiko apaèioje.
+# Parametras sub naudojamas papildomai antraÅ¡tei, kuri raÅ¡oma grafiko apaÄioje.
 
-plot(x, y, sub = "Papildoma antrağtë")
+plot(x, y, sub = "Papildoma antraÅ¡tÄ—")
 
 
-# Be papildomø nustatymø ağiø Ox ir Oy pavadinimai sutampa su parametrams x ir y 
-# priskirtø kintamøjø vardais. Jiems pakeisti naudojami parametrai xlab ir ylab. 
+# Be papildomÅ³ nustatymÅ³ aÅ¡iÅ³ Ox ir Oy pavadinimai sutampa su parametrams x ir y 
+# priskirtÅ³ kintamÅ³jÅ³ vardais. Jiems pakeisti naudojami parametrai xlab ir ylab. 
 
 plot(x, y)
 
 plot(x, y, xlab = "x", ylab = "y = f(x)")
 
-# Parametrams xlab ir ylab priskyrus kabutëse árağytà tarpo simbolá, pavadinimai
-# ant ağiø bus nematomi. 
+# Parametrams xlab ir ylab priskyrus kabutÄ—se Ä¯raÅ¡ytÄ… tarpo simbolÄ¯, pavadinimai
+# ant aÅ¡iÅ³ bus nematomi. 
 
 plot(x, y, xlab = "", ylab = "")
 
 
-# Pagal nutylëjimà ağiø Ox ir Oy ribos nustatomos automatiğkai ir jos parenkamos 
-# taip, kad diagramoje bûtø atvaizduoti visi tağkai (x, y). Jei tas ribas reikia
-# padidinti arba sumaşinti, naudojami parametrai xlim ir ylim. Pavyzdşiui, jeigu
-# ağies Ox reikğmiø kitimo ribos turi bûti [a, b], tai parametrui xlim nurodomas
+# Pagal nutylÄ—jimÄ… aÅ¡iÅ³ Ox ir Oy ribos nustatomos automatiÅ¡kai ir jos parenkamos 
+# taip, kad diagramoje bÅ«tÅ³ atvaizduoti visi taÅ¡kai (x, y). Jei tas ribas reikia
+# padidinti arba sumaÅ¾inti, naudojami parametrai xlim ir ylim. PavyzdÅ¾iui, jeigu
+# aÅ¡ies Ox reikÅ¡miÅ³ kitimo ribos turi bÅ«ti [a, b], tai parametrui xlim nurodomas
 # vektorius c(a, b).
 
-# Iğ pradşiø nustatysime, kokiose ribose kinta tağkø (x, y) koordinatës x ir y. 
-# Vektoriaus elementø ágyjamø reikğmiø ribos nustatomos naudojant komandà range.
+# IÅ¡ pradÅ¾iÅ³ nustatysime, kokiose ribose kinta taÅ¡kÅ³ (x, y) koordinatÄ—s x ir y. 
+# Vektoriaus elementÅ³ Ä¯gyjamÅ³ reikÅ¡miÅ³ ribos nustatomos naudojant komandÄ… range.
 
 range(x)
 range(y)
 
-# Galima parodyti, kad parametrams xlim ir ylim nustaèius tokias ribas, gaunamas
-# grafikas nesiskiria nuo automatiğkai sudaromo grafiko. 
+# Galima parodyti, kad parametrams xlim ir ylim nustaÄius tokias ribas, gaunamas
+# grafikas nesiskiria nuo automatiÅ¡kai sudaromo grafiko. 
 
 plot(x, y)
 plot(x, y, xlim = range(x), ylim = range(y))
 
-# Parametrams xlim ir ylim nurodomos ribos gali bûti ir platesnës, ir siauresnës. 
-# Tokiu bûdu ağies reikğmiø ribas galima apriboti ir parodyti tik dalá diagramos 
-# tağkø. Pavyzdşiui, diagramoje nerodysime tağkø (x, y), kuriø koordinatë y < 0.
+# Parametrams xlim ir ylim nurodomos ribos gali bÅ«ti ir platesnÄ—s, ir siauresnÄ—s. 
+# Tokiu bÅ«du aÅ¡ies reikÅ¡miÅ³ ribas galima apriboti ir parodyti tik dalÄ¯ diagramos 
+# taÅ¡kÅ³. PavyzdÅ¾iui, diagramoje nerodysime taÅ¡kÅ³ (x, y), kuriÅ³ koordinatÄ— y < 0.
 
 plot(x, y, ylim = c(0, 1000), type = "b")
 
-# Pavyzdşiui, iğplësime ağies Ox reikğmiø ribas nuo [-5, 15] iki [-10, 30].
+# PavyzdÅ¾iui, iÅ¡plÄ—sime aÅ¡ies Ox reikÅ¡miÅ³ ribas nuo [-5, 15] iki [-10, 30].
 
 plot(x, y, xlim = c(-10, 30))
 
-# Jeigu parametrui nurodomos tokios ribos [a, b], kad a > b, tai atitinkama ağis 
-# grafike nukreipiama á prieğingà pusæ. Pavyzdşiui, diagramoje apsuksime ağá Ox.
+# Jeigu parametrui nurodomos tokios ribos [a, b], kad a > b, tai atitinkama aÅ¡is 
+# grafike nukreipiama Ä¯ prieÅ¡ingÄ… pusÄ™. PavyzdÅ¾iui, diagramoje apsuksime aÅ¡Ä¯ Ox.
 
 plot(x, y, xlim = c(30, -10))
 
 
-# Bet kokios diagramos ar funkcijos grafiko iğvaizda priklauso nuo ağiø Ox ir Oy 
-# mastelio. Keièiant grafinio lango dydá, keièiasi ir grafiko krağtiniø santykis,
-# todël iğtemptas ar suspaustas grafikas atrodo skirtingai. Naudojant parametrà 
-# asp, krağtiniø santyká y/x galima uşfiksuoti.
+# Bet kokios diagramos ar funkcijos grafiko iÅ¡vaizda priklauso nuo aÅ¡iÅ³ Ox ir Oy 
+# mastelio. KeiÄiant grafinio lango dydÄ¯, keiÄiasi ir grafiko kraÅ¡tiniÅ³ santykis,
+# todÄ—l iÅ¡temptas ar suspaustas grafikas atrodo skirtingai. Naudojant parametrÄ… 
+# asp, kraÅ¡tiniÅ³ santykÄ¯ y/x galima uÅ¾fiksuoti.
 
 plot(x, y)
 plot(x, y, asp = 1/50)
 plot(x, y, asp = 1/200)
 
 
-# Naudojant loginá parametrà frame.plot, galima uşdrausti grafiko rëmelá.
+# Naudojant loginÄ¯ parametrÄ… frame.plot, galima uÅ¾drausti grafiko rÄ—melÄ¯.
 
 plot(x, y, frame.plot = FALSE)
 
-# Naudojant parametrà axes, galima nurodyti, kad grafikas bûtø braişomas be ağiø.
-# Tokiu atveju nelieka ir rëmelio, taèiau iğlieka grafiko ağiø pavadinimai.
+# Naudojant parametrÄ… axes, galima nurodyti, kad grafikas bÅ«tÅ³ braiÅ¾omas be aÅ¡iÅ³.
+# Tokiu atveju nelieka ir rÄ—melio, taÄiau iÅ¡lieka grafiko aÅ¡iÅ³ pavadinimai.
 
 plot(x, y, axes = FALSE)
 
 
 # NAUDINGA ------------------------------
 
-# Paèias bendriausias grafikø braişymo taisykles reguliuoja specialûs grafiniai
+# PaÄias bendriausias grafikÅ³ braiÅ¾ymo taisykles reguliuoja specialÅ«s grafiniai
 # parametrai.
 
-# Naudojant parametrà ann, galima uşdrausti rodyti visas diagramos antrağtes iğ 
+# Naudojant parametrÄ… ann, galima uÅ¾drausti rodyti visas diagramos antraÅ¡tes iÅ¡ 
 # karto, net jei jos ir yra nustatytos atitinkamais parametrais.
 
-plot(x, y, main = "Diagramos antrağtë", xlab = "x", ylab = "f(x)")
-plot(x, y, main = "Diagramos antrağtë", xlab = "x", ylab = "f(x)", ann = FALSE)
+plot(x, y, main = "Diagramos antraÅ¡tÄ—", xlab = "x", ylab = "f(x)")
+plot(x, y, main = "Diagramos antraÅ¡tÄ—", xlab = "x", ylab = "f(x)", ann = FALSE)
 
 
-# Parametrams xaxt arba yaxt nurodşius reikğmæ "n", galima uşdrausti ağies Ox ar 
-# Oy braişymà. Tokiu atveju grafiko rëmelis iğlieka.
+# Parametrams xaxt arba yaxt nurodÅ¾ius reikÅ¡mÄ™ "n", galima uÅ¾drausti aÅ¡ies Ox ar 
+# Oy braiÅ¾ymÄ…. Tokiu atveju grafiko rÄ—melis iÅ¡lieka.
 
 plot(x, y, xaxt = "n")
 
 
-# UŞDUOTIS ------------------------------ 
+# UÅ½DUOTIS ------------------------------ 
 
-# 1. Uşrağykite komandà, kuri tağkø (x, y) sklaidos diagramoje ağies Ox ribas 
-#    automatiğkai praplëstø: a) po 10 vnt. á abi puses, b) po 10 % á abi puses.
-# 2. Nubraişykite tağkø (x, y) sklaidos diagramà, kurioje bûtø atvaizduoti tik
-#    patys tağkai, bet nebûtø nei ağiø, nei ağiø pavadinimø, nei kitø antrağèiø. 
+# 1. UÅ¾raÅ¡ykite komandÄ…, kuri taÅ¡kÅ³ (x, y) sklaidos diagramoje aÅ¡ies Ox ribas 
+#    automatiÅ¡kai praplÄ—stÅ³: a) po 10 vnt. Ä¯ abi puses, b) po 10 % Ä¯ abi puses.
+# 2. NubraiÅ¾ykite taÅ¡kÅ³ (x, y) sklaidos diagramÄ…, kurioje bÅ«tÅ³ atvaizduoti tik
+#    patys taÅ¡kai, bet nebÅ«tÅ³ nei aÅ¡iÅ³, nei aÅ¡iÅ³ pavadinimÅ³, nei kitÅ³ antraÅ¡ÄiÅ³. 
